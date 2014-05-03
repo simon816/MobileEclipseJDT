@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+MIDlet-Vendor: Assembler
+Ant-Version: Apache Ant 1.7.1
+MIDlet-Version: 1.6.2
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-1: Mobile Eclipse,/i.png,batch.eclipse
+Created-By: 11.3-b02 (Sun Microsystems Inc.)
+MIDlet-Name: Mobile Eclipse
+MIDlet-Info-URL: http://www.ykhandler.com/
+MicroEdition-Profile: MIDP-2.0
+
