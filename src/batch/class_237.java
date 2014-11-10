@@ -8,21 +8,18 @@ import java.io.IOException;
 import k.class_19;
 import n.class_242;
 
-// $FF: renamed from: batch.c
 public class class_237 implements class_19 {
 
-    // $FF: renamed from: a char[]
     public char[] field_1007;
-    // $FF: renamed from: a java.lang.String
+
     public String field_1008;
-    // $FF: renamed from: b char[]
+
     public char[] field_1009;
-    // $FF: renamed from: b java.lang.String
+
     String field_1010;
-    // $FF: renamed from: c java.lang.String
+
     public String field_1011;
 
-    // $FF: renamed from: <init> (char[], java.lang.String, java.lang.String, java.lang.String) void
     public class_237(char[] var1, String var2, String var3, String var4) {
         this.field_1007 = var1;
         char[] var5 = var2.toCharArray();
@@ -48,7 +45,6 @@ public class class_237 implements class_19 {
         this.field_1011 = var4;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_51() {
         if (this.field_1007 != null) {
             return this.field_1007;
@@ -64,17 +60,14 @@ public class class_237 implements class_19 {
         }
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_50() {
         return this.field_1008;
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_52() {
         return this.field_1009;
     }
 
-    // $FF: renamed from: a () char[][]
     public char[][] method_53() {
         return (char[][])null;
     }

@@ -19,28 +19,24 @@ import k.class_30;
 import k.class_318;
 import k.class_319;
 
-// $FF: renamed from: e.b
 public class class_196 extends class_186 implements class_29 {
 
-    // $FF: renamed from: a char[]
     private char[] field_867;
-    // $FF: renamed from: a e.e[]
+
     private class_199[] field_868;
-    // $FF: renamed from: a long
+
     long field_869;
-    // $FF: renamed from: a int
+
     int field_870;
-    // $FF: renamed from: a java.lang.Object[]
+
     static Object[] field_871;
 
-    // $FF: renamed from: <init> (byte[], int[], int) void
     class_196(byte[] var1, int[] var2, int var3) {
         super(var1, var2, var3);
         this.field_869 = 0L;
         this.field_870 = 0;
     }
 
-    // $FF: renamed from: <init> (byte[], int[], int, boolean, boolean) void
     class_196(byte[] var1, int[] var2, int var3, boolean var4, boolean var5) {
         this(var1, var2, var3);
         if (var5) {
@@ -50,7 +46,6 @@ public class class_196 extends class_186 implements class_29 {
         }
     }
 
-    // $FF: renamed from: c () void
     private void method_1152() {
         this.field_870 = 0;
         int var1 = this.field_806[this.method_1104(0)] - this.field_807;
@@ -69,7 +64,6 @@ public class class_196 extends class_186 implements class_29 {
         }
     }
 
-    // $FF: renamed from: a () java.lang.Object
     Object method_1153() {
         Object var1 = null;
         int var2 = this.method_1103(this.field_870);
@@ -202,7 +196,6 @@ public class class_196 extends class_186 implements class_29 {
         return var1;
     }
 
-    // $FF: renamed from: a () k.d[]
     public class_30[] method_84() {
         if (this.field_868 == null) {
             this.method_1154();
@@ -210,19 +203,16 @@ public class class_196 extends class_186 implements class_29 {
         return this.field_868;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_83() {
         return this.field_867;
     }
 
-    // $FF: renamed from: a () void
     void method_1154() {
         if (this.field_868 == null) {
             this.method_1152();
         }
     }
 
-    // $FF: renamed from: d (int) int
     private int method_1155(int var1) {
         int var3 = this.method_1103(var1);
         int var2 = var1 + 1;
@@ -304,7 +294,6 @@ public class class_196 extends class_186 implements class_29 {
         return var2;
     }
 
-    // $FF: renamed from: e (int) int
     private int method_1156(int var1) {
         int var3 = this.method_1103(var1);
         int var2 = var1 + 1;
@@ -391,7 +380,6 @@ public class class_196 extends class_186 implements class_29 {
         return var2;
     }
 
-    // $FF: renamed from: a (int, boolean, boolean) int
     private int method_1157(int var1, boolean var2, boolean var3) {
         int var5 = this.field_806[this.method_1104(var1)] - this.field_807;
         char[] var6 = this.method_1106(var5 + 3, this.method_1104(var5 + 1));
@@ -438,7 +426,6 @@ public class class_196 extends class_186 implements class_29 {
         return var4;
     }
 
-    // $FF: renamed from: f (int) int
     private int method_1158(int var1) {
         int var3 = this.method_1103(var1);
         int var2 = var1 + 1;
@@ -531,7 +518,6 @@ public class class_196 extends class_186 implements class_29 {
         return var1.toString();
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_871 = new Object[0];
     }

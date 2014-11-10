@@ -32,21 +32,17 @@ import m.class_87;
 import n.class_241;
 import n.class_248;
 
-// $FF: renamed from: m.f
 public class class_84 extends class_83 {
 
-    // $FF: renamed from: a h.bq
     public class_114 field_376;
-    // $FF: renamed from: a h.bo
+
     public class_146 field_377;
 
-    // $FF: renamed from: <init> (m.bb, h.bq) void
     public class_84(class_83 var1, class_114 var2) {
         super(3, var1);
         this.field_376 = var2;
     }
 
-    // $FF: renamed from: a (m.az, m.as) void
     void method_648(class_54 var1, class_43 var2) {
         class_57 var3 = this.method_651(var1, var2, var1.field_200);
         if (var2.method_157()) {
@@ -78,7 +74,6 @@ public class class_84 extends class_83 {
         var3.method_321(this.method_586().method_516());
     }
 
-    // $FF: renamed from: a () void
     void method_649() {
         class_54 var1 = this.field_376.field_586;
         if (!var1.method_304()) {
@@ -159,7 +154,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: b () void
     void method_650() {
         this.method_649();
         this.method_654();
@@ -174,7 +168,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a (m.az, m.as, m.ar) m.aa
     private class_57 method_651(class_54 var1, class_43 var2, class_38 var3) {
         this.field_376.field_587 = this;
         class_114 var10000 = this.field_376;
@@ -231,7 +224,6 @@ public class class_84 extends class_83 {
         return var4;
     }
 
-    // $FF: renamed from: a (m.az) void
     void method_652(class_54 var1) {
         class_57 var2 = this.method_651(var1, (class_43)null, var1.field_200);
         this.method_666();
@@ -240,7 +232,6 @@ public class class_84 extends class_83 {
         this.field_376.field_586.method_321(this.method_586().method_516());
     }
 
-    // $FF: renamed from: a (k.c) void
     private void method_653(class_345 var1) {
         class_54 var2 = this.field_376.field_586;
         class_43[] var3 = class_34.field_156;
@@ -285,7 +276,6 @@ public class class_84 extends class_83 {
         var2.field_256 = var3;
     }
 
-    // $FF: renamed from: c () void
     void method_654() {
         class_54 var1 = this.field_376.field_586;
         if (!var1.method_305()) {
@@ -328,7 +318,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a (m.az, m.ar, k.c) m.az
     class_54 method_655(class_54 var1, class_38 var2, class_345 var3) {
         this.field_376.field_587 = this;
         class_114 var10000 = this.field_376;
@@ -363,7 +352,6 @@ public class class_84 extends class_83 {
         return var8;
     }
 
-    // $FF: renamed from: g () void
     private void method_656() {
         class_54 var1 = this.field_376.field_586;
         class_123[] var2 = this.field_376.field_601;
@@ -380,7 +368,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: h () void
     private void method_657() {
         class_54 var1 = this.field_376.field_586;
         int var2 = var1.field_199;
@@ -601,7 +588,6 @@ public class class_84 extends class_83 {
         var1.field_199 = var2;
     }
 
-    // $FF: renamed from: a (m.k, h.m) void
     private void method_658(class_67 var1, class_121 var2) {
         int var3 = var1.field_300;
         class_43 var4 = var1.field_314;
@@ -653,7 +639,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: d () void
     public void method_659() {
         class_54 var1 = this.field_376.field_586;
         class_43[] var2 = var1.field_253;
@@ -717,7 +702,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: b (m.az) void
     private void method_660(class_54 var1) {
         Object var2 = var1;
         class_43[] var3 = null;
@@ -791,7 +775,6 @@ public class class_84 extends class_83 {
         } while ((var2 = ((class_43)var2).method_240()) != null && (((class_43)var2).field_178 & 65536L) == 0L);
     }
 
-    // $FF: renamed from: e () void
     public void method_661() {
         class_146 var1 = this.field_376.field_581;
         if (var1 != null) {
@@ -822,7 +805,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: i () void
     private void method_662() {
         class_54 var1 = this.field_376.field_586;
         class_43[] var2 = var1.field_256;
@@ -834,7 +816,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a () boolean
     private boolean method_663() {
         class_54 var1 = this.field_376.field_586;
         if (var1.field_177 == 1) {
@@ -886,7 +867,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: b () boolean
     private boolean method_664() {
         class_54 var1 = this.field_376.field_586;
         class_43 var2 = this.method_608();
@@ -909,7 +889,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: c () boolean
     private boolean method_665() {
         class_54 var1 = this.field_376.field_586;
         var1.field_253 = class_34.field_155;
@@ -977,7 +956,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: f () void
     void method_666() {
         class_54 var1 = this.field_376.field_586;
         if ((var1.field_178 & 256L) == 0L) {
@@ -1004,7 +982,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: j () void
     private void method_667() {
         if (this.field_374 instanceof class_85) {
             if (((class_85)this.field_374).field_382 == null) {
@@ -1027,7 +1004,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a (m.s, h.bo) boolean
     public boolean method_668(class_40 var1, class_146 var2) {
         if (!(var1 instanceof class_43)) {
             return false;
@@ -1046,7 +1022,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a (m.az, m.as, h.bo) boolean
     private boolean method_669(class_54 var1, class_43 var2, class_146 var3) {
         if (var2.method_166()) {
             var2 = ((class_53)var2).method_286();
@@ -1129,7 +1104,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a (h.bo) m.as
     private class_43 method_670(class_146 var1) {
         class_85 var2 = this.method_576();
         class_80 var3 = var2.field_378;
@@ -1155,7 +1129,6 @@ public class class_84 extends class_83 {
         return var11;
     }
 
-    // $FF: renamed from: a () n.e
     public class_248 method_644() {
         class_87 var1;
         if ((var1 = this.method_641()) == null) {
@@ -1167,7 +1140,6 @@ public class class_84 extends class_83 {
         }
     }
 
-    // $FF: renamed from: a () h.bq
     public class_114 method_671() {
         return this.field_376;
     }

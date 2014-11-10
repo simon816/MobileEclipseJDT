@@ -26,31 +26,27 @@ import m.class_65;
 import m.class_66;
 import m.class_86;
 
-// $FF: renamed from: h.ck
 public class class_135 extends class_126 implements class_0 {
 
-    // $FF: renamed from: a h.bo
     public class_146 field_691;
-    // $FF: renamed from: a h.r[]
+
     public class_126[] field_692;
-    // $FF: renamed from: a m.ae
+
     public class_58 field_693;
-    // $FF: renamed from: b m.ae
+
     protected class_58 field_694;
-    // $FF: renamed from: c m.ae
+
     class_58 field_695;
-    // $FF: renamed from: a h.bo[]
+
     public class_146[] field_696;
-    // $FF: renamed from: a m.s[]
+
     public class_40[] field_697;
-    // $FF: renamed from: a h.m
+
     public class_121 field_698;
 
-    // $FF: renamed from: <init> () void
     public class_135() {
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         this.method_950((class_43)this.field_693.field_278.method_138(), var1, (class_301)var3);
         if (this.field_692 != null) {
@@ -68,7 +64,6 @@ public class class_135 extends class_126 implements class_0 {
         return (class_301)var3;
     }
 
-    // $FF: renamed from: a (m.as, m.v, l.g) void
     public void method_950(class_43 var1, class_86 var2, class_301 var3) {
         if ((var1.field_178 & 52L) == 20L && !var2.method_628(var1)) {
             class_55 var4 = (class_55)var1;
@@ -86,12 +81,10 @@ public class class_135 extends class_126 implements class_0 {
         }
     }
 
-    // $FF: renamed from: a () h.r
     public class_126 method_951() {
         return null;
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         class_43 var5 = this.field_694.field_278;
@@ -138,17 +131,14 @@ public class class_135 extends class_126 implements class_0 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: a () m.s[]
     public class_40[] method_0() {
         return this.field_697;
     }
 
-    // $FF: renamed from: e_ () boolean
     public boolean method_1() {
         return false;
     }
 
-    // $FF: renamed from: a (m.v, l.g) void
     public void method_952(class_86 var1, class_301 var2) {
         if ((var2.field_1783 & 1) == 0) {
             class_43 var3 = (class_43)this.field_693.field_278.method_138();
@@ -162,7 +152,6 @@ public class class_135 extends class_126 implements class_0 {
         }
     }
 
-    // $FF: renamed from: b (m.v, l.g) void
     public void method_953(class_86 var1, class_301 var2) {
         if ((var2.field_1783 & 1) == 0) {
             this.field_694 = this.field_693.method_376();
@@ -181,7 +170,6 @@ public class class_135 extends class_126 implements class_0 {
         }
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         if (this.field_691 != null) {
             var2.append("new ");
@@ -212,7 +200,6 @@ public class class_135 extends class_126 implements class_0 {
         return var2.append(')');
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         this.field_672 = class_331.field_1896;
         int var4;
@@ -348,16 +335,12 @@ public class class_135 extends class_126 implements class_0 {
         }
     }
 
-    // $FF: renamed from: a (m.as) void
     public void method_4(class_43 var1) {}
 
-    // $FF: renamed from: a (int) void
     public void method_2(int var1) {}
 
-    // $FF: renamed from: b (int) void
     public void method_3(int var1) {}
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_1989(this, var2)) {
             int var3;

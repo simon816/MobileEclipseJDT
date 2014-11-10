@@ -14,25 +14,22 @@ import m.class_40;
 import m.class_65;
 import m.class_86;
 
-// $FF: renamed from: h.bh
 public class class_118 extends class_116 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_640;
-    // $FF: renamed from: a h.bz
+
     public class_112 field_641;
-    // $FF: renamed from: a m.v
+
     public class_86 field_642;
-    // $FF: renamed from: a m.ab
+
     public class_65 field_643;
-    // $FF: renamed from: a char[]
+
     static final char[] field_644;
-    // $FF: renamed from: a int
+
     int field_645;
-    // $FF: renamed from: b int
+
     int field_646;
 
-    // $FF: renamed from: <init> (h.r, h.bz, int, int) void
     public class_118(class_126 var1, class_112 var2, int var3, int var4) {
         this.field_645 = -1;
         this.field_646 = -1;
@@ -42,7 +39,6 @@ public class class_118 extends class_116 {
         this.field_444 = var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         this.field_645 = var1.method_635().method_729(var3);
         this.field_643.field_307 = 1;
@@ -57,12 +53,10 @@ public class class_118 extends class_116 {
         return var3;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_876() {
         return false;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             this.field_615 = null;
@@ -121,7 +115,6 @@ public class class_118 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, java.lang.Object, int, m.ab) boolean
     public boolean method_875(class_86 var1, class_268 var2, Object var3, int var4, class_65 var5) {
         var2.method_2324(this.field_643);
         var2.method_2341();
@@ -129,7 +122,6 @@ public class class_118 extends class_116 {
         return false;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_86 var10001 = new class_86(var1);
         this.field_642 = var10001;
@@ -163,7 +155,6 @@ public class class_118 extends class_116 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2);
         var2.append("synchronized (");
@@ -172,7 +163,6 @@ public class class_118 extends class_116 {
         return this.field_641.method_820(var1 + 1, var2);
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2061(this, var2)) {
             this.field_640.method_763(var1, this.field_642);
@@ -181,7 +171,6 @@ public class class_118 extends class_116 {
         var1.method_1976(this, var2);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_644 = " syncValue".toCharArray();
     }

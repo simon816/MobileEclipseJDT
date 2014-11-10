@@ -12,17 +12,14 @@ import m.class_34;
 import m.class_58;
 import m.class_67;
 
-// $FF: renamed from: m.c
 public class class_320 {
 
-    // $FF: renamed from: a char[]
     char[] field_1823;
-    // $FF: renamed from: a java.lang.Object
+
     public Object field_1824;
-    // $FF: renamed from: a m.ae
+
     public class_58 field_1825;
 
-    // $FF: renamed from: a (h.r) java.lang.Object
     public static Object method_3197(class_126 var0) {
         if (var0 == null) {
             return null;
@@ -64,24 +61,20 @@ public class class_320 {
         }
     }
 
-    // $FF: renamed from: <init> (char[], h.r, m.ae) void
     public class_320(char[] var1, class_126 var2, class_58 var3) {
         this(var1, method_3197(var2), var3);
     }
 
-    // $FF: renamed from: <init> (char[], java.lang.Object, m.ae) void
     public class_320(char[] var1, Object var2, class_58 var3) {
         this.field_1823 = var1;
         this.field_1824 = var2;
         this.field_1825 = var3;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_3200() {
         return this.field_1823;
     }
 
-    // $FF: renamed from: a (m.ae) void
     void method_3201(class_58 var1) {
         this.field_1825 = var1;
     }

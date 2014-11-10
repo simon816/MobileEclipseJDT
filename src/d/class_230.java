@@ -6,19 +6,15 @@ import h.class_121;
 import h.class_122;
 import h.class_93;
 
-// $FF: renamed from: d.b
 public class class_230 {
 
-    // $FF: renamed from: <init> () void
     public class_230() {
     }
 
-    // $FF: renamed from: a (h.ci) boolean
     public static boolean method_1340(class_93 var0) {
         return var0.field_445 + 1 == var0.field_490 || var0.field_491 == var0.field_481;
     }
 
-    // $FF: renamed from: a (h.bq[]) int[][]
     public static int[][] method_1341(class_114[] var0) {
         if (var0 != null && var0.length != 0) {
             class_231 var10000 = new class_231();
@@ -30,7 +26,6 @@ public class class_230 {
         }
     }
 
-    // $FF: renamed from: a (h.bq[], d.a) void
     private static void method_1342(class_114[] var0, class_231 var1) {
         for (int var2 = 0; var2 < var0.length; ++var2) {
             class_114[] var3 = var0[var2].field_585;
@@ -72,7 +67,6 @@ public class class_230 {
         }
     }
 
-    // $FF: renamed from: b (h.ci) boolean
     public static boolean method_1343(class_93 var0) {
         return !var0.method_796() && !var0.method_794() && (var0.field_482 & 16777216) == 0;
     }

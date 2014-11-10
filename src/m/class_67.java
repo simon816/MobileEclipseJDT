@@ -18,24 +18,19 @@ import m.class_83;
 import m.class_84;
 import m.class_87;
 
-// $FF: renamed from: m.k
 public class class_67 extends class_64 {
 
-    // $FF: renamed from: a m.as
     public class_43 field_314;
 
-    // $FF: renamed from: <init> () void
     protected class_67() {
         super((char[])null, (class_40)null, 0, (class_331)null);
     }
 
-    // $FF: renamed from: <init> (char[], m.s, int, m.as, a.k) void
     public class_67(char[] var1, class_40 var2, int var3, class_43 var4, class_331 var5) {
         super(var1, var2, var3, var5);
         this.field_314 = var4;
     }
 
-    // $FF: renamed from: <init> (m.k, m.as) void
     public class_67(class_67 var1, class_43 var2) {
         super(var1.field_302, var1.field_301, var1.field_300, var1.method_407());
         this.field_314 = var2;
@@ -43,18 +38,15 @@ public class class_67 extends class_64 {
         this.method_436(var1.method_426());
     }
 
-    // $FF: renamed from: <init> (h.m, m.s, int, m.as) void
     public class_67(class_121 var1, class_40 var2, int var3, class_43 var4) {
         this(var1.field_659, var2, var3, var4, (class_331)null);
         var1.field_661 = this;
     }
 
-    // $FF: renamed from: a (m.ar) boolean
     public final boolean method_422(class_38 var1) {
         return this.method_430() ? true : (this.method_428() ? false : var1 == this.field_314.method_143());
     }
 
-    // $FF: renamed from: a (m.s, m.ad, m.bb) boolean
     public final boolean method_423(class_40 var1, class_0 var2, class_83 var3) {
         if (this.method_430()) {
             return true;
@@ -147,7 +139,6 @@ public class class_67 extends class_64 {
         }
     }
 
-    // $FF: renamed from: a () a.k
     public class_331 method_407() {
         class_331 var1 = this.field_303;
         if (var1 == null) {
@@ -174,24 +165,20 @@ public class class_67 extends class_64 {
         return var1;
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_424() {
         return (this.field_300 & 1073741824) == 0 ? null : this.field_301.method_142();
     }
 
-    // $FF: renamed from: b () int
     public final int method_425() {
         return this.field_300 & '\uffff';
     }
 
-    // $FF: renamed from: a () m.bf[]
     public class_203[] method_426() {
         class_67 var1 = this.method_435();
         class_43 var2 = var1.field_314;
         return var2 == null ? class_34.field_158 : var2.method_235(var1);
     }
 
-    // $FF: renamed from: a () long
     public long method_99() {
         class_67 var1 = this.method_435();
         if ((var1.field_305 & 8589934592L) == 0L && var1.field_314 instanceof class_54) {
@@ -219,62 +206,50 @@ public class class_67 extends class_64 {
         return var1.field_305;
     }
 
-    // $FF: renamed from: a () boolean
     public final boolean method_427() {
         return (this.field_300 & 1048576) != 0;
     }
 
-    // $FF: renamed from: b () boolean
     public final boolean method_428() {
         return (this.field_300 & 2) != 0;
     }
 
-    // $FF: renamed from: c () boolean
     public final boolean method_429() {
         return (this.field_300 & 4) != 0;
     }
 
-    // $FF: renamed from: d () boolean
     public final boolean method_430() {
         return (this.field_300 & 1) != 0;
     }
 
-    // $FF: renamed from: e () boolean
     public final boolean method_431() {
         return (this.field_300 & 8) != 0;
     }
 
-    // $FF: renamed from: f () boolean
     public final boolean method_432() {
         return (this.field_300 & 4096) != 0;
     }
 
-    // $FF: renamed from: g () boolean
     public final boolean method_433() {
         return (this.field_300 & 134217728) != 0;
     }
 
-    // $FF: renamed from: h () boolean
     public final boolean method_434() {
         return (this.field_300 & 3145728) != 0;
     }
 
-    // $FF: renamed from: a () int
     public final int method_98() {
         return 1;
     }
 
-    // $FF: renamed from: a () m.k
     public class_67 method_435() {
         return this;
     }
 
-    // $FF: renamed from: a (m.bf[]) void
     public void method_436(class_203[] var1) {
         this.field_314.method_238(this, var1);
     }
 
-    // $FF: renamed from: a () h.m
     public class_121 method_437() {
         class_54 var1;
         try {

@@ -29,24 +29,20 @@ import m.class_86;
 import m.class_87;
 import n.class_248;
 
-// $FF: renamed from: h.ay
 public class class_162 extends class_161 {
 
-    // $FF: renamed from: a char[]
     public char[] field_751;
-    // $FF: renamed from: a m.ae[]
+
     public class_58[] field_752;
-    // $FF: renamed from: b m.s
+
     public class_40 field_753;
 
-    // $FF: renamed from: <init> (char[], long) void
     public class_162(char[] var1, long var2) {
         this.field_751 = var1;
         this.field_444 = (int)(var2 >>> 32);
         this.field_445 = (int)var2;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g, h.cb, boolean) l.g
     public class_301 method_1035(class_86 var1, class_293 var2, class_301 var3, class_131 var4, boolean var5) {
         boolean var6 = (((class_301)var3).field_1783 & 1) == 0;
         class_67 var7;
@@ -120,12 +116,10 @@ public class class_162 extends class_161 {
         return (class_301)var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         return this.method_907(var1, var2, var3, true);
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g, boolean) l.g
     public class_301 method_907(class_86 var1, class_293 var2, class_301 var3, boolean var4) {
         switch (this.field_446 & 7) {
             case 1:
@@ -154,7 +148,6 @@ public class class_162 extends class_161 {
         return var3;
     }
 
-    // $FF: renamed from: b (m.v) m.s
     public class_40 method_1050(class_86 var1) {
         class_67 var2 = (class_67)this.field_748;
         this.field_672 = var2.method_407();
@@ -188,7 +181,6 @@ public class class_162 extends class_161 {
         return var2.field_301;
     }
 
-    // $FF: renamed from: a (m.bb, m.s, m.s) void
     public void method_911(class_83 var1, class_40 var2, class_40 var3) {
         if (var2 != null && var3 != null) {
             if ((this.field_446 & 1) != 0 && this.field_748 != null && this.field_748.method_101()) {
@@ -212,7 +204,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, h.cb, boolean) void
     public void method_1038(class_86 var1, class_268 var2, class_131 var3, boolean var4) {
         int var6;
         if (var3.field_688.method_918()) {
@@ -289,7 +280,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (this.field_672 != class_331.field_1896) {
@@ -378,12 +368,10 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, h.r, int, int, boolean) void
     public void method_1039(class_86 var1, class_268 var2, class_126 var3, int var4, int var5, boolean var6) {
         this.method_1051(var1, var2, this.field_752 == null ? null : this.field_752[1], var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: a (m.v, i.o, m.ae, h.r, int, int, boolean) void
     public void method_1051(class_86 var1, class_268 var2, class_58 var3, class_126 var4, int var5, int var6, boolean var7) {
         class_65 var9;
         switch (this.field_446 & 7) {
@@ -491,7 +479,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, h.i, boolean) void
     public void method_1040(class_86 var1, class_268 var2, class_132 var3, boolean var4) {
         switch (this.field_446 & 7) {
             case 1:
@@ -569,17 +556,14 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (i.o) void
     public void method_1052(class_268 var1) {
         var1.method_2093();
     }
 
-    // $FF: renamed from: a () m.s[]
     public class_40[] method_0() {
         return null;
     }
 
-    // $FF: renamed from: a () m.ab
     public class_65 method_920() {
         switch (this.field_446 & 7) {
             case 1:
@@ -590,7 +574,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.v, l.g) void
     public void method_1053(class_86 var1, class_301 var2) {
         if ((var2.field_1783 & 1) == 0) {
             if ((this.field_446 & 8160) == 0 || this.field_672 != class_331.field_1896) {
@@ -602,7 +585,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.v, l.g, boolean) void
     public void method_1054(class_86 var1, class_301 var2, boolean var3) {
         if ((var2.field_1783 & 1) == 0) {
             if (this.field_672 == class_331.field_1896) {
@@ -629,7 +611,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (l.g) int
     public int method_921(class_301 var1) {
         if (this.field_672 != null && this.field_672 != class_331.field_1896) {
             return -1;
@@ -655,7 +636,6 @@ public class class_162 extends class_161 {
         }
     }
 
-    // $FF: renamed from: a (m.bb) m.s
     public class_40 method_923(class_83 var1) {
         Object var2 = this.field_675;
         if (this.field_753 != null) {
@@ -695,12 +675,10 @@ public class class_162 extends class_161 {
         return (class_40)var2;
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         return var2.append(this.field_751);
     }
 
-    // $FF: renamed from: c (m.v) m.s
     public class_40 method_1055(class_86 var1) {
         this.field_672 = class_331.field_1896;
         if (this.field_748 instanceof class_69) {
@@ -713,7 +691,6 @@ public class class_162 extends class_161 {
         return null;
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         if (this.field_750 != null) {
             this.field_748 = var1.method_601(this.field_750, this.field_751, this);
@@ -770,7 +747,6 @@ public class class_162 extends class_161 {
         return this.field_675 = this.method_1055(var1);
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2055(this, var2);
         var1.method_1970(this, var2);

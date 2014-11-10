@@ -5,23 +5,19 @@ import g.class_305;
 import java.io.DataInputStream;
 import java.io.IOException;
 
-// $FF: renamed from: j.b
 public class class_346 {
 
-    // $FF: renamed from: a long[]
     public static final long[] field_1982;
-    // $FF: renamed from: a long[][][]
+
     private static long[][][] field_1983;
-    // $FF: renamed from: a int[]
+
     public static final int[] field_1984;
-    // $FF: renamed from: a java.lang.Class
+
     static Class field_1985;
 
-    // $FF: renamed from: <init> () void
     public class_346() {
     }
 
-    // $FF: renamed from: a (long[], int) boolean
     private static final boolean method_3332(long[] var0, int var1) {
         try {
             return (var0[var1 / 64] & field_1982[var1 % 64]) != 0L;
@@ -30,12 +26,10 @@ public class class_346 {
         }
     }
 
-    // $FF: renamed from: a (char) boolean
     public static boolean method_3333(char var0) {
         return var0 < 128 ? (field_1984[var0] & 8) != 0 : class_305.method_3124(var0);
     }
 
-    // $FF: renamed from: a (char, char) boolean
     public static boolean method_3334(char var0, char var1) {
         int var2 = method_3337(var0, var1);
         switch ((var2 & 2031616) >> 16) {
@@ -52,12 +46,10 @@ public class class_346 {
         }
     }
 
-    // $FF: renamed from: b (char) boolean
     public static boolean method_3335(char var0) {
         return var0 < 128 ? (field_1984[var0] & 64) != 0 : class_305.method_3128(var0);
     }
 
-    // $FF: renamed from: b (char, char) boolean
     public static boolean method_3336(char var0, char var1) {
         int var2 = method_3337(var0, var1);
         switch ((var2 & 2031616) >> 16) {
@@ -72,12 +64,10 @@ public class class_346 {
         }
     }
 
-    // $FF: renamed from: a (char, char) int
     private static int method_3337(char var0, char var1) {
         return (var0 - '\ud800') * 1024 + (var1 - '\udc00') + 65536;
     }
 
-    // $FF: renamed from: c (char) boolean
     public static boolean method_3338(char var0) throws class_232 {
         if (var0 < 128) {
             return (field_1984[var0] & 4) != 0;
@@ -89,7 +79,6 @@ public class class_346 {
         }
     }
 
-    // $FF: renamed from: a (char, int) int
     public static int method_3339(char var0, int var1) {
         if (var0 < 128) {
             switch (var1) {
@@ -119,7 +108,6 @@ public class class_346 {
         return Character.digit(var0, var1);
     }
 
-    // $FF: renamed from: a (char) int
     public static int method_3340(char var0) {
         if (var0 < 128) {
             switch (field_1984[var0]) {
@@ -134,7 +122,6 @@ public class class_346 {
         return class_305.method_3129(var0);
     }
 
-    // $FF: renamed from: a (char) char
     public static char method_3341(char var0) {
         if (var0 < 128) {
             if ((field_1984[var0] & 16) != 0) {
@@ -147,17 +134,14 @@ public class class_346 {
         return Character.toLowerCase(var0);
     }
 
-    // $FF: renamed from: d (char) boolean
     public static boolean method_3342(char var0) {
         return var0 < 128 ? (field_1984[var0] & 32) != 0 : class_305.method_3125(var0);
     }
 
-    // $FF: renamed from: e (char) boolean
     public static boolean method_3343(char var0) {
         return var0 < 128 ? (field_1984[var0] & 1) != 0 : class_305.method_3126(var0);
     }
 
-    // $FF: renamed from: a (java.lang.String) java.lang.Class
     static Class method_3344(String var0) {
         try {
             return Class.forName(var0);
@@ -166,7 +150,6 @@ public class class_346 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1982 = new long[] {1L, 2L, 4L, 8L, 16L, 32L, 64L, 128L, 256L, 512L, 1024L, 2048L, 4096L, 8192L, 16384L, 32768L, 65536L, 131072L, 262144L, 524288L, 1048576L, 2097152L, 4194304L, 8388608L, 16777216L, 33554432L, 67108864L, 134217728L, 268435456L, 536870912L, 1073741824L, -2147483648L, 4294967296L, 8589934592L, 17179869184L, 34359738368L, 68719476736L, 137438953472L, 274877906944L, 549755813888L, 1099511627776L, 2199023255552L, 4398046511104L, 8796093022208L, 17592186044416L, 35184372088832L, 70368744177664L, 140737488355328L, 281474976710656L, 562949953421312L, 1125899906842624L, 2251799813685248L, 4503599627370496L, 9007199254740992L, 18014398509481984L, 36028797018963968L, 72057594037927936L, 144115188075855872L, 288230376151711744L, 576460752303423488L, 1152921504606846976L, 2305843009213693952L, 4611686018427387904L, Long.MIN_VALUE};
         field_1984 = new int[128];

@@ -23,23 +23,20 @@ import m.class_65;
 import m.class_83;
 import m.class_86;
 
-// $FF: renamed from: l.j
 public class class_293 implements class_17 {
 
-    // $FF: renamed from: a l.j
     public static final class_293 field_1738;
-    // $FF: renamed from: a h.cj
+
     public class_89 field_1739;
-    // $FF: renamed from: b l.j
+
     public class_293 field_1740;
-    // $FF: renamed from: a l.d
+
     public class_304 field_1741;
-    // $FF: renamed from: a boolean
+
     boolean field_1742;
-    // $FF: renamed from: b boolean
+
     boolean field_1743;
 
-    // $FF: renamed from: <init> (l.j, h.cj) void
     public class_293(class_293 var1, class_89 var2) {
         this.field_1740 = var1;
         this.field_1739 = var2;
@@ -49,12 +46,10 @@ public class class_293 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () i.s
     public class_74 method_3031() {
         return null;
     }
 
-    // $FF: renamed from: a (m.s, h.cj, l.g, m.v) void
     public void method_3032(class_40 var1, class_89 var2, class_301 var3, class_86 var4) {
         for (class_293 var5 = this; var5 != null; var5 = var5.field_1740) {
             class_116 var6;
@@ -109,7 +104,6 @@ public class class_293 implements class_17 {
         var4.method_644().method_1786(var1, var2);
     }
 
-    // $FF: renamed from: a (m.s[], h.cj, l.g, m.v) void
     public void method_3033(class_40[] var1, class_89 var2, class_301 var3, class_86 var4) {
         int var6;
         if (var1 != null && (var6 = var1.length) != 0) {
@@ -204,12 +198,10 @@ public class class_293 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a () i.s
     public class_74 method_3034() {
         return null;
     }
 
-    // $FF: renamed from: a (char[]) l.j
     public class_293 method_3035(char[] var1) {
         class_293 var2 = this;
         for (class_293 var3 = null; var2 != null; var2 = var2.field_1740) {
@@ -228,7 +220,6 @@ public class class_293 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: b (char[]) l.j
     public class_293 method_3036(char[] var1) {
         class_293 var2 = this;
         class_293 var3 = null;
@@ -253,7 +244,6 @@ public class class_293 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: a () l.j
     public class_293 method_3037() {
         class_293 var1 = this;
         for (class_293 var2 = null; var1 != null; var1 = var1.field_1740) {
@@ -270,7 +260,6 @@ public class class_293 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: b () l.j
     public class_293 method_3038() {
         class_293 var1 = this;
         for (class_293 var2 = null; var1 != null; var1 = var1.field_1740) {
@@ -287,49 +276,38 @@ public class class_293 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_3039() {
         return "Flow context";
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_3040() {
         return false;
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_3041() {
         return false;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_3042() {
         return false;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_3043() {
         return null;
     }
 
-    // $FF: renamed from: a (l.g) void
     public void method_3044(class_301 var1) {}
 
-    // $FF: renamed from: a (l.j) void
     public void method_3045(class_293 var1) {}
 
-    // $FF: renamed from: a (l.j, l.g) void
     public void method_3046(class_293 var1, class_301 var2) {}
 
-    // $FF: renamed from: a (m.q, h.bb) boolean
     protected boolean method_3047(class_64 var1, class_154 var2) {
         return true;
     }
 
-    // $FF: renamed from: a (l.f) void
     public void method_3048(class_303 var1) {}
 
-    // $FF: renamed from: a (m.q, h.bb, l.g) void
     public void method_3049(class_64 var1, class_154 var2, class_301 var3) {
         if ((var3.field_1783 & 1) == 0) {
             for (class_293 var4 = this; var4 != null && var4.method_3047(var1, var2); var4 = var4.field_1740) {
@@ -338,7 +316,6 @@ public class class_293 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.bb, m.ab, h.r, int, l.g) void
     public void method_3050(class_83 var1, class_65 var2, class_126 var3, int var4, class_301 var5) {
         if ((var5.field_1783 & 1) == 0 && !var5.method_3086(var2)) {
             switch (var4) {
@@ -394,10 +371,8 @@ public class class_293 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.bb) void
     void method_3051(class_154 var1) {}
 
-    // $FF: renamed from: a () h.bi
     public class_116 method_3052() {
         return null;
     }
@@ -429,7 +404,6 @@ public class class_293 implements class_17 {
         return var1.toString();
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         class_293 var10000 = new class_293((class_293)null, (class_89)null);
         field_1738 = var10000;

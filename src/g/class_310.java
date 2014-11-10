@@ -4,13 +4,10 @@ import java.io.IOException;
 import g.class_308;
 import java.io.InputStream;
 
-// $FF: renamed from: g.h
 public class class_310 extends InputStream {
 
-    // $FF: renamed from: a java.io.InputStream
     InputStream field_1809;
 
-    // $FF: renamed from: <init> (g.g) void
     public class_310(class_308 var1) throws IOException {
         this.field_1809 = var1.field_1808.openInputStream();
     }

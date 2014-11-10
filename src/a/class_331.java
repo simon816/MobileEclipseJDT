@@ -12,29 +12,23 @@ import a.class_340;
 import f.class_329;
 import n.class_249;
 
-// $FF: renamed from: a.k
 public abstract class class_331 {
 
-    // $FF: renamed from: a a.k
     public static final class_331 field_1896;
 
-    // $FF: renamed from: <init> () void
     public class_331() {
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_3257() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "boolean"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a () byte
     public byte method_3258() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "byte"}));
         throw var10000;
     }
 
-    // $FF: renamed from: b (int) a.k
     public final class_331 method_3259(int var1) {
         if (this == field_1896) {
             return field_1896;
@@ -286,13 +280,11 @@ public abstract class class_331 {
         }
     }
 
-    // $FF: renamed from: a () char
     public char method_3260() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "char"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a (a.k, int, int) a.k
     public static final class_331 method_3261(class_331 var0, int var1, int var2) {
         switch (var2) {
             case 11:
@@ -344,7 +336,6 @@ public abstract class class_331 {
         }
     }
 
-    // $FF: renamed from: a (a.k, int, int, a.k, int) a.k
     public static final class_331 method_3262(class_331 var0, int var1, int var2, class_331 var3, int var4) {
         switch (var2) {
             case 0:
@@ -389,7 +380,6 @@ public abstract class class_331 {
         }
     }
 
-    // $FF: renamed from: a (a.k, int, a.k, int) a.k
     public static final class_331 method_3263(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -498,12 +488,10 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: b (a.k, int, a.k, int) a.k
     public static final class_331 method_3264(class_331 var0, int var1, class_331 var2, int var3) {
         return class_340.method_3307(var0.method_3257() && var2.method_3257());
     }
 
-    // $FF: renamed from: c (a.k, int, a.k, int) a.k
     public static final class_331 method_3265(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -661,7 +649,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: d (a.k, int, a.k, int) a.k
     public static final class_331 method_3266(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -834,7 +821,6 @@ public abstract class class_331 {
         return class_340.method_3307(false);
     }
 
-    // $FF: renamed from: e (a.k, int, a.k, int) a.k
     public static final class_331 method_3267(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -992,7 +978,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: f (a.k, int, a.k, int) a.k
     public static final class_331 method_3268(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1150,7 +1135,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: g (a.k, int, a.k, int) a.k
     public static final class_331 method_3269(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1258,7 +1242,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: h (a.k, int, a.k, int) a.k
     public static final class_331 method_3270(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1416,7 +1399,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: i (a.k, int, a.k, int) a.k
     public static final class_331 method_3271(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1574,7 +1556,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: j (a.k, int, a.k, int) a.k
     public static final class_331 method_3272(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1732,7 +1713,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: k (a.k, int, a.k, int) a.k
     public static final class_331 method_3273(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1890,7 +1870,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: l (a.k, int, a.k, int) a.k
     public static final class_331 method_3274(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -1999,12 +1978,10 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: m (a.k, int, a.k, int) a.k
     public static final class_331 method_3275(class_331 var0, int var1, class_331 var2, int var3) {
         return class_340.method_3307(var0.method_3257() || var2.method_3257());
     }
 
-    // $FF: renamed from: n (a.k, int, a.k, int) a.k
     public static final class_331 method_3276(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 1:
@@ -2207,7 +2184,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: o (a.k, int, a.k, int) a.k
     public static final class_331 method_3277(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -2365,7 +2341,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: p (a.k, int, a.k, int) a.k
     public static final class_331 method_3278(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -2473,7 +2448,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: q (a.k, int, a.k, int) a.k
     public static final class_331 method_3279(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -2581,7 +2555,6 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: r (a.k, int, a.k, int) a.k
     public static final class_331 method_3280(class_331 var0, int var1, class_331 var2, int var3) {
         switch (var1) {
             case 2:
@@ -2690,19 +2663,16 @@ public abstract class class_331 {
         return field_1896;
     }
 
-    // $FF: renamed from: a () double
     public double method_3281() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "double"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a () float
     public float method_3282() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "float"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a (a.k) boolean
     public boolean method_3283(class_331 var1) {
         if (this == var1) {
             return true;
@@ -2739,25 +2709,21 @@ public abstract class class_331 {
         }
     }
 
-    // $FF: renamed from: b () int
     public int method_3284() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "int"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a () long
     public long method_3285() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "long"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a () short
     public short method_3286() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1895, new String[] {this.method_3289(), "short"}));
         throw var10000;
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_3287() {
         class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1895, new String[] {this.method_3289(), "String"}));
         throw var10000;
@@ -2767,10 +2733,8 @@ public abstract class class_331 {
         return this == field_1896 ? "(Constant) NotAConstant" : super.toString();
     }
 
-    // $FF: renamed from: a () int
     public abstract int method_3288();
 
-    // $FF: renamed from: b () java.lang.String
     public String method_3289() {
         switch (this.method_3288()) {
             case 2:
@@ -2799,7 +2763,6 @@ public abstract class class_331 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1896 = class_332.method_3291(Double.NaN);
     }

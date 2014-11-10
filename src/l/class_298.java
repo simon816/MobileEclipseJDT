@@ -15,27 +15,24 @@ import m.class_83;
 import m.class_86;
 import m.class_87;
 
-// $FF: renamed from: l.l
 public class class_298 extends class_293 {
 
-    // $FF: renamed from: a m.as[]
     public class_43[] field_1764;
-    // $FF: renamed from: a int[]
+
     int[] field_1765;
-    // $FF: renamed from: b int[]
+
     int[] field_1766;
-    // $FF: renamed from: a l.f[]
+
     class_303[] field_1767;
-    // $FF: renamed from: a i.f
+
     class_277 field_1768;
-    // $FF: renamed from: c boolean
+
     boolean field_1769;
-    // $FF: renamed from: a l.f
+
     public class_303 field_1770;
-    // $FF: renamed from: a g.p
+
     public class_313 field_1771;
 
-    // $FF: renamed from: <init> (l.j, h.cj, m.as[], m.v, l.f) void
     public class_298(class_293 var1, class_89 var2, class_43[] var3, class_86 var4, class_303 var5) {
         super(var1, var2);
         class_277 var10001 = new class_277();
@@ -66,7 +63,6 @@ public class class_298 extends class_293 {
         this.field_1770 = class_301.field_1784;
     }
 
-    // $FF: renamed from: a (h.ci) void
     public void method_3061(class_93 var1) {
         class_87 var2 = var1.field_478;
         if ((var1.field_488.field_273 & 805306368) == 0 || var2.method_577().field_1944) {
@@ -88,7 +84,6 @@ public class class_298 extends class_293 {
         }
     }
 
-    // $FF: renamed from: a (m.v, h.bl) void
     public void method_3062(class_86 var1, class_117 var2) {
         int var3 = 0;
         for (int var4 = this.field_1764.length; var3 < var4; ++var3) {
@@ -103,7 +98,6 @@ public class class_298 extends class_293 {
         }
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_3039() {
         StringBuffer var1 = new StringBuffer("Exception flow context");
         int var2 = this.field_1764.length;
@@ -126,13 +120,11 @@ public class class_298 extends class_293 {
         return var1.toString();
     }
 
-    // $FF: renamed from: a (m.as) l.f
     public class_303 method_3063(class_43 var1) {
         int var2;
         return (var2 = this.field_1768.method_2499(var1)) < 0 ? class_301.field_1784 : this.field_1767[var2];
     }
 
-    // $FF: renamed from: a (m.s) void
     public void method_3064(class_40 var1) {
         if (this.field_1771 == null) {
             class_313 var10001 = new class_313(5);
@@ -158,7 +150,6 @@ public class class_298 extends class_293 {
         }
     }
 
-    // $FF: renamed from: a (m.as, l.f, m.s, h.cj, boolean) void
     public void method_3065(class_43 var1, class_303 var2, class_40 var3, class_89 var4, boolean var5) {
         int var6 = this.field_1768.method_2499(var1);
         int var7 = var6 / 32;
@@ -170,7 +161,6 @@ public class class_298 extends class_293 {
         this.field_1767[var6] = (this.field_1767[var6].field_1783 & 1) == 0 ? this.field_1767[var6].method_3105(var2) : var2.method_3107();
     }
 
-    // $FF: renamed from: a (l.f) void
     public void method_3048(class_303 var1) {
         if ((var1.field_1783 & 1) == 0) {
             if ((this.field_1770.field_1783 & 1) == 0) {
@@ -181,7 +171,6 @@ public class class_298 extends class_293 {
         }
     }
 
-    // $FF: renamed from: a () h.bi
     public class_116 method_3052() {
         return this.field_1739 instanceof class_116 ? (this.field_1740.method_3052() == this.field_1739 ? null : (class_116)this.field_1739) : null;
     }

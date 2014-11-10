@@ -15,14 +15,11 @@ import m.class_83;
 import m.class_84;
 import m.class_86;
 
-// $FF: renamed from: h.bo
 public abstract class class_146 extends class_126 {
 
-    // $FF: renamed from: <init> () void
     public class_146() {
     }
 
-    // $FF: renamed from: a (int, int) h.bo
     public static final class_146 method_1005(int var0, int var1) {
         if (var1 == 0) {
             class_147 var2;
@@ -91,35 +88,26 @@ public abstract class class_146 extends class_126 {
         }
     }
 
-    // $FF: renamed from: b (m.bb) void
     public void method_1006(class_83 var1) {}
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         return var3;
     }
 
-    // $FF: renamed from: a (m.bb) void
     public void method_1007(class_83 var1) {}
 
-    // $FF: renamed from: a (int) h.bo
     public abstract class_146 method_1008(int var1);
 
-    // $FF: renamed from: a () int
     public int method_1009() {
         return 0;
     }
 
-    // $FF: renamed from: a () char[]
     public abstract char[] method_1010();
 
-    // $FF: renamed from: b (m.bb) m.s
     protected abstract class_40 method_1011(class_83 var1);
 
-    // $FF: renamed from: a () char[][]
     public abstract char[][] method_1012();
 
-    // $FF: renamed from: c (m.bb) m.s
     protected class_40 method_1013(class_83 var1) {
         this.field_672 = class_331.field_1896;
         if (this.field_675 != null) {
@@ -181,17 +169,14 @@ public abstract class class_146 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.bb) void
     protected void method_1014(class_40 var1, class_83 var2) {
         var2.method_644().method_1516(var1, this);
     }
 
-    // $FF: renamed from: c (m.bb) void
     protected void method_1015(class_83 var1) {
         var1.method_644().method_1639(this, this.field_675);
     }
 
-    // $FF: renamed from: b (m.f) m.s
     public class_40 method_1016(class_84 var1) {
         class_40 var2 = this.method_1018(var1);
         if (var2 == null) {
@@ -208,34 +193,27 @@ public abstract class class_146 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public final class_40 method_925(class_86 var1) {
         return this.method_1017(var1, true);
     }
 
-    // $FF: renamed from: a (m.v, boolean) m.s
     public class_40 method_1017(class_86 var1, boolean var2) {
         return this.method_1013(var1);
     }
 
-    // $FF: renamed from: a (m.f) m.s
     public class_40 method_1018(class_84 var1) {
         return this.method_1013(var1);
     }
 
-    // $FF: renamed from: a (m.v, m.as, int) m.s
     public class_40 method_1019(class_86 var1, class_43 var2, int var3) {
         return this.method_1017(var1, true);
     }
 
-    // $FF: renamed from: a (m.f, m.as, int) m.s
     public class_40 method_1020(class_84 var1, class_43 var2, int var3) {
         return this.method_1018(var1);
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public abstract void method_763(class_264 var1, class_86 var2);
 
-    // $FF: renamed from: a (c.j, m.f) void
     public abstract void method_1021(class_264 var1, class_84 var2);
 }

@@ -33,45 +33,42 @@ import n.class_241;
 import n.class_242;
 import n.class_248;
 
-// $FF: renamed from: c.f
 public class class_286 implements class_31 {
 
-    // $FF: renamed from: a j.r
     public class_278 field_1697;
-    // $FF: renamed from: a c.k
+
     public class_9 field_1698;
-    // $FF: renamed from: a a.c
+
     public class_341 field_1699;
-    // $FF: renamed from: a n.e
+
     public class_248 field_1700;
-    // $FF: renamed from: a java.io.PrintStream
+
     protected PrintStream field_1701;
-    // $FF: renamed from: a a.b
+
     public class_342 field_1702;
-    // $FF: renamed from: a b.b
+
     public class_234 field_1703;
-    // $FF: renamed from: a int
+
     public int field_1704;
-    // $FF: renamed from: a h.b[]
+
     public class_90[] field_1705;
-    // $FF: renamed from: b int
+
     public int field_1706;
-    // $FF: renamed from: a m.af
+
     public class_80 field_1707;
-    // $FF: renamed from: a boolean
+
     public static boolean field_1708;
-    // $FF: renamed from: c int
+
     public int field_1709;
-    // $FF: renamed from: a c.i
+
     public class_285 field_1710;
-    // $FF: renamed from: a m.as[]
+
     public class_43[] field_1711;
-    // $FF: renamed from: b boolean
+
     public boolean field_1712;
-    // $FF: renamed from: a c.m
+
     public static class_6 field_1713;
 
-    // $FF: renamed from: <init> (k.s, c.l, a.c, c.k, c.o, java.io.PrintStream, b.b) void
     public class_286(class_28 var1, class_7 var2, class_341 var3, class_9 var4, class_8 var5, PrintStream var6, class_234 var7) {
         this.field_1704 = 1;
         this.field_1709 = -1;
@@ -98,7 +95,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a (k.o, m.ar, k.c) void
     public void method_87(class_22 var1, class_38 var2, class_345 var3) {
         if (this.field_1699.field_1931) {
             this.field_1701.println(class_329.method_3251(class_329.field_1863, new String(var1.method_60())));
@@ -106,7 +102,6 @@ public class class_286 implements class_31 {
         this.field_1707.method_494(var1, var2, var3);
     }
 
-    // $FF: renamed from: a (k.h, k.c) void
     public void method_88(class_19 var1, class_345 var2) {
         class_284 var10000 = new class_284(var1, this.field_1706, this.field_1706, this.field_1699.field_1935);
         class_284 var3 = var10000;
@@ -134,12 +129,10 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a (k.p[], m.ar, k.c) void
     public void method_89(class_21[] var1, class_38 var2, class_345 var3) {
         this.field_1700.method_1459(class_329.method_3253(class_329.field_1880, new String[] {String.valueOf(var1[0].method_51()), String.valueOf(var1[0].method_50())}));
     }
 
-    // $FF: renamed from: a (k.h, h.b) void
     protected synchronized void method_2940(class_19 var1, class_90 var2) {
         int var3 = this.field_1705.length;
         if (this.field_1706 == var3) {
@@ -148,7 +141,6 @@ public class class_286 implements class_31 {
         this.field_1705[this.field_1706++] = var2;
     }
 
-    // $FF: renamed from: a (k.h[]) void
     protected void method_2941(class_19[] var1) {
         int var2 = var1.length;
         this.field_1706 = 0;
@@ -156,7 +148,6 @@ public class class_286 implements class_31 {
         this.method_2949(var1, var2);
     }
 
-    // $FF: renamed from: a (java.lang.String) void
     protected void method_2942(String var1) {
         if (this.field_1703 != null) {
             if (this.field_1703.method_1394()) {
@@ -167,7 +158,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a (int, int) void
     protected void method_2943(int var1, int var2) {
         if (this.field_1703 != null) {
             if (this.field_1703.method_1394()) {
@@ -178,7 +168,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: b (k.h[]) void
     public void method_2944(class_19[] var1) {
         this.field_1702.field_1967 = System.currentTimeMillis();
         class_90 var2 = null;
@@ -265,7 +254,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a (int) h.b
     public synchronized class_90 method_2945(int var1) {
         if (var1 < this.field_1706) {
             class_90 var2 = this.field_1705[var1];
@@ -276,7 +264,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.Throwable, h.b, c.h) void
     protected void method_2946(Throwable var1, class_90 var2, class_284 var3) {
         if (var3 == null && var2 != null) {
             var3 = var2.field_455;
@@ -306,7 +293,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a (n.i, h.b) void
     protected void method_2947(class_241 var1, class_90 var2) {
         if (var1.field_1052) {
             if (var1.field_1053 != null) {
@@ -358,13 +344,11 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_2948() {
         class_278 var10001 = new class_278(this.field_1700, this.field_1699.field_1934);
         this.field_1697 = var10001;
     }
 
-    // $FF: renamed from: a (k.h[], int) void
     protected void method_2949(class_19[] var1, int var2) {
         if (!this.field_1712 && var2 >= class_283.field_1671) {
             class_278 var10000 = this.field_1697;
@@ -403,7 +387,6 @@ public class class_286 implements class_31 {
         this.field_1707.method_484();
     }
 
-    // $FF: renamed from: a (h.b, int) void
     public void method_2950(class_90 var1, int var2) {
         this.field_1707.field_362 = var1;
         long var3 = System.currentTimeMillis();
@@ -432,7 +415,6 @@ public class class_286 implements class_31 {
         this.field_1707.field_362 = null;
     }
 
-    // $FF: renamed from: b () void
     protected void method_2951() {
         boolean var1 = false;
         boolean var2 = false;
@@ -475,7 +457,6 @@ public class class_286 implements class_31 {
         }
     }
 
-    // $FF: renamed from: c () void
     public void method_2952() {
         this.field_1707.method_518();
         this.field_1697.field_1628.field_1237 = null;
@@ -486,7 +467,6 @@ public class class_286 implements class_31 {
         this.field_1700.method_1748();
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1708 = false;
         field_1713 = null;

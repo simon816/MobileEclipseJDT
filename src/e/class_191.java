@@ -12,35 +12,32 @@ import i.class_5;
 import k.class_25;
 import k.class_29;
 
-// $FF: renamed from: e.i
 public class class_191 extends class_186 implements class_11, class_25 {
 
-    // $FF: renamed from: c char[][]
     private static final char[][] field_851;
-    // $FF: renamed from: d char[][]
+
     private static final char[][] field_852;
-    // $FF: renamed from: a int
+
     protected int field_853;
-    // $FF: renamed from: c int
+
     protected int field_854;
-    // $FF: renamed from: a char[]
+
     protected char[] field_855;
-    // $FF: renamed from: a char[][]
+
     protected char[][] field_856;
-    // $FF: renamed from: b char[]
+
     protected char[] field_857;
-    // $FF: renamed from: c char[]
+
     protected char[] field_858;
-    // $FF: renamed from: d int
+
     protected int field_859;
-    // $FF: renamed from: a long
+
     protected long field_860;
-    // $FF: renamed from: b char[][]
+
     protected char[][] field_861;
-    // $FF: renamed from: e int
+
     protected int field_862;
 
-    // $FF: renamed from: b (byte[], int[], int) e.i
     public static class_191 method_1131(byte[] var0, int[] var1, int var2) {
         class_191 var10000 = new class_191(var0, var1, var2);
         class_191 var3 = var10000;
@@ -127,7 +124,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: a (int, boolean, int, e.i) e.b[]
     static class_196[] method_1132(int var0, boolean var1, int var2, class_191 var3) {
         class_196[] var4 = new class_196[var2];
         int var5 = var0;
@@ -139,7 +135,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return var4;
     }
 
-    // $FF: renamed from: a (int, boolean, e.i) e.b[]
     static class_196[] method_1133(int var0, boolean var1, class_191 var2) {
         int var3 = var2.method_1104(var0 + 6);
         if (var3 <= 0) {
@@ -174,7 +169,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: a (int, boolean, e.i) e.b[][]
     static class_196[][] method_1134(int var0, boolean var1, class_191 var2) {
         class_196[][] var3 = (class_196[][])null;
         int var4 = var2.method_1103(var0 + 6);
@@ -198,14 +192,12 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return var3;
     }
 
-    // $FF: renamed from: <init> (byte[], int[], int) void
     protected class_191(byte[] var1, int[] var2, int var3) {
         super(var1, var2, var3);
         this.field_853 = -1;
         this.field_859 = -1;
     }
 
-    // $FF: renamed from: a (java.lang.Object) int
     public int method_28(Object var1) {
         class_191 var2 = (class_191)var1;
         int var3 = (new String(this.method_77())).compareTo(new String(var2.method_77()));
@@ -225,12 +217,10 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return class_233.method_1369(this.method_77()) + class_233.method_1369(this.method_75());
     }
 
-    // $FF: renamed from: a () k.e[]
     public class_29[] method_71() {
         return null;
     }
 
-    // $FF: renamed from: a () char[][]
     public char[][] method_1135() {
         if (this.field_861 == null) {
             this.method_1142();
@@ -238,12 +228,10 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return this.field_861;
     }
 
-    // $FF: renamed from: a () java.lang.Object
     public Object method_72() {
         return null;
     }
 
-    // $FF: renamed from: b () char[][]
     public char[][] method_73() {
         if (this.field_856 == null) {
             this.method_1137();
@@ -251,7 +239,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return this.field_856;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_74() {
         if (this.field_859 != -1) {
             if (this.field_858 == null) {
@@ -263,7 +250,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_75() {
         if (this.field_855 == null) {
             int var1 = this.field_806[this.method_1104(4)] - this.field_807;
@@ -272,7 +258,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return this.field_855;
     }
 
-    // $FF: renamed from: a () int
     public int method_69() {
         if (this.field_853 == -1) {
             this.field_853 = this.method_1104(0);
@@ -281,12 +266,10 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return this.field_853;
     }
 
-    // $FF: renamed from: a (int) k.e[]
     public class_29[] method_76(int var1) {
         return null;
     }
 
-    // $FF: renamed from: c () char[]
     public char[] method_77() {
         if (this.field_857 == null) {
             int var1 = this.field_806[this.method_1104(2)] - this.field_807;
@@ -295,12 +278,10 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return this.field_857;
     }
 
-    // $FF: renamed from: a () long
     public long method_78() {
         return this.field_860;
     }
 
-    // $FF: renamed from: a () void
     protected void method_1136() {
         this.method_69();
         this.method_77();
@@ -311,13 +292,11 @@ public class class_191 extends class_186 implements class_11, class_25 {
         this.method_1102();
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_70() {
         char[] var1 = this.method_77();
         return var1[0] == 60 && var1.length == 6;
     }
 
-    // $FF: renamed from: c () void
     private void method_1137() {
         int var1 = this.method_1104(6);
         int var2 = 8;
@@ -346,7 +325,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: d () void
     private void method_1138() {
         int var1 = this.method_1104(6);
         int var2 = 8;
@@ -380,7 +358,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: b () int
     public int method_1139() {
         return this.field_854;
     }
@@ -391,13 +368,11 @@ public class class_191 extends class_186 implements class_11, class_25 {
         return var1.toString();
     }
 
-    // $FF: renamed from: b (java.lang.StringBuffer) void
     void method_1140(StringBuffer var1) {
         var1.append(this.getClass().getName());
         this.method_1141(var1);
     }
 
-    // $FF: renamed from: a (java.lang.StringBuffer) void
     protected void method_1141(StringBuffer var1) {
         int var2 = this.method_69();
         char[] var3 = this.method_74();
@@ -407,7 +382,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         var1.append('{').append(((var2 & 1048576) != 0 ? "deprecated " : class_226.field_982) + ((var2 & 1) == 1 ? "public " : class_226.field_982) + ((var2 & 2) == 2 ? "private " : class_226.field_982) + ((var2 & 4) == 4 ? "protected " : class_226.field_982) + ((var2 & 8) == 8 ? "static " : class_226.field_982) + ((var2 & 16) == 16 ? "final " : class_226.field_982) + ((var2 & 64) == 64 ? "bridge " : class_226.field_982) + ((var2 & 128) == 128 ? "varargs " : class_226.field_982)).append(this.method_77()).append(var3).append('}');
     }
 
-    // $FF: renamed from: e () void
     private void method_1142() {
         int var1 = this.method_1104(6);
         int var2 = 8;
@@ -428,7 +402,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         this.field_861 = field_852;
     }
 
-    // $FF: renamed from: a (int) void
     private void method_1143(int var1) {
         int var2 = var1 + 10;
         int var3 = (int)this.method_1105(var2);
@@ -453,7 +426,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: a (int, int) void
     private void method_1144(int var1, int var2) {
         int var3 = var1 + 6;
         int var4 = this.method_1104(var3);
@@ -480,7 +452,6 @@ public class class_191 extends class_186 implements class_11, class_25 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_851 = class_233.field_995;
         field_852 = class_233.field_995;

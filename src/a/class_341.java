@@ -9,97 +9,94 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-// $FF: renamed from: a.c
 public class class_341 {
 
-    // $FF: renamed from: a long
     public long field_1924;
-    // $FF: renamed from: b long
+
     public long field_1925;
-    // $FF: renamed from: a int
+
     public int field_1926;
-    // $FF: renamed from: c long
+
     public long field_1927;
-    // $FF: renamed from: d long
+
     public long field_1928;
-    // $FF: renamed from: e long
+
     public long field_1929;
-    // $FF: renamed from: a java.lang.String
+
     public String field_1930;
-    // $FF: renamed from: a boolean
+
     public boolean field_1931;
-    // $FF: renamed from: b boolean
+
     public boolean field_1932;
-    // $FF: renamed from: c boolean
+
     public boolean field_1933;
-    // $FF: renamed from: d boolean
+
     public boolean field_1934;
-    // $FF: renamed from: b int
+
     public int field_1935;
-    // $FF: renamed from: a char[][]
+
     public char[][] field_1936;
-    // $FF: renamed from: b char[][]
+
     public char[][] field_1937;
-    // $FF: renamed from: e boolean
+
     public boolean field_1938;
-    // $FF: renamed from: f boolean
+
     public boolean field_1939;
-    // $FF: renamed from: g boolean
+
     public boolean field_1940;
-    // $FF: renamed from: h boolean
+
     public boolean field_1941;
-    // $FF: renamed from: i boolean
+
     public boolean field_1942;
-    // $FF: renamed from: j boolean
+
     public boolean field_1943;
-    // $FF: renamed from: k boolean
+
     public boolean field_1944;
-    // $FF: renamed from: l boolean
+
     public boolean field_1945;
-    // $FF: renamed from: m boolean
+
     public boolean field_1946;
-    // $FF: renamed from: n boolean
+
     public boolean field_1947;
-    // $FF: renamed from: c int
+
     public int field_1948;
-    // $FF: renamed from: o boolean
+
     public boolean field_1949;
-    // $FF: renamed from: p boolean
+
     public boolean field_1950;
-    // $FF: renamed from: q boolean
+
     public boolean field_1951;
-    // $FF: renamed from: b java.lang.String
+
     public String field_1952;
-    // $FF: renamed from: d int
+
     public int field_1953;
-    // $FF: renamed from: r boolean
+
     public boolean field_1954;
-    // $FF: renamed from: e int
+
     public int field_1955;
-    // $FF: renamed from: s boolean
+
     public boolean field_1956;
-    // $FF: renamed from: t boolean
+
     public boolean field_1957;
-    // $FF: renamed from: u boolean
+
     public boolean field_1958;
-    // $FF: renamed from: v boolean
+
     public boolean field_1959;
-    // $FF: renamed from: w boolean
+
     public boolean field_1960;
-    // $FF: renamed from: x boolean
+
     public boolean field_1961;
-    // $FF: renamed from: y boolean
+
     public boolean field_1962;
-    // $FF: renamed from: z boolean
+
     public boolean field_1963;
-    // $FF: renamed from: A boolean
+
     public boolean field_1964;
-    // $FF: renamed from: B boolean
+
     public boolean field_1965;
-    // $FF: renamed from: a java.lang.String[]
+
     public static final String[] field_1966;
 
-    // $FF: renamed from: <init> () void
     public class_341() {
         this.field_1924 = 0L;
         this.field_1925 = 27154500175326815L;
@@ -145,7 +142,6 @@ public class class_341 {
         this.field_1965 = false;
     }
 
-    // $FF: renamed from: <init> (g.m) void
     public class_341(class_14 var1) {
         this.field_1924 = 0L;
         this.field_1925 = 27154500175326815L;
@@ -194,7 +190,6 @@ public class class_341 {
         }
     }
 
-    // $FF: renamed from: a () g.m
     public class_14 method_3311() {
         class_312 var10000 = new class_312(30);
         class_312 var1 = var10000;
@@ -282,7 +277,6 @@ public class class_341 {
         return var1;
     }
 
-    // $FF: renamed from: a (long) java.lang.String
     public static String method_3312(long var0) {
         int var2 = (int)var0;
         if ((long)var2 == var0) {
@@ -401,17 +395,14 @@ public class class_341 {
         return null;
     }
 
-    // $FF: renamed from: a (long) int
     public int method_3313(long var1) {
         return (this.field_1924 & var1) != 0L ? ((var1 & 18014398509481984L) != 0L ? 33 : (this.field_1960 ? 161 : 33)) : ((this.field_1925 & var1) != 0L ? 32 : -1);
     }
 
-    // $FF: renamed from: b (long) java.lang.String
     public String method_3314(long var1) {
         return (this.field_1924 & var1) != 0L ? "error" : ((this.field_1925 & var1) != 0L ? "warning" : "ignore");
     }
 
-    // $FF: renamed from: a (int) java.lang.String
     public String method_3315(int var1) {
         switch (var1 & 7) {
             case 1:
@@ -426,7 +417,6 @@ public class class_341 {
         }
     }
 
-    // $FF: renamed from: a (g.m) void
     public void method_3316(class_14 var1) {
         Object var2;
         if ((var2 = var1.method_38("org.eclipse.jdt.core.compiler.debug.localVariable")) != null) {
@@ -879,7 +869,6 @@ public class class_341 {
         return var1.toString();
     }
 
-    // $FF: renamed from: a (long, java.lang.Object) void
     void method_3317(long var1, Object var3) {
         if ("error".equals(var3)) {
             this.field_1924 |= var1;
@@ -893,7 +882,6 @@ public class class_341 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.Object) long
     public static long method_3318(Object var0) {
         if (var0 instanceof String) {
             String var1 = (String)var0;
@@ -927,7 +915,6 @@ public class class_341 {
         return 0L;
     }
 
-    // $FF: renamed from: c (long) java.lang.String
     public static String method_3319(long var0) {
         switch ((int)(var0 >> 16)) {
             case 45:
@@ -968,7 +955,6 @@ public class class_341 {
         return class_226.field_982;
     }
 
-    // $FF: renamed from: a (java.lang.String) long
     public static long method_3320(String var0) {
         if (var0 != null && var0.length() != 0) {
             switch (var0.charAt(0)) {
@@ -1067,7 +1053,6 @@ public class class_341 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1966 = new String[] {"all", "boxing", "cast", "dep-ann", "deprecation", "fallthrough", "finally", "hiding", "incomplete-switch", "nls", "null", "restriction", "serial", "static-access", "super", "synthetic-access", "unchecked", "unqualified-field-access", "unused"};
     }

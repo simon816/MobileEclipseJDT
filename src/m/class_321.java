@@ -4,25 +4,22 @@ import m.class_40;
 import m.class_46;
 import m.class_58;
 
-// $FF: renamed from: m.g
 public class class_321 {
 
-    // $FF: renamed from: a m.s[][][]
     private class_40[][][] field_1826;
-    // $FF: renamed from: a m.ae
+
     class_58 field_1827;
-    // $FF: renamed from: a int
+
     int field_1828;
-    // $FF: renamed from: b int
+
     int field_1829;
-    // $FF: renamed from: a m.s
+
     class_40 field_1830;
-    // $FF: renamed from: a boolean
+
     boolean field_1831;
-    // $FF: renamed from: a m.s[]
+
     class_40[] field_1832;
 
-    // $FF: renamed from: <init> (m.ae) void
     public class_321(class_58 var1) {
         this.field_1827 = var1;
         class_46[] var2 = var1.field_279;
@@ -31,7 +28,6 @@ public class class_321 {
         this.field_1832 = new class_40[var3];
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_3203() {
         if (this.field_1828 > 0) {
             return false;
@@ -41,12 +37,10 @@ public class class_321 {
         }
     }
 
-    // $FF: renamed from: a (m.x, int) m.s[]
     public class_40[] method_3204(class_46 var1, int var2) {
         return this.field_1826[var1.field_221][var2];
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_3205() {
         int var1 = 0;
         for (int var2 = this.field_1832.length; var1 < var2; ++var1) {
@@ -57,7 +51,6 @@ public class class_321 {
         return false;
     }
 
-    // $FF: renamed from: a (m.x, m.s, int) void
     public void method_3206(class_46 var1, class_40 var2, int var3) {
         class_40[][] var4 = this.field_1826[var1.field_221];
         class_40[] var5 = var4[var3];

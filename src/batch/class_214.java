@@ -5,17 +5,13 @@ import java.io.InputStream;
 import java.util.Hashtable;
 import n.class_246;
 
-// $FF: renamed from: batch.f
 public class class_214 {
 
-    // $FF: renamed from: a java.util.Hashtable
     private static Hashtable field_919;
 
-    // $FF: renamed from: <init> () void
     public class_214() {
     }
 
-    // $FF: renamed from: a () java.util.Hashtable
     public static synchronized Hashtable method_1219() {
         if (field_919 == null) {
             field_919 = method_1220("/batch/messages.txt");
@@ -23,7 +19,6 @@ public class class_214 {
         return field_919;
     }
 
-    // $FF: renamed from: a (java.lang.String) java.util.Hashtable
     protected static Hashtable method_1220(String var0) {
         Hashtable var1 = new Hashtable();
         InputStream var2 = var0.getClass().getResourceAsStream(var0);
@@ -52,7 +47,6 @@ public class class_214 {
         return var1;
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_919 = null;
     }

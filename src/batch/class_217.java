@@ -22,25 +22,22 @@ import java.io.PrintStream;
 import k.class_19;
 import n.class_248;
 
-// $FF: renamed from: batch.e
 public class class_217 {
 
-    // $FF: renamed from: a java.io.PrintStream
     private PrintStream field_926;
-    // $FF: renamed from: b java.io.PrintStream
+
     private PrintStream field_927;
-    // $FF: renamed from: c java.io.PrintStream
+
     private PrintStream field_928;
-    // $FF: renamed from: a g.j
+
     private class_312 field_929;
-    // $FF: renamed from: a int
+
     int field_930;
-    // $FF: renamed from: a f.g
+
     private static final class_323 field_931;
-    // $FF: renamed from: a batch.d
+
     class_238 field_932;
 
-    // $FF: renamed from: <init> (batch.d, java.io.PrintStream, java.io.PrintStream) void
     public class_217(class_238 var1, PrintStream var2, PrintStream var3) {
         this.field_932 = var1;
         this.field_928 = var2;
@@ -49,7 +46,6 @@ public class class_217 {
         this.field_929 = var10001;
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String) java.lang.String
     public String method_1228(String var1, String var2) {
         char var3 = 47;
         String var4 = "/";
@@ -67,7 +63,6 @@ public class class_217 {
         return var5.append(var7).toString();
     }
 
-    // $FF: renamed from: a () void
     public void method_1229() {
         if (this.field_927 != null) {
             if ((this.field_930 & 1) != 0) {
@@ -78,50 +73,42 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: b () void
     public void method_1230() {
         this.method_1262(this.field_932.method_1411("progress.compiling"));
     }
 
-    // $FF: renamed from: l () void
     private void method_1231() {
         this.method_1236("extra_problems");
     }
 
-    // $FF: renamed from: m () void
     private void method_1232() {
         this.method_1236("problems");
     }
 
-    // $FF: renamed from: c () void
     public void method_1233() {
         if ((this.field_930 & 1) != 0) {
             this.method_1236("source");
         }
     }
 
-    // $FF: renamed from: d () void
     public void method_1234() {
         if ((this.field_930 & 1) != 0) {
             this.method_1236("sources");
         }
     }
 
-    // $FF: renamed from: e () void
     public void method_1235() {
         if ((this.field_930 & 1) != 0) {
             this.method_1236("tasks");
         }
     }
 
-    // $FF: renamed from: b (java.lang.String) void
     private void method_1236(String var1) {
         if (this.field_927 != null) {
             ((class_206)this.field_927).method_1189(var1, true, true);
         }
     }
 
-    // $FF: renamed from: a (b.e, char[], int) java.lang.String
     private String method_1237(class_235 var1, char[] var2, int var3) {
         int var4 = var1.method_1401();
         int var5 = var1.method_1402();
@@ -168,7 +155,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (b.e, char[]) void
     private void method_1238(class_235 var1, char[] var2) {
         int var3 = var1.method_1401();
         int var4 = var1.method_1402();
@@ -211,7 +197,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: f () void
     public void method_1239() {
         this.field_928.flush();
         this.field_926.flush();
@@ -220,18 +205,15 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (int) java.lang.String
     private String method_1240(int var1) {
         return (String)field_931.method_3214(var1 & 16777215);
     }
 
-    // $FF: renamed from: b (int) java.lang.String
     private String method_1241(int var1) {
         long var2 = class_248.method_1457(var1);
         return class_341.method_3312(var2);
     }
 
-    // $FF: renamed from: g () void
     public void method_1242() {
         class_316.method_3171(this.field_932.field_1041);
         long var1 = this.field_932.field_1041[0].field_1969;
@@ -261,7 +243,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (boolean, java.lang.String, java.lang.String) void
     public void method_1243(boolean var1, String var2, String var3) {
         if ((this.field_930 & 1) != 0) {
             String var4 = null;
@@ -298,7 +279,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.Exception) void
     public void method_1244(Exception var1) {
         String var2 = var1.toString();
         if ((this.field_930 & 1) != 0) {
@@ -321,7 +301,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (b.e, int, int) void
     private void method_1245(class_235 var1, int var2, int var3) {
         char[] var4 = var1.method_1400().toCharArray();
         String var5 = var4 == null ? this.field_932.method_1411("requestor.noFileNameSpecified") : new String(var4);
@@ -343,7 +322,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (batch.d) void
     public void method_1246(class_238 var1) {
         class_313 var2 = this.field_932.field_1043;
         int var3 = var2.method_29();
@@ -383,7 +361,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String, java.io.IOException) void
     public void method_1247(String var1, String var2, IOException var3) {
         if ((this.field_930 & 1) != 0) {
             this.field_929.method_39("message", this.field_932.method_1414("output.noClassFileCreated", new String[] {var1, var2, var3.getMessage()}));
@@ -392,7 +369,6 @@ public class class_217 {
         this.method_1261(this.field_932.method_1414("output.noClassFileCreated", new String[] {var1, var2, var3.getMessage()}));
     }
 
-    // $FF: renamed from: a (int) void
     public void method_1248(int var1) {
         if ((this.field_930 & 1) != 0) {
             this.field_929.method_39("value", new Integer(var1));
@@ -405,7 +381,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String) void
     public void method_1249(String var1) {
         if ((this.field_930 & 1) != 0) {
             this.field_929.method_39("message", var1);
@@ -414,7 +389,6 @@ public class class_217 {
         this.method_1261(var1);
     }
 
-    // $FF: renamed from: a (b.e, int, int, char[]) void
     private void method_1250(class_235 var1, int var2, int var3, char[] var4) {
         String var5;
         if ((this.field_930 & 2) != 0) {
@@ -440,7 +414,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (b.e[], char[], batch.d) int
     public int method_1251(class_235[] var1, char[] var2, class_238 var3) {
         int var4 = var1.length;
         int var5 = 0;
@@ -496,7 +469,6 @@ public class class_217 {
         return var5;
     }
 
-    // $FF: renamed from: a (int, int, int, int) void
     public void method_1252(int var1, int var2, int var3, int var4) {
         if ((this.field_930 & 1) != 0) {
             this.field_929.method_39("problems", new Integer(var1));
@@ -545,17 +517,14 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: h () void
     public void method_1253() {
         this.method_1264('.');
     }
 
-    // $FF: renamed from: a (int, int) void
     public void method_1254(int var1, int var2) {
         this.method_1262(this.field_932.method_1413("compile.repetition", String.valueOf(var1 + 1), String.valueOf(var2)));
     }
 
-    // $FF: renamed from: a (a.b) void
     public void method_1255(class_342 var1) {
         long var2 = var1.method_3323();
         long var4 = var1.field_1969;
@@ -575,7 +544,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: b (b.e, int, int) void
     private void method_1256(class_235 var1, int var2, int var3) {
         int var4 = var1.method_1401();
         int var5 = var1.method_1402();
@@ -591,7 +559,6 @@ public class class_217 {
         this.method_1236("extra_problem");
     }
 
-    // $FF: renamed from: b (b.e, char[]) void
     private void method_1257(class_235 var1, char[] var2) {
         int var3 = var1.method_1401();
         int var4 = var1.method_1402();
@@ -627,7 +594,6 @@ public class class_217 {
         this.method_1236("problem");
     }
 
-    // $FF: renamed from: c (b.e, char[]) void
     private void method_1258(class_235 var1, char[] var2) {
         this.field_929.method_39("line", new Integer(var1.method_1403()));
         this.field_929.method_39("charStart", new Integer(var1.method_1401()));
@@ -643,7 +609,6 @@ public class class_217 {
         this.method_1236("task");
     }
 
-    // $FF: renamed from: c (java.lang.String) void
     private void method_1259(String var1) {
         eclipse.field_427.method_737(var1);
         if ((this.field_930 & 1) == 0 && this.field_927 != null) {
@@ -651,7 +616,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: n () void
     private void method_1260() {
         this.field_926.println();
         if ((this.field_930 & 1) == 0 && this.field_927 != null) {
@@ -659,7 +623,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: d (java.lang.String) void
     private void method_1261(String var1) {
         eclipse.field_427.method_737(var1);
         if ((this.field_930 & 1) == 0 && this.field_927 != null) {
@@ -667,7 +630,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: e (java.lang.String) void
     private void method_1262(String var1) {
         eclipse.field_427.method_733(var1);
         if ((this.field_930 & 1) == 0 && this.field_927 != null) {
@@ -675,17 +637,14 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: i () void
     public void method_1263() {
         eclipse.field_427.method_733("");
     }
 
-    // $FF: renamed from: a (char) void
     private void method_1264(char var1) {
         eclipse.field_427.method_744(String.valueOf(var1));
     }
 
-    // $FF: renamed from: j () void
     public void method_1265() {
         class_238 var10001 = this.field_932;
         boolean var1 = (this.field_932.field_1040 & 1) != 0;
@@ -709,7 +668,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, g.j, boolean, boolean) void
     private void method_1266(String var1, class_312 var2, boolean var3, boolean var4) {
         if (this.field_927 != null) {
             ((class_206)this.field_927).method_1191(var1, this.field_929, true, var3, var4);
@@ -717,13 +675,11 @@ public class class_217 {
         this.field_929.method_41();
     }
 
-    // $FF: renamed from: c (int) void
     private void method_1267(int var1) {
         this.field_929.method_39("problems", new Integer(var1));
         this.method_1266("extra_problems", this.field_929, true, false);
     }
 
-    // $FF: renamed from: b (int, int) void
     private void method_1268(int var1, int var2) {
         this.field_929.method_39("problems", new Integer(var1 + var2));
         this.field_929.method_39("errors", new Integer(var1));
@@ -731,7 +687,6 @@ public class class_217 {
         this.method_1266("problems", this.field_929, true, false);
     }
 
-    // $FF: renamed from: a (c.h) void
     public void method_1269(class_284 var1) {
         if ((this.field_930 & 1) != 0) {
             class_19 var2 = var1.field_1677;
@@ -762,14 +717,12 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: k () void
     public void method_1270() {
         if ((this.field_930 & 1) != 0) {
             this.method_1266("sources", (class_312)null, true, false);
         }
     }
 
-    // $FF: renamed from: b (int) void
     public void method_1271(int var1) {
         if ((this.field_930 & 1) != 0) {
             this.field_929.method_39("tasks", new Integer(var1));
@@ -777,7 +730,6 @@ public class class_217 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         class_323 var10000 = new class_323();
         field_931 = var10000;

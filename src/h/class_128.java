@@ -13,19 +13,15 @@ import m.class_41;
 import m.class_42;
 import m.class_86;
 
-// $FF: renamed from: h.cr
 public class class_128 extends class_126 {
 
-    // $FF: renamed from: a h.r[]
     public class_126[] field_679;
-    // $FF: renamed from: a m.p
+
     public class_42 field_680;
 
-    // $FF: renamed from: <init> () void
     public class_128() {
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         if (this.field_679 != null) {
             int var4 = 0;
@@ -36,7 +32,6 @@ public class class_128 extends class_126 {
         return (class_301)var3;
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         int var5 = this.field_679 == null ? 0 : this.field_679.length;
@@ -103,7 +98,6 @@ public class class_128 extends class_126 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append('{');
         if (this.field_679 != null) {
@@ -124,7 +118,6 @@ public class class_128 extends class_126 {
         return var2.append('}');
     }
 
-    // $FF: renamed from: a (m.v, m.s) m.s
     public class_40 method_926(class_86 var1, class_40 var2) {
         this.field_672 = class_331.field_1896;
         int var4;
@@ -200,7 +193,6 @@ public class class_128 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_1994(this, var2) && this.field_679 != null) {
             int var3 = this.field_679.length;

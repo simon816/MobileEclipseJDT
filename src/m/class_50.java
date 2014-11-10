@@ -9,10 +9,8 @@ import m.class_43;
 import m.class_49;
 import m.class_80;
 
-// $FF: renamed from: m.ai
 public class class_50 extends class_49 {
 
-    // $FF: renamed from: <init> (m.ar, char[][], m.af) void
     public class_50(class_38 var1, char[][] var2, class_80 var3) {
         this.field_197 = var2;
         this.method_198();
@@ -30,7 +28,6 @@ public class class_50 extends class_49 {
         this.field_235 = class_34.field_154;
     }
 
-    // $FF: renamed from: a (g.l) g.l
     public class_13 method_132(class_13 var1) {
         if (var1 == null) {
             class_313 var10000 = new class_313(5);
@@ -42,12 +39,10 @@ public class class_50 extends class_49 {
         return (class_13)var1;
     }
 
-    // $FF: renamed from: c () int
     public int method_102() {
         return 1;
     }
 
-    // $FF: renamed from: a (m.as) void
     void method_279(class_43 var1) {
         this.field_231 = var1;
     }

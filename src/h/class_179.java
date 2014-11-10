@@ -8,20 +8,16 @@ import i.class_268;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.k
 public class class_179 extends class_177 {
 
-    // $FF: renamed from: a float
     float field_794;
-    // $FF: renamed from: b float
+
     static final float field_795;
 
-    // $FF: renamed from: <init> (char[], int, int) void
     public class_179(char[] var1, int var2, int var3) {
         super(var1, var2, var3);
     }
 
-    // $FF: renamed from: a () void
     public void method_1081() {
         Float var1;
         try {
@@ -79,7 +75,6 @@ public class class_179 extends class_177 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (var3) {
@@ -88,18 +83,15 @@ public class class_179 extends class_177 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: b (m.v) m.s
     public class_40 method_1082(class_86 var1) {
         return class_40.field_184;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2023(this, var2);
         var1.method_1938(this, var2);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_795 = Float.intBitsToFloat(1);
     }

@@ -1,13 +1,10 @@
 package g;
 
-// $FF: renamed from: g.o
 public class class_309 {
 
-    // $FF: renamed from: <init> () void
     public class_309() {
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.Object[]) java.lang.String
     public static String method_3156(String var0, Object[] var1) {
         if (var1 != null && var1.length >= 1) {
             StringBuffer var2 = new StringBuffer();

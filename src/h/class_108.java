@@ -18,22 +18,18 @@ import m.class_43;
 import m.class_67;
 import m.class_86;
 
-// $FF: renamed from: h.bu
 public class class_108 extends class_98 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_566;
-    // $FF: renamed from: a i.q
+
     public class_75 field_567;
 
-    // $FF: renamed from: <init> (h.r, int, int) void
     public class_108(class_126 var1, int var2, int var3) {
         this.field_566 = var1;
         this.field_445 = var2;
         this.field_444 = var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         if (this.field_566 != null) {
             if (this.field_566.field_672 == class_331.field_1896 && !this.field_566.field_675.method_153()) {
@@ -44,7 +40,6 @@ public class class_108 extends class_98 {
         return var3;
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2);
         if (this.field_566 == null) {
@@ -56,7 +51,6 @@ public class class_108 extends class_98 {
         return var2.append(';');
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -65,10 +59,8 @@ public class class_108 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {}
 
-    // $FF: renamed from: a (m.v, m.s, h.bg) a.k
     public class_331 method_822(class_86 var1, class_40 var2, class_115 var3) {
         var1.field_399 = this;
         if (this.field_566 == null) {
@@ -114,7 +106,6 @@ public class class_108 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2005(this, var2) && this.field_566 != null) {
             this.field_566.method_763(var1, var2);

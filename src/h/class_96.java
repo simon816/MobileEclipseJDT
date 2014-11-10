@@ -19,20 +19,16 @@ import m.class_40;
 import m.class_84;
 import n.class_244;
 
-// $FF: renamed from: h.ae
 public class class_96 extends class_93 {
 
-    // $FF: renamed from: a h.bo
     public class_146 field_497;
-    // $FF: renamed from: a h.br[]
+
     public class_123[] field_498;
 
-    // $FF: renamed from: <init> (c.h) void
     public class_96(class_284 var1) {
         super(var1);
     }
 
-    // $FF: renamed from: a (m.f, l.h, l.g) void
     public void method_786(class_84 var1, class_299 var2, class_301 var3) {
         if (!this.field_489) {
             try {
@@ -85,17 +81,14 @@ public class class_96 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (j.r, h.b) void
     public void method_800(class_278 var1, class_90 var2) {
         var1.method_2859(this, var2);
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_802(int var1, StringBuffer var2) {
         return this.field_497 == null ? var2 : this.field_497.method_924(0, var2).append(' ');
     }
 
-    // $FF: renamed from: c () void
     public void method_805() {
         if (this.field_497 != null && this.field_488 != null) {
             this.field_497.field_675 = this.field_488.field_275;
@@ -148,7 +141,6 @@ public class class_96 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.f) void
     public void method_806(class_264 var1, class_84 var2) {
         if (var1.method_2036(this, var2)) {
             int var3;
@@ -190,7 +182,6 @@ public class class_96 extends class_93 {
         var1.method_1951(this, var2);
     }
 
-    // $FF: renamed from: a () h.br[]
     public class_123[] method_807() {
         return this.field_498;
     }

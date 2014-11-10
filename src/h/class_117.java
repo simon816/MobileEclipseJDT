@@ -24,59 +24,56 @@ import m.class_65;
 import m.class_86;
 import m.class_87;
 
-// $FF: renamed from: h.bl
 public class class_117 extends class_116 {
 
-    // $FF: renamed from: a char[]
     private static final char[] field_616;
-    // $FF: renamed from: b char[]
+
     private static final char[] field_617;
-    // $FF: renamed from: au char[]
+
     private static final char[] field_618;
-    // $FF: renamed from: a h.bz
+
     public class_112 field_619;
-    // $FF: renamed from: a h.bz[]
+
     public class_112[] field_620;
-    // $FF: renamed from: a h.cp[]
+
     public class_125[] field_621;
-    // $FF: renamed from: b h.bz
+
     public class_112 field_622;
-    // $FF: renamed from: a m.v
+
     class_86 field_623;
-    // $FF: renamed from: a l.f
+
     public class_303 field_624;
-    // $FF: renamed from: a m.as[]
+
     class_43[] field_625;
-    // $FF: renamed from: a boolean[]
+
     boolean[] field_626;
-    // $FF: renamed from: a i.s
+
     class_74 field_627;
-    // $FF: renamed from: a m.ab
+
     public class_65 field_628;
-    // $FF: renamed from: b m.ab
+
     public class_65 field_629;
-    // $FF: renamed from: c m.ab
+
     public class_65 field_630;
-    // $FF: renamed from: a i.n[]
+
     class_73[] field_631;
-    // $FF: renamed from: a java.lang.Object[]
+
     private Object[] field_632;
-    // $FF: renamed from: a i.s[]
+
     private class_74[] field_633;
-    // $FF: renamed from: b int[]
+
     private int[] field_634;
-    // $FF: renamed from: d int
+
     private int field_635;
-    // $FF: renamed from: a int
+
     int field_636;
-    // $FF: renamed from: b int
+
     int field_637;
-    // $FF: renamed from: c int
+
     int field_638;
-    // $FF: renamed from: a int[]
+
     int[] field_639;
 
-    // $FF: renamed from: <init> () void
     public class_117() {
         this.field_635 = 0;
         this.field_636 = -1;
@@ -84,7 +81,6 @@ public class class_117 extends class_116 {
         this.field_638 = -1;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         this.field_637 = var1.method_635().method_729(var3);
         if (this.field_628 != null) {
@@ -202,12 +198,10 @@ public class class_117 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a (i.o) i.n
     public class_73 method_872(class_268 var1) {
         return this.field_627 == null ? null : super.method_872(var1);
     }
 
-    // $FF: renamed from: a (i.o) void
     public void method_873(class_268 var1) {
         int var2 = 0;
         for (int var3 = this.field_631 == null ? 0 : this.field_631.length; var2 < var3; ++var2) {
@@ -215,14 +209,12 @@ public class class_117 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_874() {
         if (this.field_627 != null) {
             super.method_874();
         }
     }
 
-    // $FF: renamed from: b (i.o) void
     public void method_878(class_268 var1) {
         int var2 = 0;
         for (int var3 = this.field_631 == null ? 0 : this.field_631.length; var2 < var3; ++var2) {
@@ -230,12 +222,10 @@ public class class_117 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a () int
     private int method_879() {
         return this.field_627 == null ? 0 : (this.method_876() ? 2 : (this.field_623.method_577().field_1957 ? 3 : 1));
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             boolean var3 = var2 instanceof class_269;
@@ -467,7 +457,6 @@ public class class_117 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, java.lang.Object, int, m.ab) boolean
     public boolean method_875(class_86 var1, class_268 var2, Object var3, int var4, class_65 var5) {
         boolean var6 = var2 instanceof class_269;
         int var7 = this.method_879();
@@ -542,12 +531,10 @@ public class class_117 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_876() {
         return (this.field_446 & 16384) != 0;
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append("try \n");
         this.field_619.method_820(var1 + 1, var2);
@@ -567,7 +554,6 @@ public class class_117 extends class_116 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_86 var10001 = new class_86(var1);
         this.field_623 = var10001;
@@ -650,7 +636,6 @@ public class class_117 extends class_116 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2065(this, var2)) {
             this.field_619.method_763(var1, this.field_623);
@@ -668,7 +653,6 @@ public class class_117 extends class_116 {
         var1.method_1980(this, var2);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_616 = " returnAddress".toCharArray();
         field_617 = " anyExceptionHandler".toCharArray();

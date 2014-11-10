@@ -18,29 +18,26 @@ import j.class_259;
 import j.class_260;
 import m.class_40;
 
-// $FF: renamed from: j.f
 public class class_261 extends class_258 {
 
-    // $FF: renamed from: a h.bz
     public class_112 field_1144;
-    // $FF: renamed from: a j.n[]
+
     public class_258[] field_1145;
-    // $FF: renamed from: a int
+
     public int field_1146;
-    // $FF: renamed from: a boolean
+
     public boolean field_1147;
-    // $FF: renamed from: a j.p
+
     public class_259 field_1148;
-    // $FF: renamed from: b int
+
     int field_1149;
-    // $FF: renamed from: c int
+
     int field_1150;
-    // $FF: renamed from: a j.g[]
+
     class_257[] field_1151;
-    // $FF: renamed from: d int
+
     int field_1152;
 
-    // $FF: renamed from: <init> (h.bz, j.e, int) void
     public class_261(class_112 var1, class_251 var2, int var3) {
         super(var1, var2, var3);
         this.field_1147 = false;
@@ -50,7 +47,6 @@ public class class_261 extends class_258 {
         this.field_1147 = this.method_1844().field_1621 || this.method_1844().field_1622;
     }
 
-    // $FF: renamed from: a (h.ci, int) j.e
     public class_251 method_1832(class_93 var1, int var2) {
         if (this.field_1068 != null && this.field_1068 instanceof class_255) {
             class_255 var3 = (class_255)this.field_1068;
@@ -62,7 +58,6 @@ public class class_261 extends class_258 {
         return super.method_1832(var1, var2);
     }
 
-    // $FF: renamed from: a (h.bz, int) j.e
     public class_251 method_1833(class_112 var1, int var2) {
         this.method_1846();
         if (this.field_1144.field_445 != 0 && var1.field_444 > this.field_1144.field_445) {
@@ -82,12 +77,10 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: a (h.ac, int) j.e
     public class_251 method_1836(class_124 var1, int var2) {
         return this.method_1886(var1, var2, false);
     }
 
-    // $FF: renamed from: a (h.ac, int, boolean) j.e
     public class_251 method_1886(class_124 var1, int var2, boolean var3) {
         if (this.field_1144.field_445 != 0 && var1.field_653 > this.field_1144.field_445) {
             this.method_1846();
@@ -112,12 +105,10 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: a (h.bf, int) j.e
     public class_251 method_1837(class_98 var1, int var2) {
         return this.method_1887(var1, var2, false);
     }
 
-    // $FF: renamed from: a (h.bf, int, boolean) j.e
     public class_251 method_1887(class_98 var1, int var2, boolean var3) {
         this.method_1846();
         if (this.field_1144.field_445 != 0 && var1.field_444 > this.field_1144.field_445) {
@@ -133,12 +124,10 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: a (h.bq, int) j.e
     public class_251 method_1838(class_114 var1, int var2) {
         return this.method_1888(var1, var2, false);
     }
 
-    // $FF: renamed from: a (h.bq, int, boolean) j.e
     public class_251 method_1888(class_114 var1, int var2, boolean var3) {
         if (this.field_1144.field_445 != 0 && var1.field_592 > this.field_1144.field_445) {
             this.method_1846();
@@ -158,7 +147,6 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: a (int, int, int, int) j.e
     public class_251 method_1831(int var1, int var2, int var3, int var4) {
         if (this.field_1151 == null) {
             this.field_1151 = new class_257[5];
@@ -172,7 +160,6 @@ public class class_261 extends class_258 {
         return var5;
     }
 
-    // $FF: renamed from: b (int, int) void
     public void method_1840(int var1, int var2) {
         this.field_1149 |= var1;
         if (this.field_1150 < 0) {
@@ -180,7 +167,6 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: a (j.n) void
     void method_1889(class_258 var1) {
         if (this.field_1145 == null) {
             this.field_1145 = new class_258[5];
@@ -191,7 +177,6 @@ public class class_261 extends class_258 {
         this.field_1145[this.field_1146++] = var1;
     }
 
-    // $FF: renamed from: a (j.g[], int, int, int) void
     void method_1890(class_257[] var1, int var2, int var3, int var4) {
         this.field_1151 = var1;
         this.field_1152 = var2;
@@ -199,12 +184,10 @@ public class class_261 extends class_258 {
         this.field_1150 = var4;
     }
 
-    // $FF: renamed from: a () h.cj
     public class_89 method_1845() {
         return this.field_1144;
     }
 
-    // $FF: renamed from: b () void
     public void method_1846() {
         this.field_1151 = null;
         this.field_1152 = 0;
@@ -212,7 +195,6 @@ public class class_261 extends class_258 {
         this.field_1150 = -1;
     }
 
-    // $FF: renamed from: a (int) java.lang.String
     public String method_1850(int var1) {
         StringBuffer var2 = new StringBuffer(this.method_1848(var1));
         var2.append("Recovered block:\n");
@@ -226,7 +208,6 @@ public class class_261 extends class_258 {
         return var2.toString();
     }
 
-    // $FF: renamed from: a () h.bz
     public class_112 method_1891() {
         if (this.field_1147 && this.field_1146 != 0) {
             class_98[] var1 = new class_98[this.field_1146];
@@ -303,12 +284,10 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: a () h.bf
     public class_98 method_1876() {
         return this.method_1891();
     }
 
-    // $FF: renamed from: a (int, int) j.e
     public class_251 method_1853(int var1, int var2) {
         if (--this.field_1069 <= 0 && this.field_1068 != null) {
             this.method_1856(var1, var2);
@@ -324,7 +303,6 @@ public class class_261 extends class_258 {
         }
     }
 
-    // $FF: renamed from: b (int, int) j.e
     public class_251 method_1854(int var1, int var2) {
         class_112 var10000 = new class_112(0);
         class_112 var3 = var10000;
@@ -332,12 +310,10 @@ public class class_261 extends class_258 {
         return this.method_1833(var3, 1);
     }
 
-    // $FF: renamed from: a () void
     public void method_1855() {
         this.method_1891();
     }
 
-    // $FF: renamed from: a (h.m, int) j.e
     public class_251 method_1834(class_121 var1, int var2) {
         this.method_1846();
         char[][] var3;

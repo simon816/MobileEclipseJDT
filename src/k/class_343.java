@@ -4,14 +4,12 @@ import b.class_233;
 import k.class_344;
 import k.class_345;
 
-// $FF: renamed from: k.a
 public class class_343 {
 
-    // $FF: renamed from: a k.b[]
     private class_344[] field_1974;
-    // $FF: renamed from: a byte
+
     public byte field_1975;
-    // $FF: renamed from: a java.lang.String
+
     public String field_1976;
 
     public boolean equals(Object var1) {
@@ -39,7 +37,6 @@ public class class_343 {
         }
     }
 
-    // $FF: renamed from: a (char[]) k.c
     public class_345 method_3324(char[] var1) {
         int var2 = 0;
         for (int var3 = this.field_1974.length; var2 < var3; ++var2) {
@@ -62,7 +59,6 @@ public class class_343 {
         return this.method_3325(true);
     }
 
-    // $FF: renamed from: a (boolean) java.lang.String
     public String method_3325(boolean var1) {
         StringBuffer var2 = new StringBuffer(200);
         var2.append("AccessRuleSet {");

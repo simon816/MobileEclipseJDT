@@ -3,15 +3,12 @@ package m;
 import m.class_38;
 import m.class_40;
 
-// $FF: renamed from: m.n
 public final class class_41 extends class_40 {
 
-    // $FF: renamed from: a char[]
     public char[] field_189;
-    // $FF: renamed from: b char[]
+
     private char[] field_190;
 
-    // $FF: renamed from: <init> (int, char[], char[]) void
     class_41(int var1, char[] var2, char[] var3) {
         this.field_178 |= 2L;
         this.field_177 = var1;
@@ -19,17 +16,14 @@ public final class class_41 extends class_40 {
         this.field_190 = var3;
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_134() {
         return this.field_190;
     }
 
-    // $FF: renamed from: a () m.ar
     public class_38 method_143() {
         return null;
     }
 
-    // $FF: renamed from: a (m.s) boolean
     public final boolean method_152(class_40 var1) {
         if (this == var1) {
             return true;
@@ -104,7 +98,6 @@ public final class class_41 extends class_40 {
         }
     }
 
-    // $FF: renamed from: a (int, int) boolean
     public static final boolean method_184(int var0, int var1) {
         switch (var0) {
             case 2:
@@ -142,12 +135,10 @@ public final class class_41 extends class_40 {
         }
     }
 
-    // $FF: renamed from: a (boolean) boolean
     public boolean method_171(boolean var1) {
         return this == class_40.field_187;
     }
 
-    // $FF: renamed from: b (int, int) boolean
     public static final boolean method_185(int var0, int var1) {
         switch (var0) {
             case 2:
@@ -186,27 +177,22 @@ public final class class_41 extends class_40 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_98() {
         return 132;
     }
 
-    // $FF: renamed from: c () char[]
     public char[] method_177() {
         return this.field_189;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_103() {
         return this.field_189;
     }
 
-    // $FF: renamed from: d () char[]
     public char[] method_104() {
         return this.field_189;
     }
 
-    // $FF: renamed from: e () char[]
     public char[] method_179() {
         return this.field_189;
     }

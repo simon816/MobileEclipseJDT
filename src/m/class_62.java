@@ -12,13 +12,10 @@ import m.class_80;
 import m.class_83;
 import m.class_88;
 
-// $FF: renamed from: m.am
 public class class_62 extends class_58 {
 
-    // $FF: renamed from: a m.ae
     protected class_58 field_292;
 
-    // $FF: renamed from: <init> (m.al, m.ae) void
     public class_62(class_52 var1, class_58 var2) {
         super(var2.field_273, var2.field_274, var2.field_275, var2.field_276, var2.field_277, var1);
         this.field_292 = var2;
@@ -106,11 +103,9 @@ public class class_62 extends class_58 {
         }
     }
 
-    // $FF: renamed from: <init> () void
     public class_62() {
     }
 
-    // $FF: renamed from: a (m.s, m.ae, m.bb) m.am
     public static class_62 method_399(class_40 var0, class_58 var1, class_83 var2) {
         class_62 var10000 = new class_62();
         class_62 var3 = var10000;
@@ -132,17 +127,14 @@ public class class_62 extends class_58 {
         return var3;
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_354() {
         return this.field_276 != this.field_292.field_276;
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_355() {
         return this.field_275 != this.field_292.field_275;
     }
 
-    // $FF: renamed from: a () m.ae
     public class_58 method_376() {
         return this.field_292.method_376();
     }

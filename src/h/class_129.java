@@ -15,17 +15,14 @@ import m.class_54;
 import m.class_67;
 import m.class_86;
 
-// $FF: renamed from: h.cd
 public class class_129 extends class_126 {
 
-    // $FF: renamed from: a h.bo
     public class_146 field_681;
-    // $FF: renamed from: a m.s
+
     public class_40 field_682;
-    // $FF: renamed from: a m.k
+
     class_67 field_683;
 
-    // $FF: renamed from: <init> (int, h.bo) void
     public class_129(int var1, class_146 var2) {
         this.field_681 = var2;
         var2.field_446 |= 1073741824;
@@ -33,7 +30,6 @@ public class class_129 extends class_126 {
         this.field_445 = var1;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         class_54 var4 = var1.method_640().method_585();
         if (!var4.method_157() && !this.field_682.method_148() && var1.method_577().field_1928 < 3211264L) {
@@ -42,7 +38,6 @@ public class class_129 extends class_126 {
         return var3;
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (var3) {
@@ -52,12 +47,10 @@ public class class_129 extends class_126 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         return this.field_681.method_757(0, var2).append(".class");
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         this.field_672 = class_331.field_1896;
         if ((this.field_682 = this.field_681.method_1017(var1, true)) == null) {
@@ -94,7 +87,6 @@ public class class_129 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2008(this, var2)) {
             this.field_681.method_763(var1, var2);

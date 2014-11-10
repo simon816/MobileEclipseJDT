@@ -8,19 +8,16 @@ import g.class_316;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-// $FF: renamed from: f.l
 public class class_206 extends PrintStream {
 
     public class_206(OutputStream var0) {
         super(var0);
     }
 
-// $FF: renamed from: a java.lang.String
     private String field_890;
-    // $FF: renamed from: a int
+
     private int field_891;
 
-    // $FF: renamed from: a (java.lang.StringBuffer, char) void
     private static void method_1186(StringBuffer var0, char var1) {
         String var2 = method_1188(var1);
         if (var2 != null) {
@@ -32,7 +29,6 @@ public class class_206 extends PrintStream {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String) java.lang.String
     private static String method_1187(String var0) {
         StringBuffer var1 = new StringBuffer(var0.length() + 10);
         for (int var2 = 0; var2 < var0.length(); ++var2) {
@@ -41,7 +37,6 @@ public class class_206 extends PrintStream {
         return var1.toString();
     }
 
-    // $FF: renamed from: a (char) java.lang.String
     private static String method_1188(char var0) {
         switch (var0) {
             case 34:
@@ -59,20 +54,17 @@ public class class_206 extends PrintStream {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, boolean, boolean) void
     public void method_1189(String var1, boolean var2, boolean var3) {
         --this.field_891;
         this.method_1191('/' + var1, (class_312)null, var2, var3, false);
     }
 
-    // $FF: renamed from: a () void
     private void method_1190() {
         for (int var1 = 0; var1 < this.field_891; ++var1) {
             this.print('\t');
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, g.j, boolean, boolean, boolean) void
     public void method_1191(String var1, class_312 var2, boolean var3, boolean var4, boolean var5) {
         if (var3) {
             this.method_1190();

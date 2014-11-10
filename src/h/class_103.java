@@ -14,33 +14,30 @@ import l.class_303;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.l
 public class class_103 extends class_98 {
 
-    // $FF: renamed from: a h.bf[]
     public class_98[] field_530;
-    // $FF: renamed from: a h.r
+
     public class_126 field_531;
-    // $FF: renamed from: b h.bf[]
+
     public class_98[] field_532;
-    // $FF: renamed from: a h.bf
+
     public class_98 field_533;
-    // $FF: renamed from: a m.v
+
     public class_86 field_534;
-    // $FF: renamed from: a i.s
+
     private class_74 field_535;
-    // $FF: renamed from: b i.s
+
     private class_74 field_536;
-    // $FF: renamed from: a int
+
     int field_537;
-    // $FF: renamed from: b int
+
     int field_538;
-    // $FF: renamed from: c int
+
     int field_539;
-    // $FF: renamed from: d int
+
     int field_540;
 
-    // $FF: renamed from: <init> (h.bf[], h.r, h.bf[], h.bf, boolean, int, int) void
     public class_103(class_98[] var1, class_126 var2, class_98[] var3, class_98 var4, boolean var5, int var6, int var7) {
         this.field_537 = -1;
         this.field_538 = -1;
@@ -60,7 +57,6 @@ public class class_103 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         class_74 var10001 = new class_74();
         this.field_535 = var10001;
@@ -164,7 +160,6 @@ public class class_103 extends class_98 {
         return var22;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -254,7 +249,6 @@ public class class_103 extends class_98 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append("for (");
         int var3;
@@ -289,7 +283,6 @@ public class class_103 extends class_98 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_86 var10001;
         if ((this.field_446 & 536870912) != 0) {
@@ -321,7 +314,6 @@ public class class_103 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2025(this, var2)) {
             int var3;

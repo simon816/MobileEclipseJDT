@@ -16,25 +16,22 @@ import m.class_62;
 import m.class_80;
 import m.class_83;
 
-// $FF: renamed from: m.ap
 public class class_63 extends class_62 implements class_32 {
 
-    // $FF: renamed from: d m.s[]
     public class_40[] field_293;
-    // $FF: renamed from: a m.af
+
     private class_80 field_294;
-    // $FF: renamed from: a boolean
+
     public boolean field_295;
-    // $FF: renamed from: b boolean
+
     public boolean field_296;
-    // $FF: renamed from: c boolean
+
     public boolean field_297;
-    // $FF: renamed from: b m.ae
+
     private class_58 field_298;
-    // $FF: renamed from: d boolean
+
     public boolean field_299;
 
-    // $FF: renamed from: a (m.ae, m.s[], m.bb, m.ad) m.ae
     public static class_58 method_400(class_58 var0, class_40[] var1, class_83 var2, class_0 var3) {
         class_46[] var5 = var0.field_279;
         class_40[] var6 = var3.method_0();
@@ -99,7 +96,6 @@ public class class_63 extends class_62 implements class_32 {
         return var4;
     }
 
-    // $FF: renamed from: a (m.bb, m.ae, m.s[], m.s[], m.g) m.ap
     private static class_63 method_401(class_83 var0, class_58 var1, class_40[] var2, class_40[] var3, class_321 var4) {
         int var5;
         int var6;
@@ -179,7 +175,6 @@ public class class_63 extends class_62 implements class_32 {
         }
     }
 
-    // $FF: renamed from: a (m.bb, m.x[], m.g, boolean) boolean
     private static boolean method_402(class_83 var0, class_46[] var1, class_321 var2, boolean var3) {
         class_40[] var4 = var2.field_1832;
         int var5 = var1.length;
@@ -256,7 +251,6 @@ public class class_63 extends class_62 implements class_32 {
         return true;
     }
 
-    // $FF: renamed from: <init> (m.ae, m.at, m.af) void
     public class_63(class_58 var1, class_53 var2, class_80 var3) {
         class_46[] var4 = var1.field_279;
         int var5 = var4.length;
@@ -283,7 +277,6 @@ public class class_63 extends class_62 implements class_32 {
         this.field_296 = false;
     }
 
-    // $FF: renamed from: <init> (m.ae, m.s[], m.af) void
     public class_63(class_58 var1, class_40[] var2, class_80 var3) {
         this.field_294 = var3;
         this.field_273 = var1.field_273;
@@ -333,22 +326,18 @@ public class class_63 extends class_62 implements class_32 {
         this.field_296 = true;
     }
 
-    // $FF: renamed from: a () m.af
     public class_80 method_91() {
         return this.field_294;
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_354() {
         return this.field_296 ? this.field_292.method_354() : super.method_354();
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_355() {
         return this.field_295 ? this.field_292.method_355() : super.method_355();
     }
 
-    // $FF: renamed from: a (m.bb, m.g) m.ap
     private class_63 method_405(class_83 var1, class_321 var2) {
         class_46[] var3 = this.field_292.field_279;
         int var4 = var3.length;
@@ -447,19 +436,16 @@ public class class_63 extends class_62 implements class_32 {
         return this;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_92() {
         return this.field_297;
     }
 
-    // $FF: renamed from: a (m.x) m.s
     public class_40 method_90(class_46 var1) {
         class_46[] var2 = this.field_292.field_279;
         int var3 = var2.length;
         return (class_40)(var1.field_221 < var3 && var2[var1.field_221] == var1 ? this.field_293[var1.field_221] : var1);
     }
 
-    // $FF: renamed from: b () m.ae
     public class_58 method_386() {
         if (this.field_298 == null) {
             class_46[] var1 = this.field_292.field_279;

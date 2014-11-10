@@ -10,15 +10,12 @@ import m.class_67;
 import m.class_80;
 import m.class_83;
 
-// $FF: renamed from: m.bf
 public class class_203 {
 
-    // $FF: renamed from: a m.as
     class_43 field_886;
-    // $FF: renamed from: a m.c[]
+
     class_320[] field_887;
 
-    // $FF: renamed from: a (m.bf[], long, m.af) m.bf[]
     public static class_203[] method_1176(class_203[] var0, long var1, class_80 var3) {
         int var4 = 0;
         if ((var1 & 17557826306048L) != 0L) {
@@ -73,13 +70,11 @@ public class class_203 {
         }
     }
 
-    // $FF: renamed from: a (char[][], m.af) m.bf
     private static class_203 method_1177(char[][] var0, class_80 var1) {
         class_43 var2 = var1.method_506(var0, (class_83)null);
         return var1.method_492(var2, class_34.field_159);
     }
 
-    // $FF: renamed from: a (long, m.af) m.bf
     private static class_203 method_1178(long var0, class_80 var2) {
         class_43 var3 = var2.method_506(class_17.field_126, (class_83)null);
         class_67 var4 = null;
@@ -97,7 +92,6 @@ public class class_203 {
         return var2.method_492(var10001, var10002);
     }
 
-    // $FF: renamed from: b (long, m.af) m.bf
     private static class_203 method_1179(long var0, class_80 var2) {
         class_43 var3 = var2.method_506(class_17.field_125, (class_83)null);
         if ((var0 & 34359738368L) != 0L) {
@@ -165,23 +159,19 @@ public class class_203 {
         }
     }
 
-    // $FF: renamed from: <init> (m.as, m.c[]) void
     class_203(class_43 var1, class_320[] var2) {
         this.field_886 = var1;
         this.field_887 = var2;
     }
 
-    // $FF: renamed from: <init> (h.cn) void
     class_203(class_164 var1) {
         this((class_43)var1.field_675, var1.method_1071());
     }
 
-    // $FF: renamed from: a () m.as
     public class_43 method_1182() {
         return this.field_886;
     }
 
-    // $FF: renamed from: a (m.as, m.c[]) void
     public static void method_1183(class_43 var0, class_320[] var1) {
         int var2 = var1.length;
         while (true) {

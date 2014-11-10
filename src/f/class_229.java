@@ -1,21 +1,17 @@
 package f;
 
-// $FF: renamed from: f.q
 public final class class_229 {
 
-    // $FF: renamed from: a java.lang.Object[]
     public Object[] field_987;
-    // $FF: renamed from: a int
+
     public int field_988;
-    // $FF: renamed from: b int
+
     public int field_989;
 
-    // $FF: renamed from: <init> () void
     public class_229() {
         this(13);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_229(int var1) {
         if (var1 < 3) {
             var1 = 3;
@@ -25,7 +21,6 @@ public final class class_229 {
         this.field_987 = new Object[2 * var1 + 1];
     }
 
-    // $FF: renamed from: a (java.lang.Object) java.lang.Object
     public Object method_1335(Object var1) {
         int var2 = this.field_987.length;
         int var3 = (var1.hashCode() & Integer.MAX_VALUE) % var2;
@@ -46,7 +41,6 @@ public final class class_229 {
         return var1;
     }
 
-    // $FF: renamed from: a (java.lang.Object[]) void
     public void method_1336(Object[] var1) {
         if (this.field_988 != var1.length) {
             throw new IllegalArgumentException();
@@ -62,7 +56,6 @@ public final class class_229 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.Object) boolean
     public boolean method_1337(Object var1) {
         int var2 = this.field_987.length;
         int var3 = (var1.hashCode() & Integer.MAX_VALUE) % var2;
@@ -79,7 +72,6 @@ public final class class_229 {
         return false;
     }
 
-    // $FF: renamed from: a () void
     private void method_1338() {
         class_229 var10000 = new class_229(this.field_988 * 2);
         class_229 var1 = var10000;

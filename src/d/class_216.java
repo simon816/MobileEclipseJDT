@@ -1,22 +1,19 @@
 package d;
 
-// $FF: renamed from: d.c
 public class class_216 {
 
-    // $FF: renamed from: a int
     int field_920;
-    // $FF: renamed from: a char[]
+
     char[] field_921;
-    // $FF: renamed from: b int
+
     int field_922;
-    // $FF: renamed from: c int
+
     int field_923;
-    // $FF: renamed from: d int
+
     int field_924;
-    // $FF: renamed from: e int
+
     int field_925;
 
-    // $FF: renamed from: <init> () void
     public class_216() {
     }
 

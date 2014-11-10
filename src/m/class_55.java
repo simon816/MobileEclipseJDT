@@ -7,28 +7,24 @@ import m.class_65;
 import m.class_66;
 import m.class_84;
 
-// $FF: renamed from: m.aq
 public class class_55 extends class_54 {
 
-    // $FF: renamed from: a m.az
     public class_54 field_262;
-    // $FF: renamed from: a m.a[]
+
     public class_66[] field_263;
-    // $FF: renamed from: b m.a[]
+
     public class_66[] field_264;
-    // $FF: renamed from: c int
+
     public int field_265;
-    // $FF: renamed from: d int
+
     public int field_266;
 
-    // $FF: renamed from: <init> (char[][], m.f, m.az) void
     public class_55(char[][] var1, class_84 var2, class_54 var3) {
         super(var1, var3.field_200, var2);
         this.field_178 |= 4L;
         this.field_262 = var3;
     }
 
-    // $FF: renamed from: a (m.ab) m.a
     public class_66 method_323(class_65 var1) {
         class_66 var2 = null;
         if (this.field_264 == null) {
@@ -65,7 +61,6 @@ public class class_55 extends class_54 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.as) m.a
     public class_66 method_324(class_43 var1) {
         class_66 var2 = null;
         if (this.field_263 == null) {
@@ -101,7 +96,6 @@ public class class_55 extends class_54 {
         return var2;
     }
 
-    // $FF: renamed from: b (m.ab) m.a
     public class_66 method_325(class_65 var1) {
         class_66 var2 = this.method_323(var1);
         if (var2 == null) {
@@ -114,7 +108,6 @@ public class class_55 extends class_54 {
         }
     }
 
-    // $FF: renamed from: b (m.as) m.a
     public class_66 method_326(class_43 var1) {
         class_66 var2 = this.method_324(var1);
         if (var2 == null) {
@@ -127,7 +120,6 @@ public class class_55 extends class_54 {
         }
     }
 
-    // $FF: renamed from: e () void
     public final void method_327() {
         int var1 = 0;
         int var2 = this.field_263 == null ? 0 : this.field_263.length;
@@ -158,12 +150,10 @@ public class class_55 extends class_54 {
         this.field_266 = var1;
     }
 
-    // $FF: renamed from: a () m.as
     public class_43 method_137() {
         return this.field_262;
     }
 
-    // $FF: renamed from: c (m.ab) m.a
     public class_66 method_328(class_65 var1) {
         if (this.field_264 == null) {
             return null;
@@ -179,12 +169,10 @@ public class class_55 extends class_54 {
         }
     }
 
-    // $FF: renamed from: b () m.a[]
     public class_66[] method_329() {
         return this.field_263;
     }
 
-    // $FF: renamed from: c () m.as[]
     public class_43[] method_242() {
         if (this.field_263 == null) {
             return null;
@@ -198,15 +186,12 @@ public class class_55 extends class_54 {
         }
     }
 
-    // $FF: renamed from: a () m.a[]
     public class_66[] method_243() {
         return this.field_264;
     }
 
-    // $FF: renamed from: d () void
     public void method_330() {}
 
-    // $FF: renamed from: a (m.as, boolean) m.a
     public class_66 method_331(class_43 var1, boolean var2) {
         if (this.field_263 == null) {
             return null;

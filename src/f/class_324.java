@@ -3,24 +3,20 @@ package f;
 import b.class_233;
 import m.class_38;
 
-// $FF: renamed from: f.f
 public final class class_324 {
 
-    // $FF: renamed from: a char[][]
     public char[][] field_1840;
-    // $FF: renamed from: a m.ar[]
+
     public class_38[] field_1841;
-    // $FF: renamed from: a int
+
     public int field_1842;
-    // $FF: renamed from: b int
+
     int field_1843;
 
-    // $FF: renamed from: <init> () void
     public class_324() {
         this(3);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_324(int var1) {
         this.field_1842 = 0;
         this.field_1843 = var1;
@@ -32,7 +28,6 @@ public final class class_324 {
         this.field_1841 = new class_38[var2];
     }
 
-    // $FF: renamed from: a (char[]) m.ar
     public class_38 method_3219(char[] var1) {
         int var2 = this.field_1840.length;
         int var3 = class_233.method_1369(var1) % var2;
@@ -50,7 +45,6 @@ public final class class_324 {
         return null;
     }
 
-    // $FF: renamed from: a (char[], m.ar) m.ar
     public class_38 method_3220(char[] var1, class_38 var2) {
         int var3 = this.field_1840.length;
         int var4 = class_233.method_1369(var1) % var3;
@@ -73,7 +67,6 @@ public final class class_324 {
         return var2;
     }
 
-    // $FF: renamed from: a () void
     private void method_3221() {
         class_324 var10000 = new class_324(this.field_1842 * 2);
         class_324 var1 = var10000;

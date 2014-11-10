@@ -7,172 +7,168 @@ import f.class_226;
 import j.class_279;
 import j.class_346;
 
-// $FF: renamed from: j.a
 public class class_270 {
 
-    // $FF: renamed from: a long
     public long field_1223;
-    // $FF: renamed from: b long
+
     public long field_1224;
-    // $FF: renamed from: a boolean
+
     public boolean field_1225;
-    // $FF: renamed from: b boolean
+
     public boolean field_1226;
-    // $FF: renamed from: c boolean
+
     public boolean field_1227;
-    // $FF: renamed from: d boolean
+
     public boolean field_1228;
-    // $FF: renamed from: a char
+
     public char field_1229;
-    // $FF: renamed from: a int
+
     public int field_1230;
-    // $FF: renamed from: b int
+
     public int field_1231;
-    // $FF: renamed from: c int
+
     public int field_1232;
-    // $FF: renamed from: d int
+
     public int field_1233;
-    // $FF: renamed from: e boolean
+
     public boolean field_1234;
-    // $FF: renamed from: f boolean
+
     public boolean field_1235;
-    // $FF: renamed from: g boolean
+
     public boolean field_1236;
-    // $FF: renamed from: a char[]
+
     public char[] field_1237;
-    // $FF: renamed from: b char[]
+
     public char[] field_1238;
-    // $FF: renamed from: e int
+
     public int field_1239;
-    // $FF: renamed from: h boolean
+
     public boolean field_1240;
-    // $FF: renamed from: i boolean
+
     public boolean field_1241;
-    // $FF: renamed from: a int[]
+
     public int[] field_1242;
-    // $FF: renamed from: b int[]
+
     public int[] field_1243;
-    // $FF: renamed from: c int[]
+
     public int[] field_1244;
-    // $FF: renamed from: f int
+
     public int field_1245;
-    // $FF: renamed from: g int
+
     protected int field_1246;
-    // $FF: renamed from: a char[][]
+
     public char[][] field_1247;
-    // $FF: renamed from: b char[][]
+
     public char[][] field_1248;
-    // $FF: renamed from: c char[][]
+
     public char[][] field_1249;
-    // $FF: renamed from: a int[][]
+
     public int[][] field_1250;
-    // $FF: renamed from: h int
+
     public int field_1251;
-    // $FF: renamed from: d char[][]
+
     public char[][] field_1252;
-    // $FF: renamed from: e char[][]
+
     public char[][] field_1253;
-    // $FF: renamed from: j boolean
+
     public boolean field_1254;
-    // $FF: renamed from: k boolean
+
     public boolean field_1255;
-    // $FF: renamed from: d int[]
+
     public int[] field_1256;
-    // $FF: renamed from: i int
+
     public int field_1257;
-    // $FF: renamed from: l boolean
+
     public boolean field_1258;
-    // $FF: renamed from: e int[]
+
     private static final int[] field_1259;
-    // $FF: renamed from: c char[]
+
     static final char[] field_1260;
-    // $FF: renamed from: d char[]
+
     static final char[] field_1261;
-    // $FF: renamed from: e char[]
+
     static final char[] field_1262;
-    // $FF: renamed from: f char[]
+
     static final char[] field_1263;
-    // $FF: renamed from: g char[]
+
     static final char[] field_1264;
-    // $FF: renamed from: h char[]
+
     static final char[] field_1265;
-    // $FF: renamed from: i char[]
+
     static final char[] field_1266;
-    // $FF: renamed from: j char[]
+
     static final char[] field_1267;
-    // $FF: renamed from: k char[]
+
     static final char[] field_1268;
-    // $FF: renamed from: l char[]
+
     static final char[] field_1269;
-    // $FF: renamed from: m char[]
+
     static final char[] field_1270;
-    // $FF: renamed from: n char[]
+
     static final char[] field_1271;
-    // $FF: renamed from: o char[]
+
     static final char[] field_1272;
-    // $FF: renamed from: p char[]
+
     static final char[] field_1273;
-    // $FF: renamed from: q char[]
+
     static final char[] field_1274;
-    // $FF: renamed from: r char[]
+
     static final char[] field_1275;
-    // $FF: renamed from: s char[]
+
     static final char[] field_1276;
-    // $FF: renamed from: t char[]
+
     static final char[] field_1277;
-    // $FF: renamed from: u char[]
+
     static final char[] field_1278;
-    // $FF: renamed from: v char[]
+
     static final char[] field_1279;
-    // $FF: renamed from: w char[]
+
     static final char[] field_1280;
-    // $FF: renamed from: x char[]
+
     static final char[] field_1281;
-    // $FF: renamed from: y char[]
+
     static final char[] field_1282;
-    // $FF: renamed from: z char[]
+
     static final char[] field_1283;
-    // $FF: renamed from: A char[]
+
     static final char[] field_1284;
-    // $FF: renamed from: B char[]
+
     static final char[] field_1285;
-    // $FF: renamed from: C char[]
+
     static final char[] field_1286;
-    // $FF: renamed from: a char[][][][]
+
     public final char[][][][] field_1287;
-    // $FF: renamed from: D char[]
+
     public static final char[] field_1288;
-    // $FF: renamed from: j int
+
     public static final int field_1289;
-    // $FF: renamed from: a j.s[]
+
     private class_279[] field_1290;
-    // $FF: renamed from: k int
+
     protected int field_1291;
-    // $FF: renamed from: m boolean
+
     public boolean field_1292;
-    // $FF: renamed from: l int
+
     protected int field_1293;
-    // $FF: renamed from: n boolean
+
     public boolean field_1294;
-    // $FF: renamed from: m int
+
     int field_1295;
-    // $FF: renamed from: n int
+
     int field_1296;
-    // $FF: renamed from: o int
+
     int field_1297;
-    // $FF: renamed from: p int
+
     int field_1298;
-    // $FF: renamed from: q int
+
     int field_1299;
-    // $FF: renamed from: o boolean
+
     public boolean field_1300;
 
-    // $FF: renamed from: <init> () void
     public class_270() {
         this(false, false, false, 3080192L, (char[][])null, (char[][])null, true);
     }
 
-    // $FF: renamed from: <init> (boolean, boolean, boolean, long, long, char[][], char[][], boolean) void
     public class_270(boolean var1, boolean var2, boolean var3, long var4, long var6, char[][] var8, char[][] var9, boolean var10) {
         this.field_1225 = false;
         this.field_1226 = false;
@@ -243,17 +239,14 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: <init> (boolean, boolean, boolean, long, char[][], char[][], boolean) void
     public class_270(boolean var1, boolean var2, boolean var3, long var4, char[][] var6, char[][] var7, boolean var8) {
         this(var1, var2, var3, var4, var4, var6, var7, var8);
     }
 
-    // $FF: renamed from: a () boolean
     public final boolean method_2405() {
         return this.field_1233 <= this.field_1231;
     }
 
-    // $FF: renamed from: a (int, int) void
     public void method_2406(int var1, int var2) {
         char[] var3 = this.field_1237;
         if (this.field_1251 <= 0 || this.field_1250[this.field_1251 - 1][0] < var1) {
@@ -371,7 +364,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_2407() {
         char[] var1;
         if (this.field_1239 != 0) {
@@ -401,12 +393,10 @@ public class class_270 {
         return var1;
     }
 
-    // $FF: renamed from: a () int
     public int method_2408() {
         return this.field_1231 - 1;
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_2409() {
         char[] var1;
         if (this.field_1239 != 0) {
@@ -418,7 +408,6 @@ public class class_270 {
         return var1;
     }
 
-    // $FF: renamed from: c () char[]
     public char[] method_2410() {
         char[] var1;
         if (this.field_1239 != 0) {
@@ -430,12 +419,10 @@ public class class_270 {
         return var1;
     }
 
-    // $FF: renamed from: b () int
     public int method_2411() {
         return this.field_1230;
     }
 
-    // $FF: renamed from: a () int[]
     public final int[] method_2412() {
         if (this.field_1257 == -1) {
             return field_1259;
@@ -446,7 +433,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: c () int
     public final int method_2413() {
         try {
             if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
@@ -465,7 +451,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (char) boolean
     public final boolean method_2414(char var1) {
         if (this.field_1231 >= this.field_1233) {
             this.field_1240 = false;
@@ -504,7 +489,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (char, char) int
     public final int method_2415(char var1, char var2) {
         if (this.field_1231 >= this.field_1233) {
             return -1;
@@ -550,7 +534,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: b () boolean
     public final boolean method_2416() {
         if (this.field_1231 >= this.field_1233) {
             return false;
@@ -585,7 +568,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (int) boolean
     public final boolean method_2417(int var1) {
         if (this.field_1231 >= this.field_1233) {
             return false;
@@ -620,7 +602,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_2418() {
         int var1 = this.field_1231;
         if (this.field_1231 >= this.field_1233) {
@@ -685,7 +666,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: d () int
     public int method_2419() throws class_232 {
         this.field_1258 = false;
         if (this.field_1255) {
@@ -1338,7 +1318,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_2420() throws class_232 {
         boolean var1 = false;
         boolean var2 = false;
@@ -1385,7 +1364,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a () j.s[]
     public class_279[] method_2421() {
         int var1 = this.field_1291;
         if (var1 != 0) {
@@ -1398,7 +1376,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: b () void
     public final void method_2422() {
         this.field_1258 = false;
         int var1 = 1;
@@ -1696,14 +1673,12 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: d () boolean
     public final boolean method_2423() throws class_232 {
         this.field_1258 = false;
         this.method_2420();
         return class_233.method_1370(this.field_1229);
     }
 
-    // $FF: renamed from: d () char[]
     final char[] method_2424() {
         char var1 = this.field_1237[this.field_1230];
         switch (var1) {
@@ -1764,7 +1739,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: e () char[]
     final char[] method_2425() {
         char[] var1 = this.field_1237;
         int var2 = this.field_1230;
@@ -1799,7 +1773,6 @@ public class class_270 {
         return var8;
     }
 
-    // $FF: renamed from: f () char[]
     final char[] method_2426() {
         char[] var1 = this.field_1237;
         int var2 = this.field_1230;
@@ -1835,7 +1808,6 @@ public class class_270 {
         return var9;
     }
 
-    // $FF: renamed from: g () char[]
     final char[] method_2427() {
         char[] var1 = this.field_1237;
         int var2 = this.field_1230;
@@ -1872,7 +1844,6 @@ public class class_270 {
         return var10;
     }
 
-    // $FF: renamed from: h () char[]
     final char[] method_2428() {
         char[] var1 = this.field_1237;
         int var2 = this.field_1230;
@@ -1910,7 +1881,6 @@ public class class_270 {
         return var11;
     }
 
-    // $FF: renamed from: i () char[]
     final char[] method_2429() {
         char[] var1 = this.field_1237;
         int var2 = this.field_1230;
@@ -1949,7 +1919,6 @@ public class class_270 {
         return var12;
     }
 
-    // $FF: renamed from: g () void
     private void method_2430() {
         int var1 = 0;
         int var2 = this.field_1230;
@@ -2007,7 +1976,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (char[], int, int) int
     private int method_2431(char[] var1, int var2, int var3) {
         int var4 = 0;
         for (int var5 = var2; var5 < var3; ++var5) {
@@ -2057,7 +2025,6 @@ public class class_270 {
         return var4;
     }
 
-    // $FF: renamed from: c () void
     public final void method_2432() {
         int var2;
         int var3;
@@ -2099,7 +2066,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: d () void
     public final void method_2433() {
         if (this.field_1229 == 13) {
             if (this.field_1237[this.field_1231] == 10) {
@@ -2112,7 +2078,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (int) void
     public void method_2434(int var1) {
         int var2 = this.field_1231;
         switch (var1) {
@@ -2133,7 +2098,6 @@ public class class_270 {
         this.field_1243[this.field_1245] = this.field_1230;
     }
 
-    // $FF: renamed from: b (int, int) void
     public void method_2435(int var1, int var2) {
         this.field_1255 = false;
         this.field_1232 = this.field_1230 = this.field_1231 = var1;
@@ -2146,7 +2110,6 @@ public class class_270 {
         this.field_1251 = 0;
     }
 
-    // $FF: renamed from: e () void
     public final void method_2436() throws class_232 {
         switch (this.field_1229) {
             case 34:
@@ -2213,7 +2176,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: e () int
     public int method_2437() {
         this.field_1225 = false;
         this.field_1227 = false;
@@ -2272,7 +2234,6 @@ public class class_270 {
         return this.method_2438(var2, var3, var5);
     }
 
-    // $FF: renamed from: a (int, int, char[]) int
     private int method_2438(int var1, int var2, char[] var3) {
         switch (var3[var1]) {
             case 97:
@@ -3273,7 +3234,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (boolean) int
     public int method_2439(boolean var1) throws class_232 {
         boolean var2 = var1;
         class_232 var10000;
@@ -3492,7 +3452,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: a (char[]) void
     public final void method_2440(char[] var1) {
         int var2;
         if (var1 == null) {
@@ -3509,7 +3468,6 @@ public class class_270 {
         this.field_1257 = -1;
     }
 
-    // $FF: renamed from: a (char[], c.h) void
     public final void method_2441(char[] var1, class_284 var2) {
         if (var1 == null) {
             char[] var3 = var2.field_1677.method_51();
@@ -3548,7 +3506,6 @@ public class class_270 {
         }
     }
 
-    // $FF: renamed from: b (int) void
     public void method_2442(int var1) {
         this.field_1239 = var1;
         if (this.field_1238 == null) {
@@ -3561,7 +3518,6 @@ public class class_270 {
         System.arraycopy(this.field_1237, this.field_1230, this.field_1238, 1, var1);
     }
 
-    // $FF: renamed from: f () void
     public void method_2443() {
         int var1 = ++this.field_1239;
         if (this.field_1238 == null) {
@@ -3574,7 +3530,6 @@ public class class_270 {
         this.field_1238[var1] = this.field_1229;
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1259 = class_226.field_983;
         field_1260 = new char[] {'a'};

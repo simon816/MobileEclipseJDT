@@ -11,15 +11,12 @@ import m.class_40;
 import m.class_43;
 import m.class_86;
 
-// $FF: renamed from: h.aw
 public class class_159 extends class_157 {
 
-    // $FF: renamed from: a h.bo
     public class_146 field_746;
-    // $FF: renamed from: a m.as
+
     class_43 field_747;
 
-    // $FF: renamed from: <init> (h.bo, int, int) void
     public class_159(class_146 var1, int var2, int var3) {
         super(var2, var3);
         this.field_746 = var1;
@@ -27,17 +24,14 @@ public class class_159 extends class_157 {
         this.field_444 = var1.field_444;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         return var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g, boolean) l.g
     public class_301 method_907(class_86 var1, class_293 var2, class_301 var3, boolean var4) {
         return var3;
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (var3) {
@@ -51,7 +45,6 @@ public class class_159 extends class_157 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         this.field_672 = class_331.field_1896;
         class_40 var2 = this.field_746.method_1017(var1, true);
@@ -82,12 +75,10 @@ public class class_159 extends class_157 {
         }
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         return this.field_746.method_757(0, var2).append(".this");
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2050(this, var2)) {
             this.field_746.method_763(var1, var2);

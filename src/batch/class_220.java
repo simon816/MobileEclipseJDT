@@ -13,23 +13,20 @@ import java.util.Hashtable;
 import k.class_317;
 import k.class_343;
 
-// $FF: renamed from: batch.m
 public class class_220 extends class_219 {
 
     protected class_220(class_343 var1, String var2) {
         super(var1, var2);
     }
 
-// $FF: renamed from: a java.util.Hashtable
     private Hashtable field_941;
-    // $FF: renamed from: a java.lang.String[]
+
     private String[] field_942;
-    // $FF: renamed from: a int
+
     private int field_943;
-    // $FF: renamed from: c java.lang.String
+
     private String field_944;
 
-    // $FF: renamed from: a (java.lang.String) java.lang.String[]
     String[] method_1280(String var1) {
         String[] var2 = (String[])((String[])this.field_941.get(var1));
         if (var2 == this.field_942) {
@@ -71,7 +68,6 @@ public class class_220 extends class_219 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String) boolean
     boolean method_1281(String var1, String var2) {
         String[] var3 = this.method_1280(var2);
         if (var3 == null) {
@@ -88,7 +84,6 @@ public class class_220 extends class_219 {
         }
     }
 
-    // $FF: renamed from: a (char[], java.lang.String, java.lang.String, boolean) k.q
     public class_317 method_14(char[] var1, String var2, String var3, boolean var4) {
         if (!this.method_15(var2)) {
             return null;
@@ -131,15 +126,12 @@ public class class_220 extends class_219 {
         }
     }
 
-    // $FF: renamed from: b () void
     public void method_18() {}
 
-    // $FF: renamed from: a (java.lang.String) boolean
     public boolean method_15(String var1) {
         return this.method_1280(var1) != null;
     }
 
-    // $FF: renamed from: a () void
     public void method_16() {
         this.field_941 = new Hashtable(11);
     }
@@ -148,7 +140,6 @@ public class class_220 extends class_219 {
         return "ClasspathDirectory " + this.field_937;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_17() {
         if (this.field_938 == null) {
             this.field_938 = this.field_937.toCharArray();

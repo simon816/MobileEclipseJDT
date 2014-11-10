@@ -5,21 +5,17 @@ import c.class_284;
 import c.class_9;
 import h.class_90;
 
-// $FF: renamed from: batch.h
 class class_208 implements class_9 {
 
-    // $FF: renamed from: a int
     int field_899;
-    // $FF: renamed from: a batch.d
+
     private final class_238 field_900;
 
-    // $FF: renamed from: <init> (batch.d) void
     class_208(class_238 var1) {
         this.field_900 = var1;
         this.field_899 = 0;
     }
 
-    // $FF: renamed from: a (c.h) void
     public void method_26(class_284 var1) {
         int var2;
         if (var1.field_1684 != null) {

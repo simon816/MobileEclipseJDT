@@ -34,83 +34,80 @@ import m.class_86;
 import m.class_87;
 import n.class_244;
 
-// $FF: renamed from: i.o
 public class class_268 {
 
-    // $FF: renamed from: a m.k[]
     public static class_67[] field_1181;
-    // $FF: renamed from: a i.n[]
+
     static class_73[] field_1182;
-    // $FF: renamed from: a i.s[]
+
     static class_74[] field_1183;
-    // $FF: renamed from: a m.ab[]
+
     static class_65[] field_1184;
-    // $FF: renamed from: b m.ab[]
+
     static class_65[] field_1185;
-    // $FF: renamed from: a c.h
+
     public static final class_284 field_1186;
-    // $FF: renamed from: b int
+
     public int field_1187;
-    // $FF: renamed from: a byte[]
+
     public byte[] field_1188;
-    // $FF: renamed from: a c.d
+
     public class_288 field_1189;
-    // $FF: renamed from: c int
+
     public int field_1190;
-    // $FF: renamed from: a i.p
+
     public class_272 field_1191;
-    // $FF: renamed from: d int
+
     public int field_1192;
-    // $FF: renamed from: b i.n[]
+
     public class_73[] field_1193;
-    // $FF: renamed from: e int
+
     public int field_1194;
-    // $FF: renamed from: f int
+
     public int field_1195;
-    // $FF: renamed from: b i.s[]
+
     public class_74[] field_1196;
-    // $FF: renamed from: g int
+
     public int field_1197;
-    // $FF: renamed from: h int
+
     public int field_1198;
-    // $FF: renamed from: b int[]
+
     public int[] field_1199;
-    // $FF: renamed from: i int
+
     public int field_1200;
-    // $FF: renamed from: j int
+
     public int field_1201;
-    // $FF: renamed from: c m.ab[]
+
     public class_65[] field_1202;
-    // $FF: renamed from: k int
+
     public int field_1203;
-    // $FF: renamed from: l int
+
     public int field_1204;
-    // $FF: renamed from: a h.ci
+
     public class_93 field_1205;
-    // $FF: renamed from: c int[]
+
     public int[] field_1206;
-    // $FF: renamed from: m int
+
     public int field_1207;
-    // $FF: renamed from: n int
+
     public int field_1208;
-    // $FF: renamed from: a boolean
+
     public boolean field_1209;
-    // $FF: renamed from: o int
+
     public int field_1210;
-    // $FF: renamed from: p int
+
     public int field_1211;
-    // $FF: renamed from: q int
+
     public int field_1212;
-    // $FF: renamed from: a long
+
     protected long field_1213;
-    // $FF: renamed from: d m.ab[]
+
     public class_65[] field_1214;
-    // $FF: renamed from: r int
+
     int field_1215;
-    // $FF: renamed from: b boolean
+
     public boolean field_1216;
 
-    // $FF: renamed from: a (int[], int, int) int
     public static int method_2081(int[] var0, int var1, int var2) {
         int var3 = 0;
         int var4 = var1 - 2;
@@ -137,7 +134,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (int[], int, int, int[]) void
     public static final void method_2082(int[] var0, int var1, int var2, int[] var3) {
         int var4 = var1;
         int var5 = var2;
@@ -165,7 +161,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: b (int[], int, int, int[]) void
     private static final void method_2083(int[] var0, int var1, int var2, int[] var3) {
         int var4 = var0[var1];
         var0[var1] = var0[var2];
@@ -175,7 +170,6 @@ public class class_268 {
         var3[var1] = var4;
     }
 
-    // $FF: renamed from: <init> (c.d) void
     public class_268(class_288 var1) {
         this.field_1193 = new class_73[5];
         this.field_1196 = new class_74[5];
@@ -190,7 +184,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: i () void
     public void method_2085() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -201,7 +194,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 50;
     }
 
-    // $FF: renamed from: j () void
     public void method_2086() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -212,7 +204,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 83;
     }
 
-    // $FF: renamed from: k () void
     public void method_2087() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -226,7 +217,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 1;
     }
 
-    // $FF: renamed from: a (m.bb, int) void
     public void method_2088(class_83 var1, int var2) {
         if ((this.field_1195 & 28) != 0) {
             for (int var3 = 0; var3 < this.field_1215; ++var3) {
@@ -238,7 +228,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: e (i.s) void
     public void method_2089(class_74 var1) {
         if (this.field_1192 == this.field_1196.length) {
             System.arraycopy(this.field_1196, 0, this.field_1196 = new class_74[this.field_1192 + 5], 0, this.field_1192);
@@ -246,7 +235,6 @@ public class class_268 {
         this.field_1196[this.field_1192++] = var1;
     }
 
-    // $FF: renamed from: b (m.ab) void
     public void method_2090(class_65 var1) {
         if ((this.field_1195 & 28) != 0) {
             if (this.field_1215 >= this.field_1214.length) {
@@ -256,10 +244,8 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (m.ab) void
     public void method_2091(class_65 var1) {}
 
-    // $FF: renamed from: e (int) void
     public void method_2092(int var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -287,7 +273,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: l () void
     public void method_2093() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -304,7 +289,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 42;
     }
 
-    // $FF: renamed from: m () void
     public void method_2094() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -321,7 +305,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 43;
     }
 
-    // $FF: renamed from: n () void
     public void method_2095() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -338,7 +321,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 44;
     }
 
-    // $FF: renamed from: o () void
     public void method_2096() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -355,7 +337,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 45;
     }
 
-    // $FF: renamed from: d (m.s) void
     public void method_2097(class_40 var1) {
         this.field_1192 = 0;
         if (this.field_1190 + 2 >= this.field_1188.length) {
@@ -366,7 +347,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2467(var1));
     }
 
-    // $FF: renamed from: b () void
     public void method_2098() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -378,7 +358,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: f (int) void
     public void method_2099(int var1) {
         switch (var1) {
             case 2:
@@ -409,7 +388,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (int, boolean) void
     public void method_2100(int var1, boolean var2) {
         switch (var1) {
             case 2:
@@ -464,7 +442,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: p () void
     public void method_2101() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -474,7 +451,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -66;
     }
 
-    // $FF: renamed from: g (int) void
     public void method_2102(int var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -499,7 +475,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: q () void
     public void method_2103() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -513,7 +488,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 75;
     }
 
-    // $FF: renamed from: r () void
     public void method_2104() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -527,7 +501,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 76;
     }
 
-    // $FF: renamed from: s () void
     public void method_2105() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -541,7 +514,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 77;
     }
 
-    // $FF: renamed from: t () void
     public void method_2106() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -555,7 +527,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 78;
     }
 
-    // $FF: renamed from: h () void
     public void method_2107() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -567,7 +538,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: u () void
     public void method_2108() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -578,7 +548,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 51;
     }
 
-    // $FF: renamed from: v () void
     public void method_2109() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -589,7 +558,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 84;
     }
 
-    // $FF: renamed from: a (byte) void
     public void method_2110(byte var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -604,7 +572,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = var1;
     }
 
-    // $FF: renamed from: w () void
     public void method_2111() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -615,7 +582,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 52;
     }
 
-    // $FF: renamed from: x () void
     public void method_2112() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -626,7 +592,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 85;
     }
 
-    // $FF: renamed from: e (m.s) void
     public void method_2113(class_40 var1) {
         this.field_1192 = 0;
         if (this.field_1190 + 2 >= this.field_1188.length) {
@@ -637,7 +602,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2467(var1));
     }
 
-    // $FF: renamed from: y () void
     public void method_2114() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -648,7 +612,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -112;
     }
 
-    // $FF: renamed from: z () void
     public void method_2115() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -659,7 +622,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -114;
     }
 
-    // $FF: renamed from: A () void
     public void method_2116() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -669,7 +631,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -113;
     }
 
-    // $FF: renamed from: B () void
     public void method_2117() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -680,7 +641,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 99;
     }
 
-    // $FF: renamed from: C () void
     public void method_2118() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -690,7 +650,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 49;
     }
 
-    // $FF: renamed from: D () void
     public void method_2119() {
         this.field_1192 = 0;
         this.field_1210 -= 4;
@@ -701,7 +660,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 82;
     }
 
-    // $FF: renamed from: E () void
     public void method_2120() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -712,7 +670,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -104;
     }
 
-    // $FF: renamed from: F () void
     public void method_2121() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -723,7 +680,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -105;
     }
 
-    // $FF: renamed from: G () void
     public void method_2122() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -737,7 +693,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 14;
     }
 
-    // $FF: renamed from: H () void
     public void method_2123() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -751,7 +706,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 15;
     }
 
-    // $FF: renamed from: I () void
     public void method_2124() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -762,12 +716,10 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 111;
     }
 
-    // $FF: renamed from: c (int) void
     public void method_2125(int var1) {
         this.field_1210 -= var1;
     }
 
-    // $FF: renamed from: h (int) void
     public void method_2126(int var1) {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -795,7 +747,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: J () void
     public void method_2127() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -812,7 +763,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 38;
     }
 
-    // $FF: renamed from: K () void
     public void method_2128() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -829,7 +779,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 39;
     }
 
-    // $FF: renamed from: L () void
     public void method_2129() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -846,7 +795,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 40;
     }
 
-    // $FF: renamed from: M () void
     public void method_2130() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -863,7 +811,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 41;
     }
 
-    // $FF: renamed from: N () void
     public void method_2131() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -874,7 +821,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 107;
     }
 
-    // $FF: renamed from: O () void
     public void method_2132() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -884,7 +830,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 119;
     }
 
-    // $FF: renamed from: P () void
     public void method_2133() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -895,7 +840,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 115;
     }
 
-    // $FF: renamed from: f () void
     public void method_2134() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -907,7 +851,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: i (int) void
     public void method_2135(int var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -932,7 +875,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: Q () void
     public void method_2136() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -946,7 +888,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 71;
     }
 
-    // $FF: renamed from: R () void
     public void method_2137() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -960,7 +901,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 72;
     }
 
-    // $FF: renamed from: S () void
     public void method_2138() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -974,7 +914,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 73;
     }
 
-    // $FF: renamed from: T () void
     public void method_2139() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -988,7 +927,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 74;
     }
 
-    // $FF: renamed from: U () void
     public void method_2140() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -999,7 +937,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 103;
     }
 
-    // $FF: renamed from: V () void
     public void method_2141() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1013,7 +950,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 89;
     }
 
-    // $FF: renamed from: W () void
     public void method_2142() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1027,7 +963,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 90;
     }
 
-    // $FF: renamed from: X () void
     public void method_2143() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1041,7 +976,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 91;
     }
 
-    // $FF: renamed from: Y () void
     public void method_2144() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -1055,7 +989,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 92;
     }
 
-    // $FF: renamed from: Z () void
     public void method_2145() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -1069,7 +1002,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 93;
     }
 
-    // $FF: renamed from: aa () void
     public void method_2146() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -1083,7 +1015,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 94;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_2147(class_86 var1) {
         if ((this.field_1195 & 28) != 0) {
             int var2 = this.field_1215 - 1;
@@ -1101,7 +1032,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (m.v, m.ab) void
     public void method_2148(class_86 var1, class_65 var2) {
         if ((this.field_1195 & 28) != 0) {
             int var3 = this.field_1215 - 1;
@@ -1119,7 +1049,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: ab () void
     public void method_2149() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1133,7 +1062,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -115;
     }
 
-    // $FF: renamed from: ac () void
     public void method_2150() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -1143,7 +1071,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -117;
     }
 
-    // $FF: renamed from: ad () void
     public void method_2151() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1157,7 +1084,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -116;
     }
 
-    // $FF: renamed from: ae () void
     public void method_2152() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1168,7 +1094,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 98;
     }
 
-    // $FF: renamed from: af () void
     public void method_2153() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1179,7 +1104,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 48;
     }
 
-    // $FF: renamed from: ag () void
     public void method_2154() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -1190,7 +1114,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 81;
     }
 
-    // $FF: renamed from: ah () void
     public void method_2155() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1201,7 +1124,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -106;
     }
 
-    // $FF: renamed from: ai () void
     public void method_2156() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1212,7 +1134,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -107;
     }
 
-    // $FF: renamed from: aj () void
     public void method_2157() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1226,7 +1147,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 11;
     }
 
-    // $FF: renamed from: ak () void
     public void method_2158() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1240,7 +1160,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 12;
     }
 
-    // $FF: renamed from: al () void
     public void method_2159() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1254,7 +1173,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 13;
     }
 
-    // $FF: renamed from: am () void
     public void method_2160() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1265,7 +1183,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 110;
     }
 
-    // $FF: renamed from: j (int) void
     public void method_2161(int var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1293,7 +1210,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: an () void
     public void method_2162() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1310,7 +1226,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 34;
     }
 
-    // $FF: renamed from: ao () void
     public void method_2163() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1327,7 +1242,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 35;
     }
 
-    // $FF: renamed from: ap () void
     public void method_2164() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1344,7 +1258,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 36;
     }
 
-    // $FF: renamed from: aq () void
     public void method_2165() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -1361,7 +1274,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 37;
     }
 
-    // $FF: renamed from: ar () void
     public void method_2166() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1372,7 +1284,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 106;
     }
 
-    // $FF: renamed from: as () void
     public void method_2167() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -1382,7 +1293,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 118;
     }
 
-    // $FF: renamed from: at () void
     public void method_2168() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1393,7 +1303,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 114;
     }
 
-    // $FF: renamed from: e () void
     public void method_2169() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1405,7 +1314,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: k (int) void
     public void method_2170(int var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1430,7 +1338,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: au () void
     public void method_2171() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1444,7 +1351,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 67;
     }
 
-    // $FF: renamed from: av () void
     public void method_2172() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1458,7 +1364,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 68;
     }
 
-    // $FF: renamed from: aw () void
     public void method_2173() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1472,7 +1377,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 69;
     }
 
-    // $FF: renamed from: ax () void
     public void method_2174() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1486,7 +1390,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 70;
     }
 
-    // $FF: renamed from: ay () void
     public void method_2175() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -1497,7 +1400,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 102;
     }
 
-    // $FF: renamed from: l (int) void
     public void method_2176(int var1) {
         switch (var1) {
             case 2:
@@ -1586,7 +1488,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.k) void
     public void method_2177(class_40 var1, class_67 var2) {
         if (var1.method_148() && var1 != class_40.field_187) {
             this.method_2208(var1.field_177);
@@ -1628,7 +1529,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String) void
     public final void method_2178(String var1) {
         this.method_2347();
         this.method_2141();
@@ -1637,7 +1537,6 @@ public class class_268 {
         this.method_2107();
     }
 
-    // $FF: renamed from: a (a.k, int) void
     public void method_2179(class_331 var1, int var2) {
         int var3 = (var2 & 255) >> 4;
         if (var3 == 0) {
@@ -1678,7 +1577,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (byte, int, char[], char[], char[]) void
     private void method_2180(byte var1, int var2, char[] var3, char[] var4, char[] var5) {
         this.field_1192 = 0;
         switch (var1) {
@@ -1719,7 +1617,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2471(var3, var4, var5));
     }
 
-    // $FF: renamed from: a (byte, int, m.as, char[], m.s) void
     private void method_2181(byte var1, int var2, class_43 var3, char[] var4, class_40 var5) {
         if (var3.method_160()) {
             this.field_1189.method_3012(var3);
@@ -1731,7 +1628,6 @@ public class class_268 {
         this.method_2180(var1, var2, var3.method_134(), var4, var5.method_178());
     }
 
-    // $FF: renamed from: m (int) void
     public void method_2182(int var1) {
         int var2;
         if ((var1 & 1024) != 0) {
@@ -1938,7 +1834,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (boolean) void
     public void method_2183(boolean var1) {
         if (var1) {
             this.method_2222();
@@ -1947,7 +1842,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: b (byte) void
     public void method_2184(byte var1) {
         switch (var1) {
             case -1:
@@ -1979,7 +1873,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (char) void
     public void method_2185(char var1) {
         switch (var1) {
             case 0:
@@ -2013,7 +1906,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (double) void
     public void method_2186(double var1) {
         if (var1 == 0.0D) {
             if (Double.doubleToLongBits(var1) != 0L) {
@@ -2028,7 +1920,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (float) void
     public void method_2187(float var1) {
         if (var1 == 0.0F) {
             if (Float.floatToIntBits(var1) != 0) {
@@ -2045,7 +1936,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: n (int) void
     public void method_2188(int var1) {
         switch (var1) {
             case -1:
@@ -2082,7 +1972,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (long) void
     public void method_2189(long var1) {
         if (var1 == 0L) {
             this.method_2307();
@@ -2093,7 +1982,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (short) void
     public void method_2190(short var1) {
         switch (var1) {
             case -1:
@@ -2126,7 +2014,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.Object[], h.cj, m.w, m.bb) void
     public void method_2191(Object[] var1, class_89 var2, class_34 var3, class_83 var4) {
         if (var1 == null) {
             if (var3 instanceof class_65) {
@@ -2160,7 +2047,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (h.r) void
     public void method_2192(class_126 var1) {
         if (var1 == null) {
             this.method_2371();
@@ -2192,7 +2078,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (m.v, h.r, h.r) void
     public void method_2193(class_86 var1, class_126 var2, class_126 var3) {
         int var4;
         if (var2 == null) {
@@ -2212,7 +2097,6 @@ public class class_268 {
         this.method_2277();
     }
 
-    // $FF: renamed from: a (m.d) void
     public void method_2194(class_60 var1) {
         this.method_2256(var1);
         class_58 var2 = var1.field_285;
@@ -2266,7 +2150,6 @@ public class class_268 {
         this.method_2371();
     }
 
-    // $FF: renamed from: b (m.d) void
     public void method_2195(class_60 var1) {
         this.method_2256(var1);
         class_43 var2 = var1.field_278;
@@ -2277,7 +2160,6 @@ public class class_268 {
         this.method_2098();
     }
 
-    // $FF: renamed from: c (m.d) void
     public void method_2196(class_60 var1) {
         class_84 var2 = ((class_54)var1.field_278).field_258;
         class_67 var3 = var2.field_376.field_600;
@@ -2301,7 +2183,6 @@ public class class_268 {
         this.method_2098();
     }
 
-    // $FF: renamed from: d (m.d) void
     public void method_2197(class_60 var1) {
         this.method_2256(var1);
         class_67 var2 = var1.field_283;
@@ -2334,7 +2215,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: e (m.d) void
     public void method_2198(class_60 var1) {
         this.method_2256(var1);
         class_67 var2 = var1.field_284;
@@ -2349,7 +2229,6 @@ public class class_268 {
         this.method_2371();
     }
 
-    // $FF: renamed from: f (m.d) void
     public void method_2199(class_60 var1) {
         this.method_2256(var1);
         class_58 var2 = var1.field_285;
@@ -2422,7 +2301,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: g (m.d) void
     public void method_2200(class_60 var1) {
         class_84 var2 = ((class_54)var1.field_278).field_258;
         this.method_2256(var1);
@@ -2477,7 +2355,6 @@ public class class_268 {
         this.method_2365(var7);
     }
 
-    // $FF: renamed from: a (m.v, m.as, h.r, h.cj) void
     public void method_2201(class_86 var1, class_43 var2, class_126 var3, class_89 var4) {
         class_43 var5 = var2.method_146() ? (class_43)var2.method_240().method_138() : var2;
         boolean var6 = var3 != null;
@@ -2520,7 +2397,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (m.v, m.as, h.cj) void
     public void method_2202(class_86 var1, class_43 var2, class_89 var3) {
         class_66[] var4;
         if ((var4 = var2.method_243()) != null) {
@@ -2533,7 +2409,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: o (int) void
     public void method_2203(int var1) {
         switch (var1) {
             case 2:
@@ -2564,7 +2439,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (byte, i.s) void
     public void method_2204(byte var1, class_74 var2) {
         class_74 var10000 = new class_74(this);
         class_74 var3 = var10000;
@@ -2578,7 +2452,6 @@ public class class_268 {
         var3.method_458();
     }
 
-    // $FF: renamed from: a (m.k) void
     public void method_2205(class_67 var1) {
         byte var2 = 1;
         if (var1.field_301.field_177 == 8 || var1.field_301.field_177 == 7) {
@@ -2587,12 +2460,10 @@ public class class_268 {
         this.method_2181((byte) - 76, var2, var1.field_314, var1.field_302, var1.field_301);
     }
 
-    // $FF: renamed from: a () int
     protected int method_2206() {
         return this.field_1208;
     }
 
-    // $FF: renamed from: b (m.k) void
     public void method_2207(class_67 var1) {
         byte var2 = 1;
         if (var1.field_301.field_177 == 8 || var1.field_301.field_177 == 7) {
@@ -2601,7 +2472,6 @@ public class class_268 {
         this.method_2181((byte) - 78, var2, var1.field_314, var1.field_302, var1.field_301);
     }
 
-    // $FF: renamed from: p (int) void
     public void method_2208(int var1) {
         this.field_1192 = 0;
         switch (var1) {
@@ -2634,7 +2504,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: c (i.s) void
     public void method_2209(class_74 var1) {
         if (this.field_1216) {
             this.method_2210(var1);
@@ -2661,7 +2530,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: d (i.s) void
     public void method_2210(class_74 var1) {
         if (this.field_1190 >= this.field_1188.length) {
             this.method_2369();
@@ -2672,7 +2540,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: az () void
     public void method_2211() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -2682,7 +2549,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -111;
     }
 
-    // $FF: renamed from: aA () void
     public void method_2212() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -2692,7 +2558,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -110;
     }
 
-    // $FF: renamed from: aB () void
     public void method_2213() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2706,7 +2571,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -121;
     }
 
-    // $FF: renamed from: aC () void
     public void method_2214() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -2716,7 +2580,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -122;
     }
 
-    // $FF: renamed from: aD () void
     public void method_2215() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2730,7 +2593,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -123;
     }
 
-    // $FF: renamed from: aE () void
     public void method_2216() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -2740,7 +2602,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -109;
     }
 
-    // $FF: renamed from: aF () void
     public void method_2217() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -2751,7 +2612,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 96;
     }
 
-    // $FF: renamed from: aG () void
     public void method_2218() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -2762,7 +2622,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 46;
     }
 
-    // $FF: renamed from: aH () void
     public void method_2219() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -2773,7 +2632,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 126;
     }
 
-    // $FF: renamed from: aI () void
     public void method_2220() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -2784,7 +2642,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 79;
     }
 
-    // $FF: renamed from: aJ () void
     public void method_2221() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2798,7 +2655,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 3;
     }
 
-    // $FF: renamed from: aK () void
     public void method_2222() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2812,7 +2668,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 4;
     }
 
-    // $FF: renamed from: aL () void
     public void method_2223() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2826,7 +2681,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 5;
     }
 
-    // $FF: renamed from: aM () void
     public void method_2224() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2840,7 +2694,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 6;
     }
 
-    // $FF: renamed from: aN () void
     public void method_2225() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2854,7 +2707,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 7;
     }
 
-    // $FF: renamed from: aO () void
     public void method_2226() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2868,7 +2720,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 8;
     }
 
-    // $FF: renamed from: aP () void
     public void method_2227() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -2882,7 +2733,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 2;
     }
 
-    // $FF: renamed from: aQ () void
     public void method_2228() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -2893,7 +2743,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 108;
     }
 
-    // $FF: renamed from: f (i.s) void
     public void method_2229(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -2909,7 +2758,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: g (i.s) void
     public void method_2230(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -2925,7 +2773,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: h (i.s) void
     public void method_2231(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -2941,7 +2788,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: i (i.s) void
     public void method_2232(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -2957,7 +2803,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: j (i.s) void
     public void method_2233(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -2973,7 +2818,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: k (i.s) void
     public void method_2234(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -2989,7 +2833,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: l (i.s) void
     public void method_2235(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -3005,7 +2848,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: m (i.s) void
     public void method_2236(class_74 var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -3021,7 +2863,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: n (i.s) void
     public void method_2237(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3037,7 +2878,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: o (i.s) void
     public void method_2238(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3053,7 +2893,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: p (i.s) void
     public void method_2239(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3069,7 +2908,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: q (i.s) void
     public void method_2240(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3085,7 +2923,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: r (i.s) void
     public void method_2241(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3101,7 +2938,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: s (i.s) void
     public void method_2242(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3117,7 +2953,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: t (i.s) void
     public void method_2243(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3133,7 +2968,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: u (i.s) void
     public void method_2244(class_74 var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3149,7 +2983,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: b (int, int) void
     public final void method_2245(int var1, int var2) {
         this.field_1192 = 0;
         if (var1 <= 255 && var2 >= -128 && var2 <= 127) {
@@ -3172,7 +3005,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: q (int) void
     public void method_2246(int var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -3200,7 +3032,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: aR () void
     public void method_2247() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -3217,7 +3048,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 26;
     }
 
-    // $FF: renamed from: aS () void
     public void method_2248() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -3234,7 +3064,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 27;
     }
 
-    // $FF: renamed from: aT () void
     public void method_2249() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -3251,7 +3080,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 28;
     }
 
-    // $FF: renamed from: aU () void
     public void method_2250() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -3268,7 +3096,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 29;
     }
 
-    // $FF: renamed from: aV () void
     public void method_2251() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3279,7 +3106,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 104;
     }
 
-    // $FF: renamed from: a (int, int) int
     public int method_2252(int var1, int var2) {
         int var3 = var1;
         for (int var4 = this.field_1207; var3 < var4; var3 += 2) {
@@ -3290,7 +3116,6 @@ public class class_268 {
         return -1;
     }
 
-    // $FF: renamed from: aW () void
     public void method_2253() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -3300,7 +3125,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 116;
     }
 
-    // $FF: renamed from: a (i.s, int) boolean
     public boolean method_2254(class_74 var1, int var2) {
         if (var1.field_329 != null) {
             return false;
@@ -3326,7 +3150,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (c.d) void
     public void method_2255(class_288 var1) {
         this.field_1189 = var1;
         this.field_1191 = var1.field_1716;
@@ -3366,7 +3189,6 @@ public class class_268 {
         this.field_1208 = 0;
     }
 
-    // $FF: renamed from: a (m.ae) void
     public void method_2256(class_58 var1) {
         if (var1 == null) {
             this.field_1204 = 0;
@@ -3413,7 +3235,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: f (m.s) void
     public void method_2257(class_40 var1) {
         this.field_1192 = 0;
         if (this.field_1190 + 2 >= this.field_1188.length) {
@@ -3424,7 +3245,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2467(var1));
     }
 
-    // $FF: renamed from: a (int, int, int, char[], char[], char[]) void
     protected void method_2258(int var1, int var2, int var3, char[] var4, char[] var5, char[] var6) {
         this.field_1192 = 0;
         int var7 = var2;
@@ -3464,17 +3284,14 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: aX () void
     public void method_2259() {
         this.method_2258(-72, 1, 1, class_272.field_1410, class_272.field_1358, class_272.field_1359);
     }
 
-    // $FF: renamed from: a (char[]) void
     public void method_2260(char[] var1) {
         this.method_2258(-74, 0, 1, var1, class_272.field_1449, class_272.field_1450);
     }
 
-    // $FF: renamed from: b (m.ae) void
     public void method_2261(class_58 var1) {
         this.field_1192 = 0;
         int var2 = 1;
@@ -3509,7 +3326,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: r (int) void
     public void method_2262(int var1) {
         byte var2 = 1;
         char[] var3 = null;
@@ -3546,54 +3362,44 @@ public class class_268 {
         this.method_2258(-73, var2, 0, class_272.field_1406, class_272.field_1394, var3);
     }
 
-    // $FF: renamed from: aY () void
     public void method_2263() {
         this.method_2258(-73, 0, 0, class_272.field_1406, class_272.field_1394, class_272.field_1344);
     }
 
-    // $FF: renamed from: aZ () void
     public void method_2264() {
         this.method_2258(-74, 0, 1, class_272.field_1410, class_272.field_1346, class_272.field_1347);
     }
 
-    // $FF: renamed from: a (m.as) void
     public void method_2265(class_43 var1) {
         this.method_2258(-72, 2, 1, class_272.field_1414, class_272.field_1497, class_272.field_1505);
     }
 
-    // $FF: renamed from: a (m.s, m.p) void
     public void method_2266(class_40 var1, class_42 var2) {
         char[] var3 = "()".toCharArray();
         var3 = class_233.method_1355(var3, var2.method_134());
         this.method_2258(-72, 0, 1, var1.method_134(), class_17.field_71, var3);
     }
 
-    // $FF: renamed from: ba () void
     public void method_2267() {
         this.method_2258(-73, 1, 0, class_272.field_1415, class_272.field_1394, class_272.field_1492);
     }
 
-    // $FF: renamed from: bb () void
     public void method_2268() {
         this.method_2258(-71, 0, 1, class_272.field_1438, class_272.field_1392, class_272.field_1393);
     }
 
-    // $FF: renamed from: bc () void
     public void method_2269() {
         this.method_2258(-71, 0, 1, class_272.field_1438, class_272.field_1445, class_272.field_1446);
     }
 
-    // $FF: renamed from: bd () void
     public void method_2270() {
         this.method_2258(-73, 1, 0, class_272.field_1420, class_272.field_1394, class_272.field_1492);
     }
 
-    // $FF: renamed from: be () void
     public void method_2271() {
         this.method_2258(-74, 0, 1, class_272.field_1422, class_272.field_1378, class_272.field_1379);
     }
 
-    // $FF: renamed from: c (m.ae) void
     public void method_2272(class_58 var1) {
         this.field_1192 = 0;
         int var2 = 1;
@@ -3657,7 +3463,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: d (m.ae) void
     public void method_2273(class_58 var1) {
         this.field_1192 = 0;
         int var2 = 0;
@@ -3690,7 +3495,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: s (int) void
     public void method_2274(int var1) {
         byte var2 = 1;
         byte var3 = 1;
@@ -3781,7 +3585,6 @@ public class class_268 {
         this.method_2258(-74, var2, var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: bf () void
     public void method_2275() {
         char[] var1 = class_272.field_1430;
         if (this.field_1213 >= 3211264L) {
@@ -3790,7 +3593,6 @@ public class class_268 {
         this.method_2258(-73, 0, 0, var1, class_272.field_1394, class_272.field_1344);
     }
 
-    // $FF: renamed from: bg () void
     public void method_2276() {
         char[] var1 = class_272.field_1430;
         if (this.field_1213 >= 3211264L) {
@@ -3799,7 +3601,6 @@ public class class_268 {
         this.method_2258(-73, 1, 0, var1, class_272.field_1394, class_272.field_1492);
     }
 
-    // $FF: renamed from: bh () void
     public void method_2277() {
         char[] var1 = class_272.field_1430;
         if (this.field_1213 >= 3211264L) {
@@ -3808,12 +3609,10 @@ public class class_268 {
         this.method_2258(-74, 0, 1, var1, class_272.field_1494, class_272.field_1495);
     }
 
-    // $FF: renamed from: bi () void
     public void method_2278() {
         this.method_2258(-74, 0, 1, class_272.field_1432, class_272.field_1396, class_272.field_1397);
     }
 
-    // $FF: renamed from: t (int) void
     public void method_2279(int var1) {
         byte var2 = 1;
         char[] var3 = null;
@@ -3851,17 +3650,14 @@ public class class_268 {
         this.method_2258(-72, var2, 1, class_272.field_1432, class_272.field_1497, var3);
     }
 
-    // $FF: renamed from: bj () void
     public void method_2280() {
         this.method_2258(-72, 5, 0, class_272.field_1435, class_272.field_1327, class_272.field_1328);
     }
 
-    // $FF: renamed from: bk () void
     public void method_2281() {
         this.method_2258(-74, 0, 1, class_272.field_1436, class_272.field_1390, class_272.field_1391);
     }
 
-    // $FF: renamed from: e (m.ae) void
     public void method_2282(class_58 var1) {
         this.field_1192 = 0;
         int var2 = 1;
@@ -3894,7 +3690,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bl () void
     public void method_2283() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3905,7 +3700,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -128;
     }
 
-    // $FF: renamed from: bm () void
     public void method_2284() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3916,7 +3710,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 112;
     }
 
-    // $FF: renamed from: c () void
     public void method_2285() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3928,7 +3721,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: a (m.bb, int, m.ab) boolean
     public boolean method_2286(class_83 var1, int var2, class_65 var3) {
         if ((var3.field_305 & 1024L) != 0L) {
             return true;
@@ -3947,7 +3739,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bn () void
     public void method_2287() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3958,7 +3749,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 120;
     }
 
-    // $FF: renamed from: bo () void
     public void method_2288() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3969,7 +3759,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 122;
     }
 
-    // $FF: renamed from: u (int) void
     public void method_2289(int var1) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -3994,7 +3783,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bp () void
     public void method_2290() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4008,7 +3796,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 59;
     }
 
-    // $FF: renamed from: bq () void
     public void method_2291() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4022,7 +3809,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 60;
     }
 
-    // $FF: renamed from: br () void
     public void method_2292() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4036,7 +3822,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 61;
     }
 
-    // $FF: renamed from: bs () void
     public void method_2293() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4050,7 +3835,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 62;
     }
 
-    // $FF: renamed from: bt () void
     public void method_2294() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4061,7 +3845,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 100;
     }
 
-    // $FF: renamed from: bu () void
     public void method_2295() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4072,7 +3855,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 124;
     }
 
-    // $FF: renamed from: bv () void
     public void method_2296() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4083,7 +3865,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -126;
     }
 
-    // $FF: renamed from: v (i.s) void
     public final void method_2297(class_74 var1) {
         if (this.field_1216) {
             this.method_2298(var1);
@@ -4098,7 +3879,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: w (i.s) void
     public final void method_2298(class_74 var1) {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -4109,7 +3889,6 @@ public class class_268 {
         var1.method_453();
     }
 
-    // $FF: renamed from: bw () void
     public void method_2299() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -4119,7 +3898,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -118;
     }
 
-    // $FF: renamed from: bx () void
     public void method_2300() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4130,7 +3908,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -119;
     }
 
-    // $FF: renamed from: by () void
     public void method_2301() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4141,7 +3918,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -120;
     }
 
-    // $FF: renamed from: bz () void
     public void method_2302() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4152,7 +3928,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 97;
     }
 
-    // $FF: renamed from: bA () void
     public void method_2303() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -4162,7 +3937,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 47;
     }
 
-    // $FF: renamed from: bB () void
     public void method_2304() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4173,7 +3947,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 127;
     }
 
-    // $FF: renamed from: bC () void
     public void method_2305() {
         this.field_1192 = 0;
         this.field_1210 -= 4;
@@ -4184,7 +3957,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 80;
     }
 
-    // $FF: renamed from: bD () void
     public void method_2306() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -4195,7 +3967,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -108;
     }
 
-    // $FF: renamed from: bE () void
     public void method_2307() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4209,7 +3980,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 9;
     }
 
-    // $FF: renamed from: bF () void
     public void method_2308() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4223,7 +3993,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 10;
     }
 
-    // $FF: renamed from: b (float) void
     public void method_2309(float var1) {
         this.field_1192 = 0;
         int var2 = this.field_1191.method_2462(var1);
@@ -4248,7 +4017,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: v (int) void
     public void method_2310(int var1) {
         this.field_1192 = 0;
         int var2 = this.field_1191.method_2463(var1);
@@ -4273,7 +4041,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: b (java.lang.String) void
     public void method_2311(String var1) {
         this.field_1192 = 0;
         int var2 = this.field_1208;
@@ -4345,7 +4112,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: g (m.s) void
     public void method_2312(class_40 var1) {
         this.field_1192 = 0;
         int var2 = this.field_1191.method_2467(var1);
@@ -4370,7 +4136,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: b (double) void
     public void method_2313(double var1) {
         this.field_1192 = 0;
         int var3 = this.field_1191.method_2461(var1);
@@ -4386,7 +4151,6 @@ public class class_268 {
         this.method_2387(var3);
     }
 
-    // $FF: renamed from: b (long) void
     public void method_2314(long var1) {
         this.field_1192 = 0;
         int var3 = this.field_1191.method_2464(var1);
@@ -4402,7 +4166,6 @@ public class class_268 {
         this.method_2387(var3);
     }
 
-    // $FF: renamed from: a (int, char[]) void
     public void method_2315(int var1, char[] var2) {
         ++this.field_1210;
         if (this.field_1210 > this.field_1211) {
@@ -4425,7 +4188,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bG () void
     public void method_2316() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4436,7 +4198,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 109;
     }
 
-    // $FF: renamed from: w (int) void
     public void method_2317(int var1) {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4464,7 +4225,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bH () void
     public void method_2318() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4481,7 +4241,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 30;
     }
 
-    // $FF: renamed from: bI () void
     public void method_2319() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4498,7 +4257,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 31;
     }
 
-    // $FF: renamed from: bJ () void
     public void method_2320() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4515,7 +4273,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 32;
     }
 
-    // $FF: renamed from: bK () void
     public void method_2321() {
         this.field_1192 = 0;
         this.field_1210 += 2;
@@ -4532,7 +4289,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 33;
     }
 
-    // $FF: renamed from: bL () void
     public void method_2322() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4543,7 +4299,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 105;
     }
 
-    // $FF: renamed from: bM () void
     public void method_2323() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -4553,12 +4308,10 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 117;
     }
 
-    // $FF: renamed from: c (m.ab) void
     public final void method_2324(class_65 var1) {
         this.method_2325(var1.field_301, var1.field_306);
     }
 
-    // $FF: renamed from: a (m.s, int) void
     public final void method_2325(class_40 var1, int var2) {
         this.field_1192 = 0;
         switch (var1.field_177) {
@@ -4659,7 +4412,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (i.q, int[], int[], i.q[]) void
     public void method_2326(class_75 var1, int[] var2, int[] var3, class_75[] var4) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4690,7 +4442,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bN () void
     public void method_2327() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4701,7 +4452,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -127;
     }
 
-    // $FF: renamed from: bO () void
     public void method_2328() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4712,7 +4462,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 113;
     }
 
-    // $FF: renamed from: d () void
     public void method_2329() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4724,7 +4473,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: bP () void
     public void method_2330() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4735,7 +4483,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 121;
     }
 
-    // $FF: renamed from: bQ () void
     public void method_2331() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4746,7 +4493,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 123;
     }
 
-    // $FF: renamed from: x (int) void
     public void method_2332(int var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4771,7 +4517,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: bR () void
     public void method_2333() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4785,7 +4530,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 63;
     }
 
-    // $FF: renamed from: bS () void
     public void method_2334() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4799,7 +4543,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 64;
     }
 
-    // $FF: renamed from: bT () void
     public void method_2335() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4813,7 +4556,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 65;
     }
 
-    // $FF: renamed from: bU () void
     public void method_2336() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4827,7 +4569,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 66;
     }
 
-    // $FF: renamed from: bV () void
     public void method_2337() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4838,7 +4579,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 101;
     }
 
-    // $FF: renamed from: bW () void
     public void method_2338() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4849,7 +4589,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 125;
     }
 
-    // $FF: renamed from: bX () void
     public void method_2339() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -4860,7 +4599,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -125;
     }
 
-    // $FF: renamed from: bY () void
     public void method_2340() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4871,7 +4609,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -62;
     }
 
-    // $FF: renamed from: bZ () void
     public void method_2341() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -4882,7 +4619,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -61;
     }
 
-    // $FF: renamed from: b (m.s, int) void
     public void method_2342(class_40 var1, int var2) {
         this.field_1192 = 0;
         this.field_1210 += 1 - var2;
@@ -4895,7 +4631,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = (byte)var2;
     }
 
-    // $FF: renamed from: h (m.s) void
     public void method_2343(class_40 var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -4910,7 +4645,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2467(var1));
     }
 
-    // $FF: renamed from: y (int) void
     public void method_2344(int var1) {
         this.field_1192 = 0;
         if (this.field_1190 + 1 >= this.field_1188.length) {
@@ -4921,7 +4655,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = (byte)var1;
     }
 
-    // $FF: renamed from: a (m.p) void
     public void method_2345(class_42 var1) {
         class_40 var2 = var1.method_187();
         switch (var2.field_177) {
@@ -4955,7 +4688,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: ca () void
     public void method_2346() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -4970,7 +4702,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2466(class_272.field_1406));
     }
 
-    // $FF: renamed from: cb () void
     public void method_2347() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -4985,7 +4716,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2466(class_272.field_1415));
     }
 
-    // $FF: renamed from: cc () void
     public void method_2348() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -5000,7 +4730,6 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2466(class_272.field_1420));
     }
 
-    // $FF: renamed from: cd () void
     public void method_2349() {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -5019,7 +4748,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: z (int) void
     public void method_2350(int var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -5061,7 +4789,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (int, i.s) void
     public void method_2351(int var1, class_74 var2) {
         for (int var3 = 0; var3 < this.field_1192; ++var3) {
             class_74 var4 = this.field_1196[var3];
@@ -5089,7 +4816,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: ce () void
     public void method_2352() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -5100,7 +4826,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 87;
     }
 
-    // $FF: renamed from: cf () void
     public void method_2353() {
         this.field_1192 = 0;
         this.field_1210 -= 2;
@@ -5111,14 +4836,12 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 88;
     }
 
-    // $FF: renamed from: b (m.s) void
     public void method_2354(class_40 var1) {
         if (++this.field_1210 > this.field_1211) {
             this.field_1211 = this.field_1210;
         }
     }
 
-    // $FF: renamed from: c (m.s) void
     public void method_2355(class_40 var1) {
         this.field_1210 = 1;
         if (this.field_1210 > this.field_1211) {
@@ -5126,7 +4849,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: c (m.k) void
     public void method_2356(class_67 var1) {
         byte var2 = 1;
         if (var1.field_301.field_177 == 8 || var1.field_301.field_177 == 7) {
@@ -5135,7 +4857,6 @@ public class class_268 {
         this.method_2181((byte) - 75, var2, var1.field_314, var1.field_302, var1.field_301);
     }
 
-    // $FF: renamed from: d (m.k) void
     public void method_2357(class_67 var1) {
         byte var2 = 1;
         if (var1.field_301.field_177 == 8 || var1.field_301.field_177 == 7) {
@@ -5144,7 +4865,6 @@ public class class_268 {
         this.method_2181((byte) - 77, var2, var1.field_314, var1.field_302, var1.field_301);
     }
 
-    // $FF: renamed from: d (m.ab) void
     public void method_2358(class_65 var1) {
         if ((this.field_1195 & 28) != 0) {
             if (this.field_1187 == this.field_1202.length) {
@@ -5156,15 +4876,12 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (m.s) void
     public void method_2359(class_40 var1) {}
 
-    // $FF: renamed from: c (int, int) void
     public void method_2360(int var1, int var2) {
         this.method_2361(var1, var2, false);
     }
 
-    // $FF: renamed from: a (int, int, boolean) void
     public void method_2361(int var1, int var2, boolean var3) {
         if ((this.field_1195 & 2) != 0 && var2 != 0 && (var1 != this.field_1208 || var3)) {
             if (this.field_1207 + 4 > this.field_1206.length) {
@@ -5375,7 +5092,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (i.n) void
     public void method_2362(class_73 var1) {
         int var2;
         if (this.field_1194 == (var2 = this.field_1193.length)) {
@@ -5384,7 +5100,6 @@ public class class_268 {
         this.field_1193[this.field_1194++] = var1;
     }
 
-    // $FF: renamed from: b (m.bb, int) void
     public void method_2363(class_83 var1, int var2) {
         if ((this.field_1195 & 28) != 0) {
             for (int var3 = 0; var3 < this.field_1215; ++var3) {
@@ -5396,7 +5111,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: cg () void
     public void method_2364() {
         if (this.field_1207 != 0) {
             while (this.field_1207 >= 2 && this.field_1206[this.field_1207 - 2] > this.field_1208) {
@@ -5405,7 +5119,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: e (m.ab) void
     public void method_2365(class_65 var1) {
         if (var1 != null) {
             if (var1.field_311 > 0) {
@@ -5421,7 +5134,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (h.ci, c.d) void
     public void method_2366(class_93 var1, class_288 var2) {
         this.method_2255(var2);
         this.field_1205 = var1;
@@ -5450,7 +5162,6 @@ public class class_268 {
         this.method_2256(var1.field_488);
     }
 
-    // $FF: renamed from: b (c.d) void
     public void method_2367(class_288 var1) {
         this.field_1213 = var1.field_1731;
         int var2 = var1.field_1728;
@@ -5462,13 +5173,11 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: c (c.d) void
     public void method_2368(class_288 var1) {
         this.method_2255(var1);
         this.method_2256((class_58)null);
     }
 
-    // $FF: renamed from: a () void
     private final void method_2369() {
         int var1 = this.field_1188.length;
         int var2 = var1 + var1;
@@ -5478,7 +5187,6 @@ public class class_268 {
         System.arraycopy(this.field_1188, 0, this.field_1188 = new byte[var2], 0, var1);
     }
 
-    // $FF: renamed from: A (int) void
     public final void method_2370(int var1) {
         this.field_1192 = 0;
         if (var1 > 255) {
@@ -5499,7 +5207,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: g () void
     public void method_2371() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -5510,7 +5217,6 @@ public class class_268 {
         this.field_1198 = this.field_1208;
     }
 
-    // $FF: renamed from: ch () void
     public void method_2372() {
         this.field_1192 = 0;
         --this.field_1210;
@@ -5521,7 +5227,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 53;
     }
 
-    // $FF: renamed from: ci () void
     public void method_2373() {
         this.field_1192 = 0;
         this.field_1210 -= 3;
@@ -5532,7 +5237,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 86;
     }
 
-    // $FF: renamed from: d (int, int) void
     public void method_2374(int var1, int var2) {
         switch (var2) {
             case 2:
@@ -5677,7 +5381,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: B (int) void
     public void method_2375(int var1) {
         this.field_1192 = 0;
         ++this.field_1210;
@@ -5692,7 +5395,6 @@ public class class_268 {
         this.method_2383(var1);
     }
 
-    // $FF: renamed from: a (m.ab, boolean) void
     public void method_2376(class_65 var1, boolean var2) {
         int var3 = var1.field_306;
         switch (var1.field_301.field_177) {
@@ -5808,7 +5510,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: cj () void
     public void method_2377() {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
@@ -5818,7 +5519,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 95;
     }
 
-    // $FF: renamed from: a (i.q, int, int, int[], int[], i.q[]) void
     public void method_2378(class_75 var1, int var2, int var3, int[] var4, int[] var5, class_75[] var6) {
         this.field_1192 = 0;
         --this.field_1210;
@@ -5862,7 +5562,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: f (m.ab) void
     public void method_2379(class_65 var1) {
         this.method_2324(var1);
         this.method_2107();
@@ -5881,7 +5580,6 @@ public class class_268 {
         return var1.toString();
     }
 
-    // $FF: renamed from: c (m.bb, int) void
     public void method_2380(class_83 var1, int var2) {
         if ((this.field_1195 & 2) != 0) {
             this.field_1197 = var2;
@@ -5897,7 +5595,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (i.s) void
     protected void method_2381(class_74 var1) {
         int var2 = var1.field_323 - this.field_1208 + 1;
         if (Math.abs(var2) > 32767 && !this.field_1216) {
@@ -5913,7 +5610,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (i.s, int) void
     protected void method_2382(class_74 var1, int var2) {
         int var3 = var1.field_323 - var2 + 1;
         if (Math.abs(var3) > 32767 && !this.field_1216) {
@@ -5932,7 +5628,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: a (int) void
     private final void method_2383(int var1) {
         if (this.field_1190 + 1 >= this.field_1188.length) {
             this.method_2369();
@@ -5942,7 +5637,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = (byte)var1;
     }
 
-    // $FF: renamed from: e (int, int) void
     private final void method_2384(int var1, int var2) {
         int var3 = this.field_1212 + var1;
         if (var3 + 1 >= this.field_1188.length) {
@@ -5952,7 +5646,6 @@ public class class_268 {
         this.field_1188[var3 + 1] = (byte)var2;
     }
 
-    // $FF: renamed from: C (int) void
     protected final void method_2385(int var1) {
         if (this.field_1190 + 3 >= this.field_1188.length) {
             this.method_2369();
@@ -5964,7 +5657,6 @@ public class class_268 {
         this.field_1188[this.field_1190++] = (byte)(var1 & 255);
     }
 
-    // $FF: renamed from: a (int, int) void
     protected void method_2386(int var1, int var2) {
         int var3 = this.field_1212 + var1;
         if (var3 + 3 >= this.field_1188.length) {
@@ -5976,14 +5668,12 @@ public class class_268 {
         this.field_1188[var3++] = (byte)(var2 & 255);
     }
 
-    // $FF: renamed from: b (int) void
     private final void method_2387(int var1) {
         this.field_1208 += 2;
         this.field_1188[this.field_1190++] = (byte)(var1 >>> 8);
         this.field_1188[this.field_1190++] = (byte)var1;
     }
 
-    // $FF: renamed from: b (i.s) void
     protected void method_2388(class_74 var1) {
         int var2 = var1.field_323;
         int var3 = var2 - this.field_1208 + 1;
@@ -5997,7 +5687,6 @@ public class class_268 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1181 = new class_67[0];
         field_1182 = new class_73[5];

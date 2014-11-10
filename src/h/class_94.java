@@ -33,25 +33,20 @@ import m.class_84;
 import m.class_87;
 import n.class_244;
 
-// $FF: renamed from: h.g
 public class class_94 extends class_93 {
 
-    // $FF: renamed from: a h.q
     public class_105 field_493;
-    // $FF: renamed from: a h.br[]
+
     public class_123[] field_494;
 
-    // $FF: renamed from: <init> (c.h) void
     public class_94(class_284 var1) {
         super(var1);
     }
 
-    // $FF: renamed from: a (m.f, l.h, l.g) void
     public void method_786(class_84 var1, class_299 var2, class_301 var3) {
         this.method_808(var1, var2, var3, 0);
     }
 
-    // $FF: renamed from: a (m.f, l.h, l.g, int) void
     public void method_808(class_84 var1, class_299 var2, class_301 var3, int var4) {
         if (!this.field_489) {
             int var5 = var3.method_3102();
@@ -147,7 +142,6 @@ public class class_94 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (m.f, c.d) void
     public void method_789(class_84 var1, class_288 var2) {
         byte var3 = 0;
         class_235[] var6;
@@ -189,7 +183,6 @@ public class class_94 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (m.aj, i.o, m.as) void
     public void method_809(class_87 var1, class_268 var2, class_43 var3) {
         if (var3.method_160()) {
             class_55 var4 = (class_55)var3;
@@ -216,7 +209,6 @@ public class class_94 extends class_93 {
         }
     }
 
-    // $FF: renamed from: b (m.f, c.d) void
     private void method_810(class_84 var1, class_288 var2) {
         var2.method_2995(this.field_488);
         int var3 = var2.field_1719;
@@ -300,22 +292,18 @@ public class class_94 extends class_93 {
         var2.method_2986(var3, var4);
     }
 
-    // $FF: renamed from: b_ () boolean
     public boolean method_795() {
         return true;
     }
 
-    // $FF: renamed from: c_ () boolean
     public boolean method_796() {
         return (this.field_446 & 128) != 0;
     }
 
-    // $FF: renamed from: d () boolean
     public boolean method_797() {
         return true;
     }
 
-    // $FF: renamed from: a (g.p) boolean
     public boolean method_811(class_313 var1) {
         if (this.field_488 != null && this.field_493 != null && this.field_493.field_548 != null && !this.field_493.method_1() && this.field_493.field_548.method_101()) {
             class_94 var2 = (class_94)this.field_478.method_718().method_854(this.field_493.field_548.method_376());
@@ -339,7 +327,6 @@ public class class_94 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (j.r, h.b) void
     public void method_800(class_278 var1, class_90 var2) {
         if ((this.field_446 & 128) != 0 && this.field_493 == null) {
             this.field_493 = class_158.method_1047();
@@ -350,7 +337,6 @@ public class class_94 extends class_93 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_801(int var1, StringBuffer var2) {
         var2.append(" {");
         if (this.field_493 != null) {
@@ -368,10 +354,8 @@ public class class_94 extends class_93 {
         return var2;
     }
 
-    // $FF: renamed from: b () void
     public void method_804() {}
 
-    // $FF: renamed from: c () void
     public void method_805() {
         class_54 var1 = this.field_478.method_585();
         if (!class_233.method_1364(var1.field_198, this.field_479)) {
@@ -402,7 +386,6 @@ public class class_94 extends class_93 {
         super.method_805();
     }
 
-    // $FF: renamed from: a (c.j, m.f) void
     public void method_806(class_264 var1, class_84 var2) {
         if (var1.method_2012(this, var2)) {
             int var3;
@@ -444,7 +427,6 @@ public class class_94 extends class_93 {
         var1.method_1927(this, var2);
     }
 
-    // $FF: renamed from: a () h.br[]
     public class_123[] method_807() {
         return this.field_494;
     }

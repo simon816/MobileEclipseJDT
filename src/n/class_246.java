@@ -9,27 +9,23 @@ import f.class_323;
 import java.io.InputStream;
 import n.class_236;
 
-// $FF: renamed from: n.f
 public class class_246 implements class_8 {
 
-    // $FF: renamed from: a f.g
     public static class_323 field_1056;
-    // $FF: renamed from: a char[]
+
     private static final char[] field_1057;
-    // $FF: renamed from: b char[]
+
     private static final char[] field_1058;
-    // $FF: renamed from: c char[]
+
     private static final char[] field_1059;
-    // $FF: renamed from: a byte[]
+
     static byte[] field_1060;
 
-    // $FF: renamed from: a (java.lang.String, int, java.lang.String[], java.lang.String[], int, int, int, int, int) b.e
     public class_235 method_24(String var1, int var2, String[] var3, String[] var4, int var5, int var6, int var7, int var8, int var9) {
         class_236 var10000 = new class_236(var1, this.method_1444(var2, var4), var2, var3, var5, var6, var7, var8, var9);
         return var10000;
     }
 
-    // $FF: renamed from: <init> () void
     public class_246() {
         String var1 = "/batch/problem.txt";
         InputStream var2 = var1.getClass().getResourceAsStream(var1);
@@ -56,23 +52,19 @@ public class class_246 implements class_8 {
         field_1056 = var3;
     }
 
-    // $FF: renamed from: a (java.lang.String, int, java.lang.String[], int, java.lang.String[], int, int, int, int, int) b.e
     public class_235 method_25(String var1, int var2, String[] var3, int var4, String[] var5, int var6, int var7, int var8, int var9, int var10) {
         class_236 var10000 = new class_236(var1, this.method_1445(var2, var4, var5), var2, var3, var6, var7, var8, var9, var10);
         return var10000;
     }
 
-    // $FF: renamed from: a (int) int
     private static final int method_1443(int var0) {
         return var0 + 1;
     }
 
-    // $FF: renamed from: a (int, java.lang.String[]) java.lang.String
     public final String method_1444(int var1, String[] var2) {
         return this.method_1445(var1, 0, var2);
     }
 
-    // $FF: renamed from: a (int, int, java.lang.String[]) java.lang.String
     public final String method_1445(int var1, int var2, String[] var3) {
         String var4 = (String)field_1056.method_3214(method_1443(var1 & 16777215));
         if (var4 == null) {
@@ -129,7 +121,6 @@ public class class_246 implements class_8 {
         }
     }
 
-    // $FF: renamed from: a (java.io.InputStream) java.lang.String
     public static final String method_1446(InputStream var0) throws IOException {
         int var1 = 0;
         while (true) {
@@ -147,7 +138,6 @@ public class class_246 implements class_8 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1057 = "\'\'".toCharArray();
         field_1058 = "\'".toCharArray();

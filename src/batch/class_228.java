@@ -5,13 +5,10 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Graphics;
 
-// $FF: renamed from: batch.i
 class class_228 extends Canvas {
 
-    // $FF: renamed from: a batch.eclipse
     private final eclipse field_986;
 
-    // $FF: renamed from: <init> (batch.eclipse) void
     class_228(eclipse var1) {
         this.field_986 = var1;
         this.setFullScreenMode(true);

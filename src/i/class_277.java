@@ -1,23 +1,19 @@
 package i;
 
-// $FF: renamed from: i.f
 public class class_277 {
 
-    // $FF: renamed from: a java.lang.Object[]
     public Object[] field_1525;
-    // $FF: renamed from: a int[]
+
     public int[] field_1526;
-    // $FF: renamed from: a int
+
     int field_1527;
-    // $FF: renamed from: b int
+
     int field_1528;
 
-    // $FF: renamed from: <init> () void
     public class_277() {
         this(13);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_277(int var1) {
         this.field_1527 = 0;
         this.field_1528 = (int)((float)var1 * 0.66F);
@@ -25,7 +21,6 @@ public class class_277 {
         this.field_1526 = new int[var1];
     }
 
-    // $FF: renamed from: a (java.lang.Object) int
     public int method_2499(Object var1) {
         int var2 = this.method_2500(var1);
         int var3 = this.field_1525.length;
@@ -41,12 +36,10 @@ public class class_277 {
         return -1;
     }
 
-    // $FF: renamed from: b (java.lang.Object) int
     public int method_2500(Object var1) {
         return (var1.hashCode() & Integer.MAX_VALUE) % this.field_1525.length;
     }
 
-    // $FF: renamed from: a (java.lang.Object, int) int
     public int method_2501(Object var1, int var2) {
         int var3 = this.method_2500(var1);
         int var4 = this.field_1525.length;
@@ -67,7 +60,6 @@ public class class_277 {
         return var2;
     }
 
-    // $FF: renamed from: a () void
     private void method_2502() {
         class_277 var10000 = new class_277(this.field_1525.length * 2);
         class_277 var1 = var10000;
@@ -86,7 +78,6 @@ public class class_277 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_2503() {
         return this.field_1527;
     }

@@ -9,20 +9,16 @@ import java.util.Hashtable;
 import k.class_317;
 import k.class_343;
 
-// $FF: renamed from: batch.k
 public class class_221 extends class_219 {
 
-    // $FF: renamed from: a java.util.Hashtable
     protected static Hashtable field_945;
-    // $FF: renamed from: b java.util.Hashtable
+
     protected static Hashtable field_946;
 
-    // $FF: renamed from: <init> (k.a, java.lang.String) void
     public class_221(class_343 var1, String var2) {
         super(var1, var2);
     }
 
-    // $FF: renamed from: a (char[], java.lang.String, java.lang.String, boolean) k.q
     public class_317 method_14(char[] var1, String var2, String var3, boolean var4) {
         if (this.method_15(var2) && field_946.containsKey(var3.substring(0, var3.length() - 6))) {
             try {
@@ -40,7 +36,6 @@ public class class_221 extends class_219 {
         }
     }
 
-    // $FF: renamed from: b () void
     public void method_18() {
         if (field_945 == null) {
             try {
@@ -72,7 +67,6 @@ public class class_221 extends class_219 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, java.util.Hashtable) void
     void method_1282(String var1, Hashtable var2) {
         String var4;
         for (int var3 = var1.lastIndexOf(47); var3 > 0; var3 = var4.lastIndexOf(47)) {
@@ -84,7 +78,6 @@ public class class_221 extends class_219 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String) byte[]
     byte[] method_1283(String var1) throws IOException {
         InputStream var2 = this.getClass().getResourceAsStream("/lib/" + field_946.get(var1.substring(0, var1.length() - 6)));
         int var3 = var2.available();
@@ -94,19 +87,16 @@ public class class_221 extends class_219 {
         return var4;
     }
 
-    // $FF: renamed from: a (java.lang.String) boolean
     public boolean method_15(String var1) {
         return field_945.containsKey(var1);
     }
 
-    // $FF: renamed from: a () void
     public void method_16() {}
 
     public String toString() {
         return "Classpath for jar file ";
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_17() {
         return this.field_938;
     }

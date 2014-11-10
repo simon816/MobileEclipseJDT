@@ -4,13 +4,10 @@ import e.class_187;
 import e.class_196;
 import k.class_29;
 
-// $FF: renamed from: e.k
 public final class class_188 extends class_187 {
 
-    // $FF: renamed from: a e.b[]
     private class_196[] field_817;
 
-    // $FF: renamed from: <init> (e.j, e.b[]) void
     class_188(class_187 var1, class_196[] var2) {
         super(var1.field_805, var1.field_806, var1.field_807);
         this.field_808 = var1.field_808;
@@ -26,12 +23,10 @@ public final class class_188 extends class_187 {
         this.field_817 = var2;
     }
 
-    // $FF: renamed from: a () k.e[]
     public class_29[] method_71() {
         return this.field_817;
     }
 
-    // $FF: renamed from: a () void
     protected void method_1109() {
         int var1 = 0;
         for (int var2 = this.field_817.length; var1 < var2; ++var1) {
@@ -40,7 +35,6 @@ public final class class_188 extends class_187 {
         super.method_1109();
     }
 
-    // $FF: renamed from: b () void
     protected void method_1102() {
         if (this.field_817 != null) {
             int var1 = 0;

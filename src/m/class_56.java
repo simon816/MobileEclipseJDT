@@ -6,16 +6,13 @@ import m.class_54;
 import m.class_55;
 import m.class_84;
 
-// $FF: renamed from: m.ag
 public final class class_56 extends class_55 {
 
-    // $FF: renamed from: <init> (char[][], m.f, m.az) void
     public class_56(char[][] var1, class_84 var2, class_54 var3) {
         super(var1, var2, var3);
         this.field_178 |= 12L;
     }
 
-    // $FF: renamed from: c () void
     void method_332() {
         if (!this.method_226()) {
             if (!this.method_157()) {
@@ -24,12 +21,10 @@ public final class class_56 extends class_55 {
         }
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_134() {
         return this.field_202 != null ? this.field_202 : (this.field_202 = class_233.method_1357(this.method_137().method_134(), this.field_198, '$'));
     }
 
-    // $FF: renamed from: b () void
     public void method_100() {
         if ((this.field_178 & 17179869184L) == 0L) {
             super.method_100();

@@ -7,13 +7,10 @@ import e.class_195;
 import e.class_196;
 import i.class_5;
 
-// $FF: renamed from: e.c
 public class class_194 extends class_191 {
 
-    // $FF: renamed from: a java.lang.Object
     protected Object field_865;
 
-    // $FF: renamed from: a (byte[], int[], int) e.i
     public static class_191 method_1148(byte[] var0, int[] var1, int var2) {
         class_191 var10000 = new class_191(var0, var1, var2);
         class_191 var3 = var10000;
@@ -77,7 +74,6 @@ public class class_194 extends class_191 {
         }
     }
 
-    // $FF: renamed from: <init> (e.i, java.lang.Object) void
     class_194(class_191 var1, Object var2) {
         super(var1.field_805, var1.field_806, var1.field_807);
         this.field_865 = null;
@@ -92,12 +88,10 @@ public class class_194 extends class_191 {
         this.field_860 = var1.field_860;
     }
 
-    // $FF: renamed from: a () java.lang.Object
     public Object method_72() {
         return this.field_865;
     }
 
-    // $FF: renamed from: a (java.lang.StringBuffer) void
     protected void method_1141(StringBuffer var1) {
         super.method_1141(var1);
         if (this.field_865 != null) {

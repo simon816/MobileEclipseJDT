@@ -14,13 +14,10 @@ import m.class_67;
 import m.class_86;
 import m.class_87;
 
-// $FF: renamed from: h.cp
 public class class_125 extends class_124 {
 
-    // $FF: renamed from: b char[]
     private static final char[] field_671;
 
-    // $FF: renamed from: <init> (char[], long, h.bo, int) void
     public class_125(char[] var1, long var2, class_146 var4, int var5) {
         super(var1, (int)(var2 >>> 32), (int)var2);
         this.field_652 = (int)var2;
@@ -29,7 +26,6 @@ public class class_125 extends class_124 {
         this.field_446 |= 1073741824;
     }
 
-    // $FF: renamed from: a (m.aj, m.s, boolean) void
     public void method_903(class_87 var1, class_40 var2, boolean var3) {
         class_34 var4 = var1.method_598(this.field_659, 3, this, false);
         if (var4 != null && var4.method_101()) {
@@ -60,17 +56,14 @@ public class class_125 extends class_124 {
         this.field_670.field_307 = var3 ? 1 : 0;
     }
 
-    // $FF: renamed from: a () int
     public int method_887() {
         return 5;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_904() {
         return this.field_660 != null && (this.field_660.field_446 & 16384) != 0;
     }
 
-    // $FF: renamed from: a (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2);
         method_760(this.field_656, var2);
@@ -85,12 +78,10 @@ public class class_125 extends class_124 {
         return var2.append(this.field_659);
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         return this.method_757(var1, var2).append(';');
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_905(class_86 var1) {
         class_40 var2 = this.field_660.method_1017(var1, true);
         boolean var3;
@@ -136,7 +127,6 @@ public class class_125 extends class_124 {
         return var3 ? null : var2;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_1992(this, var2)) {
             if (this.field_658 != null) {
@@ -152,7 +142,6 @@ public class class_125 extends class_124 {
         var1.method_1907(this, var2);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_671 = "set".toCharArray();
     }

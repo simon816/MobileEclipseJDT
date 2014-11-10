@@ -18,19 +18,16 @@ import m.class_58;
 import m.class_67;
 import m.class_86;
 
-// $FF: renamed from: h.ak
 public class class_92 extends class_89 {
 
-    // $FF: renamed from: a char[]
     public char[] field_474;
-    // $FF: renamed from: a h.r
+
     public class_126 field_475;
-    // $FF: renamed from: a m.ae
+
     public class_58 field_476;
-    // $FF: renamed from: a m.c
+
     public class_320 field_477;
 
-    // $FF: renamed from: <init> (char[], int, int, h.r) void
     public class_92(char[] var1, int var2, int var3, class_126 var4) {
         this.field_477 = null;
         this.field_474 = var1;
@@ -42,14 +39,12 @@ public class class_92 extends class_89 {
         }
     }
 
-    // $FF: renamed from: a (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_757(int var1, StringBuffer var2) {
         var2.append(this.field_474).append(" = ");
         this.field_475.method_757(0, var2);
         return var2;
     }
 
-    // $FF: renamed from: a (m.v, m.s) void
     public void method_784(class_86 var1, class_40 var2) {
         class_320 var10001;
         if (this.field_475 == null) {
@@ -213,7 +208,6 @@ public class class_92 extends class_89 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2034(this, var2) && this.field_475 != null) {
             this.field_475.method_763(var1, var2);

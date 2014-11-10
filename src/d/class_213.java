@@ -6,31 +6,28 @@ import d.class_216;
 import f.class_226;
 import j.class_270;
 
-// $FF: renamed from: d.d
 public class class_213 {
 
-    // $FF: renamed from: a int
     private int field_909;
-    // $FF: renamed from: b int
+
     private int field_910;
-    // $FF: renamed from: a d.c[]
+
     private class_216[] field_911;
-    // $FF: renamed from: c int
+
     private int field_912;
-    // $FF: renamed from: a j.a
+
     private class_270 field_913;
-    // $FF: renamed from: a int[]
+
     private int[] field_914;
-    // $FF: renamed from: b int[]
+
     private int[] field_915;
-    // $FF: renamed from: c int[]
+
     private int[] field_916;
-    // $FF: renamed from: d int
+
     private int field_917;
-    // $FF: renamed from: e int
+
     private int field_918;
 
-    // $FF: renamed from: <init> (int, j.a, int[], int[], int[], int, int, int) void
     public class_213(int var1, class_270 var2, int[] var3, int[] var4, int[] var5, int var6, int var7, int var8) {
         this.field_912 = -1;
         this.field_917 = -1;
@@ -53,7 +50,6 @@ public class class_213 {
         this.field_913 = var2;
     }
 
-    // $FF: renamed from: b () void
     private void method_1203() {
         int var1 = this.field_911.length;
         boolean var2 = true;
@@ -107,7 +103,6 @@ public class class_213 {
         }
     }
 
-    // $FF: renamed from: a (int) d.c
     public class_216 method_1204(int var1) {
         if (var1 < 0) {
             class_216 var5 = new class_216();
@@ -131,67 +126,54 @@ public class class_213 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_1205() {
         return this.field_912 = this.method_1207(this.field_912);
     }
 
-    // $FF: renamed from: a (int) int
     public int method_1206(int var1) {
         return var1 > 0 ? var1 - 1 : 0;
     }
 
-    // $FF: renamed from: b (int) int
     public int method_1207(int var1) {
         return var1 < this.field_910 ? var1 + 1 : this.field_910;
     }
 
-    // $FF: renamed from: a (int) boolean
     public boolean method_1208(int var1) {
         return var1 < 1 ? true : this.method_1214(var1 - 1) < this.method_1214(var1);
     }
 
-    // $FF: renamed from: a () void
     public void method_1209() {
         this.field_912 = -1;
     }
 
-    // $FF: renamed from: a (int) void
     public void method_1210(int var1) {
         this.field_912 = this.method_1206(var1);
     }
 
-    // $FF: renamed from: b () int
     public int method_1211() {
         return 0;
     }
 
-    // $FF: renamed from: c (int) int
     public int method_1212(int var1) {
         return this.method_1204(var1).field_920;
     }
 
-    // $FF: renamed from: a (int) char[]
     public char[] method_1213(int var1) {
         return this.method_1204(var1).field_921;
     }
 
-    // $FF: renamed from: d (int) int
     public int method_1214(int var1) {
         return this.method_1204(var1).field_924;
     }
 
-    // $FF: renamed from: e (int) int
     public int method_1215(int var1) {
         return this.method_1204(var1).field_922;
     }
 
-    // $FF: renamed from: f (int) int
     public int method_1216(int var1) {
         return this.method_1204(var1).field_923;
     }
 
-    // $FF: renamed from: b (int) boolean
     public boolean method_1217(int var1) {
         return this.field_910 >= 0 && var1 > this.field_910 ? false : (var1 > this.field_909 ? true : this.field_909 - this.field_911.length < var1);
     }

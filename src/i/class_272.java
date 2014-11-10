@@ -13,417 +13,414 @@ import i.class_76;
 import m.class_17;
 import m.class_40;
 
-// $FF: renamed from: i.p
 public class class_272 {
 
-    // $FF: renamed from: a i.m
     protected class_276 field_1310;
-    // $FF: renamed from: a i.k
+
     protected class_274 field_1311;
-    // $FF: renamed from: a i.l
+
     protected class_275 field_1312;
-    // $FF: renamed from: a i.d
+
     protected class_76 field_1313;
-    // $FF: renamed from: a i.r
+
     public class_262 field_1314;
-    // $FF: renamed from: b i.r
+
     protected class_262 field_1315;
-    // $FF: renamed from: a f.e
+
     protected class_325 field_1316;
-    // $FF: renamed from: c i.r
+
     protected class_262 field_1317;
-    // $FF: renamed from: b f.e
+
     protected class_325 field_1318;
-    // $FF: renamed from: a byte[]
+
     public byte[] field_1319;
-    // $FF: renamed from: a int
+
     public int field_1320;
-    // $FF: renamed from: b int
+
     public int field_1321;
-    // $FF: renamed from: a int[]
+
     public int[] field_1322;
-    // $FF: renamed from: a c.d
+
     public class_288 field_1323;
-    // $FF: renamed from: a char[]
+
     public static final char[] field_1324;
-    // $FF: renamed from: b char[]
+
     public static final char[] field_1325;
-    // $FF: renamed from: c char[]
+
     public static final char[] field_1326;
-    // $FF: renamed from: d char[]
+
     public static final char[] field_1327;
-    // $FF: renamed from: e char[]
+
     public static final char[] field_1328;
-    // $FF: renamed from: f char[]
+
     public static final char[] field_1329;
-    // $FF: renamed from: g char[]
+
     public static final char[] field_1330;
-    // $FF: renamed from: h char[]
+
     public static final char[] field_1331;
-    // $FF: renamed from: i char[]
+
     public static final char[] field_1332;
-    // $FF: renamed from: j char[]
+
     public static final char[] field_1333;
-    // $FF: renamed from: k char[]
+
     public static final char[] field_1334;
-    // $FF: renamed from: l char[]
+
     public static final char[] field_1335;
-    // $FF: renamed from: m char[]
+
     public static final char[] field_1336;
-    // $FF: renamed from: n char[]
+
     public static final char[] field_1337;
-    // $FF: renamed from: o char[]
+
     public static final char[] field_1338;
-    // $FF: renamed from: p char[]
+
     public static final char[] field_1339;
-    // $FF: renamed from: q char[]
+
     public static final char[] field_1340;
-    // $FF: renamed from: r char[]
+
     public static final char[] field_1341;
-    // $FF: renamed from: s char[]
+
     public static final char[] field_1342;
-    // $FF: renamed from: t char[]
+
     public static final char[] field_1343;
-    // $FF: renamed from: u char[]
+
     public static final char[] field_1344;
-    // $FF: renamed from: v char[]
+
     public static final char[] field_1345;
-    // $FF: renamed from: w char[]
+
     public static final char[] field_1346;
-    // $FF: renamed from: x char[]
+
     public static final char[] field_1347;
-    // $FF: renamed from: y char[]
+
     public static final char[] field_1348;
-    // $FF: renamed from: z char[]
+
     public static final char[] field_1349;
-    // $FF: renamed from: A char[]
+
     public static final char[] field_1350;
-    // $FF: renamed from: B char[]
+
     public static final char[] field_1351;
-    // $FF: renamed from: C char[]
+
     public static final char[] field_1352;
-    // $FF: renamed from: D char[]
+
     public static final char[] field_1353;
-    // $FF: renamed from: E char[]
+
     public static final char[] field_1354;
-    // $FF: renamed from: F char[]
+
     public static final char[] field_1355;
-    // $FF: renamed from: G char[]
+
     public static final char[] field_1356;
-    // $FF: renamed from: H char[]
+
     public static final char[] field_1357;
-    // $FF: renamed from: I char[]
+
     public static final char[] field_1358;
-    // $FF: renamed from: J char[]
+
     public static final char[] field_1359;
-    // $FF: renamed from: K char[]
+
     public static final char[] field_1360;
-    // $FF: renamed from: L char[]
+
     public static final char[] field_1361;
-    // $FF: renamed from: M char[]
+
     public static final char[] field_1362;
-    // $FF: renamed from: N char[]
+
     public static final char[] field_1363;
-    // $FF: renamed from: O char[]
+
     public static final char[] field_1364;
-    // $FF: renamed from: P char[]
+
     public static final char[] field_1365;
-    // $FF: renamed from: Q char[]
+
     public static final char[] field_1366;
-    // $FF: renamed from: R char[]
+
     public static final char[] field_1367;
-    // $FF: renamed from: S char[]
+
     public static final char[] field_1368;
-    // $FF: renamed from: T char[]
+
     public static final char[] field_1369;
-    // $FF: renamed from: U char[]
+
     public static final char[] field_1370;
-    // $FF: renamed from: V char[]
+
     public static final char[] field_1371;
-    // $FF: renamed from: W char[]
+
     public static final char[] field_1372;
-    // $FF: renamed from: X char[]
+
     public static final char[] field_1373;
-    // $FF: renamed from: Y char[]
+
     public static final char[] field_1374;
-    // $FF: renamed from: Z char[]
+
     public static final char[] field_1375;
-    // $FF: renamed from: aa char[]
+
     public static final char[] field_1376;
-    // $FF: renamed from: ab char[]
+
     public static final char[] field_1377;
-    // $FF: renamed from: ac char[]
+
     public static final char[] field_1378;
-    // $FF: renamed from: ad char[]
+
     public static final char[] field_1379;
-    // $FF: renamed from: ae char[]
+
     public static final char[] field_1380;
-    // $FF: renamed from: af char[]
+
     public static final char[] field_1381;
-    // $FF: renamed from: ag char[]
+
     public static final char[] field_1382;
-    // $FF: renamed from: ah char[]
+
     public static final char[] field_1383;
-    // $FF: renamed from: ai char[]
+
     public static final char[] field_1384;
-    // $FF: renamed from: aj char[]
+
     public static final char[] field_1385;
-    // $FF: renamed from: ak char[]
+
     public static final char[] field_1386;
-    // $FF: renamed from: al char[]
+
     public static final char[] field_1387;
-    // $FF: renamed from: am char[]
+
     public static final char[] field_1388;
-    // $FF: renamed from: an char[]
+
     public static final char[] field_1389;
-    // $FF: renamed from: ao char[]
+
     public static final char[] field_1390;
-    // $FF: renamed from: ap char[]
+
     public static final char[] field_1391;
-    // $FF: renamed from: aq char[]
+
     public static final char[] field_1392;
-    // $FF: renamed from: ar char[]
+
     public static final char[] field_1393;
-    // $FF: renamed from: as char[]
+
     public static final char[] field_1394;
-    // $FF: renamed from: at char[]
+
     public static final char[] field_1395;
-    // $FF: renamed from: au char[]
+
     public static final char[] field_1396;
-    // $FF: renamed from: av char[]
+
     public static final char[] field_1397;
-    // $FF: renamed from: aw char[]
+
     public static final char[] field_1398;
-    // $FF: renamed from: ax char[]
+
     public static final char[] field_1399;
-    // $FF: renamed from: ay char[]
+
     public static final char[] field_1400;
-    // $FF: renamed from: az char[]
+
     public static final char[] field_1401;
-    // $FF: renamed from: aA char[]
+
     public static final char[] field_1402;
-    // $FF: renamed from: a char[][]
+
     public static final char[][] field_1403;
-    // $FF: renamed from: b char[][]
+
     public static final char[][] field_1404;
-    // $FF: renamed from: aB char[]
+
     public static final char[] field_1405;
-    // $FF: renamed from: aC char[]
+
     public static final char[] field_1406;
-    // $FF: renamed from: aD char[]
+
     public static final char[] field_1407;
-    // $FF: renamed from: aE char[]
+
     public static final char[] field_1408;
-    // $FF: renamed from: aF char[]
+
     public static final char[] field_1409;
-    // $FF: renamed from: aG char[]
+
     public static final char[] field_1410;
-    // $FF: renamed from: aH char[]
+
     public static final char[] field_1411;
-    // $FF: renamed from: aI char[]
+
     public static final char[] field_1412;
-    // $FF: renamed from: aJ char[]
+
     public static final char[] field_1413;
-    // $FF: renamed from: aK char[]
+
     public static final char[] field_1414;
-    // $FF: renamed from: aL char[]
+
     public static final char[] field_1415;
-    // $FF: renamed from: aM char[]
+
     public static final char[] field_1416;
-    // $FF: renamed from: aN char[]
+
     public static final char[] field_1417;
-    // $FF: renamed from: aO char[]
+
     public static final char[] field_1418;
-    // $FF: renamed from: aP char[]
+
     public static final char[] field_1419;
-    // $FF: renamed from: aQ char[]
+
     public static final char[] field_1420;
-    // $FF: renamed from: aR char[]
+
     public static final char[] field_1421;
-    // $FF: renamed from: aS char[]
+
     public static final char[] field_1422;
-    // $FF: renamed from: aT char[]
+
     public static final char[] field_1423;
-    // $FF: renamed from: aU char[]
+
     public static final char[] field_1424;
-    // $FF: renamed from: aV char[]
+
     public static final char[] field_1425;
-    // $FF: renamed from: aW char[]
+
     public static final char[] field_1426;
-    // $FF: renamed from: aX char[]
+
     public static final char[] field_1427;
-    // $FF: renamed from: aY char[]
+
     public static final char[] field_1428;
-    // $FF: renamed from: aZ char[]
+
     public static final char[] field_1429;
-    // $FF: renamed from: ba char[]
+
     public static final char[] field_1430;
-    // $FF: renamed from: bb char[]
+
     public static final char[] field_1431;
-    // $FF: renamed from: bc char[]
+
     public static final char[] field_1432;
-    // $FF: renamed from: bd char[]
+
     public static final char[] field_1433;
-    // $FF: renamed from: be char[]
+
     public static final char[] field_1434;
-    // $FF: renamed from: bf char[]
+
     public static final char[] field_1435;
-    // $FF: renamed from: bg char[]
+
     public static final char[] field_1436;
-    // $FF: renamed from: bh char[]
+
     public static final char[] field_1437;
-    // $FF: renamed from: bi char[]
+
     public static final char[] field_1438;
-    // $FF: renamed from: bj char[]
+
     public static final char[] field_1439;
-    // $FF: renamed from: bk char[]
+
     public static final char[] field_1440;
-    // $FF: renamed from: bl char[]
+
     public static final char[] field_1441;
-    // $FF: renamed from: bm char[]
+
     public static final char[] field_1442;
-    // $FF: renamed from: bn char[]
+
     public static final char[] field_1443;
-    // $FF: renamed from: bo char[]
+
     public static final char[] field_1444;
-    // $FF: renamed from: bp char[]
+
     public static final char[] field_1445;
-    // $FF: renamed from: bq char[]
+
     public static final char[] field_1446;
-    // $FF: renamed from: br char[]
+
     public static final char[] field_1447;
-    // $FF: renamed from: bs char[]
+
     public static final char[] field_1448;
-    // $FF: renamed from: bt char[]
+
     public static final char[] field_1449;
-    // $FF: renamed from: bu char[]
+
     public static final char[] field_1450;
-    // $FF: renamed from: bv char[]
+
     public static final char[] field_1451;
-    // $FF: renamed from: bw char[]
+
     public static final char[] field_1452;
-    // $FF: renamed from: bx char[]
+
     public static final char[] field_1453;
-    // $FF: renamed from: by char[]
+
     public static final char[] field_1454;
-    // $FF: renamed from: bz char[]
+
     public static final char[] field_1455;
-    // $FF: renamed from: bA char[]
+
     public static final char[] field_1456;
-    // $FF: renamed from: bB char[]
+
     public static final char[] field_1457;
-    // $FF: renamed from: bC char[]
+
     public static final char[] field_1458;
-    // $FF: renamed from: bD char[]
+
     public static final char[] field_1459;
-    // $FF: renamed from: bE char[]
+
     public static final char[] field_1460;
-    // $FF: renamed from: bF char[]
+
     public static final char[] field_1461;
-    // $FF: renamed from: bG char[]
+
     public static final char[] field_1462;
-    // $FF: renamed from: bH char[]
+
     public static final char[] field_1463;
-    // $FF: renamed from: bI char[]
+
     public static final char[] field_1464;
-    // $FF: renamed from: bJ char[]
+
     public static final char[] field_1465;
-    // $FF: renamed from: bK char[]
+
     public static final char[] field_1466;
-    // $FF: renamed from: bL char[]
+
     public static final char[] field_1467;
-    // $FF: renamed from: bM char[]
+
     public static final char[] field_1468;
-    // $FF: renamed from: bN char[]
+
     public static final char[] field_1469;
-    // $FF: renamed from: bO char[]
+
     public static final char[] field_1470;
-    // $FF: renamed from: bP char[]
+
     public static final char[] field_1471;
-    // $FF: renamed from: bQ char[]
+
     public static final char[] field_1472;
-    // $FF: renamed from: bR char[]
+
     public static final char[] field_1473;
-    // $FF: renamed from: bS char[]
+
     public static final char[] field_1474;
-    // $FF: renamed from: bT char[]
+
     public static final char[] field_1475;
-    // $FF: renamed from: bU char[]
+
     public static final char[] field_1476;
-    // $FF: renamed from: bV char[]
+
     public static final char[] field_1477;
-    // $FF: renamed from: bW char[]
+
     public static final char[] field_1478;
-    // $FF: renamed from: bX char[]
+
     public static final char[] field_1479;
-    // $FF: renamed from: bY char[]
+
     public static final char[] field_1480;
-    // $FF: renamed from: bZ char[]
+
     public static final char[] field_1481;
-    // $FF: renamed from: ca char[]
+
     public static final char[] field_1482;
-    // $FF: renamed from: cb char[]
+
     public static final char[] field_1483;
-    // $FF: renamed from: cc char[]
+
     public static final char[] field_1484;
-    // $FF: renamed from: cd char[]
+
     public static final char[] field_1485;
-    // $FF: renamed from: ce char[]
+
     public static final char[] field_1486;
-    // $FF: renamed from: cf char[]
+
     public static final char[] field_1487;
-    // $FF: renamed from: cg char[]
+
     public static final char[] field_1488;
-    // $FF: renamed from: ch char[]
+
     public static final char[] field_1489;
-    // $FF: renamed from: ci char[]
+
     public static final char[] field_1490;
-    // $FF: renamed from: cj char[]
+
     public static final char[] field_1491;
-    // $FF: renamed from: ck char[]
+
     public static final char[] field_1492;
-    // $FF: renamed from: cl char[]
+
     public static final char[] field_1493;
-    // $FF: renamed from: cm char[]
+
     public static final char[] field_1494;
-    // $FF: renamed from: cn char[]
+
     public static final char[] field_1495;
-    // $FF: renamed from: co char[]
+
     public static final char[] field_1496;
-    // $FF: renamed from: cp char[]
+
     public static final char[] field_1497;
-    // $FF: renamed from: cq char[]
+
     public static final char[] field_1498;
-    // $FF: renamed from: cr char[]
+
     public static final char[] field_1499;
-    // $FF: renamed from: cs char[]
+
     public static final char[] field_1500;
-    // $FF: renamed from: ct char[]
+
     public static final char[] field_1501;
-    // $FF: renamed from: cu char[]
+
     public static final char[] field_1502;
-    // $FF: renamed from: cv char[]
+
     public static final char[] field_1503;
-    // $FF: renamed from: cw char[]
+
     public static final char[] field_1504;
-    // $FF: renamed from: cx char[]
+
     public static final char[] field_1505;
-    // $FF: renamed from: cy char[]
+
     public static final char[] field_1506;
-    // $FF: renamed from: cz char[]
+
     public static final char[] field_1507;
-    // $FF: renamed from: cA char[]
+
     public static final char[] field_1508;
-    // $FF: renamed from: cB char[]
+
     public static final char[] field_1509;
-    // $FF: renamed from: cC char[]
+
     public static final char[] field_1510;
-    // $FF: renamed from: cD char[]
+
     public static final char[] field_1511;
-    // $FF: renamed from: cE char[]
+
     public static final char[] field_1512;
 
-    // $FF: renamed from: <init> (c.d) void
     public class_272(class_288 var1) {
         this.field_1320 = 1;
         class_262 var10001 = new class_262(778);
@@ -440,7 +437,6 @@ public class class_272 {
         this.method_2456(var1);
     }
 
-    // $FF: renamed from: a (c.d) void
     public void method_2456(class_288 var1) {
         this.field_1319 = var1.field_1722;
         this.field_1321 = var1.field_1723;
@@ -448,7 +444,6 @@ public class class_272 {
         this.field_1323 = var1;
     }
 
-    // $FF: renamed from: a (byte[], char[]) int
     public int method_2457(byte[] var1, char[] var2) {
         int var3;
         if ((var3 = this.field_1314.method_1896(var2, this.field_1320)) < 0) {
@@ -474,7 +469,6 @@ public class class_272 {
         return var3;
     }
 
-    // $FF: renamed from: a (m.s) int
     public int method_2458(class_40 var1) {
         class_40 var2 = var1.method_173();
         if (var2.method_160()) {
@@ -483,7 +477,6 @@ public class class_272 {
         return this.method_2459(var1.method_178());
     }
 
-    // $FF: renamed from: a (char[]) int
     public int method_2459(char[] var1) {
         int var2;
         if ((var2 = this.field_1314.method_1896(var1, this.field_1320)) < 0) {
@@ -532,7 +525,6 @@ public class class_272 {
         return var2;
     }
 
-    // $FF: renamed from: a (char[], byte[]) int
     public int method_2460(char[] var1, byte[] var2) {
         int var3;
         if ((var3 = this.field_1315.method_1896(var1, this.field_1320)) < 0) {
@@ -558,7 +550,6 @@ public class class_272 {
         return var3;
     }
 
-    // $FF: renamed from: a (double) int
     public int method_2461(double var1) {
         if (this.field_1310 == null) {
             class_276 var10001 = new class_276(5);
@@ -593,7 +584,6 @@ public class class_272 {
         return var3;
     }
 
-    // $FF: renamed from: a (float) int
     public int method_2462(float var1) {
         if (this.field_1311 == null) {
             class_274 var10001 = new class_274(3);
@@ -623,7 +613,6 @@ public class class_272 {
         return var2;
     }
 
-    // $FF: renamed from: a (int) int
     public int method_2463(int var1) {
         if (this.field_1312 == null) {
             class_275 var10001 = new class_275(248);
@@ -652,7 +641,6 @@ public class class_272 {
         return var2;
     }
 
-    // $FF: renamed from: a (long) int
     public int method_2464(long var1) {
         if (this.field_1313 == null) {
             class_76 var10001 = new class_76(5);
@@ -685,7 +673,6 @@ public class class_272 {
         return var3;
     }
 
-    // $FF: renamed from: a (java.lang.String) int
     public int method_2465(String var1) {
         char[] var3 = var1.toCharArray();
         int var2;
@@ -712,7 +699,6 @@ public class class_272 {
         return var2;
     }
 
-    // $FF: renamed from: b (char[]) int
     public int method_2466(char[] var1) {
         int var2;
         if ((var2 = this.field_1317.method_1896(var1, this.field_1320)) < 0) {
@@ -738,7 +724,6 @@ public class class_272 {
         return var2;
     }
 
-    // $FF: renamed from: b (m.s) int
     public int method_2467(class_40 var1) {
         class_40 var2 = var1.method_173();
         if (var2.method_160()) {
@@ -747,7 +732,6 @@ public class class_272 {
         return this.method_2466(var1.method_134());
     }
 
-    // $FF: renamed from: a (char[], char[], char[], boolean) int
     public int method_2468(char[] var1, char[] var2, char[] var3, boolean var4) {
         int var5;
         if ((var5 = this.method_2474(var1, var2, var3, this.field_1320)) < 0) {
@@ -776,7 +760,6 @@ public class class_272 {
         return var5;
     }
 
-    // $FF: renamed from: a (m.s, char[], char[], boolean) int
     public int method_2469(class_40 var1, char[] var2, char[] var3, boolean var4) {
         if (var1.method_160()) {
             this.field_1323.method_3012(var1);
@@ -784,7 +767,6 @@ public class class_272 {
         return this.method_2468(var1.method_134(), var2, var3, var4);
     }
 
-    // $FF: renamed from: a (char[], char[]) int
     public int method_2470(char[] var1, char[] var2) {
         int var3;
         if ((var3 = this.method_2473(var1, var2, this.field_1320)) < 0) {
@@ -813,7 +795,6 @@ public class class_272 {
         return var3;
     }
 
-    // $FF: renamed from: a (char[], char[], char[]) int
     public int method_2471(char[] var1, char[] var2, char[] var3) {
         int var4;
         if ((var4 = this.method_2474(var1, var2, var3, this.field_1320)) < 0) {
@@ -842,7 +823,6 @@ public class class_272 {
         return var4;
     }
 
-    // $FF: renamed from: c (char[]) int
     public int method_2472(char[] var1) {
         int var2 = this.field_1320;
         int var3 = this.field_1321;
@@ -922,7 +902,6 @@ public class class_272 {
         return var4;
     }
 
-    // $FF: renamed from: a (char[], char[], int) int
     private int method_2473(char[] var1, char[] var2, int var3) {
         Object var5 = this.field_1318.method_3226(var1);
         int var4;
@@ -950,7 +929,6 @@ public class class_272 {
         return var4;
     }
 
-    // $FF: renamed from: a (char[], char[], char[], int) int
     private int method_2474(char[] var1, char[] var2, char[] var3, int var4) {
         class_325 var6 = (class_325)this.field_1316.method_3226(var1);
         int var5;
@@ -990,7 +968,6 @@ public class class_272 {
         return var5;
     }
 
-    // $FF: renamed from: a (int, int) void
     public void method_2475(int var1, int var2) {
         this.field_1320 = var1;
         this.field_1321 = var2;
@@ -1005,7 +982,6 @@ public class class_272 {
         }
     }
 
-    // $FF: renamed from: b (int) void
     private final void method_2476(int var1) {
         int var2 = this.field_1319.length;
         int var3 = var2;
@@ -1015,7 +991,6 @@ public class class_272 {
         System.arraycopy(this.field_1319, 0, this.field_1319 = new byte[var2 + var3], 0, var2);
     }
 
-    // $FF: renamed from: a (int) void
     protected final void method_2477(int var1) {
         if (this.field_1321 + 1 >= this.field_1319.length) {
             this.method_2476(1);
@@ -1023,7 +998,6 @@ public class class_272 {
         this.field_1319[this.field_1321++] = (byte)var1;
     }
 
-    // $FF: renamed from: a () void
     public void method_2478() {
         if (this.field_1310 != null) {
             this.field_1310.method_2495();
@@ -1046,7 +1020,6 @@ public class class_272 {
         this.field_1321 = 0;
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1324 = "append".toCharArray();
         field_1325 = "newInstance".toCharArray();

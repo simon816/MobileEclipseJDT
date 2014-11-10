@@ -20,47 +20,44 @@ import m.class_58;
 import m.class_65;
 import m.class_86;
 
-// $FF: renamed from: h.x
 public class class_102 extends class_98 {
 
-    // $FF: renamed from: a h.ac
     public class_124 field_512;
-    // $FF: renamed from: a int
+
     public int field_513;
-    // $FF: renamed from: a h.r
+
     public class_126 field_514;
-    // $FF: renamed from: a h.bf
+
     public class_98 field_515;
-    // $FF: renamed from: d int
+
     private int field_516;
-    // $FF: renamed from: a m.s
+
     private class_40 field_517;
-    // $FF: renamed from: b m.s
+
     private class_40 field_518;
-    // $FF: renamed from: a i.s
+
     private class_74 field_519;
-    // $FF: renamed from: b i.s
+
     private class_74 field_520;
-    // $FF: renamed from: a m.v
+
     public class_86 field_521;
-    // $FF: renamed from: a m.ab
+
     public class_65 field_522;
-    // $FF: renamed from: b m.ab
+
     public class_65 field_523;
-    // $FF: renamed from: c m.ab
+
     public class_65 field_524;
-    // $FF: renamed from: a char[]
+
     private static final char[] field_525;
-    // $FF: renamed from: b char[]
+
     private static final char[] field_526;
-    // $FF: renamed from: au char[]
+
     private static final char[] field_527;
-    // $FF: renamed from: b int
+
     int field_528;
-    // $FF: renamed from: c int
+
     int field_529;
 
-    // $FF: renamed from: <init> (h.ac, int) void
     public class_102(class_124 var1, int var2) {
         this.field_513 = -1;
         this.field_528 = -1;
@@ -70,7 +67,6 @@ public class class_102 extends class_98 {
         this.field_516 = -1;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         class_74 var10001 = new class_74();
         this.field_519 = var10001;
@@ -122,7 +118,6 @@ public class class_102 extends class_98 {
         return var9;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -284,7 +279,6 @@ public class class_102 extends class_98 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append("for (");
         this.field_512.method_888(0, var2);
@@ -299,7 +293,6 @@ public class class_102 extends class_98 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_86 var10001 = new class_86(var1);
         this.field_521 = var10001;
@@ -417,7 +410,6 @@ public class class_102 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2024(this, var2)) {
             this.field_512.method_763(var1, this.field_521);
@@ -429,7 +421,6 @@ public class class_102 extends class_98 {
         var1.method_1939(this, var2);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_525 = " index".toCharArray();
         field_526 = " collection".toCharArray();

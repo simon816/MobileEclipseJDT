@@ -1,23 +1,19 @@
 package f;
 
-// $FF: renamed from: f.c
 public final class class_327 {
 
-    // $FF: renamed from: a java.lang.Object[]
     public Object[] field_1852;
-    // $FF: renamed from: b java.lang.Object[]
+
     public Object[] field_1853;
-    // $FF: renamed from: a int
+
     public int field_1854;
-    // $FF: renamed from: b int
+
     public int field_1855;
 
-    // $FF: renamed from: <init> () void
     public class_327() {
         this(13);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_327(int var1) {
         this.field_1854 = 0;
         this.field_1855 = var1;
@@ -29,7 +25,6 @@ public final class class_327 {
         this.field_1853 = new Object[var2];
     }
 
-    // $FF: renamed from: a (java.lang.Object) java.lang.Object
     public Object method_3241(Object var1) {
         int var2 = this.field_1852.length;
         int var3 = (var1.hashCode() & Integer.MAX_VALUE) % var2;
@@ -46,7 +41,6 @@ public final class class_327 {
         return null;
     }
 
-    // $FF: renamed from: a (java.lang.Object, java.lang.Object) java.lang.Object
     public Object method_3242(Object var1, Object var2) {
         int var3 = this.field_1852.length;
         int var4 = (var1.hashCode() & Integer.MAX_VALUE) % var3;
@@ -68,7 +62,6 @@ public final class class_327 {
         return var2;
     }
 
-    // $FF: renamed from: b (java.lang.Object) java.lang.Object
     public Object method_3243(Object var1) {
         int var2 = this.field_1852.length;
         int var3 = (var1.hashCode() & Integer.MAX_VALUE) % var2;
@@ -92,7 +85,6 @@ public final class class_327 {
         return null;
     }
 
-    // $FF: renamed from: a () void
     private void method_3244() {
         class_327 var10000 = new class_327(this.field_1854 * 2);
         class_327 var1 = var10000;

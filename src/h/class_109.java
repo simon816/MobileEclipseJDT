@@ -7,19 +7,16 @@ import i.class_74;
 import m.class_65;
 import m.class_86;
 
-// $FF: renamed from: h.bw
 public abstract class class_109 extends class_98 {
 
-    // $FF: renamed from: a char[]
     public char[] field_568;
-    // $FF: renamed from: a i.s
+
     public class_74 field_569;
-    // $FF: renamed from: a h.bi[]
+
     public class_116[] field_570;
-    // $FF: renamed from: a int
+
     public int field_571;
 
-    // $FF: renamed from: <init> (char[], int, int) void
     public class_109(char[] var1, int var2, int var3) {
         this.field_571 = -1;
         this.field_568 = var1;
@@ -27,7 +24,6 @@ public abstract class class_109 extends class_98 {
         this.field_445 = var3;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -57,6 +53,5 @@ public abstract class class_109 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {}
 }

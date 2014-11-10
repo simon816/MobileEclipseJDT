@@ -23,22 +23,18 @@ import m.class_67;
 import m.class_83;
 import m.class_86;
 
-// $FF: renamed from: h.cj
 public abstract class class_89 implements class_17 {
 
-    // $FF: renamed from: h int
     public int field_444;
-    // $FF: renamed from: i int
+
     public int field_445;
-    // $FF: renamed from: j int
+
     public int field_446;
 
-    // $FF: renamed from: <init> () void
     public class_89() {
         this.field_446 = Integer.MIN_VALUE;
     }
 
-    // $FF: renamed from: a (m.v, h.r, m.s, m.s, m.s) int
     private static int method_748(class_86 var0, class_126 var1, class_40 var2, class_40 var3, class_40 var4) {
         var1.method_911(var0, var2, var3);
         if (var3 != class_40.field_187 && var2.method_98() == 516) {
@@ -56,7 +52,6 @@ public abstract class class_89 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.v, h.r, m.s, m.ae, h.r[], m.s[], boolean, m.ad) void
     public static void method_749(class_86 var0, class_126 var1, class_40 var2, class_58 var3, class_126[] var4, class_40[] var5, boolean var6, class_0 var7) {
         class_40[] var8 = var3.field_276;
         int var9 = var8.length;
@@ -142,12 +137,10 @@ public abstract class class_89 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a () h.cj
     public class_89 method_750() {
         return this;
     }
 
-    // $FF: renamed from: a (m.k, m.bb, boolean) boolean
     public final boolean method_751(class_67 var1, class_83 var2, boolean var3) {
         if ((this.field_446 & '\u8000') == 0 && !var3 && (var1.method_428() || var1.field_314 != null && var1.field_314.method_158()) && !var2.method_625(var1)) {
             class_67 var10000 = var1.method_435();
@@ -162,12 +155,10 @@ public abstract class class_89 implements class_17 {
         return !var1.method_434() ? false : (var2.method_627(var1.field_314) ? false : var2.method_577().field_1939 || !var2.method_630());
     }
 
-    // $FF: renamed from: e () boolean
     public boolean method_752() {
         return false;
     }
 
-    // $FF: renamed from: a (m.ae, m.bb, boolean) boolean
     public final boolean method_753(class_58 var1, class_83 var2, boolean var3) {
         if ((this.field_446 & '\u8000') == 0 && (var1.method_367() || var1.field_278.method_158()) && !var2.method_626(var1)) {
             class_58 var10000 = var1.method_376();
@@ -182,17 +173,14 @@ public abstract class class_89 implements class_17 {
         return !var1.method_375() ? false : (var2.method_627(var1.field_278) ? false : (!var3 && (var1.field_273 & 1048576) == 0 ? false : var2.method_577().field_1939 || !var2.method_630()));
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_754() {
         return false;
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_755() {
         return false;
     }
 
-    // $FF: renamed from: a (m.s, m.bb) boolean
     public final boolean method_756(class_40 var1, class_83 var2) {
         if (var1.method_147()) {
             var1 = ((class_42)var1).field_192;
@@ -216,10 +204,8 @@ public abstract class class_89 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (int, java.lang.StringBuffer) java.lang.StringBuffer
     public abstract StringBuffer method_757(int var1, StringBuffer var2);
 
-    // $FF: renamed from: a (h.cn[], java.lang.StringBuffer) java.lang.StringBuffer
     public static StringBuffer method_758(class_164[] var0, StringBuffer var1) {
         int var2 = var0.length;
         for (int var3 = 0; var3 < var2; ++var3) {
@@ -229,7 +215,6 @@ public abstract class class_89 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: e (int, java.lang.StringBuffer) java.lang.StringBuffer
     public static StringBuffer method_759(int var0, StringBuffer var1) {
         for (int var2 = var0; var2 > 0; --var2) {
             var1.append("  ");
@@ -237,7 +222,6 @@ public abstract class class_89 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: f (int, java.lang.StringBuffer) java.lang.StringBuffer
     public static StringBuffer method_760(int var0, StringBuffer var1) {
         if ((var0 & 1) != 0) {
             var1.append("public ");
@@ -272,7 +256,6 @@ public abstract class class_89 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: a (m.v, h.cn[], m.w) void
     public static void method_761(class_86 var0, class_164[] var1, class_34 var2) {
         class_203[] var3 = null;
         int var4 = var1 == null ? 0 : var1.length;
@@ -392,7 +375,6 @@ public abstract class class_89 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (m.v, h.cn[], m.w) void
     public static void method_762(class_86 var0, class_164[] var1, class_34 var2) {
         if (var2 != null) {
             int var3 = var2.method_98();
@@ -497,12 +479,10 @@ public abstract class class_89 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () int
     public int method_5() {
         return this.field_444;
     }
 
-    // $FF: renamed from: c () int
     public int method_6() {
         return this.field_445;
     }
@@ -511,6 +491,5 @@ public abstract class class_89 implements class_17 {
         return this.method_757(0, new StringBuffer(30)).toString();
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {}
 }

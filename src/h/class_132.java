@@ -13,15 +13,12 @@ import m.class_40;
 import m.class_80;
 import m.class_86;
 
-// $FF: renamed from: h.i
 public class class_132 extends class_131 {
 
-    // $FF: renamed from: a int
     public int field_689;
-    // $FF: renamed from: b int
+
     public int field_690;
 
-    // $FF: renamed from: <init> (h.r, h.r, int, int) void
     public class_132(class_126 var1, class_126 var2, int var3, int var4) {
         super(var1, var2, var4);
         var1.field_446 &= -8193;
@@ -29,7 +26,6 @@ public class class_132 extends class_131 {
         this.field_689 = var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         if (this.field_675.field_177 != 11) {
             this.field_687.method_909(var1, var2, var3);
@@ -37,7 +33,6 @@ public class class_132 extends class_131 {
         return ((class_154)this.field_687).method_1035(var1, var2, var3, this, true).method_3109();
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         ((class_154)this.field_687).method_1039(var1, var2, this.field_688, this.field_689, this.field_690, var3);
@@ -47,12 +42,10 @@ public class class_132 extends class_131 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: a (l.g) int
     public int method_921(class_301 var1) {
         return -1;
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_948() {
         switch (this.field_689) {
             case 2:
@@ -89,13 +82,11 @@ public class class_132 extends class_131 {
         }
     }
 
-    // $FF: renamed from: b_ (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_946(int var1, StringBuffer var2) {
         this.field_687.method_924(var1, var2).append(' ').append(this.method_948()).append(' ');
         return this.field_688.method_924(0, var2);
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         this.field_672 = class_331.field_1896;
         if (this.field_687 instanceof class_154 && !this.field_687.method_755()) {
@@ -165,12 +156,10 @@ public class class_132 extends class_131 {
         }
     }
 
-    // $FF: renamed from: d_ () boolean
     public boolean method_949() {
         return false;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2010(this, var2)) {
             this.field_687.method_763(var1, var2);

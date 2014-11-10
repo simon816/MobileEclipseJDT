@@ -10,21 +10,18 @@ import m.class_46;
 import m.class_52;
 import m.class_83;
 
-// $FF: renamed from: m.t
 public class class_47 extends class_46 {
 
-    // $FF: renamed from: a m.s
     public class_40 field_226;
-    // $FF: renamed from: a m.z
+
     public class_45 field_227;
-    // $FF: renamed from: a int
+
     public int field_228;
-    // $FF: renamed from: a m.as
+
     public class_43 field_229;
-    // $FF: renamed from: c int
+
     public int field_230;
 
-    // $FF: renamed from: <init> (m.z, m.as, int, int) void
     public class_47(class_45 var1, class_43 var2, int var3, int var4) {
         super(class_17.field_57, (class_34)null, 0);
         this.field_227 = var1;
@@ -35,7 +32,6 @@ public class class_47 extends class_46 {
         this.field_228 = var4;
     }
 
-    // $FF: renamed from: b () java.lang.String
     public String method_135() {
         if (this.field_227 != null) {
             StringBuffer var1 = new StringBuffer(10);
@@ -46,7 +42,6 @@ public class class_47 extends class_46 {
         }
     }
 
-    // $FF: renamed from: f () char[]
     public char[] method_142() {
         if (this.field_225 == null) {
             this.field_225 = class_233.method_1355(class_17.field_59, this.field_227.method_142());
@@ -54,7 +49,6 @@ public class class_47 extends class_46 {
         return this.field_225;
     }
 
-    // $FF: renamed from: a (m.bb, m.al) void
     public void method_263(class_83 var1, class_52 var2) {
         class_46 var3 = this.field_227.method_253();
         if (var3 == null) {
@@ -156,12 +150,10 @@ public class class_47 extends class_46 {
         }
     }
 
-    // $FF: renamed from: h () boolean
     public boolean method_150() {
         return true;
     }
 
-    // $FF: renamed from: b (m.s) boolean
     public boolean method_154(class_40 var1) {
         if (this == var1) {
             return true;
@@ -180,7 +172,6 @@ public class class_47 extends class_46 {
         }
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_103() {
         if (this.field_227 != null) {
             StringBuffer var1 = new StringBuffer(10);
@@ -194,7 +185,6 @@ public class class_47 extends class_46 {
         }
     }
 
-    // $FF: renamed from: d () char[]
     public char[] method_104() {
         if (this.field_227 != null) {
             StringBuffer var1 = new StringBuffer(10);

@@ -12,31 +12,26 @@ import l.class_303;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.cc
 public class class_144 extends class_141 {
 
-    // $FF: renamed from: a int
     public int field_720;
-    // $FF: renamed from: b int
+
     public int field_721;
-    // $FF: renamed from: c int
+
     public static int field_722;
-    // $FF: renamed from: a h.by[]
+
     public class_141[] field_723;
 
-    // $FF: renamed from: <init> (h.r, h.r, int, int) void
     public class_144(class_126 var1, class_126 var2, int var3, int var4) {
         super(var1, var2, var3);
         this.method_1003(var1, var4);
     }
 
-    // $FF: renamed from: <init> (h.cc) void
     public class_144(class_144 var1) {
         super(var1);
         this.method_1003(var1.field_715, var1.field_720);
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         if (this.field_723 == null) {
             return super.method_814(var1, var2, var3);
@@ -60,7 +55,6 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, int) void
     public void method_914(class_86 var1, class_268 var2, int var3) {
         if (this.field_723 == null) {
             super.method_914(var1, var2, var3);
@@ -100,7 +94,6 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: b (m.v, i.o, int) void
     public void method_915(class_86 var1, class_268 var2, int var3) {
         if (this.field_723 == null) {
             super.method_915(var1, var2, var3);
@@ -141,7 +134,6 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: a (h.r, int) void
     private void method_1003(class_126 var1, int var2) {
         this.field_720 = var2;
         if (var2 > 1) {
@@ -155,7 +147,6 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: a_ (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_975(int var1, StringBuffer var2) {
         if (this.field_723 == null) {
             return super.method_975(var1, var2);
@@ -177,7 +168,6 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         if (this.field_723 == null) {
             return super.method_925(var1);
@@ -196,7 +186,6 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (this.field_723 == null) {
             super.method_763(var1, var2);
@@ -224,14 +213,12 @@ public class class_144 extends class_141 {
         }
     }
 
-    // $FF: renamed from: c () void
     public void method_1004() {
         if (this.field_721 < 160) {
             this.field_721 *= 2;
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_722 = 20;
     }

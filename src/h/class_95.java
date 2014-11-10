@@ -25,15 +25,12 @@ import m.class_86;
 import m.class_87;
 import n.class_244;
 
-// $FF: renamed from: h.ce
 public class class_95 extends class_93 {
 
-    // $FF: renamed from: a m.k
     private class_67 field_495;
-    // $FF: renamed from: b m.k
+
     private class_67 field_496;
 
-    // $FF: renamed from: <init> (c.h) void
     public class_95(class_284 var1) {
         super(var1);
         this.field_495 = null;
@@ -42,7 +39,6 @@ public class class_95 extends class_93 {
         this.field_479 = class_17.field_136;
     }
 
-    // $FF: renamed from: a (m.f, l.h, l.g) void
     public void method_786(class_84 var1, class_299 var2, class_301 var3) {
         if (!this.field_489) {
             try {
@@ -67,7 +63,6 @@ public class class_95 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (m.f, c.d) void
     public void method_789(class_84 var1, class_288 var2) {
         byte var3 = 0;
         if (!this.field_489) {
@@ -93,7 +88,6 @@ public class class_95 extends class_93 {
         }
     }
 
-    // $FF: renamed from: a (m.f, c.d, int) void
     private void method_812(class_84 var1, class_288 var2, int var3) {
         class_272 var4 = var2.field_1716;
         int var5 = var4.field_1321;
@@ -218,44 +212,36 @@ public class class_95 extends class_93 {
         }
     }
 
-    // $FF: renamed from: f () boolean
     public boolean method_794() {
         return true;
     }
 
-    // $FF: renamed from: d () boolean
     public boolean method_797() {
         return true;
     }
 
-    // $FF: renamed from: g () boolean
     public boolean method_799() {
         return true;
     }
 
-    // $FF: renamed from: a (j.r, h.b) void
     public void method_800(class_278 var1, class_90 var2) {}
 
-    // $FF: renamed from: a (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2).append("<clinit>()");
         this.method_801(var1 + 1, var2);
         return var2;
     }
 
-    // $FF: renamed from: a (m.f) void
     public void method_803(class_84 var1) {
         class_87 var10001 = new class_87(var1, var1.field_376, true);
         this.field_478 = var10001;
     }
 
-    // $FF: renamed from: a (c.j, m.f) void
     public void method_806(class_264 var1, class_84 var2) {
         var1.method_2009(this, var2);
         var1.method_1924(this, var2);
     }
 
-    // $FF: renamed from: a (m.k, boolean) void
     public void method_813(class_67 var1, boolean var2) {
         this.field_495 = var1;
         if (var2) {

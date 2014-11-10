@@ -13,20 +13,16 @@ import m.class_83;
 import m.class_84;
 import m.class_86;
 
-// $FF: renamed from: h.am
 public class class_150 extends class_149 {
 
-    // $FF: renamed from: a h.bo[]
     public class_146[] field_731;
 
-    // $FF: renamed from: <init> (char[], h.bo[], int, long) void
     public class_150(char[] var1, class_146[] var2, int var3, long var4) {
         super(var1, var3, var4);
         this.field_730 = this.field_445;
         this.field_731 = var2;
     }
 
-    // $FF: renamed from: a (m.bb) void
     public void method_1007(class_83 var1) {
         if (this.field_675 != null) {
             if (this.field_675.method_173() instanceof class_52) {
@@ -41,18 +37,15 @@ public class class_150 extends class_149 {
         }
     }
 
-    // $FF: renamed from: a (int) h.bo
     public class_146 method_1008(int var1) {
         class_150 var10000 = new class_150(this.field_726, this.field_731, var1, ((long)this.field_444 << 32) + (long)this.field_445);
         return var10000;
     }
 
-    // $FF: renamed from: b (m.bb) m.s
     protected class_40 method_1011(class_83 var1) {
         return null;
     }
 
-    // $FF: renamed from: a (m.bb, m.as, boolean) m.s
     private class_40 method_1028(class_83 var1, class_43 var2, boolean var3) {
         this.field_672 = class_331.field_1896;
         if ((this.field_446 & 262144) != 0 && this.field_675 != null) {
@@ -210,7 +203,6 @@ public class class_150 extends class_149 {
         }
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append(this.field_726);
         var2.append("<");
@@ -235,22 +227,18 @@ public class class_150 extends class_149 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.v, boolean) m.s
     public class_40 method_1017(class_86 var1, boolean var2) {
         return this.method_1028(var1, (class_43)null, var2);
     }
 
-    // $FF: renamed from: a (m.f) m.s
     public class_40 method_1018(class_84 var1) {
         return this.method_1028(var1, (class_43)null, false);
     }
 
-    // $FF: renamed from: a (m.v, m.as) m.s
     public class_40 method_1023(class_86 var1, class_43 var2) {
         return this.method_1028(var1, var2, true);
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2043(this, var2)) {
             int var3 = 0;
@@ -261,7 +249,6 @@ public class class_150 extends class_149 {
         var1.method_1958(this, var2);
     }
 
-    // $FF: renamed from: a (c.j, m.f) void
     public void method_1021(class_264 var1, class_84 var2) {
         if (var1.method_2044(this, var2)) {
             int var3 = 0;

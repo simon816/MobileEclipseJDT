@@ -1,23 +1,19 @@
 package f;
 
-// $FF: renamed from: f.g
 public final class class_323 {
 
-    // $FF: renamed from: a int[]
     public int[] field_1836;
-    // $FF: renamed from: a java.lang.Object[]
+
     public Object[] field_1837;
-    // $FF: renamed from: a int
+
     public int field_1838;
-    // $FF: renamed from: b int
+
     int field_1839;
 
-    // $FF: renamed from: <init> () void
     public class_323() {
         this(13);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_323(int var1) {
         this.field_1838 = 0;
         this.field_1839 = var1;
@@ -29,7 +25,6 @@ public final class class_323 {
         this.field_1837 = new Object[var2];
     }
 
-    // $FF: renamed from: a (int) java.lang.Object
     public Object method_3214(int var1) {
         int var2 = this.field_1836.length;
         int var3 = var1 % var2;
@@ -46,7 +41,6 @@ public final class class_323 {
         return null;
     }
 
-    // $FF: renamed from: a (int, java.lang.Object) java.lang.Object
     public Object method_3215(int var1, Object var2) {
         int var3 = this.field_1836.length;
         int var4 = var1 % var3;
@@ -68,7 +62,6 @@ public final class class_323 {
         return var2;
     }
 
-    // $FF: renamed from: a () void
     private void method_3216() {
         class_323 var10000 = new class_323(this.field_1838 * 2);
         class_323 var1 = var10000;

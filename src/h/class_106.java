@@ -18,19 +18,16 @@ import m.class_54;
 import m.class_67;
 import m.class_86;
 
-// $FF: renamed from: h.ca
 public class class_106 extends class_98 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_555;
-    // $FF: renamed from: b h.r
+
     public class_126 field_556;
-    // $FF: renamed from: a int
+
     int field_557;
-    // $FF: renamed from: a m.k
+
     private class_67 field_558;
 
-    // $FF: renamed from: <init> (h.r, h.r, int) void
     public class_106(class_126 var1, class_126 var2, int var3) {
         this.field_557 = -1;
         this.field_555 = var2;
@@ -39,7 +36,6 @@ public class class_106 extends class_98 {
         this.field_445 = var1.field_445;
     }
 
-    // $FF: renamed from: <init> (h.r, int) void
     public class_106(class_126 var1, int var2) {
         this.field_557 = -1;
         this.field_555 = var1;
@@ -47,7 +43,6 @@ public class class_106 extends class_98 {
         this.field_445 = var1.field_445;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         this.field_557 = var1.method_635().method_729(var3);
         class_331 var4 = this.field_555.method_922();
@@ -71,7 +66,6 @@ public class class_106 extends class_98 {
         return var6 ? var3 : var3.method_3105(var9.method_3106()).method_3071(var8.method_3114());
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -105,7 +99,6 @@ public class class_106 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         this.field_555.method_926(var1, class_40.field_186);
         if (this.field_556 != null) {
@@ -132,7 +125,6 @@ public class class_106 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2000(this, var2)) {
             this.field_555.method_763(var1, var2);
@@ -143,7 +135,6 @@ public class class_106 extends class_98 {
         var1.method_1915(this, var2);
     }
 
-    // $FF: renamed from: a (m.v, l.g) void
     public void method_836(class_86 var1, class_301 var2) {
         if ((var2.field_1783 & 1) == 0) {
             class_54 var3;
@@ -168,7 +159,6 @@ public class class_106 extends class_98 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2);
         var2.append("assert ");

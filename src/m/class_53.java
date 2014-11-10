@@ -11,10 +11,8 @@ import m.class_58;
 import m.class_62;
 import m.class_80;
 
-// $FF: renamed from: m.at
 public class class_53 extends class_52 {
 
-    // $FF: renamed from: <init> (m.as, m.as, m.af) void
     public class_53(class_43 var1, class_43 var2, class_80 var3) {
         super(var1, (class_40[])null, var2, var3);
         if (var2 == null || (var2.field_199 & 1073741824) == 0) {
@@ -22,24 +20,20 @@ public class class_53 extends class_52 {
         }
     }
 
-    // $FF: renamed from: a (m.ae) m.am
     public class_62 method_285(class_58 var1) {
         return (class_62)(var1.field_279 != class_34.field_157 && !var1.method_370() ? this.field_244.method_498(var1, this) : super.method_285(var1));
     }
 
-    // $FF: renamed from: a () int
     public int method_98() {
         return 1028;
     }
 
-    // $FF: renamed from: b () java.lang.String
     public String method_135() {
         StringBuffer var1 = new StringBuffer(10);
         var1.append(this.method_283().method_179()).append("#RAW");
         return var1.toString();
     }
 
-    // $FF: renamed from: f () char[]
     public char[] method_142() {
         if (this.field_245 == null) {
             if ((this.field_199 & 1073741824) == 0) {
@@ -69,7 +63,6 @@ public class class_53 extends class_52 {
         return this.field_245;
     }
 
-    // $FF: renamed from: b (m.s) boolean
     public boolean method_154(class_40 var1) {
         if (this == var1) {
             return true;
@@ -90,7 +83,6 @@ public class class_53 extends class_52 {
         }
     }
 
-    // $FF: renamed from: c (m.s) boolean
     public boolean method_164(class_40 var1) {
         if (this == var1) {
             return false;
@@ -108,17 +100,14 @@ public class class_53 extends class_52 {
         }
     }
 
-    // $FF: renamed from: r () boolean
     public boolean method_162() {
         return false;
     }
 
-    // $FF: renamed from: s () boolean
     public boolean method_166() {
         return true;
     }
 
-    // $FF: renamed from: d () void
     protected void method_288() {
         class_46[] var1 = this.method_286().method_181();
         int var2 = var1.length;
@@ -129,7 +118,6 @@ public class class_53 extends class_52 {
         this.field_243 = var3;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_103() {
         char[] var1;
         if (this.method_159()) {
@@ -140,7 +128,6 @@ public class class_53 extends class_52 {
         return var1;
     }
 
-    // $FF: renamed from: d () char[]
     public char[] method_104() {
         char[] var1;
         if (this.method_159()) {

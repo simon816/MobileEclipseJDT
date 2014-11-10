@@ -14,36 +14,32 @@ import j.class_257;
 import j.class_260;
 import j.class_278;
 
-// $FF: renamed from: j.l
 public class class_256 extends class_251 {
 
-    // $FF: renamed from: a h.b
     public class_90 field_1101;
-    // $FF: renamed from: a j.c[]
+
     public class_252[] field_1102;
-    // $FF: renamed from: a int
+
     public int field_1103;
-    // $FF: renamed from: a j.m[]
+
     public class_260[] field_1104;
-    // $FF: renamed from: b int
+
     public int field_1105;
-    // $FF: renamed from: c int
+
     int field_1106;
-    // $FF: renamed from: d int
+
     int field_1107;
-    // $FF: renamed from: a j.g[]
+
     class_257[] field_1108;
-    // $FF: renamed from: f int
+
     int field_1109;
 
-    // $FF: renamed from: <init> (h.b, int, j.r) void
     public class_256(class_90 var1, int var2, class_278 var3) {
         super((class_251)null, var2, var3);
         this.field_1107 = -1;
         this.field_1101 = var1;
     }
 
-    // $FF: renamed from: a (int, int, int, int) j.e
     public class_251 method_1831(int var1, int var2, int var3, int var4) {
         if (this.field_1108 == null) {
             this.field_1108 = new class_257[5];
@@ -57,7 +53,6 @@ public class class_256 extends class_251 {
         return var5;
     }
 
-    // $FF: renamed from: b (int, int) void
     public void method_1840(int var1, int var2) {
         this.field_1106 |= var1;
         if (this.field_1107 < 0) {
@@ -65,7 +60,6 @@ public class class_256 extends class_251 {
         }
     }
 
-    // $FF: renamed from: a (h.ci, int) j.e
     public class_251 method_1832(class_93 var1, int var2) {
         if (this.field_1105 > 0) {
             class_260 var3 = this.field_1104[this.field_1105 - 1];
@@ -94,7 +88,6 @@ public class class_256 extends class_251 {
         }
     }
 
-    // $FF: renamed from: a (h.m, int) j.e
     public class_251 method_1834(class_121 var1, int var2) {
         if (this.field_1105 > 0) {
             class_260 var3 = this.field_1104[this.field_1105 - 1];
@@ -108,7 +101,6 @@ public class class_256 extends class_251 {
         }
     }
 
-    // $FF: renamed from: a (h.z, int) j.e
     public class_251 method_1835(class_91 var1, int var2) {
         this.method_1846();
         if (this.field_1102 == null) {
@@ -126,7 +118,6 @@ public class class_256 extends class_251 {
         return this;
     }
 
-    // $FF: renamed from: a (h.bq, int) j.e
     public class_251 method_1838(class_114 var1, int var2) {
         class_260 var3;
         if ((var1.field_446 & 512) != 0 && this.field_1105 > 0) {
@@ -158,12 +149,10 @@ public class class_256 extends class_251 {
         }
     }
 
-    // $FF: renamed from: a () h.cj
     public class_89 method_1845() {
         return this.field_1101;
     }
 
-    // $FF: renamed from: b () void
     public void method_1846() {
         this.field_1108 = null;
         this.field_1109 = 0;
@@ -171,7 +160,6 @@ public class class_256 extends class_251 {
         this.field_1107 = -1;
     }
 
-    // $FF: renamed from: a (int) java.lang.String
     public String method_1850(int var1) {
         StringBuffer var2 = new StringBuffer(this.method_1848(var1));
         var2.append("Recovered unit: [\n");
@@ -194,7 +182,6 @@ public class class_256 extends class_251 {
         return var2.toString();
     }
 
-    // $FF: renamed from: a () h.b
     public class_90 method_1870() {
         if (this.field_1103 > 0) {
             class_91[] var1 = new class_91[this.field_1103];
@@ -228,12 +215,10 @@ public class class_256 extends class_251 {
         return this.field_1101;
     }
 
-    // $FF: renamed from: a () void
     public void method_1855() {
         this.method_1870();
     }
 
-    // $FF: renamed from: a (int, int) void
     public void method_1856(int var1, int var2) {
         if (this.field_1101.field_445 == 0) {
             this.field_1101.field_445 = var2;

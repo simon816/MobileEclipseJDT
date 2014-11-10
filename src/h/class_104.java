@@ -12,21 +12,18 @@ import l.class_301;
 import l.class_303;
 import m.class_86;
 
-// $FF: renamed from: h.u
 public class class_104 extends class_98 {
 
-    // $FF: renamed from: a h.bf
     public class_98 field_541;
-    // $FF: renamed from: a char[]
+
     public char[] field_542;
-    // $FF: renamed from: a i.s
+
     public class_74 field_543;
-    // $FF: renamed from: a int
+
     public int field_544;
-    // $FF: renamed from: b int
+
     int field_545;
 
-    // $FF: renamed from: <init> (char[], h.bf, long, int) void
     public class_104(char[] var1, class_98 var2, long var3, int var5) {
         this.field_545 = -1;
         this.field_541 = var2;
@@ -39,7 +36,6 @@ public class class_104 extends class_98 {
         this.field_445 = var5;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         if (this.field_541 == null) {
             return var3;
@@ -63,12 +59,10 @@ public class class_104 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a () h.cj
     public class_89 method_750() {
         return this.field_541;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -87,7 +81,6 @@ public class class_104 extends class_98 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append(this.field_542).append(": ");
         if (this.field_541 == null) {
@@ -98,14 +91,12 @@ public class class_104 extends class_98 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         if (this.field_541 != null) {
             this.field_541.method_821(var1);
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2030(this, var2) && this.field_541 != null) {
             this.field_541.method_763(var1, var2);

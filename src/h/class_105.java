@@ -25,34 +25,30 @@ import m.class_61;
 import m.class_86;
 import m.class_87;
 
-// $FF: renamed from: h.q
 public class class_105 extends class_98 implements class_0 {
 
-    // $FF: renamed from: a h.r[]
     public class_126[] field_546;
-    // $FF: renamed from: a h.r
+
     public class_126 field_547;
-    // $FF: renamed from: a m.ae
+
     public class_58 field_548;
-    // $FF: renamed from: b m.ae
+
     protected class_58 field_549;
-    // $FF: renamed from: c m.ae
+
     class_58 field_550;
-    // $FF: renamed from: a int
+
     public int field_551;
-    // $FF: renamed from: a h.bo[]
+
     public class_146[] field_552;
-    // $FF: renamed from: a m.s[]
+
     public class_40[] field_553;
-    // $FF: renamed from: b int
+
     public int field_554;
 
-    // $FF: renamed from: <init> (int) void
     public class_105(int var1) {
         this.field_551 = var1;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         Object var10;
         try {
@@ -79,7 +75,6 @@ public class class_105 extends class_98 implements class_0 {
         return (class_301)var10;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             try {
@@ -114,22 +109,18 @@ public class class_105 extends class_98 implements class_0 {
         }
     }
 
-    // $FF: renamed from: a () m.s[]
     public class_40[] method_0() {
         return this.field_553;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_831() {
         return this.field_551 == 1;
     }
 
-    // $FF: renamed from: e_ () boolean
     public boolean method_1() {
         return this.field_551 != 3;
     }
 
-    // $FF: renamed from: a (m.v, l.g) void
     void method_832(class_86 var1, class_301 var2) {
         class_43 var3 = (class_43)this.field_548.field_278.method_138();
         if ((var2.field_1783 & 1) == 0 && var3.method_160() && var1.method_585().method_158()) {
@@ -141,7 +132,6 @@ public class class_105 extends class_98 implements class_0 {
         }
     }
 
-    // $FF: renamed from: b (m.v, l.g) void
     public void method_833(class_86 var1, class_301 var2) {
         if ((var2.field_1783 & 1) == 0) {
             this.field_549 = this.field_548.method_376();
@@ -157,7 +147,6 @@ public class class_105 extends class_98 implements class_0 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2);
         if (this.field_547 != null) {
@@ -190,7 +179,6 @@ public class class_105 extends class_98 implements class_0 {
         return var2.append(");");
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_87 var2 = var1.method_635();
         try {
@@ -296,33 +284,33 @@ public class class_105 extends class_98 implements class_0 {
                         }
                     }
                     if (var23) {
-                        if (var4 == null) {
-                            return;
-                        }
-                        class_40[] var26 = new class_40[var24];
-                        int var25 = var24;
-                        while (true) {
-                            --var25;
-                            if (var25 < 0) {
-                                this.field_548 = var1.method_592(var4, class_17.field_135, var26, this);
-                                if (this.field_548 != null && !this.field_548.method_101()) {
-                                    Object var27 = ((class_61)this.field_548).field_291;
-                                    if (var27 != null) {
-                                        if (((class_58)var27).method_376().field_279 != class_34.field_157) {
-                                            var27 = var1.method_586().method_498(((class_58)var27).method_376(), (class_53)null);
-                                        }
-                                        this.field_548 = (class_58)var27;
-                                        class_58 var12 = ((class_58)var27).method_376();
-                                        if ((var12.method_367() || var12.field_278.method_158()) && !var1.method_626(var12)) {
-                                            var12.field_273 |= 134217728;
-                                            return;
+                        if (var4 != null) {
+                            class_40[] var26 = new class_40[var24];
+                            int var25 = var24;
+                            while (true) {
+                                --var25;
+                                if (var25 < 0) {
+                                    this.field_548 = var1.method_592(var4, class_17.field_135, var26, this);
+                                    if (this.field_548 != null && !this.field_548.method_101()) {
+                                        Object var27 = ((class_61)this.field_548).field_291;
+                                        if (var27 != null) {
+                                            if (((class_58)var27).method_376().field_279 != class_34.field_157) {
+                                                var27 = var1.method_586().method_498(((class_58)var27).method_376(), (class_53)null);
+                                            }
+                                            this.field_548 = (class_58)var27;
+                                            class_58 var12 = ((class_58)var27).method_376();
+                                            if ((var12.method_367() || var12.field_278.method_158()) && !var1.method_626(var12)) {
+                                                var12.field_273 |= 134217728;
+                                                return;
+                                            }
                                         }
                                     }
+                                    return;
                                 }
-                                return;
+                                var26[var25] = (class_40)(var22[var25] == null ? class_40.field_187 : var22[var25]);
                             }
-                            var26[var25] = (class_40)(var22[var25] == null ? class_40.field_187 : var22[var25]);
                         }
+                        return;
                     }
                 }
                 if (var4 != null) {
@@ -358,16 +346,12 @@ public class class_105 extends class_98 implements class_0 {
         }
     }
 
-    // $FF: renamed from: a (m.as) void
     public void method_4(class_43 var1) {}
 
-    // $FF: renamed from: a (int) void
     public void method_2(int var1) {}
 
-    // $FF: renamed from: b (int) void
     public void method_3(int var1) {}
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2018(this, var2)) {
             if (this.field_547 != null) {

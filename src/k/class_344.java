@@ -2,12 +2,10 @@ package k;
 
 import b.class_233;
 
-// $FF: renamed from: k.b
 public class class_344 {
 
-    // $FF: renamed from: a char[]
     public char[] field_1977;
-    // $FF: renamed from: a int
+
     public int field_1978;
 
     public int hashCode() {
@@ -23,12 +21,10 @@ public class class_344 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_3326() {
         return this.field_1978 & -33554433;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_3327() {
         return (this.field_1978 & 33554432) != 0;
     }

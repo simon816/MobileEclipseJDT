@@ -4,23 +4,20 @@ import java.io.IOException;
 import i.class_77;
 import m.class_40;
 
-// $FF: renamed from: i.h
 public class class_280 {
 
-    // $FF: renamed from: a int
     public int field_1642;
-    // $FF: renamed from: b int
+
     public int field_1643;
-    // $FF: renamed from: c int
+
     private int field_1644;
-    // $FF: renamed from: a i.c[]
+
     public class_77[] field_1645;
-    // $FF: renamed from: b i.c[]
+
     public class_77[] field_1646;
-    // $FF: renamed from: d int
+
     private int field_1647;
 
-    // $FF: renamed from: <init> (int) void
     public class_280(int var1) {
         this.field_1647 = -1;
         this.field_1645 = new class_77[var1];
@@ -28,7 +25,6 @@ public class class_280 {
         this.field_1647 = -1;
     }
 
-    // $FF: renamed from: a (i.h) int
     public int method_2890(class_280 var1) {
         int var2 = this.method_2896(var1);
         switch (this.field_1643) {
@@ -56,7 +52,6 @@ public class class_280 {
         return 4;
     }
 
-    // $FF: renamed from: a (i.c) void
     public void method_2891(class_77 var1) {
         if (var1 == null) {
             throw new IllegalArgumentException("info cannot be null");
@@ -75,7 +70,6 @@ public class class_280 {
         }
     }
 
-    // $FF: renamed from: a (m.s) void
     public void method_2892(class_40 var1) {
         class_77[] var10000;
         class_77 var10002;
@@ -97,7 +91,6 @@ public class class_280 {
         }
     }
 
-    // $FF: renamed from: a () i.h
     public class_280 method_2893() {
         class_280 var10000 = new class_280(this.field_1645.length);
         class_280 var1 = var10000;
@@ -126,7 +119,6 @@ public class class_280 {
         return var1;
     }
 
-    // $FF: renamed from: b (i.h) int
     public int method_2894(class_280 var1) {
         if (this.field_1647 != -1) {
             return this.field_1647;
@@ -276,7 +268,6 @@ public class class_280 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_2895() {
         if (this.field_1644 != -1) {
             return this.field_1644;
@@ -299,7 +290,6 @@ public class class_280 {
         }
     }
 
-    // $FF: renamed from: c (i.h) int
     public int method_2896(class_280 var1) {
         return var1 == null ? this.field_1642 : (var1.field_1642 == -1 ? this.field_1642 : this.field_1642 - var1.field_1642 - 1);
     }
@@ -310,7 +300,6 @@ public class class_280 {
         return String.valueOf(var1);
     }
 
-    // $FF: renamed from: a (java.lang.StringBuffer, i.h) void
     private void method_2897(StringBuffer var1, class_280 var2) {
         var1.append("pc : ").append(var2.field_1642).append(" locals: ").append(var2.method_2895());
         var1.append(" stack items: ").append(var2.field_1643).append("\r\nlocals: ");
@@ -318,7 +307,6 @@ public class class_280 {
         var1.append(this.method_2898(var2.field_1646, var2.field_1643)).append("\r\n");
     }
 
-    // $FF: renamed from: a (i.c[], int) java.lang.String
     private String method_2898(class_77[] var1, int var2) {
         StringBuffer var3 = new StringBuffer();
         var3.append('[');
@@ -339,7 +327,6 @@ public class class_280 {
         return String.valueOf(var3);
     }
 
-    // $FF: renamed from: a (int, i.c) void
     public void method_2899(int var1, class_77 var2) {
         if (this.field_1645 == null) {
             this.field_1645 = new class_77[var1 + 1];
@@ -353,7 +340,6 @@ public class class_280 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_2900() {
         class_77 var1 = this.field_1646[this.field_1643 - 1];
         class_77 var2 = var1.method_474();
@@ -361,7 +347,6 @@ public class class_280 {
         this.field_1646[this.field_1643 - 1] = var2;
     }
 
-    // $FF: renamed from: a (int) int
     public int method_2901(int var1) {
         for (int var2 = this.field_1645.length - 1; var2 >= 0; --var2) {
             class_77 var3 = this.field_1645[var2];
@@ -375,7 +360,6 @@ public class class_280 {
         return 0;
     }
 
-    // $FF: renamed from: a (i.c, i.c) boolean
     private boolean method_2902(class_77 var1, class_77 var2) {
         return var1 == null ? var2 == null : (var2 == null ? false : var1.equals(var2));
     }

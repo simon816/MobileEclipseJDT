@@ -10,41 +10,34 @@ import c.class_8;
 import f.class_226;
 import n.class_241;
 
-// $FF: renamed from: n.g
 public class class_247 {
 
-    // $FF: renamed from: a java.lang.String[]
     public static final String[] field_1061;
-    // $FF: renamed from: a c.l
+
     public final class_7 field_1062;
-    // $FF: renamed from: a c.o
+
     public final class_8 field_1063;
-    // $FF: renamed from: a a.c
+
     public final class_341 field_1064;
 
-    // $FF: renamed from: <init> (c.l, a.c, c.o) void
     public class_247(class_7 var1, class_341 var2, class_8 var3) {
         this.field_1062 = var1;
         this.field_1063 = var3;
         this.field_1064 = var2;
     }
 
-    // $FF: renamed from: a (int) int
     public int method_1449(int var1) {
         return 1;
     }
 
-    // $FF: renamed from: a (java.lang.String, int, java.lang.String[], java.lang.String[], int, int, int, int, int) b.e
     public class_235 method_1450(String var1, int var2, String[] var3, String[] var4, int var5, int var6, int var7, int var8, int var9) {
         return this.field_1063.method_24(var1, var2, var3, var4, var5, var6, var7, var8, var9);
     }
 
-    // $FF: renamed from: a (java.lang.String, int, java.lang.String[], int, java.lang.String[], int, int, int, int, int) b.e
     public class_235 method_1451(String var1, int var2, String[] var3, int var4, String[] var5, int var6, int var7, int var8, int var9, int var10) {
         return this.field_1063.method_25(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
     }
 
-    // $FF: renamed from: a (int, java.lang.String[], int, java.lang.String[], int, int, int, a.i, c.h) void
     public void method_1452(int var1, String[] var2, int var3, String[] var4, int var5, int var6, int var7, class_33 var8, class_284 var9) {
         if (var5 != -1) {
             if (var8 == null) {
@@ -79,17 +72,14 @@ public class class_247 {
         }
     }
 
-    // $FF: renamed from: a (int, java.lang.String[], java.lang.String[], int, int, a.i, c.h) void
     public void method_1453(int var1, String[] var2, String[] var3, int var4, int var5, class_33 var6, class_284 var7) {
         this.method_1452(var1, var2, 0, var3, this.method_1449(var1), var4, var5, var6, var7);
     }
 
-    // $FF: renamed from: a (b.e, c.h, a.i) void
     public void method_1454(class_235 var1, class_284 var2, class_33 var3) {
         var2.method_2929(var1, var3);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1061 = class_233.field_996;
     }

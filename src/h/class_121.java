@@ -23,28 +23,23 @@ import m.class_86;
 import m.class_87;
 import n.class_248;
 
-// $FF: renamed from: h.m
 public class class_121 extends class_120 {
 
-    // $FF: renamed from: a m.k
     public class_67 field_661;
-    // $FF: renamed from: a int
+
     public int field_662;
-    // $FF: renamed from: b int
+
     public int field_663;
 
-    // $FF: renamed from: <init> () void
     public class_121() {
     }
 
-    // $FF: renamed from: <init> (char[], int, int) void
     public class_121(char[] var1, int var2, int var3) {
         this.field_659 = var1;
         this.field_444 = var2;
         this.field_445 = var3;
     }
 
-    // $FF: renamed from: a (m.aj, l.j, l.g) l.g
     public class_301 method_890(class_87 var1, class_293 var2, class_301 var3) {
         if (this.field_661 != null && !this.field_661.method_433() && (this.field_661.method_428() || this.field_661.field_314 != null && this.field_661.field_314.method_158()) && !var1.method_645().field_455.field_1692) {
             var1.method_644().method_1813(this);
@@ -59,7 +54,6 @@ public class class_121 extends class_120 {
         return (class_301)var3;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -79,22 +73,18 @@ public class class_121 extends class_120 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_887() {
         return this.field_660 == null ? 3 : 1;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_891() {
         return this.field_661 != null ? this.field_661.method_431() : (this.field_656 & 8) != 0;
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         return super.method_820(var1, var2);
     }
 
-    // $FF: renamed from: a (m.aj) void
     public void method_892(class_87 var1) {
         if ((this.field_446 & 16) == 0) {
             if (this.field_661 != null && this.field_661.method_101()) {
@@ -215,7 +205,6 @@ public class class_121 extends class_120 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.aj) void
     public void method_893(class_264 var1, class_87 var2) {
         if (var1.method_2021(this, var2)) {
             if (this.field_658 != null) {

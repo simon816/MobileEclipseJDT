@@ -19,56 +19,54 @@ import javax.microedition.midlet.MIDlet;
 
 public class eclipse extends MIDlet implements CommandListener {
 
-    // $FF: renamed from: a javax.microedition.lcdui.TextField
     TextField field_420;
-    // $FF: renamed from: b javax.microedition.lcdui.TextField
+
     TextField field_421;
-    // $FF: renamed from: c javax.microedition.lcdui.TextField
+
     TextField field_422;
-    // $FF: renamed from: a javax.microedition.lcdui.Command
+
     Command field_423;
-    // $FF: renamed from: b javax.microedition.lcdui.Command
+
     Command field_424;
-    // $FF: renamed from: c javax.microedition.lcdui.Command
+
     Command field_425;
-    // $FF: renamed from: a javax.microedition.lcdui.Form
+
     Form field_426;
-    // $FF: renamed from: a batch.eclipse
+
     public static eclipse field_427;
-    // $FF: renamed from: a batch.i
+
     class_228 field_428;
-    // $FF: renamed from: a java.lang.Integer
+
     Integer field_429;
-    // $FF: renamed from: b java.lang.Integer
+
     Integer field_430;
-    // $FF: renamed from: a javax.microedition.lcdui.Font
+
     Font field_431;
-    // $FF: renamed from: a char[]
+
     char[] field_432;
-    // $FF: renamed from: a int
+
     int field_433;
-    // $FF: renamed from: a java.util.Vector
+
     static Vector field_434;
-    // $FF: renamed from: b java.util.Vector
+
     static Vector field_435;
-    // $FF: renamed from: d javax.microedition.lcdui.TextField
+
     TextField field_436;
-    // $FF: renamed from: e javax.microedition.lcdui.TextField
+
     TextField field_437;
-    // $FF: renamed from: d javax.microedition.lcdui.Command
+
     Command field_438;
-    // $FF: renamed from: a javax.microedition.lcdui.Displayable
+
     Displayable field_439;
-    // $FF: renamed from: a javax.microedition.lcdui.Ticker
+
     private Ticker field_440;
-    // $FF: renamed from: b javax.microedition.lcdui.Ticker
+
     private Ticker field_441;
-    // $FF: renamed from: b javax.microedition.lcdui.Form
+
     private Form field_442;
-    // $FF: renamed from: e javax.microedition.lcdui.Command
+
     Command field_443;
 
-    // $FF: renamed from: <init> () void
     public eclipse() {
         this.field_443 = new Command("About", 5, 1);
         this.field_423 = new Command("Compile", 4, 1);
@@ -139,45 +137,38 @@ public class eclipse extends MIDlet implements CommandListener {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String) void
     public void method_733(String var1) {
         if (var1 != null) {
             this.method_742(var1);
         }
     }
 
-    // $FF: renamed from: a (java.lang.Object) void
     public void method_734(Object var1) {
         if (var1 != null) {
             this.method_742(var1.toString());
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_735() {
         this.method_742("");
     }
 
-    // $FF: renamed from: a (int) void
     public void method_736(int var1) {
         this.method_742(String.valueOf(var1));
     }
 
-    // $FF: renamed from: b (java.lang.String) void
     public void method_737(String var1) {
         if (var1 != null) {
             this.method_738(var1);
         }
     }
 
-    // $FF: renamed from: d (java.lang.String) void
     private void method_738(String var1) {
         this.field_432 = var1.toCharArray();
         this.method_740(true);
         this.field_428.repaint();
     }
 
-    // $FF: renamed from: a (int, int, boolean) void
     private void method_739(int var1, int var2, boolean var3) {
         if (this.field_433 < field_435.size() - 17) {
             ++this.field_433;
@@ -186,7 +177,6 @@ public class eclipse extends MIDlet implements CommandListener {
         field_435.addElement(var3 ? this.field_429 : this.field_430);
     }
 
-    // $FF: renamed from: a (boolean) void
     synchronized void method_740(boolean var1) {
         int var2 = this.field_432.length - 1;
         int var3 = 0;
@@ -206,7 +196,6 @@ public class eclipse extends MIDlet implements CommandListener {
         this.method_741(var3, var2, var1);
     }
 
-    // $FF: renamed from: b (int, int, boolean) void
     private void method_741(int var1, int var2, boolean var3) {
         if (var1 < var2) {
             if (this.field_432[var2] == 32) {
@@ -226,24 +215,20 @@ public class eclipse extends MIDlet implements CommandListener {
         }
     }
 
-    // $FF: renamed from: e (java.lang.String) void
     private void method_742(String var1) {
         this.field_432 = var1.toCharArray();
         this.method_740(false);
         this.field_428.repaint();
     }
 
-    // $FF: renamed from: b (int) void
     public void method_743(int var1) {
         this.method_742(">>  " + var1);
     }
 
-    // $FF: renamed from: c (java.lang.String) void
     public void method_744(String var1) {
         this.method_742(">>  " + var1);
     }
 
-    // $FF: renamed from: b () void
     private void method_745() {
         String var1 = this.getAppProperty("MIDlet-Version");
         String var2 = this.getAppProperty("MIDlet-Vendor");
@@ -270,7 +255,6 @@ public class eclipse extends MIDlet implements CommandListener {
         Display.getDisplay(this).setCurrent(this.field_442);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_434 = new Vector(500);
         field_435 = new Vector(500);

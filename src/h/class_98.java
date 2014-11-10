@@ -13,20 +13,15 @@ import m.class_42;
 import m.class_58;
 import m.class_86;
 
-// $FF: renamed from: h.bf
 public abstract class class_98 extends class_89 {
 
-    // $FF: renamed from: <init> () void
     public class_98() {
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public abstract class_301 method_814(class_86 var1, class_293 var2, class_301 var3);
 
-    // $FF: renamed from: a (i.s) void
     public void method_815(class_74 var1) {}
 
-    // $FF: renamed from: a (l.g, m.v, boolean) boolean
     public boolean method_816(class_301 var1, class_86 var2, boolean var3) {
         if ((var1.method_3102() & 1) != 0) {
             this.field_446 &= Integer.MAX_VALUE;
@@ -40,7 +35,6 @@ public abstract class class_98 extends class_89 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, h.r[], m.v, i.o) void
     public void method_817(class_58 var1, class_126[] var2, class_86 var3, class_268 var4) {
         int var6;
         if (var1.method_374()) {
@@ -87,26 +81,20 @@ public abstract class class_98 extends class_89 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public abstract void method_818(class_86 var1, class_268 var2);
 
-    // $FF: renamed from: d () boolean
     public boolean method_819() {
         return false;
     }
 
-    // $FF: renamed from: a (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_757(int var1, StringBuffer var2) {
         return this.method_820(var1, var2);
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public abstract StringBuffer method_820(int var1, StringBuffer var2);
 
-    // $FF: renamed from: a (m.v) void
     public abstract void method_821(class_86 var1);
 
-    // $FF: renamed from: a (m.v, m.s, h.bg) a.k
     public class_331 method_822(class_86 var1, class_40 var2, class_115 var3) {
         this.method_821(var1);
         return class_331.field_1896;

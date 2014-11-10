@@ -7,13 +7,10 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import javax.microedition.io.file.FileConnection;
 
-// $FF: renamed from: g.b
 public class class_306 implements FileConnection {
 
-    // $FF: renamed from: a java.lang.String
     private String field_1795;
 
-    // $FF: renamed from: <init> (java.lang.String) void
     public class_306(String var1) {
         this.field_1795 = var1;
     }

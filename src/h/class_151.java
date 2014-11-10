@@ -16,15 +16,12 @@ import m.class_84;
 import m.class_86;
 import n.class_241;
 
-// $FF: renamed from: h.av
 public class class_151 extends class_146 {
 
-    // $FF: renamed from: a char[][]
     public char[][] field_732;
-    // $FF: renamed from: a long[]
+
     public long[] field_733;
 
-    // $FF: renamed from: <init> (char[][], long[]) void
     public class_151(char[][] var1, long[] var2) {
         this.field_732 = var1;
         this.field_733 = var2;
@@ -32,13 +29,11 @@ public class class_151 extends class_146 {
         this.field_445 = (int)(this.field_733[this.field_733.length - 1] & 4294967295L);
     }
 
-    // $FF: renamed from: a (int) h.bo
     public class_146 method_1008(int var1) {
         class_152 var10000 = new class_152(this.field_732, var1, this.field_733);
         return var10000;
     }
 
-    // $FF: renamed from: a (int, m.bb, m.ar) m.s
     protected class_40 method_1030(int var1, class_83 var2, class_38 var3) {
         class_80 var4 = var2.method_586();
         class_40 var5;
@@ -63,12 +58,10 @@ public class class_151 extends class_146 {
         return var5;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_1010() {
         return this.field_732[this.field_732.length - 1];
     }
 
-    // $FF: renamed from: b (m.bb) m.s
     protected class_40 method_1011(class_83 var1) {
         if (this.field_675 != null) {
             return this.field_675;
@@ -128,12 +121,10 @@ public class class_151 extends class_146 {
         }
     }
 
-    // $FF: renamed from: a () char[][]
     public char[][] method_1012() {
         return this.field_732;
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         for (int var3 = 0; var3 < this.field_732.length; ++var3) {
             if (var3 > 0) {
@@ -144,13 +135,11 @@ public class class_151 extends class_146 {
         return var2;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2051(this, var2);
         var1.method_1966(this, var2);
     }
 
-    // $FF: renamed from: a (c.j, m.f) void
     public void method_1021(class_264 var1, class_84 var2) {
         var1.method_2052(this, var2);
         var1.method_1967(this, var2);

@@ -43,57 +43,54 @@ import m.class_83;
 import m.class_85;
 import n.class_248;
 
-// $FF: renamed from: m.af
 public class class_80 implements class_17 {
 
-    // $FF: renamed from: a g.m
     private class_14 field_345;
-    // $FF: renamed from: a m.i[]
+
     class_35[] field_346;
-    // $FF: renamed from: a m.ar
+
     public class_38 field_347;
-    // $FF: renamed from: a f.f
+
     class_324 field_348;
-    // $FF: renamed from: a int
+
     private int field_349;
-    // $FF: renamed from: b int
+
     private int field_350;
-    // $FF: renamed from: a k.s
+
     public class_28 field_351;
-    // $FF: renamed from: a a.c
+
     public class_341 field_352;
-    // $FF: renamed from: a n.e
+
     public class_248 field_353;
-    // $FF: renamed from: a c.a
+
     public class_292 field_354;
-    // $FF: renamed from: c int
+
     private int field_355;
-    // $FF: renamed from: a a.n
+
     public class_31 field_356;
-    // $FF: renamed from: a m.p[][]
+
     private class_42[][] field_357;
-    // $FF: renamed from: a f.c
+
     private class_327 field_358;
-    // $FF: renamed from: b f.c
+
     private class_327 field_359;
-    // $FF: renamed from: c f.c
+
     private class_327 field_360;
-    // $FF: renamed from: d f.c
+
     private class_327 field_361;
-    // $FF: renamed from: a h.b
+
     public class_90 field_362;
-    // $FF: renamed from: a java.lang.Object
+
     public Object field_363;
-    // $FF: renamed from: a h.b[]
+
     private class_90[] field_364;
-    // $FF: renamed from: a m.ak
+
     private class_81 field_365;
-    // $FF: renamed from: a m.av
+
     static final class_39 field_366;
-    // $FF: renamed from: a m.au
+
     static final class_51 field_367;
 
-    // $FF: renamed from: <init> (a.n, a.c, n.e, k.s) void
     public class_80(class_31 var1, class_341 var2, class_248 var3, class_28 var4) {
         this.field_349 = -1;
         this.field_350 = -1;
@@ -125,7 +122,6 @@ public class class_80 implements class_17 {
         this.field_354 = var6;
     }
 
-    // $FF: renamed from: a (char[][]) m.as
     public class_43 method_481(char[][] var1) {
         class_317 var2 = this.field_351.method_80(var1);
         if (var2 == null) {
@@ -142,7 +138,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.ar, char[]) m.as
     class_43 method_482(class_38 var1, char[] var2) {
         if (var1 == null) {
             if (this.field_347 == null) {
@@ -165,7 +160,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.b, k.c) void
     public void method_483(class_90 var1, class_345 var2) {
         class_85 var10000 = new class_85(var1, this);
         class_85 var3 = var10000;
@@ -177,7 +171,6 @@ public class class_80 implements class_17 {
         this.field_364[this.field_350] = var1;
     }
 
-    // $FF: renamed from: a () void
     public void method_484() {
         this.field_355 = 1;
         int var1;
@@ -200,7 +193,6 @@ public class class_80 implements class_17 {
         this.field_362 = null;
     }
 
-    // $FF: renamed from: a (h.b) void
     public void method_485(class_90 var1) {
         if (this.field_355 == 4) {
             this.method_484();
@@ -218,7 +210,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s) m.s
     public class_40 method_486(class_40 var1) {
         class_43 var2;
         class_51 var10000;
@@ -340,7 +331,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[][], boolean) m.ar
     private class_38 method_487(char[][] var1, boolean var2) {
         if (var1.length == 1) {
             return this.field_347;
@@ -371,7 +361,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.as, int, java.util.Vector) m.s
     public class_40 method_488(class_40 var1, class_43 var2, int var3, Vector var4) {
         if ((var1.field_178 & 536870912L) != 0L) {
             class_43 var9;
@@ -495,7 +484,6 @@ public class class_80 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: a (m.as) m.as
     public class_43 method_489(class_43 var1) {
         if (var1 != null) {
             boolean var2 = var1.method_155();
@@ -513,7 +501,6 @@ public class class_80 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: a (m.s, boolean) m.s
     public class_40 method_490(class_40 var1, boolean var2) {
         int var3;
         class_40 var4;
@@ -577,7 +564,6 @@ public class class_80 implements class_17 {
         return (class_40)(var4 != var7 ? (var3 > 0 ? this.method_493((class_40)var7, var3) : var7) : var1);
     }
 
-    // $FF: renamed from: b (m.s) m.s
     public class_40 method_491(class_40 var1) {
         int var2;
         class_40 var3;
@@ -633,7 +619,6 @@ public class class_80 implements class_17 {
         return (class_40)(var3 != var6 ? (var2 > 0 ? this.method_493((class_40)var6, var2) : var6) : var1);
     }
 
-    // $FF: renamed from: a (m.as, m.c[]) m.bf
     public class_203 method_492(class_43 var1, class_320[] var2) {
         if (var2.length != 0) {
             class_203.method_1183(var1, var2);
@@ -642,7 +627,6 @@ public class class_80 implements class_17 {
         return var10000;
     }
 
-    // $FF: renamed from: a (m.s, int) m.p
     public class_42 method_493(class_40 var1, int var2) {
         if (var1 instanceof class_57) {
             return ((class_57)var1).method_336(var2, this);
@@ -680,12 +664,10 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (k.o, m.ar, k.c) m.y
     public class_49 method_494(class_22 var1, class_38 var2, class_345 var3) {
         return this.method_495(var1, var2, true, var3);
     }
 
-    // $FF: renamed from: a (k.o, m.ar, boolean, k.c) m.y
     public class_49 method_495(class_22 var1, class_38 var2, boolean var3, class_345 var4) {
         class_49 var10000 = new class_49(var2, var1, this);
         class_49 var5 = var10000;
@@ -705,7 +687,6 @@ public class class_80 implements class_17 {
         return var5;
     }
 
-    // $FF: renamed from: a (m.ar, char[][]) m.ai
     public class_50 method_496(class_38 var1, char[][] var2) {
         if (var1 == null) {
             var1 = this.method_487(var2, true);
@@ -726,7 +707,6 @@ public class class_80 implements class_17 {
         return var3;
     }
 
-    // $FF: renamed from: a (char[][]) m.ar
     public class_38 method_497(char[][] var1) {
         class_38 var2 = this.method_505(var1[0]);
         class_38 var10000;
@@ -754,7 +734,6 @@ public class class_80 implements class_17 {
         return var2;
     }
 
-    // $FF: renamed from: a (m.ae, m.at) m.ap
     public class_63 method_498(class_58 var1, class_53 var2) {
         class_63[] var3 = (class_63[])((class_63[])this.field_361.method_3241(var1));
         boolean var4 = false;
@@ -787,7 +766,6 @@ public class class_80 implements class_17 {
         return var7;
     }
 
-    // $FF: renamed from: a (m.ae, m.s[]) m.ap
     public class_63 method_499(class_58 var1, class_40[] var2) {
         class_63[] var3 = (class_63[])((class_63[])this.field_361.method_3241(var1));
         int var4 = var2 == null ? 0 : var2.length;
@@ -831,7 +809,6 @@ public class class_80 implements class_17 {
         return var8;
     }
 
-    // $FF: renamed from: a (m.as, m.s[], m.as) m.al
     public class_52 method_500(class_43 var1, class_40[] var2, class_43 var3) {
         class_52[] var4 = (class_52[])((class_52[])this.field_358.method_3241(var1));
         int var5 = var2 == null ? 0 : var2.length;
@@ -875,7 +852,6 @@ public class class_80 implements class_17 {
         return var9;
     }
 
-    // $FF: renamed from: a (m.as, m.as) m.at
     public class_53 method_501(class_43 var1, class_43 var2) {
         class_53[] var3 = (class_53[])((class_53[])this.field_359.method_3241(var1));
         boolean var4 = false;
@@ -908,7 +884,6 @@ public class class_80 implements class_17 {
         return var7;
     }
 
-    // $FF: renamed from: a (m.as, int, m.s, m.s[], int) m.z
     public class_45 method_502(class_43 var1, int var2, class_40 var3, class_40[] var4, int var5) {
         if (var1 == null) {
             var1 = class_43.field_205;
@@ -957,12 +932,10 @@ public class class_80 implements class_17 {
         return var10;
     }
 
-    // $FF: renamed from: a (m.s) k.c
     public class_345 method_503(class_40 var1) {
         return (class_345)this.field_345.method_38(var1);
     }
 
-    // $FF: renamed from: b (char[][]) m.as
     public class_43 method_504(char[][] var1) {
         if (var1.length == 1) {
             return this.field_347 == null ? null : this.field_347.method_124(var1[0]);
@@ -982,12 +955,10 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[]) m.ar
     class_38 method_505(char[] var1) {
         return this.field_348.method_3219(var1);
     }
 
-    // $FF: renamed from: a (char[][], m.bb) m.as
     public class_43 method_506(char[][] var1, class_83 var2) {
         class_43 var3 = this.method_508(var1);
         if (var3 != null) {
@@ -998,7 +969,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (char[]) m.ar
     class_38 method_507(char[] var1) {
         class_38 var2 = this.method_505(var1);
         if (var2 != null) {
@@ -1015,7 +985,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: c (char[][]) m.as
     public class_43 method_508(char[][] var1) {
         class_43 var2;
         class_38 var3;
@@ -1062,7 +1031,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.ba, m.x[], m.as, m.as, char[][][]) m.s[]
     private class_40[] method_509(class_197 var1, class_46[] var2, class_43 var3, class_43 var4, char[][][] var5) {
         class_313 var10000 = new class_313(2);
         class_313 var6 = var10000;
@@ -1076,7 +1044,6 @@ public class class_80 implements class_17 {
         return var8;
     }
 
-    // $FF: renamed from: a (char[][], boolean, boolean) m.as
     private class_43 method_510(char[][] var1, boolean var2, boolean var3) {
         Object var4 = this.method_504(var1);
         if (var4 == null) {
@@ -1096,7 +1063,6 @@ public class class_80 implements class_17 {
         return (class_43)var4;
     }
 
-    // $FF: renamed from: a (char[], int, int, boolean, char[][][]) m.as
     class_43 method_511(char[] var1, int var2, int var3, boolean var4, char[][][] var5) {
         if (var3 == -1) {
             var3 = var1.length;
@@ -1115,7 +1081,6 @@ public class class_80 implements class_17 {
         return this.method_510(var6, var4, var7);
     }
 
-    // $FF: renamed from: a (char[], int, int, boolean, m.s, char[][][]) m.s
     class_40 method_512(char[] var1, int var2, int var3, boolean var4, class_40 var5, char[][][] var6) {
         int var7;
         for (var7 = 0; var1[var2] == 91; ++var7) {
@@ -1179,7 +1144,6 @@ public class class_80 implements class_17 {
         return (class_40)(var7 == 0 ? var8 : this.method_493((class_40)var8, var7));
     }
 
-    // $FF: renamed from: a (m.ba, m.x[], m.as, char[][][]) m.s
     public class_40 method_513(class_197 var1, class_46[] var2, class_43 var3, char[][][] var4) {
         int var5;
         for (var5 = 0; var1.field_872[var1.field_873] == 91; ++var5) {
@@ -1262,7 +1226,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.ba, m.x[], m.as, m.as, int, char[][][]) m.s
     class_40 method_514(class_197 var1, class_46[] var2, class_43 var3, class_43 var4, int var5, char[][][] var6) {
         class_40 var7;
         switch (var1.field_872[var1.field_873]) {
@@ -1283,12 +1246,10 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[][], char[]) boolean
     boolean method_515(char[][] var1, char[] var2) {
         return var1 != null && var1.length != 0 ? this.field_351.method_82(var1, var2) : this.field_351.method_82((char[][])null, var2);
     }
 
-    // $FF: renamed from: a () m.ak
     public class_81 method_516() {
         if (this.field_365 == null) {
             Object var10001;
@@ -1302,7 +1263,6 @@ public class class_80 implements class_17 {
         return this.field_365;
     }
 
-    // $FF: renamed from: a (c.d[]) void
     public void method_517(class_288[] var1) {
         int var2 = 0;
         for (int var3 = var1.length; var2 < var3; ++var2) {
@@ -1310,7 +1270,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () void
     public void method_518() {
         class_38 var10001 = new class_38(this);
         this.field_347 = var10001;
@@ -1359,7 +1318,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.as, k.c) void
     public void method_519(class_43 var1, class_345 var2) {
         if (var2 != null) {
             var1.field_199 |= 262144;
@@ -1367,7 +1325,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.m, m.as) void
     void method_520(class_44 var1, class_43 var2) {
         Object[] var3;
         int var4;
@@ -1404,7 +1361,6 @@ public class class_80 implements class_17 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         class_39 var10000 = new class_39(class_233.field_994, 1);
         field_366 = var10000;

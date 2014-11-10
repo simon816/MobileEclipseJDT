@@ -55,49 +55,46 @@ import m.class_67;
 import m.class_80;
 import n.class_249;
 
-// $FF: renamed from: c.d
 public class class_288 implements class_17 {
 
-    // $FF: renamed from: c byte[]
     private byte[] field_1714;
-    // $FF: renamed from: a i.o
+
     public class_268 field_1715;
-    // $FF: renamed from: a i.p
+
     public class_272 field_1716;
-    // $FF: renamed from: a int
+
     public int field_1717;
-    // $FF: renamed from: a byte[]
+
     public byte[] field_1718;
-    // $FF: renamed from: b int
+
     public int field_1719;
-    // $FF: renamed from: a boolean
+
     protected boolean field_1720;
-    // $FF: renamed from: a c.d
+
     public class_288 field_1721;
-    // $FF: renamed from: b byte[]
+
     public byte[] field_1722;
-    // $FF: renamed from: c int
+
     public int field_1723;
-    // $FF: renamed from: a java.util.Vector
+
     public Vector field_1724;
-    // $FF: renamed from: d int
+
     public int field_1725;
-    // $FF: renamed from: e int
+
     public int field_1726;
-    // $FF: renamed from: b boolean
+
     boolean field_1727;
-    // $FF: renamed from: f int
+
     public int field_1728;
-    // $FF: renamed from: a m.az
+
     public class_54 field_1729;
-    // $FF: renamed from: c boolean
+
     public boolean field_1730;
-    // $FF: renamed from: a long
+
     public long field_1731;
-    // $FF: renamed from: a g.l
+
     public class_13 field_1732;
 
-    // $FF: renamed from: a (h.bq, c.h) void
     public static void method_2955(class_114 var0, class_284 var1) {
         class_54 var2 = var0.field_586;
         class_288 var3 = method_2956(var2);
@@ -172,19 +169,16 @@ public class class_288 implements class_17 {
         var1.method_2930(var2.method_134(), var3);
     }
 
-    // $FF: renamed from: a (m.az) c.d
     public static class_288 method_2956(class_54 var0) {
         class_80 var1 = var0.field_258.method_586();
         return var1.field_354.method_3027(var0);
     }
 
-    // $FF: renamed from: <init> () void
     protected class_288() {
         this.field_1727 = false;
         this.field_1732 = null;
     }
 
-    // $FF: renamed from: <init> (m.az) void
     public class_288(class_54 var1) {
         this.field_1727 = false;
         this.field_1732 = null;
@@ -212,7 +206,6 @@ public class class_288 implements class_17 {
         this.method_3005();
     }
 
-    // $FF: renamed from: a (h.ci, m.ae) void
     public void method_2959(class_93 var1, class_58 var2) {
         var2.field_273 = 1025;
         this.method_2995(var2);
@@ -221,7 +214,6 @@ public class class_288 implements class_17 {
         this.method_2986(var3, var4);
     }
 
-    // $FF: renamed from: a () void
     public void method_2960() {
         this.field_1718[this.field_1726++] = (byte)(this.field_1725 >> 8);
         this.field_1718[this.field_1726] = (byte)this.field_1725;
@@ -414,7 +406,6 @@ public class class_288 implements class_17 {
         this.field_1722[this.field_1717] = (byte)var5;
     }
 
-    // $FF: renamed from: b () void
     public void method_2961() {
         class_58[] var1 = this.field_1729.method_308();
         int var2 = 0;
@@ -426,7 +417,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.k, int) int
     private int method_2962(class_67 var1, int var2) {
         int var3 = 0;
         class_331 var4 = var1.method_407();
@@ -555,7 +545,6 @@ public class class_288 implements class_17 {
         return var3;
     }
 
-    // $FF: renamed from: a (m.k) void
     private void method_2963(class_67 var1) {
         if (this.field_1719 + 8 >= this.field_1718.length) {
             this.method_3014(8);
@@ -583,7 +572,6 @@ public class class_288 implements class_17 {
         this.field_1718[var5] = (byte)var7;
     }
 
-    // $FF: renamed from: c () void
     public void method_2964() {
         class_54 var1 = this.field_1729;
         class_67[] var2 = var1.method_320();
@@ -610,7 +598,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.ae, m.ae, b.e, c.h) void
     private void method_2965(class_96 var1, class_58 var2, class_235 var3, class_284 var4) {
         this.method_2996(var2, var2.field_273 & -3329);
         int var5 = this.field_1719;
@@ -630,7 +617,6 @@ public class class_288 implements class_17 {
         this.method_2986(var5, var6);
     }
 
-    // $FF: renamed from: a (b.e[]) void
     public void method_2966(class_235[] var1) {
         this.method_2997();
         this.field_1719 -= 2;
@@ -674,7 +660,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var12;
     }
 
-    // $FF: renamed from: a (h.ci, m.ae, b.e[]) void
     public void method_2967(class_93 var1, class_58 var2, class_235[] var3) {
         this.method_2996(var2, var2.field_273 & -3329);
         int var4 = this.field_1719;
@@ -711,14 +696,12 @@ public class class_288 implements class_17 {
         this.method_2986(var4, var5);
     }
 
-    // $FF: renamed from: a (h.ci, m.ae, b.e[], int) void
     public void method_2968(class_93 var1, class_58 var2, class_235[] var3, int var4) {
         this.field_1719 = var4;
         --this.field_1725;
         this.method_2967(var1, var2, var3);
     }
 
-    // $FF: renamed from: b (h.ci, m.ae, b.e[]) void
     public void method_2969(class_93 var1, class_58 var2, class_235[] var3) {
         if (var2.method_356() && var2.field_278.method_157()) {
             var1.method_93(8, (class_235)null);
@@ -759,14 +742,12 @@ public class class_288 implements class_17 {
         this.method_2986(var4, var5);
     }
 
-    // $FF: renamed from: b (h.ci, m.ae, b.e[], int) void
     public void method_2970(class_93 var1, class_58 var2, class_235[] var3, int var4) {
         this.field_1719 = var4;
         --this.field_1725;
         this.method_2969(var1, var2, var3);
     }
 
-    // $FF: renamed from: d () void
     public void method_2971() {
         this.method_2998(this.field_1729.field_258.method_671().field_597, this.field_1729.field_258.method_645().field_455);
         class_58[] var1 = this.field_1729.method_308();
@@ -812,7 +793,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.d) void
     public void method_2972(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -827,7 +807,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: b (m.d) void
     public void method_2973(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -842,7 +821,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: c (m.d) void
     public void method_2974(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -857,7 +835,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: d (m.d) void
     public void method_2975(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -872,7 +849,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: e (m.d) void
     public void method_2976(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -887,7 +863,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: f (m.d) void
     public void method_2977(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -902,7 +877,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: g (m.d) void
     public void method_2978(class_60 var1) {
         this.method_2995(var1);
         int var2 = this.field_1719;
@@ -917,7 +891,6 @@ public class class_288 implements class_17 {
         this.field_1718[var2] = (byte)var3;
     }
 
-    // $FF: renamed from: a (int) void
     public void method_2979(int var1) {
         this.field_1718 = this.field_1715.field_1188;
         int var2 = this.field_1715.field_1190;
@@ -1742,7 +1715,6 @@ public class class_288 implements class_17 {
         this.field_1719 = var2;
     }
 
-    // $FF: renamed from: b (int) void
     public void method_2980(int var1) {
         this.field_1718 = this.field_1715.field_1188;
         int var2 = this.field_1715.field_1190;
@@ -2536,7 +2508,6 @@ public class class_288 implements class_17 {
         this.field_1719 = var2;
     }
 
-    // $FF: renamed from: a (int, int) void
     public void method_2981(int var1, int var2) {
         this.field_1718 = this.field_1715.field_1188;
         int var3 = this.field_1715.field_1190;
@@ -3170,7 +3141,6 @@ public class class_288 implements class_17 {
         this.field_1719 = var3;
     }
 
-    // $FF: renamed from: a (m.ae, int, int[], int) void
     public void method_2982(class_58 var1, int var2, int[] var3, int var4) {
         this.field_1718 = this.field_1715.field_1188;
         int var5 = this.field_1715.field_1190;
@@ -3789,7 +3759,6 @@ public class class_288 implements class_17 {
         this.field_1719 = var5;
     }
 
-    // $FF: renamed from: a (h.ci, m.ae, int, int[], int) void
     public void method_2983(class_93 var1, class_58 var2, int var3, int[] var4, int var5) {
         this.field_1718 = this.field_1715.field_1188;
         int var6 = this.field_1715.field_1190;
@@ -4605,7 +4574,6 @@ public class class_288 implements class_17 {
         this.field_1719 = var6;
     }
 
-    // $FF: renamed from: a (boolean, m.d, int, int[]) void
     public void method_2984(boolean var1, class_60 var2, int var3, int[] var4) {
         this.field_1718 = this.field_1715.field_1188;
         int var5 = this.field_1715.field_1190;
@@ -5392,23 +5360,19 @@ public class class_288 implements class_17 {
         this.field_1719 = var5;
     }
 
-    // $FF: renamed from: a (m.d, int, int[]) void
     public void method_2985(class_60 var1, int var2, int[] var3) {
         this.method_2984(false, var1, var2, var3);
     }
 
-    // $FF: renamed from: b (int, int) void
     public void method_2986(int var1, int var2) {
         this.field_1718[var1++] = (byte)(var2 >> 8);
         this.field_1718[var1] = (byte)var2;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_2987() {
         return this.field_1716.field_1314.method_1900(2);
     }
 
-    // $FF: renamed from: a (h.cn, int) void
     private void method_2988(class_164 var1, int var2) {
         int var3 = var2;
         if (this.field_1719 + 4 >= this.field_1718.length) {
@@ -5482,7 +5446,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: e () void
     public void method_2989() {
         if (this.field_1719 + 20 >= this.field_1718.length) {
             this.method_3014(20);
@@ -5493,7 +5456,6 @@ public class class_288 implements class_17 {
         this.field_1719 += 12;
     }
 
-    // $FF: renamed from: a (h.r, m.s, int) void
     private void method_2990(class_126 var1, class_40 var2, int var3) {
         class_331 var4 = var1.field_672;
         class_40 var5 = var1.field_675;
@@ -5516,7 +5478,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (int, h.r, a.k, m.s) void
     private void method_2991(int var1, class_126 var2, class_331 var3, class_40 var4) {
         if (this.field_1719 + 3 >= this.field_1718.length) {
             this.method_3014(3);
@@ -5590,7 +5551,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.r, int, m.s) void
     private void method_2992(class_126 var1, int var2, class_40 var3) {
         if (var3 != null) {
             int var6;
@@ -5659,7 +5619,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.ae) int
     public int method_2993(class_58 var1) {
         this.field_1719 += 2;
         if (this.field_1719 + 2 >= this.field_1718.length) {
@@ -5772,7 +5731,6 @@ public class class_288 implements class_17 {
         return var3;
     }
 
-    // $FF: renamed from: a (m.ae, h.cm) int
     public int method_2994(class_58 var1, class_97 var2) {
         int var3 = this.method_2993(var1);
         int var4 = this.field_1719;
@@ -5798,12 +5756,10 @@ public class class_288 implements class_17 {
         return var3;
     }
 
-    // $FF: renamed from: a (m.ae) void
     public void method_2995(class_58 var1) {
         this.method_2996(var1, var1.field_273);
     }
 
-    // $FF: renamed from: a (m.ae, int) void
     public void method_2996(class_58 var1, int var2) {
         ++this.field_1725;
         if (this.field_1719 + 10 >= this.field_1718.length) {
@@ -5825,7 +5781,6 @@ public class class_288 implements class_17 {
         this.field_1718[this.field_1719++] = (byte)var4;
     }
 
-    // $FF: renamed from: f () void
     public void method_2997() {
         ++this.field_1725;
         if (this.field_1719 + 10 >= this.field_1718.length) {
@@ -5843,7 +5798,6 @@ public class class_288 implements class_17 {
         this.field_1718[this.field_1719++] = 1;
     }
 
-    // $FF: renamed from: a (h.ae[], c.h) void
     public void method_2998(class_96[] var1, class_284 var2) {
         if (var1 != null) {
             class_114 var3 = this.field_1729.field_258.field_376;
@@ -5866,7 +5820,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: i () void
     private void method_2999() {
         int var1 = this.field_1732.method_29();
         int[] var2 = new int[var1];
@@ -5906,7 +5859,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.cn[]) int
     private int method_3000(class_164[] var1) {
         int var2 = 0;
         int var3 = var1.length;
@@ -6005,7 +5957,6 @@ public class class_288 implements class_17 {
         return var2;
     }
 
-    // $FF: renamed from: a (h.cp[]) int
     private int method_3001(class_125[] var1) {
         int var2 = var1.length;
         int var5 = 0;
@@ -6157,7 +6108,6 @@ public class class_288 implements class_17 {
         return var8;
     }
 
-    // $FF: renamed from: a (char[]) int
     private int method_3002(char[] var1) {
         int var2 = class_233.method_1371('(', var1);
         ++var2;
@@ -6216,26 +6166,22 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[]) char[]
     private char[] method_3003(char[] var1) {
         int var2 = class_233.method_1376(')', var1);
         return class_233.method_1388(var1, var2 + 1, var1.length);
     }
 
-    // $FF: renamed from: a (byte[], int, int) int
     private final int method_3004(byte[] var1, int var2, int var3) {
         int var4 = var2 + var3;
         return ((var1[var4++] & 255) << 24) + ((var1[var4++] & 255) << 16) + ((var1[var4++] & 255) << 8) + (var1[var4] & 255);
     }
 
-    // $FF: renamed from: g () void
     protected void method_3005() {
         int var1 = this.field_1729.method_232().length + this.field_1729.method_204().length;
         this.field_1722 = new byte[1500];
         this.field_1718 = new byte[var1 < 15 ? 400 : 1500];
     }
 
-    // $FF: renamed from: a (m.az, c.d, boolean) void
     public void method_3006(class_54 var1, class_288 var2, boolean var3) {
         this.field_1722[this.field_1723++] = -54;
         this.field_1722[this.field_1723++] = -2;
@@ -6295,7 +6241,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (i.h, m.ae, int, int) void
     private void method_3007(class_280 var1, class_58 var2, int var3, int var4) {
         if (var3 != 0) {
             int var5 = 0;
@@ -6447,7 +6392,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (boolean, int, i.h) void
     private void method_3008(boolean var1, int var2, class_280 var3) {
         class_77[] var4 = var3.field_1645;
         int var5 = var4.length;
@@ -6481,7 +6425,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.cn) boolean
     private boolean method_3009(class_164 var1) {
         class_40 var2 = var1.field_675;
         if (var2 == null) {
@@ -6492,7 +6435,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (h.cn) boolean
     private boolean method_3010(class_164 var1) {
         class_40 var2 = var1.field_675;
         if (var2 == null) {
@@ -6503,7 +6445,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a () c.d
     public class_288 method_3011() {
         class_288 var1;
         for (var1 = this; var1.field_1721 != null; var1 = var1.field_1721) {
@@ -6512,7 +6453,6 @@ public class class_288 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: a (m.s) void
     public void method_3012(class_40 var1) {
         if (this.field_1724 == null) {
             this.field_1724 = new Vector(5);
@@ -6524,7 +6464,6 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.az) void
     public void method_3013(class_54 var1) {
         class_341 var2 = var1.field_258.method_577();
         this.field_1729 = var1;
@@ -6553,7 +6492,6 @@ public class class_288 implements class_17 {
         this.field_1732 = null;
     }
 
-    // $FF: renamed from: c (int) void
     private final void method_3014(int var1) {
         int var2 = this.field_1718.length;
         int var3 = var2;
@@ -6563,7 +6501,6 @@ public class class_288 implements class_17 {
         System.arraycopy(this.field_1718, 0, this.field_1718 = new byte[var2 + var3], 0, var2);
     }
 
-    // $FF: renamed from: a (int, int) i.c
     private class_77 method_3015(int var1, int var2) {
         int var3 = 0;
         for (int var4 = this.field_1715.field_1187; var3 < var4; ++var3) {
@@ -6582,7 +6519,6 @@ public class class_288 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: a (char[], int) int
     private int method_3016(char[] var1, int var2) {
         switch (var1[var2]) {
             case 66:
@@ -6619,13 +6555,11 @@ public class class_288 implements class_17 {
         }
     }
 
-    // $FF: renamed from: h () void
     public void method_3017() {
         this.field_1726 = this.field_1719;
         this.field_1719 += 2;
     }
 
-    // $FF: renamed from: a (m.ae, int, byte[], int, int, g.p, boolean) void
     public void method_3018(class_58 var1, int var2, byte[] var3, int var4, int var5, class_313 var6, boolean var7) {
         class_269 var8 = (class_269)this.field_1715;
         int[] var9 = var8.method_2396();
@@ -8028,24 +7962,20 @@ public class class_288 implements class_17 {
         } while (var10 < var5 + var4);
     }
 
-    // $FF: renamed from: b (byte[], int, int) int
     private final int method_3019(byte[] var1, int var2, int var3) {
         return var1[var2 + var3] & 255;
     }
 
-    // $FF: renamed from: c (byte[], int, int) int
     private final int method_3020(byte[] var1, int var2, int var3) {
         int var4 = var2 + var3;
         return ((var1[var4++] & 255) << 8) + (var1[var4] & 255);
     }
 
-    // $FF: renamed from: a (byte[], int, int) long
     private final long method_3021(byte[] var1, int var2, int var3) {
         int var4 = var2 + var3;
         return (((long)var1[var4++] & 255L) << 24) + (long)((var1[var4++] & 255) << 16) + (long)((var1[var4++] & 255) << 8) + (long)(var1[var4] & 255);
     }
 
-    // $FF: renamed from: a (byte[], int, int) char[]
     public char[] method_3022(byte[] var1, int var2, int var3) {
         int var4 = var3;
         char[] var5 = new char[var3];

@@ -15,21 +15,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-// $FF: renamed from: f.m
 public class class_226 implements class_2 {
 
-    // $FF: renamed from: a java.lang.String
     public static final String field_981;
-    // $FF: renamed from: b java.lang.String
+
     public static final String field_982;
-    // $FF: renamed from: a int[]
+
     public static final int[] field_983;
 
-    // $FF: renamed from: <init> () void
     public class_226() {
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String) java.lang.String
     public static String method_1317(String var0, String var1) throws IOException {
         char var2 = 47;
         String var3 = "/";
@@ -102,7 +98,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (h.bq, int) int
     public static int method_1318(class_114 var0, int var1) {
         for (; var0 != null; var0 = var0.field_599) {
             switch (var0.field_577 & 7) {
@@ -126,7 +121,6 @@ public class class_226 implements class_2 {
         return var1;
     }
 
-    // $FF: renamed from: a (g.g) byte[]
     public static byte[] method_1319(class_308 var0) throws IOException {
         class_310 var1 = null;
         byte[] var2;
@@ -146,7 +140,6 @@ public class class_226 implements class_2 {
         return var2;
     }
 
-    // $FF: renamed from: a (g.g, java.lang.String) char[]
     public static char[] method_1320(class_308 var0, String var1) throws IOException {
         class_310 var2 = null;
         char[] var3;
@@ -166,7 +159,6 @@ public class class_226 implements class_2 {
         return var3;
     }
 
-    // $FF: renamed from: a (boolean, java.lang.String, java.lang.String) g.i
     private static class_311 method_1321(boolean var0, String var1, String var2) throws IOException {
         class_311 var10000;
         class_308 var10002;
@@ -200,7 +192,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (java.io.InputStream, int) byte[]
     public static byte[] method_1322(InputStream var0, int var1) throws IOException {
         byte[] var2;
         int var3;
@@ -232,7 +223,6 @@ public class class_226 implements class_2 {
         return var2;
     }
 
-    // $FF: renamed from: a (java.io.InputStream, int, java.lang.String) char[]
     public static char[] method_1323(InputStream var0, int var1, String var2) throws IOException {
         InputStreamReader var3 = null;
         try {
@@ -280,7 +270,6 @@ public class class_226 implements class_2 {
         return var4;
     }
 
-    // $FF: renamed from: a (int, int[], int, int) int
     public static int method_1324(int var0, int[] var1, int var2, int var3) {
         if (var1 == null) {
             return 1;
@@ -308,7 +297,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (char[][], int, int) void
     public static void method_1325(char[][] var0, int var1, int var2) {
         int var3 = var1;
         int var4 = var2;
@@ -339,7 +327,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (char[][], int, int, int[]) void
     public static void method_1326(char[][] var0, int var1, int var2, int[] var3) {
         int var4 = var1;
         int var5 = var2;
@@ -373,7 +360,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (int[], int, int) int
     public static final int method_1327(int[] var0, int var1, int var2) {
         switch (var1) {
             case 1:
@@ -387,13 +373,11 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.Object[]) java.lang.String
     public static String method_1328(Object[] var0) {
         class_223 var10001 = new class_223();
         return method_1329(var0, var10001);
     }
 
-    // $FF: renamed from: a (java.lang.Object[], f.o) java.lang.String
     public static String method_1329(Object[] var0, class_1 var1) {
         if (var0 == null) {
             return "";
@@ -409,7 +393,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (boolean, java.lang.String, java.lang.String, c.d) void
     public static void method_1330(boolean var0, String var1, String var2, class_288 var3) throws IOException {
         class_311 var4 = method_1321(var0, var1, var2);
         class_311 var5 = var4;
@@ -424,7 +407,6 @@ public class class_226 implements class_2 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_981 = System.getProperty("line.separator");
         field_982 = new String(class_233.field_994);

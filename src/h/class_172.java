@@ -5,15 +5,12 @@ import h.class_126;
 import h.class_170;
 import m.class_86;
 
-// $FF: renamed from: h.bd
 public class class_172 extends class_170 {
 
-    // $FF: renamed from: a h.r[]
     public class_126[] field_787;
-    // $FF: renamed from: b int
+
     public int field_788;
 
-    // $FF: renamed from: <init> (h.bc, h.bc) void
     public class_172(class_170 var1, class_170 var2) {
         super(var1.field_444, var1.field_445);
         this.field_785 = var1.field_785;
@@ -23,7 +20,6 @@ public class class_172 extends class_170 {
         this.method_1087(var2);
     }
 
-    // $FF: renamed from: a (h.bc) h.bd
     public class_172 method_1087(class_170 var1) {
         this.field_445 = var1.field_445;
         int var2 = this.field_787.length;
@@ -37,7 +33,6 @@ public class class_172 extends class_170 {
         return this;
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append("StringLiteralConcatenation{");
         int var3 = 0;
@@ -48,12 +43,10 @@ public class class_172 extends class_170 {
         return var2.append('}');
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_1083() {
         return this.field_785;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2037(this, var2)) {
             int var3 = 0;

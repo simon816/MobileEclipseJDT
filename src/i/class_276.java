@@ -1,28 +1,23 @@
 package i;
 
-// $FF: renamed from: i.m
 public class class_276 {
 
-    // $FF: renamed from: a double[]
     private double[] field_1522;
-    // $FF: renamed from: a int[]
+
     private int[] field_1523;
-    // $FF: renamed from: a int
+
     private int field_1524;
 
-    // $FF: renamed from: <init> () void
     public class_276() {
         this(13);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_276(int var1) {
         this.field_1524 = 0;
         this.field_1522 = new double[var1];
         this.field_1523 = new int[var1];
     }
 
-    // $FF: renamed from: a () void
     public void method_2495() {
         int var1 = this.field_1522.length;
         while (true) {
@@ -36,7 +31,6 @@ public class class_276 {
         }
     }
 
-    // $FF: renamed from: a (double, int) int
     public int method_2496(double var1, int var3) {
         int var4;
         int var5;

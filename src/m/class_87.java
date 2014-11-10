@@ -26,33 +26,30 @@ import m.class_84;
 import m.class_86;
 import n.class_248;
 
-// $FF: renamed from: m.aj
 public class class_87 extends class_86 {
 
-    // $FF: renamed from: a a.i
     public class_33 field_403;
-    // $FF: renamed from: a boolean
+
     public boolean field_404;
-    // $FF: renamed from: b boolean
+
     public boolean field_405;
-    // $FF: renamed from: a m.k
+
     public class_67 field_406;
-    // $FF: renamed from: f int
+
     public int field_407;
-    // $FF: renamed from: g int
+
     public int field_408;
-    // $FF: renamed from: h int
+
     public int field_409;
-    // $FF: renamed from: a long[]
+
     public long[] field_410;
-    // $FF: renamed from: a long[][]
+
     public long[][] field_411;
-    // $FF: renamed from: c boolean
+
     public boolean field_412;
-    // $FF: renamed from: a m.a[]
+
     public class_66[] field_413;
 
-    // $FF: renamed from: <init> (m.f, a.i, boolean) void
     public class_87(class_84 var1, class_33 var2, boolean var3) {
         super(2, var1);
         this.field_405 = false;
@@ -67,7 +64,6 @@ public class class_87 extends class_86 {
         this.field_393 = 0;
     }
 
-    // $FF: renamed from: a (int) java.lang.String
     String method_707(int var1) {
         String var2 = "\n";
         int var3 = var1;
@@ -91,7 +87,6 @@ public class class_87 extends class_86 {
         }
     }
 
-    // $FF: renamed from: b (m.ae) void
     private void method_721(class_58 var1) {
         int var2 = var1.field_273;
         class_43 var3 = var1.field_278;
@@ -140,7 +135,6 @@ public class class_87 extends class_86 {
         var1.field_273 = var2;
     }
 
-    // $FF: renamed from: c (m.ae) void
     private void method_722(class_58 var1) {
         int var2 = var1.field_273;
         class_43 var3 = var1.field_278;
@@ -194,7 +188,6 @@ public class class_87 extends class_86 {
         }
     }
 
-    // $FF: renamed from: a (m.ae) void
     public void method_723(class_58 var1) {
         if (!var1.method_356() && (!var1.method_363() || this.method_577().field_1941) && (!var1.method_366() || var1.method_363() || this.method_577().field_1942) && !var1.method_364()) {
             int var2 = 0;
@@ -210,7 +203,6 @@ public class class_87 extends class_86 {
         }
     }
 
-    // $FF: renamed from: a (int, i.o) void
     public void method_724(int var1, class_268 var2) {
         this.field_394 = var1;
         this.field_395 = var1;
@@ -249,7 +241,6 @@ public class class_87 extends class_86 {
         this.method_709(var3, this.field_394, var2);
     }
 
-    // $FF: renamed from: a (h.ci) m.ae
     class_58 method_725(class_93 var1) {
         this.field_403 = var1;
         var1.field_478 = this;
@@ -299,7 +290,6 @@ public class class_87 extends class_86 {
         return var1.field_488;
     }
 
-    // $FF: renamed from: a (m.s, char[], m.ad, boolean) m.k
     public class_67 method_590(class_40 var1, char[] var2, class_0 var3, boolean var4) {
         class_67 var5 = super.method_590(var1, var2, var3, var4);
         if (var5 == null) {
@@ -328,22 +318,18 @@ public class class_87 extends class_86 {
         }
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_726() {
         return this.field_403 instanceof class_94;
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_727() {
         return this.field_403 instanceof class_114;
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_728() {
         return this.field_403 instanceof class_114 || this.field_403 instanceof class_94;
     }
 
-    // $FF: renamed from: a () n.e
     public class_248 method_644() {
         class_87 var1;
         if ((var1 = this.method_641()) == this) {
@@ -355,7 +341,6 @@ public class class_87 extends class_86 {
         }
     }
 
-    // $FF: renamed from: a (l.g) int
     public final int method_729(class_301 var1) {
         if ((var1.field_1783 & 1) != 0) {
             return -1;
@@ -399,12 +384,10 @@ public class class_87 extends class_86 {
         }
     }
 
-    // $FF: renamed from: a () h.ci
     public class_93 method_730() {
         return this.field_403 instanceof class_93 ? (class_93)this.field_403 : null;
     }
 
-    // $FF: renamed from: a () h.bq
     public class_114 method_718() {
         return ((class_84)this.field_374).field_376;
     }

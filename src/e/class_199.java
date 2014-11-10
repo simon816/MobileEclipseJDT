@@ -2,28 +2,23 @@ package e;
 
 import k.class_30;
 
-// $FF: renamed from: e.e
 public class class_199 implements class_30 {
 
-    // $FF: renamed from: a e.e[]
     static final class_199[] field_880;
-    // $FF: renamed from: a char[]
+
     private char[] field_881;
-    // $FF: renamed from: a java.lang.Object
+
     private Object field_882;
 
-    // $FF: renamed from: <init> (char[], java.lang.Object) void
     class_199(char[] var1, Object var2) {
         this.field_881 = var1;
         this.field_882 = var2;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_85() {
         return this.field_881;
     }
 
-    // $FF: renamed from: a () java.lang.Object
     public Object method_86() {
         return this.field_882;
     }
@@ -49,7 +44,6 @@ public class class_199 implements class_30 {
         return var1.toString();
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_880 = new class_199[0];
     }

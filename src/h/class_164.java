@@ -29,26 +29,22 @@ import m.class_67;
 import m.class_83;
 import m.class_86;
 
-// $FF: renamed from: h.cn
 public abstract class class_164 extends class_126 {
 
-    // $FF: renamed from: b h.ak[]
     static final class_92[] field_764;
-    // $FF: renamed from: a int
+
     public int field_765;
-    // $FF: renamed from: a m.w
+
     public class_34 field_766;
-    // $FF: renamed from: a h.bo
+
     public class_146 field_767;
-    // $FF: renamed from: a m.bf
+
     private class_203 field_768;
 
-    // $FF: renamed from: <init> () void
     public class_164() {
         this.field_768 = null;
     }
 
-    // $FF: renamed from: a (char[]) long
     public static long method_1069(char[] var0) {
         if (var0 != null && var0.length != 0) {
             switch (var0[0]) {
@@ -73,7 +69,6 @@ public abstract class class_164 extends class_126 {
         }
     }
 
-    // $FF: renamed from: b (char[]) long
     public static long method_1070(char[] var0) {
         if (var0 != null && var0.length != 0) {
             switch (var0[0]) {
@@ -135,12 +130,10 @@ public abstract class class_164 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a () m.c[]
     public class_320[] method_1071() {
         return class_34.field_159;
     }
 
-    // $FF: renamed from: a (m.bb, m.as, h.ak) long
     private long method_1072(class_83 var1, class_43 var2, class_92 var3) {
         long var4 = 0L;
         class_126 var6;
@@ -207,22 +200,18 @@ public abstract class class_164 extends class_126 {
         return var4;
     }
 
-    // $FF: renamed from: a () m.bf
     public class_203 method_1073() {
         return this.field_768;
     }
 
-    // $FF: renamed from: a () h.ak[]
     public abstract class_92[] method_1074();
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append('@');
         this.field_767.method_924(0, var2);
         return var2;
     }
 
-    // $FF: renamed from: a (m.bb, int, int, boolean) void
     public void method_1075(class_83 var1, int var2, int var3, boolean var4) {
         long var5 = 0L;
         class_92[] var7 = this.method_1074();
@@ -271,7 +260,6 @@ public abstract class class_164 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         if (this.field_768 != null) {
             return this.field_675;
@@ -453,10 +441,8 @@ public abstract class class_164 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public abstract void method_763(class_264 var1, class_86 var2);
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_764 = new class_92[0];
     }

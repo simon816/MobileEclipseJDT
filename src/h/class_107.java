@@ -14,25 +14,22 @@ import l.class_303;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.bt
 public class class_107 extends class_98 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_559;
-    // $FF: renamed from: a h.bf
+
     public class_98 field_560;
-    // $FF: renamed from: a i.s
+
     private class_74 field_561;
-    // $FF: renamed from: b i.s
+
     private class_74 field_562;
-    // $FF: renamed from: a int
+
     int field_563;
-    // $FF: renamed from: b int
+
     int field_564;
-    // $FF: renamed from: c int
+
     int field_565;
 
-    // $FF: renamed from: <init> (h.r, h.bf, int, int) void
     public class_107(class_126 var1, class_98 var2, int var3, int var4) {
         this.field_563 = -1;
         this.field_564 = -1;
@@ -46,7 +43,6 @@ public class class_107 extends class_98 {
         this.field_445 = var4;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         class_74 var10001 = new class_74();
         this.field_561 = var10001;
@@ -111,7 +107,6 @@ public class class_107 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
@@ -167,7 +162,6 @@ public class class_107 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_40 var2 = this.field_559.method_926(var1, class_40.field_186);
         this.field_559.method_911(var1, var2, var2);
@@ -176,7 +170,6 @@ public class class_107 extends class_98 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append("while (");
         this.field_559.method_924(0, var2).append(')');
@@ -188,7 +181,6 @@ public class class_107 extends class_98 {
         return var2;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2071(this, var2)) {
             this.field_559.method_763(var1, var2);

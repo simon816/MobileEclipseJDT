@@ -2,42 +2,38 @@ package c;
 
 import k.class_19;
 
-// $FF: renamed from: c.p
 public class class_283 implements Runnable {
 
-    // $FF: renamed from: a k.h[]
     class_19[] field_1660;
-    // $FF: renamed from: a int
+
     int field_1661;
-    // $FF: renamed from: b k.h[]
+
     class_19[] field_1662;
-    // $FF: renamed from: a char[][]
+
     char[][] field_1663;
-    // $FF: renamed from: b int
+
     int field_1664;
-    // $FF: renamed from: c int
+
     int field_1665;
-    // $FF: renamed from: a java.lang.Thread[]
+
     Thread[] field_1666;
-    // $FF: renamed from: a char[]
+
     char[] field_1667;
-    // $FF: renamed from: d int
+
     int field_1668;
-    // $FF: renamed from: a java.lang.Throwable
+
     private Throwable field_1669;
-    // $FF: renamed from: e int
+
     static int field_1670;
-    // $FF: renamed from: f int
+
     public static int field_1671;
-    // $FF: renamed from: g int
+
     static int field_1672;
 
-    // $FF: renamed from: <init> (k.h[], int) void
     public class_283(class_19[] var1, int var2) {
         this.field_1667 = new char[0];
     }
 
-    // $FF: renamed from: a (k.h) char[]
     public char[] method_2910(class_19 var1) {
         if (this.field_1666 != null && this.field_1660.length != 0) {
             boolean var2 = false;
@@ -153,13 +149,11 @@ public class class_283 implements Runnable {
         }
     }
 
-    // $FF: renamed from: a () void
     public synchronized void method_2911() {
         this.field_1666 = null;
         this.notifyAll();
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1670 = 5;
         field_1671 = 10;

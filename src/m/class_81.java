@@ -18,21 +18,18 @@ import m.class_58;
 import m.class_80;
 import n.class_248;
 
-// $FF: renamed from: m.ak
 public class class_81 {
 
-    // $FF: renamed from: a m.az
     class_54 field_368;
-    // $FF: renamed from: a f.e
+
     class_325 field_369;
-    // $FF: renamed from: b f.e
+
     class_325 field_370;
-    // $FF: renamed from: a m.af
+
     class_80 field_371;
-    // $FF: renamed from: a boolean
+
     private boolean field_372;
 
-    // $FF: renamed from: <init> (m.af) void
     class_81(class_80 var1) {
         this.field_368 = null;
         this.field_369 = null;
@@ -41,12 +38,10 @@ public class class_81 {
         this.field_372 = var1.field_352.field_1927 >= 3211264L && var1.field_352.field_1928 < 3211264L;
     }
 
-    // $FF: renamed from: a (m.ae, m.ae) boolean
     boolean method_522(class_58 var1, class_58 var2) {
         return this.method_548(var1, var2) && this.method_524(var1, var2);
     }
 
-    // $FF: renamed from: b (m.ae, m.ae) boolean
     boolean method_523(class_58 var1, class_58 var2) {
         class_40[] var3 = var1.field_276;
         class_40[] var4 = var2.field_276;
@@ -67,32 +62,26 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: c (m.ae, m.ae) boolean
     boolean method_524(class_58 var1, class_58 var2) {
         return var1.field_275 == var2.field_275 ? true : (this.method_526(var1.field_275, var2.field_275) ? true : (this.field_372 && var1.field_278 instanceof class_49 && var2.field_278 instanceof class_49 ? this.method_525(var1, var2) : false));
     }
 
-    // $FF: renamed from: l (m.ae, m.ae) boolean
     boolean method_525(class_58 var1, class_58 var2) {
         return var1.field_275.method_148() ? false : (!var1.field_278.method_157() ? (var1.field_278.field_177 == 1 ? var2.field_275.method_152(var1.field_275) : var1.field_275.method_152(var2.field_275)) : (var2.field_278.field_177 == 1 ? var1.field_275.method_152(var2.field_275) : (var1.field_278.method_215(var2.field_278, true) ? var1.field_275.method_152(var2.field_275) : (var2.field_278.method_215(var1.field_278, true) ? var2.field_275.method_152(var1.field_275) : var1.field_275.method_152(var2.field_275) || var2.field_275.method_152(var1.field_275)))));
     }
 
-    // $FF: renamed from: a (m.s, m.s) boolean
     boolean method_526(class_40 var1, class_40 var2) {
         return var1 == var2 ? true : (var1 instanceof class_44 ? ((class_44)var1).field_208 == var2 : (var2 instanceof class_44 ? ((class_44)var2).field_208 == var1 : false));
     }
 
-    // $FF: renamed from: a () boolean
     boolean method_527() {
         return this.field_368.method_240() != null && this.field_368.method_240().method_217() ? false : this.field_368.method_241() == class_34.field_155;
     }
 
-    // $FF: renamed from: d (m.ae, m.ae) boolean
     boolean method_528(class_58 var1, class_58 var2) {
         return var2 == null || var1.field_278 == var2.field_278;
     }
 
-    // $FF: renamed from: a (m.ae) void
     void method_529(class_58 var1) {
         if (this.method_550(var1.field_278)) {
             class_114 var2 = this.field_368.field_258.field_376;
@@ -105,7 +94,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, m.ae[], int, m.ae[]) void
     void method_530(class_58 var1, class_58[] var2, int var3, class_58[] var4) {
         if (this.field_368.method_145()) {
             this.method_552().method_1466(var1, var2[var3 - 1]);
@@ -168,7 +156,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, m.ae[]) void
     void method_531(class_58 var1, class_58[] var2) {
         if (var1.method_370()) {
             this.method_552().method_1758(this.field_368, var1, var2);
@@ -202,7 +189,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: c (m.ae, m.ae) void
     void method_532(class_58 var1, class_58 var2) {
         class_43[] var3 = this.method_555(var1);
         class_43[] var4 = this.method_555(var2);
@@ -223,10 +209,8 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, m.ae, m.ae[]) void
     void method_533(class_58 var1, class_58 var2, class_58[] var3) {}
 
-    // $FF: renamed from: a (m.as, m.as[]) void
     void method_534(class_43 var1, class_43[] var2) {
         if (var2 != class_34.field_155) {
             class_229 var10000 = new class_229(var2.length);
@@ -298,7 +282,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.ae[], int) void
     void method_535(class_58[] var1, int var2) {
         int var4;
         int var6;
@@ -372,7 +355,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.ae[], int) boolean
     boolean method_536(class_58[] var1, int var2) {
         class_58 var3 = var1[0];
         int var4 = var2;
@@ -399,7 +381,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a () void
     void method_537() {
         boolean var1 = this.method_551();
         boolean var2 = var1 && this.method_527();
@@ -481,7 +462,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: b (m.ae) void
     void method_538(class_58 var1) {
         class_38 var2 = var1.field_278.field_200;
         if (var2 != this.field_368.field_200) {
@@ -513,14 +493,12 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: b () void
     void method_539() {
         class_43 var1 = this.field_368.method_157() ? this.field_368.field_258.method_609() : this.field_368.method_240();
         this.method_540(var1, this.field_368.method_241());
         this.method_534(var1, this.field_368.method_241());
     }
 
-    // $FF: renamed from: b (m.as, m.as[]) void
     void method_540(class_43 var1, class_43[] var2) {
         class_325 var10001 = new class_325(51);
         this.field_369 = var10001;
@@ -686,7 +664,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: c () void
     void method_541() {
         class_58[] var1 = this.field_368.method_232();
         int var2 = var1.length;
@@ -712,12 +689,10 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, m.ae) m.ae
     class_58 method_542(class_58 var1, class_58 var2) {
         return var1 == null ? null : (var2.field_276.length != var1.field_276.length ? null : var1);
     }
 
-    // $FF: renamed from: m (m.ae, m.ae) boolean
     boolean method_543(class_58 var1, class_58 var2) {
         if (!class_233.method_1364(var1.field_274, var2.field_274)) {
             return false;
@@ -742,12 +717,10 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.as, m.as[]) f.q
     class_229 method_544(class_43 var1, class_43[] var2) {
         return null;
     }
 
-    // $FF: renamed from: a (m.ae[], int) int[]
     int[] method_545(class_58[] var1, int var2) {
         int[] var3 = null;
         int var4 = 0;
@@ -800,22 +773,18 @@ public class class_81 {
         return var3;
     }
 
-    // $FF: renamed from: n (m.ae, m.ae) boolean
     boolean method_546(class_58 var1, class_58 var2) {
         return var2.field_273 == var1.field_273 ? true : (var1.method_369() ? true : (var2.method_369() ? false : (var1.method_368() ? true : (var2.method_368() ? false : !var1.method_367()))));
     }
 
-    // $FF: renamed from: a (m.ae, m.ae, m.as) boolean
     boolean method_547(class_58 var1, class_58 var2, class_43 var3) {
         return this.method_523(var2, var1) && var2.field_278.method_215(var3, true);
     }
 
-    // $FF: renamed from: h (m.ae, m.ae) boolean
     boolean method_548(class_58 var1, class_58 var2) {
         return this.method_523(var1, var2);
     }
 
-    // $FF: renamed from: a (m.as, m.as) boolean
     boolean method_549(class_43 var1, class_43 var2) {
         do {
             if (var1 == var2) {
@@ -825,7 +794,6 @@ public class class_81 {
         return false;
     }
 
-    // $FF: renamed from: a (m.as) boolean
     boolean method_550(class_43 var1) {
         class_43 var2 = this.field_368.method_240();
         if (var1.method_151()) {
@@ -848,17 +816,14 @@ public class class_81 {
         return var2.method_217();
     }
 
-    // $FF: renamed from: b () boolean
     boolean method_551() {
         return !this.field_368.method_157() && !this.field_368.method_217();
     }
 
-    // $FF: renamed from: a () n.e
     class_248 method_552() {
         return this.field_368.field_258.method_644();
     }
 
-    // $FF: renamed from: a (m.ae) n.e
     class_248 method_553(class_58 var1) {
         class_248 var2 = this.method_552();
         if (var1.field_278 == this.field_368 && var1.method_384() != null) {
@@ -867,13 +832,11 @@ public class class_81 {
         return var2;
     }
 
-    // $FF: renamed from: k (m.ae, m.ae) boolean
     boolean method_554(class_58 var1, class_58 var2) {
         this.method_553(var1).method_1608(var1, var2);
         return true;
     }
 
-    // $FF: renamed from: a (m.ae) m.as[]
     class_43[] method_555(class_58 var1) {
         class_43[] var2 = var1.field_277;
         if ((var1.field_273 & 33554432) == 0) {
@@ -892,7 +855,6 @@ public class class_81 {
         }
     }
 
-    // $FF: renamed from: a (m.az) void
     void method_556(class_54 var1) {
         this.field_368 = var1;
         this.method_541();

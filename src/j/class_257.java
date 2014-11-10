@@ -14,25 +14,22 @@ import j.class_251;
 import j.class_271;
 import j.class_278;
 
-// $FF: renamed from: j.g
 public class class_257 extends class_251 {
 
-    // $FF: renamed from: b int
     private int field_1110;
-    // $FF: renamed from: c int
+
     private int field_1111;
-    // $FF: renamed from: d int
+
     private int field_1112;
-    // $FF: renamed from: f int
+
     private int field_1113;
-    // $FF: renamed from: a boolean
+
     public boolean field_1114;
-    // $FF: renamed from: a int
+
     public int field_1115;
-    // $FF: renamed from: a h.cn
+
     public class_164 field_1116;
 
-    // $FF: renamed from: <init> (int, int, int, j.e, int) void
     public class_257(int var1, int var2, int var3, class_251 var4, int var5) {
         super(var4, var5);
         this.field_1115 = -1;
@@ -42,25 +39,21 @@ public class class_257 extends class_251 {
         this.field_1113 = var3;
     }
 
-    // $FF: renamed from: a (h.bq, int) j.e
     public class_251 method_1838(class_114 var1, int var2) {
         return (class_251)(this.field_1116 == null && (var1.field_446 & 512) != 0 ? this : super.method_1838(var1, var2));
     }
 
-    // $FF: renamed from: a (int, int, int, int) j.e
     public class_251 method_1831(int var1, int var2, int var3, int var4) {
         class_257 var10000 = new class_257(var1, var2, var3, this, var4);
         class_257 var5 = var10000;
         return var5;
     }
 
-    // $FF: renamed from: a (h.cn, int) j.e
     public class_251 method_1872(class_164 var1, int var2) {
         this.field_1116 = var1;
         return (class_251)(this.field_1068 != null ? this.field_1068 : this);
     }
 
-    // $FF: renamed from: c () void
     public void method_1852() {
         class_278 var1 = this.method_1844();
         if (this.field_1116 == null && this.field_1111 <= var1.field_1584) {
@@ -154,34 +147,28 @@ public class class_257 extends class_251 {
         }
     }
 
-    // $FF: renamed from: a () h.cj
     public class_89 method_1845() {
         return this.field_1116;
     }
 
-    // $FF: renamed from: b () void
     public void method_1846() {
         if (this.field_1068 != null) {
             this.field_1068.method_1846();
         }
     }
 
-    // $FF: renamed from: c (int) void
     public void method_1873(int var1) {
         this.field_1110 = var1;
     }
 
-    // $FF: renamed from: a (int) java.lang.String
     public String method_1850(int var1) {
         return this.field_1116 != null ? this.method_1848(var1) + "Recovered annotation:\n" + this.field_1116.method_757(var1 + 1, new StringBuffer(10)) : this.method_1848(var1) + "Recovered annotation: identiferPtr=" + this.field_1111 + " identiferlengthPtr=" + this.field_1112 + "\n";
     }
 
-    // $FF: renamed from: a () h.cn
     public class_164 method_1874() {
         return this.field_1116;
     }
 
-    // $FF: renamed from: a (int, int) j.e
     public class_251 method_1853(int var1, int var2) {
         if (this.field_1069 > 0) {
             --this.field_1069;
@@ -191,7 +178,6 @@ public class class_257 extends class_251 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_1855() {
         this.method_1874();
     }

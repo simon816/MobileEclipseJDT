@@ -3,17 +3,13 @@ package h;
 import h.class_126;
 import l.class_301;
 
-// $FF: renamed from: h.aq
 public abstract class class_137 extends class_126 {
 
-    // $FF: renamed from: a int[][]
     public static int[][] field_701;
 
-    // $FF: renamed from: <init> () void
     public class_137() {
     }
 
-    // $FF: renamed from: a () void
     public static final void method_955() {
         field_701[2] = method_956();
         field_701[0] = method_957();
@@ -35,7 +31,6 @@ public abstract class class_137 extends class_126 {
         field_701[8] = method_973();
     }
 
-    // $FF: renamed from: a () int[]
     public static final int[] method_956() {
         int[] var0 = new int[256];
         var0[51] = 670266;
@@ -67,19 +62,16 @@ public abstract class class_137 extends class_126 {
         return var0;
     }
 
-    // $FF: renamed from: b () int[]
     public static final int[] method_957() {
         int[] var0 = new int[256];
         var0[85] = 349525;
         return var0;
     }
 
-    // $FF: renamed from: c () int[]
     public static final int[] method_958() {
         return method_965();
     }
 
-    // $FF: renamed from: d () int[]
     public static final int[] method_959() {
         int[] var0 = new int[256];
         var0[51] = 670261;
@@ -144,17 +136,14 @@ public abstract class class_137 extends class_126 {
         return var0;
     }
 
-    // $FF: renamed from: e () int[]
     public static final int[] method_960() {
         return method_963();
     }
 
-    // $FF: renamed from: f () int[]
     public static final int[] method_961() {
         return method_963();
     }
 
-    // $FF: renamed from: g () int[]
     public static final int[] method_962() {
         int[] var0 = new int[256];
         var0[51] = 670266;
@@ -185,7 +174,6 @@ public abstract class class_137 extends class_126 {
         return var0;
     }
 
-    // $FF: renamed from: h () int[]
     public static final int[] method_963() {
         int[] var0 = new int[256];
         var0[51] = 670261;
@@ -240,12 +228,10 @@ public abstract class class_137 extends class_126 {
         return var0;
     }
 
-    // $FF: renamed from: i () int[]
     public static final int[] method_964() {
         return method_963();
     }
 
-    // $FF: renamed from: j () int[]
     public static final int[] method_965() {
         int[] var0 = method_969();
         var0[179] = 0;
@@ -275,22 +261,18 @@ public abstract class class_137 extends class_126 {
         return var0;
     }
 
-    // $FF: renamed from: k () int[]
     public static final int[] method_966() {
         return method_965();
     }
 
-    // $FF: renamed from: l () int[]
     public static final int[] method_967() {
         return method_956();
     }
 
-    // $FF: renamed from: m () int[]
     public static final int[] method_968() {
         return method_957();
     }
 
-    // $FF: renamed from: n () int[]
     public static final int[] method_969() {
         int[] var0 = new int[256];
         var0[51] = 670266;
@@ -366,27 +348,22 @@ public abstract class class_137 extends class_126 {
         return var0;
     }
 
-    // $FF: renamed from: o () int[]
     public static final int[] method_970() {
         return method_965();
     }
 
-    // $FF: renamed from: p () int[]
     public static final int[] method_971() {
         return method_962();
     }
 
-    // $FF: renamed from: q () int[]
     public static final int[] method_972() {
         return method_962();
     }
 
-    // $FF: renamed from: r () int[]
     public static final int[] method_973() {
         return method_956();
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_974() {
         switch ((this.field_446 & 4032) >> 6) {
             case 0:
@@ -448,21 +425,17 @@ public abstract class class_137 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (l.g) int
     public int method_921(class_301 var1) {
         return -1;
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append('(');
         return this.method_975(0, var2).append(')');
     }
 
-    // $FF: renamed from: a_ (int, java.lang.StringBuffer) java.lang.StringBuffer
     public abstract StringBuffer method_975(int var1, StringBuffer var2);
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_701 = new int[20][];
         method_955();

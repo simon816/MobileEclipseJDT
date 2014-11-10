@@ -19,45 +19,41 @@ import m.class_60;
 import m.class_67;
 import m.class_86;
 
-// $FF: renamed from: h.bg
 public class class_115 extends class_98 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_602;
-    // $FF: renamed from: a h.bf[]
+
     public class_98[] field_603;
-    // $FF: renamed from: a m.v
+
     public class_86 field_604;
-    // $FF: renamed from: a int
+
     public int field_605;
-    // $FF: renamed from: a i.s
+
     public class_74 field_606;
-    // $FF: renamed from: a h.bu[]
+
     public class_108[] field_607;
-    // $FF: renamed from: a h.bu
+
     public class_108 field_608;
-    // $FF: renamed from: b int
+
     public int field_609;
-    // $FF: renamed from: c int
+
     public int field_610;
-    // $FF: renamed from: a int[]
+
     int[] field_611;
-    // $FF: renamed from: a m.d
+
     public class_60 field_612;
-    // $FF: renamed from: d int
+
     int field_613;
-    // $FF: renamed from: e int
+
     int field_614;
 
-    // $FF: renamed from: <init> () void
     public class_115() {
         this.field_613 = -1;
         this.field_614 = -1;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
-        class_301 var16;
+        class_303 var17;
         try {
             var3 = this.field_602.method_814(var1, var2, var3);
             class_74 var10005 = new class_74();
@@ -107,116 +103,115 @@ public class class_115 extends class_98 {
                 class_54 var18 = this.field_604.method_575().field_376.field_586;
                 this.field_612 = var18.method_301(var15);
             }
-            if (this.field_608 != null) {
-                class_303 var19 = ((class_301)var5).method_3105(var4.field_1746);
-                this.field_614 = var1.method_635().method_729(var19);
-                class_303 var17 = var19;
-                return var17;
+            if (this.field_608 == null) {
+                var3.method_3072(((class_301)var5).method_3105(var4.field_1746));
+                this.field_614 = var1.method_635().method_729(var3);
+                class_301 var19 = var3;
+                return var19;
             }
-            var3.method_3072(((class_301)var5).method_3105(var4.field_1746));
-            this.field_614 = var1.method_635().method_729(var3);
-            var16 = var3;
+            class_303 var16 = ((class_301)var5).method_3105(var4.field_1746);
+            this.field_614 = var1.method_635().method_729(var16);
+            var17 = var16;
         } finally {
             if (this.field_604 != null) {
                 this.field_604.field_399 = null;
             }
         }
-        return var16;
+        return var17;
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         try {
-            if ((this.field_446 & Integer.MIN_VALUE) != 0) {
-                int var3 = var2.field_1208;
-                this.field_606.method_456(var2);
-                class_75[] var4 = new class_75[this.field_610];
-                boolean var5 = this.field_610 != 0;
-                for (int var6 = 0; var6 < this.field_610; ++var6) {
-                    class_108 var10000 = this.field_607[var6];
-                    class_75 var10003 = new class_75(var2);
-                    var10000.field_567 = var4[var6] = var10003;
-                    var4[var6].field_330 |= 2;
-                }
-                class_75 var15 = new class_75(var2);
-                class_75 var16 = var15;
-                if (var5) {
-                    var16.field_330 |= 2;
-                }
-                if (this.field_608 != null) {
-                    this.field_608.field_567 = var16;
-                }
-                class_40 var7 = this.field_602.field_675;
-                if (var7.method_153()) {
-                    if (var5) {
-                        var2.method_2273(this.field_612);
-                        this.field_602.method_912(var1, var2, true);
-                        var2.method_2260(var7.method_134());
-                        var2.method_2218();
-                    } else {
-                        this.field_602.method_912(var1, var2, false);
-                    }
-                } else {
-                    this.field_602.method_912(var1, var2, var5);
-                }
-                int var9;
-                int var10;
-                if (var5) {
-                    int[] var8 = new int[this.field_610];
-                    for (var9 = 0; var9 < this.field_610; var8[var9] = var9++) {
-                        ;
-                    }
-                    int[] var18;
-                    System.arraycopy(this.field_611, 0, var18 = new int[this.field_610], 0, this.field_610);
-                    class_268.method_2082(var18, 0, this.field_610 - 1, var8);
-                    var10 = var18[this.field_610 - 1];
-                    int var11 = var18[0];
-                    if ((long)((double)this.field_610 * 2.5D) > (long)var10 - (long)var11) {
-                        if (var10 > 2147418112 && var1.method_577().field_1927 < 3145728L) {
-                            var2.method_2326(var16, this.field_611, var8, var4);
-                        } else {
-                            var2.method_2378(var16, var11, var10, this.field_611, var8, var4);
-                        }
-                    } else {
-                        var2.method_2326(var16, this.field_611, var8, var4);
-                    }
-                    var2.method_2380(this.field_604, var2.field_1208);
-                }
-                int var17 = 0;
-                if (this.field_603 != null) {
-                    var9 = 0;
-                    for (var10 = this.field_603.length; var9 < var10; ++var9) {
-                        class_98 var19 = this.field_603[var9];
-                        if (var17 < this.field_610 && var19 == this.field_607[var17]) {
-                            this.field_604.field_399 = this.field_607[var17];
-                            if (this.field_613 != -1) {
-                                var2.method_2363(var1, this.field_613);
-                            }
-                            ++var17;
-                        } else if (var19 == this.field_608) {
-                            this.field_604.field_399 = this.field_608;
-                            if (this.field_613 != -1) {
-                                var2.method_2363(var1, this.field_613);
-                            }
-                        }
-                        var19.method_818(this.field_604, var2);
-                    }
-                }
-                if (this.field_614 != -1) {
-                    var2.method_2363(var1, this.field_614);
-                    var2.method_2088(var1, this.field_614);
-                }
-                if (this.field_604 != var1) {
-                    var2.method_2147(this.field_604);
-                }
-                this.field_606.method_458();
-                if (this.field_608 == null) {
-                    var2.method_2361(var2.field_1208, this.field_445, true);
-                    var16.method_458();
-                }
-                var2.method_2360(var3, this.field_444);
+            if ((this.field_446 & Integer.MIN_VALUE) == 0) {
                 return;
             }
+            int var3 = var2.field_1208;
+            this.field_606.method_456(var2);
+            class_75[] var4 = new class_75[this.field_610];
+            boolean var5 = this.field_610 != 0;
+            for (int var6 = 0; var6 < this.field_610; ++var6) {
+                class_108 var10000 = this.field_607[var6];
+                class_75 var10003 = new class_75(var2);
+                var10000.field_567 = var4[var6] = var10003;
+                var4[var6].field_330 |= 2;
+            }
+            class_75 var15 = new class_75(var2);
+            class_75 var16 = var15;
+            if (var5) {
+                var16.field_330 |= 2;
+            }
+            if (this.field_608 != null) {
+                this.field_608.field_567 = var16;
+            }
+            class_40 var7 = this.field_602.field_675;
+            if (var7.method_153()) {
+                if (var5) {
+                    var2.method_2273(this.field_612);
+                    this.field_602.method_912(var1, var2, true);
+                    var2.method_2260(var7.method_134());
+                    var2.method_2218();
+                } else {
+                    this.field_602.method_912(var1, var2, false);
+                }
+            } else {
+                this.field_602.method_912(var1, var2, var5);
+            }
+            int var9;
+            int var10;
+            if (var5) {
+                int[] var8 = new int[this.field_610];
+                for (var9 = 0; var9 < this.field_610; var8[var9] = var9++) {
+                    ;
+                }
+                int[] var18;
+                System.arraycopy(this.field_611, 0, var18 = new int[this.field_610], 0, this.field_610);
+                class_268.method_2082(var18, 0, this.field_610 - 1, var8);
+                var10 = var18[this.field_610 - 1];
+                int var11 = var18[0];
+                if ((long)((double)this.field_610 * 2.5D) > (long)var10 - (long)var11) {
+                    if (var10 > 2147418112 && var1.method_577().field_1927 < 3145728L) {
+                        var2.method_2326(var16, this.field_611, var8, var4);
+                    } else {
+                        var2.method_2378(var16, var11, var10, this.field_611, var8, var4);
+                    }
+                } else {
+                    var2.method_2326(var16, this.field_611, var8, var4);
+                }
+                var2.method_2380(this.field_604, var2.field_1208);
+            }
+            int var17 = 0;
+            if (this.field_603 != null) {
+                var9 = 0;
+                for (var10 = this.field_603.length; var9 < var10; ++var9) {
+                    class_98 var19 = this.field_603[var9];
+                    if (var17 < this.field_610 && var19 == this.field_607[var17]) {
+                        this.field_604.field_399 = this.field_607[var17];
+                        if (this.field_613 != -1) {
+                            var2.method_2363(var1, this.field_613);
+                        }
+                        ++var17;
+                    } else if (var19 == this.field_608) {
+                        this.field_604.field_399 = this.field_608;
+                        if (this.field_613 != -1) {
+                            var2.method_2363(var1, this.field_613);
+                        }
+                    }
+                    var19.method_818(this.field_604, var2);
+                }
+            }
+            if (this.field_614 != -1) {
+                var2.method_2363(var1, this.field_614);
+                var2.method_2088(var1, this.field_614);
+            }
+            if (this.field_604 != var1) {
+                var2.method_2147(this.field_604);
+            }
+            this.field_606.method_458();
+            if (this.field_608 == null) {
+                var2.method_2361(var2.field_1208, this.field_445, true);
+                var16.method_458();
+            }
+            var2.method_2360(var3, this.field_444);
         } finally {
             if (this.field_604 != null) {
                 this.field_604.field_399 = null;
@@ -224,7 +219,6 @@ public class class_115 extends class_98 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append("switch (");
         this.field_602.method_924(0, var2).append(") {");
@@ -242,7 +236,6 @@ public class class_115 extends class_98 {
         return method_759(var1, var2).append('}');
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         try {
             boolean var2 = false;
@@ -347,7 +340,6 @@ public class class_115 extends class_98 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2060(this, var2)) {
             this.field_602.method_763(var1, this.field_604);
@@ -361,7 +353,6 @@ public class class_115 extends class_98 {
         var1.method_1975(this, var2);
     }
 
-    // $FF: renamed from: a (i.s) void
     public void method_815(class_74 var1) {
         if (this.field_606.method_454() > 0) {
             var1.method_451(this.field_606);

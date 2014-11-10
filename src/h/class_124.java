@@ -18,13 +18,10 @@ import m.class_42;
 import m.class_65;
 import m.class_86;
 
-// $FF: renamed from: h.ac
 public class class_124 extends class_120 {
 
-    // $FF: renamed from: a m.ab
     public class_65 field_670;
 
-    // $FF: renamed from: <init> (char[], int, int) void
     public class_124(char[] var1, int var2, int var3) {
         this.field_659 = var1;
         this.field_444 = var2;
@@ -32,7 +29,6 @@ public class class_124 extends class_120 {
         this.field_651 = var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         if ((var3.field_1783 & 1) == 0) {
             this.field_446 |= 1073741824;
@@ -64,14 +60,12 @@ public class class_124 extends class_120 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_901() {
         if ((this.field_656 & '\uffff' & -17) != 0) {
             this.field_656 = this.field_656 & -4194305 | 8388608;
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o) void
     public void method_818(class_86 var1, class_268 var2) {
         if (this.field_670.field_306 != -1) {
             var2.method_2090(this.field_670);
@@ -98,12 +92,10 @@ public class class_124 extends class_120 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_887() {
         return 4;
     }
 
-    // $FF: renamed from: a (m.v) void
     public void method_821(class_86 var1) {
         class_40 var2 = this.field_660.method_1017(var1, true);
         this.method_901();
@@ -183,7 +175,6 @@ public class class_124 extends class_120 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2031(this, var2)) {
             if (this.field_658 != null) {

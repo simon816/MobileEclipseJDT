@@ -16,59 +16,56 @@ import java.util.Vector;
 import k.class_19;
 import m.class_54;
 
-// $FF: renamed from: c.h
 public class class_284 {
 
-    // $FF: renamed from: a b.e[]
     public class_235[] field_1673;
-    // $FF: renamed from: b b.e[]
+
     public class_235[] field_1674;
-    // $FF: renamed from: a int
+
     public int field_1675;
-    // $FF: renamed from: b int
+
     public int field_1676;
-    // $FF: renamed from: a k.h
+
     public class_19 field_1677;
-    // $FF: renamed from: a g.m
+
     public class_14 field_1678;
-    // $FF: renamed from: a java.util.Vector
+
     public Vector field_1679;
-    // $FF: renamed from: e int
+
     private int field_1680;
-    // $FF: renamed from: a char[][][]
+
     public char[][][] field_1681;
-    // $FF: renamed from: a char[][]
+
     public char[][] field_1682;
-    // $FF: renamed from: a boolean
+
     public boolean field_1683;
-    // $FF: renamed from: a int[]
+
     public int[] field_1684;
-    // $FF: renamed from: a j.j
+
     public class_267 field_1685;
-    // $FF: renamed from: b g.m
+
     public class_14 field_1686;
-    // $FF: renamed from: c int
+
     public int field_1687;
-    // $FF: renamed from: d int
+
     public int field_1688;
-    // $FF: renamed from: b boolean
+
     public boolean field_1689;
-    // $FF: renamed from: a java.lang.String
+
     public String field_1690;
-    // $FF: renamed from: c boolean
+
     public boolean field_1691;
-    // $FF: renamed from: d boolean
+
     public boolean field_1692;
-    // $FF: renamed from: b char[][]
+
     public char[][] field_1693;
-    // $FF: renamed from: e boolean
+
     public boolean field_1694;
-    // $FF: renamed from: b int[]
+
     private static final int[] field_1695;
-    // $FF: renamed from: a g.f
+
     private static final class_10 field_1696;
 
-    // $FF: renamed from: <init> (java.lang.String, int, int, int) void
     public class_284(String var1, int var2, int var3, int var4) {
         this.field_1683 = false;
         class_312 var10001 = new class_312(11);
@@ -83,7 +80,6 @@ public class class_284 {
         this.field_1680 = var4;
     }
 
-    // $FF: renamed from: <init> (k.h, int, int, int) void
     public class_284(class_19 var1, int var2, int var3, int var4) {
         this.field_1683 = false;
         class_312 var10001 = new class_312(11);
@@ -99,7 +95,6 @@ public class class_284 {
         this.field_1680 = var4;
     }
 
-    // $FF: renamed from: a (b.e) int
     private int method_2915(class_235 var1) {
         int var6 = 10000 - var1.method_1403();
         if (var6 < 0) {
@@ -127,7 +122,6 @@ public class class_284 {
         return var6;
     }
 
-    // $FF: renamed from: a () b.e[]
     public class_235[] method_2916() {
         class_235[] var1 = this.method_2922();
         int var2 = var1 != null ? var1.length : 0;
@@ -175,19 +169,16 @@ public class class_284 {
         }
     }
 
-    // $FF: renamed from: a () c.d[]
     public class_288[] method_2917() {
         class_288[] var1 = new class_288[this.field_1686.method_37()];
         this.field_1686.method_43().method_33(var1);
         return var1;
     }
 
-    // $FF: renamed from: a () k.h
     public class_19 method_2918() {
         return this.field_1677;
     }
 
-    // $FF: renamed from: b () b.e[]
     public class_235[] method_2919() {
         class_235[] var1 = this.method_2922();
         int var2 = 0;
@@ -210,17 +201,14 @@ public class class_284 {
         }
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_2920() {
         return this.field_1690;
     }
 
-    // $FF: renamed from: a () int[]
     public int[] method_2921() {
         return this.field_1684 == null ? field_1695 : this.field_1684;
     }
 
-    // $FF: renamed from: c () b.e[]
     public class_235[] method_2922() {
         if (this.field_1673 != null) {
             if (this.field_1675 != this.field_1673.length) {
@@ -236,7 +224,6 @@ public class class_284 {
         return this.field_1673;
     }
 
-    // $FF: renamed from: d () b.e[]
     public class_235[] method_2923() {
         if (this.field_1674 != null) {
             if (this.field_1676 != this.field_1674.length) {
@@ -247,7 +234,6 @@ public class class_284 {
         return this.field_1674;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_2924() {
         if (this.field_1673 != null) {
             for (int var1 = 0; var1 < this.field_1675; ++var1) {
@@ -259,17 +245,14 @@ public class class_284 {
         return false;
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_2925() {
         return this.field_1675 != 0;
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_2926() {
         return this.field_1676 != 0;
     }
 
-    // $FF: renamed from: a (b.e[], int, int) void
     private void method_2927(class_235[] var1, int var2, int var3) {
         if (var2 < var3) {
             int var4 = var2;
@@ -302,12 +285,10 @@ public class class_284 {
         }
     }
 
-    // $FF: renamed from: a (char[][]) void
     public void method_2928(char[][] var1) {
         this.field_1693 = var1;
     }
 
-    // $FF: renamed from: a (b.e, a.i) void
     public void method_2929(class_235 var1, class_33 var2) {
         if (var1.method_1398() == 536871362) {
             this.method_2931(var1);
@@ -337,7 +318,6 @@ public class class_284 {
         }
     }
 
-    // $FF: renamed from: a (char[], c.d) void
     public void method_2930(char[] var1, class_288 var2) {
         class_54 var3 = var2.field_1729;
         if (!var3.method_158() && var3.method_156()) {
@@ -346,7 +326,6 @@ public class class_284 {
         this.field_1686.method_39(var1, var2);
     }
 
-    // $FF: renamed from: a (b.e) void
     private void method_2931(class_235 var1) {
         if (this.field_1676 == 0) {
             this.field_1674 = new class_235[5];
@@ -356,7 +335,6 @@ public class class_284 {
         this.field_1674[this.field_1676++] = var1;
     }
 
-    // $FF: renamed from: a () c.h
     public class_284 method_2932() {
         this.field_1689 = true;
         this.field_1678 = null;
@@ -390,7 +368,6 @@ public class class_284 {
         return var1.toString();
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1695 = class_226.field_983;
         class_287 var10000 = new class_287();

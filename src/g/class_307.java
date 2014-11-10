@@ -2,31 +2,28 @@ package g;
 
 import java.util.Enumeration;
 
-// $FF: renamed from: g.a
 public class class_307 implements Enumeration {
 
-    // $FF: renamed from: a int
     private int field_1796;
-    // $FF: renamed from: b int
+
     private int field_1797;
-    // $FF: renamed from: c int
+
     private int field_1798;
-    // $FF: renamed from: a java.lang.String
+
     private String field_1799;
-    // $FF: renamed from: b java.lang.String
+
     private String field_1800;
-    // $FF: renamed from: a boolean
+
     private boolean field_1801;
-    // $FF: renamed from: b boolean
+
     private boolean field_1802;
-    // $FF: renamed from: d int
+
     private int field_1803;
-    // $FF: renamed from: c boolean
+
     private boolean field_1804;
-    // $FF: renamed from: a int[]
+
     private int[] field_1805;
 
-    // $FF: renamed from: a () void
     private void method_3131() {
         if (this.field_1800 == null) {
             this.field_1803 = 0;
@@ -59,12 +56,10 @@ public class class_307 implements Enumeration {
         }
     }
 
-    // $FF: renamed from: a (int) int
     static int method_3132(int var0) {
         return var0 >= 65536 ? 2 : 1;
     }
 
-    // $FF: renamed from: a (java.lang.String, int) int
     static int method_3133(String var0, int var1) {
         char var2 = var0.charAt(var1++);
         if (var2 >= '\ud800' && var2 <= '\udbff' && var1 < var0.length()) {
@@ -76,7 +71,6 @@ public class class_307 implements Enumeration {
         return var2;
     }
 
-    // $FF: renamed from: <init> (java.lang.String, java.lang.String, boolean) void
     public class_307(String var1, String var2, boolean var3) {
         this.field_1804 = false;
         this.field_1796 = 0;
@@ -89,12 +83,10 @@ public class class_307 implements Enumeration {
         this.method_3131();
     }
 
-    // $FF: renamed from: <init> (java.lang.String, java.lang.String) void
     public class_307(String var1, String var2) {
         this(var1, var2, false);
     }
 
-    // $FF: renamed from: b (int) int
     private int method_3136(int var1) {
         if (this.field_1800 == null) {
             throw new NullPointerException();
@@ -119,7 +111,6 @@ public class class_307 implements Enumeration {
         }
     }
 
-    // $FF: renamed from: c (int) int
     private int method_3137(int var1) {
         int var2 = var1;
         int var3;
@@ -155,7 +146,6 @@ public class class_307 implements Enumeration {
         return var2;
     }
 
-    // $FF: renamed from: a (int) boolean
     private boolean method_3138(int var1) {
         for (int var2 = 0; var2 < this.field_1805.length; ++var2) {
             if (this.field_1805[var2] == var1) {
@@ -165,13 +155,11 @@ public class class_307 implements Enumeration {
         return false;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_3139() {
         this.field_1797 = this.method_3136(this.field_1796);
         return this.field_1797 < this.field_1798;
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_3140() {
         this.field_1796 = this.field_1797 >= 0 && !this.field_1802 ? this.field_1797 : this.method_3136(this.field_1796);
         this.field_1802 = false;

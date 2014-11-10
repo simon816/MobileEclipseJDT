@@ -5,32 +5,27 @@ import i.class_268;
 import i.class_72;
 import m.class_65;
 
-// $FF: renamed from: i.s
 public class class_74 extends class_72 {
 
-    // $FF: renamed from: a int[]
     private int[] field_327;
-    // $FF: renamed from: b int
+
     private int field_328;
-    // $FF: renamed from: a i.s
+
     class_74 field_329;
-    // $FF: renamed from: c int
+
     public int field_330;
 
-    // $FF: renamed from: <init> () void
     public class_74() {
         this.field_327 = new int[10];
         this.field_328 = 0;
     }
 
-    // $FF: renamed from: <init> (i.o) void
     public class_74(class_268 var1) {
         super(var1);
         this.field_327 = new int[10];
         this.field_328 = 0;
     }
 
-    // $FF: renamed from: a (int) void
     void method_450(int var1) {
         if (this.field_329 != null) {
             this.field_329.method_450(var1);
@@ -68,7 +63,6 @@ public class class_74 extends class_72 {
         }
     }
 
-    // $FF: renamed from: a (i.s) void
     public void method_451(class_74 var1) {
         var1.field_329 = this;
         int var2 = var1.field_328;
@@ -111,7 +105,6 @@ public class class_74 extends class_72 {
         }
     }
 
-    // $FF: renamed from: a () void
     void method_452() {
         this.field_330 |= 2;
         if (this.field_329 != null) {
@@ -127,7 +120,6 @@ public class class_74 extends class_72 {
         }
     }
 
-    // $FF: renamed from: b () void
     void method_453() {
         this.field_330 |= 2;
         if (this.field_329 != null) {
@@ -144,7 +136,6 @@ public class class_74 extends class_72 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_454() {
         if (this.field_329 != null) {
             this.field_329.method_454();
@@ -152,7 +143,6 @@ public class class_74 extends class_72 {
         return this.field_328;
     }
 
-    // $FF: renamed from: a () int[]
     public int[] method_455() {
         if (this.field_329 != null) {
             this.field_329.method_455();
@@ -160,7 +150,6 @@ public class class_74 extends class_72 {
         return this.field_327;
     }
 
-    // $FF: renamed from: a (i.o) void
     public void method_456(class_268 var1) {
         this.field_322 = var1;
         this.field_323 = -1;
@@ -168,12 +157,10 @@ public class class_74 extends class_72 {
         this.field_329 = null;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_457() {
         return true;
     }
 
-    // $FF: renamed from: c () void
     public void method_458() {
         if (this.field_323 == -1) {
             this.field_323 = this.field_322.field_1208;

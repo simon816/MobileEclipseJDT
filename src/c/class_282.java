@@ -4,33 +4,30 @@ import c.class_286;
 import f.class_329;
 import h.class_90;
 
-// $FF: renamed from: c.n
 public class class_282 implements Runnable {
 
-    // $FF: renamed from: a c.f
     class_286 field_1649;
-    // $FF: renamed from: f int
+
     private int field_1650;
-    // $FF: renamed from: a java.lang.Thread
+
     private Thread field_1651;
-    // $FF: renamed from: a h.b
+
     class_90 field_1652;
-    // $FF: renamed from: a java.lang.Throwable
+
     private Throwable field_1653;
-    // $FF: renamed from: a int
+
     volatile int field_1654;
-    // $FF: renamed from: b int
+
     volatile int field_1655;
-    // $FF: renamed from: c int
+
     volatile int field_1656;
-    // $FF: renamed from: d int
+
     volatile int field_1657;
-    // $FF: renamed from: a h.b[]
+
     class_90[] field_1658;
-    // $FF: renamed from: e int
+
     public static int field_1659;
 
-    // $FF: renamed from: <init> (c.f) void
     public class_282(class_286 var1) {
         this.field_1649 = var1;
         this.field_1650 = 0;
@@ -45,7 +42,6 @@ public class class_282 implements Runnable {
         }
     }
 
-    // $FF: renamed from: a (h.b) void
     private synchronized void method_2905(class_90 var1) {
         for (; this.field_1658[this.field_1655] != null; this.field_1657 = 0) {
             this.field_1657 = 1;
@@ -64,7 +60,6 @@ public class class_282 implements Runnable {
         }
     }
 
-    // $FF: renamed from: a () h.b
     public class_90 method_2906() {
         class_90 var1 = null;
         boolean var2 = false;
@@ -153,7 +148,6 @@ public class class_282 implements Runnable {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_2907() {
         try {
             Thread var1 = null;
@@ -172,7 +166,6 @@ public class class_282 implements Runnable {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1659 = 12;
     }

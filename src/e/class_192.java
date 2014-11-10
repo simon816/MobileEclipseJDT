@@ -4,13 +4,10 @@ import e.class_191;
 import e.class_196;
 import k.class_29;
 
-// $FF: renamed from: e.l
 public class class_192 extends class_191 {
 
-    // $FF: renamed from: a e.b[]
     protected class_196[] field_863;
 
-    // $FF: renamed from: <init> (e.i, e.b[]) void
     class_192(class_191 var1, class_196[] var2) {
         super(var1.field_805, var1.field_806, var1.field_807);
         this.field_863 = var2;
@@ -24,12 +21,10 @@ public class class_192 extends class_191 {
         this.field_860 = var1.field_860;
     }
 
-    // $FF: renamed from: a () k.e[]
     public class_29[] method_71() {
         return this.field_863;
     }
 
-    // $FF: renamed from: a () void
     protected void method_1136() {
         int var1 = 0;
         for (int var2 = this.field_863 == null ? 0 : this.field_863.length; var1 < var2; ++var1) {
@@ -40,7 +35,6 @@ public class class_192 extends class_191 {
         super.method_1136();
     }
 
-    // $FF: renamed from: b () void
     protected void method_1102() {
         int var1 = 0;
         for (int var2 = this.field_863 == null ? 0 : this.field_863.length; var1 < var2; ++var1) {
@@ -51,7 +45,6 @@ public class class_192 extends class_191 {
         super.method_1102();
     }
 
-    // $FF: renamed from: a (java.lang.StringBuffer) void
     protected void method_1141(StringBuffer var1) {
         super.method_1141(var1);
         int var2 = 0;

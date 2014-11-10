@@ -53,22 +53,18 @@ import m.class_87;
 import n.class_241;
 import n.class_248;
 
-// $FF: renamed from: m.bb
 public abstract class class_83 implements class_17 {
 
-    // $FF: renamed from: i int
     public int field_373;
-    // $FF: renamed from: a m.bb
+
     public class_83 field_374;
-    // $FF: renamed from: a char[][]
+
     private static final char[][] field_375 = field_92;
 
-    // $FF: renamed from: a (m.s, m.s) int
     public static int method_566(class_40 var0, class_40 var1) {
         return var0.method_152(var1) ? -1 : (var1.method_152(var0) ? 1 : 0);
     }
 
-    // $FF: renamed from: a (char[]) m.s
     public static class_40 method_567(char[] var0) {
         int var1 = var0.length;
         if (var1 > 2 && var1 < 8) {
@@ -134,7 +130,6 @@ public abstract class class_83 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: a (m.as[]) m.as[]
     public static class_43[] method_568(class_43[] var0) {
         if (var0 == null) {
             return null;
@@ -183,7 +178,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s[]) m.s[]
     public static class_40[] method_569(class_40[] var0) {
         if (var0 == null) {
             return null;
@@ -232,7 +226,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.j, m.as[]) m.as[]
     public static class_43[] method_570(class_32 var0, class_43[] var1) {
         if (var1 == null) {
             return null;
@@ -258,7 +251,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.j, m.s) m.s
     public static class_40 method_571(class_32 var0, class_40 var1) {
         if (var1 == null) {
             return null;
@@ -341,7 +333,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.j, m.s[]) m.s[]
     public static class_40[] method_572(class_32 var0, class_40[] var1) {
         if (var1 == null) {
             return null;
@@ -364,18 +355,15 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: <init> (int, m.bb) void
     protected class_83(int var1, class_83 var2) {
         this.field_373 = var1;
         this.field_374 = var2;
     }
 
-    // $FF: renamed from: a (m.s) m.s
     public class_40 method_574(class_40 var1) {
         return var1.method_148() ? this.method_586().method_486(var1) : var1;
     }
 
-    // $FF: renamed from: a () m.f
     public final class_84 method_575() {
         class_83 var1 = this;
         while (!(var1 instanceof class_84)) {
@@ -387,7 +375,6 @@ public abstract class class_83 implements class_17 {
         return (class_84)var1;
     }
 
-    // $FF: renamed from: a () m.e
     public final class_85 method_576() {
         class_83 var1 = null;
         class_83 var2 = this;
@@ -398,12 +385,10 @@ public abstract class class_83 implements class_17 {
         return (class_85)var1;
     }
 
-    // $FF: renamed from: a () a.c
     public final class_341 method_577() {
         return this.method_576().field_378.field_352;
     }
 
-    // $FF: renamed from: a (m.ae, m.s[], m.ad) m.ae
     protected final class_58 method_578(class_58 var1, class_40[] var2, class_0 var3) {
         class_40[] var4 = var3.method_0();
         class_40[] var5 = var1.field_276;
@@ -463,7 +448,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.br[], boolean) boolean
     protected boolean method_579(class_123[] var1, boolean var2) {
         if (var1 != null && this.method_577().field_1928 >= 3211264L) {
             class_312 var10000 = new class_312(2);
@@ -586,7 +570,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, int) m.p
     public class_42 method_580(class_40 var1, int var2) {
         if (var1.method_101()) {
             return this.method_586().method_493(var1, var2);
@@ -596,7 +579,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (h.br[], m.w) m.x[]
     public class_46[] method_581(class_123[] var1, class_34 var2) {
         if (var1 != null && this.method_577().field_1928 >= 3211264L) {
             class_38 var3 = this.method_576().field_381;
@@ -626,7 +608,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () m.f
     public final class_84 method_582() {
         class_83 var1 = this;
         do {
@@ -637,7 +618,6 @@ public abstract class class_83 implements class_17 {
         return (class_84)var1;
     }
 
-    // $FF: renamed from: a () m.aj
     public final class_87 method_583() {
         class_83 var1 = this;
         do {
@@ -648,7 +628,6 @@ public abstract class class_83 implements class_17 {
         return (class_87)var1;
     }
 
-    // $FF: renamed from: a () m.as
     public final class_43 method_584() {
         class_83 var1 = this;
         while (!(var1 instanceof class_84)) {
@@ -660,7 +639,6 @@ public abstract class class_83 implements class_17 {
         return this.method_586().method_489(((class_84)var1).field_376.field_586);
     }
 
-    // $FF: renamed from: a () m.az
     public final class_54 method_585() {
         class_83 var1 = this;
         while (!(var1 instanceof class_84)) {
@@ -672,7 +650,6 @@ public abstract class class_83 implements class_17 {
         return ((class_84)var1).field_376.field_586;
     }
 
-    // $FF: renamed from: a () m.af
     public final class_80 method_586() {
         class_83 var2 = this;
         while (true) {
@@ -684,7 +661,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.as, char[], m.s[], m.ad, m.as, f.d, m.ae) m.ae
     protected class_58 method_587(class_43 var1, char[] var2, class_40[] var3, class_0 var4, class_43 var5, class_326 var6, class_58 var7) {
         int var8 = var6.field_1849;
         for (class_43 var9 = var5; var9 != null; var9 = var9.method_240()) {
@@ -729,7 +705,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[], m.as) m.as
     public class_43 method_588(char[] var1, class_43 var2) {
         if ((var2.field_178 & 65536L) != 0L) {
             return null;
@@ -755,7 +730,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.as, char[], m.s[], m.ad) m.ae
     public class_58 method_589(class_43 var1, char[] var2, class_40[] var3, class_0 var4) {
         class_85 var5 = this.method_576();
         var5.method_694(var3);
@@ -787,7 +761,6 @@ public abstract class class_83 implements class_17 {
         return null;
     }
 
-    // $FF: renamed from: a (m.s, char[], m.ad, boolean) m.k
     public class_67 method_590(class_40 var1, char[] var2, class_0 var3, boolean var4) {
         class_85 var5 = this.method_576();
         var5.method_693(var1);
@@ -934,7 +907,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (char[], m.as) m.as
     public class_43 method_591(char[] var1, class_43 var2) {
         if ((var2.field_178 & 65536L) != 0L) {
             return null;
@@ -1070,12 +1042,10 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (m.as, char[], m.s[], m.ad) m.ae
     public class_58 method_592(class_43 var1, char[] var2, class_40[] var3, class_0 var4) {
         return this.method_593(var1, var2, var3, var4, false);
     }
 
-    // $FF: renamed from: a (m.as, char[], m.s[], m.ad, boolean) m.ae
     public class_58 method_593(class_43 var1, char[] var2, class_40[] var3, class_0 var4, boolean var5) {
         class_43 var6 = var1;
         boolean var7 = var1.method_157();
@@ -1314,7 +1284,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.p, char[], m.s[], m.ad) m.ae
     public class_58 method_594(class_42 var1, char[] var2, class_40[] var3, class_0 var4) {
         class_40 var5 = var1.method_173();
         class_61 var8;
@@ -1359,7 +1328,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.as, char[], f.d) void
     protected void method_595(class_43 var1, char[] var2, class_326 var3) {
         class_43[] var4 = var1.method_241();
         if (var4 != null && var4 != class_34.field_155) {
@@ -1409,7 +1377,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[], m.ar, m.ar) m.as
     public class_43 method_596(char[] var1, class_38 var2, class_38 var3) {
         this.method_576().method_688(var2.field_171, var1);
         class_43 var4 = var2.method_123(var1);
@@ -1423,12 +1390,10 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[]) m.ab
     public class_65 method_597(char[] var1) {
         return null;
     }
 
-    // $FF: renamed from: a (char[], int, m.ad, boolean) m.w
     public class_34 method_598(char[] var1, int var2, class_0 var3, boolean var4) {
         class_85 var5 = this.method_576();
         class_80 var6 = var5.field_378;
@@ -1446,7 +1411,7 @@ public abstract class class_83 implements class_17 {
                 int var15 = 0;
                 int var16 = 0;
                 class_43 var17 = null;
-                label606:
+                label614:
                 while (true) {
                     class_67 var23;
                     class_69 var10000;
@@ -1472,10 +1437,10 @@ public abstract class class_83 implements class_17 {
                             }
                             break;
                         case 3:
-                            class_84 var47 = (class_84)var14;
-                            class_43 var49 = var47.method_584();
+                            class_84 var48 = (class_84)var14;
+                            class_43 var49 = var48.method_584();
                             if (!var11) {
-                                class_67 var43 = var47.method_590(var49, var1, var3, var4);
+                                class_67 var43 = var48.method_590(var49, var1, var3, var4);
                                 if (var43 != null) {
                                     class_69 var52;
                                     if (var43.method_102() == 3) {
@@ -1545,68 +1510,70 @@ public abstract class class_83 implements class_17 {
                                 var8 = var12;
                                 var12 = null;
                             }
-                            if (this.method_577().field_1928 >= 3211264L) {
-                                var5.method_679();
-                                class_35[] var18 = var5.field_382;
-                                if (var18 != null) {
-                                    int var19 = 0;
-                                    int var20;
-                                    for (var20 = var18.length; var19 < var20; ++var19) {
-                                        class_35 var21 = var18[var19];
-                                        if (var21.method_106() && !var21.field_163 && class_233.method_1364(var21.field_162[var21.field_162.length - 1], var1) && var5.method_695(var21) != null && var21.field_165 instanceof class_67) {
-                                            var12 = (class_67)var21.field_165;
-                                            class_91 var22 = var21.field_164;
-                                            if (var22 != null && var4) {
-                                                var22.field_446 |= 2;
-                                            }
-                                            var3.method_4(var12.field_314);
-                                            if (var12.method_101()) {
-                                                var23 = var12;
-                                                return var23;
-                                            }
-                                            if (var8 == null) {
-                                                var8 = var12;
-                                            }
-                                        }
+                            if (this.method_577().field_1928 < 3211264L) {
+                                break label614;
+                            }
+                            var5.method_679();
+                            class_35[] var18 = var5.field_382;
+                            if (var18 == null) {
+                                break label614;
+                            }
+                            int var19 = 0;
+                            int var20;
+                            for (var20 = var18.length; var19 < var20; ++var19) {
+                                class_35 var21 = var18[var19];
+                                if (var21.method_106() && !var21.field_163 && class_233.method_1364(var21.field_162[var21.field_162.length - 1], var1) && var5.method_695(var21) != null && var21.field_165 instanceof class_67) {
+                                    var12 = (class_67)var21.field_165;
+                                    class_91 var22 = var21.field_164;
+                                    if (var22 != null && var4) {
+                                        var22.field_446 |= 2;
                                     }
-                                    boolean var41 = false;
-                                    var20 = 0;
-                                    for (int var48 = var18.length; var20 < var48; ++var20) {
-                                        class_35 var42 = var18[var20];
-                                        if (var42.method_106() && var42.field_163) {
-                                            class_34 var45 = var42.field_165;
-                                            if (var45 instanceof class_43) {
-                                                class_67 var24 = this.method_590((class_43)var45, var1, var3, var4);
-                                                if (var24 != null) {
-                                                    if (!var24.method_101()) {
-                                                        if (var8 == null) {
-                                                            var8 = var24;
-                                                        }
-                                                    } else if (var24.method_431() && var12 != var24) {
-                                                        class_91 var25 = var42.field_164;
-                                                        if (var25 != null && var4) {
-                                                            var25.field_446 |= 2;
-                                                        }
-                                                        if (var41) {
-                                                            var10000 = new class_69(var12, var12.field_314, var1, 3);
-                                                            class_69 var26 = var10000;
-                                                            return var26;
-                                                        }
-                                                        var12 = var24;
-                                                        var41 = true;
-                                                    }
-                                                }
-                                            }
-                                        }
+                                    var3.method_4(var12.field_314);
+                                    if (var12.method_101()) {
+                                        var23 = var12;
+                                        return var23;
                                     }
-                                    if (var12 != null) {
-                                        var3.method_4(var12.field_314);
-                                        class_67 var46 = var12;
-                                        return var46;
+                                    if (var8 == null) {
+                                        var8 = var12;
                                     }
                                 }
                             }
-                            break label606;
+                            boolean var41 = false;
+                            var20 = 0;
+                            for (int var47 = var18.length; var20 < var47; ++var20) {
+                                class_35 var42 = var18[var20];
+                                if (var42.method_106() && var42.field_163) {
+                                    class_34 var45 = var42.field_165;
+                                    if (var45 instanceof class_43) {
+                                        class_67 var24 = this.method_590((class_43)var45, var1, var3, var4);
+                                        if (var24 != null) {
+                                            if (!var24.method_101()) {
+                                                if (var8 == null) {
+                                                    var8 = var24;
+                                                }
+                                            } else if (var24.method_431() && var12 != var24) {
+                                                class_91 var25 = var42.field_164;
+                                                if (var25 != null && var4) {
+                                                    var25.field_446 |= 2;
+                                                }
+                                                if (var41) {
+                                                    var10000 = new class_69(var12, var12.field_314, var1, 3);
+                                                    class_69 var26 = var10000;
+                                                    return var26;
+                                                }
+                                                var12 = var24;
+                                                var41 = true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (var12 != null) {
+                                var3.method_4(var12.field_314);
+                                class_67 var46 = var12;
+                                return var46;
+                            }
+                            break label614;
                     }
                     var14 = var14.field_374;
                 }
@@ -1649,11 +1616,10 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.as, m.s[], m.ad) m.ae
     public class_58 method_599(class_43 var1, class_40[] var2, class_0 var3) {
         class_85 var4 = this.method_576();
         class_80 var5 = var4.field_378;
-        class_58 var23;
+        class_58 var13;
         try {
             var5.field_363 = var3;
             var4.method_693(var1);
@@ -1678,7 +1644,6 @@ public abstract class class_83 implements class_17 {
             class_58 var10 = null;
             int var11 = 0;
             int var12;
-            class_58 var13;
             for (var12 = var7.length; var11 < var12; ++var11) {
                 var13 = this.method_578(var7[var11], var2, var3);
                 if (var13 != null) {
@@ -1689,43 +1654,42 @@ public abstract class class_83 implements class_17 {
                     }
                 }
             }
-            if (var9 != 0) {
-                class_58[] var22 = new class_58[var9];
-                var12 = 0;
-                for (int var25 = 0; var25 < var9; ++var25) {
-                    class_58 var14 = var8[var25];
-                    if (var14.method_345(var3, this)) {
-                        var22[var12++] = var14;
-                    }
+            if (var9 == 0) {
+                if (var10 == null) {
+                    var10000 = new class_61(var7[0], class_17.field_135, var2, 1);
+                    class_61 var22 = var10000;
+                    return var22;
                 }
-                if (var12 == 1) {
-                    var13 = var22[0];
-                    return var13;
+                class_58 var24 = var10;
+                return var24;
+            }
+            class_58[] var23 = new class_58[var9];
+            var12 = 0;
+            for (int var25 = 0; var25 < var9; ++var25) {
+                class_58 var14 = var8[var25];
+                if (var14.method_345(var3, this)) {
+                    var23[var12++] = var14;
                 }
+            }
+            if (var12 != 1) {
                 if (var12 == 0) {
                     var10000 = new class_61(var8[0], class_17.field_135, var8[0].field_276, 2);
                     class_61 var26 = var10000;
                     return var26;
                 }
-                var13 = this.method_639(var22, var12, var2, var3, var1);
+                var13 = this.method_639(var23, var12, var2, var3, var1);
                 return var13;
             }
-            if (var10 == null) {
-                var10000 = new class_61(var7[0], class_17.field_135, var2, 1);
-                class_61 var24 = var10000;
-                return var24;
-            }
-            var23 = var10;
+            var13 = var23[0];
         } catch (class_241 var18) {
             var18.method_1437(var3, this.method_645().field_455);
             throw var18;
         } finally {
             var5.field_363 = null;
         }
-        return var23;
+        return var13;
     }
 
-    // $FF: renamed from: a () m.ar
     public final class_38 method_600() {
         class_83 var2 = this;
         while (true) {
@@ -1737,19 +1701,18 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, char[], m.ad) m.k
     public class_67 method_601(class_40 var1, char[] var2, class_0 var3) {
         class_80 var4 = this.method_586();
-        class_67 var6;
+        class_69 var6;
         try {
             var4.field_363 = var3;
             class_67 var5 = this.method_590(var1, var2, var3, true);
-            if (var5 == null) {
-                class_69 var10000 = new class_69(var1 instanceof class_43 ? (class_43)var1 : null, var2, 1);
-                class_69 var12 = var10000;
+            if (var5 != null) {
+                class_67 var12 = var5;
                 return var12;
             }
-            var6 = var5;
+            class_69 var10000 = new class_69(var1 instanceof class_43 ? (class_43)var1 : null, var2, 1);
+            var6 = var10000;
         } catch (class_241 var10) {
             var10.method_1437(var3, this.method_645().field_455);
             throw var10;
@@ -1759,7 +1722,6 @@ public abstract class class_83 implements class_17 {
         return var6;
     }
 
-    // $FF: renamed from: a (char[], m.s[], m.ad) m.ae
     public class_58 method_602(char[] var1, class_40[] var2, class_0 var3) {
         boolean var4 = false;
         boolean var5 = false;
@@ -1951,77 +1913,66 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () m.as
     public final class_43 method_603() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_108);
         return var1.field_378.method_506(class_17.field_108, this);
     }
 
-    // $FF: renamed from: c () m.as
     public final class_43 method_604() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_88);
         return var1.field_378.method_506(class_17.field_88, this);
     }
 
-    // $FF: renamed from: d () m.as
     public final class_43 method_605() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_89);
         return var1.field_378.method_506(class_17.field_89, this);
     }
 
-    // $FF: renamed from: e () m.as
     public final class_43 method_606() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_90);
         return var1.field_378.method_506(class_17.field_90, this);
     }
 
-    // $FF: renamed from: f () m.as
     public final class_43 method_607() {
         class_85 var1 = this.method_576();
         var1.method_687(field_375);
         return var1.field_378.method_506(field_375, this);
     }
 
-    // $FF: renamed from: g () m.as
     public final class_43 method_608() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_93);
         return var1.field_378.method_506(class_17.field_93, this);
     }
 
-    // $FF: renamed from: h () m.as
     public final class_43 method_609() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_99);
         return var1.field_378.method_506(class_17.field_99, this);
     }
 
-    // $FF: renamed from: i () m.as
     public final class_43 method_610() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_100);
         return var1.field_378.method_506(class_17.field_100, this);
     }
 
-    // $FF: renamed from: j () m.as
     public final class_43 method_611() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_105);
         return var1.field_378.method_506(class_17.field_105, this);
     }
 
-    // $FF: renamed from: k () m.as
     public final class_43 method_612() {
         class_85 var1 = this.method_576();
         var1.method_687(class_17.field_118);
         return var1.field_378.method_506(class_17.field_118, this);
     }
 
-    // $FF: renamed from: c (char[], m.as) m.as
     public final class_43 method_613(char[] var1, class_43 var2) {
         class_43 var3 = this.method_591(var1, var2);
         if (var3 != null) {
@@ -2033,7 +1984,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, char[], m.s[], m.ad) m.ae
     public class_58 method_614(class_40 var1, char[] var2, class_40[] var3, class_0 var4) throws Throwable {
         class_85 var5 = this.method_576();
         class_80 var6 = var5.field_378;
@@ -2124,7 +2074,6 @@ public abstract class class_83 implements class_17 {
         return var7;
     }
 
-    // $FF: renamed from: a (char[][]) m.w
     public final class_34 method_615(char[][] var1) {
         this.method_576().method_687(var1);
         class_34 var2 = this.method_619(var1[0], 20, true);
@@ -2166,13 +2115,11 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (char[]) m.s
     public final class_40 method_616(char[] var1) {
         class_40 var2 = method_567(var1);
         return (class_40)(var2 != null ? var2 : (class_43)this.method_619(var1, 4, true));
     }
 
-    // $FF: renamed from: a (char[], m.ar) m.s
     public final class_40 method_617(char[] var1, class_38 var2) {
         if (var2 == null) {
             return this.method_616(var1);
@@ -2197,7 +2144,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[][], int) m.s
     public final class_40 method_618(char[][] var1, int var2) {
         if (var2 == 1) {
             class_40 var3 = method_567(var1[0]);
@@ -2266,7 +2212,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[], int, boolean) m.w
     final class_34 method_619(char[] var1, int var2, boolean var3) {
         class_83 var4 = this;
         Object var5 = null;
@@ -2541,7 +2486,6 @@ public abstract class class_83 implements class_17 {
         return (class_34)var5;
     }
 
-    // $FF: renamed from: b (char[][]) m.w
     public final class_34 method_620(char[][] var1) {
         int var2 = var1.length;
         if (var2 == 1) {
@@ -2600,7 +2544,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.s, g.m, m.as, h.cj) boolean
     protected boolean method_621(class_40 var1, class_40 var2, class_14 var3, class_43 var4, class_89 var5) {
         var3.method_41();
         class_40[] var6 = this.method_636(new class_40[] {var1, var2}, var3);
@@ -2622,7 +2565,6 @@ public abstract class class_83 implements class_17 {
         return false;
     }
 
-    // $FF: renamed from: a () h.bu
     public class_108 method_622() {
         class_83 var1 = this;
         while (!(var1 instanceof class_86)) {
@@ -2634,7 +2576,6 @@ public abstract class class_83 implements class_17 {
         return ((class_86)var1).field_399;
     }
 
-    // $FF: renamed from: a (m.ae, m.ae) boolean
     protected boolean method_623(class_58 var1, class_58 var2) {
         class_40[] var3 = var1.field_276;
         class_40[] var4 = var2.field_276;
@@ -2683,7 +2624,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.s) boolean
     public boolean method_624(class_40 var1, class_40 var2) {
         class_80 var3 = this.method_586();
         if (var3.field_352.field_1928 >= 3211264L && var1.method_148() != var2.method_148()) {
@@ -2694,7 +2634,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: c (m.k) boolean
     public final boolean method_625(class_67 var1) {
         class_83 var2 = this;
         do {
@@ -2709,7 +2648,6 @@ public abstract class class_83 implements class_17 {
         return false;
     }
 
-    // $FF: renamed from: a (m.ae) boolean
     public final boolean method_626(class_58 var1) {
         class_83 var2 = this;
         do {
@@ -2724,7 +2662,6 @@ public abstract class class_83 implements class_17 {
         return false;
     }
 
-    // $FF: renamed from: a (m.as) boolean
     public final boolean method_627(class_43 var1) {
         class_43 var2;
         for (var2 = var1; (var1 = var2.method_137()) != null; var2 = var1) {
@@ -2748,7 +2685,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (m.as) boolean
     public final boolean method_628(class_43 var1) {
         class_83 var2 = this;
         do {
@@ -2760,7 +2696,6 @@ public abstract class class_83 implements class_17 {
         return false;
     }
 
-    // $FF: renamed from: a (h.bu) boolean
     public boolean method_629(class_108 var1) {
         class_83 var2 = this;
         do {
@@ -2775,7 +2710,6 @@ public abstract class class_83 implements class_17 {
         return false;
     }
 
-    // $FF: renamed from: d () boolean
     public boolean method_630() {
         class_54 var2;
         switch (this.field_373) {
@@ -2824,7 +2758,6 @@ public abstract class class_83 implements class_17 {
         return false;
     }
 
-    // $FF: renamed from: a (m.s, java.lang.Object, g.l) m.s
     private class_40 method_631(class_40 var1, Object var2, class_13 var3) {
         if (var2 == null) {
             return var1;
@@ -2880,7 +2813,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.s, m.as, int, g.l) m.s
     private class_40 method_632(class_40 var1, class_40 var2, class_43 var3, int var4, class_13 var5) {
         if (var1 == null) {
             return var2;
@@ -2974,7 +2906,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s[]) m.s
     public class_40 method_633(class_40[] var1) {
         int var2 = var1.length;
         if (var2 == 1) {
@@ -2986,7 +2917,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s[], g.l) m.s
     private class_40 method_634(class_40[] var1, class_13 var2) {
         int var3 = var1.length;
         if (var3 == 1) {
@@ -3088,7 +3018,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () m.aj
     public final class_87 method_635() {
         class_83 var1 = this;
         while (!(var1 instanceof class_87)) {
@@ -3100,7 +3029,6 @@ public abstract class class_83 implements class_17 {
         return (class_87)var1;
     }
 
-    // $FF: renamed from: a (m.s[], g.m) m.s[]
     protected class_40[] method_636(class_40[] var1, class_14 var2) {
         int var3 = var1.length;
         int var4 = -1;
@@ -3379,7 +3307,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.ae[], int, m.ad) m.ae
     protected final class_58 method_637(class_58[] var1, int var2, class_0 var3) {
         class_58 var4 = null;
         int var5 = 0;
@@ -3405,7 +3332,6 @@ public abstract class class_83 implements class_17 {
         return var10000;
     }
 
-    // $FF: renamed from: b (m.ae[], int, m.ad) m.ae
     protected final class_58 method_638(class_58[] var1, int var2, class_0 var3) {
         int var4 = 0;
         label26:
@@ -3424,7 +3350,6 @@ public abstract class class_83 implements class_17 {
         return var10000;
     }
 
-    // $FF: renamed from: a (m.ae[], int, m.s[], m.ad, m.as) m.ae
     protected final class_58 method_639(class_58[] var1, int var2, class_40[] var3, class_0 var4, class_43 var5) {
         int[] var6 = new int[var2];
         for (int var7 = 0; var7 < var2; ++var7) {
@@ -3628,7 +3553,6 @@ public abstract class class_83 implements class_17 {
         return var42;
     }
 
-    // $FF: renamed from: c () m.f
     public final class_84 method_640() {
         class_84 var1 = null;
         class_83 var2 = this;
@@ -3641,7 +3565,6 @@ public abstract class class_83 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: c () m.aj
     public final class_87 method_641() {
         class_87 var1 = null;
         class_83 var2 = this;
@@ -3654,7 +3577,6 @@ public abstract class class_83 implements class_17 {
         return var1;
     }
 
-    // $FF: renamed from: a (m.ae, m.s[]) int
     public int method_642(class_58 var1, class_40[] var2) {
         class_40[] var3 = var1.field_276;
         int var4 = var3.length;
@@ -3729,7 +3651,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.s, m.af) int
     private int method_643(class_40 var1, class_40 var2, class_80 var3) {
         if (var1.method_152(var2)) {
             return 0;
@@ -3744,10 +3665,8 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a () n.e
     public abstract class_248 method_644();
 
-    // $FF: renamed from: a () h.b
     public final class_90 method_645() {
         class_83 var2 = this;
         while (true) {
@@ -3759,7 +3678,6 @@ public abstract class class_83 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b () int
     int method_646() {
         return 0;
     }

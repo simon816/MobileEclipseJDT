@@ -11,23 +11,20 @@ import m.class_54;
 import m.class_64;
 import m.class_86;
 
-// $FF: renamed from: m.ab
 public class class_65 extends class_64 {
 
-    // $FF: renamed from: a int
     public int field_306;
-    // $FF: renamed from: d int
+
     public int field_307;
-    // $FF: renamed from: a m.v
+
     public class_86 field_308;
-    // $FF: renamed from: a h.ac
+
     public class_124 field_309;
-    // $FF: renamed from: a int[]
+
     public int[] field_310;
-    // $FF: renamed from: e int
+
     public int field_311;
 
-    // $FF: renamed from: <init> (char[], m.s, int, boolean) void
     public class_65(char[] var1, class_40 var2, int var3, boolean var4) {
         super(var1, var2, var3, var4 ? class_331.field_1896 : null);
         this.field_311 = 0;
@@ -36,18 +33,15 @@ public class class_65 extends class_64 {
         }
     }
 
-    // $FF: renamed from: <init> (h.ac, m.s, int, boolean) void
     public class_65(class_124 var1, class_40 var2, int var3, boolean var4) {
         this(var1.field_659, var2, var3, var4);
         this.field_309 = var1;
     }
 
-    // $FF: renamed from: a () int
     public final int method_98() {
         return 2;
     }
 
-    // $FF: renamed from: a () m.bf[]
     public class_203[] method_413() {
         int var4;
         if (this.field_308 == null) {
@@ -94,14 +88,12 @@ public class class_65 extends class_64 {
         }
     }
 
-    // $FF: renamed from: a (int) void
     public void method_414(int var1) {
         if (this.field_310[(this.field_311 - 1 << 1) + 1] == -1) {
             this.field_310[(this.field_311 - 1 << 1) + 1] = var1;
         }
     }
 
-    // $FF: renamed from: b (int) void
     public void method_415(int var1) {
         if (this.field_310 != null) {
             int var2;
@@ -125,7 +117,6 @@ public class class_65 extends class_64 {
         }
     }
 
-    // $FF: renamed from: a (m.bf[]) void
     public void method_416(class_203[] var1) {
         if (this.field_308 != null) {
             class_54 var2 = this.field_308.method_585();

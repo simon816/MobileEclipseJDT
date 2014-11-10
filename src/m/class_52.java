@@ -24,31 +24,28 @@ import m.class_80;
 import m.class_83;
 import m.class_85;
 
-// $FF: renamed from: m.al
 public class class_52 extends class_43 implements class_32 {
 
-    // $FF: renamed from: b m.as
     private class_43 field_242;
-    // $FF: renamed from: a m.s[]
+
     public class_40[] field_243;
-    // $FF: renamed from: a m.af
+
     public class_80 field_244;
-    // $FF: renamed from: a char[]
+
     public char[] field_245;
-    // $FF: renamed from: a m.as
+
     public class_43 field_246;
-    // $FF: renamed from: e m.as[]
+
     public class_43[] field_247;
-    // $FF: renamed from: c m.k[]
+
     public class_67[] field_248;
-    // $FF: renamed from: f m.as[]
+
     public class_43[] field_249;
-    // $FF: renamed from: c m.ae[]
+
     public class_58[] field_250;
-    // $FF: renamed from: d m.as
+
     private class_43 field_251;
 
-    // $FF: renamed from: <init> (m.as, m.s[], m.as, m.af) void
     public class_52(class_43 var1, class_40[] var2, class_43 var3, class_80 var4) {
         this.field_244 = var4;
         this.field_251 = var3;
@@ -67,12 +64,10 @@ public class class_52 extends class_43 implements class_32 {
         this.field_178 |= 16777216L;
     }
 
-    // $FF: renamed from: c () m.as
     protected class_43 method_283() {
         return this.field_242;
     }
 
-    // $FF: renamed from: a (m.bb, h.bo[]) void
     public void method_284(class_83 var1, class_146[] var2) {
         if ((this.field_178 & 4194304L) == 0L) {
             boolean var3 = false;
@@ -94,12 +89,10 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_129() {
         return (this.field_178 & 1073741824L) == 0L && super.method_129();
     }
 
-    // $FF: renamed from: b (m.bb, int) m.s
     public class_40 method_130(class_83 var1, int var2) {
         if ((this.field_178 & 1073741824L) == 0L) {
             return this;
@@ -131,7 +124,6 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: a (g.l) g.l
     public class_13 method_132(class_13 var1) {
         if ((this.field_178 & 128L) != 0L) {
             if (this.field_251 != null) {
@@ -148,7 +140,6 @@ public class class_52 extends class_43 implements class_32 {
         return var1;
     }
 
-    // $FF: renamed from: a (m.bb, m.s, m.g, int) void
     public void method_133(class_83 var1, class_40 var2, class_321 var3, int var4) {
         if ((this.field_178 & 536870912L) != 0L) {
             if (var2 != class_40.field_187) {
@@ -242,23 +233,19 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: b_ () void
     public void method_198() {
         this.field_177 = Integer.MAX_VALUE;
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_134() {
         return this.field_242.method_134();
     }
 
-    // $FF: renamed from: a (m.ae) m.am
     public class_62 method_285(class_58 var1) {
         class_62 var10000 = new class_62(this, var1);
         return var10000;
     }
 
-    // $FF: renamed from: b () java.lang.String
     public String method_135() {
         StringBuffer var1 = new StringBuffer(10);
         if (this.field_242 instanceof class_44) {
@@ -280,27 +267,22 @@ public class class_52 extends class_43 implements class_32 {
         return var1.toString();
     }
 
-    // $FF: renamed from: a () m.as
     public class_43 method_137() {
         return this.field_251;
     }
 
-    // $FF: renamed from: a () m.af
     public class_80 method_91() {
         return this.field_244;
     }
 
-    // $FF: renamed from: c () m.s
     public class_40 method_138() {
         return this.field_242.method_138();
     }
 
-    // $FF: renamed from: a_ () int
     public int method_203() {
         return this.field_242.method_203();
     }
 
-    // $FF: renamed from: a () m.k[]
     public class_67[] method_204() {
         if ((this.field_178 & 8192L) != 0L) {
             return this.field_248;
@@ -324,7 +306,6 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: d () m.as
     public class_43 method_286() {
         if (this.field_242 instanceof class_44) {
             ((class_44)this.field_242).method_247(this.field_244, false);
@@ -332,7 +313,6 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_242;
     }
 
-    // $FF: renamed from: f () char[]
     public char[] method_142() {
         if (this.field_245 == null) {
             if ((this.field_199 & 1073741824) == 0) {
@@ -371,12 +351,10 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_245;
     }
 
-    // $FF: renamed from: a () long
     public long method_99() {
         return this.field_242.method_99();
     }
 
-    // $FF: renamed from: a (m.s[]) m.ae
     public class_58 method_206(class_40[] var1) {
         int var2 = var1.length;
         class_58 var3 = null;
@@ -428,7 +406,6 @@ public class class_52 extends class_43 implements class_32 {
         return var3;
     }
 
-    // $FF: renamed from: a (char[], m.s[], m.e) m.ae
     public class_58 method_207(char[] var1, class_40[] var2, class_85 var3) {
         int var4 = var2.length;
         boolean var5 = true;
@@ -502,13 +479,11 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: a (char[], boolean) m.k
     public class_67 method_208(char[] var1, boolean var2) {
         this.method_204();
         return class_43.method_189(var1, this.field_248);
     }
 
-    // $FF: renamed from: a (char[]) m.as
     public class_43 method_209(char[] var1) {
         this.method_231();
         int var2 = var1.length;
@@ -524,69 +499,65 @@ public class class_52 extends class_43 implements class_32 {
         return var4;
     }
 
-    // $FF: renamed from: a (char[]) m.ae[]
     public class_58[] method_210(char[] var1) {
         long var2;
         int var4;
+        int var5;
         class_58[] var6;
-        int var11;
         if (this.field_250 != null && (var2 = class_43.method_190(var1, this.field_250)) >= 0L) {
             var4 = (int)var2;
-            var11 = (int)(var2 >> 32) - var4 + 1;
-            System.arraycopy(this.field_250, var4, var6 = new class_58[var11], 0, var11);
+            var5 = (int)(var2 >> 32) - var4 + 1;
+            System.arraycopy(this.field_250, var4, var6 = new class_58[var5], 0, var5);
             return var6;
         } else if ((this.field_178 & 32768L) != 0L) {
             return class_34.field_154;
         } else {
             class_58[] var10 = null;
-            class_58[] var5;
+            class_58[] var11;
             try {
                 class_58[] var3 = this.field_242.method_210(var1);
                 var4 = var3.length;
-                if (var4 != 0) {
-                    var10 = new class_58[var4];
-                    for (var11 = 0; var11 < var4; ++var11) {
-                        var10[var11] = this.method_285(var3[var11]);
-                    }
-                    if (this.field_250 == null) {
-                        var5 = new class_58[var4];
-                        System.arraycopy(var10, 0, var5, 0, var4);
-                        this.field_250 = var5;
-                    } else {
-                        var11 = var4 + this.field_250.length;
-                        var6 = new class_58[var11];
-                        System.arraycopy(var10, 0, var6, 0, var4);
-                        System.arraycopy(this.field_250, 0, var6, var4, this.field_250.length);
-                        if (var11 > 1) {
-                            class_43.method_193(var6, 0, var11);
-                        }
-                        this.field_250 = var6;
-                    }
-                    var5 = var10;
-                    return var5;
+                if (var4 == 0) {
+                    var11 = class_34.field_154;
+                    return var11;
                 }
-                var5 = class_34.field_154;
+                var10 = new class_58[var4];
+                for (var5 = 0; var5 < var4; ++var5) {
+                    var10[var5] = this.method_285(var3[var5]);
+                }
+                if (this.field_250 == null) {
+                    var11 = new class_58[var4];
+                    System.arraycopy(var10, 0, var11, 0, var4);
+                    this.field_250 = var11;
+                } else {
+                    var5 = var4 + this.field_250.length;
+                    var6 = new class_58[var5];
+                    System.arraycopy(var10, 0, var6, 0, var4);
+                    System.arraycopy(this.field_250, 0, var6, var4, this.field_250.length);
+                    if (var5 > 1) {
+                        class_43.method_193(var6, 0, var5);
+                    }
+                    this.field_250 = var6;
+                }
+                var11 = var10;
             } finally {
                 if (var10 == null) {
                     var10 = class_34.field_154;
                     this.field_250 = class_34.field_154;
                 }
             }
-            return var5;
+            return var11;
         }
     }
 
-    // $FF: renamed from: h_ () boolean
     public boolean method_213() {
         return this.field_242.method_213();
     }
 
-    // $FF: renamed from: a (m.ae) boolean
     public boolean method_216(class_58 var1) {
         return this.field_242.method_216(var1);
     }
 
-    // $FF: renamed from: a (m.as, m.s[]) void
     void method_287(class_43 var1, class_40[] var2) {
         this.field_242 = var1;
         this.field_198 = var1.field_198;
@@ -625,15 +596,12 @@ public class class_52 extends class_43 implements class_32 {
         this.field_178 &= -40961L;
     }
 
-    // $FF: renamed from: d () void
     protected void method_288() {}
 
-    // $FF: renamed from: a () void
     void method_144() {
         this.field_242.method_144();
     }
 
-    // $FF: renamed from: b (m.s) boolean
     public boolean method_154(class_40 var1) {
         if (this == var1) {
             return true;
@@ -689,22 +657,18 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: r () boolean
     public boolean method_162() {
         return true;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_92() {
         return this.method_166();
     }
 
-    // $FF: renamed from: a () int
     public int method_98() {
         return 260;
     }
 
-    // $FF: renamed from: b () m.as[]
     public class_43[] method_231() {
         if (this.field_249 == null) {
             try {
@@ -724,7 +688,6 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_249;
     }
 
-    // $FF: renamed from: a () m.ae[]
     public class_58[] method_232() {
         if ((this.field_178 & 32768L) != 0L) {
             return this.field_250;
@@ -747,17 +710,14 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: g () char[]
     public char[] method_176() {
         return this.field_242.method_176();
     }
 
-    // $FF: renamed from: c () char[]
     public char[] method_177() {
         return this.field_242.method_177();
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_103() {
         StringBuffer var1 = new StringBuffer(10);
         if (this.method_159()) {
@@ -783,7 +743,6 @@ public class class_52 extends class_43 implements class_32 {
         return var4;
     }
 
-    // $FF: renamed from: e () m.as
     class_43 method_289() {
         if ((this.field_178 & 16777216L) == 0L) {
             return this;
@@ -811,7 +770,6 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: d () char[]
     public char[] method_104() {
         StringBuffer var1 = new StringBuffer(10);
         if (this.method_159()) {
@@ -837,7 +795,6 @@ public class class_52 extends class_43 implements class_32 {
         return var4;
     }
 
-    // $FF: renamed from: h () char[]
     public char[] method_178() {
         if (this.field_203 == null) {
             this.field_203 = this.field_242.method_178();
@@ -845,12 +802,10 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_203;
     }
 
-    // $FF: renamed from: e () char[]
     public char[] method_179() {
         return this.field_242.method_179();
     }
 
-    // $FF: renamed from: a (m.x) m.s
     public class_40 method_90(class_46 var1) {
         class_52 var2 = this;
         while (true) {
@@ -876,7 +831,6 @@ public class class_52 extends class_43 implements class_32 {
         return var1;
     }
 
-    // $FF: renamed from: b () m.as
     public class_43 method_240() {
         if (this.field_246 == null) {
             class_43 var1 = this.field_242.method_240();
@@ -888,7 +842,6 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_246;
     }
 
-    // $FF: renamed from: a () m.as[]
     public class_43[] method_241() {
         if (this.field_247 == null) {
             if (this.field_242.method_222()) {
@@ -899,7 +852,6 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_247;
     }
 
-    // $FF: renamed from: a (m.m, m.as, m.af) void
     public void method_180(class_44 var1, class_43 var2, class_80 var3) {
         boolean var4 = false;
         if (this.field_242 == var1) {
@@ -924,12 +876,10 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    // $FF: renamed from: c () m.as[]
     public class_43[] method_242() {
         return this.field_242.method_242();
     }
 
-    // $FF: renamed from: a () m.a[]
     public class_66[] method_243() {
         return this.field_242.method_243();
     }
@@ -1019,7 +969,6 @@ public class class_52 extends class_43 implements class_32 {
         return var1.toString();
     }
 
-    // $FF: renamed from: a () m.x[]
     public class_46[] method_181() {
         return this.field_243 == null ? this.field_242.method_181() : class_34.field_157;
     }

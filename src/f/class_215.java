@@ -1,25 +1,20 @@
 package f;
 
-// $FF: renamed from: f.i
 public class class_215 {
 
-    // $FF: renamed from: <init> () void
     public class_215() {
     }
 
-    // $FF: renamed from: a (char[]) float
     public static float method_1223(char[] var0) {
         long var1 = method_1225(var0);
         return Float.intBitsToFloat((int)var1);
     }
 
-    // $FF: renamed from: a (char[]) double
     public static double method_1224(char[] var0) {
         long var1 = method_1225(var0);
         return Double.longBitsToDouble(var1);
     }
 
-    // $FF: renamed from: a (char[]) long
     private static long method_1225(char[] var0) {
         int var1 = var0.length;
         long var2 = 0L;

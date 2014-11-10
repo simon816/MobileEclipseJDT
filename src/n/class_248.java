@@ -90,20 +90,16 @@ import m.class_86;
 import n.class_242;
 import n.class_247;
 
-// $FF: renamed from: n.e
 public class class_248 extends class_247 {
 
-    // $FF: renamed from: a a.i
     public class_33 field_1065;
-    // $FF: renamed from: a j.a
+
     private class_270 field_1066;
 
-    // $FF: renamed from: a (int, byte) int
     private static int method_1456(int var0, byte var1) {
         return var0 << 8 | var1;
     }
 
-    // $FF: renamed from: a (int) long
     public static long method_1457(int var0) {
         switch (var0) {
             case -1610612274:
@@ -326,7 +322,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (int, int) int
     public static int method_1458(int var0, int var1) {
         if ((var0 & 128) == 0) {
             long var2 = method_1457(var1);
@@ -419,34 +414,28 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: <init> (c.l, a.c, c.o) void
     public class_248(class_7 var1, class_341 var2, class_8 var3) {
         super(var1, var2, var3);
     }
 
-    // $FF: renamed from: a (java.lang.String) void
     public void method_1459(String var1) {
         this.method_1460(var1, (class_89)null);
     }
 
-    // $FF: renamed from: a (java.lang.String, h.cj) void
     public void method_1460(String var1, class_89 var2) {
         String[] var3 = new String[] {var1};
         this.method_1562(0, var3, var3, 159, var2 == null ? 0 : var2.field_444, var2 == null ? 0 : var2.field_445);
     }
 
-    // $FF: renamed from: a (m.az, m.ae) void
     public void method_1461(class_54 var1, class_58 var2) {
         this.method_1560(67109275, new String[] {new String(var1.method_179()), new String(class_233.method_1357(var2.field_278.method_103(), var2.method_103(), '.'))}, new String[] {new String(var1.method_179()), new String(class_233.method_1357(var2.field_278.method_104(), var2.method_104(), '.'))}, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (m.az, h.ci) void
     public void method_1462(class_54 var1, class_93 var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109227, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: b (m.az, m.ae) void
     public void method_1463(class_54 var1, class_58 var2) {
         if (var1.method_153() && var1.method_158()) {
             class_67 var3 = var1.field_258.method_583().field_406;
@@ -457,24 +446,20 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.ci) void
     public void method_1464(class_93 var1) {
         this.method_1453(603979889, field_1061, field_1061, var1.field_444, var1.field_445, var1, var1.method_94());
     }
 
-    // $FF: renamed from: a (char[], h.cj) void
     public void method_1465(char[] var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1)};
         this.method_1560(536871083, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.ae, m.ae) void
     public void method_1466(class_58 var1, class_58 var2) {
         class_93 var3 = var1.method_384();
         this.method_1560(67109480, new String[] {new String(var1.field_278.method_103()), new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var1.field_278.method_104()), new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var3.field_444, var3.field_445);
     }
 
-    // $FF: renamed from: a (m.s, m.s, h.bo) void
     public void method_1467(class_40 var1, class_40 var2, class_146 var3) {
         if (var1 == var2) {
             this.method_1560(16777822, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var3.field_444, var3.field_445);
@@ -483,55 +468,45 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.cm) void
     public void method_1468(class_97 var1) {
         this.method_1560(1610613353, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.cm) void
     public void method_1469(class_97 var1) {
         this.method_1560(1610613354, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.g) void
     public void method_1470(class_94 var1) {
         this.method_1560(1610613360, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bq) void
     public void method_1471(class_114 var1) {
         this.method_1560(1610613355, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.bq) void
     public void method_1472(class_114 var1) {
         this.method_1560(1610613356, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.az, h.bo, m.as) void
     public void method_1473(class_54 var1, class_146 var2, class_43 var3) {
         this.method_1560(16777842, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.s, char[], h.r, m.s) void
     public void method_1474(class_40 var1, char[] var2, class_126 var3, class_40 var4) {
         String var5 = new String(var2);
         this.method_1560(536871537, new String[] {new String(var1.method_103()), var5, new String(var4.method_103())}, new String[] {new String(var1.method_104()), var5, new String(var4.method_103())}, var3.field_444, var3.field_445);
     }
 
-    // $FF: renamed from: a (m.s, char[], h.r) void
     public void method_1475(class_40 var1, char[] var2, class_126 var3) {
         String var4 = new String(var2);
         this.method_1560(536871544, new String[] {new String(var1.method_103()), var4}, new String[] {new String(var1.method_104()), var4}, var3.field_444, var3.field_445);
     }
 
-    // $FF: renamed from: b (m.s, char[], h.r) void
     public void method_1476(class_40 var1, char[] var2, class_126 var3) {
         String var4 = new String(var2);
         this.method_1560(536871524, new String[] {new String(var1.method_103()), var4}, new String[] {new String(var1.method_104()), var4}, var3.field_444, var3.field_445);
     }
 
-    // $FF: renamed from: a (m.s, char[], h.r, boolean) void
     public void method_1477(class_40 var1, char[] var2, class_126 var3, boolean var4) {
         String var5 = new String(var2);
         if (var4) {
@@ -541,23 +516,19 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bo, m.s) void
     public void method_1478(class_146 var1, class_40 var2) {
         this.method_1560(16777245, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.az, h.ci, h.cp) void
     public void method_1479(class_54 var1, class_93 var2, class_125 var3) {
         String[] var4 = new String[] {new String(var2.field_479), new String(var3.field_659)};
         this.method_1560(67109228, var4, var4, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (int, int) void
     public void method_1480(int var1, int var2) {
         this.method_1560(1610612944, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: a (h.cl, char[]) void
     public void method_1481(class_120 var1, char[] var2) {
         int var3 = this.method_1449(536871090);
         if (var3 != -1) {
@@ -571,7 +542,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.cb, char[]) void
     public void method_1482(class_131 var1, char[] var2) {
         int var3 = this.method_1449(536871090);
         if (var3 != -1) {
@@ -580,34 +550,28 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.ba, m.s) void
     public void method_1483(class_119 var1, class_40 var2) {
         this.method_1560(67108969, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.ba) void
     public void method_1484(class_119 var1) {
         this.method_1560(67108970, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.r, m.s, m.s) void
     public void method_1485(class_126 var1, class_40 var2, class_40 var3) {
         if (this.field_1064.method_3313(137438953472L) != -1) {
             this.method_1560(var2.method_148() ? 536871632 : 536871633, new String[] {new String(var2.method_103()), new String(var3.method_103())}, new String[] {new String(var2.method_104()), new String(var3.method_104())}, var1.field_444, var1.field_445);
         }
     }
 
-    // $FF: renamed from: a (h.cj, m.s) void
     public void method_1486(class_89 var1, class_40 var2) {
         this.method_1560(16777784, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.cj, m.s) void
     public void method_1487(class_89 var1, class_40 var2) {
         this.method_1560(16777745, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.ci) void
     public void method_1488(class_93 var1) {
         class_58 var2 = var1.field_488;
         if (var1.method_795()) {
@@ -617,44 +581,36 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.bq) void
     public void method_1489(class_114 var1) {
         this.method_1562(536870976, field_1061, field_1061, 159, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.r) void
     public void method_1490(class_126 var1) {
         this.method_1560(536870966, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.k, h.cj) void
     public void method_1491(class_67 var1, class_89 var2) {
         this.method_1560(33554512, new String[] {var1.field_314 == null ? "array" : new String(var1.field_314.method_103()), new String(var1.method_103())}, new String[] {var1.field_314 == null ? "array" : new String(var1.field_314.method_104()), new String(var1.method_104())}, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: a (m.ab, h.cj) void
     public void method_1492(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870970, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: b (m.ab, h.cj) void
     public void method_1493(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870972, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: a (h.co) void
     public void method_1494(class_127 var1) {
         this.method_1560(536871070, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.ad, m.ae) void
     public void method_1495(class_168 var1, class_58 var2) {
         this.method_1560(67108968, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.az, h.bo, m.s) void
     public void method_1496(class_54 var1, class_146 var2, class_40 var3) {
         String var4 = new String(var1.method_179());
         String var5 = new String(var3.method_103());
@@ -665,23 +621,19 @@ public class class_248 extends class_247 {
         this.method_1560(16777972, new String[] {var5, var4}, new String[] {var6, var4}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (h.z) void
     public void method_1497(class_91 var1) {
         String[] var2 = new String[] {class_233.method_1389(var1.field_467)};
         this.method_1560(268435843, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.bo, m.s) void
     public void method_1498(class_146 var1, class_40 var2) {
         this.method_1560(16777373, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.q, m.ae) void
     public void method_1499(class_105 var1, class_58 var2) {
         this.method_1560(67109621, new String[] {new String(var2.field_278.method_179()), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_179()), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.b, n.c, boolean) void
     public void method_1500(class_90 var1, class_242 var2, boolean var3) {
         String var4 = new String(var1.field_455.field_1690);
         var2.field_1050.printStackTrace();
@@ -689,43 +641,35 @@ public class class_248 extends class_247 {
         this.method_1560(536871614, var5, var5, 0, 0);
     }
 
-    // $FF: renamed from: c (m.ab, h.cj) void
     public void method_1501(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870937, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: a (h.cj) void
     public void method_1502(class_89 var1) {
         this.method_1560(536871074, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.cj) void
     public void method_1503(class_89 var1) {
         this.method_1560(536871089, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: c (h.cj, m.s) void
     public void method_1504(class_89 var1, class_40 var2) {
         this.method_1560(16777536, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bb, m.k) void
     public void method_1505(class_154 var1, class_67 var2) {
         this.method_1560(33555187, new String[] {String.valueOf(var2.field_314.method_103()), String.valueOf(var2.field_302)}, new String[] {String.valueOf(var2.field_314.method_104()), String.valueOf(var2.field_302)}, this.method_1695(var2, var1), this.method_1693(var2, var1));
     }
 
-    // $FF: renamed from: c (h.cj) void
     public void method_1506(class_89 var1) {
         this.method_1560(16777217, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.r) void
     public void method_1507(class_126 var1) {
         this.method_1560(536871065, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (m.az, h.bo, m.s) void
     public void method_1508(class_54 var1, class_146 var2, class_40 var3) {
         String var4 = new String(var1.method_179());
         String var5 = new String(var3.method_103());
@@ -736,7 +680,6 @@ public class class_248 extends class_247 {
         this.method_1560(16777529, new String[] {var5, var4}, new String[] {var6, var4}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (int) int
     public int method_1449(int var1) {
         switch (var1) {
             case -1610612273:
@@ -817,18 +760,15 @@ public class class_248 extends class_247 {
         return var2 != 0L ? ((var1 & Integer.MIN_VALUE) != 0 && !this.field_1064.field_1958 ? -1 : this.field_1064.method_3313(var2)) : 129;
     }
 
-    // $FF: renamed from: a (h.j, m.s, m.s) void
     public void method_1509(class_138 var1, class_40 var2, class_40 var3) {
         this.method_1560(16777232, new String[] {new String(var2.method_103()), new String(var3.method_103())}, new String[] {new String(var2.method_179()), new String(var3.method_179())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.z) void
     public void method_1510(class_91 var1) {
         String[] var2 = new String[] {class_233.method_1389(var1.field_467)};
         this.method_1560(268435841, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.ao) void
     public void method_1511(class_177 var1) {
         if (var1 instanceof class_183 || var1 instanceof class_180) {
             char[] var2 = var1.method_1083();
@@ -858,18 +798,15 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.aa, m.s) void
     public void method_1512(class_169 var1, class_40 var2) {
         String[] var3 = new String[] {new String(var2.method_103()), new String(var1.method_1083())};
         this.method_1560(536871066, var3, var3, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.s, char[], int) void
     public void method_1513(class_40 var1, char[] var2, int var3) {
         this.method_1562(536871612, new String[] {new String(var1.method_103()), new String(var2), String.valueOf(var3)}, new String[] {new String(var1.method_104()), new String(var2), String.valueOf(var3)}, 159, 0, 0);
     }
 
-    // $FF: renamed from: b (m.k, h.cj) void
     public void method_1514(class_67 var1, class_89 var2) {
         int var3 = this.method_1449(33554505);
         if (var3 != -1) {
@@ -877,7 +814,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, h.cj) void
     public void method_1515(class_58 var1, class_89 var2) {
         boolean var3 = var1.method_358();
         int var4 = this.method_1449(var3 ? 134217861 : 67108967);
@@ -890,7 +826,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.s, h.cj) void
     public void method_1516(class_40 var1, class_89 var2) {
         if (var2 != null) {
             int var3 = this.method_1449(16777221);
@@ -901,72 +836,59 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.cn) void
     public void method_1517(class_164 var1) {
         this.method_1560(16777838, new String[] {new String(var1.field_675.method_103())}, new String[] {new String(var1.field_675.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.cn) void
     public void method_1518(class_164 var1) {
         this.method_1560(16777824, new String[] {new String(var1.field_675.method_103())}, new String[] {new String(var1.field_675.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.s, h.ak) void
     public void method_1519(class_40 var1, class_92 var2) {
         String var3 = new String(var2.field_474);
         this.method_1560(536871522, new String[] {var3, new String(var1.method_103())}, new String[] {var3, new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: d (h.cj, m.s) void
     public void method_1520(class_89 var1, class_40 var2) {
         this.method_1560(16777783, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bu) void
     public void method_1521(class_108 var1) {
         this.method_1560(33554602, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (h.cj) void
     public void method_1522(class_89 var1) {
         this.method_1560(536871078, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (m.az, h.ci) void
     public void method_1523(class_54 var1, class_93 var2) {
         class_58 var3 = var2.field_488;
         this.method_1560(67109618, new String[] {new String(var2.field_479), new String(var3.field_278.method_103()), this.method_1779(var3.method_374(), var3.field_276, false)}, new String[] {new String(var2.field_479), new String(var3.field_278.method_104()), this.method_1779(var3.method_374(), var3.field_276, true)}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.az, h.m) void
     public void method_1524(class_54 var1, class_121 var2) {
         this.method_1560(33554772, new String[] {new String(var1.method_179()), new String(var2.field_659)}, new String[] {new String(var1.method_104()), new String(var2.field_659)}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: c (h.z) void
     public void method_1525(class_91 var1) {
         String[] var2 = new String[] {class_233.method_1389(var1.field_467)};
         this.method_1560(268435842, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.az, m.ae, m.ae) void
     public void method_1526(class_54 var1, class_58 var2, class_58 var3) {
         this.method_1560(67109429, new String[] {new String(var2.field_274), new String(var2.field_278.method_103()), this.method_1779(var2.method_374(), var2.method_376().field_276, false), this.method_1779(var3.method_374(), var3.method_376().field_276, false)}, new String[] {new String(var2.field_274), new String(var2.field_278.method_104()), this.method_1779(var2.method_374(), var2.method_376().field_276, true), this.method_1779(var3.method_374(), var3.method_376().field_276, true)}, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (m.k, h.bb) void
     public void method_1527(class_67 var1, class_154 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(33554514, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: d (m.ab, h.cj) void
     public void method_1528(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870969, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: a (m.az, h.ci, boolean) void
     public void method_1529(class_54 var1, class_93 var2, boolean var3) {
         class_58 var4 = var2.field_488;
         if (var3) {
@@ -981,92 +903,76 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.as, h.m) void
     public void method_1530(class_43 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554773, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.as, h.ci) void
     public void method_1531(class_43 var1, class_93 var2) {
         this.method_1560(67109221, new String[] {new String(var1.method_179()), new String(var2.field_479)}, new String[] {new String(var1.method_104()), new String(var2.field_479)}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.az) void
     public void method_1532(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777517, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (h.ac, boolean) void
     public void method_1533(class_124 var1, boolean var2) {
         String[] var3 = new String[] {new String(var1.field_659)};
         this.method_1560(var2 ? 67109232 : 67109259, var3, var3, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (h.bq) void
     public void method_1534(class_114 var1) {
         String[] var2 = new String[] {new String(var1.field_580)};
         this.method_1560(16777535, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (m.az, h.bo, m.as) void
     public void method_1535(class_54 var1, class_146 var2, class_43 var3) {
         this.method_1560(16777530, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.s, h.af) void
     public void method_1536(class_40 var1, class_161 var2) {
         class_67 var3 = var2.method_1036();
         String var4 = new String(var3.field_302);
         this.method_1560(536871533, new String[] {var4, new String(var1.method_103())}, new String[] {var4, new String(var1.method_104())}, this.method_1695(var3, var2), this.method_1693(var3, var2));
     }
 
-    // $FF: renamed from: a (h.br) void
     public void method_1537(class_123 var1) {
         this.method_1560(536871432, new String[] {new String(var1.field_659)}, new String[] {new String(var1.field_659)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.b, h.bq) void
     public void method_1538(class_90 var1, class_114 var2) {
         String[] var3 = new String[] {new String(var1.method_771()), new String(var2.field_580)};
         this.field_1065 = var2;
         this.method_1561(16777539, var3, var3, var2.field_444, var2.field_445, var1.field_455);
     }
 
-    // $FF: renamed from: b (int, int) void
     public void method_1539(int var1, int var2) {
         this.method_1560(553648316, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: c (h.ci) void
     public void method_1540(class_93 var1) {
         class_58 var2 = var1.field_488;
         this.method_1560(67109622, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.method_5(), var1.method_6());
     }
 
-    // $FF: renamed from: a (h.ci, h.m) void
     public void method_1541(class_93 var1, class_121 var2) {
         class_58 var3 = var1.field_488;
         this.method_1560(67109627, new String[] {new String(var3.field_274), this.method_1779(var3.method_374(), var3.field_276, false), new String(var2.field_659)}, new String[] {new String(var3.field_274), this.method_1779(var3.method_374(), var3.field_276, true), new String(var2.field_659)}, var2.method_5(), var2.method_6());
     }
 
-    // $FF: renamed from: c (h.r) void
     public void method_1542(class_126 var1) {
         this.method_1560(1610613178, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: c (m.k, h.cj) void
     public void method_1543(class_67 var1, class_89 var2) {
         this.method_1560(33555194, new String[] {new String(var1.field_314.method_103()), new String(var1.field_302)}, new String[] {new String(var1.field_314.method_104()), new String(var1.field_302)}, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: b (h.bb, m.k) void
     public void method_1544(class_154 var1, class_67 var2) {
         this.method_1560(33555191, new String[] {String.valueOf(var2.field_314.method_103()), String.valueOf(var2.field_302)}, new String[] {String.valueOf(var2.field_314.method_104()), String.valueOf(var2.field_302)}, this.method_1695(var2, var1), this.method_1693(var2, var1));
     }
 
-    // $FF: renamed from: a (h.ad, m.s, m.s[]) void
     public void method_1545(class_168 var1, class_40 var2, class_40[] var3) {
         StringBuffer var4 = new StringBuffer();
         StringBuffer var5 = new StringBuffer();
@@ -1083,18 +989,15 @@ public class class_248 extends class_247 {
         this.method_1560(var6, new String[] {new String(var2.method_103()), new String(var1.field_773), var4.toString()}, new String[] {new String(var2.method_104()), new String(var1.field_773), var5.toString()}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: e (h.cj) void
     public void method_1546(class_89 var1) {
         String[] var2 = new String[] {var1.method_754() ? "super" : "this"};
         this.method_1560(536871112, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (h.r) void
     public void method_1547(class_126 var1) {
         this.method_1560(1610612959, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.m, m.w) void
     public void method_1548(class_121 var1, class_34 var2) {
         class_67 var3 = var1.field_661;
         if (!class_233.method_1364(class_17.field_37, var3.field_302) || !var3.method_431() || !var3.method_409() || class_40.field_183 != var3.field_301) {
@@ -1113,22 +1016,18 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bm) void
     public void method_1549(class_157 var1) {
         this.method_1560(134217866, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bz) void
     public void method_1550(class_112 var1) {
         this.method_1560(536871096, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (m.ae, m.ae) void
     public void method_1551(class_58 var1, class_58 var2) {
         this.method_1560(67109265, new String[] {new String(var2.field_278.method_103())}, new String[] {new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    // $FF: renamed from: a (m.x, h.bo) void
     public void method_1552(class_46 var1, class_146 var2) {
         int var3 = this.method_1449(16777753);
         if (var3 != -1) {
@@ -1136,7 +1035,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.k, h.cj, byte, java.lang.String, int) void
     public void method_1553(class_67 var1, class_89 var2, byte var3, String var4, int var5) {
         int var6 = this.method_1449(var5);
         if (var6 != -1) {
@@ -1144,7 +1042,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, h.cj, byte, java.lang.String, int) void
     public void method_1554(class_58 var1, class_89 var2, byte var3, String var4, int var5) {
         int var6 = this.method_1449(var5);
         if (var6 != -1) {
@@ -1156,7 +1053,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.s, h.cj, byte, java.lang.String, int) void
     public void method_1555(class_40 var1, class_89 var2, byte var3, String var4, int var5) {
         if (var2 != null) {
             int var6 = this.method_1449(var5);
@@ -1166,51 +1062,42 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bb, int, m.s) void
     public void method_1556(class_154 var1, int var2, class_40 var3) {
         this.method_1560(570425419, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.cj, m.x) void
     public void method_1557(class_89 var1, class_46 var2) {
         this.method_1560(16777744, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: e (h.bq) void
     public void method_1558(class_114 var1) {
         class_146 var2 = var1.field_586.method_146() ? var1.field_598.field_691 : var1.field_581;
         this.method_1560(16777773, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (int, java.lang.String[], int, java.lang.String[], int, int, int) void
     private void method_1559(int var1, String[] var2, int var3, String[] var4, int var5, int var6, int var7) {
         this.method_1452(var1, var2, var3, var4, var5, var6, var7, this.field_1065, this.field_1065 == null ? null : this.field_1065.method_94());
         this.field_1065 = null;
     }
 
-    // $FF: renamed from: a (int, java.lang.String[], java.lang.String[], int, int) void
     private void method_1560(int var1, String[] var2, String[] var3, int var4, int var5) {
         this.method_1453(var1, var2, var3, var4, var5, this.field_1065, this.field_1065 == null ? null : this.field_1065.method_94());
         this.field_1065 = null;
     }
 
-    // $FF: renamed from: a (int, java.lang.String[], java.lang.String[], int, int, c.h) void
     private void method_1561(int var1, String[] var2, String[] var3, int var4, int var5, class_284 var6) {
         this.method_1453(var1, var2, var3, var4, var5, this.field_1065, var6);
         this.field_1065 = null;
     }
 
-    // $FF: renamed from: a (int, java.lang.String[], java.lang.String[], int, int, int) void
     private void method_1562(int var1, String[] var2, String[] var3, int var4, int var5, int var6) {
         this.method_1559(var1, var2, 0, var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: a (m.as, h.cj) void
     public void method_1563(class_43 var1, class_89 var2) {
         this.method_1560(16777381, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.az, m.as, h.bo) void
     public void method_1564(class_54 var1, class_43 var2, class_146 var3) {
         boolean var4 = false;
         boolean var5 = false;
@@ -1230,46 +1117,38 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (m.az) void
     public void method_1565(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777543, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: b (m.as, h.ci) void
     public void method_1566(class_43 var1, class_93 var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109226, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.x, h.cj) void
     public void method_1567(class_46 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.field_198)};
         this.method_1560(16777791, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: b (m.x, h.cj) void
     public void method_1568(class_46 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.field_198)};
         this.method_1560(16777774, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: c (h.cm) void
     public void method_1569(class_97 var1) {
         this.method_1560(67109465, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.cp) void
     public void method_1570(class_125 var1) {
         this.method_1560(1610613536, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (m.s, h.cj) void
     public void method_1571(class_40 var1, class_89 var2) {
         this.method_1560(16777751, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: c (m.s, h.cj) void
     public void method_1572(class_40 var1, class_89 var2) {
         if (var1.method_169()) {
             this.method_1560(536871459, new String[] {new String(var1.method_103()), new String(var1.method_138().method_103())}, new String[] {new String(var1.method_104()), new String(var1.method_138().method_104())}, var2.field_444, var2.field_445);
@@ -1278,7 +1157,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: f (h.bq) void
     public void method_1573(class_114 var1) {
         if (!this.method_1659(var1.field_580)) {
             int var2 = 0;
@@ -1296,145 +1174,120 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (m.az) void
     public void method_1574(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777524, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: b (m.as, h.m) void
     public void method_1575(class_43 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554777, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (h.m) void
     public void method_1576(class_121 var1) {
         String var2 = new String(var1.field_659);
         this.method_1560(536871527, new String[] {new String(var1.field_661.field_314.method_103()), var2}, new String[] {new String(var1.field_661.field_314.method_104()), var2}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (h.ci) void
     public void method_1577(class_93 var1) {
         this.method_1560(67109464, new String[] {new String(var1.field_488.field_278.method_103()), new String(var1.field_479)}, new String[] {new String(var1.field_488.field_278.method_104()), new String(var1.field_479)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (m.az) void
     public void method_1578(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777820, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: e (m.az) void
     public void method_1579(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777819, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: f (m.az) void
     public void method_1580(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777518, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: g (m.az) void
     public void method_1581(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777966, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: c (m.as, h.m) void
     public void method_1582(class_43 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33555183, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: e (h.ci) void
     public void method_1583(class_93 var1) {
         this.method_1560(67109624, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (m.as, h.m) void
     public void method_1584(class_43 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554774, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: h (m.az) void
     public void method_1585(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777519, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: b (h.m) void
     public void method_1586(class_121 var1) {
         String var2 = new String(var1.field_659);
         this.method_1560(33554775, new String[] {new String(var1.field_661.field_314.method_103()), var2}, new String[] {new String(var1.field_661.field_314.method_104()), var2}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: f (h.ci) void
     public void method_1587(class_93 var1) {
         this.method_1560(67109223, new String[] {new String(var1.field_488.field_278.method_103()), new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, false)}, new String[] {new String(var1.field_488.field_278.method_104()), new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: i (m.az) void
     public void method_1588(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777522, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: j (m.az) void
     public void method_1589(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777968, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: k (m.az) void
     public void method_1590(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777520, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: l (m.az) void
     public void method_1591(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777969, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: m (m.az) void
     public void method_1592(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777521, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: g (h.ci) void
     public void method_1593(class_93 var1) {
         this.method_1560(67109222, new String[] {new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, false), new String(var1.field_488.field_278.method_103())}, new String[] {new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, true), new String(var1.field_488.field_278.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.ac, boolean) void
     public void method_1594(class_124 var1, boolean var2) {
         String[] var3 = new String[] {new String(var1.field_659)};
         this.method_1560(var2 ? 67109220 : 67109260, var3, var3, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (m.s, h.cj) void
     public void method_1595(class_40 var1, class_89 var2) {
         this.method_1560(16777243, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: c (h.bo, m.s) void
     public void method_1596(class_146 var1, class_40 var2) {
         this.method_1560(16777782, new String[] {new String(var2.method_103()), new String(var2.method_137().method_103())}, new String[] {new String(var2.method_104()), new String(var2.method_137().method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: n (m.az) void
     public void method_1597(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777527, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (h.av) void
     public void method_1598(class_151 var1) {
         StringBuffer var2 = new StringBuffer();
         char[][] var3 = var1.field_732;
@@ -1448,47 +1301,39 @@ public class class_248 extends class_247 {
         this.method_1560(1610612934, var5, var5, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bo) void
     public void method_1599(class_146 var1) {
         this.method_1560(1610613314, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.cp, h.ci) void
     public void method_1600(class_125 var1, class_93 var2) {
         String[] var3 = new String[] {class_233.method_1389(var1.field_660.method_1012()), new String(var2.field_479)};
         this.method_1560(67109279, var3, var3, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: e (m.as, h.m) void
     public void method_1601(class_43 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554776, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: o (m.az) void
     public void method_1602(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777526, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: c (m.as, h.ci) void
     public void method_1603(class_43 var1, class_93 var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109224, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: p (m.az) void
     public void method_1604(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777525, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: f (h.cj) void
     public void method_1605(class_89 var1) {
         this.method_1560(536871076, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.z, m.w) void
     public void method_1606(class_91 var1, class_34 var2) {
         if (var2 instanceof class_67) {
             int var7 = 33554502;
@@ -1529,7 +1374,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.az, m.ae, m.ae, m.as) void
     public void method_1607(class_54 var1, class_58 var2, class_58 var3, class_43 var4) {
         if (var1 == var2.field_278) {
             int var5;
@@ -1544,7 +1388,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (m.ae, m.ae) void
     public void method_1608(class_58 var1, class_58 var2) {
         StringBuffer var3 = new StringBuffer();
         var3.append(var2.field_278.method_103()).append('.').append(var2.method_103());
@@ -1590,7 +1433,6 @@ public class class_248 extends class_247 {
         this.method_1560(var5, new String[] {var3.toString()}, new String[] {var4.toString()}, var8, var9);
     }
 
-    // $FF: renamed from: a (h.cj, m.s, m.s[]) void
     public void method_1609(class_89 var1, class_40 var2, class_40[] var3) {
         if (var1 == null) {
             this.method_1562(16777741, new String[] {new String(var2.method_103()), this.method_1779(false, var3, false)}, new String[] {new String(var2.method_104()), this.method_1779(false, var3, true)}, 131, 0, 0);
@@ -1599,17 +1441,14 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.co, int) void
     public void method_1610(class_127 var1, int var2) {
         this.method_1560(536871114, field_1061, field_1061, var1.field_677[var2].field_444, var1.field_677[var2].field_445);
     }
 
-    // $FF: renamed from: a (h.r, m.s) void
     public void method_1611(class_126 var1, class_40 var2) {
         this.method_1560(16777385, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.cj, m.k) void
     public void method_1612(class_89 var1, class_67 var2) {
         int var3 = this.method_1449(570425422);
         if (var3 != -1) {
@@ -1617,7 +1456,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.cj, m.ae) void
     public void method_1613(class_89 var1, class_58 var2) {
         int var3 = this.method_1449(603979895);
         if (var3 != -1) {
@@ -1625,7 +1463,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.az, m.ae, m.ae[]) void
     public void method_1614(class_54 var1, class_58 var2, class_58[] var3) {
         StringBuffer var4 = new StringBuffer();
         var4.append(var2.field_278.method_103()).append('.').append(var2.method_103());
@@ -1634,7 +1471,6 @@ public class class_248 extends class_247 {
         this.method_1560(67109269, new String[] {var4.toString(), new String(var3[0].field_278.method_103())}, new String[] {new String(var5.toString()), new String(var3[0].field_278.method_104())}, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (h.cj, m.ae[], int) void
     public void method_1615(class_89 var1, class_58[] var2, int var3) {
         StringBuffer var4 = new StringBuffer();
         StringBuffer var5 = new StringBuffer();
@@ -1654,7 +1490,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.az, m.ae[], int) void
     public void method_1616(class_54 var1, class_58[] var2, int var3) {
         StringBuffer var4 = new StringBuffer();
         StringBuffer var5 = new StringBuffer();
@@ -1674,43 +1509,35 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (m.az, m.ae, m.ae) void
     public void method_1617(class_54 var1, class_58 var2, class_58 var3) {
         this.method_1560(67109424, new String[] {new String(var2.field_274), this.method_1779(var2.method_376().method_374(), var2.method_376().field_276, false), new String(var2.field_278.method_103()), this.method_1779(var3.method_376().method_374(), var3.method_376().field_276, false), new String(var3.field_278.method_103())}, new String[] {new String(var2.field_274), this.method_1779(var2.method_376().method_374(), var2.method_376().field_276, true), new String(var2.field_278.method_104()), this.method_1779(var3.method_376().method_374(), var3.method_376().field_276, true), new String(var3.field_278.method_104())}, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: c (h.m) void
     public void method_1618(class_121 var1) {
         this.method_1560(536871075, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.as, h.y) void
     public void method_1619(class_43 var1, class_122 var2) {
         this.method_1560(536870936, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_444);
     }
 
-    // $FF: renamed from: b (h.g) void
     public void method_1620(class_94 var1) {
         this.method_1453(1610612943, field_1061, field_1061, var1.field_444, var1.field_445, var1, var1.method_94());
     }
 
-    // $FF: renamed from: b (m.az, h.m) void
     public void method_1621(class_54 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var1.method_179())};
         this.method_1560(16777516, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (h.ae) void
     public void method_1622(class_96 var1) {
         this.method_1560(16777821, new String[] {new String(var1.field_488.field_275.method_103()), new String(var1.field_479), new String(var1.field_488.field_278.method_103())}, new String[] {new String(var1.field_488.field_275.method_104()), new String(var1.field_479), new String(var1.field_488.field_278.method_104())}, var1.field_497.field_444, var1.field_497.field_445);
     }
 
-    // $FF: renamed from: g (h.cj) void
     public void method_1623(class_89 var1) {
         this.method_1560(536871084, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bf, m.ae) void
     public void method_1624(class_98 var1, class_58 var2) {
         boolean var3 = this.field_1065 instanceof class_94 && ((class_94)this.field_1065).method_796();
         boolean var4 = var1 instanceof class_105 && ((class_105)var1).field_551 == 1;
@@ -1807,12 +1634,10 @@ public class class_248 extends class_247 {
         this.method_1560(var15, new String[] {new String(var2.field_278.method_103()), this.method_1779(var8.method_374(), var8.field_276, false)}, new String[] {new String(var2.field_278.method_104()), this.method_1779(var8.method_374(), var8.field_276, true)}, var5, var6);
     }
 
-    // $FF: renamed from: h (h.cj) void
     public void method_1625(class_89 var1) {
         this.method_1560(536871085, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.r, m.s, m.as) void
     public void method_1626(class_126 var1, class_40 var2, class_43 var3) {
         if (var3.method_146()) {
             var3 = var3.method_240();
@@ -1840,12 +1665,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: i (h.cj) void
     public void method_1627(class_89 var1) {
         this.method_1560(1207959691, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.n, m.s) void
     public void method_1628(class_155 var1, class_40 var2) {
         if (!this.method_1659(var1.field_737)) {
             int var3 = 33554502;
@@ -1887,7 +1710,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.af, m.k) void
     public void method_1629(class_161 var1, class_67 var2) {
         if (var1 instanceof class_163) {
             class_163 var3 = (class_163)var1;
@@ -1940,7 +1762,6 @@ public class class_248 extends class_247 {
         this.method_1560(var7, var8, var8, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.ar, m.k, int, m.s) void
     public void method_1630(class_163 var1, class_67 var2, int var3, class_40 var4) {
         if (!this.method_1660(var1.field_754)) {
             if (var4.method_148()) {
@@ -1986,12 +1807,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.cn) void
     public void method_1631(class_164 var1) {
         this.method_1560(1610613338, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.ad, m.ae) void
     public void method_1632(class_168 var1, class_58 var2) {
         if (!this.method_1659(var1.field_773)) {
             int var3 = 67108964;
@@ -2082,12 +1901,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: e (h.r) void
     public void method_1633(class_126 var1) {
         this.method_1560(536871088, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.by, m.s, m.s) void
     public void method_1634(class_141 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -2100,7 +1917,6 @@ public class class_248 extends class_247 {
         this.method_1560(536871072, new String[] {var1.method_974(), var4 + ", " + var5}, new String[] {var1.method_974(), var6 + ", " + var7}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.i, m.s, m.s) void
     public void method_1635(class_132 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -2113,22 +1929,18 @@ public class class_248 extends class_247 {
         this.method_1560(536871072, new String[] {var1.method_948(), var4 + ", " + var5}, new String[] {var1.method_948(), var6 + ", " + var7}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bp, m.s) void
     public void method_1636(class_140 var1, class_40 var2) {
         this.method_1560(536871072, new String[] {var1.method_974(), new String(var2.method_103())}, new String[] {var1.method_974(), new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: e (m.s, h.cj) void
     public void method_1637(class_40 var1, class_89 var2) {
         this.method_1560(16777750, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: j (h.cj) void
     public void method_1638(class_89 var1) {
         this.method_1560(1610612961, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: e (h.cj, m.s) void
     public void method_1639(class_89 var1, class_40 var2) {
         if (var2 instanceof class_43) {
             if (this.method_1660(((class_43)var2).field_197)) {
@@ -2233,86 +2045,70 @@ public class class_248 extends class_247 {
         this.method_1560(var8, new String[] {new String(var2.method_173().method_103())}, new String[] {new String(var2.method_173().method_104())}, var1.field_444, var4);
     }
 
-    // $FF: renamed from: f (h.r) void
     public void method_1640(class_126 var1) {
         this.method_1560(536871493, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: g (h.r) void
     public void method_1641(class_126 var1) {
         this.method_1560(536871115, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.r, m.s) void
     public void method_1642(class_126 var1, class_40 var2) {
         this.method_1560(536871087, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: f (m.s, h.cj) void
     public void method_1643(class_40 var1, class_89 var2) {
         this.method_1560(16777749, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: h (h.r) void
     public void method_1644(class_126 var1) {
         this.method_1560(1610612942, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (h.cn) void
     public void method_1645(class_164 var1) {
         this.method_1560(1610613332, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: g (h.bq) void
     public void method_1646(class_114 var1) {
         this.method_1560(1610613333, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: h (h.bq) void
     public void method_1647(class_114 var1) {
         this.method_1560(1610613330, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.ac, h.r) void
     public void method_1648(class_124 var1, class_126 var2) {
         this.method_1560(1610613328, field_1061, field_1061, var1.field_653, var2.field_445);
     }
 
-    // $FF: renamed from: d (h.z) void
     public void method_1649(class_91 var1) {
         this.method_1560(1610613327, field_1061, field_1061, var1.field_470, var1.field_471);
     }
 
-    // $FF: renamed from: a (h.bo, h.bo) void
     public void method_1650(class_146 var1, class_146 var2) {
         this.method_1560(1610613329, field_1061, field_1061, var1.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (h.br, h.br) void
     public void method_1651(class_123 var1, class_123 var2) {
         this.method_1560(1610613326, field_1061, field_1061, var1.field_653, var2.field_652);
     }
 
-    // $FF: renamed from: i (h.bq) void
     public void method_1652(class_114 var1) {
         class_123[] var2 = var1.field_601;
         int var3 = var2.length;
         this.method_1560(1610613334, field_1061, field_1061, var2[0].field_653, var2[var3 - 1].field_652);
     }
 
-    // $FF: renamed from: j (h.bq) void
     public void method_1653(class_114 var1) {
         class_123[] var2 = var1.field_601;
         int var3 = var2.length;
         this.method_1560(1610613335, field_1061, field_1061, var2[0].field_653, var2[var3 - 1].field_652);
     }
 
-    // $FF: renamed from: b (h.cp) void
     public void method_1654(class_125 var1) {
         this.method_1560(1610613331, field_1061, field_1061, var1.field_660.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (char[][], h.b, java.lang.Object) void
     public void method_1655(char[][] var1, class_90 var2, Object var3) {
         this.field_1065 = var2;
         String[] var4 = new String[] {class_233.method_1389(var1)};
@@ -2332,12 +2128,10 @@ public class class_248 extends class_247 {
         this.method_1560(16777540, var4, var4, var5, var6);
     }
 
-    // $FF: renamed from: a (int) boolean
     private boolean method_1656(int var1) {
         return var1 == 26;
     }
 
-    // $FF: renamed from: b (int) boolean
     private boolean method_1657(int var1) {
         switch (var1) {
             case 12:
@@ -2441,7 +2235,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (int) boolean
     private boolean method_1658(int var1) {
         switch (var1) {
             case 47:
@@ -2456,12 +2249,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (char[]) boolean
     private boolean method_1659(char[] var1) {
         return var1 == class_271.field_1301;
     }
 
-    // $FF: renamed from: a (char[][]) boolean
     private boolean method_1660(char[][] var1) {
         if (var1 == null) {
             return false;
@@ -2475,7 +2266,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.ac, m.w, boolean) void
     public void method_1661(class_124 var1, class_34 var2, boolean var3) {
         int var4;
         int var5;
@@ -2501,7 +2291,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: e (m.ab, h.cj) void
     public void method_1662(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871370);
         if (var3 != -1) {
@@ -2510,7 +2299,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: f (m.ab, h.cj) void
     public void method_1663(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871366);
         if (var3 != -1) {
@@ -2519,7 +2307,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: g (m.ab, h.cj) void
     public void method_1664(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871368);
         if (var3 != -1) {
@@ -2528,7 +2315,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: h (m.ab, h.cj) void
     public void method_1665(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871363);
         if (var3 != -1) {
@@ -2537,7 +2323,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: i (m.ab, h.cj) void
     public void method_1666(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871364);
         if (var3 != -1) {
@@ -2546,7 +2331,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: j (m.ab, h.cj) void
     public void method_1667(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871369);
         if (var3 != -1) {
@@ -2555,7 +2339,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: k (m.ab, h.cj) void
     public void method_1668(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871365);
         if (var3 != -1) {
@@ -2564,7 +2347,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: l (m.ab, h.cj) void
     public void method_1669(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536871367);
         if (var3 != -1) {
@@ -2573,33 +2355,27 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: h (h.ci) void
     public void method_1670(class_93 var1) {
         class_58 var2 = var1.field_488;
         this.method_1560(this.field_1064.field_1928 == 3211264L ? 67109487 : 67109498, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (m.ae, m.ae) void
     public void method_1671(class_58 var1, class_58 var2) {
         this.method_1560(67109424, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, false), new String(var1.field_278.method_103()), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, true), new String(var1.field_278.method_104()), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    // $FF: renamed from: i (h.ci) void
     public void method_1672(class_93 var1) {
         this.method_1560(603979883, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.ae) void
     public void method_1673(class_96 var1) {
         this.method_1560((var1.field_482 & 256) != 0 ? 603979888 : 603979889, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: c (h.ae) void
     public void method_1674(class_96 var1) {
         this.method_1560(67108974, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (h.m) void
     public void method_1675(class_121 var1) {
         int var2 = this.method_1449(536871540);
         if (var2 != -1) {
@@ -2608,7 +2384,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: j (h.ci) void
     public void method_1676(class_93 var1) {
         int var2 = this.method_1449(536871541);
         if (var2 != -1) {
@@ -2617,7 +2392,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: k (h.bq) void
     public void method_1677(class_114 var1) {
         int var2 = this.method_1449(536871542);
         if (var2 != -1) {
@@ -2626,12 +2400,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bg, m.k) void
     public void method_1678(class_115 var1, class_67 var2) {
         this.method_1560(33555193, new String[] {new String(var2.field_314.method_103()), new String(var2.field_302)}, new String[] {new String(var2.field_314.method_104()), new String(var2.field_302)}, var1.field_602.field_444, var1.field_602.field_445);
     }
 
-    // $FF: renamed from: k (h.ci) void
     public void method_1679(class_93 var1) {
         int var2 = this.method_1449(67109491);
         if (var2 != -1) {
@@ -2640,18 +2412,15 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: l (h.ci) void
     public void method_1680(class_93 var1) {
         this.method_1560(16777327, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: l (h.bq) void
     public void method_1681(class_114 var1) {
         String[] var2 = new String[] {new String(var1.field_580)};
         this.method_1560(536871008, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.cj, m.ae) void
     public void method_1682(class_89 var1, class_58 var2) {
         class_13 var3 = var2.method_348((class_13)null);
         class_40 var4 = (class_40)var3.method_36(0);
@@ -2667,47 +2436,39 @@ public class class_248 extends class_247 {
         this.method_1560(134217857, new String[] {new String(var2.field_278.method_103()), this.method_1779(var2.method_374(), var2.field_276, false), new String(var4.method_103())}, new String[] {new String(var2.field_278.method_104()), this.method_1779(var2.method_374(), var2.field_276, true), new String(var4.method_104())}, var5, var6);
     }
 
-    // $FF: renamed from: c (h.ad, m.ae) void
     public void method_1683(class_168 var1, class_58 var2) {
         class_13 var3 = var2.method_348((class_13)null);
         class_40 var4 = (class_40)var3.method_36(0);
         this.method_1560(67108984, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false), new String(var4.method_103())}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true), new String(var4.method_104())}, (int)(var1.field_779 >>> 32), (int)var1.field_779);
     }
 
-    // $FF: renamed from: a (h.cn, char[]) void
     public void method_1684(class_164 var1, char[] var2) {
         String var3 = new String(var2);
         this.method_1560(16777825, new String[] {new String(var1.field_675.method_103()), var3}, new String[] {new String(var1.field_675.method_104()), var3}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.co) void
     public void method_1685(class_127 var1) {
         this.method_1560(536871071, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.b) void
     public void method_1686(class_90 var1) {
         String[] var2 = new String[] {new String(var1.method_771())};
         this.method_1560(536871238, var2, var2, var1.field_444, var1.field_444 + 1);
     }
 
-    // $FF: renamed from: d (h.ad, m.ae) void
     public void method_1687(class_168 var1, class_58 var2) {
         this.method_1560(603979977, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (m.as, h.ci) void
     public void method_1688(class_43 var1, class_93 var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109231, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: k (h.cj) void
     public void method_1689(class_89 var1) {
         this.method_1460(class_329.field_1879, var1);
     }
 
-    // $FF: renamed from: a (m.k, h.cj, boolean) void
     public void method_1690(class_67 var1, class_89 var2, boolean var3) {
         int var4 = var3 ? 33554622 : 33554623;
         int var5 = this.method_1449(var4);
@@ -2716,7 +2477,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (m.ae, h.cj) void
     public void method_1691(class_58 var1, class_89 var2) {
         int var3;
         if (var1.method_358()) {
@@ -2734,17 +2494,14 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (h.bo) void
     public void method_1692(class_146 var1) {
         this.method_1560(16777789, new String[] {new String(var1.field_675.method_103())}, new String[] {new String(var1.field_675.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.w, h.cj) int
     private int method_1693(class_34 var1, class_89 var2) {
         return this.method_1694(var1, var2, 0);
     }
 
-    // $FF: renamed from: a (m.w, h.cj, int) int
     private int method_1694(class_34 var1, class_89 var2, int var3) {
         if (var2 instanceof class_149) {
             return ((class_149)var2).field_730;
@@ -2792,12 +2549,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (m.w, h.cj) int
     private int method_1695(class_34 var1, class_89 var2) {
         return this.method_1696(var1, var2, 0);
     }
 
-    // $FF: renamed from: b (m.w, h.cj, int) int
     private int method_1696(class_34 var1, class_89 var2, int var3) {
         if (var2 instanceof class_155) {
             class_155 var10 = (class_155)var2;
@@ -2840,34 +2595,28 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: m (m.ab, h.cj) void
     public void method_1697(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.field_302)};
         this.method_1562(var1 instanceof class_66 ? 536870979 : 536870977, var3, var3, 159, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: m (h.bq) void
     public void method_1698(class_114 var1) {
         this.method_1562(536871343, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, 159, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: n (m.ab, h.cj) void
     public void method_1699(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.field_302)};
         this.method_1562(536870978, var3, var3, 159, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: n (h.bq) void
     public void method_1700(class_114 var1) {
         this.method_1562(536871342, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, 159, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: l (h.cj) void
     public void method_1701(class_89 var1) {
         this.method_1560(536871173, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (int, h.cj, m.s, m.s[]) void
     public void method_1702(int var1, class_89 var2, class_40 var3, class_40[] var4) {
         if (var2 == null) {
             this.method_1562(16777740, new String[] {new String(var3.method_103()), this.method_1779(false, var4, false)}, new String[] {new String(var3.method_104()), this.method_1779(false, var4, true)}, 131, 0, 0);
@@ -2876,12 +2625,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (h.cj, m.k) void
     public void method_1703(class_89 var1, class_67 var2) {
         this.method_1704(var1, var2, -1);
     }
 
-    // $FF: renamed from: a (h.cj, m.k, int) void
     public void method_1704(class_89 var1, class_67 var2, int var3) {
         int var4 = this.method_1449(570425420);
         if (var4 != -1) {
@@ -2889,18 +2636,15 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.cj, m.ae) void
     public void method_1705(class_89 var1, class_58 var2) {
         this.method_1560(603979893, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: q (m.az) void
     public void method_1706(class_54 var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(536870944, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (m.s, h.cj, boolean) void
     public void method_1707(class_40 var1, class_89 var2, boolean var3) {
         int var4;
         if (var3) {
@@ -2915,7 +2659,6 @@ public class class_248 extends class_247 {
         this.method_1560(var4, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (h.d, m.s, m.s) void
     public void method_1708(class_142 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -2928,7 +2671,6 @@ public class class_248 extends class_247 {
         this.method_1560(16777231, new String[] {var4, var5}, new String[] {var6, var7}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.t, m.s, m.s) void
     public void method_1709(class_139 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -2941,7 +2683,6 @@ public class class_248 extends class_247 {
         this.method_1560(16777232, new String[] {var4, var5}, new String[] {var6, var7}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.r, m.s, m.s) void
     public void method_1710(class_126 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -2954,22 +2695,18 @@ public class class_248 extends class_247 {
         this.method_1560(16777796, new String[] {var4, var5}, new String[] {var6, var7}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: o (h.bq) void
     public void method_1711(class_114 var1) {
         this.method_1560(536871435, field_1061, field_1061, var1.field_601[0].field_444, var1.field_601[var1.field_601.length - 1].field_445);
     }
 
-    // $FF: renamed from: r (m.az) void
     public void method_1712(class_54 var1) {
         this.method_1560(536871241, field_1061, field_1061, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: s (m.az) void
     public void method_1713(class_54 var1) {
         this.method_1560(536871242, field_1061, field_1061, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: b (h.i, m.s, m.s) void
     public void method_1714(class_132 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -2982,34 +2719,28 @@ public class class_248 extends class_247 {
         this.method_1560(16777233, new String[] {var4, var5}, new String[] {var6, var7}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: e (m.ae, m.ae) void
     public void method_1715(class_58 var1, class_58 var2) {
         this.method_1560(67109276, new String[] {new String(class_233.method_1357(var1.field_278.method_103(), var1.method_103(), '.')), new String(var2.field_278.method_103())}, new String[] {new String(class_233.method_1357(var1.field_278.method_104(), var1.method_104(), '.')), new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    // $FF: renamed from: a (m.ae) void
     public void method_1716(class_58 var1) {
         this.method_1560(67109280, new String[] {new String(class_233.method_1357(var1.field_278.method_103(), var1.method_103(), '.'))}, new String[] {new String(class_233.method_1357(var1.field_278.method_104(), var1.method_104(), '.'))}, var1.method_385(), var1.method_383());
     }
 
-    // $FF: renamed from: f (m.ae, m.ae) void
     public void method_1717(class_58 var1, class_58 var2) {
         this.method_1560(67109274, new String[] {new String(class_233.method_1357(var1.field_278.method_103(), var1.method_103(), '.')), new String(var2.field_278.method_103())}, new String[] {new String(class_233.method_1357(var1.field_278.method_104(), var1.method_104(), '.')), new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    // $FF: renamed from: b (h.b) void
     public void method_1718(class_90 var1) {
         String[] var2 = new String[] {class_233.method_1389(var1.field_448.field_467)};
         this.method_1560(16777537, var2, var2, var1.field_448.field_444, var1.field_448.field_445);
     }
 
-    // $FF: renamed from: c (h.b) void
     public void method_1719(class_90 var1) {
         String[] var2 = new String[] {class_233.method_1389(var1.field_455.field_1677.method_53()), var1.field_448 == null ? "" : class_233.method_1389(var1.field_448.field_467)};
         this.method_1560(536871240, var2, var2, var1.field_448 == null ? 0 : var1.field_448.field_444, var1.field_448 == null ? 0 : var1.field_448.field_445);
     }
 
-    // $FF: renamed from: o (m.ab, h.cj) void
     public void method_1720(class_65 var1, class_89 var2) {
         int var3 = this.method_1449(536870971);
         if (var3 != -1) {
@@ -3018,7 +2749,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.x, boolean) java.lang.String
     private String method_1721(class_46 var1, boolean var2) {
         StringBuffer var3 = new StringBuffer(10);
         if (var1.field_222 == var1.field_223) {
@@ -3036,7 +2766,6 @@ public class class_248 extends class_247 {
         return var3.toString();
     }
 
-    // $FF: renamed from: f (h.cj, m.s) void
     public void method_1722(class_89 var1, class_40 var2) {
         if (var1 == null) {
             this.method_1562(16777778, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, 131, 0, 0);
@@ -3045,82 +2774,67 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (int, int, int, char[], java.lang.String) void
     public void method_1723(int var1, int var2, int var3, char[] var4, String var5) {
         this.method_1766(1610612968, var1, var2, var3, var4, var5, (String)null);
     }
 
-    // $FF: renamed from: c (int, int) void
     public void method_1724(int var1, int var2) {
         this.method_1560(1610612969, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: a (int, int, int, char[], java.lang.String, java.lang.String) void
     public void method_1725(int var1, int var2, int var3, char[] var4, String var5, String var6) {
         this.method_1766(1610612967, var1, var2, var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: b (int, int, int, char[], java.lang.String, java.lang.String) void
     public void method_1726(int var1, int var2, int var3, char[] var4, String var5, String var6) {
         this.method_1766(1610612966, var1, var2, var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: a (int, int, java.lang.String, java.lang.String) void
     public void method_1727(int var1, int var2, String var3, String var4) {
         String[] var5 = new String[] {var3, var4};
         this.method_1560(1610612976, var5, var5, var1, var2);
     }
 
-    // $FF: renamed from: a (int, int, java.lang.String) void
     public void method_1728(int var1, int var2, String var3) {
         String[] var4 = new String[] {var3};
         this.method_1560(1610612978, var4, var4, var1, var2);
     }
 
-    // $FF: renamed from: b (int, int, java.lang.String) void
     public void method_1729(int var1, int var2, String var3) {
         String[] var4 = new String[] {var3};
         this.method_1560(1610612977, var4, var4, var1, var2);
     }
 
-    // $FF: renamed from: c (int, int, int, char[], java.lang.String, java.lang.String) void
     public void method_1730(int var1, int var2, int var3, char[] var4, String var5, String var6) {
         this.method_1766(1610612971, var1, var2, var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: c (int, int, java.lang.String) void
     public void method_1731(int var1, int var2, String var3) {
         String[] var4 = new String[] {var3};
         this.method_1560(1610612970, var4, var4, var1, var2);
     }
 
-    // $FF: renamed from: d (int, int) void
     public void method_1732(int var1, int var2) {
         this.method_1560(1610612972, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: b (int, int, int, char[], java.lang.String) void
     public void method_1733(int var1, int var2, int var3, char[] var4, String var5) {
         this.method_1766(1610612941, var1, var2, var3, var4, var5, (String)null);
     }
 
-    // $FF: renamed from: e (int, int) void
     public void method_1734(int var1, int var2) {
         this.method_1560(1610612974, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: d (int, int, int, char[], java.lang.String, java.lang.String) void
     public void method_1735(int var1, int var2, int var3, char[] var4, String var5, String var6) {
         this.method_1766(1610612940, var1, var2, var3, var4, var5, var6);
     }
 
-    // $FF: renamed from: d (int, int, java.lang.String) void
     public void method_1736(int var1, int var2, String var3) {
         String[] var4 = new String[] {var3};
         this.method_1560(1610612973, var4, var4, var1, var2);
     }
 
-    // $FF: renamed from: f (int, int) void
     public void method_1737(int var1, int var2) {
         String[] var3;
         if (this.field_1065 instanceof class_94) {
@@ -3135,24 +2849,20 @@ public class class_248 extends class_247 {
         this.method_1560(1610612975, var3, var3, var1, var2);
     }
 
-    // $FF: renamed from: a (h.cb) void
     public void method_1738(class_131 var1) {
         this.method_1560(536871091, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.bu) void
     public void method_1739(class_108 var1) {
         this.method_1560(536871106, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.b, h.bq) void
     public void method_1740(class_90 var1, class_114 var2) {
         this.field_1065 = var2;
         String[] var3 = new String[] {new String(var1.method_771()), new String(var2.field_580)};
         this.method_1561(16777541, var3, var3, var2.field_444, var2.field_445, var1.field_455);
     }
 
-    // $FF: renamed from: a (h.cj, m.as, m.s[]) void
     public void method_1741(class_89 var1, class_43 var2, class_40[] var3) {
         if (var1 == null) {
             this.method_1562(16777777, new String[] {new String(var2.method_103()), this.method_1779(false, var3, false), new String(var2.method_137().method_103())}, new String[] {new String(var2.method_104()), this.method_1779(false, var3, true), new String(var2.method_137().method_104())}, 131, 0, 0);
@@ -3161,30 +2871,25 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: g (h.cj, m.s) void
     public void method_1742(class_89 var1, class_40 var2) {
         var2 = var2.method_173();
         this.method_1560(16777788, new String[] {new String(var2.method_103()), new String(var2.method_138().method_103())}, new String[] {new String(var2.method_104()), new String(var2.method_138().method_104())}, var1.field_444, this.method_1693((class_34)null, var1));
     }
 
-    // $FF: renamed from: a (h.q) void
     public void method_1743(class_105 var1) {
         this.method_1560(134217865, new String[] {new String(var1.field_548.field_278.method_103()), this.method_1779(var1.field_548.method_374(), var1.field_548.field_276, false)}, new String[] {new String(var1.field_548.field_278.method_104()), this.method_1779(var1.field_548.method_374(), var1.field_548.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: c (h.cp) void
     public void method_1744(class_125 var1) {
         String[] var2 = new String[] {new String(var1.field_659)};
         this.method_1560(536870968, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.ac) void
     public void method_1745(class_124 var1) {
         String[] var2 = new String[] {new String(var1.field_659)};
         this.method_1560(536870967, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (m.az, h.bo, m.as, m.as) void
     public void method_1746(class_54 var1, class_146 var2, class_43 var3, class_43 var4) {
         int var5 = this.method_1449(16777547);
         if (var5 != -1) {
@@ -3192,17 +2897,14 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.s, h.ct) void
     public void method_1747(class_40 var1, class_156 var2) {
         this.method_1560(536871062, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a () void
     public void method_1748() {
         this.field_1066 = null;
     }
 
-    // $FF: renamed from: b (int) int
     private int method_1749(int var1) {
         if (this.field_1065 == null) {
             return var1;
@@ -3256,7 +2958,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (int, int, int) int
     private int method_1750(int var1, int var2, int var3) {
         if (this.field_1065 == null) {
             return var2;
@@ -3300,7 +3001,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (int, int, int) int
     private int method_1751(int var1, int var2, int var3) {
         if (this.field_1065 == null) {
             return var1;
@@ -3346,12 +3046,10 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: d (h.ae) void
     public void method_1752(class_96 var1) {
         this.method_1560(536870966, field_1061, field_1061, var1.field_497.field_444, var1.field_497.field_445);
     }
 
-    // $FF: renamed from: a (j.r, java.lang.String) void
     public void method_1753(class_278 var1, String var2) {
         class_270 var3 = var1.field_1628;
         int var4 = 1610612941;
@@ -3406,17 +3104,14 @@ public class class_248 extends class_247 {
         this.method_1561(var4, var9, var9, var5, var6, var1.field_1561.field_455);
     }
 
-    // $FF: renamed from: g (m.s, h.cj) void
     public void method_1754(class_40 var1, class_89 var2) {
         this.method_1560(603979884, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: i (h.r) void
     public void method_1755(class_126 var1) {
         this.method_1560(536871063, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: g (m.ae, m.ae) void
     public void method_1756(class_58 var1, class_58 var2) {
         if (var1.method_370()) {
             this.method_1560(67109271, new String[] {new String(var2.field_278.method_103())}, new String[] {new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
@@ -3425,18 +3120,15 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.cj, m.k) void
     public void method_1757(class_89 var1, class_67 var2) {
         String[] var3 = new String[] {new String(var2.method_103())};
         this.method_1560(33554506, var3, var3, this.method_1695(var2, var1), this.method_1693(var2, var1));
     }
 
-    // $FF: renamed from: b (m.az, m.ae, m.ae[]) void
     public void method_1758(class_54 var1, class_58 var2, class_58[] var3) {
         this.method_1560(67109272, new String[] {new String(var2.method_103()), new String(var3[0].field_278.method_103())}, new String[] {new String(var2.method_103()), new String(var3[0].field_278.method_104())}, var1.method_318(), var1.method_317());
     }
 
-    // $FF: renamed from: a (h.cj, m.as) void
     public void method_1759(class_89 var1, class_43 var2) {
         if (var1 == null) {
             this.method_1562(16777779, new String[] {new String(var2.method_103()), new String(var2.method_137().method_103())}, new String[] {new String(var2.method_104()), new String(var2.method_137().method_104())}, 131, 0, 0);
@@ -3446,32 +3138,26 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: m (h.cj) void
     public void method_1760(class_89 var1) {
         this.method_1560(536871064, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: c (m.az, h.bo, m.as) void
     public void method_1761(class_54 var1, class_146 var2, class_43 var3) {
         this.method_1560(16777528, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: g (int, int) void
     public void method_1762(int var1, int var2) {
         this.method_1560(536871092, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: d (m.az, h.bo, m.as) void
     public void method_1763(class_54 var1, class_146 var2, class_43 var3) {
         this.method_1560(16777531, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (m.s, h.cj, m.s, m.s) void
     public void method_1764(class_40 var1, class_89 var2, class_40 var3, class_40 var4) {
         this.method_1560(16777755, new String[] {new String(var3.method_103()), new String(var4.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var4.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: c (m.az, h.bo, m.s) void
     public void method_1765(class_54 var1, class_146 var2, class_40 var3) {
         String var4 = new String(var1.method_179());
         String var5 = new String(var3.method_103());
@@ -3482,7 +3168,6 @@ public class class_248 extends class_247 {
         this.method_1560(16777772, new String[] {var5, var4}, new String[] {var6, var4}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (int, int, int, int, char[], java.lang.String, java.lang.String) void
     private void method_1766(int var1, int var2, int var3, int var4, char[] var5, String var6, String var7) {
         String var8;
         if (!this.method_1657(var4) && !this.method_1658(var4) && !this.method_1656(var4)) {
@@ -3499,27 +3184,22 @@ public class class_248 extends class_247 {
         this.method_1560(var1, var9, var9, var2, var3);
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String, java.lang.String, int, int) void
     public void method_1767(String var1, String var2, String var3, int var4, int var5) {
         this.method_1560(536871362, new String[] {var1, var2, var3}, new String[] {var1, var2, var3}, var4, var5);
     }
 
-    // $FF: renamed from: n (h.cj) void
     public void method_1768(class_89 var1) {
         this.method_1560(536870980, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: p (h.bq) void
     public void method_1769(class_114 var1) {
         this.method_1562(536871344, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, 159, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: q (h.bq) void
     public void method_1770(class_114 var1) {
         this.method_1562(536871345, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, 159, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.bv, m.s, m.s) void
     public void method_1771(class_130 var1, class_40 var2, class_40 var3) {
         String var4 = new String(var2.method_103());
         String var5 = new String(var3.method_103());
@@ -3532,20 +3212,17 @@ public class class_248 extends class_247 {
         this.method_1560(16777372, new String[] {var5, var4}, new String[] {var7, var6}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: r (h.bq) void
     public void method_1772(class_114 var1) {
         String[] var2 = new String[] {new String(var1.field_580)};
         this.method_1560(16777534, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: c (h.b, h.bq) void
     public void method_1773(class_90 var1, class_114 var2) {
         this.field_1065 = var2;
         String[] var3 = new String[] {new String(var1.method_771()), new String(var2.field_580)};
         this.method_1561(16777538, var3, var3, var2.field_444, var2.field_445, var1.field_455);
     }
 
-    // $FF: renamed from: a (h.bq, m.s) void
     public void method_1774(class_114 var1, class_40 var2) {
         int var3 = this.method_1449(16777249);
         if (var3 != -1) {
@@ -3553,7 +3230,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bq, m.x) void
     public void method_1775(class_114 var1, class_46 var2) {
         int var3 = this.method_1449(16777792);
         if (var3 != -1) {
@@ -3567,7 +3243,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.br, m.w) void
     public void method_1776(class_123 var1, class_34 var2) {
         int var3 = this.method_1449(16777787);
         if (var3 != -1) {
@@ -3576,7 +3251,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.s, h.cj, h.cj) void
     public void method_1777(class_40 var1, class_40 var2, class_89 var3, class_89 var4) {
         if (var1 != null && (var1.field_178 & 128L) != 0L) {
             this.method_1560(16777218, new String[] {new String(var1.method_173().method_103())}, new String[] {new String(var1.method_173().method_104())}, var3.field_444, var3.field_445);
@@ -3587,7 +3261,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.s, m.x, m.as, h.cj) void
     public void method_1778(class_40 var1, class_46 var2, class_43 var3, class_89 var4) {
         if (var4 == null) {
             this.method_1562(16777742, new String[] {new String(var1.method_103()), new String(var3.method_103()), new String(var2.field_198), this.method_1721(var2, false)}, new String[] {new String(var1.method_104()), new String(var3.method_104()), new String(var2.field_198), this.method_1721(var2, true)}, 131, 0, 0);
@@ -3596,7 +3269,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (boolean, m.s[], boolean) java.lang.String
     private String method_1779(boolean var1, class_40[] var2, boolean var3) {
         StringBuffer var4 = new StringBuffer(10);
         int var5 = 0;
@@ -3617,7 +3289,6 @@ public class class_248 extends class_247 {
         return var4.toString();
     }
 
-    // $FF: renamed from: b (m.s, h.ak) void
     public void method_1780(class_40 var1, class_92 var2) {
         if (!this.method_1659(var2.field_474)) {
             String var3 = new String(var2.field_474);
@@ -3625,7 +3296,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bw) void
     public void method_1781(class_109 var1) {
         if (!this.method_1659(var1.field_568)) {
             String[] var2 = new String[] {new String(var1.field_568)};
@@ -3633,54 +3303,45 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (char[], m.as) void
     public void method_1782(char[] var1, class_43 var2) {
         this.method_1562(536871450, new String[] {new String(var1), new String(var2.method_103())}, new String[] {new String(var1), new String(var2.method_104())}, 131, 0, 0);
     }
 
-    // $FF: renamed from: h (int, int) void
     public void method_1783(int var1, int var2) {
         this.method_1560(536871372, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: c (m.az, h.m) void
     public void method_1784(class_54 var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554778, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: e (m.as, h.ci) void
     public void method_1785(class_43 var1, class_93 var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109225, var3, var3, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: h (m.s, h.cj) void
     public void method_1786(class_40 var1, class_89 var2) {
         boolean var3 = this.field_1065 instanceof class_94 && ((class_94)this.field_1065).method_796();
         boolean var4 = var2 instanceof class_105 && ((class_105)var2).field_551 == 1;
         this.method_1560(var3 ? 16777362 : (var4 ? 134217871 : 16777384), new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: j (h.r) void
     public void method_1787(class_126 var1) {
         String[] var2 = new String[] {var1.field_672.method_3287()};
         this.method_1560(536871543, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: d (m.k, h.cj) void
     public void method_1788(class_67 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(33554513, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: p (m.ab, h.cj) void
     public void method_1789(class_65 var1, class_89 var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870963, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    // $FF: renamed from: a (h.bv) void
     public void method_1790(class_130 var1) {
         int var2 = this.method_1449(553648309);
         if (var2 != -1) {
@@ -3689,17 +3350,14 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: o (h.cj) void
     public void method_1791(class_89 var1) {
         this.method_1560(536871101, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.r, m.as) void
     public void method_1792(class_126 var1, class_43 var2) {
         this.method_1560(16777239, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: a (h.t, m.s) void
     public void method_1793(class_139 var1, class_40 var2) {
         int var3 = this.method_1449(553648311);
         if (var3 != -1) {
@@ -3708,18 +3366,15 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: i (int, int) void
     public void method_1794(int var1, int var2) {
         this.method_1560(536871177, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: a (m.ae, m.s[], h.bo[]) void
     public void method_1795(class_58 var1, class_40[] var2, class_146[] var3) {
         String var4 = var1.method_358() ? new String(var1.field_278.method_104()) : new String(var1.field_274);
         this.method_1560(var1.method_358() ? 67109524 : 67109443, new String[] {var4, this.method_1779(var1.method_374(), var1.field_276, false), new String(var1.field_278.method_103()), this.method_1779(var1.method_374(), var2, false)}, new String[] {var4, this.method_1779(var1.method_374(), var1.field_276, true), new String(var1.field_278.method_104()), this.method_1779(var1.method_374(), var2, true)}, var3[0].field_444, var3[var3.length - 1].field_445);
     }
 
-    // $FF: renamed from: b (h.af, m.k) void
     public void method_1796(class_161 var1, class_67 var2) {
         int var3 = var1.field_444;
         int var4 = var1.field_445;
@@ -3739,12 +3394,10 @@ public class class_248 extends class_247 {
         this.method_1560(570425423, new String[] {new String(var2.field_314.method_103()), new String(var2.field_302)}, new String[] {new String(var2.field_314.method_104()), new String(var2.field_302)}, var3, var4);
     }
 
-    // $FF: renamed from: b (m.as, h.cj) void
     public void method_1797(class_43 var1, class_89 var2) {
         this.method_1560(83886247, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    // $FF: renamed from: a (h.bf) void
     public void method_1798(class_98 var1) {
         int var2 = var1.field_444;
         int var3 = var1.field_445;
@@ -3761,7 +3414,6 @@ public class class_248 extends class_247 {
         this.method_1560(536871073, field_1061, field_1061, var2, var3);
     }
 
-    // $FF: renamed from: a (h.af, m.w) void
     public void method_1799(class_161 var1, class_34 var2) {
         String[] var3 = new String[] {new String(var2.method_103())};
         int var4 = var1.field_445;
@@ -3782,7 +3434,6 @@ public class class_248 extends class_247 {
         this.method_1560(570425394, var3, var3, var1.field_444, var4);
     }
 
-    // $FF: renamed from: a (h.bv, m.bb) void
     public void method_1800(class_130 var1, class_83 var2) {
         int var3 = this.method_1449(16777761);
         if (var3 != -1) {
@@ -3792,7 +3443,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: i (m.s, h.cj) void
     public void method_1801(class_40 var1, class_89 var2) {
         int var3 = this.method_1449(67109438);
         if (var3 != -1) {
@@ -3800,7 +3450,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.k, m.s, h.cj) void
     public void method_1802(class_67 var1, class_40 var2, class_89 var3) {
         int var4 = this.method_1449(16777752);
         if (var4 != -1) {
@@ -3808,7 +3457,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: d (h.cj, m.ae) void
     public void method_1803(class_89 var1, class_58 var2) {
         boolean var3 = var2.method_358();
         int var4 = this.method_1449(var3 ? 16777785 : 16777786);
@@ -3821,7 +3469,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: e (h.cj, m.ae) void
     public void method_1804(class_89 var1, class_58 var2) {
         boolean var3 = var2.method_358();
         int var4 = this.method_1449(var3 ? 16777746 : 16777747);
@@ -3834,7 +3481,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, m.ae, m.az) void
     public void method_1805(class_58 var1, class_58 var2, class_54 var3) {
         int var4 = this.method_1449(67109423);
         if (var4 != -1) {
@@ -3849,7 +3495,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.r, m.s, m.s) void
     public void method_1806(class_126 var1, class_40 var2, class_40 var3) {
         int var4 = this.method_1449(16777748);
         if (var4 != -1) {
@@ -3857,7 +3502,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (h.ac) void
     public void method_1807(class_124 var1) {
         int var2 = this.method_1449(536870974);
         if (var2 != -1) {
@@ -3866,7 +3510,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (m.as, h.ci, h.cj) void
     public void method_1808(class_43 var1, class_93 var2, class_89 var3) {
         boolean var4 = var2.method_795();
         int var5 = this.method_1449(var4 ? 536871098 : 536871097);
@@ -3879,7 +3522,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: e (h.z) void
     public void method_1809(class_91 var1) {
         int var2 = this.method_1449(268435844);
         if (var2 != -1) {
@@ -3888,7 +3530,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.u) void
     public void method_1810(class_104 var1) {
         int var2 = this.method_1449(536871111);
         if (var2 != -1) {
@@ -3897,7 +3538,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.ac) void
     public void method_1811(class_124 var1) {
         int var2 = this.method_1449(536870973);
         if (var2 != -1) {
@@ -3906,7 +3546,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: c (h.g) void
     public void method_1812(class_94 var1) {
         int var2 = this.method_1449(603979910);
         if (var2 != -1) {
@@ -3915,7 +3554,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: e (h.m) void
     public void method_1813(class_121 var1) {
         int var2 = this.method_1449(570425421);
         if (var2 != -1) {
@@ -3928,7 +3566,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: m (h.ci) void
     public void method_1814(class_93 var1) {
         int var2 = this.method_1449(603979894);
         if (var2 != -1) {
@@ -3945,7 +3582,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: s (h.bq) void
     public void method_1815(class_114 var1) {
         int var2 = this.method_1449(553648135);
         if (var2 != -1) {
@@ -3954,23 +3590,19 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: k (h.r) void
     public void method_1816(class_126 var1) {
         String[] var2 = new String[] {var1.field_672.method_3287()};
         this.method_1560(536871547, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: j (int, int) void
     public void method_1817(int var1, int var2) {
         this.method_1560(536871352, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: k (int, int) void
     public void method_1818(int var1, int var2) {
         this.method_1560(536871353, field_1061, field_1061, var1, var2);
     }
 
-    // $FF: renamed from: a (m.ae, m.s, m.ad) void
     public void method_1819(class_58 var1, class_40 var2, class_0 var3) {
         int var4 = this.field_1064.method_3313(34359738368L);
         if (var4 != -1) {
@@ -3983,33 +3615,27 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: b (m.ae, m.ae, m.az) void
     public void method_1820(class_58 var1, class_58 var2, class_54 var3) {
         this.method_1560(67109667, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, false), new String(var1.field_278.method_103()), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, true), new String(var1.field_278.method_104()), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.field_278 == var3 ? var1.method_385() : var3.method_318(), var1.field_278 == var3 ? var1.method_383() : var3.method_317());
     }
 
-    // $FF: renamed from: a (h.cl) void
     public void method_1821(class_120 var1) {
         String[] var2 = new String[] {new String(var1.field_659)};
         this.method_1560(536870964, var2, var2, var1.field_444, var1.field_445);
     }
 
-    // $FF: renamed from: b (h.cl) void
     public void method_1822(class_120 var1) {
         this.method_1560(536870966, field_1061, field_1061, var1.field_660.field_444, var1.field_660.field_445);
     }
 
-    // $FF: renamed from: h (m.ae, m.ae) void
     public void method_1823(class_58 var1, class_58 var2) {
         this.method_1560(67109273, new String[] {new String(var2.field_278.method_103())}, new String[] {new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    // $FF: renamed from: a (m.s, m.s, h.cj) void
     public void method_1824(class_40 var1, class_40 var2, class_89 var3) {
         this.method_1560(16777758, new String[] {new String(var2.method_103()), new String(var1.method_103())}, new String[] {new String(var2.method_104()), new String(var1.method_104())}, var3.field_444, var3.field_445);
     }
 
-    // $FF: renamed from: a (h.cj, m.s, m.ae, m.s[]) void
     public void method_1825(class_89 var1, class_40 var2, class_58 var3, class_40[] var4) {
         class_40 var5 = null;
         class_40 var6 = null;
@@ -4029,7 +3655,6 @@ public class class_248 extends class_247 {
         }
     }
 
-    // $FF: renamed from: a (h.bl, m.s, int, m.s) void
     public void method_1826(class_117 var1, class_40 var2, int var3, class_40 var4) {
         class_146 var5 = var1.field_621[var3].field_660;
         this.method_1560(553648315, new String[] {new String(var2.method_103()), new String(var4.method_103())}, new String[] {new String(var2.method_104()), new String(var4.method_104())}, var5.field_444, var5.field_445);

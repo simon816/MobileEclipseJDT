@@ -1,18 +1,15 @@
 package d;
 
-// $FF: renamed from: d.a
 class class_231 {
 
-    // $FF: renamed from: a int
     int field_990;
-    // $FF: renamed from: a int[]
+
     int[] field_991;
-    // $FF: renamed from: b int[]
+
     int[] field_992;
-    // $FF: renamed from: c int[]
+
     int[] field_993;
 
-    // $FF: renamed from: <init> () void
     class_231() {
         this.field_990 = 0;
         this.field_991 = new int[10];
@@ -20,12 +17,10 @@ class class_231 {
         this.field_993 = new int[10];
     }
 
-    // $FF: renamed from: a (int, int) void
     void method_1345(int var1, int var2) {
         this.method_1346(var1, var2, 0);
     }
 
-    // $FF: renamed from: a (int, int, int) void
     void method_1346(int var1, int var2, int var3) {
         if (this.field_990 >= this.field_991.length) {
             System.arraycopy(this.field_991, 0, this.field_991 = new int[this.field_990 * 2], 0, this.field_990);
@@ -38,7 +33,6 @@ class class_231 {
         ++this.field_990;
     }
 
-    // $FF: renamed from: a () int[][]
     int[][] method_1347() {
         int[] var1 = new int[this.field_990];
         int[] var2 = new int[this.field_990];
@@ -52,7 +46,6 @@ class class_231 {
         return new int[][] {var1, var2, var3};
     }
 
-    // $FF: renamed from: a (int[], int[], int[], int, int) void
     private void method_1348(int[] var1, int[] var2, int[] var3, int var4, int var5) {
         int var6 = var4;
         int var7 = var5;
@@ -89,7 +82,6 @@ class class_231 {
         }
     }
 
-    // $FF: renamed from: a (int, int) int
     private int method_1349(int var1, int var2) {
         return var1 - var2;
     }

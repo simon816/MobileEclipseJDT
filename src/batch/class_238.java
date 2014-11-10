@@ -37,81 +37,77 @@ import k.class_19;
 import k.class_343;
 import n.class_246;
 
-// $FF: renamed from: batch.d
 public class class_238 implements class_2 {
 
-    // $FF: renamed from: a boolean
     boolean field_1012;
-    // $FF: renamed from: a c.f
+
     public class_286 field_1013;
-    // $FF: renamed from: a java.util.Hashtable
+
     public static Hashtable field_1014;
-    // $FF: renamed from: a batch.a[]
+
     protected class_4[] field_1015;
-    // $FF: renamed from: a a.c
+
     public class_341 field_1016;
-    // $FF: renamed from: a b.b
+
     public class_234 field_1017;
-    // $FF: renamed from: a java.lang.String
+
     public String field_1018;
-    // $FF: renamed from: h boolean
+
     private boolean field_1019;
-    // $FF: renamed from: i boolean
+
     private boolean field_1020;
-    // $FF: renamed from: a int
+
     public int field_1021;
-    // $FF: renamed from: a java.lang.String[]
+
     public String[] field_1022;
-    // $FF: renamed from: b java.lang.String[]
+
     public String[] field_1023;
-    // $FF: renamed from: b int
+
     public int field_1024;
-    // $FF: renamed from: c int
+
     public int field_1025;
-    // $FF: renamed from: d int
+
     public int field_1026;
-    // $FF: renamed from: e int
+
     public int field_1027;
-    // $FF: renamed from: a batch.e
+
     public class_217 field_1028;
-    // $FF: renamed from: a g.m
+
     public class_14 field_1029;
-    // $FF: renamed from: a java.io.PrintStream
+
     protected PrintStream field_1030;
-    // $FF: renamed from: b boolean
+
     public boolean field_1031;
-    // $FF: renamed from: c boolean
+
     public boolean field_1032;
-    // $FF: renamed from: d boolean
+
     public boolean field_1033;
-    // $FF: renamed from: f int
+
     public int field_1034;
-    // $FF: renamed from: g int
+
     public int field_1035;
-    // $FF: renamed from: e boolean
+
     public boolean field_1036;
-    // $FF: renamed from: a long
+
     public long field_1037;
-    // $FF: renamed from: a g.p
+
     public class_313 field_1038;
-    // $FF: renamed from: f boolean
+
     public boolean field_1039;
-    // $FF: renamed from: h int
+
     public int field_1040;
-    // $FF: renamed from: a a.b[]
+
     public class_342[] field_1041;
-    // $FF: renamed from: g boolean
+
     public boolean field_1042;
-    // $FF: renamed from: b g.p
+
     class_313 field_1043;
 
-    // $FF: renamed from: a (java.lang.String[]) void
     public static void method_1409(String[] var0) {
         class_238 var10000 = new class_238(System.out, System.err, true, (class_14)null, (class_234)null);
         var10000.method_1415(var0);
     }
 
-    // $FF: renamed from: <init> (java.io.PrintStream, java.io.PrintStream, boolean, g.m, b.b) void
     public class_238(PrintStream var1, PrintStream var2, boolean var3, class_14 var4, class_234 var5) {
         this.field_1031 = true;
         this.field_1032 = false;
@@ -123,22 +119,18 @@ public class class_238 implements class_2 {
         field_1014 = class_214.method_1219();
     }
 
-    // $FF: renamed from: a (java.lang.String) java.lang.String
     public String method_1411(String var1) {
         return this.method_1414(var1, (String[])null);
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String) java.lang.String
     public String method_1412(String var1, String var2) {
         return this.method_1414(var1, new String[] {var2});
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String, java.lang.String) java.lang.String
     public String method_1413(String var1, String var2, String var3) {
         return this.method_1414(var1, new String[] {var2, var3});
     }
 
-    // $FF: renamed from: a (java.lang.String, java.lang.String[]) java.lang.String
     public String method_1414(String var1, String[] var2) {
         if (var1 == null) {
             return "No message available";
@@ -153,63 +145,64 @@ public class class_238 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String[]) boolean
     public boolean method_1415(String[] var1) {
         boolean var3;
         try {
-            this.method_1416(var1);
-            if (this.field_1017 != null) {
-                this.field_1017.method_1392(this.field_1022 == null ? 0 : this.field_1022.length * this.field_1035);
-            }
-            if (this.field_1031) {
-                if (this.field_1042) {
-                    eclipse var10000 = eclipse.field_427;
-                    class_341 var10002 = new class_341(this.field_1029);
-                    var10000.method_734(this.field_1016 = var10002);
+            try {
+                this.method_1416(var1);
+                if (this.field_1017 != null) {
+                    this.field_1017.method_1392(this.field_1022 == null ? 0 : this.field_1022.length * this.field_1035);
                 }
-                if (this.field_1036) {
-                    this.field_1028.method_1230();
-                }
-                for (this.field_1034 = 0; this.field_1034 < this.field_1035; ++this.field_1034) {
-                    this.field_1025 = 0;
-                    this.field_1024 = 0;
-                    this.field_1027 = 0;
-                    this.field_1026 = 0;
-                    this.field_1021 = 0;
-                    if (this.field_1035 > 1) {
-                        this.field_1028.method_1239();
-                        this.field_1028.method_1254(this.field_1034, this.field_1035);
+                if (this.field_1031) {
+                    if (this.field_1042) {
+                        eclipse var10000 = eclipse.field_427;
+                        class_341 var10002 = new class_341(this.field_1029);
+                        var10000.method_734(this.field_1016 = var10002);
                     }
-                    this.method_1425();
+                    if (this.field_1036) {
+                        this.field_1028.method_1230();
+                    }
+                    for (this.field_1034 = 0; this.field_1034 < this.field_1035; ++this.field_1034) {
+                        this.field_1025 = 0;
+                        this.field_1024 = 0;
+                        this.field_1027 = 0;
+                        this.field_1026 = 0;
+                        this.field_1021 = 0;
+                        if (this.field_1035 > 1) {
+                            this.field_1028.method_1239();
+                            this.field_1028.method_1254(this.field_1034, this.field_1035);
+                        }
+                        this.method_1425();
+                    }
+                    if (this.field_1041 != null) {
+                        this.field_1028.method_1242();
+                    }
+                    if (this.field_1036) {
+                        this.field_1028.method_1263();
+                    }
                 }
-                if (this.field_1041 != null) {
-                    this.field_1028.method_1242();
+                if (this.field_1039) {
+                    this.field_1028.method_1239();
+                    this.field_1028.method_1229();
                 }
-                if (this.field_1036) {
-                    this.field_1028.method_1263();
+                return this.field_1024 == 0 && (this.field_1017 == null || !this.field_1017.method_1394());
+            } catch (class_232 var8) {
+                var8.printStackTrace();
+                if (this.field_1039) {
+                    this.field_1028.method_1239();
+                    this.field_1028.method_1229();
                 }
-            }
-            if (this.field_1039) {
-                this.field_1028.method_1239();
-                this.field_1028.method_1229();
-            }
-            return this.field_1024 == 0 && (this.field_1017 == null || !this.field_1017.method_1394());
-        } catch (class_232 var8) {
-            var8.printStackTrace();
-            if (this.field_1039) {
-                this.field_1028.method_1239();
-                this.field_1028.method_1229();
+                var3 = false;
+                return var3;
+            } catch (RuntimeException var9) {
+                this.field_1028.method_1244(var9);
+                if (this.field_1039) {
+                    this.field_1028.method_1239();
+                    this.field_1028.method_1229();
+                    throw var9;
+                }
             }
             var3 = false;
-        } catch (RuntimeException var9) {
-            this.field_1028.method_1244(var9);
-            if (this.field_1039) {
-                this.field_1028.method_1239();
-                this.field_1028.method_1229();
-                throw var9;
-            }
-            var3 = false;
-            return var3;
         } finally {
             this.field_1028.method_1239();
             this.field_1028.method_1229();
@@ -220,7 +213,6 @@ public class class_238 implements class_2 {
         return var3;
     }
 
-    // $FF: renamed from: b (java.lang.String[]) void
     public void method_1416(String[] var1) {
         class_308 var10001 = new class_308(var1[0]);
         this.field_1022 = method_1426(var10001, "JAVA");
@@ -255,7 +247,6 @@ public class class_238 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a (c.h) java.lang.String
     public String method_1417(class_284 var1) {
         class_19 var2 = var1.field_1677;
         if (var2 != null) {
@@ -273,13 +264,11 @@ public class class_238 implements class_2 {
         return null;
     }
 
-    // $FF: renamed from: a () c.k
     public class_9 method_1418() {
         class_208 var10000 = new class_208(this);
         return var10000;
     }
 
-    // $FF: renamed from: a () batch.c[]
     public class_237[] method_1419() throws class_232 {
         int var1 = this.field_1022.length;
         class_237[] var2 = new class_237[var1];
@@ -305,25 +294,21 @@ public class class_238 implements class_2 {
         return var2;
     }
 
-    // $FF: renamed from: a () c.l
     public class_7 method_1420() {
         class_211 var10000 = new class_211(this);
         return var10000;
     }
 
-    // $FF: renamed from: a () batch.b
     public class_239 method_1421() {
         class_239 var10000 = new class_239(this.field_1015, this.field_1022);
         return var10000;
     }
 
-    // $FF: renamed from: a () c.o
     public class_8 method_1422() {
         class_246 var10000 = new class_246();
         return var10000;
     }
 
-    // $FF: renamed from: a (java.io.PrintStream, java.io.PrintStream, boolean, g.m, b.b) void
     protected void method_1423(PrintStream var1, PrintStream var2, boolean var3, class_14 var4, class_234 var5) {
         class_217 var10001 = new class_217(this, var1, var2);
         this.field_1028 = var10001;
@@ -348,7 +333,6 @@ public class class_238 implements class_2 {
         this.field_1023 = null;
     }
 
-    // $FF: renamed from: a (c.h) void
     public void method_1424(class_284 var1) {
         if (var1 != null && (!var1.method_2924() || this.field_1032)) {
             class_288[] var2 = var1.method_2917();
@@ -393,7 +377,6 @@ public class class_238 implements class_2 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_1425() throws class_232 {
         this.field_1037 = System.currentTimeMillis();
         class_239 var1 = this.method_1421();
@@ -422,7 +405,6 @@ public class class_238 implements class_2 {
         var1.method_16();
     }
 
-    // $FF: renamed from: a (g.g, java.lang.String) java.lang.String[]
     public static String[] method_1426(class_308 var0, String var1) {
         class_313 var10000 = new class_313();
         class_313 var2 = var10000;
@@ -432,7 +414,6 @@ public class class_238 implements class_2 {
         return var3;
     }
 
-    // $FF: renamed from: a (g.g, java.lang.String, g.p) void
     private static void method_1427(class_308 var0, String var1, class_313 var2) {
         if (var0.method_3146()) {
             class_308[] var3 = null;

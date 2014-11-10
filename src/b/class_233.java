@@ -2,21 +2,17 @@ package b;
 
 import j.class_346;
 
-// $FF: renamed from: b.a
 public final class class_233 {
 
-    // $FF: renamed from: a char[]
     public static final char[] field_994;
-    // $FF: renamed from: a char[][]
+
     public static final char[][] field_995;
-    // $FF: renamed from: a java.lang.String[]
+
     public static final String[] field_996;
 
-    // $FF: renamed from: <init> () void
     public class_233() {
     }
 
-    // $FF: renamed from: a (char[][], char[]) char[][]
     public static final char[][] method_1353(char[][] var0, char[] var1) {
         if (var1 == null) {
             return var0;
@@ -31,7 +27,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[]) int
     public static final int method_1354(char[] var0, char[] var1) {
         int var2 = var0.length;
         int var3 = var1.length;
@@ -44,7 +39,6 @@ public final class class_233 {
         return var2 - var3;
     }
 
-    // $FF: renamed from: a (char[], char[]) char[]
     public static final char[] method_1355(char[] var0, char[] var1) {
         if (var0 == null) {
             return var1;
@@ -60,7 +54,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[], char[]) char[]
     public static final char[] method_1356(char[] var0, char[] var1, char[] var2) {
         if (var0 == null) {
             return method_1355(var1, var2);
@@ -80,7 +73,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[], char) char[]
     public static final char[] method_1357(char[] var0, char[] var1, char var2) {
         if (var0 == null) {
             return var1;
@@ -105,7 +97,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char, char[], char, char[]) char[]
     public static final char[] method_1358(char[] var0, char var1, char[] var2, char var3, char[] var4) {
         if (var0 == null) {
             return method_1357(var2, var4, var3);
@@ -127,7 +118,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char, char[], char) char[]
     public static final char[] method_1359(char var0, char[] var1, char var2) {
         if (var1 == null) {
             return new char[] {var0, var2};
@@ -141,7 +131,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[][], char[], char) char[]
     public static final char[] method_1360(char[][] var0, char[] var1, char var2) {
         int var3 = var1 == null ? 0 : var1.length;
         if (var3 == 0) {
@@ -177,7 +166,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[][], char) char[]
     public static final char[] method_1361(char[][] var0, char var1) {
         int var2 = var0 == null ? 0 : var0.length;
         if (var2 == 0) {
@@ -217,7 +205,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[][]) char[][]
     public static final char[][] method_1362(char[][] var0) {
         int var1 = var0.length;
         char[][] var2 = new char[var1][];
@@ -231,7 +218,6 @@ public final class class_233 {
         return var2;
     }
 
-    // $FF: renamed from: a (char[][], char[][]) boolean
     public static final boolean method_1363(char[][] var0, char[][] var1) {
         if (var0 == var1) {
             return true;
@@ -253,7 +239,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[]) boolean
     public static final boolean method_1364(char[] var0, char[] var1) {
         if (var0 == var1) {
             return true;
@@ -275,12 +260,10 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[], int, int) boolean
     public static final boolean method_1365(char[] var0, char[] var1, int var2, int var3) {
         return method_1366(var0, var1, var2, var3, true);
     }
 
-    // $FF: renamed from: a (char[], char[], int, int, boolean) boolean
     public static final boolean method_1366(char[] var0, char[] var1, int var2, int var3, boolean var4) {
         if (var0 == var1) {
             return true;
@@ -319,7 +302,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[], boolean) boolean
     public static final boolean method_1367(char[] var0, char[] var1, boolean var2) {
         if (var2) {
             return method_1364(var0, var1);
@@ -343,7 +325,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[], int, boolean) boolean
     public static final boolean method_1368(char[] var0, char[] var1, int var2, boolean var3) {
         int var4 = var0.length;
         if (var1.length < var4 + var2) {
@@ -372,7 +353,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[]) int
     public static final int method_1369(char[] var0) {
         int var1 = var0.length;
         int var2 = var1 == 0 ? 31 : var0[0];
@@ -395,22 +375,18 @@ public final class class_233 {
         return var2 & Integer.MAX_VALUE;
     }
 
-    // $FF: renamed from: a (char) boolean
     public static boolean method_1370(char var0) {
         return var0 < 128 && (class_346.field_1984[var0] & 256) != 0;
     }
 
-    // $FF: renamed from: a (char, char[]) int
     public static final int method_1371(char var0, char[] var1) {
         return method_1374(var0, var1, 0);
     }
 
-    // $FF: renamed from: a (char[], char[], boolean, int) int
     public static final int method_1372(char[] var0, char[] var1, boolean var2, int var3) {
         return method_1373(var0, var1, var2, var3, var1.length);
     }
 
-    // $FF: renamed from: a (char[], char[], boolean, int, int) int
     public static final int method_1373(char[] var0, char[] var1, boolean var2, int var3, int var4) {
         int var5 = var4;
         int var6 = var0.length;
@@ -471,7 +447,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char, char[], int) int
     public static final int method_1374(char var0, char[] var1, int var2) {
         for (int var3 = var2; var3 < var1.length; ++var3) {
             if (var0 == var1[var3]) {
@@ -481,7 +456,6 @@ public final class class_233 {
         return -1;
     }
 
-    // $FF: renamed from: a (char, char[], int, int) int
     public static final int method_1375(char var0, char[] var1, int var2, int var3) {
         for (int var4 = var2; var4 < var3; ++var4) {
             if (var0 == var1[var4]) {
@@ -491,7 +465,6 @@ public final class class_233 {
         return -1;
     }
 
-    // $FF: renamed from: b (char, char[]) int
     public static final int method_1376(char var0, char[] var1) {
         int var2 = var1.length;
         do {
@@ -503,13 +476,11 @@ public final class class_233 {
         return var2;
     }
 
-    // $FF: renamed from: a (char[], char) char[]
     public static final char[] method_1377(char[] var0, char var1) {
         int var2 = method_1376(var1, var0);
         return var2 < 0 ? var0 : method_1388(var0, var2 + 1, var0.length);
     }
 
-    // $FF: renamed from: a (char[], int, int, char[], int, int, boolean) boolean
     public static final boolean method_1378(char[] var0, int var1, int var2, char[] var3, int var4, int var5, boolean var6) {
         if (var3 == null) {
             return false;
@@ -567,7 +538,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char[], boolean, char) boolean
     public static final boolean method_1379(char[] var0, char[] var1, boolean var2, char var3) {
         if (var1 == null) {
             return false;
@@ -689,7 +659,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], int, int) int
     public static final int method_1380(char[] var0, int var1, int var2) {
         if (var2 == 1) {
             int var3 = var0[var1] - 48;
@@ -703,7 +672,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: b (char[], char[]) boolean
     public static final boolean method_1381(char[] var0, char[] var1) {
         int var2 = var0.length;
         if (var1.length < var2) {
@@ -720,7 +688,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], char, char) void
     public static final void method_1382(char[] var0, char var1, char var2) {
         if (var1 != var2) {
             int var3 = 0;
@@ -732,7 +699,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: b (char[], char[], char[]) char[]
     public static final char[] method_1383(char[] var0, char[] var1, char[] var2) {
         int var3 = var0.length;
         int var4 = var1.length;
@@ -775,7 +741,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char, char[]) char[][]
     public static final char[][] method_1384(char var0, char[] var1) {
         int var2 = var1 == null ? 0 : var1.length;
         if (var2 == 0) {
@@ -820,7 +785,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: b (char, char[]) char[][]
     public static final char[][] method_1385(char var0, char[] var1) {
         int var2 = var1 == null ? 0 : var1.length;
         if (var2 == 0) {
@@ -848,7 +812,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char, char[], int, int) char[][]
     public static final char[][] method_1386(char var0, char[] var1, int var2, int var3) {
         int var4 = var1 == null ? 0 : var1.length;
         if (var4 != 0 && var2 <= var3) {
@@ -876,7 +839,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[][], int, int) char[][]
     public static final char[][] method_1387(char[][] var0, int var1, int var2) {
         if (var2 == -1) {
             var2 = var0.length;
@@ -894,7 +856,6 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[], int, int) char[]
     public static final char[] method_1388(char[] var0, int var1, int var2) {
         if (var2 == -1) {
             var2 = var0.length;
@@ -912,13 +873,11 @@ public final class class_233 {
         }
     }
 
-    // $FF: renamed from: a (char[][]) java.lang.String
     public static final String method_1389(char[][] var0) {
         char[] var1 = method_1361(var0, '.');
         return new String(var1);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_994 = new char[0];
         field_995 = new char[0][];

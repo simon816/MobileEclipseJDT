@@ -10,33 +10,28 @@ import m.class_49;
 import m.class_51;
 import m.class_80;
 
-// $FF: renamed from: m.ar
 public class class_38 extends class_34 implements class_17 {
 
-    // $FF: renamed from: a long
     public long field_170;
-    // $FF: renamed from: a char[][]
+
     public char[][] field_171;
-    // $FF: renamed from: a m.ar
+
     class_38 field_172;
-    // $FF: renamed from: a m.af
+
     public class_80 field_173;
-    // $FF: renamed from: a f.b
+
     class_328 field_174;
-    // $FF: renamed from: a f.f
+
     class_324 field_175;
 
-    // $FF: renamed from: <init> () void
     protected class_38() {
         this.field_170 = 0L;
     }
 
-    // $FF: renamed from: <init> (char[], m.af) void
     public class_38(char[] var1, class_80 var2) {
         this(new char[][] {var1}, (class_38)null, var2);
     }
 
-    // $FF: renamed from: <init> (char[][], m.ar, m.af) void
     public class_38(char[][] var1, class_38 var2, class_80 var3) {
         this.field_170 = 0L;
         this.field_171 = var1;
@@ -47,17 +42,14 @@ public class class_38 extends class_34 implements class_17 {
         this.field_175 = var10001;
     }
 
-    // $FF: renamed from: <init> (m.af) void
     public class_38(class_80 var1) {
         this(class_233.field_995, (class_38)null, var1);
     }
 
-    // $FF: renamed from: a (char[]) void
     private void method_115(char[] var1) {
         this.field_175.method_3220(var1, class_80.field_366);
     }
 
-    // $FF: renamed from: b (char[]) void
     private void method_116(char[] var1) {
         if (this.field_174 == null) {
             class_328 var10001 = new class_328(25);
@@ -66,7 +58,6 @@ public class class_38 extends class_34 implements class_17 {
         this.field_174.method_3248(var1, class_80.field_367);
     }
 
-    // $FF: renamed from: a (m.ar) void
     void method_117(class_38 var1) {
         if ((var1.field_170 & 128L) == 0L) {
             this.method_119();
@@ -74,7 +65,6 @@ public class class_38 extends class_34 implements class_17 {
         this.field_175.method_3220(var1.field_171[var1.field_171.length - 1], var1);
     }
 
-    // $FF: renamed from: a (m.as) void
     void method_118(class_43 var1) {
         if ((var1.field_178 & 128L) == 0L) {
             this.method_119();
@@ -86,7 +76,6 @@ public class class_38 extends class_34 implements class_17 {
         this.field_174.method_3248(var1.field_197[var1.field_197.length - 1], var1);
     }
 
-    // $FF: renamed from: a () void
     void method_119() {
         class_38 var1 = this;
         do {
@@ -94,7 +83,6 @@ public class class_38 extends class_34 implements class_17 {
         } while ((var1 = var1.field_172) != null);
     }
 
-    // $FF: renamed from: c (char[]) m.ar
     private class_38 method_120(char[] var1) {
         if (!this.field_173.method_515(this.field_171, var1)) {
             return null;
@@ -107,7 +95,6 @@ public class class_38 extends class_34 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a (char[]) m.ar
     class_38 method_121(char[] var1) {
         class_38 var2 = this.method_122(var1);
         if (var2 != null) {
@@ -120,12 +107,10 @@ public class class_38 extends class_34 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (char[]) m.ar
     class_38 method_122(char[] var1) {
         return this.field_175.method_3219(var1);
     }
 
-    // $FF: renamed from: a (char[]) m.as
     class_43 method_123(char[] var1) {
         class_43 var2 = this.method_124(var1);
         if (var2 == null && (var2 = this.field_173.method_482(this, var1)) == null) {
@@ -144,12 +129,10 @@ public class class_38 extends class_34 implements class_17 {
         }
     }
 
-    // $FF: renamed from: b (char[]) m.as
     class_43 method_124(char[] var1) {
         return this.field_174 == null ? null : this.field_174.method_3247(var1);
     }
 
-    // $FF: renamed from: a (char[]) m.w
     public class_34 method_125(char[] var1) {
         class_43 var2 = this.method_124(var1);
         class_51 var10000;
@@ -187,17 +170,14 @@ public class class_38 extends class_34 implements class_17 {
         }
     }
 
-    // $FF: renamed from: a () int
     public final int method_98() {
         return 16;
     }
 
-    // $FF: renamed from: c () int
     public int method_102() {
         return (this.field_170 & 128L) != 0L ? 1 : 0;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_103() {
         return class_233.method_1361(this.field_171, '.');
     }

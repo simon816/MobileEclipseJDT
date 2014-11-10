@@ -10,50 +10,41 @@ import i.class_268;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.bc
 public class class_170 extends class_169 {
 
-    // $FF: renamed from: a char[]
     char[] field_785;
-    // $FF: renamed from: a int
+
     int field_786;
 
-    // $FF: renamed from: <init> (char[], int, int, int) void
     public class_170(char[] var1, int var2, int var3, int var4) {
         this(var2, var3);
         this.field_785 = var1;
         this.field_786 = var4 - 1;
     }
 
-    // $FF: renamed from: <init> (int, int) void
     public class_170(int var1, int var2) {
         super(var1, var2);
     }
 
-    // $FF: renamed from: a () void
     public void method_1081() {
         this.field_672 = class_336.method_3299(String.valueOf(this.field_785));
     }
 
-    // $FF: renamed from: a (h.cg) h.o
     public class_171 method_1085(class_182 var1) {
         class_171 var10000 = new class_171(this, var1);
         return var10000;
     }
 
-    // $FF: renamed from: a (h.bc) h.o
     public class_171 method_1086(class_170 var1) {
         class_171 var10000 = new class_171(this, var1);
         return var10000;
     }
 
-    // $FF: renamed from: a (h.bc) h.bd
     public class_172 method_1087(class_170 var1) {
         class_172 var10000 = new class_172(this, var1);
         return var10000;
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (var3) {
@@ -62,12 +53,10 @@ public class class_170 extends class_169 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: b (m.v) m.s
     public class_40 method_1082(class_86 var1) {
         return var1.method_610();
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append('\"');
         for (int var3 = 0; var3 < this.field_785.length; ++var3) {
@@ -104,12 +93,10 @@ public class class_170 extends class_169 {
         return var2;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_1083() {
         return this.field_785;
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2058(this, var2);
         var1.method_1973(this, var2);

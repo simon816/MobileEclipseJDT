@@ -15,43 +15,40 @@ import m.class_67;
 import m.class_83;
 import m.class_86;
 
-// $FF: renamed from: l.c
 public class class_297 extends class_295 {
 
-    // $FF: renamed from: a i.s
     public class_74 field_1748;
-    // $FF: renamed from: a l.f
+
     public class_303 field_1749;
-    // $FF: renamed from: c l.f
+
     private class_303 field_1750;
-    // $FF: renamed from: a l.c[]
+
     private class_297[] field_1751;
-    // $FF: renamed from: a l.f[]
+
     private class_303[] field_1752;
-    // $FF: renamed from: c int
+
     private int field_1753;
-    // $FF: renamed from: a l.b[]
+
     private class_296[] field_1754;
-    // $FF: renamed from: d int
+
     private int field_1755;
-    // $FF: renamed from: a h.bb[]
+
     class_154[] field_1756;
-    // $FF: renamed from: a m.q[]
+
     class_64[] field_1757;
-    // $FF: renamed from: a int
+
     int field_1758;
-    // $FF: renamed from: a m.ab[]
+
     class_65[] field_1759;
-    // $FF: renamed from: a h.r[]
+
     class_126[] field_1760;
-    // $FF: renamed from: a int[]
+
     int[] field_1761;
-    // $FF: renamed from: b int
+
     int field_1762;
-    // $FF: renamed from: a m.bb
+
     class_83 field_1763;
 
-    // $FF: renamed from: <init> (l.j, l.g, h.cj, i.s, i.s, m.bb) void
     public class_297(class_293 var1, class_301 var2, class_89 var3, class_74 var4, class_74 var5, class_83 var6) {
         super(var1, var3, var4);
         this.field_1749 = class_301.field_1784;
@@ -67,7 +64,6 @@ public class class_297 extends class_295 {
         this.field_1750 = var2.method_3107();
     }
 
-    // $FF: renamed from: a (m.v, l.g) void
     public void method_3057(class_86 var1, class_301 var2) {
         for (int var3 = 0; var3 < this.field_1758; ++var3) {
             class_64 var4 = this.field_1757[var3];
@@ -91,7 +87,6 @@ public class class_297 extends class_295 {
         }
     }
 
-    // $FF: renamed from: b (m.v, l.g) void
     public void method_3058(class_86 var1, class_301 var2) {
         for (int var3 = 0; var3 < this.field_1753; ++var3) {
             this.field_1750.method_3113(this.field_1751[var3].field_1750).method_3113(this.field_1752[var3]);
@@ -222,12 +217,10 @@ public class class_297 extends class_295 {
         }
     }
 
-    // $FF: renamed from: a () i.s
     public class_74 method_3034() {
         return this.field_1748;
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_3039() {
         StringBuffer var1 = new StringBuffer("Looping flow context");
         var1.append("[initsOnBreak - ").append(this.field_1746.toString()).append(']');
@@ -237,12 +230,10 @@ public class class_297 extends class_295 {
         return var1.toString();
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_3041() {
         return true;
     }
 
-    // $FF: renamed from: a (l.j) void
     public void method_3045(class_293 var1) {
         if (var1 instanceof class_296) {
             int var2;
@@ -255,7 +246,6 @@ public class class_297 extends class_295 {
         }
     }
 
-    // $FF: renamed from: a (l.j, l.g) void
     public void method_3046(class_293 var1, class_301 var2) {
         if ((var2.field_1783 & 1) == 0) {
             if ((this.field_1749.field_1783 & 1) == 0) {
@@ -287,7 +277,6 @@ public class class_297 extends class_295 {
         }
     }
 
-    // $FF: renamed from: a (m.q, h.bb) boolean
     protected boolean method_3047(class_64 var1, class_154 var2) {
         if (var1 instanceof class_65) {
             Object var3 = ((class_65)var1).field_308;
@@ -311,7 +300,6 @@ public class class_297 extends class_295 {
         return true;
     }
 
-    // $FF: renamed from: a (m.ab, h.r, int) void
     protected void method_3059(class_65 var1, class_126 var2, int var3) {
         if (this.field_1762 == 0) {
             this.field_1759 = new class_65[5];
@@ -327,7 +315,6 @@ public class class_297 extends class_295 {
         this.field_1761[this.field_1762++] = var3;
     }
 
-    // $FF: renamed from: a (m.bb, m.ab, h.r, int, l.g) void
     public void method_3050(class_83 var1, class_65 var2, class_126 var3, int var4, class_301 var5) {
         if ((var5.field_1783 & 1) == 0 && !var5.method_3086(var2)) {
             switch (var4) {
@@ -397,7 +384,6 @@ public class class_297 extends class_295 {
         }
     }
 
-    // $FF: renamed from: a (h.bb) void
     void method_3051(class_154 var1) {
         for (int var2 = 0; var2 < this.field_1758; ++var2) {
             if (this.field_1756[var2] == var1) {

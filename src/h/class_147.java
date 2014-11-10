@@ -9,31 +9,25 @@ import m.class_83;
 import m.class_84;
 import m.class_86;
 
-// $FF: renamed from: h.be
 public class class_147 extends class_146 {
 
-    // $FF: renamed from: a char[]
     public char[] field_726;
 
-    // $FF: renamed from: <init> (char[], long) void
     public class_147(char[] var1, long var2) {
         this.field_726 = var1;
         this.field_444 = (int)(var2 >>> 32);
         this.field_445 = (int)(var2 & 4294967295L);
     }
 
-    // $FF: renamed from: a (int) h.bo
     public class_146 method_1008(int var1) {
         class_149 var10000 = new class_149(this.field_726, var1, ((long)this.field_444 << 32) + (long)this.field_445);
         return var10000;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_1010() {
         return this.field_726;
     }
 
-    // $FF: renamed from: b (m.bb) m.s
     protected class_40 method_1011(class_83 var1) {
         if (this.field_675 != null) {
             return this.field_675;
@@ -43,17 +37,14 @@ public class class_147 extends class_146 {
         }
     }
 
-    // $FF: renamed from: a () char[][]
     public char[][] method_1012() {
         return new char[][] {this.field_726};
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         return var2.append(this.field_726);
     }
 
-    // $FF: renamed from: a (m.v, m.as) m.s
     public class_40 method_1023(class_86 var1, class_43 var2) {
         Object var3 = this.field_675 = var1.method_613(this.field_726, var2);
         boolean var4 = false;
@@ -75,13 +66,11 @@ public class class_147 extends class_146 {
         return var4 ? var5 : (this.field_675 = var5);
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2056(this, var2);
         var1.method_1971(this, var2);
     }
 
-    // $FF: renamed from: a (c.j, m.f) void
     public void method_1021(class_264 var1, class_84 var2) {
         var1.method_2057(this, var2);
         var1.method_1972(this, var2);

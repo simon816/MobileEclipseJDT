@@ -19,23 +19,20 @@ import m.class_84;
 import m.class_86;
 import m.class_87;
 
-// $FF: renamed from: m.aa
 public final class class_57 extends class_55 {
 
-    // $FF: renamed from: a char[]
     static final char[] field_267;
-    // $FF: renamed from: a m.ac[]
+
     private class_79[] field_268;
-    // $FF: renamed from: a m.p[]
+
     public class_42[] field_269;
-    // $FF: renamed from: a h.bu
+
     public class_108 field_270;
-    // $FF: renamed from: a int
+
     public int field_271;
-    // $FF: renamed from: a m.ae
+
     public class_58 field_272;
 
-    // $FF: renamed from: <init> (m.f, m.az, h.bu, m.as) void
     public class_57(class_84 var1, class_54 var2, class_108 var3, class_43 var4) {
         super(new char[][] {class_233.method_1355(field_267, var1.field_376.field_580)}, var1, var2);
         class_114 var5 = var1.field_376;
@@ -53,7 +50,6 @@ public final class class_57 extends class_55 {
         }
     }
 
-    // $FF: renamed from: a (m.v, boolean) void
     public void method_334(class_86 var1, boolean var2) {
         int var3;
         if (this.field_268 == null) {
@@ -73,7 +69,6 @@ public final class class_57 extends class_55 {
         var10000[var3] = var10002;
     }
 
-    // $FF: renamed from: c () m.as
     public class_43 method_335() {
         if (this.field_253 != class_34.field_155) {
             return this.field_253[0];
@@ -90,12 +85,10 @@ public final class class_57 extends class_55 {
         }
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_134() {
         return this.field_202;
     }
 
-    // $FF: renamed from: a (int, m.af) m.p
     class_42 method_336(int var1, class_80 var2) {
         if (this.field_269 == null) {
             class_42[] var10001 = new class_42[1];
@@ -117,7 +110,6 @@ public final class class_57 extends class_55 {
         }
     }
 
-    // $FF: renamed from: f () char[]
     public char[] method_142() {
         if (this.field_260 == null && this.method_134() == null) {
             if (this.method_146()) {
@@ -129,7 +121,6 @@ public final class class_57 extends class_55 {
         return super.method_142();
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_103() {
         char[] var1;
         if (this.method_146()) {
@@ -158,7 +149,6 @@ public final class class_57 extends class_55 {
         return var1;
     }
 
-    // $FF: renamed from: d () char[]
     public char[] method_104() {
         char[] var1;
         if (this.method_146()) {
@@ -187,17 +177,14 @@ public final class class_57 extends class_55 {
         return var1;
     }
 
-    // $FF: renamed from: a_ () void
     public void method_337() {
         this.field_178 |= 12L;
     }
 
-    // $FF: renamed from: a (char[]) void
     public void method_338(char[] var1) {
         this.field_202 = var1;
     }
 
-    // $FF: renamed from: h () char[]
     public char[] method_178() {
         if (this.field_203 == null && this.method_134() == null) {
             if (this.method_146()) {
@@ -209,7 +196,6 @@ public final class class_57 extends class_55 {
         return super.method_178();
     }
 
-    // $FF: renamed from: e () char[]
     public char[] method_179() {
         return this.method_146() ? class_233.method_1356(class_17.field_49, this.method_335().method_179(), class_17.field_50) : this.field_198;
     }
@@ -218,7 +204,6 @@ public final class class_57 extends class_55 {
         return this.method_146() ? "Anonymous type : " + super.toString() : (this.method_159() ? "Local member type : " + new String(this.method_179()) + " " + super.toString() : "Local type : " + new String(this.method_179()) + " " + super.toString());
     }
 
-    // $FF: renamed from: d () void
     public void method_330() {
         if (this.field_268 != null) {
             for (int var1 = 0; var1 < this.field_268.length; ++var1) {
@@ -228,7 +213,6 @@ public final class class_57 extends class_55 {
         }
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_267 = new char[] {'$', 'L', 'o', 'c', 'a', 'l', '$'};
     }

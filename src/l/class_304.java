@@ -4,10 +4,8 @@ import l.class_301;
 import l.class_303;
 import m.class_65;
 
-// $FF: renamed from: l.d
 public class class_304 extends class_303 {
 
-    // $FF: renamed from: <init> (l.f) void
     public class_304(class_303 var1) {
         this.field_1794 = var1.field_1794;
         if ((var1.field_1783 & 2) != 0) {
@@ -45,7 +43,6 @@ public class class_304 extends class_303 {
         }
     }
 
-    // $FF: renamed from: a (l.d) l.d
     public class_304 method_3120(class_304 var1) {
         if ((var1.field_1783 & 2) == 0) {
             return this;
@@ -87,7 +84,6 @@ public class class_304 extends class_303 {
         }
     }
 
-    // $FF: renamed from: a (m.ab) void
     public void method_3094(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -114,7 +110,6 @@ public class class_304 extends class_303 {
         }
     }
 
-    // $FF: renamed from: b (m.ab) void
     public void method_3097(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -141,7 +136,6 @@ public class class_304 extends class_303 {
         }
     }
 
-    // $FF: renamed from: c (m.ab) void
     public void method_3098(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -168,7 +162,6 @@ public class class_304 extends class_303 {
         }
     }
 
-    // $FF: renamed from: d (m.ab) void
     public void method_3100(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -195,7 +188,6 @@ public class class_304 extends class_303 {
         }
     }
 
-    // $FF: renamed from: a (l.g) l.f
     public class_303 method_3121(class_301 var1) {
         if ((this.field_1783 & 2) == 0) {
             return var1.method_3109();

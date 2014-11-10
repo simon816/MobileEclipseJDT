@@ -5,17 +5,14 @@ import i.class_268;
 import i.class_72;
 import m.class_40;
 
-// $FF: renamed from: i.n
 public class class_73 extends class_72 {
 
-    // $FF: renamed from: a int[]
     public int[] field_324;
-    // $FF: renamed from: b int
+
     public int field_325;
-    // $FF: renamed from: a m.s
+
     public class_40 field_326;
 
-    // $FF: renamed from: <init> (i.o, m.s) void
     public class_73(class_268 var1, class_40 var2) {
         super(var1);
         this.field_324 = new int[] { -1, -1};
@@ -23,13 +20,11 @@ public class class_73 extends class_72 {
         this.field_326 = var2;
     }
 
-    // $FF: renamed from: a () void
     public void method_447() {
         this.field_322.method_2362(this);
         this.field_323 = this.field_322.method_2206();
     }
 
-    // $FF: renamed from: b () void
     public void method_448() {
         int var1 = this.field_322.field_1208;
         if (this.field_324[this.field_325 - 1] == var1) {
@@ -39,7 +34,6 @@ public class class_73 extends class_72 {
         }
     }
 
-    // $FF: renamed from: c () void
     public void method_449() {
         int var1 = this.field_322.field_1208;
         if (this.field_325 > 0 && this.field_324[this.field_325 - 1] == var1) {

@@ -6,15 +6,12 @@ import m.class_40;
 import m.class_43;
 import m.class_80;
 
-// $FF: renamed from: m.m
 public class class_44 extends class_43 {
 
-    // $FF: renamed from: a m.as
     class_43 field_208;
-    // $FF: renamed from: a m.s[]
+
     class_40[] field_209;
 
-    // $FF: renamed from: <init> (char[][], m.ar) void
     class_44(char[][] var1, class_38 var2) {
         this.field_197 = var1;
         this.field_198 = var1[var1.length - 1];
@@ -22,7 +19,6 @@ public class class_44 extends class_43 {
         this.field_209 = null;
     }
 
-    // $FF: renamed from: a (m.s, m.af) void
     void method_246(class_40 var1, class_80 var2) {
         if (this.field_208 != null) {
             var1.method_180(this, this.field_208, var2);
@@ -37,12 +33,10 @@ public class class_44 extends class_43 {
         }
     }
 
-    // $FF: renamed from: b () java.lang.String
     public String method_135() {
         return this.toString();
     }
 
-    // $FF: renamed from: a (m.af, boolean) m.as
     class_43 method_247(class_80 var1, boolean var2) {
         Object var3 = this.field_208;
         if (var3 == null) {
@@ -64,7 +58,6 @@ public class class_44 extends class_43 {
         return (class_43)var3;
     }
 
-    // $FF: renamed from: a (m.as, m.af) void
     void method_248(class_43 var1, class_80 var2) {
         if (this.field_208 != var1) {
             this.field_208 = var1;

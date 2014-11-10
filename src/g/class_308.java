@@ -7,22 +7,18 @@ import java.util.Vector;
 import javax.microedition.io.Connector;
 import javax.microedition.io.file.FileConnection;
 
-// $FF: renamed from: g.g
 public class class_308 {
 
-    // $FF: renamed from: a java.lang.String
     String field_1806;
-    // $FF: renamed from: a int
+
     public int field_1807;
-    // $FF: renamed from: a javax.microedition.io.file.FileConnection
+
     public FileConnection field_1808;
 
-    // $FF: renamed from: <init> (java.lang.String) void
     public class_308(String var1) {
         this(var1, 3);
     }
 
-    // $FF: renamed from: <init> (java.lang.String, int) void
     public class_308(String var1, int var2) {
         this.field_1806 = var1;
         this.field_1807 = var2;
@@ -34,37 +30,30 @@ public class class_308 {
         }
     }
 
-    // $FF: renamed from: a () java.lang.String
     public String method_3143() {
         return this.field_1806;
     }
 
-    // $FF: renamed from: a () boolean
     public boolean method_3144() {
         return this.field_1808.exists();
     }
 
-    // $FF: renamed from: b () java.lang.String
     public String method_3145() {
         return this.field_1808.getName();
     }
 
-    // $FF: renamed from: b () boolean
     public boolean method_3146() {
         return this.field_1808.isDirectory();
     }
 
-    // $FF: renamed from: c () boolean
     public boolean method_3147() {
         return this.field_1808.exists() && !this.field_1808.isDirectory();
     }
 
-    // $FF: renamed from: a () long
     public long method_3148() throws IOException {
         return this.field_1808.fileSize();
     }
 
-    // $FF: renamed from: a () g.g[]
     public class_308[] method_3149() throws IOException {
         Enumeration var1 = this.field_1808.list("*", true);
         Vector var2 = new Vector();
@@ -78,7 +67,6 @@ public class class_308 {
         return var4;
     }
 
-    // $FF: renamed from: a () java.lang.String[]
     public String[] method_3150() {
         Enumeration var1;
         try {
@@ -95,7 +83,6 @@ public class class_308 {
         return var3;
     }
 
-    // $FF: renamed from: d () boolean
     public boolean method_3151() {
         if (!this.field_1808.isDirectory()) {
             try {
@@ -109,12 +96,10 @@ public class class_308 {
         return true;
     }
 
-    // $FF: renamed from: c () java.lang.String
     public String method_3152() {
         return this.field_1806;
     }
 
-    // $FF: renamed from: e () boolean
     public boolean method_3153() {
         if (this.field_1808.isDirectory()) {
             return true;
@@ -128,7 +113,6 @@ public class class_308 {
         }
     }
 
-    // $FF: renamed from: b () long
     public long method_3154() {
         return this.field_1808.lastModified();
     }

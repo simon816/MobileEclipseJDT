@@ -13,32 +13,26 @@ import l.class_301;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.bp
 public class class_140 extends class_137 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_713;
-    // $FF: renamed from: a a.k
+
     public class_331 field_714;
 
-    // $FF: renamed from: <init> (h.r, int) void
     public class_140(class_126 var1, int var2) {
         this.field_713 = var1;
         this.field_446 |= var2 << 6;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         this.field_713.method_909(var1, var2, var3);
         return (this.field_446 & 4032) >> 6 == 11 ? this.field_713.method_814(var1, var2, var3).method_3073() : this.field_713.method_814(var1, var2, var3);
     }
 
-    // $FF: renamed from: a () a.k
     public class_331 method_922() {
         return this.field_714 == null ? this.field_672 : this.field_714;
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (this.field_672 != class_331.field_1896) {
@@ -137,7 +131,6 @@ public class class_140 extends class_137 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, i.s, i.s, boolean) void
     public void method_913(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
         if (this.field_672 != class_331.field_1896 && this.field_672.method_3288() == 5) {
             super.method_913(var1, var2, var3, var4, var5);
@@ -150,13 +143,11 @@ public class class_140 extends class_137 {
         }
     }
 
-    // $FF: renamed from: a_ (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_975(int var1, StringBuffer var2) {
         var2.append(this.method_974()).append(' ');
         return this.field_713.method_924(0, var2);
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         boolean var2;
         if (var2 = this.field_713 instanceof class_130) {
@@ -240,7 +231,6 @@ public class class_140 extends class_137 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2070(this, var2)) {
             this.field_713.method_763(var1, var2);

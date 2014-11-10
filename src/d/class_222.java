@@ -14,72 +14,68 @@ import j.class_278;
 import j.class_346;
 import n.class_248;
 
-// $FF: renamed from: d.i
 public class class_222 {
 
-    // $FF: renamed from: a boolean
     private boolean field_947;
-    // $FF: renamed from: a a.c
+
     private class_341 field_948;
-    // $FF: renamed from: a d.d
+
     private class_213 field_949;
-    // $FF: renamed from: b int
+
     private int field_950;
-    // $FF: renamed from: c int
+
     private int field_951;
-    // $FF: renamed from: d int
+
     private int field_952;
-    // $FF: renamed from: e int
+
     private int field_953;
-    // $FF: renamed from: f int
+
     private int field_954;
-    // $FF: renamed from: d int[]
+
     private int[] field_955;
-    // $FF: renamed from: e int[]
+
     private int[] field_956;
-    // $FF: renamed from: f int[]
+
     private int[] field_957;
-    // $FF: renamed from: g int
+
     private int field_958;
-    // $FF: renamed from: g int[]
+
     private int[] field_959;
-    // $FF: renamed from: h int
+
     private int field_960;
-    // $FF: renamed from: h int[]
+
     private int[] field_961;
-    // $FF: renamed from: i int
+
     private int field_962;
-    // $FF: renamed from: i int[]
+
     private int[] field_963;
-    // $FF: renamed from: j int
+
     private int field_964;
-    // $FF: renamed from: j int[]
+
     private int[] field_965;
-    // $FF: renamed from: k int[]
+
     private int[] field_966;
-    // $FF: renamed from: a int[]
+
     int[] field_967;
-    // $FF: renamed from: b int[]
+
     int[] field_968;
-    // $FF: renamed from: c int[]
+
     int[] field_969;
-    // $FF: renamed from: a int
+
     int field_970;
-    // $FF: renamed from: a d.e[]
+
     class_210[] field_971;
-    // $FF: renamed from: a j.r
+
     private class_278 field_972;
-    // $FF: renamed from: a j.k
+
     private class_271 field_973;
-    // $FF: renamed from: b boolean
+
     private boolean field_974;
 
-    // $FF: renamed from: <init> (j.r, int, int, int, a.c) void
     public class_222(class_278 var1, int var2, int var3, int var4, class_341 var5) {
         this(var1, var2, var3, var4, class_226.field_983, class_226.field_983, class_226.field_983, var5);
     }
 
-    // $FF: renamed from: <init> (j.r, int, int, int, int[], int[], int[], a.c) void
     public class_222(class_278 var1, int var2, int var3, int var4, int[] var5, int[] var6, int[] var7, class_341 var8) {
         this.field_947 = false;
         this.field_952 = 0;
@@ -92,12 +88,10 @@ public class class_222 {
         this.field_973 = var1.field_1627;
     }
 
-    // $FF: renamed from: a () n.e
     private class_248 method_1286() {
         return this.field_972.method_2862();
     }
 
-    // $FF: renamed from: a () void
     private void method_1287() {
         int var1 = this.field_953;
         this.field_953 += 256;
@@ -122,7 +116,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (boolean) void
     public void method_1288(boolean var1) {
         this.field_974 = true;
         boolean var2 = false;
@@ -230,7 +223,7 @@ public class class_222 {
                     }
                     var6 = this.field_955[this.field_954];
                     if (var15.field_984 == 0) {
-                        return;
+                        break;
                     }
                     if (var15.field_984 > 110) {
                         int var10 = var15.field_984 - 110;
@@ -256,7 +249,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (char[], int, int) char[]
     private static char[] method_1289(char[] var0, int var1, int var2) {
         StringBuffer var3 = new StringBuffer();
         int var4;
@@ -300,7 +292,6 @@ public class class_222 {
         return var3.toString().toCharArray();
     }
 
-    // $FF: renamed from: a (int, boolean) d.g
     private class_227 method_1290(int var1, boolean var2) {
         this.field_950 = var1;
         this.field_951 = this.field_949.method_1215(var1);
@@ -354,7 +345,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (int) d.g
     private class_227 method_1291(int var1) {
         class_224 var10000 = new class_224();
         class_224 var2 = var10000;
@@ -422,7 +412,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (int, int) int
     private int method_1292(int var1, int var2) {
         char[] var3 = this.field_949.method_1213(this.field_968[var2]);
         char[] var4 = this.field_949.method_1213(this.field_968[var2 + 1]);
@@ -440,7 +429,6 @@ public class class_222 {
         return 0;
     }
 
-    // $FF: renamed from: a (int[], int, d.h) d.h
     private class_224 method_1293(int[] var1, int var2, class_224 var3) {
         class_224 var13 = this.method_1299(var1, var2, var3.method_1314());
         if (var13.field_975 > var3.field_975) {
@@ -592,7 +580,6 @@ public class class_222 {
         return var3;
     }
 
-    // $FF: renamed from: a (d.h) d.g
     private class_227 method_1294(class_224 var1) {
         int var3 = this.field_968[var1.field_978 - 1];
         int var4 = this.field_968[var1.field_978];
@@ -671,7 +658,6 @@ public class class_222 {
         return var6;
     }
 
-    // $FF: renamed from: a (int[], int, int, int) int
     private int method_1295(int[] var1, int var2, int var3, int var4) {
         int var5 = var1[var2];
         int var6 = var2;
@@ -717,7 +703,6 @@ public class class_222 {
         return var7 > 110 ? class_278.field_1538[var7 - 110] : class_278.field_1555[var7];
     }
 
-    // $FF: renamed from: a (int, int, int) int
     private int method_1296(int var1, int var2, int var3) {
         int var4 = var2 - 110;
         int var5 = this.field_949.method_1212(this.field_968[var3]);
@@ -746,12 +731,10 @@ public class class_222 {
         return class_278.field_1538[var4];
     }
 
-    // $FF: renamed from: a (int, int) boolean
     private boolean method_1297(int var1, int var2) {
         return false;
     }
 
-    // $FF: renamed from: b (int, int) int
     private int method_1298(int var1, int var2) {
         char[] var3 = class_278.field_1535[class_278.field_1555[var1]].toCharArray();
         int var4 = var3.length;
@@ -818,7 +801,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: b (int[], int, d.h) d.h
     private class_224 method_1299(int[] var1, int var2, class_224 var3) {
         this.field_969 = new int[this.field_953];
         for (int var4 = 0; var4 < this.field_953; ++var4) {
@@ -834,7 +816,6 @@ public class class_222 {
         return var3;
     }
 
-    // $FF: renamed from: a (int[], int, d.h, int) void
     private void method_1300(int[] var1, int var2, class_224 var3, int var4) {
         if (var4 <= 20) {
             int var5 = var1[var2];
@@ -926,7 +907,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (int[], int, int, int) boolean
     private boolean method_1301(int[] var1, int var2, int var3, int var4) {
         for (int var5 = var2 - 1; var5 >= 0; --var5) {
             int var6 = this.method_1306(var1, var5, this.field_949.method_1212(this.field_968[var3]), var3 + 1);
@@ -946,7 +926,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: b (int) d.g
     private class_227 method_1302(int var1) {
         class_207 var10000 = new class_207();
         class_207 var2 = var10000;
@@ -1092,7 +1071,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (int[], int, int, d.f, boolean) d.f
     private class_207 method_1303(int[] var1, int var2, int var3, class_207 var4, boolean var5) {
         int var6 = this.field_968[2];
         int var7 = 0;
@@ -1115,7 +1093,6 @@ public class class_222 {
         return var4;
     }
 
-    // $FF: renamed from: b (int[], int, int, d.f, boolean) d.f
     private class_207 method_1304(int[] var1, int var2, int var3, class_207 var4, boolean var5) {
         int var7 = 0;
         int var6 = this.field_968[2];
@@ -1165,7 +1142,6 @@ public class class_222 {
         return var4;
     }
 
-    // $FF: renamed from: a (d.f) void
     private void method_1305(class_207 var1) {
         switch (var1.field_892) {
             case 9:
@@ -1185,7 +1161,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: b (int[], int, int, int) int
     private int method_1306(int[] var1, int var2, int var3, int var4) {
         int var8 = var1[var2];
         int var5;
@@ -1316,12 +1291,10 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (int, int, int, int) void
     private void method_1307(int var1, int var2, int var3, int var4) {
         this.method_1308(var1, var2, var3, var4, 0);
     }
 
-    // $FF: renamed from: a (int, int, int, int, int) void
     private void method_1308(int var1, int var2, int var3, int var4, int var5) {
         int var6 = var3 > var4 ? var4 : var3;
         if (var6 < var4) {
@@ -1331,7 +1304,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: b (int, int, int, int) void
     private void method_1309(int var1, int var2, int var3, int var4) {
         String var5;
         if (var2 >= 0) {
@@ -1540,7 +1512,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: b (int, int, int, int, int) void
     private void method_1310(int var1, int var2, int var3, int var4, int var5) {
         String var6;
         if (var2 >= 0) {
@@ -1689,7 +1660,6 @@ public class class_222 {
         }
     }
 
-    // $FF: renamed from: a (int) int[]
     private int[] method_1311(int var1) {
         char var2 = class_278.field_1542[var1];
         if (var2 <= 0) {

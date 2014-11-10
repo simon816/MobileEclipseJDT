@@ -1,23 +1,19 @@
 package i;
 
-// $FF: renamed from: i.d
 public class class_76 {
 
-    // $FF: renamed from: a long[]
     public long[] field_332;
-    // $FF: renamed from: a int[]
+
     public int[] field_333;
-    // $FF: renamed from: a int
+
     int field_334;
-    // $FF: renamed from: b int
+
     int field_335;
 
-    // $FF: renamed from: <init> () void
     public class_76() {
         this(13);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_76(int var1) {
         this.field_334 = 0;
         this.field_335 = (int)((double)var1 * 0.66D);
@@ -25,7 +21,6 @@ public class class_76 {
         this.field_333 = new int[var1];
     }
 
-    // $FF: renamed from: a () void
     public void method_462() {
         int var1 = this.field_332.length;
         while (true) {
@@ -39,12 +34,10 @@ public class class_76 {
         }
     }
 
-    // $FF: renamed from: a (long) int
     public int method_463(long var1) {
         return ((int)var1 & Integer.MAX_VALUE) % this.field_332.length;
     }
 
-    // $FF: renamed from: a (long, int) int
     public int method_464(long var1, int var3) {
         int var4 = this.method_463(var1);
         int var5 = this.field_332.length;
@@ -65,7 +58,6 @@ public class class_76 {
         return var3;
     }
 
-    // $FF: renamed from: b (long, int) int
     public int method_465(long var1, int var3) {
         int var4 = this.method_463(var1);
         int var5 = this.field_332.length;
@@ -86,7 +78,6 @@ public class class_76 {
         return -var3;
     }
 
-    // $FF: renamed from: b () void
     private void method_466() {
         class_76 var10000 = new class_76(this.field_332.length * 2);
         class_76 var1 = var10000;
@@ -107,7 +98,6 @@ public class class_76 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_467() {
         return this.field_334;
     }

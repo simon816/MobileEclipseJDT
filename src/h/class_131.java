@@ -22,15 +22,12 @@ import m.class_65;
 import m.class_67;
 import m.class_86;
 
-// $FF: renamed from: h.cb
 public class class_131 extends class_126 {
 
-    // $FF: renamed from: a h.r
     public class_126 field_687;
-    // $FF: renamed from: b h.r
+
     public class_126 field_688;
 
-    // $FF: renamed from: <init> (h.r, h.r, int) void
     public class_131(class_126 var1, class_126 var2, int var3) {
         this.field_687 = var1;
         var1.field_446 |= 8192;
@@ -39,7 +36,6 @@ public class class_131 extends class_126 {
         this.field_445 = var3;
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         class_65 var4 = this.field_687.method_920();
         int var5 = this.field_688.method_921(var3);
@@ -74,7 +70,6 @@ public class class_131 extends class_126 {
         return var6;
     }
 
-    // $FF: renamed from: a (m.v, m.s, m.s) void
     void method_943(class_86 var1, class_40 var2, class_40 var3) {
         class_67 var4 = this.method_945(this.field_687);
         if (var4 != null && var3 != class_40.field_187 && var2.method_98() == 516 && ((class_45)var2).field_215 != 2) {
@@ -86,14 +81,12 @@ public class class_131 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         ((class_154)this.field_687).method_1038(var1, var2, this, var3);
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: a (h.r) m.w
     public static class_34 method_944(class_126 var0) {
         if ((var0.field_446 & 536870912) != 0) {
             return null;
@@ -123,7 +116,6 @@ public class class_131 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (h.r) m.k
     class_67 method_945(class_126 var1) {
         if (var1 instanceof class_162) {
             if ((var1.field_446 & 7) == 1) {
@@ -146,35 +138,29 @@ public class class_131 extends class_126 {
         return null;
     }
 
-    // $FF: renamed from: a (l.g) int
     public int method_921(class_301 var1) {
         return this.field_688.method_921(var1);
     }
 
-    // $FF: renamed from: a (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2);
         return this.method_946(var1, var2);
     }
 
-    // $FF: renamed from: c (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_924(int var1, StringBuffer var2) {
         var2.append('(');
         return this.method_946(0, var2).append(')');
     }
 
-    // $FF: renamed from: b_ (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_946(int var1, StringBuffer var2) {
         this.field_687.method_924(var1, var2).append(" = ");
         return this.field_688.method_924(0, var2);
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         return this.method_757(var1, var2).append(';');
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         this.field_672 = class_331.field_1896;
         if (this.field_687 instanceof class_154 && !this.field_687.method_755()) {
@@ -220,7 +206,6 @@ public class class_131 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (m.v, m.s) m.s
     public class_40 method_926(class_86 var1, class_40 var2) {
         class_40 var3 = super.method_926(var1, var2);
         if (var3 == null) {
@@ -236,7 +221,6 @@ public class class_131 extends class_126 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         if (var1.method_2001(this, var2)) {
             this.field_687.method_763(var1, var2);
@@ -245,7 +229,6 @@ public class class_131 extends class_126 {
         var1.method_1916(this, var2);
     }
 
-    // $FF: renamed from: a () m.ab
     public class_65 method_920() {
         return this.field_687.method_920();
     }

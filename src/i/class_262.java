@@ -2,24 +2,20 @@ package i;
 
 import b.class_233;
 
-// $FF: renamed from: i.r
 public class class_262 {
 
-    // $FF: renamed from: a char[][]
     public char[][] field_1153;
-    // $FF: renamed from: a int[]
+
     public int[] field_1154;
-    // $FF: renamed from: a int
+
     int field_1155;
-    // $FF: renamed from: b int
+
     int field_1156;
 
-    // $FF: renamed from: <init> () void
     public class_262() {
         this(9);
     }
 
-    // $FF: renamed from: <init> (int) void
     public class_262(int var1) {
         this.field_1155 = 0;
         this.field_1156 = var1 * 2 / 3;
@@ -27,7 +23,6 @@ public class class_262 {
         this.field_1154 = new int[var1];
     }
 
-    // $FF: renamed from: a () void
     public void method_1894() {
         int var1 = this.field_1153.length;
         while (true) {
@@ -41,7 +36,6 @@ public class class_262 {
         }
     }
 
-    // $FF: renamed from: a (char[]) int
     public int method_1895(char[] var1) {
         int var2 = this.field_1153.length;
         int var3 = class_233.method_1369(var1) % var2;
@@ -57,7 +51,6 @@ public class class_262 {
         return -1;
     }
 
-    // $FF: renamed from: a (char[], int) int
     public int method_1896(char[] var1, int var2) {
         int var3 = this.field_1153.length;
         int var4 = class_233.method_1369(var1) % var3;
@@ -78,7 +71,6 @@ public class class_262 {
         return -var2;
     }
 
-    // $FF: renamed from: b (char[], int) int
     private int method_1897(char[] var1, int var2) {
         int var3 = this.field_1153.length;
         int var4 = class_233.method_1369(var1) % var3;
@@ -99,7 +91,6 @@ public class class_262 {
         return var2;
     }
 
-    // $FF: renamed from: b () void
     private void method_1898() {
         class_262 var10000 = new class_262(this.field_1153.length * 2);
         class_262 var1 = var10000;
@@ -118,7 +109,6 @@ public class class_262 {
         }
     }
 
-    // $FF: renamed from: a (char[]) void
     public void method_1899(char[] var1) {
         int var2 = this.field_1153.length;
         int var3 = class_233.method_1369(var1) % var2;
@@ -135,7 +125,6 @@ public class class_262 {
         }
     }
 
-    // $FF: renamed from: a (int) char[]
     public char[] method_1900(int var1) {
         int var2 = this.field_1153.length;
         do {
@@ -146,7 +135,6 @@ public class class_262 {
         return this.field_1153[var2];
     }
 
-    // $FF: renamed from: a () int
     public int method_1901() {
         return this.field_1155;
     }

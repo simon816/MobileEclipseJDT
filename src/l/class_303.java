@@ -5,31 +5,27 @@ import l.class_301;
 import m.class_65;
 import m.class_67;
 
-// $FF: renamed from: l.f
 public class class_303 extends class_301 {
 
-    // $FF: renamed from: a long
     public long field_1787;
-    // $FF: renamed from: b long
+
     public long field_1788;
-    // $FF: renamed from: c long
+
     public long field_1789;
-    // $FF: renamed from: d long
+
     public long field_1790;
-    // $FF: renamed from: e long
+
     public long field_1791;
-    // $FF: renamed from: f long
+
     public long field_1792;
-    // $FF: renamed from: a long[][]
+
     public long[][] field_1793;
-    // $FF: renamed from: a int
+
     public int field_1794;
 
-    // $FF: renamed from: <init> () void
     public class_303() {
     }
 
-    // $FF: renamed from: a (l.g) l.g
     public class_301 method_3071(class_301 var1) {
         if (this == field_1784) {
             return this;
@@ -151,7 +147,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: b (l.g) l.g
     public class_301 method_3072(class_301 var1) {
         if (this == field_1784) {
             return this;
@@ -198,7 +193,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: a (l.f) l.f
     public class_303 method_3113(class_303 var1) {
         if ((this.field_1783 & 1) == 0 && (var1.field_1783 & 1) == 0 && (var1.field_1783 & 2) != 0) {
             boolean var2 = (this.field_1783 & 2) != 0;
@@ -306,7 +300,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: a (m.ab) boolean
     public final boolean method_3075(class_65 var1) {
         int var2;
         int var3;
@@ -316,21 +309,18 @@ public class class_303 extends class_301 {
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? ((~this.field_1789 & (this.field_1790 & this.field_1791 | this.field_1792) | ~this.field_1790 & ~this.field_1791 & this.field_1792) & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : ((~this.field_1793[2][var3] & ((var4 = this.field_1793[3][var3]) & (var6 = this.field_1793[4][var3]) | (var8 = this.field_1793[5][var3])) | ~var4 & ~var6 & var8) & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: b (m.ab) boolean
     public final boolean method_3076(class_65 var1) {
         int var2;
         int var3;
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? (this.field_1789 & this.field_1791 & (this.field_1790 & this.field_1792 | ~this.field_1790) & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[2][var3] & this.field_1793[4][var3] & (this.field_1793[3][var3] & this.field_1793[5][var3] | ~this.field_1793[3][var3]) & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: c (m.ab) boolean
     public final boolean method_3077(class_65 var1) {
         int var2;
         int var3;
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? (this.field_1789 & this.field_1790 & (~this.field_1791 | ~this.field_1792) & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[2][var3] & this.field_1793[3][var3] & (~this.field_1793[4][var3] | ~this.field_1793[5][var3]) & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: a () l.g
     public class_301 method_3078() {
         if (this == field_1784) {
             return this;
@@ -368,7 +358,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: a () l.f
     public class_303 method_3114() {
         if (this == field_1784) {
             return this;
@@ -384,7 +373,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: b () l.f
     public class_303 method_3115() {
         int var1 = this.field_1794;
         if (var1 < 64) {
@@ -420,33 +408,27 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: b () l.g
     public class_301 method_3080() {
         return this;
     }
 
-    // $FF: renamed from: c () l.g
     public class_301 method_3081() {
         return this;
     }
 
-    // $FF: renamed from: a (int) boolean
     private final boolean method_3116(int var1) {
         int var2;
         return var1 < 64 ? (this.field_1787 & 1L << var1) != 0L : (this.field_1793 == null ? false : ((var2 = var1 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[0][var2] & 1L << var1 % 64) != 0L));
     }
 
-    // $FF: renamed from: a (m.k) boolean
     public final boolean method_3082(class_67 var1) {
         return (this.field_1783 & 1) != 0 ? true : this.method_3116(var1.field_304);
     }
 
-    // $FF: renamed from: d (m.ab) boolean
     public final boolean method_3083(class_65 var1) {
         return (this.field_1783 & 1) != 0 && (var1.field_309.field_446 & 1073741824) != 0 ? true : this.method_3116(var1.field_304 + this.field_1794);
     }
 
-    // $FF: renamed from: e (m.ab) boolean
     public final boolean method_3084(class_65 var1) {
         if ((this.field_1783 & 1) == 0 && (this.field_1783 & 2) != 0) {
             if ((var1.field_301.field_178 & 2L) == 0L && var1.method_407() == class_331.field_1896) {
@@ -461,7 +443,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: f (m.ab) boolean
     public final boolean method_3085(class_65 var1) {
         if ((this.field_1783 & 1) == 0 && (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L) {
             int var2 = var1.field_304 + this.field_1794;
@@ -472,7 +453,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: g (m.ab) boolean
     public final boolean method_3086(class_65 var1) {
         if ((this.field_1783 & 1) == 0 && (this.field_1783 & 2) != 0) {
             int var2 = var1.field_304 + this.field_1794;
@@ -483,37 +463,31 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: b (int) boolean
     private final boolean method_3117(int var1) {
         int var2;
         return var1 < 64 ? (this.field_1788 & 1L << var1) != 0L : (this.field_1793 == null ? false : ((var2 = var1 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[1][var2] & 1L << var1 % 64) != 0L));
     }
 
-    // $FF: renamed from: b (m.k) boolean
     public final boolean method_3087(class_67 var1) {
         return this.method_3117(var1.field_304);
     }
 
-    // $FF: renamed from: h (m.ab) boolean
     public final boolean method_3088(class_65 var1) {
         return var1.method_407() != class_331.field_1896 ? true : this.method_3117(var1.field_304 + this.field_1794);
     }
 
-    // $FF: renamed from: i (m.ab) boolean
     public final boolean method_3089(class_65 var1) {
         int var2;
         int var3;
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? (this.field_1791 & (~this.field_1789 | ~this.field_1790) & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[4][var3] & (~this.field_1793[2][var3] | ~this.field_1793[3][var3]) & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: j (m.ab) boolean
     public final boolean method_3090(class_65 var1) {
         int var2;
         int var3;
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? (this.field_1790 & (~this.field_1789 | ~this.field_1791) & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[3][var3] & (~this.field_1793[2][var3] | ~this.field_1793[4][var3]) & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: k (m.ab) boolean
     public final boolean method_3091(class_65 var1) {
         if ((this.field_1783 & 1) == 0 && (this.field_1783 & 2) != 0) {
             int var2 = var1.field_304 + this.field_1794;
@@ -524,21 +498,18 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: l (m.ab) boolean
     public final boolean method_3092(class_65 var1) {
         int var2;
         int var3;
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? (this.field_1789 & this.field_1791 & this.field_1792 & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[2][var3] & this.field_1793[4][var3] & this.field_1793[5][var3] & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: m (m.ab) boolean
     public final boolean method_3093(class_65 var1) {
         int var2;
         int var3;
         return (this.field_1783 & 2) != 0 && (var1.field_301.field_178 & 2L) == 0L ? ((var2 = var1.field_304 + this.field_1794) < 64 ? (this.field_1789 & this.field_1790 & (this.field_1791 ^ this.field_1792) & 1L << var2) != 0L : (this.field_1793 == null ? false : ((var3 = var2 / 64 - 1) >= this.field_1793[0].length ? false : (this.field_1793[2][var3] & this.field_1793[3][var3] & (this.field_1793[4][var3] ^ this.field_1793[5][var3]) & 1L << var2 % 64) != 0L))) : false;
     }
 
-    // $FF: renamed from: a (m.ab) void
     public void method_3094(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -606,7 +577,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: e (m.ab) void
     public void method_3095(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -662,7 +632,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: a (int) void
     private final void method_3118(int var1) {
         if (this != field_1784) {
             if (var1 < 64) {
@@ -691,21 +660,18 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: a (m.k) void
     public void method_3096(class_67 var1) {
         if (this != field_1784) {
             this.method_3118(var1.field_304);
         }
     }
 
-    // $FF: renamed from: f (m.ab) void
     public void method_3099(class_65 var1) {
         if (this != field_1784) {
             this.method_3118(var1.field_304 + this.field_1794);
         }
     }
 
-    // $FF: renamed from: b (m.ab) void
     public void method_3097(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -728,7 +694,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: c (m.ab) void
     public void method_3098(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -751,7 +716,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: d (m.ab) void
     public void method_3100(class_65 var1) {
         if (this != field_1784) {
             this.field_1783 |= 2;
@@ -774,7 +738,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: b (l.f) l.f
     public class_303 method_3105(class_303 var1) {
         if ((var1.field_1783 & 1) != 0 && this != field_1784) {
             return this;
@@ -933,7 +896,6 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: c () l.f
     public class_303 method_3106() {
         if (this == field_1784) {
             return this;
@@ -957,12 +919,10 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: d () l.g
     public class_301 method_3103() {
         return this.method_3078();
     }
 
-    // $FF: renamed from: a (int) l.g
     public class_301 method_3104(int var1) {
         if (var1 == 0 && this != field_1784) {
             this.field_1783 &= -2;
@@ -1028,12 +988,10 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: d () l.f
     public class_303 method_3107() {
         return (class_303)this.method_3078();
     }
 
-    // $FF: renamed from: e () l.f
     public class_303 method_3108() {
         class_303 var10000 = new class_303();
         class_303 var1 = var10000;
@@ -1081,12 +1039,10 @@ public class class_303 extends class_301 {
         }
     }
 
-    // $FF: renamed from: f () l.f
     public class_303 method_3109() {
         return this;
     }
 
-    // $FF: renamed from: g () l.f
     public class_303 method_3110() {
         return this;
     }

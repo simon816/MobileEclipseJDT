@@ -10,15 +10,12 @@ import java.util.Vector;
 import k.class_28;
 import k.class_317;
 
-// $FF: renamed from: batch.b
 public class class_239 implements class_2, class_28 {
 
-    // $FF: renamed from: a batch.a[]
     class_4[] field_1044;
-    // $FF: renamed from: a java.util.Vector
+
     Vector field_1045;
 
-    // $FF: renamed from: <init> (batch.a[], java.lang.String[]) void
     class_239(class_4[] var1, String[] var2) {
         int var3 = var1.length;
         int var4 = 0;
@@ -34,7 +31,6 @@ public class class_239 implements class_2, class_28 {
         this.method_1429(var2);
     }
 
-    // $FF: renamed from: a (java.lang.String[]) void
     private void method_1429(String[] var1) {
         if (var1 == null) {
             this.field_1045 = new Vector(0);
@@ -69,7 +65,6 @@ public class class_239 implements class_2, class_28 {
         }
     }
 
-    // $FF: renamed from: a () void
     public void method_16() {
         int var1 = 0;
         for (int var2 = this.field_1044.length; var1 < var2; ++var1) {
@@ -77,7 +72,6 @@ public class class_239 implements class_2, class_28 {
         }
     }
 
-    // $FF: renamed from: a (java.lang.String, char[], boolean) k.q
     private class_317 method_1430(String var1, char[] var2, boolean var3) {
         if (this.field_1045.contains(var1)) {
             return null;
@@ -122,17 +116,14 @@ public class class_239 implements class_2, class_28 {
         }
     }
 
-    // $FF: renamed from: a (char[][]) k.q
     public class_317 method_80(char[][] var1) {
         return var1 != null ? this.method_1430(new String(class_233.method_1361(var1, '/')), var1[var1.length - 1], false) : null;
     }
 
-    // $FF: renamed from: a (char[], char[][]) k.q
     public class_317 method_81(char[] var1, char[][] var2) {
         return var1 != null ? this.method_1430(new String(class_233.method_1360(var2, var1, '/')), var1, false) : null;
     }
 
-    // $FF: renamed from: a (char[][], char[]) boolean
     public boolean method_82(char[][] var1, char[] var2) {
         String var3 = new String(class_233.method_1360(var1, var2, '/'));
         String var4 = var3;

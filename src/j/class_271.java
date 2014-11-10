@@ -6,29 +6,26 @@ import j.class_267;
 import j.class_270;
 import j.class_278;
 
-// $FF: renamed from: j.k
 public class class_271 extends class_270 {
 
-    // $FF: renamed from: E char[]
     public static final char[] field_1301;
-    // $FF: renamed from: a j.j
+
     private class_267 field_1302;
-    // $FF: renamed from: e int[]
+
     private int[] field_1303;
-    // $FF: renamed from: r int
+
     private int field_1304;
-    // $FF: renamed from: F char[]
+
     private char[] field_1305;
-    // $FF: renamed from: q boolean
+
     private boolean field_1306;
-    // $FF: renamed from: r boolean
+
     private boolean field_1307;
-    // $FF: renamed from: s int
+
     private int field_1308;
-    // $FF: renamed from: p boolean
+
     public boolean field_1309;
 
-    // $FF: renamed from: <init> (j.a, j.j) void
     public class_271(class_270 var1, class_267 var2) {
         super(false, var1.field_1236, var1.field_1292, var1.field_1223, var1.field_1224, var1.field_1252, var1.field_1253, var1.field_1254);
         this.field_1304 = -1;
@@ -40,12 +37,10 @@ public class class_271 extends class_270 {
         this.method_2453(var2);
     }
 
-    // $FF: renamed from: a (int, int, int) void
     public void method_2446(int var1, int var2, int var3) {
         this.method_2448(new int[] {var1}, var2, var3);
     }
 
-    // $FF: renamed from: a (int[]) int[]
     private int[] method_2447(int[] var1) {
         int var2 = var1.length;
         int var3 = 0;
@@ -57,7 +52,6 @@ public class class_271 extends class_270 {
         return var1;
     }
 
-    // $FF: renamed from: a (int[], int, int) void
     public void method_2448(int[] var1, int var2, int var3) {
         if (this.field_1309) {
             if (var2 <= -1 || class_278.field_1544[var2] == 0) {
@@ -79,12 +73,10 @@ public class class_271 extends class_270 {
         }
     }
 
-    // $FF: renamed from: b (int, int, int) void
     public void method_2449(int var1, int var2, int var3) {
         this.method_2450(new int[] {var1}, var2, var3);
     }
 
-    // $FF: renamed from: b (int[], int, int) void
     public void method_2450(int[] var1, int var2, int var3) {
         if (this.field_1309) {
             ++this.field_1302.field_1172;
@@ -107,7 +99,6 @@ public class class_271 extends class_270 {
         }
     }
 
-    // $FF: renamed from: c (int, int) void
     public void method_2451(int var1, int var2) {
         if (this.field_1309) {
             ++this.field_1302.field_1177;
@@ -127,7 +118,6 @@ public class class_271 extends class_270 {
         }
     }
 
-    // $FF: renamed from: d () int
     public int method_2419() throws class_232 {
         int var1;
         if (this.field_1304 > -1) {
@@ -198,27 +188,22 @@ public class class_271 extends class_270 {
         }
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_2407() {
         return this.field_1305 != null ? this.field_1305 : super.method_2407();
     }
 
-    // $FF: renamed from: c () char[]
     public char[] method_2410() {
         return this.field_1305 != null ? this.field_1305 : super.method_2410();
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_2409() {
         return this.field_1305 != null ? this.field_1305 : super.method_2409();
     }
 
-    // $FF: renamed from: a () j.j
     public class_267 method_2452() {
         return this.field_1302;
     }
 
-    // $FF: renamed from: a (j.j) void
     public void method_2453(class_267 var1) {
         if (var1 == null) {
             class_267 var10001 = new class_267();
@@ -228,13 +213,11 @@ public class class_271 extends class_270 {
         }
     }
 
-    // $FF: renamed from: a (int[]) void
     public void method_2454(int[] var1) {
         this.field_1303 = var1;
         this.field_1304 = var1.length - 1;
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_1301 = "$missing$".toCharArray();
     }

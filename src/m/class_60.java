@@ -12,25 +12,22 @@ import m.class_58;
 import m.class_67;
 import m.class_80;
 
-// $FF: renamed from: m.d
 public class class_60 extends class_58 {
 
-    // $FF: renamed from: a m.k
     public class_67 field_283;
-    // $FF: renamed from: b m.k
+
     public class_67 field_284;
-    // $FF: renamed from: a m.ae
+
     public class_58 field_285;
-    // $FF: renamed from: a m.s
+
     public class_40 field_286;
-    // $FF: renamed from: a int
+
     public int field_287;
-    // $FF: renamed from: b int
+
     public int field_288;
-    // $FF: renamed from: c int
+
     public int field_289;
 
-    // $FF: renamed from: <init> (m.k, boolean, m.as) void
     public class_60(class_67 var1, boolean var2, class_43 var3) {
         this.field_288 = 0;
         this.field_273 = 4104;
@@ -119,7 +116,6 @@ public class class_60 extends class_58 {
         this.field_288 = var4.field_258.field_376.field_444;
     }
 
-    // $FF: renamed from: <init> (m.k, m.as, m.s, char[]) void
     public class_60(class_67 var1, class_43 var2, class_40 var3, char[] var4) {
         this.field_288 = 0;
         this.field_273 = 4104;
@@ -183,7 +179,6 @@ public class class_60 extends class_58 {
         this.field_288 = var5.field_258.field_376.field_444;
     }
 
-    // $FF: renamed from: <init> (m.ae, boolean, m.as) void
     public class_60(class_58 var1, boolean var2, class_43 var3) {
         this.field_288 = 0;
         if (var1.method_358()) {
@@ -193,7 +188,6 @@ public class class_60 extends class_58 {
         }
     }
 
-    // $FF: renamed from: <init> (m.ae, m.ae, m.az) void
     public class_60(class_58 var1, class_58 var2, class_54 var3) {
         this.field_288 = 0;
         this.field_278 = var3;
@@ -210,7 +204,6 @@ public class class_60 extends class_58 {
         this.field_289 = var5;
     }
 
-    // $FF: renamed from: <init> (m.az, char[]) void
     public class_60(class_54 var1, char[] var2) {
         this.field_288 = 0;
         this.field_278 = var1;
@@ -236,7 +229,6 @@ public class class_60 extends class_58 {
         }
     }
 
-    // $FF: renamed from: a (m.ae) void
     public void method_393(class_58 var1) {
         this.field_285 = var1;
         this.field_273 = 4096;
@@ -296,7 +288,6 @@ public class class_60 extends class_58 {
         }
     }
 
-    // $FF: renamed from: a (m.ae, boolean, m.as) void
     public void method_394(class_58 var1, boolean var2, class_43 var3) {
         this.field_285 = var1;
         this.field_273 = 4104;

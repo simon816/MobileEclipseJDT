@@ -10,15 +10,12 @@ import l.class_294;
 import l.class_301;
 import m.class_86;
 
-// $FF: renamed from: h.bx
 public class class_111 extends class_109 {
 
-    // $FF: renamed from: <init> (char[], int, int) void
     public class_111(char[] var1, int var2, int var3) {
         super(var1, var2, var3);
     }
 
-    // $FF: renamed from: a (m.v, l.j, l.g) l.g
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
         class_293 var4 = this.field_568 == null ? var2.method_3037() : var2.method_3035(this.field_568);
         if (var4 == null) {
@@ -65,7 +62,6 @@ public class class_111 extends class_109 {
         }
     }
 
-    // $FF: renamed from: b (int, java.lang.StringBuffer) java.lang.StringBuffer
     public StringBuffer method_820(int var1, StringBuffer var2) {
         method_759(var1, var2).append("break ");
         if (this.field_568 != null) {
@@ -74,7 +70,6 @@ public class class_111 extends class_109 {
         return var2.append(';');
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2004(this, var2);
         var1.method_1919(this, var2);

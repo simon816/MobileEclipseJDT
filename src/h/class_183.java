@@ -10,18 +10,14 @@ import j.class_346;
 import m.class_40;
 import m.class_86;
 
-// $FF: renamed from: h.ab
 public class class_183 extends class_177 {
 
-    // $FF: renamed from: a a.k
     static final class_331 field_802;
 
-    // $FF: renamed from: <init> (char[], int, int) void
     public class_183(char[] var1, int var2, int var3) {
         super(var1, var2, var3);
     }
 
-    // $FF: renamed from: a () void
     public void method_1081() {
         int var1 = this.field_792.length - 1;
         long var2;
@@ -99,7 +95,6 @@ public class class_183 extends class_177 {
         this.field_672 = class_335.method_3297(var2);
     }
 
-    // $FF: renamed from: a (m.v, i.o, boolean) void
     public void method_912(class_86 var1, class_268 var2, boolean var3) {
         int var4 = var2.field_1208;
         if (var3) {
@@ -108,17 +103,14 @@ public class class_183 extends class_177 {
         var2.method_2360(var4, this.field_444);
     }
 
-    // $FF: renamed from: b (m.v) m.s
     public class_40 method_1082(class_86 var1) {
         return class_40.field_183;
     }
 
-    // $FF: renamed from: g_ () boolean
     public final boolean method_1095() {
         return this.field_792.length == 20 && this.field_792[0] == 57 && this.field_792[1] == 50 && this.field_792[2] == 50 && this.field_792[3] == 51 && this.field_792[4] == 51 && this.field_792[5] == 55 && this.field_792[6] == 50 && this.field_792[7] == 48 && this.field_792[8] == 51 && this.field_792[9] == 54 && this.field_792[10] == 56 && this.field_792[11] == 53 && this.field_792[12] == 52 && this.field_792[13] == 55 && this.field_792[14] == 55 && this.field_792[15] == 53 && this.field_792[16] == 56 && this.field_792[17] == 48 && this.field_792[18] == 56 && (this.field_446 & 534773760) >> 21 == 0;
     }
 
-    // $FF: renamed from: a (m.v) m.s
     public class_40 method_925(class_86 var1) {
         class_40 var2 = super.method_925(var1);
         if (this.field_672 == field_802) {
@@ -131,13 +123,11 @@ public class class_183 extends class_177 {
         }
     }
 
-    // $FF: renamed from: a (c.j, m.v) void
     public void method_763(class_264 var1, class_86 var2) {
         var1.method_2032(this, var2);
         var1.method_1947(this, var2);
     }
 
-    // $FF: renamed from: <clinit> () void
     static {
         field_802 = class_332.method_3291(Double.POSITIVE_INFINITY);
     }

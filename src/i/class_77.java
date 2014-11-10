@@ -3,41 +3,34 @@ package i;
 import b.class_233;
 import m.class_40;
 
-// $FF: renamed from: i.c
 public class class_77 {
 
-    // $FF: renamed from: a int
     public int field_336;
-    // $FF: renamed from: c int
+
     private int field_337;
-    // $FF: renamed from: a char[]
+
     private char[] field_338;
-    // $FF: renamed from: b int
+
     public int field_339;
 
-    // $FF: renamed from: <init> () void
     private class_77() {
     }
 
-    // $FF: renamed from: <init> (int, char[]) void
     public class_77(int var1, char[] var2) {
         this(var1, 7, var2);
     }
 
-    // $FF: renamed from: <init> (int, int, char[]) void
     public class_77(int var1, int var2, char[] var3) {
         this.field_337 = var1;
         this.field_336 = var2;
         this.field_338 = var3;
     }
 
-    // $FF: renamed from: <init> (int, m.s) void
     public class_77(int var1, class_40 var2) {
         this(var2);
         this.field_336 = var1;
     }
 
-    // $FF: renamed from: <init> (m.s) void
     public class_77(class_40 var1) {
         this.field_337 = var1.field_177;
         switch (var1.field_177) {
@@ -68,7 +61,6 @@ public class class_77 {
         }
     }
 
-    // $FF: renamed from: a () int
     public int method_473() {
         return this.field_337;
     }
@@ -106,7 +98,6 @@ public class class_77 {
         return String.valueOf(var1);
     }
 
-    // $FF: renamed from: a () i.c
     public class_77 method_474() {
         class_77 var10000 = new class_77();
         class_77 var1 = var10000;
@@ -130,17 +121,14 @@ public class class_77 {
         return this.field_336 + this.field_337 + this.field_338.length + this.field_339;
     }
 
-    // $FF: renamed from: a () char[]
     public char[] method_475() {
         return this.field_338;
     }
 
-    // $FF: renamed from: b () char[]
     public char[] method_476() {
         return this.field_338;
     }
 
-    // $FF: renamed from: a () void
     public void method_477() {
         if (this.field_338[1] == 76) {
             this.field_338 = class_233.method_1388(this.field_338, 2, this.field_338.length - 1);
