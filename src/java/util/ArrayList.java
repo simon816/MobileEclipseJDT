@@ -2,8 +2,9 @@ package java.util;
 
 import java.util.List;
 import java.util.Iterator;
-import java.util.class_314;
+import java.util.NullClass;
 import java.util.ArrayListItr;
+
 import java.util.Vector;
 
 public class ArrayList implements List {
@@ -41,7 +42,7 @@ public class ArrayList implements List {
     }
 
     public Iterator iterator() {
-        ArrayListItr var10000 = new ArrayListItr(this, (class_314)null);
+        ArrayListItr var10000 = new ArrayListItr(this, (NullClass)null);
         return var10000;
     }
 

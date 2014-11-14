@@ -2,7 +2,7 @@ package java.util;
 
 import java.util.Iterator;
 import java.util.ArrayList;
-import java.util.class_314;
+import java.util.NullClass;
 
 class ArrayListItr implements Iterator {
 
@@ -28,7 +28,7 @@ class ArrayListItr implements Iterator {
         return var1;
     }
 
-    ArrayListItr(ArrayList var1, class_314 var2) {
+    ArrayListItr(ArrayList var1, NullClass var2) {
         this(var1);
     }
 }

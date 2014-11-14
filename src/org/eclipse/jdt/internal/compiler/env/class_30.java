@@ -1,0 +1,8 @@
+package org.eclipse.jdt.internal.compiler.env;
+
+public interface class_30 {
+
+    char[] method_85();
+
+    Object method_86();
+}
