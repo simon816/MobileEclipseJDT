@@ -11,7 +11,7 @@ import h.class_98;
 import j.class_251;
 import j.class_257;
 import j.class_260;
-import j.class_278;
+import j.Parser;
 
 public class class_253 extends class_251 {
 
@@ -32,10 +32,10 @@ public class class_253 extends class_251 {
     public int field_1080;
 
     public class_253(class_121 var1, class_251 var2, int var3) {
-        this(var1, var2, var3, (class_278)null);
+        this(var1, var2, var3, (Parser)null);
     }
 
-    public class_253(class_121 var1, class_251 var2, int var3, class_278 var4) {
+    public class_253(class_121 var1, class_251 var2, int var3, Parser var4) {
         super(var2, var3, var4);
         this.field_1073 = var1;
         this.field_1074 = var1.field_655 != null;

@@ -1,6 +1,6 @@
 package i;
 
-import b.class_233;
+import b.CharOperation;
 import c.class_288;
 import f.class_325;
 import i.class_262;
@@ -8,7 +8,7 @@ import i.class_263;
 import i.class_274;
 import i.class_275;
 import i.class_276;
-import i.class_5;
+import i.AttributeNamesConstants;
 import i.class_76;
 import m.class_17;
 import m.class_40;
@@ -913,7 +913,7 @@ public class class_272 {
             this.field_1318.method_3227(var1, var6);
         } else if (var5 instanceof class_263) {
             var6 = (class_263)var5;
-            if (class_233.method_1364(var2, var6.field_1157)) {
+            if (CharOperation.method_1364(var2, var6.field_1157)) {
                 var4 = var6.field_1158;
             } else {
                 class_262 var8 = new class_262();
@@ -951,7 +951,7 @@ public class class_272 {
                 var6.method_3227(var2, var8);
             } else if (var12 instanceof class_263) {
                 var8 = (class_263)var12;
-                if (class_233.method_1364(var3, var8.field_1157)) {
+                if (CharOperation.method_1364(var3, var8.field_1157)) {
                     var5 = var8.field_1158;
                 } else {
                     class_262 var10 = new class_262();
@@ -971,8 +971,8 @@ public class class_272 {
     public void method_2475(int var1, int var2) {
         this.field_1320 = var1;
         this.field_1321 = var2;
-        if (this.field_1314.method_1895(class_5.field_9) >= var1) {
-            this.field_1314.method_1899(class_5.field_9);
+        if (this.field_1314.method_1895(AttributeNamesConstants.field_9) >= var1) {
+            this.field_1314.method_1899(AttributeNamesConstants.field_9);
         }
         if (this.field_1314.method_1895(field_1345) >= var1) {
             this.field_1314.method_1899(field_1345);

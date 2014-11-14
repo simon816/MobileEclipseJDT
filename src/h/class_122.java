@@ -6,7 +6,7 @@ import h.class_114;
 import h.class_121;
 import h.class_90;
 import i.class_268;
-import j.class_278;
+import j.Parser;
 import l.class_293;
 import l.class_301;
 import m.class_54;
@@ -54,7 +54,7 @@ public class class_122 extends class_121 {
         return (this.field_656 & 8) != 0;
     }
 
-    public void method_895(class_278 var1, class_114 var2, class_90 var3) {
+    public void method_895(Parser var1, class_114 var2, class_90 var3) {
         var1.method_2858(this, var2, var3);
     }
 

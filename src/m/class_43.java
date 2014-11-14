@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import f.class_327;
 import g.class_10;
 import g.class_316;
@@ -103,10 +103,10 @@ public abstract class class_43 extends class_40 implements class_18 {
                         if (var8 <= 0) {
                             int var9 = var11;
                             int var10;
-                            for (var10 = var11; var9 > var3 && class_233.method_1364(var1[var9 - 1].field_274, var0); --var9) {
+                            for (var10 = var11; var9 > var3 && CharOperation.method_1364(var1[var9 - 1].field_274, var0); --var9) {
                                 ;
                             }
-                            while (var10 < var4 && class_233.method_1364(var1[var10 + 1].field_274, var0)) {
+                            while (var10 < var4 && CharOperation.method_1364(var1[var10 + 1].field_274, var0)) {
                                 ++var10;
                             }
                             return (long)var9 + ((long)var10 << 32);
@@ -315,23 +315,23 @@ public abstract class class_43 extends class_40 implements class_18 {
         char[] var1;
         switch (this.field_197.length) {
             case 3:
-                if (!class_233.method_1364(class_17.field_26, this.field_197[0])) {
+                if (!CharOperation.method_1364(class_17.field_26, this.field_197[0])) {
                     return;
                 }
-                if (!class_233.method_1364(class_17.field_27, this.field_197[1])) {
-                    if (class_233.method_1364(class_17.field_28, this.field_197[1])) {
-                        if (class_233.method_1364(class_17.field_107[2], this.field_197[2])) {
+                if (!CharOperation.method_1364(class_17.field_27, this.field_197[1])) {
+                    if (CharOperation.method_1364(class_17.field_28, this.field_197[1])) {
+                        if (CharOperation.method_1364(class_17.field_107[2], this.field_197[2])) {
                             this.field_177 = 53;
-                        } else if (class_233.method_1364(class_17.field_108[2], this.field_197[2])) {
+                        } else if (CharOperation.method_1364(class_17.field_108[2], this.field_197[2])) {
                             this.field_177 = 37;
-                        } else if (class_233.method_1364(class_17.field_131[2], this.field_197[2])) {
+                        } else if (CharOperation.method_1364(class_17.field_131[2], this.field_197[2])) {
                             this.field_177 = 56;
-                        } else if (class_233.method_1364(class_17.field_130[2], this.field_197[2])) {
+                        } else if (CharOperation.method_1364(class_17.field_130[2], this.field_197[2])) {
                             this.field_177 = 57;
-                        } else if (class_233.method_1364(class_17.field_132[2], this.field_197[2])) {
+                        } else if (CharOperation.method_1364(class_17.field_132[2], this.field_197[2])) {
                             this.field_177 = 58;
                         }
-                    } else if (class_233.method_1364(class_17.field_29, this.field_197[1]) && class_233.method_1364(class_17.field_118[2], this.field_197[2])) {
+                    } else if (CharOperation.method_1364(class_17.field_29, this.field_197[1]) && CharOperation.method_1364(class_17.field_118[2], this.field_197[2])) {
                         this.field_177 = 39;
                     }
                     return;
@@ -342,46 +342,46 @@ public abstract class class_43 extends class_40 implements class_18 {
                 }
                 switch (var1[0]) {
                     case 65:
-                        if (class_233.method_1364(var1, class_17.field_89[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_89[2])) {
                             this.field_177 = 35;
                         }
                         return;
                     case 66:
-                        if (class_233.method_1364(var1, class_17.field_116[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_116[2])) {
                             this.field_177 = 33;
-                        } else if (class_233.method_1364(var1, class_17.field_109[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_109[2])) {
                             this.field_177 = 26;
                         }
                         return;
                     case 67:
-                        if (class_233.method_1364(var1, class_17.field_111[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_111[2])) {
                             this.field_177 = 28;
-                        } else if (class_233.method_1364(var1, class_17.field_90[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_90[2])) {
                             this.field_177 = 16;
-                        } else if (class_233.method_1364(var1, class_17.field_91[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_91[2])) {
                             this.field_177 = 23;
-                        } else if (class_233.method_1364(var1, class_17.field_92[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_92[2])) {
                             this.field_177 = 36;
                         }
                         return;
                     case 68:
-                        if (class_233.method_1364(var1, class_17.field_115[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_115[2])) {
                             this.field_177 = 32;
-                        } else if (class_233.method_1364(var1, class_17.field_119[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_119[2])) {
                             this.field_177 = 44;
                         }
                         return;
                     case 69:
-                        if (class_233.method_1364(var1, class_17.field_95[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_95[2])) {
                             this.field_177 = 19;
-                        } else if (class_233.method_1364(var1, class_17.field_94[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_94[2])) {
                             this.field_177 = 25;
-                        } else if (class_233.method_1364(var1, class_17.field_93[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_93[2])) {
                             this.field_177 = 41;
                         }
                         return;
                     case 70:
-                        if (class_233.method_1364(var1, class_17.field_114[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_114[2])) {
                             this.field_177 = 31;
                         }
                         return;
@@ -396,67 +396,67 @@ public abstract class class_43 extends class_40 implements class_18 {
                     default:
                         return;
                     case 73:
-                        if (class_233.method_1364(var1, class_17.field_112[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_112[2])) {
                             this.field_177 = 29;
-                        } else if (class_233.method_1364(var1, class_17.field_97[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_97[2])) {
                             this.field_177 = 38;
-                        } else if (class_233.method_1364(var1, class_17.field_96[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_96[2])) {
                             this.field_177 = 42;
                         }
                         return;
                     case 76:
-                        if (class_233.method_1364(var1, class_17.field_113[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_113[2])) {
                             this.field_177 = 30;
                         }
                         return;
                     case 78:
-                        if (class_233.method_1364(var1, class_17.field_98[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_98[2])) {
                             this.field_177 = 22;
                         }
                         return;
                     case 79:
-                        if (class_233.method_1364(var1, class_17.field_99[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_99[2])) {
                             this.field_177 = 1;
-                        } else if (class_233.method_1364(var1, class_17.field_122[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_122[2])) {
                             this.field_177 = 47;
                         }
                         return;
                     case 82:
-                        if (class_233.method_1364(var1, class_17.field_104[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_104[2])) {
                             this.field_177 = 24;
                         }
                         return;
                     case 83:
-                        if (class_233.method_1364(var1, class_17.field_100[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_100[2])) {
                             this.field_177 = 11;
-                        } else if (class_233.method_1364(var1, class_17.field_101[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_101[2])) {
                             this.field_177 = 17;
-                        } else if (class_233.method_1364(var1, class_17.field_102[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_102[2])) {
                             this.field_177 = 40;
-                        } else if (class_233.method_1364(var1, class_17.field_103[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_103[2])) {
                             this.field_177 = 18;
-                        } else if (class_233.method_1364(var1, class_17.field_110[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_110[2])) {
                             this.field_177 = 27;
-                        } else if (class_233.method_1364(var1, class_17.field_124[2])) {
+                        } else if (CharOperation.method_1364(var1, class_17.field_124[2])) {
                             this.field_177 = 49;
                         }
                         return;
                     case 84:
-                        if (class_233.method_1364(var1, class_17.field_105[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_105[2])) {
                             this.field_177 = 21;
                         }
                         return;
                     case 86:
-                        if (class_233.method_1364(var1, class_17.field_117[2])) {
+                        if (CharOperation.method_1364(var1, class_17.field_117[2])) {
                             this.field_177 = 34;
                         }
                         return;
                 }
             case 4:
-                if (!class_233.method_1364(class_17.field_26, this.field_197[0])) {
+                if (!CharOperation.method_1364(class_17.field_26, this.field_197[0])) {
                     return;
                 }
-                if (!class_233.method_1364(class_17.field_27, this.field_197[1])) {
+                if (!CharOperation.method_1364(class_17.field_27, this.field_197[1])) {
                     return;
                 }
                 char[] var2 = this.field_197[2];
@@ -467,20 +467,20 @@ public abstract class class_43 extends class_40 implements class_18 {
                 if (var1.length == 0) {
                     return;
                 }
-                if (class_233.method_1364(var2, class_17.field_31)) {
-                    if (class_233.method_1364(var1, class_17.field_106[3])) {
+                if (CharOperation.method_1364(var2, class_17.field_31)) {
+                    if (CharOperation.method_1364(var1, class_17.field_106[3])) {
                         this.field_177 = 20;
-                    } else if (class_233.method_1364(var1, class_17.field_128[3])) {
+                    } else if (CharOperation.method_1364(var1, class_17.field_128[3])) {
                         this.field_177 = 54;
-                    } else if (class_233.method_1364(var1, class_17.field_129[3])) {
+                    } else if (CharOperation.method_1364(var1, class_17.field_129[3])) {
                         this.field_177 = 55;
                     }
                     return;
                 }
-                if (class_233.method_1364(var2, class_17.field_30)) {
+                if (CharOperation.method_1364(var2, class_17.field_30)) {
                     switch (var1[0]) {
                         case 65:
-                            if (class_233.method_1364(var1, class_17.field_88[3])) {
+                            if (CharOperation.method_1364(var1, class_17.field_88[3])) {
                                 this.field_177 = 43;
                             }
                             return;
@@ -501,29 +501,29 @@ public abstract class class_43 extends class_40 implements class_18 {
                         default:
                             break;
                         case 68:
-                            if (class_233.method_1364(var1, class_17.field_120[3])) {
+                            if (CharOperation.method_1364(var1, class_17.field_120[3])) {
                                 this.field_177 = 45;
                             }
                             return;
                         case 69:
-                            if (class_233.method_1364(var1, class_17.field_127[3])) {
+                            if (CharOperation.method_1364(var1, class_17.field_127[3])) {
                                 this.field_177 = 52;
                             }
                             return;
                         case 73:
-                            if (class_233.method_1364(var1, class_17.field_121[3])) {
+                            if (CharOperation.method_1364(var1, class_17.field_121[3])) {
                                 this.field_177 = 46;
                             }
                             return;
                         case 82:
-                            if (class_233.method_1364(var1, class_17.field_123[3])) {
+                            if (CharOperation.method_1364(var1, class_17.field_123[3])) {
                                 this.field_177 = 48;
-                            } else if (class_233.method_1364(var1, class_17.field_126[3])) {
+                            } else if (CharOperation.method_1364(var1, class_17.field_126[3])) {
                                 this.field_177 = 51;
                             }
                             return;
                         case 84:
-                            if (class_233.method_1364(var1, class_17.field_125[3])) {
+                            if (CharOperation.method_1364(var1, class_17.field_125[3])) {
                                 this.field_177 = 50;
                             }
                             return;
@@ -533,7 +533,7 @@ public abstract class class_43 extends class_40 implements class_18 {
     }
 
     public char[] method_134() {
-        return this.field_202 != null ? this.field_202 : (this.field_202 = class_233.method_1361(this.field_197, '/'));
+        return this.field_202 != null ? this.field_202 : (this.field_202 = CharOperation.method_1361(this.field_197, '/'));
     }
 
     public String method_135() {
@@ -643,7 +643,7 @@ public abstract class class_43 extends class_40 implements class_18 {
             if (var3 < 0) {
                 return null;
             }
-        } while (!class_233.method_1364(var2[var3].field_198, var1));
+        } while (!CharOperation.method_1364(var2[var3].field_198, var1));
         return var2[var3];
     }
 
@@ -663,12 +663,12 @@ public abstract class class_43 extends class_40 implements class_18 {
             if (var3 < 0) {
                 return null;
             }
-        } while (!class_233.method_1364(var2[var3].field_198, var1));
+        } while (!CharOperation.method_1364(var2[var3].field_198, var1));
         return var2[var3];
     }
 
     public int hashCode() {
-        return this.field_197 != null && this.field_197.length != 0 ? class_233.method_1369(this.field_197[this.field_197.length - 1]) : super.hashCode();
+        return this.field_197 != null && this.field_197.length != 0 ? CharOperation.method_1369(this.field_197[this.field_197.length - 1]) : super.hashCode();
     }
 
     public boolean method_212(class_43 var1) {
@@ -1049,15 +1049,15 @@ public abstract class class_43 extends class_40 implements class_18 {
     }
 
     public char[] method_177() {
-        return this.method_159() ? class_233.method_1357(this.method_137().method_177(), this.method_179(), '.') : this.method_179();
+        return this.method_159() ? CharOperation.method_1357(this.method_137().method_177(), this.method_179(), '.') : this.method_179();
     }
 
     public char[] method_103() {
         char[] var1;
         if (this.method_159()) {
-            var1 = class_233.method_1357(this.method_137().method_103(), this.field_198, '.');
+            var1 = CharOperation.method_1357(this.method_137().method_103(), this.field_198, '.');
         } else {
-            var1 = class_233.method_1361(this.field_197, '.');
+            var1 = CharOperation.method_1361(this.field_197, '.');
         }
         class_46[] var2;
         if ((var2 = this.method_181()) != class_34.field_157) {
@@ -1095,7 +1095,7 @@ public abstract class class_43 extends class_40 implements class_18 {
     public char[] method_104() {
         char[] var1;
         if (this.method_159()) {
-            var1 = class_233.method_1357(this.method_137().method_104(), this.field_198, '.');
+            var1 = CharOperation.method_1357(this.method_137().method_104(), this.field_198, '.');
         } else {
             var1 = this.field_198;
         }
@@ -1119,7 +1119,7 @@ public abstract class class_43 extends class_40 implements class_18 {
     }
 
     public char[] method_178() {
-        return this.field_203 != null ? this.field_203 : (this.field_203 = class_233.method_1359('L', this.method_134(), ';'));
+        return this.field_203 != null ? this.field_203 : (this.field_203 = CharOperation.method_1359('L', this.method_134(), ';'));
     }
 
     public char[] method_179() {

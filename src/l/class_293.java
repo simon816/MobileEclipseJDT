@@ -1,6 +1,6 @@
 package l;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_104;
 import h.class_116;
 import h.class_117;
@@ -209,7 +209,7 @@ public class class_293 implements class_17 {
                 var3 = var2;
             }
             char[] var4;
-            if ((var4 = var2.method_3043()) != null && class_233.method_1364(var4, var1)) {
+            if ((var4 = var2.method_3043()) != null && CharOperation.method_1364(var4, var1)) {
                 ((class_104)var2.field_1739).field_446 |= 64;
                 if (var3 == null) {
                     return var2;
@@ -230,7 +230,7 @@ public class class_293 implements class_17 {
                 var3 = var2;
             }
             char[] var5;
-            if ((var5 = var2.method_3043()) != null && class_233.method_1364(var5, var1)) {
+            if ((var5 = var2.method_3043()) != null && CharOperation.method_1364(var5, var1)) {
                 ((class_104)var2.field_1739).field_446 |= 64;
                 if (var3 != null && var2.field_1739.method_750() == var3.field_1739) {
                     if (var4 == null) {

@@ -2,7 +2,7 @@ package h;
 
 import a.class_331;
 import c.class_264;
-import f.class_226;
+import f.Util;
 import h.class_120;
 import h.class_128;
 import h.class_130;
@@ -21,7 +21,7 @@ import m.class_83;
 import m.class_84;
 import m.class_86;
 import m.class_87;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_121 extends class_120 {
 
@@ -185,11 +185,11 @@ public class class_121 extends class_120 {
                     }
                     if (this.field_661 != null && this.field_661.field_314 != null && !this.field_661.field_314.method_158()) {
                         int var16 = this.field_661.field_300 & 7;
-                        class_248 var19 = var1.method_644();
+                        ProblemReporter var19 = var1.method_644();
                         int var7 = var19.method_1449(-1610612250);
                         if (var7 != -1) {
                             if (var2 != null) {
-                                var16 = class_226.method_1318(var2.method_671(), var16);
+                                var16 = Util.method_1318(var2.method_671(), var16);
                             }
                             int var8 = this.field_661.field_300 & -8 | var16;
                         }

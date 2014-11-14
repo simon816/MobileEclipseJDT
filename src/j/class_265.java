@@ -7,8 +7,8 @@ import h.class_122;
 import h.class_93;
 import h.class_94;
 import h.class_96;
-import j.class_270;
-import j.class_278;
+import j.Scanner;
+import j.Parser;
 import m.class_84;
 import m.class_86;
 import m.class_87;
@@ -23,9 +23,9 @@ class class_265 extends class_264 {
 
     int field_1162;
 
-    private final class_278 field_1163;
+    private final Parser field_1163;
 
-    class_265(class_278 var1) {
+    class_265(Parser var1) {
         this.field_1163 = var1;
         this.field_1161 = new class_114[0];
         this.field_1162 = -1;
@@ -81,7 +81,7 @@ class class_265 extends class_264 {
         }
         class_33 var5 = this.field_1163.field_1615;
         this.field_1163.field_1627.method_2435(var1.field_490, var1.field_491);
-        class_270 var6 = this.field_1163.field_1628;
+        Scanner var6 = this.field_1163.field_1628;
         this.field_1163.field_1628 = this.field_1163.field_1627;
         this.field_1163.method_2860(var1, var1.field_490, var1.field_491, var3, this.field_1163.field_1561);
         this.field_1163.field_1628 = var6;
@@ -102,7 +102,7 @@ class class_265 extends class_264 {
             }
             class_33 var5 = this.field_1163.field_1615;
             this.field_1163.field_1627.method_2435(var1.field_666, var1.field_667);
-            class_270 var6 = this.field_1163.field_1628;
+            Scanner var6 = this.field_1163.field_1628;
             this.field_1163.field_1628 = this.field_1163.field_1627;
             this.field_1163.method_2860(this.field_1160, var1.field_666, var1.field_667, var3, this.field_1163.field_1561);
             this.field_1163.field_1628 = var6;

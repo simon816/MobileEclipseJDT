@@ -1,10 +1,10 @@
 package h;
 
 import a.class_331;
-import b.class_233;
+import b.CharOperation;
 import c.class_264;
 import f.class_329;
-import g.class_313;
+import java.util.ArrayList;
 import h.class_89;
 import h.class_98;
 import i.class_268;
@@ -420,7 +420,7 @@ public abstract class class_126 extends class_98 {
                                                     int var11 = 0;
                                                     for (int var12 = var15.length; var11 < var12; ++var11) {
                                                         for (int var13 = 0; var13 < var10; ++var13) {
-                                                            if (var15[var11].field_275 != var9[var13].field_275 && class_233.method_1364(var15[var11].field_274, var9[var13].field_274) && var15[var11].method_344(var9[var13])) {
+                                                            if (var15[var11].field_275 != var9[var13].field_275 && CharOperation.method_1364(var15[var11].field_274, var9[var13].field_274) && var15[var11].method_344(var9[var13])) {
                                                                 return false;
                                                             }
                                                         }
@@ -613,19 +613,19 @@ public abstract class class_126 extends class_98 {
     }
 
     private class_58[] method_916(class_43 var1) {
-        class_313 var10000 = new class_313();
-        class_313 var2 = var10000;
+        ArrayList var10000 = new ArrayList();
+        ArrayList var2 = var10000;
         this.method_917(var1, var2);
-        return (class_58[])((class_58[])var2.method_33(new class_58[var2.method_29()]));
+        return (class_58[])((class_58[])var2.toArray(new class_58[var2.size()]));
     }
 
-    private void method_917(class_43 var1, class_313 var2) {
+    private void method_917(class_43 var1, ArrayList var2) {
         if (var1.method_157()) {
             class_58[] var3 = var1.method_232();
             int var4 = 0;
             int var5;
             for (var5 = var3.length; var4 < var5; ++var4) {
-                var2.method_34(var3[var4]);
+                var2.add(var3[var4]);
             }
             class_43[] var7 = var1.method_241();
             var5 = 0;

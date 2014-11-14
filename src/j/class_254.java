@@ -1,6 +1,6 @@
 package j;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_112;
 import h.class_114;
 import h.class_121;
@@ -12,7 +12,7 @@ import j.class_253;
 import j.class_257;
 import j.class_260;
 import j.class_261;
-import j.class_278;
+import j.Parser;
 import m.class_40;
 
 public class class_254 extends class_253 {
@@ -32,10 +32,10 @@ public class class_254 extends class_253 {
     int field_1087;
 
     public class_254(class_121 var1, class_251 var2, int var3) {
-        this(var1, var2, var3, (class_278)null);
+        this(var1, var2, var3, (Parser)null);
     }
 
-    public class_254(class_121 var1, class_251 var2, int var3, class_278 var4) {
+    public class_254(class_121 var1, class_251 var2, int var3, Parser var4) {
         super(var1, var2, var3, var4);
         this.field_1085 = -1;
         this.field_1070 = true;
@@ -62,7 +62,7 @@ public class class_254 extends class_253 {
     public class_251 method_1834(class_121 var1, int var2) {
         this.method_1846();
         char[][] var3;
-        if ((var1.field_656 & -17) == 0 && var1.field_660 != null && ((var3 = var1.field_660.method_1012()).length != 1 || !class_233.method_1364(var3[0], class_40.field_188.method_179()))) {
+        if ((var1.field_656 & -17) == 0 && var1.field_660 != null && ((var3 = var1.field_660.method_1012()).length != 1 || !CharOperation.method_1364(var3[0], class_40.field_188.method_179()))) {
             return (class_251)(this.field_1073.field_652 > 0 && var1.field_653 > this.field_1073.field_652 ? (this.field_1068 == null ? this : this.field_1068.method_1834(var1, var2)) : this);
         } else if (this.field_1068 == null) {
             return this;

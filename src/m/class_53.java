@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_34;
 import m.class_40;
 import m.class_43;
@@ -121,9 +121,9 @@ public class class_53 extends class_52 {
     public char[] method_103() {
         char[] var1;
         if (this.method_159()) {
-            var1 = class_233.method_1357(this.method_137().method_103(), this.field_198, '.');
+            var1 = CharOperation.method_1357(this.method_137().method_103(), this.field_198, '.');
         } else {
-            var1 = class_233.method_1361(this.method_283().field_197, '.');
+            var1 = CharOperation.method_1361(this.method_283().field_197, '.');
         }
         return var1;
     }
@@ -131,7 +131,7 @@ public class class_53 extends class_52 {
     public char[] method_104() {
         char[] var1;
         if (this.method_159()) {
-            var1 = class_233.method_1357(this.method_137().method_104(), this.field_198, '.');
+            var1 = CharOperation.method_1357(this.method_137().method_104(), this.field_198, '.');
         } else {
             var1 = this.method_283().field_198;
         }

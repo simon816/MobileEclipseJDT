@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_43;
 import m.class_54;
 import m.class_55;
@@ -22,7 +22,7 @@ public final class class_56 extends class_55 {
     }
 
     public char[] method_134() {
-        return this.field_202 != null ? this.field_202 : (this.field_202 = class_233.method_1357(this.method_137().method_134(), this.field_198, '$'));
+        return this.field_202 != null ? this.field_202 : (this.field_202 = CharOperation.method_1357(this.method_137().method_134(), this.field_198, '$'));
     }
 
     public void method_100() {

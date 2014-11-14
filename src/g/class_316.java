@@ -1,8 +1,8 @@
 package g;
 
 import g.class_10;
-import g.class_11;
-import g.class_13;
+import java.lang.Comparable;
+import java.util.List;
 
 public class class_316 {
 
@@ -21,7 +21,7 @@ public class class_316 {
         method_3175(var0, 0, var0.length, var1);
     }
 
-    public static void method_3171(class_11[] var0) {
+    public static void method_3171(Comparable[] var0) {
         method_3176(var0, 0, var0.length);
     }
 
@@ -35,13 +35,13 @@ public class class_316 {
         }
     }
 
-    public static void method_3174(class_13 var0, class_10 var1) {
-        Object[] var2 = var0.method_32();
+    public static void method_3174(List var0, class_10 var1) {
+        Object[] var2 = var0.toArray();
         int var3 = var2.length;
         method_3170(var2, var1);
-        var0.method_35();
+        var0.clear();
         for (int var4 = 0; var4 < var3; ++var4) {
-            var0.method_34(var2[var4]);
+            var0.add(var2[var4]);
         }
     }
 
@@ -55,10 +55,10 @@ public class class_316 {
         }
     }
 
-    private static void method_3176(class_11[] var0, int var1, int var2) {
+    private static void method_3176(Comparable[] var0, int var1, int var2) {
         for (int var3 = var1; var3 < var2 + var1; ++var3) {
-            for (int var4 = var3; var4 > var1 && var0[var4 - 1].method_28(var0[var4]) > 0; --var4) {
-                class_11 var5 = var0[var4];
+            for (int var4 = var3; var4 > var1 && var0[var4 - 1].compareTo(var0[var4]) > 0; --var4) {
+                Comparable var5 = var0[var4];
                 var0[var4] = var0[var4 - 1];
                 var0[var4 - 1] = var5;
             }

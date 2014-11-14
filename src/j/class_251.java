@@ -1,6 +1,6 @@
 package j;
 
-import f.class_226;
+import f.Util;
 import h.class_112;
 import h.class_114;
 import h.class_121;
@@ -13,8 +13,8 @@ import j.class_254;
 import j.class_255;
 import j.class_260;
 import j.class_261;
-import j.class_270;
-import j.class_278;
+import j.Scanner;
+import j.Parser;
 
 public class class_251 {
 
@@ -24,13 +24,13 @@ public class class_251 {
 
     public boolean field_1070;
 
-    protected class_278 field_1071;
+    protected Parser field_1071;
 
     public class_251(class_251 var1, int var2) {
-        this(var1, var2, (class_278)null);
+        this(var1, var2, (Parser)null);
     }
 
-    public class_251(class_251 var1, int var2, class_278 var3) {
+    public class_251(class_251 var1, int var2, Parser var3) {
         this.field_1068 = var1;
         this.field_1069 = var2;
         this.field_1071 = var3;
@@ -155,7 +155,7 @@ public class class_251 {
         return null;
     }
 
-    public class_278 method_1844() {
+    public Parser method_1844() {
         for (class_251 var1 = this; var1 != null; var1 = var1.field_1068) {
             if (var1.field_1071 != null) {
                 return var1.field_1071;
@@ -171,15 +171,15 @@ public class class_251 {
     public void method_1846() {}
 
     public int method_1847(int var1) {
-        class_278 var2 = this.method_1844();
+        Parser var2 = this.method_1844();
         if (var2 == null) {
             return var1;
         } else {
-            class_270 var3 = var2.field_1628;
+            Scanner var3 = var2.field_1628;
             if (var3.field_1256 == null) {
                 return var1;
             } else {
-                int var4 = class_226.method_1324(var1, var3.field_1256, 0, var3.field_1257);
+                int var4 = Util.method_1324(var1, var3.field_1256, 0, var3.field_1257);
                 if (var4 < 2) {
                     return var1;
                 } else {

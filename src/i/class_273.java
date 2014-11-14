@@ -1,9 +1,9 @@
 package i;
 
-import b.class_233;
-import g.class_11;
+import b.CharOperation;
+import java.lang.Comparable;
 
-public class class_273 implements class_11 {
+public class class_273 implements Comparable {
 
     public char[] field_1513;
 
@@ -14,7 +14,7 @@ public class class_273 implements class_11 {
         this.field_1513 = var2;
     }
 
-    public int method_28(Object var1) {
+    public int compareTo(Object var1) {
         return var1 instanceof class_273 ? this.field_1514 - ((class_273)var1).field_1514 : 0;
     }
 
@@ -23,7 +23,7 @@ public class class_273 implements class_11 {
             return false;
         } else {
             class_273 var2 = (class_273)var1;
-            return this.field_1514 == var2.field_1514 && class_233.method_1364(this.field_1513, var2.field_1513);
+            return this.field_1514 == var2.field_1514 && CharOperation.method_1364(this.field_1513, var2.field_1513);
         }
     }
 

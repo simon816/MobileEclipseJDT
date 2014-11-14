@@ -4,11 +4,11 @@ import a.class_33;
 import b.class_235;
 import c.class_287;
 import c.class_288;
-import f.class_226;
+import f.Util;
 import g.class_10;
-import g.class_14;
-import g.class_16;
-import g.class_312;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.HashMap;
 import g.class_316;
 import h.class_93;
 import j.class_267;
@@ -28,7 +28,7 @@ public class class_284 {
 
     public class_19 field_1677;
 
-    public class_14 field_1678;
+    public Map field_1678;
 
     public Vector field_1679;
 
@@ -44,7 +44,7 @@ public class class_284 {
 
     public class_267 field_1685;
 
-    public class_14 field_1686;
+    public Map field_1686;
 
     public int field_1687;
 
@@ -68,7 +68,7 @@ public class class_284 {
 
     public class_284(String var1, int var2, int var3, int var4) {
         this.field_1683 = false;
-        class_312 var10001 = new class_312(11);
+        HashMap var10001 = new HashMap(11);
         this.field_1686 = var10001;
         this.field_1689 = false;
         this.field_1691 = false;
@@ -82,7 +82,7 @@ public class class_284 {
 
     public class_284(class_19 var1, int var2, int var3, int var4) {
         this.field_1683 = false;
-        class_312 var10001 = new class_312(11);
+        HashMap var10001 = new HashMap(11);
         this.field_1686 = var10001;
         this.field_1689 = false;
         this.field_1691 = false;
@@ -103,7 +103,7 @@ public class class_284 {
         if (var1.method_1399()) {
             var6 += 100000;
         }
-        class_33 var7 = this.field_1678 == null ? null : (class_33)this.field_1678.method_38(var1);
+        class_33 var7 = this.field_1678 == null ? null : (class_33)this.field_1678.get(var1);
         if (var7 != null) {
             if (var7 instanceof class_93) {
                 class_93 var8 = (class_93)var7;
@@ -170,8 +170,8 @@ public class class_284 {
     }
 
     public class_288[] method_2917() {
-        class_288[] var1 = new class_288[this.field_1686.method_37()];
-        this.field_1686.method_43().method_33(var1);
+        class_288[] var1 = new class_288[this.field_1686.size()];
+        this.field_1686.values().toArray(var1);
         return var1;
     }
 
@@ -301,7 +301,7 @@ public class class_284 {
             this.field_1673[this.field_1675++] = var1;
             if (var2 != null) {
                 if (this.field_1678 == null) {
-                    class_312 var10001 = new class_312(5);
+                    HashMap var10001 = new HashMap(5);
                     this.field_1678 = var10001;
                 }
                 if (this.field_1679 == null) {
@@ -310,7 +310,7 @@ public class class_284 {
                 if (var1.method_1399() && !var2.method_95()) {
                     this.field_1679.addElement(var1);
                 }
-                this.field_1678.method_39(var1, var2);
+                this.field_1678.put(var1, var2);
             }
             if ((var1.method_1398() & 1073741824) != 0 && var1.method_1399()) {
                 this.field_1692 = true;
@@ -323,7 +323,7 @@ public class class_284 {
         if (!var3.method_158() && var3.method_156()) {
             this.field_1691 = true;
         }
-        this.field_1686.method_39(var1, var2);
+        this.field_1686.put(var1, var2);
     }
 
     private void method_2931(class_235 var1) {
@@ -349,9 +349,9 @@ public class class_284 {
         }
         if (this.field_1686 != null) {
             var1.append("COMPILED type(s)\t\n");
-            class_16 var2 = this.field_1686.method_42().method_31();
-            while (var2.method_47()) {
-                char[] var3 = (char[])((char[])var2.method_48());
+            Iterator var2 = this.field_1686.keySet().iterator();
+            while (var2.hasNext()) {
+                char[] var3 = (char[])((char[])var2.next());
                 var1.append("\t - ").append(var3).append('\n');
             }
         } else {
@@ -369,7 +369,7 @@ public class class_284 {
     }
 
     static {
-        field_1695 = class_226.field_983;
+        field_1695 = Util.field_983;
         class_287 var10000 = new class_287();
         field_1696 = var10000;
     }

@@ -17,7 +17,7 @@ import j.class_254;
 import j.class_255;
 import j.class_257;
 import j.class_258;
-import j.class_278;
+import j.Parser;
 
 public class class_260 extends class_258 {
 
@@ -507,7 +507,7 @@ public class class_260 extends class_258 {
 
     public void method_1852() {
         if (this.method_1883() && this.field_1124.field_598 == null) {
-            class_278 var1 = this.method_1844();
+            Parser var1 = this.method_1844();
             int var2;
             int var3;
             boolean var4;
@@ -570,7 +570,7 @@ public class class_260 extends class_258 {
 
     public class_251 method_1854(int var1, int var2) {
         if (this.field_1069 == 0) {
-            class_278 var3 = this.method_1844();
+            Parser var3 = this.method_1844();
             switch (var3.field_1593) {
                 case -1:
                 case 10:
@@ -589,7 +589,7 @@ public class class_260 extends class_258 {
         if (this.field_1069 == 1) {
             class_112 var10000 = new class_112(0);
             class_112 var6 = var10000;
-            class_278 var4 = this.method_1844();
+            Parser var4 = this.method_1844();
             var6.field_444 = var4.field_1628.field_1230;
             class_122 var5;
             class_122 var7;

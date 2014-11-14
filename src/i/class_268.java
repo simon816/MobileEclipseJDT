@@ -1,11 +1,11 @@
 package i;
 
 import a.class_331;
-import b.class_233;
+import b.CharOperation;
 import b.class_235;
 import c.class_284;
 import c.class_288;
-import f.class_226;
+import f.Util;
 import h.class_105;
 import h.class_126;
 import h.class_135;
@@ -3376,7 +3376,7 @@ public class class_268 {
 
     public void method_2266(class_40 var1, class_42 var2) {
         char[] var3 = "()".toCharArray();
-        var3 = class_233.method_1355(var3, var2.method_134());
+        var3 = CharOperation.method_1355(var3, var2.method_134());
         this.method_2258(-72, 0, 1, var1.method_134(), class_17.field_71, var3);
     }
 
@@ -4948,7 +4948,7 @@ public class class_268 {
                             this.field_1197 = this.field_1208;
                             return;
                         }
-                        var4 = class_226.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
+                        var4 = Util.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
                     } else if (var5 < var7) {
                         if (var6[var5 - 2] < var2) {
                             if (var2 < var6[var5 - 1]) {
@@ -4998,9 +4998,9 @@ public class class_268 {
                                 this.field_1197 = this.field_1208;
                                 return;
                             }
-                            var4 = class_226.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
+                            var4 = Util.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
                         } else {
-                            var4 = class_226.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
+                            var4 = Util.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
                         }
                     } else {
                         if (var6[var7 - 1] < var2) {
@@ -5034,7 +5034,7 @@ public class class_268 {
                             this.field_1197 = this.field_1208;
                             return;
                         }
-                        var4 = class_226.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
+                        var4 = Util.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
                     }
                 }
                 int var11;
@@ -5083,7 +5083,7 @@ public class class_268 {
                 if (this.field_1200 == this.field_1201) {
                     var4 = this.field_1200;
                 } else {
-                    var4 = class_226.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
+                    var4 = Util.method_1324(var2, this.field_1199, this.field_1200 - 1, this.field_1201 - 1);
                 }
                 this.field_1206[this.field_1207++] = var1;
                 this.field_1206[this.field_1207++] = var4;
@@ -5142,12 +5142,12 @@ public class class_268 {
             int var4 = var3.length;
             int var5 = var4 - 1;
             if (!var1.method_794() && !var1.method_795()) {
-                int var6 = class_226.method_1324(var1.field_490, var3, 0, var5);
+                int var6 = Util.method_1324(var1.field_490, var3, 0, var5);
                 this.field_1200 = var6;
                 if (var6 > var5) {
                     this.field_1201 = var6;
                 } else {
-                    int var7 = class_226.method_1324(var1.field_491, var3, var6 - 1, var5);
+                    int var7 = Util.method_1324(var1.field_491, var3, var6 - 1, var5);
                     if (var7 >= var5) {
                         var7 = var4;
                     }

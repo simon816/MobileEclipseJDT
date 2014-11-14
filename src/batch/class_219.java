@@ -1,11 +1,11 @@
 package batch;
 
 import batch.class_4;
-import f.class_2;
+import f.SuffixConstants;
 import k.class_343;
 import k.class_345;
 
-public abstract class class_219 implements class_4, class_2 {
+public abstract class class_219 implements class_4, SuffixConstants {
 
     String field_937;
 

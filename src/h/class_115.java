@@ -53,7 +53,7 @@ public class class_115 extends class_98 {
     }
 
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
-        class_303 var17;
+        class_301 var16;
         try {
             var3 = this.field_602.method_814(var1, var2, var3);
             class_74 var10005 = new class_74();
@@ -103,21 +103,21 @@ public class class_115 extends class_98 {
                 class_54 var18 = this.field_604.method_575().field_376.field_586;
                 this.field_612 = var18.method_301(var15);
             }
-            if (this.field_608 == null) {
-                var3.method_3072(((class_301)var5).method_3105(var4.field_1746));
-                this.field_614 = var1.method_635().method_729(var3);
-                class_301 var19 = var3;
-                return var19;
+            if (this.field_608 != null) {
+                class_303 var19 = ((class_301)var5).method_3105(var4.field_1746);
+                this.field_614 = var1.method_635().method_729(var19);
+                class_303 var17 = var19;
+                return var17;
             }
-            class_303 var16 = ((class_301)var5).method_3105(var4.field_1746);
-            this.field_614 = var1.method_635().method_729(var16);
-            var17 = var16;
+            var3.method_3072(((class_301)var5).method_3105(var4.field_1746));
+            this.field_614 = var1.method_635().method_729(var3);
+            var16 = var3;
         } finally {
             if (this.field_604 != null) {
                 this.field_604.field_399 = null;
             }
         }
-        return var17;
+        return var16;
     }
 
     public void method_818(class_86 var1, class_268 var2) {

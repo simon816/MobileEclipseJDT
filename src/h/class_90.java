@@ -2,8 +2,8 @@ package h;
 
 import a.class_33;
 import a.class_331;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import b.class_235;
 import c.class_284;
 import c.class_288;
@@ -27,7 +27,7 @@ import m.class_85;
 import n.class_242;
 import n.class_243;
 import n.class_244;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_90 extends class_89 implements class_33 {
 
@@ -45,7 +45,7 @@ public class class_90 extends class_89 implements class_33 {
 
     public class_85 field_453;
 
-    public class_248 field_454;
+    public ProblemReporter field_454;
 
     public class_284 field_455;
 
@@ -71,7 +71,7 @@ public class class_90 extends class_89 implements class_33 {
 
     int field_466;
 
-    public class_90(class_248 var1, class_284 var2, int var3) {
+    public class_90(ProblemReporter var1, class_284 var2, int var3) {
         this.field_451 = false;
         this.field_452 = false;
         this.field_457 = 0;
@@ -175,7 +175,7 @@ public class class_90 extends class_89 implements class_33 {
             class_235[] var2 = this.field_455.field_1673;
             int var3 = this.field_455.field_1675;
             long[] var4 = new long[this.field_466];
-            class_341 var5 = this.field_453.method_577();
+            CompilerOptions var5 = this.field_453.method_577();
             boolean var6 = false;
             int var7 = 0;
             int var8;
@@ -193,7 +193,7 @@ public class class_90 extends class_89 implements class_33 {
                 } else {
                     int var11 = var9.method_1401();
                     int var12 = var9.method_1402();
-                    long var13 = class_248.method_1457(var10);
+                    long var13 = ProblemReporter.method_1457(var10);
                     var15 = 0;
                     for (var16 = this.field_466; var15 < var16; ++var15) {
                         long var17 = this.field_465[var15];
@@ -203,7 +203,7 @@ public class class_90 extends class_89 implements class_33 {
                             ++var1;
                             var2[var7] = null;
                             if (this.field_455.field_1678 != null) {
-                                this.field_455.field_1678.method_40(var9);
+                                this.field_455.field_1678.remove(var9);
                             }
                             if (this.field_455.field_1679 != null) {
                                 this.field_455.field_1679.removeElement(var9);
@@ -242,7 +242,7 @@ public class class_90 extends class_89 implements class_33 {
                                 var15 = 0;
                                 for (var16 = var14.length; var15 < var16; ++var15) {
                                     class_92 var37 = var14[var15];
-                                    if (class_233.method_1364(var37.field_474, class_17.field_70)) {
+                                    if (CharOperation.method_1364(var37.field_474, class_17.field_70)) {
                                         class_126 var18 = var37.field_475;
                                         int var22;
                                         int var27;
@@ -255,7 +255,7 @@ public class class_90 extends class_89 implements class_33 {
                                                 for (var22 = var40.length; var21 < var22; ++var21) {
                                                     class_331 var23 = var40[var21].field_672;
                                                     if (var23 != class_331.field_1896 && var23.method_3288() == 11) {
-                                                        long var24 = class_341.method_3320(var23.method_3287());
+                                                        long var24 = CompilerOptions.method_3320(var23.method_3287());
                                                         if (var24 != 0L && ~var24 != 0L && var5.method_3313(var24) != -1 && (var4[var34] & var24) == 0L) {
                                                             if (var33) {
                                                                 int var26 = var18.field_444;
@@ -277,7 +277,7 @@ public class class_90 extends class_89 implements class_33 {
                                         } else {
                                             class_331 var41 = var18.field_672;
                                             if (var41 != class_331.field_1896 && var41.method_3288() == 11) {
-                                                long var39 = class_341.method_3320(var41.method_3287());
+                                                long var39 = CompilerOptions.method_3320(var41.method_3287());
                                                 if (var39 != 0L && ~var39 != 0L && var5.method_3313(var39) != -1 && (var4[var34] & var39) == 0L) {
                                                     if (var33) {
                                                         var22 = var18.field_444;
@@ -343,20 +343,20 @@ public class class_90 extends class_89 implements class_33 {
             return this.field_455.field_1677.method_52();
         } else {
             char[] var1 = this.field_455.method_2920().toCharArray();
-            int var2 = class_233.method_1376('/', var1) + 1;
-            if (var2 == 0 || var2 < class_233.method_1376('\\', var1)) {
-                var2 = class_233.method_1376('\\', var1) + 1;
+            int var2 = CharOperation.method_1376('/', var1) + 1;
+            if (var2 == 0 || var2 < CharOperation.method_1376('\\', var1)) {
+                var2 = CharOperation.method_1376('\\', var1) + 1;
             }
-            int var3 = class_233.method_1376('.', var1);
+            int var3 = CharOperation.method_1376('.', var1);
             if (var3 == -1) {
                 var3 = var1.length;
             }
-            return class_233.method_1388(var1, var2, var3);
+            return CharOperation.method_1388(var1, var2, var3);
         }
     }
 
     public boolean method_773() {
-        return class_233.method_1364(this.method_772(), class_17.field_144);
+        return CharOperation.method_1364(this.method_772(), class_17.field_144);
     }
 
     public boolean method_95() {

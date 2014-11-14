@@ -1,8 +1,8 @@
 package m;
 
-import b.class_233;
-import g.class_13;
-import g.class_313;
+import b.CharOperation;
+import java.util.List;
+import java.util.ArrayList;
 import m.class_34;
 import m.class_38;
 import m.class_43;
@@ -17,7 +17,7 @@ public class class_50 extends class_49 {
         this.field_178 |= 131264L;
         this.field_238 = var3;
         this.field_200 = var1;
-        this.field_201 = new String(class_233.method_1361(var2, '/'));
+        this.field_201 = new String(CharOperation.method_1361(var2, '/'));
         this.field_198 = var2[var2.length - 1];
         this.field_199 = 1;
         this.field_231 = null;
@@ -28,15 +28,15 @@ public class class_50 extends class_49 {
         this.field_235 = class_34.field_154;
     }
 
-    public class_13 method_132(class_13 var1) {
+    public List method_132(List var1) {
         if (var1 == null) {
-            class_313 var10000 = new class_313(5);
+            ArrayList var10000 = new ArrayList(5);
             var1 = var10000;
-        } else if (((class_13)var1).method_30(this)) {
-            return (class_13)var1;
+        } else if (((List)var1).contains(this)) {
+            return (List)var1;
         }
-        ((class_13)var1).method_34(this);
-        return (class_13)var1;
+        ((List)var1).add(this);
+        return (List)var1;
     }
 
     public int method_102() {
@@ -48,6 +48,6 @@ public class class_50 extends class_49 {
     }
 
     public String toString() {
-        return "[MISSING:" + new String(class_233.method_1361(this.field_197, '.')) + "]";
+        return "[MISSING:" + new String(CharOperation.method_1361(this.field_197, '.')) + "]";
     }
 }

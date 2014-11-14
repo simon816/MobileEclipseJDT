@@ -8,7 +8,7 @@ import h.class_126;
 import h.class_90;
 import h.class_92;
 import h.class_96;
-import j.class_278;
+import j.Parser;
 import m.class_320;
 import m.class_40;
 import m.class_84;
@@ -34,7 +34,7 @@ public class class_97 extends class_96 {
         return true;
     }
 
-    public void method_800(class_278 var1, class_90 var2) {}
+    public void method_800(Parser var1, class_90 var2) {}
 
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2);

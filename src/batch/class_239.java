@@ -1,16 +1,16 @@
 package batch;
 
-import b.class_233;
+import b.CharOperation;
 import batch.class_220;
 import batch.class_221;
 import batch.class_4;
-import f.class_2;
-import f.class_226;
+import f.SuffixConstants;
+import f.Util;
 import java.util.Vector;
 import k.class_28;
 import k.class_317;
 
-public class class_239 implements class_2, class_28 {
+public class class_239 implements SuffixConstants, class_28 {
 
     class_4[] field_1044;
 
@@ -44,21 +44,21 @@ public class class_239 implements class_2, class_28 {
                 }
                 char[] var3 = var1[var2].toCharArray();
                 char[] var4 = null;
-                int var5 = class_233.method_1376('.', var3);
+                int var5 = CharOperation.method_1376('.', var3);
                 if (var5 != -1) {
-                    var3 = class_233.method_1388(var3, 0, var5);
+                    var3 = CharOperation.method_1388(var3, 0, var5);
                 }
-                class_233.method_1382(var3, '\\', '/');
+                CharOperation.method_1382(var3, '\\', '/');
                 for (int var6 = 0; var6 < this.field_1044.length; ++var6) {
                     char[] var7 = this.field_1044[var6].method_17();
-                    if (this.field_1044[var6] instanceof class_220 && class_233.method_1381(var7, var3) && (var4 == null || var7.length < var4.length)) {
+                    if (this.field_1044[var6] instanceof class_220 && CharOperation.method_1381(var7, var3) && (var4 == null || var7.length < var4.length)) {
                         var4 = var7;
                     }
                 }
                 if (var4 == null) {
                     this.field_1045.addElement(new String(var3));
                 } else {
-                    this.field_1045.addElement(new String(class_233.method_1388(var3, var4.length, var3.length)));
+                    this.field_1045.addElement(new String(CharOperation.method_1388(var3, var4.length, var3.length)));
                 }
                 Object var8 = null;
             }
@@ -77,7 +77,7 @@ public class class_239 implements class_2, class_28 {
             return null;
         } else {
             String var4 = var1 + ".class";
-            String var5 = var1.length() == var2.length ? class_226.field_982 : var4.substring(0, var1.length() - var2.length - 1);
+            String var5 = var1.length() == var2.length ? Util.field_982 : var4.substring(0, var1.length() - var2.length - 1);
             String var6 = var5;
             class_317 var7 = null;
             int var9;
@@ -117,15 +117,15 @@ public class class_239 implements class_2, class_28 {
     }
 
     public class_317 method_80(char[][] var1) {
-        return var1 != null ? this.method_1430(new String(class_233.method_1361(var1, '/')), var1[var1.length - 1], false) : null;
+        return var1 != null ? this.method_1430(new String(CharOperation.method_1361(var1, '/')), var1[var1.length - 1], false) : null;
     }
 
     public class_317 method_81(char[] var1, char[][] var2) {
-        return var1 != null ? this.method_1430(new String(class_233.method_1360(var2, var1, '/')), var1, false) : null;
+        return var1 != null ? this.method_1430(new String(CharOperation.method_1360(var2, var1, '/')), var1, false) : null;
     }
 
     public boolean method_82(char[][] var1, char[] var2) {
-        String var3 = new String(class_233.method_1360(var1, var2, '/'));
+        String var3 = new String(CharOperation.method_1360(var1, var2, '/'));
         String var4 = var3;
         int var5;
         int var6;

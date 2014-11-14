@@ -1,6 +1,6 @@
 package k;
 
-import b.class_233;
+import b.CharOperation;
 
 public class class_344 {
 
@@ -9,7 +9,7 @@ public class class_344 {
     public int field_1978;
 
     public int hashCode() {
-        return this.field_1978 * 17 + class_233.method_1369(this.field_1977);
+        return this.field_1978 * 17 + CharOperation.method_1369(this.field_1977);
     }
 
     public boolean equals(Object var1) {
@@ -17,7 +17,7 @@ public class class_344 {
             return false;
         } else {
             class_344 var2 = (class_344)var1;
-            return this.field_1978 != var2.field_1978 ? false : class_233.method_1364(this.field_1977, var2.field_1977);
+            return this.field_1978 != var2.field_1978 ? false : CharOperation.method_1364(this.field_1977, var2.field_1977);
         }
     }
 

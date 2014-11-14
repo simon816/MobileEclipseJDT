@@ -2,16 +2,16 @@ package c;
 
 import a.class_331;
 import a.class_336;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import b.class_235;
 import c.class_284;
 import c.class_290;
 import c.class_291;
-import f.class_226;
+import f.Util;
 import f.class_329;
-import g.class_13;
-import g.class_313;
+import java.util.List;
+import java.util.ArrayList;
 import g.class_316;
 import h.class_114;
 import h.class_121;
@@ -34,7 +34,7 @@ import i.class_269;
 import i.class_272;
 import i.class_273;
 import i.class_280;
-import i.class_5;
+import i.AttributeNamesConstants;
 import i.class_71;
 import i.class_73;
 import i.class_77;
@@ -93,7 +93,7 @@ public class class_288 implements class_17 {
 
     public long field_1731;
 
-    public class_13 field_1732;
+    public List field_1732;
 
     public static void method_2955(class_114 var0, class_284 var1) {
         class_54 var2 = var0.field_586;
@@ -184,7 +184,7 @@ public class class_288 implements class_17 {
         this.field_1732 = null;
         class_272 var10001 = new class_272(this);
         this.field_1716 = var10001;
-        class_341 var2 = var1.field_258.method_577();
+        CompilerOptions var2 = var1.field_258.method_577();
         this.field_1731 = var2.field_1929;
         this.field_1728 = var2.field_1926;
         this.field_1729 = var1;
@@ -233,7 +233,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
-            var5 = this.field_1716.method_2459(class_5.field_11);
+            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_11);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -249,7 +249,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 6 >= this.field_1718.length) {
                 this.method_3014(6);
             }
-            int var14 = this.field_1716.method_2459(class_5.field_12);
+            int var14 = this.field_1716.method_2459(AttributeNamesConstants.field_12);
             this.field_1718[this.field_1719++] = (byte)(var14 >> 8);
             this.field_1718[this.field_1719++] = (byte)var14;
             this.field_1718[this.field_1719++] = 0;
@@ -263,7 +263,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
-            var4 = this.field_1716.method_2459(class_5.field_13);
+            var4 = this.field_1716.method_2459(AttributeNamesConstants.field_13);
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             this.field_1718[this.field_1719++] = 0;
@@ -280,7 +280,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 10 >= this.field_1718.length) {
                 this.method_3014(10);
             }
-            var4 = this.field_1716.method_2459(class_5.field_15);
+            var4 = this.field_1716.method_2459(AttributeNamesConstants.field_15);
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             this.field_1718[this.field_1719++] = 0;
@@ -328,7 +328,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 6 >= this.field_1718.length) {
                 this.method_3014(6);
             }
-            var6 = this.field_1716.method_2459(class_5.field_22);
+            var6 = this.field_1716.method_2459(AttributeNamesConstants.field_22);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             this.field_1718[this.field_1719++] = 0;
@@ -347,7 +347,7 @@ public class class_288 implements class_17 {
             if (var6 + this.field_1719 >= this.field_1718.length) {
                 this.method_3014(var6);
             }
-            var21 = this.field_1716.method_2459(class_5.field_8);
+            var21 = this.field_1716.method_2459(AttributeNamesConstants.field_8);
             this.field_1718[this.field_1719++] = (byte)(var21 >> 8);
             this.field_1718[this.field_1719++] = (byte)var21;
             int var22 = (var4 << 3) + 2;
@@ -427,7 +427,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
-            var5 = this.field_1716.method_2459(class_5.field_5);
+            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_5);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -491,7 +491,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 6 >= this.field_1718.length) {
                 this.method_3014(6);
             }
-            var5 = this.field_1716.method_2459(class_5.field_4);
+            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_4);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -504,7 +504,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 6 >= this.field_1718.length) {
                 this.method_3014(6);
             }
-            var5 = this.field_1716.method_2459(class_5.field_12);
+            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_12);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -518,7 +518,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
-            var6 = this.field_1716.method_2459(class_5.field_13);
+            var6 = this.field_1716.method_2459(AttributeNamesConstants.field_13);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             this.field_1718[this.field_1719++] = 0;
@@ -979,7 +979,7 @@ public class class_288 implements class_17 {
         if ((this.field_1728 & 2) != 0) {
             int[] var35 = this.field_1715.field_1206;
             if (this.field_1715.field_1206 != null && this.field_1715.field_1207 != 0) {
-                var13 = this.field_1716.method_2459(class_5.field_6);
+                var13 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
                 if (var2 + 8 >= this.field_1718.length) {
                     this.method_3014(8);
                 }
@@ -1024,7 +1024,7 @@ public class class_288 implements class_17 {
         int var51;
         if ((this.field_1728 & 4) != 0) {
             var36 = 0;
-            var13 = this.field_1716.method_2459(class_5.field_7);
+            var13 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
             boolean var39 = this.field_1715.field_1205.method_799();
             var15 = 8 + 10 * (var39 ? 0 : 1);
             for (var16 = 0; var16 < this.field_1715.field_1187; ++var16) {
@@ -1114,7 +1114,7 @@ public class class_288 implements class_17 {
                 if (var2 + var15 >= this.field_1718.length) {
                     this.method_3014(var15);
                 }
-                var46 = this.field_1716.method_2459(class_5.field_14);
+                var46 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
                 this.field_1718[var2++] = (byte)(var46 >> 8);
                 this.field_1718[var2++] = (byte)var46;
                 var23 = var22 * 10 + 2;
@@ -1164,26 +1164,26 @@ public class class_288 implements class_17 {
                 ++var11;
             }
         }
-        class_313 var38;
+        ArrayList var38;
         class_269 var37;
         class_280 var43;
-        class_313 var10000;
+        ArrayList var10000;
         int var45;
         int var49;
         if (var6) {
             var37 = (class_269)this.field_1715;
             var37.method_2392(var3);
             if (var37.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var38 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var5, this.field_1718, var1 + 14, var3, var38, false);
-                var14 = var38.method_29();
+                var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_21);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
@@ -1196,12 +1196,12 @@ public class class_288 implements class_17 {
                     if (var2 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var43 = (class_280)var38.method_36(0);
+                    var43 = (class_280)var38.get(0);
                     class_280 var44 = null;
                     label458:
                     for (var45 = 1; var45 < var14; ++var45) {
                         var44 = var43;
-                        var43 = (class_280)var38.method_36(var45);
+                        var43 = (class_280)var38.get(var45);
                         var22 = var43.method_2896(var44);
                         byte var48;
                         class_77 var53;
@@ -1544,16 +1544,16 @@ public class class_288 implements class_17 {
             var37 = (class_269)this.field_1715;
             var37.method_2392(var3);
             if (var37.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var38 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var5, this.field_1718, var1 + 14, var3, var38, false);
-                var14 = var38.method_29();
+                var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_24);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
@@ -1566,9 +1566,9 @@ public class class_288 implements class_17 {
                     if (var2 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var43 = (class_280)var38.method_36(0);
+                    var43 = (class_280)var38.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var43 = (class_280)var38.method_36(var20);
+                        var43 = (class_280)var38.get(var20);
                         var45 = var43.field_1642;
                         if (var2 + 5 >= this.field_1718.length) {
                             this.method_3014(5);
@@ -1804,7 +1804,7 @@ public class class_288 implements class_17 {
         if ((this.field_1728 & 2) != 0) {
             int[] var35 = this.field_1715.field_1206;
             if (this.field_1715.field_1206 != null && this.field_1715.field_1207 != 0) {
-                var13 = this.field_1716.method_2459(class_5.field_6);
+                var13 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
                 if (var2 + 8 >= this.field_1718.length) {
                     this.method_3014(8);
                 }
@@ -1848,7 +1848,7 @@ public class class_288 implements class_17 {
         if ((this.field_1728 & 4) != 0) {
             var36 = 0;
             if (this.field_1715.field_1206 != null && this.field_1715.field_1207 != 0) {
-                var13 = this.field_1716.method_2459(class_5.field_7);
+                var13 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
                 if (var2 + 8 >= this.field_1718.length) {
                     this.method_3014(8);
                 }
@@ -1916,7 +1916,7 @@ public class class_288 implements class_17 {
                     if (var2 + var21 >= this.field_1718.length) {
                         this.method_3014(var21);
                     }
-                    var42 = this.field_1716.method_2459(class_5.field_14);
+                    var42 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
                     this.field_1718[var2++] = (byte)(var42 >> 8);
                     this.field_1718[var2++] = (byte)var42;
                     var20 = var19 * 10 + 2;
@@ -1954,26 +1954,26 @@ public class class_288 implements class_17 {
             }
         }
         int var30;
-        class_313 var38;
+        ArrayList var38;
         class_269 var37;
         class_280 var40;
         int var46;
-        class_313 var10000;
+        ArrayList var10000;
         int var51;
         if ((this.field_1728 & 8) != 0) {
             var37 = (class_269)this.field_1715;
             var37.method_2392(var3);
             if (var37.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var38 = var10000;
                 this.method_3018((class_58)null, var5, this.field_1718, var1 + 14, var3, var38, true);
-                var14 = var38.method_29();
+                var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_21);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
@@ -1986,12 +1986,12 @@ public class class_288 implements class_17 {
                     if (var2 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var40 = (class_280)var38.method_36(0);
+                    var40 = (class_280)var38.get(0);
                     class_280 var44 = null;
                     label441:
                     for (var21 = 1; var21 < var14; ++var21) {
                         var44 = var40;
-                        var40 = (class_280)var38.method_36(var21);
+                        var40 = (class_280)var38.get(var21);
                         var42 = var40.method_2896(var44);
                         byte var47;
                         class_77 var49;
@@ -2334,16 +2334,16 @@ public class class_288 implements class_17 {
             var37 = (class_269)this.field_1715;
             var37.method_2392(var3);
             if (var37.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var38 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var5, this.field_1718, var1 + 14, var3, var38, false);
-                var14 = var38.method_29();
+                var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_24);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
@@ -2356,9 +2356,9 @@ public class class_288 implements class_17 {
                     if (var2 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var40 = (class_280)var38.method_36(0);
+                    var40 = (class_280)var38.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var40 = (class_280)var38.method_36(var20);
+                        var40 = (class_280)var38.get(var20);
                         var21 = var40.field_1642;
                         if (var2 + 5 >= this.field_1718.length) {
                             this.method_3014(5);
@@ -2541,7 +2541,7 @@ public class class_288 implements class_17 {
             if (var3 + 20 >= this.field_1718.length) {
                 this.method_3014(20);
             }
-            var9 = this.field_1716.method_2459(class_5.field_6);
+            var9 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var3++] = (byte)(var9 >> 8);
             this.field_1718[var3++] = (byte)var9;
             this.field_1718[var3++] = 0;
@@ -2557,7 +2557,7 @@ public class class_288 implements class_17 {
             ++var8;
         }
         if ((this.field_1728 & 4) != 0) {
-            var9 = this.field_1716.method_2459(class_5.field_7);
+            var9 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
             if (var3 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
@@ -2571,7 +2571,7 @@ public class class_288 implements class_17 {
             this.field_1718[var3++] = 0;
             ++var8;
         }
-        class_313 var10;
+        ArrayList var10;
         int var11;
         int var12;
         int var13;
@@ -2590,21 +2590,21 @@ public class class_288 implements class_17 {
         int var35;
         class_269 var32;
         int var38;
-        class_313 var10000;
+        ArrayList var10000;
         if ((this.field_1728 & 8) != 0) {
             var32 = (class_269)this.field_1715;
             var32.method_2392(var4);
             if (var32.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var10 = var10000;
                 this.method_3018((class_58)null, var6, this.field_1718, var1 + 14, var4, var10, true);
-                var11 = var10.method_29();
+                var11 = var10.size();
                 if (var11 > 1) {
                     var12 = var3;
                     if (var3 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var13 = this.field_1716.method_2459(class_5.field_21);
+                    var13 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var3++] = (byte)(var13 >> 8);
                     this.field_1718[var3++] = (byte)var13;
                     var14 = var3;
@@ -2618,12 +2618,12 @@ public class class_288 implements class_17 {
                     if (var3 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var16 = (class_280)var10.method_36(0);
+                    var16 = (class_280)var10.get(0);
                     class_280 var17 = null;
                     label341:
                     for (var18 = 1; var18 < var11; ++var18) {
                         var17 = var16;
-                        var16 = (class_280)var10.method_36(var18);
+                        var16 = (class_280)var10.get(var18);
                         ++var11;
                         var19 = var16.method_2896(var17);
                         class_77 var23;
@@ -2966,16 +2966,16 @@ public class class_288 implements class_17 {
             var32 = (class_269)this.field_1715;
             var32.method_2392(var4);
             if (var32.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var10 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var6, this.field_1718, var1 + 14, var4, var10, false);
-                var11 = var10.method_29();
+                var11 = var10.size();
                 if (var11 > 1) {
                     var12 = var3;
                     if (var3 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var13 = this.field_1716.method_2459(class_5.field_24);
+                    var13 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var3++] = (byte)(var13 >> 8);
                     this.field_1718[var3++] = (byte)var13;
                     var14 = var3;
@@ -2988,10 +2988,10 @@ public class class_288 implements class_17 {
                     if (var3 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var16 = (class_280)var10.method_36(0);
+                    var16 = (class_280)var10.get(0);
                     int var33;
                     for (var33 = 1; var33 < var11; ++var33) {
-                        var16 = (class_280)var10.method_36(var33);
+                        var16 = (class_280)var10.get(var33);
                         var18 = var16.field_1642;
                         if (var3 + 5 >= this.field_1718.length) {
                             this.method_3014(5);
@@ -3171,7 +3171,7 @@ public class class_288 implements class_17 {
             if (var5 + 12 >= this.field_1718.length) {
                 this.method_3014(12);
             }
-            var11 = this.field_1716.method_2459(class_5.field_6);
+            var11 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var5++] = (byte)(var11 >> 8);
             this.field_1718[var5++] = (byte)var11;
             this.field_1718[var5++] = 0;
@@ -3181,7 +3181,7 @@ public class class_288 implements class_17 {
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = 1;
             if (var4 == 0) {
-                var4 = class_226.method_1324(var1.method_385(), var3, 0, var3.length - 1);
+                var4 = Util.method_1324(var1.method_385(), var3, 0, var3.length - 1);
             }
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = 0;
@@ -3189,7 +3189,7 @@ public class class_288 implements class_17 {
             this.field_1718[var5++] = (byte)var4;
             ++var10;
         }
-        class_313 var12;
+        ArrayList var12;
         int var13;
         int var14;
         int var15;
@@ -3208,21 +3208,21 @@ public class class_288 implements class_17 {
         int var39;
         int var36;
         int var40;
-        class_313 var10000;
+        ArrayList var10000;
         if ((this.field_1728 & 8) != 0) {
             var34 = (class_269)this.field_1715;
             var34.method_2392(var8);
             if (var34.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var12 = var10000;
                 this.method_3018(var1, var7, this.field_1718, var2 + 14, var8, var12, false);
-                var13 = var12.method_29();
+                var13 = var12.size();
                 if (var13 > 1) {
                     var14 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var15 = this.field_1716.method_2459(class_5.field_21);
+                    var15 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var5++] = (byte)(var15 >> 8);
                     this.field_1718[var5++] = (byte)var15;
                     var16 = var5;
@@ -3236,12 +3236,12 @@ public class class_288 implements class_17 {
                     if (var5 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var18 = (class_280)var12.method_36(0);
+                    var18 = (class_280)var12.get(0);
                     class_280 var19 = null;
                     label336:
                     for (var20 = 1; var20 < var13; ++var20) {
                         var19 = var18;
-                        var18 = (class_280)var12.method_36(var20);
+                        var18 = (class_280)var12.get(var20);
                         ++var13;
                         var21 = var18.method_2896(var19);
                         class_77 var25;
@@ -3584,16 +3584,16 @@ public class class_288 implements class_17 {
             var34 = (class_269)this.field_1715;
             var34.method_2392(var8);
             if (var34.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var12 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var7, this.field_1718, var2 + 14, var8, var12, false);
-                var13 = var12.method_29();
+                var13 = var12.size();
                 if (var13 > 1) {
                     var14 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var15 = this.field_1716.method_2459(class_5.field_24);
+                    var15 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var5++] = (byte)(var15 >> 8);
                     this.field_1718[var5++] = (byte)var15;
                     var16 = var5;
@@ -3606,10 +3606,10 @@ public class class_288 implements class_17 {
                     if (var5 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var18 = (class_280)var12.method_36(0);
+                    var18 = (class_280)var12.get(0);
                     int var35;
                     for (var35 = 1; var35 < var13; ++var35) {
-                        var18 = (class_280)var12.method_36(var35);
+                        var18 = (class_280)var12.get(var35);
                         var20 = var18.field_1642;
                         if (var5 + 5 >= this.field_1718.length) {
                             this.method_3014(5);
@@ -3789,7 +3789,7 @@ public class class_288 implements class_17 {
             if (var6 + 20 >= this.field_1718.length) {
                 this.method_3014(20);
             }
-            var12 = this.field_1716.method_2459(class_5.field_6);
+            var12 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var6++] = (byte)(var12 >> 8);
             this.field_1718[var6++] = (byte)var12;
             this.field_1718[var6++] = 0;
@@ -3799,7 +3799,7 @@ public class class_288 implements class_17 {
             this.field_1718[var6++] = 0;
             this.field_1718[var6++] = 1;
             if (var5 == 0) {
-                var5 = class_226.method_1324(var2.method_385(), var4, 0, var4.length - 1);
+                var5 = Util.method_1324(var2.method_385(), var4, 0, var4.length - 1);
             }
             this.field_1718[var6++] = 0;
             this.field_1718[var6++] = 0;
@@ -3823,7 +3823,7 @@ public class class_288 implements class_17 {
         int var53;
         if ((this.field_1728 & 4) != 0) {
             int var13 = 0;
-            var14 = this.field_1716.method_2459(class_5.field_7);
+            var14 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
             if (var6 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
@@ -3958,7 +3958,7 @@ public class class_288 implements class_17 {
                 if (var6 + var54 >= this.field_1718.length) {
                     this.method_3014(var54);
                 }
-                var30 = this.field_1716.method_2459(class_5.field_14);
+                var30 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
                 this.field_1718[var6++] = (byte)(var30 >> 8);
                 this.field_1718[var6++] = (byte)var30;
                 var27 = var13 * 10 + 2;
@@ -4019,27 +4019,27 @@ public class class_288 implements class_17 {
         }
         class_269 var35;
         class_280 var38;
-        class_313 var36;
+        ArrayList var36;
         int var37;
         int var42;
         int var41;
-        class_313 var10000;
+        ArrayList var10000;
         int var50;
         int var56;
         if ((this.field_1728 & 8) != 0) {
             var35 = (class_269)this.field_1715;
             var35.method_2392(var9);
             if (var35.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var36 = var10000;
                 this.method_3018(var2, var8, this.field_1718, var3 + 14, var9, var36, false);
-                var14 = var36.method_29();
+                var14 = var36.size();
                 if (var14 > 1) {
                     var15 = var6;
                     if (var6 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_21);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     var17 = var6;
@@ -4053,12 +4053,12 @@ public class class_288 implements class_17 {
                     if (var6 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var38 = (class_280)var36.method_36(0);
+                    var38 = (class_280)var36.get(0);
                     class_280 var39 = null;
                     label420:
                     for (var41 = 1; var41 < var14; ++var41) {
                         var39 = var38;
-                        var38 = (class_280)var36.method_36(var41);
+                        var38 = (class_280)var36.get(var41);
                         ++var14;
                         var22 = var38.method_2896(var39);
                         byte var47;
@@ -4400,16 +4400,16 @@ public class class_288 implements class_17 {
             var35 = (class_269)this.field_1715;
             var35.method_2392(var9);
             if (var35.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var36 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var8, this.field_1718, var3 + 14, var9, var36, false);
-                var14 = var36.method_29();
+                var14 = var36.size();
                 if (var14 > 1) {
                     var15 = var6;
                     if (var6 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_24);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     var17 = var6;
@@ -4422,9 +4422,9 @@ public class class_288 implements class_17 {
                     if (var6 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var38 = (class_280)var36.method_36(0);
+                    var38 = (class_280)var36.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var38 = (class_280)var36.method_36(var20);
+                        var38 = (class_280)var36.get(var20);
                         var41 = var38.field_1642;
                         if (var6 + 5 >= this.field_1718.length) {
                             this.method_3014(5);
@@ -4673,12 +4673,12 @@ public class class_288 implements class_17 {
                 this.method_3014(12);
             }
             boolean var36 = false;
-            var13 = this.field_1716.method_2459(class_5.field_6);
+            var13 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var5++] = (byte)(var13 >> 8);
             this.field_1718[var5++] = (byte)var13;
             var14 = var5;
             var5 += 6;
-            var12 = class_226.method_1324(var2.field_288, var4, 0, var4.length - 1);
+            var12 = Util.method_1324(var2.field_288, var4, 0, var4.length - 1);
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = (byte)(var12 >> 8);
@@ -4701,7 +4701,7 @@ public class class_288 implements class_17 {
         int var43;
         if ((this.field_1728 & 4) != 0) {
             var12 = 0;
-            var13 = this.field_1716.method_2459(class_5.field_7);
+            var13 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
             if (var5 + 8 > this.field_1718.length) {
                 this.method_3014(8);
             }
@@ -4769,7 +4769,7 @@ public class class_288 implements class_17 {
                 if (var5 + var44 >= this.field_1718.length) {
                     this.method_3014(var44);
                 }
-                var42 = this.field_1716.method_2459(class_5.field_14);
+                var42 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
                 this.field_1718[var5++] = (byte)(var42 >> 8);
                 this.field_1718[var5++] = (byte)var42;
                 var20 = var19 * 10 + 2;
@@ -4807,25 +4807,25 @@ public class class_288 implements class_17 {
         }
         int var30;
         class_269 var38;
-        class_313 var39;
+        ArrayList var39;
         class_280 var41;
         int var47;
-        class_313 var10000;
+        ArrayList var10000;
         int var52;
         if (var9) {
             var38 = (class_269)this.field_1715;
             var38.method_2392(var8);
             if (var38.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var39 = var10000;
                 this.method_3018(var2, var7, this.field_1718, var3 + 14, var8, var39, false);
-                var14 = var39.method_29();
+                var14 = var39.size();
                 if (var14 > 1) {
                     var37 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_21);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var5++] = (byte)(var16 >> 8);
                     this.field_1718[var5++] = (byte)var16;
                     var17 = var5;
@@ -4838,12 +4838,12 @@ public class class_288 implements class_17 {
                     if (var5 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var41 = (class_280)var39.method_36(0);
+                    var41 = (class_280)var39.get(0);
                     class_280 var45 = null;
                     label427:
                     for (var44 = 1; var44 < var14; ++var44) {
                         var45 = var41;
-                        var41 = (class_280)var39.method_36(var44);
+                        var41 = (class_280)var39.get(var44);
                         var42 = var41.method_2896(var45);
                         class_77 var50;
                         byte var48;
@@ -5186,16 +5186,16 @@ public class class_288 implements class_17 {
             var38 = (class_269)this.field_1715;
             var38.method_2392(var8);
             if (var38.method_2399()) {
-                var10000 = new class_313();
+                var10000 = new ArrayList();
                 var39 = var10000;
                 this.method_3018(this.field_1715.field_1205.field_488, var7, this.field_1718, var3 + 14, var8, var39, false);
-                var14 = var39.method_29();
+                var14 = var39.size();
                 if (var14 > 1) {
                     var37 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
                         this.method_3014(8);
                     }
-                    var16 = this.field_1716.method_2459(class_5.field_24);
+                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var5++] = (byte)(var16 >> 8);
                     this.field_1718[var5++] = (byte)var16;
                     var17 = var5;
@@ -5208,9 +5208,9 @@ public class class_288 implements class_17 {
                     if (var5 + 2 >= this.field_1718.length) {
                         this.method_3014(2);
                     }
-                    var41 = (class_280)var39.method_36(0);
+                    var41 = (class_280)var39.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var41 = (class_280)var39.method_36(var20);
+                        var41 = (class_280)var39.get(var20);
                         var44 = var41.field_1642;
                         if (var5 + 5 >= this.field_1718.length) {
                             this.method_3014(5);
@@ -5450,7 +5450,7 @@ public class class_288 implements class_17 {
         if (this.field_1719 + 20 >= this.field_1718.length) {
             this.method_3014(20);
         }
-        int var1 = this.field_1716.method_2459(class_5.field_9);
+        int var1 = this.field_1716.method_2459(AttributeNamesConstants.field_9);
         this.field_1718[this.field_1719++] = (byte)(var1 >> 8);
         this.field_1718[this.field_1719++] = (byte)var1;
         this.field_1719 += 12;
@@ -5635,7 +5635,7 @@ public class class_288 implements class_17 {
             if (var5 + this.field_1719 >= this.field_1718.length) {
                 this.method_3014(var5);
             }
-            var6 = this.field_1716.method_2459(class_5.field_10);
+            var6 = this.field_1716.method_2459(AttributeNamesConstants.field_10);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             int var7 = var4 * 2 + 2;
@@ -5656,7 +5656,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 6 >= this.field_1718.length) {
                 this.method_3014(6);
             }
-            var4 = this.field_1716.method_2459(class_5.field_12);
+            var4 = this.field_1716.method_2459(AttributeNamesConstants.field_12);
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             this.field_1718[this.field_1719++] = 0;
@@ -5670,7 +5670,7 @@ public class class_288 implements class_17 {
                 if (this.field_1719 + 6 >= this.field_1718.length) {
                     this.method_3014(6);
                 }
-                var4 = this.field_1716.method_2459(class_5.field_4);
+                var4 = this.field_1716.method_2459(AttributeNamesConstants.field_4);
                 this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var4;
                 this.field_1718[this.field_1719++] = 0;
@@ -5683,7 +5683,7 @@ public class class_288 implements class_17 {
                 if (this.field_1719 + 6 >= this.field_1718.length) {
                     this.method_3014(6);
                 }
-                var4 = this.field_1716.method_2459(class_5.field_23);
+                var4 = this.field_1716.method_2459(AttributeNamesConstants.field_23);
                 this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var4;
                 this.field_1718[this.field_1719++] = 0;
@@ -5698,7 +5698,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 8 >= this.field_1718.length) {
                 this.method_3014(8);
             }
-            var5 = this.field_1716.method_2459(class_5.field_13);
+            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_13);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -5735,7 +5735,7 @@ public class class_288 implements class_17 {
         int var3 = this.method_2993(var1);
         int var4 = this.field_1719;
         if ((var2.field_482 & 131072) != 0) {
-            int var5 = this.field_1716.method_2459(class_5.field_16);
+            int var5 = this.field_1716.method_2459(AttributeNamesConstants.field_16);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             int var6 = this.field_1719;
@@ -5821,11 +5821,11 @@ public class class_288 implements class_17 {
     }
 
     private void method_2999() {
-        int var1 = this.field_1732.method_29();
+        int var1 = this.field_1732.size();
         int[] var2 = new int[var1];
         int var3 = 0;
         if (var1 > 1) {
-            class_13 var10000 = this.field_1732;
+            List var10000 = this.field_1732;
             class_290 var10001 = new class_290(this);
             class_316.method_3174(var10000, var10001);
         }
@@ -5833,7 +5833,7 @@ public class class_288 implements class_17 {
         int var5;
         int var6;
         for (var5 = 0; var5 < var1; ++var5) {
-            var6 = this.field_1716.method_2467((class_40)this.field_1732.method_36(var5));
+            var6 = this.field_1716.method_2467((class_40)this.field_1732.get(var5));
             if (var4 != var6) {
                 var4 = var6;
                 var2[var3++] = var6;
@@ -5843,7 +5843,7 @@ public class class_288 implements class_17 {
         if (this.field_1719 + var5 + 6 >= this.field_1718.length) {
             this.method_3014(var5 + 6);
         }
-        var6 = this.field_1716.method_2459(class_5.field_25);
+        var6 = this.field_1716.method_2459(AttributeNamesConstants.field_25);
         this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
         this.field_1718[this.field_1719++] = (byte)var6;
         this.field_1718[this.field_1719++] = (byte)(var5 >> 24);
@@ -5885,7 +5885,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 10 >= this.field_1718.length) {
                 this.method_3014(10);
             }
-            var14 = this.field_1716.method_2459(class_5.field_17);
+            var14 = this.field_1716.method_2459(AttributeNamesConstants.field_17);
             this.field_1718[this.field_1719++] = (byte)(var14 >> 8);
             this.field_1718[this.field_1719++] = (byte)var14;
             var8 = this.field_1719;
@@ -5922,7 +5922,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 10 >= this.field_1718.length) {
                 this.method_3014(10);
             }
-            var14 = this.field_1716.method_2459(class_5.field_18);
+            var14 = this.field_1716.method_2459(AttributeNamesConstants.field_18);
             this.field_1718[this.field_1719++] = (byte)(var14 >> 8);
             this.field_1718[this.field_1719++] = (byte)var14;
             var8 = this.field_1719;
@@ -6000,7 +6000,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 7 >= this.field_1718.length) {
                 this.method_3014(7);
             }
-            var11 = this.field_1716.method_2459(class_5.field_19);
+            var11 = this.field_1716.method_2459(AttributeNamesConstants.field_19);
             this.field_1718[this.field_1719++] = (byte)(var11 >> 8);
             this.field_1718[this.field_1719++] = (byte)var11;
             var12 = this.field_1719;
@@ -6055,7 +6055,7 @@ public class class_288 implements class_17 {
             if (this.field_1719 + 7 >= this.field_1718.length) {
                 this.method_3014(7);
             }
-            var11 = this.field_1716.method_2459(class_5.field_20);
+            var11 = this.field_1716.method_2459(AttributeNamesConstants.field_20);
             this.field_1718[this.field_1719++] = (byte)(var11 >> 8);
             this.field_1718[this.field_1719++] = (byte)var11;
             var12 = this.field_1719;
@@ -6109,7 +6109,7 @@ public class class_288 implements class_17 {
     }
 
     private int method_3002(char[] var1) {
-        int var2 = class_233.method_1371('(', var1);
+        int var2 = CharOperation.method_1371('(', var1);
         ++var2;
         char var3 = var1[var2];
         if (var3 == 41) {
@@ -6153,7 +6153,7 @@ public class class_288 implements class_17 {
                     default:
                         throw new IllegalArgumentException();
                     case 76:
-                        var5 = class_233.method_1374(';', var1, var2 + 1);
+                        var5 = CharOperation.method_1374(';', var1, var2 + 1);
                         ++var4;
                         var2 = var5 + 1;
                         break;
@@ -6167,8 +6167,8 @@ public class class_288 implements class_17 {
     }
 
     private char[] method_3003(char[] var1) {
-        int var2 = class_233.method_1376(')', var1);
-        return class_233.method_1388(var1, var2 + 1, var1.length);
+        int var2 = CharOperation.method_1376(')', var1);
+        return CharOperation.method_1388(var1, var2 + 1, var1.length);
     }
 
     private final int method_3004(byte[] var1, int var2, int var3) {
@@ -6465,7 +6465,7 @@ public class class_288 implements class_17 {
     }
 
     public void method_3013(class_54 var1) {
-        class_341 var2 = var1.field_258.method_577();
+        CompilerOptions var2 = var1.field_258.method_577();
         this.field_1729 = var1;
         this.field_1730 = var1.method_160();
         this.field_1731 = var2.field_1929;
@@ -6549,7 +6549,7 @@ public class class_288 implements class_17 {
             default:
                 throw new IllegalArgumentException();
             case 76:
-                return class_233.method_1374(';', var1, var2 + 1);
+                return CharOperation.method_1374(';', var1, var2 + 1);
             case 91:
                 return this.method_3016(var1, var2 + 1);
         }
@@ -6560,7 +6560,7 @@ public class class_288 implements class_17 {
         this.field_1719 += 2;
     }
 
-    public void method_3018(class_58 var1, int var2, byte[] var3, int var4, int var5, class_313 var6, boolean var7) {
+    public void method_3018(class_58 var1, int var2, byte[] var3, int var4, int var5, ArrayList var6, boolean var7) {
         class_269 var8 = (class_269)this.field_1715;
         int[] var9 = var8.method_2396();
         int var10 = var4;
@@ -6599,7 +6599,7 @@ public class class_288 implements class_17 {
             this.method_3007(var32, var1, var2, var5);
         }
         var32.field_1642 = -1;
-        var6.method_34(var32.method_2893());
+        var6.add(var32.method_2893());
         do {
             int var33 = var10 - var4;
             class_77[] var34;
@@ -6669,7 +6669,7 @@ public class class_288 implements class_17 {
                 class_280 var59 = var32.method_2893();
                 var59.field_1642 = var33;
                 this.method_3008(var7 ? true : var1.method_370(), var33, var59);
-                var6.method_34(var59);
+                var6.add(var59);
                 ++var14;
                 if (var14 >= var15) {
                     return;
@@ -7017,7 +7017,7 @@ public class class_288 implements class_17 {
                         var10001 = new class_77(0, var49);
                         var32.method_2891(var10001);
                     } else {
-                        var10001 = new class_77(0, class_233.method_1388(var49, 1, var49.length - 1));
+                        var10001 = new class_77(0, CharOperation.method_1388(var49, 1, var49.length - 1));
                         var32.method_2891(var10001);
                     }
                     var10 += 3;
@@ -7080,7 +7080,7 @@ public class class_288 implements class_17 {
                         var10001 = new class_77(0, var49);
                         var32.method_2891(var10001);
                     } else {
-                        var10001 = new class_77(0, class_233.method_1388(var49, 1, var49.length - 1));
+                        var10001 = new class_77(0, CharOperation.method_1388(var49, 1, var49.length - 1));
                         var32.method_2891(var10001);
                     }
                     var10 += 3;
@@ -7146,7 +7146,7 @@ public class class_288 implements class_17 {
                         var10001 = new class_77(0, var51);
                         var32.method_2891(var10001);
                     } else {
-                        var10001 = new class_77(0, class_233.method_1388(var51, 1, var51.length - 1));
+                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
                         var32.method_2891(var10001);
                     }
                     var10 += 3;
@@ -7159,7 +7159,7 @@ public class class_288 implements class_17 {
                     var48 = this.method_3020(var13, 1, var12[var47]);
                     char[] var50 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var32.field_1643 -= this.method_3002(var49);
-                    if (class_233.method_1364(class_272.field_1394, var50)) {
+                    if (CharOperation.method_1364(class_272.field_1394, var50)) {
                         var32.field_1646[var32.field_1643 - 1].field_336 = 7;
                     }
                     --var32.field_1643;
@@ -7212,7 +7212,7 @@ public class class_288 implements class_17 {
                         var10001 = new class_77(0, var51);
                         var32.method_2891(var10001);
                     } else {
-                        var10001 = new class_77(0, class_233.method_1388(var51, 1, var51.length - 1));
+                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
                         var32.method_2891(var10001);
                     }
                     var10 += 3;
@@ -7274,7 +7274,7 @@ public class class_288 implements class_17 {
                         var10001 = new class_77(0, var51);
                         var32.method_2891(var10001);
                     } else {
-                        var10001 = new class_77(0, class_233.method_1388(var51, 1, var51.length - 1));
+                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
                         var32.method_2891(var10001);
                     }
                     var10 += 3;
@@ -7336,7 +7336,7 @@ public class class_288 implements class_17 {
                         var10001 = new class_77(0, var51);
                         var32.method_2891(var10001);
                     } else {
-                        var10001 = new class_77(0, class_233.method_1388(var51, 1, var51.length - 1));
+                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
                         var32.method_2891(var10001);
                     }
                     var10 += 5;

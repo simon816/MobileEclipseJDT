@@ -6,7 +6,7 @@ import h.class_122;
 import h.class_94;
 import h.class_96;
 import j.class_265;
-import j.class_278;
+import j.Parser;
 import m.class_84;
 import m.class_86;
 import m.class_87;
@@ -19,9 +19,9 @@ class class_266 extends class_264 {
 
     int field_1166;
 
-    private final class_278 field_1167;
+    private final Parser field_1167;
 
-    class_266(class_278 var1) {
+    class_266(Parser var1) {
         this.field_1167 = var1;
         this.field_1165 = new class_114[0];
         this.field_1166 = -1;

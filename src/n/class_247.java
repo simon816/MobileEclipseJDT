@@ -1,13 +1,13 @@
 package n;
 
 import a.class_33;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import b.class_235;
 import c.class_284;
 import c.class_7;
 import c.class_8;
-import f.class_226;
+import f.Util;
 import n.class_241;
 
 public class class_247 {
@@ -18,9 +18,9 @@ public class class_247 {
 
     public final class_8 field_1063;
 
-    public final class_341 field_1064;
+    public final CompilerOptions field_1064;
 
-    public class_247(class_7 var1, class_341 var2, class_8 var3) {
+    public class_247(class_7 var1, CompilerOptions var2, class_8 var3) {
         this.field_1062 = var1;
         this.field_1063 = var3;
         this.field_1064 = var2;
@@ -48,8 +48,8 @@ public class class_247 {
                 }
             } else {
                 int[] var10;
-                int var11 = var6 >= 0 ? class_226.method_1324(var6, var10 = var9.method_2921(), 0, var10.length - 1) : 0;
-                int var12 = var6 >= 0 ? class_226.method_1327(var9.method_2921(), var11, var6) : 0;
+                int var11 = var6 >= 0 ? Util.method_1324(var6, var10 = var9.method_2921(), 0, var10.length - 1) : 0;
+                int var12 = var6 >= 0 ? Util.method_1327(var9.method_2921(), var11, var6) : 0;
                 class_235 var13 = this.method_1451(var9.method_2920(), var1, var2, var3, var4, var5, var6, var7, var11, var12);
                 if (var13 != null) {
                     switch (var5 & 1) {
@@ -81,6 +81,6 @@ public class class_247 {
     }
 
     static {
-        field_1061 = class_233.field_996;
+        field_1061 = CharOperation.field_996;
     }
 }

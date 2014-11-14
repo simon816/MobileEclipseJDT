@@ -1,7 +1,7 @@
 package e;
 
 import java.io.IOException;
-import b.class_233;
+import b.CharOperation;
 import e.class_186;
 import e.class_187;
 import e.class_189;
@@ -9,9 +9,9 @@ import e.class_191;
 import e.class_194;
 import e.class_196;
 import e.class_198;
-import f.class_226;
-import g.class_308;
-import i.class_5;
+import f.Util;
+import java.io.File;
+import i.AttributeNamesConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import k.class_22;
@@ -93,9 +93,9 @@ public class class_190 extends class_186 implements class_22 {
         return var1.toString();
     }
 
-    public static class_190 method_1121(class_308 var0, boolean var1) throws IOException, class_198 {
-        byte[] var2 = class_226.method_1319(var0);
-        class_190 var10000 = new class_190(var2, var0.method_3143());
+    public static class_190 method_1121(File var0, boolean var1) throws IOException, class_198 {
+        byte[] var2 = Util.method_1319(var0);
+        class_190 var10000 = new class_190(var2, var0.getPath());
         class_190 var3 = var10000;
         if (var1) {
             var3.method_1130();
@@ -108,7 +108,7 @@ public class class_190 extends class_186 implements class_22 {
     }
 
     public static class_190 method_1123(String var0, boolean var1) throws IOException, class_198 {
-        class_308 var10000 = new class_308(var0);
+        File var10000 = new File(var0);
         return method_1121(var10000, var1);
     }
 
@@ -232,12 +232,12 @@ public class class_190 extends class_186 implements class_22 {
                     int var12;
                     switch (var9[0]) {
                         case 68:
-                            if (class_233.method_1364(var9, class_5.field_12)) {
+                            if (CharOperation.method_1364(var9, AttributeNamesConstants.field_12)) {
                                 this.field_828 |= 1048576;
                             }
                             break;
                         case 69:
-                            if (class_233.method_1364(var9, class_5.field_15)) {
+                            if (CharOperation.method_1364(var9, AttributeNamesConstants.field_15)) {
                                 var8 = this.field_806[this.method_1104(this.field_806[this.method_1104(var4 + 6)] - this.field_807 + 1)] - this.field_807;
                                 this.field_849 = this.method_1106(var8 + 3, this.method_1104(var8 + 1));
                             }
@@ -254,7 +254,7 @@ public class class_190 extends class_186 implements class_22 {
                         default:
                             break;
                         case 73:
-                            if (class_233.method_1364(var9, class_5.field_8)) {
+                            if (CharOperation.method_1364(var9, AttributeNamesConstants.field_8)) {
                                 var10 = var4 + 6;
                                 var11 = this.method_1104(var10);
                                 if (var11 != 0) {
@@ -277,12 +277,12 @@ public class class_190 extends class_186 implements class_22 {
                                         }
                                     }
                                 }
-                            } else if (class_233.method_1364(var9, class_5.field_22)) {
+                            } else if (CharOperation.method_1364(var9, AttributeNamesConstants.field_22)) {
                                 this.field_847 |= 131072L;
                             }
                             break;
                         case 77:
-                            if (class_233.method_1364(var9, class_5.field_25)) {
+                            if (CharOperation.method_1364(var9, AttributeNamesConstants.field_25)) {
                                 var10 = var4 + 6;
                                 var11 = this.method_1104(var10);
                                 if (var11 != 0) {
@@ -291,16 +291,16 @@ public class class_190 extends class_186 implements class_22 {
                                     for (var12 = 0; var12 < var11; ++var12) {
                                         var8 = this.field_806[this.method_1104(this.field_806[this.method_1104(var10)] + 1)];
                                         char[] var13 = this.method_1106(var8 + 3, this.method_1104(var8 + 1));
-                                        this.field_850[var12] = class_233.method_1385('/', var13);
+                                        this.field_850[var12] = CharOperation.method_1385('/', var13);
                                         var10 += 2;
                                     }
                                 }
                             }
                             break;
                         case 82:
-                            if (class_233.method_1364(var9, class_5.field_18)) {
+                            if (CharOperation.method_1364(var9, AttributeNamesConstants.field_18)) {
                                 this.method_1127(var4, true);
-                            } else if (class_233.method_1364(var9, class_5.field_17)) {
+                            } else if (CharOperation.method_1364(var9, AttributeNamesConstants.field_17)) {
                                 this.method_1127(var4, false);
                             }
                             break;
@@ -308,19 +308,19 @@ public class class_190 extends class_186 implements class_22 {
                             if (var9.length > 2) {
                                 switch (var9[1]) {
                                     case 105:
-                                        if (class_233.method_1364(var9, class_5.field_13)) {
+                                        if (CharOperation.method_1364(var9, AttributeNamesConstants.field_13)) {
                                             var8 = this.field_806[this.method_1104(var4 + 6)];
                                             this.field_843 = this.method_1106(var8 + 3, this.method_1104(var8 + 1));
                                         }
                                         break;
                                     case 111:
-                                        if (class_233.method_1364(var9, class_5.field_11)) {
+                                        if (CharOperation.method_1364(var9, AttributeNamesConstants.field_11)) {
                                             var8 = this.field_806[this.method_1104(var4 + 6)];
                                             this.field_845 = this.method_1106(var8 + 3, this.method_1104(var8 + 1));
                                         }
                                         break;
                                     case 121:
-                                        if (class_233.method_1364(var9, class_5.field_4)) {
+                                        if (CharOperation.method_1364(var9, AttributeNamesConstants.field_4)) {
                                             this.field_828 |= 4096;
                                         }
                                 }
@@ -472,9 +472,9 @@ public class class_190 extends class_186 implements class_22 {
                 var1 = this.method_60();
                 int var2;
                 if (this.method_64()) {
-                    var2 = class_233.method_1374('$', var1, class_233.method_1376('/', var1) + 1) + 1;
+                    var2 = CharOperation.method_1374('$', var1, CharOperation.method_1376('/', var1) + 1) + 1;
                 } else {
-                    var2 = class_233.method_1376('/', var1) + 1;
+                    var2 = CharOperation.method_1376('/', var1) + 1;
                 }
                 if (var2 > 0) {
                     char[] var3 = new char[var1.length - var2];

@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_38;
 import m.class_40;
 import m.class_43;
@@ -72,6 +72,6 @@ public class class_44 extends class_43 {
     }
 
     public String toString() {
-        return "Unresolved type " + (this.field_197 != null ? class_233.method_1389(this.field_197) : "UNNAMED");
+        return "Unresolved type " + (this.field_197 != null ? CharOperation.method_1389(this.field_197) : "UNNAMED");
     }
 }

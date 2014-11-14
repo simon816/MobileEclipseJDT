@@ -2,8 +2,8 @@ package h;
 
 import a.class_33;
 import a.class_331;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import c.class_264;
 import h.class_126;
 import h.class_130;
@@ -28,7 +28,7 @@ import m.class_58;
 import m.class_61;
 import m.class_83;
 import m.class_86;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_168 extends class_126 implements class_0 {
 
@@ -89,14 +89,14 @@ public class class_168 extends class_126 implements class_0 {
                 if (var4 != this.field_775 && var5 != this.field_775.field_275 && var2.field_177 != 1 && (var5.field_178 & 536870912L) != 0L) {
                     class_40 var6 = !var3.method_148() && var2.method_148() ? var3 : var2;
                     this.field_782 = var5.method_141(var6);
-                } else if (this.field_780.method_147() && var2.field_177 != 1 && this.field_775.field_276 == class_34.field_150 && var1.method_577().field_1927 >= 3211264L && class_233.method_1364(this.field_775.field_274, class_17.field_33)) {
+                } else if (this.field_780.method_147() && var2.field_177 != 1 && this.field_775.field_276 == class_34.field_150 && var1.method_577().field_1927 >= 3211264L && CharOperation.method_1364(this.field_775.field_274, class_17.field_33)) {
                     this.field_782 = var2;
                 }
                 if (this.field_782 instanceof class_43) {
                     class_43 var7 = (class_43)this.field_782;
                     if (!var7.method_196(var1)) {
-                        class_248 var10000 = var1.method_644();
-                        class_51 var10002 = new class_51(class_233.method_1385('.', var7.method_104()), var7, 2);
+                        ProblemReporter var10000 = var1.method_644();
+                        class_51 var10002 = new class_51(CharOperation.method_1385('.', var7.method_104()), var7, 2);
                         var10000.method_1639(this, var10002);
                     }
                 }
@@ -195,7 +195,7 @@ public class class_168 extends class_126 implements class_0 {
                 }
             }
             if (this.field_775.field_278 != this.field_780 && this.field_781 == null && !this.field_780.method_147()) {
-                class_341 var5 = var1.method_577();
+                CompilerOptions var5 = var1.method_577();
                 if (var5.field_1929 >= 3014656L && (var5.field_1927 >= 3145728L || !this.field_772.method_752() || !this.field_776.method_370()) && this.field_775.field_278.field_177 != 1 || !this.field_775.field_278.method_196(var1)) {
                     this.field_776 = var1.method_585().method_312(this.field_776, (class_43)this.field_780.method_138());
                 }
@@ -403,7 +403,7 @@ public class class_168 extends class_126 implements class_0 {
                 if ((this.field_775.field_281 & 128L) != 0L) {
                     var1.method_644().method_1683(this, this.field_775);
                 }
-                class_341 var14 = var1.method_577();
+                CompilerOptions var14 = var1.method_577();
                 class_40 var12;
                 if (!this.field_775.method_370()) {
                     if (var4) {
@@ -433,7 +433,7 @@ public class class_168 extends class_126 implements class_0 {
                 if (this.method_753(this.field_775, var1, true)) {
                     var1.method_644().method_1515(this.field_775, this);
                 }
-                if (this.field_780.method_147() && this.field_775.field_276 == class_34.field_150 && var14.field_1927 >= 3211264L && class_233.method_1364(this.field_775.field_274, class_17.field_33)) {
+                if (this.field_780.method_147() && this.field_775.field_276 == class_34.field_150 && var14.field_1927 >= 3211264L && CharOperation.method_1364(this.field_775.field_274, class_17.field_33)) {
                     this.field_675 = this.field_780;
                 } else {
                     var12 = this.field_775.field_275;
@@ -447,7 +447,7 @@ public class class_168 extends class_126 implements class_0 {
                     if (var16 instanceof class_93) {
                         class_93 var19 = (class_93)var16;
                         class_58 var18 = var19.field_488;
-                        if (var18.method_366() && class_233.method_1364(this.field_775.field_274, var18.field_274) && this.field_775.method_344(var18)) {
+                        if (var18.method_366() && CharOperation.method_1364(this.field_775.field_274, var18.field_274) && this.field_775.method_344(var18)) {
                             var19.field_446 |= 16;
                         }
                     }

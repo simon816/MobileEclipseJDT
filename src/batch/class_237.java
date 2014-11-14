@@ -1,9 +1,9 @@
 package batch;
 
-import b.class_233;
+import b.CharOperation;
 import c.class_284;
-import f.class_226;
-import g.class_308;
+import f.Util;
+import java.io.File;
 import java.io.IOException;
 import k.class_19;
 import n.class_242;
@@ -25,22 +25,22 @@ public class class_237 implements class_19 {
         char[] var5 = var2.toCharArray();
         switch (47) {
             case 47:
-                if (class_233.method_1371('\\', var5) != -1) {
-                    class_233.method_1382(var5, '\\', '/');
+                if (CharOperation.method_1371('\\', var5) != -1) {
+                    CharOperation.method_1382(var5, '\\', '/');
                 }
                 break;
             case 92:
-                if (class_233.method_1371('/', var5) != -1) {
-                    class_233.method_1382(var5, '/', '\\');
+                if (CharOperation.method_1371('/', var5) != -1) {
+                    CharOperation.method_1382(var5, '/', '\\');
                 }
         }
         this.field_1008 = var2;
-        int var6 = class_233.method_1376('/', var5) + 1;
-        int var7 = class_233.method_1376('.', var5);
+        int var6 = CharOperation.method_1376('/', var5) + 1;
+        int var7 = CharOperation.method_1376('.', var5);
         if (var7 == -1) {
             var7 = var5.length;
         }
-        this.field_1009 = class_233.method_1388(var5, var6, var7);
+        this.field_1009 = CharOperation.method_1388(var5, var6, var7);
         this.field_1010 = var3;
         this.field_1011 = var4;
     }
@@ -50,10 +50,10 @@ public class class_237 implements class_19 {
             return this.field_1007;
         } else {
             try {
-                class_308 var3 = new class_308(this.field_1008);
-                return class_226.method_1320(var3, this.field_1010);
+                File var3 = new File(this.field_1008);
+                return Util.method_1320(var3, this.field_1010);
             } catch (IOException var2) {
-                this.field_1007 = class_233.field_994;
+                this.field_1007 = CharOperation.field_994;
                 class_242 var10000 = new class_242((class_284)null, var2, this.field_1010);
                 throw var10000;
             }

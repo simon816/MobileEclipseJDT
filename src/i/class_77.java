@@ -1,6 +1,6 @@
 package i;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_40;
 
 public class class_77 {
@@ -113,7 +113,7 @@ public class class_77 {
             return false;
         } else {
             class_77 var2 = (class_77)var1;
-            return var2.field_336 == this.field_336 && class_233.method_1364(var2.method_475(), this.method_475());
+            return var2.field_336 == this.field_336 && CharOperation.method_1364(var2.method_475(), this.method_475());
         }
     }
 
@@ -131,9 +131,9 @@ public class class_77 {
 
     public void method_477() {
         if (this.field_338[1] == 76) {
-            this.field_338 = class_233.method_1388(this.field_338, 2, this.field_338.length - 1);
+            this.field_338 = CharOperation.method_1388(this.field_338, 2, this.field_338.length - 1);
         } else {
-            this.field_338 = class_233.method_1388(this.field_338, 1, this.field_338.length);
+            this.field_338 = CharOperation.method_1388(this.field_338, 1, this.field_338.length);
             if (this.field_338.length == 1) {
                 switch (this.field_338[0]) {
                     case 66:

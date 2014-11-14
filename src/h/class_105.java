@@ -238,21 +238,8 @@ public class class_105 extends class_98 implements class_0 {
                     boolean var17 = var1.method_577().field_1928 < 3211264L;
                     int var20 = this.field_552.length;
                     this.field_553 = new class_40[var20];
-                    int var8 = 0;
-                    while (true) {
-                        if (var8 >= var20) {
-                            if (var17) {
-                                if (this.field_546 == null) {
-                                    return;
-                                }
-                                var8 = 0;
-                                for (var24 = this.field_546.length; var8 < var24; ++var8) {
-                                    this.field_546[var8].method_925(var1);
-                                }
-                                return;
-                            }
-                            break;
-                        }
+                    int var8;
+                    for (var8 = 0; var8 < var20; ++var8) {
                         class_146 var9 = this.field_552[var8];
                         if ((this.field_553[var8] = var9.method_1017(var1, true)) == null) {
                             var17 = true;
@@ -260,7 +247,16 @@ public class class_105 extends class_98 implements class_0 {
                         if (var17 && var9 instanceof class_148) {
                             var1.method_644().method_1599(var9);
                         }
-                        ++var8;
+                    }
+                    if (var17) {
+                        if (this.field_546 == null) {
+                            return;
+                        }
+                        var8 = 0;
+                        for (var24 = this.field_546.length; var8 < var24; ++var8) {
+                            this.field_546[var8].method_925(var1);
+                        }
+                        return;
                     }
                 }
                 class_40[] var22 = class_34.field_150;

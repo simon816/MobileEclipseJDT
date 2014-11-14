@@ -1,11 +1,11 @@
 package e;
 
-import b.class_233;
+import b.CharOperation;
 import e.class_191;
 import e.class_192;
 import e.class_195;
 import e.class_196;
-import i.class_5;
+import i.AttributeNamesConstants;
 
 public class class_194 extends class_191 {
 
@@ -24,7 +24,7 @@ public class class_194 extends class_191 {
             if (var10.length > 0) {
                 switch (var10[0]) {
                     case 65:
-                        if (class_233.method_1364(var10, class_5.field_16)) {
+                        if (CharOperation.method_1364(var10, AttributeNamesConstants.field_16)) {
                             class_196 var16 = new class_196(var3.field_805, var3.field_806, var5 + 6 + var3.field_807);
                             class_196 var18 = var16;
                             var7 = var18.method_1153();
@@ -32,9 +32,9 @@ public class class_194 extends class_191 {
                         break;
                     case 82:
                         class_196[] var11 = null;
-                        if (class_233.method_1364(var10, class_5.field_18)) {
+                        if (CharOperation.method_1364(var10, AttributeNamesConstants.field_18)) {
                             var11 = method_1133(var5, true, var3);
-                        } else if (class_233.method_1364(var10, class_5.field_17)) {
+                        } else if (CharOperation.method_1364(var10, AttributeNamesConstants.field_17)) {
                             var11 = method_1133(var5, false, var3);
                         }
                         if (var11 != null) {
@@ -50,7 +50,7 @@ public class class_194 extends class_191 {
                         }
                         break;
                     case 83:
-                        if (class_233.method_1364(class_5.field_13, var10)) {
+                        if (CharOperation.method_1364(AttributeNamesConstants.field_13, var10)) {
                             var3.field_859 = var3.field_806[var3.method_1104(var5 + 6)] - var3.field_807;
                         }
                 }

@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_34;
 import m.class_43;
 
@@ -13,11 +13,11 @@ public class class_37 extends class_34 {
     private int field_169;
 
     public class_37(char[][] var1, int var2) {
-        this(class_233.method_1361(var1, '.'), var2);
+        this(CharOperation.method_1361(var1, '.'), var2);
     }
 
     public class_37(char[][] var1, class_43 var2, int var3) {
-        this(class_233.method_1361(var1, '.'), var2, var3);
+        this(CharOperation.method_1361(var1, '.'), var2, var3);
     }
 
     class_37(char[] var1, int var2) {

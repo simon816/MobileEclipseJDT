@@ -1,18 +1,18 @@
 package e;
 
-import b.class_233;
+import b.CharOperation;
 import e.class_186;
 import e.class_192;
 import e.class_193;
 import e.class_196;
-import f.class_226;
-import g.class_11;
+import f.Util;
+import java.lang.Comparable;
 import i.class_272;
-import i.class_5;
+import i.AttributeNamesConstants;
 import k.class_25;
 import k.class_29;
 
-public class class_191 extends class_186 implements class_11, class_25 {
+public class class_191 extends class_186 implements Comparable, class_25 {
 
     private static final char[][] field_851;
 
@@ -54,13 +54,13 @@ public class class_191 extends class_186 implements class_11, class_25 {
                     case 82:
                         class_196[] var11 = null;
                         class_196[][] var12 = (class_196[][])null;
-                        if (class_233.method_1364(var10, class_5.field_18)) {
+                        if (CharOperation.method_1364(var10, AttributeNamesConstants.field_18)) {
                             var11 = method_1133(var5, true, var3);
-                        } else if (class_233.method_1364(var10, class_5.field_17)) {
+                        } else if (CharOperation.method_1364(var10, AttributeNamesConstants.field_17)) {
                             var11 = method_1133(var5, false, var3);
-                        } else if (class_233.method_1364(var10, class_5.field_20)) {
+                        } else if (CharOperation.method_1364(var10, AttributeNamesConstants.field_20)) {
                             var12 = method_1134(var5, true, var3);
-                        } else if (class_233.method_1364(var10, class_5.field_19)) {
+                        } else if (CharOperation.method_1364(var10, AttributeNamesConstants.field_19)) {
                             var12 = method_1134(var5, false, var3);
                         }
                         int var13;
@@ -105,7 +105,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
                         }
                         break;
                     case 83:
-                        if (class_233.method_1364(class_5.field_13, var10)) {
+                        if (CharOperation.method_1364(AttributeNamesConstants.field_13, var10)) {
                             var3.field_859 = var3.field_806[var3.method_1104(var5 + 6)] - var3.field_807;
                         }
                 }
@@ -198,7 +198,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
         this.field_859 = -1;
     }
 
-    public int method_28(Object var1) {
+    public int compareTo(Object var1) {
         class_191 var2 = (class_191)var1;
         int var3 = (new String(this.method_77())).compareTo(new String(var2.method_77()));
         return var3 != 0 ? var3 : (new String(this.method_75())).compareTo(new String(var2.method_75()));
@@ -209,12 +209,12 @@ public class class_191 extends class_186 implements class_11, class_25 {
             return false;
         } else {
             class_191 var2 = (class_191)var1;
-            return class_233.method_1364(this.method_77(), var2.method_77()) && class_233.method_1364(this.method_75(), var2.method_75());
+            return CharOperation.method_1364(this.method_77(), var2.method_77()) && CharOperation.method_1364(this.method_75(), var2.method_75());
         }
     }
 
     public int hashCode() {
-        return class_233.method_1369(this.method_77()) + class_233.method_1369(this.method_75());
+        return CharOperation.method_1369(this.method_77()) + CharOperation.method_1369(this.method_75());
     }
 
     public class_29[] method_71() {
@@ -303,7 +303,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
         for (int var3 = 0; var3 < var1; ++var3) {
             int var4 = this.field_806[this.method_1104(var2)] - this.field_807;
             char[] var5 = this.method_1106(var4 + 3, this.method_1104(var4 + 1));
-            if (class_233.method_1364(var5, class_5.field_10)) {
+            if (CharOperation.method_1364(var5, AttributeNamesConstants.field_10)) {
                 int var6 = this.method_1104(var2 + 6);
                 var2 += 8;
                 if (var6 == 0) {
@@ -334,22 +334,22 @@ public class class_191 extends class_186 implements class_11, class_25 {
             if (var5.length != 0) {
                 switch (var5[0]) {
                     case 65:
-                        if (class_233.method_1364(var5, class_5.field_16)) {
+                        if (CharOperation.method_1364(var5, AttributeNamesConstants.field_16)) {
                             this.field_853 |= 131072;
                         }
                         break;
                     case 68:
-                        if (class_233.method_1364(var5, class_5.field_12)) {
+                        if (CharOperation.method_1364(var5, AttributeNamesConstants.field_12)) {
                             this.field_853 |= 1048576;
                         }
                         break;
                     case 83:
-                        if (class_233.method_1364(var5, class_5.field_4)) {
+                        if (CharOperation.method_1364(var5, AttributeNamesConstants.field_4)) {
                             this.field_853 |= 4096;
                         }
                         break;
                     case 86:
-                        if (class_233.method_1364(var5, class_5.field_23)) {
+                        if (CharOperation.method_1364(var5, AttributeNamesConstants.field_23)) {
                             this.field_853 |= 128;
                         }
                 }
@@ -379,7 +379,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
         if (var3 == null) {
             var3 = this.method_75();
         }
-        var1.append('{').append(((var2 & 1048576) != 0 ? "deprecated " : class_226.field_982) + ((var2 & 1) == 1 ? "public " : class_226.field_982) + ((var2 & 2) == 2 ? "private " : class_226.field_982) + ((var2 & 4) == 4 ? "protected " : class_226.field_982) + ((var2 & 8) == 8 ? "static " : class_226.field_982) + ((var2 & 16) == 16 ? "final " : class_226.field_982) + ((var2 & 64) == 64 ? "bridge " : class_226.field_982) + ((var2 & 128) == 128 ? "varargs " : class_226.field_982)).append(this.method_77()).append(var3).append('}');
+        var1.append('{').append(((var2 & 1048576) != 0 ? "deprecated " : Util.field_982) + ((var2 & 1) == 1 ? "public " : Util.field_982) + ((var2 & 2) == 2 ? "private " : Util.field_982) + ((var2 & 4) == 4 ? "protected " : Util.field_982) + ((var2 & 8) == 8 ? "static " : Util.field_982) + ((var2 & 16) == 16 ? "final " : Util.field_982) + ((var2 & 64) == 64 ? "bridge " : Util.field_982) + ((var2 & 128) == 128 ? "varargs " : Util.field_982)).append(this.method_77()).append(var3).append('}');
     }
 
     private void method_1142() {
@@ -389,7 +389,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
             for (int var3 = 0; var3 < var1; ++var3) {
                 int var4 = this.field_806[this.method_1104(var2)] - this.field_807;
                 char[] var5 = this.method_1106(var4 + 3, this.method_1104(var4 + 1));
-                if (class_233.method_1364(var5, class_5.field_9)) {
+                if (CharOperation.method_1364(var5, AttributeNamesConstants.field_9)) {
                     this.method_1143(var2);
                     if (this.field_861 == null) {
                         this.field_861 = field_852;
@@ -419,7 +419,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
         for (int var6 = 0; var6 < var5; ++var6) {
             int var7 = this.field_806[this.method_1104(var2)] - this.field_807;
             char[] var8 = this.method_1106(var7 + 3, this.method_1104(var7 + 1));
-            if (class_233.method_1364(var8, class_5.field_7)) {
+            if (CharOperation.method_1364(var8, AttributeNamesConstants.field_7)) {
                 this.method_1144(var2, var3);
             }
             var2 = (int)((long)var2 + 6L + this.method_1105(var2 + 2));
@@ -441,7 +441,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
                 int var7 = this.method_1104(4 + var3);
                 int var8 = this.field_806[var7] - this.field_807;
                 char[] var9 = this.method_1106(var8 + 3, this.method_1104(var8 + 1));
-                if (!class_233.method_1364(var9, class_272.field_1493)) {
+                if (!CharOperation.method_1364(var9, class_272.field_1493)) {
                     this.field_861[this.field_862++] = var9;
                 }
                 var3 += 10;
@@ -453,7 +453,7 @@ public class class_191 extends class_186 implements class_11, class_25 {
     }
 
     static {
-        field_851 = class_233.field_995;
-        field_852 = class_233.field_995;
+        field_851 = CharOperation.field_995;
+        field_852 = CharOperation.field_995;
     }
 }

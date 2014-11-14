@@ -1,12 +1,12 @@
 package h;
 
 import a.class_33;
-import b.class_233;
+import b.CharOperation;
 import b.class_235;
 import c.class_264;
 import c.class_284;
 import c.class_288;
-import f.class_226;
+import f.Util;
 import h.class_123;
 import h.class_125;
 import h.class_146;
@@ -16,7 +16,7 @@ import h.class_89;
 import h.class_90;
 import h.class_98;
 import i.class_268;
-import j.class_278;
+import j.Parser;
 import l.class_299;
 import l.class_301;
 import m.class_203;
@@ -31,7 +31,7 @@ import n.class_241;
 import n.class_242;
 import n.class_243;
 import n.class_244;
-import n.class_248;
+import n.ProblemReporter;
 
 public abstract class class_93 extends class_89 implements class_33 {
 
@@ -142,11 +142,11 @@ public abstract class class_93 extends class_89 implements class_33 {
                         if (var5 instanceof class_147) {
                             int var8 = var7.length;
                             char[] var9 = var5.method_1012()[0];
-                            if (class_233.method_1364(var9, var7[var8 - 1])) {
+                            if (CharOperation.method_1364(var9, var7[var8 - 1])) {
                                 var5.field_675 = var6;
                                 ++var3;
                             }
-                        } else if (class_233.method_1363(var5.method_1012(), var7)) {
+                        } else if (CharOperation.method_1363(var5.method_1012(), var7)) {
                             var5.field_675 = var6;
                             ++var3;
                         }
@@ -298,7 +298,7 @@ public abstract class class_93 extends class_89 implements class_33 {
         return this.field_488 != null ? this.field_488.method_370() : (this.field_482 & 8) != 0;
     }
 
-    public abstract void method_800(class_278 var1, class_90 var2);
+    public abstract void method_800(Parser var1, class_90 var2);
 
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2);
@@ -385,11 +385,11 @@ public abstract class class_93 extends class_89 implements class_33 {
             if (this.field_488.field_278 != null && !this.field_488.field_278.method_158()) {
                 int var1 = this.field_488.field_273 & 7;
                 class_84 var2 = this.field_478.method_575();
-                class_248 var3 = this.field_478.method_644();
+                ProblemReporter var3 = this.field_478.method_644();
                 int var4 = var3.method_1449(-1610612250);
                 if (var4 != -1) {
                     if (var2 != null) {
-                        var1 = class_226.method_1318(var2.method_671(), var1);
+                        var1 = Util.method_1318(var2.method_671(), var1);
                     }
                     int var5 = this.field_488.field_273 & -8 | var1;
                 }

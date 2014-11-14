@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_17;
 import m.class_34;
 import m.class_40;
@@ -44,7 +44,7 @@ public class class_47 extends class_46 {
 
     public char[] method_142() {
         if (this.field_225 == null) {
-            this.field_225 = class_233.method_1355(class_17.field_59, this.field_227.method_142());
+            this.field_225 = CharOperation.method_1355(class_17.field_59, this.field_227.method_142());
         }
         return this.field_225;
     }

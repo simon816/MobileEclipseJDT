@@ -1,6 +1,6 @@
 package f;
 
-import b.class_233;
+import b.CharOperation;
 
 public final class class_218 {
 
@@ -32,7 +32,7 @@ public final class class_218 {
             if (var2 < 0) {
                 return false;
             }
-        } while (!class_233.method_1364(var1, this.field_936[var2]));
+        } while (!CharOperation.method_1364(var1, this.field_936[var2]));
         return true;
     }
 

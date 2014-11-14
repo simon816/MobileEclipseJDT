@@ -1,15 +1,15 @@
 package m;
 
-import a.class_31;
-import a.class_341;
-import b.class_233;
+import a.ITypeRequestor;
+import a.CompilerOptions;
+import b.CharOperation;
 import c.class_288;
 import c.class_292;
 import f.class_324;
 import f.class_327;
-import g.class_14;
-import g.class_312;
-import g.class_313;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
 import h.class_90;
 import java.util.Vector;
 import k.class_22;
@@ -41,11 +41,11 @@ import m.class_81;
 import m.class_82;
 import m.class_83;
 import m.class_85;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_80 implements class_17 {
 
-    private class_14 field_345;
+    private Map field_345;
 
     class_35[] field_346;
 
@@ -59,15 +59,15 @@ public class class_80 implements class_17 {
 
     public class_28 field_351;
 
-    public class_341 field_352;
+    public CompilerOptions field_352;
 
-    public class_248 field_353;
+    public ProblemReporter field_353;
 
     public class_292 field_354;
 
     private int field_355;
 
-    public class_31 field_356;
+    public ITypeRequestor field_356;
 
     private class_42[][] field_357;
 
@@ -91,7 +91,7 @@ public class class_80 implements class_17 {
 
     static final class_51 field_367;
 
-    public class_80(class_31 var1, class_341 var2, class_248 var3, class_28 var4) {
+    public class_80(ITypeRequestor var1, CompilerOptions var2, ProblemReporter var3, class_28 var4) {
         this.field_349 = -1;
         this.field_350 = -1;
         this.field_362 = null;
@@ -116,7 +116,7 @@ public class class_80 implements class_17 {
         this.field_360 = var7;
         var7 = new class_327(3);
         this.field_361 = var7;
-        class_312 var5 = new class_312(3);
+        HashMap var5 = new HashMap(3);
         this.field_345 = var5;
         class_292 var6 = new class_292();
         this.field_354 = var6;
@@ -349,7 +349,7 @@ public class class_80 implements class_17 {
             for (int var5 = var1.length - 1; var4 < var5; ++var4) {
                 class_38 var6 = var3;
                 if ((var3 = var3.method_122(var1[var4])) == null || var3 == field_366) {
-                    var10000 = new class_38(class_233.method_1387(var1, 0, var4 + 1), var6, this);
+                    var10000 = new class_38(CharOperation.method_1387(var1, 0, var4 + 1), var6, this);
                     var3 = var10000;
                     if (var2) {
                         var3.field_170 |= 128L;
@@ -726,7 +726,7 @@ public class class_80 implements class_17 {
                 if (this.field_351.method_81(var1[var3], var6.field_171) != null) {
                     return null;
                 }
-                var10000 = new class_38(class_233.method_1387(var1, 0, var3 + 1), var6, this);
+                var10000 = new class_38(CharOperation.method_1387(var1, 0, var3 + 1), var6, this);
                 var2 = var10000;
                 var6.method_117(var2);
             }
@@ -933,7 +933,7 @@ public class class_80 implements class_17 {
     }
 
     public class_345 method_503(class_40 var1) {
-        return (class_345)this.field_345.method_38(var1);
+        return (class_345)this.field_345.get(var1);
     }
 
     public class_43 method_504(char[][] var1) {
@@ -1032,15 +1032,15 @@ public class class_80 implements class_17 {
     }
 
     private class_40[] method_509(class_197 var1, class_46[] var2, class_43 var3, class_43 var4, char[][][] var5) {
-        class_313 var10000 = new class_313(2);
-        class_313 var6 = var10000;
+        ArrayList var10000 = new ArrayList(2);
+        ArrayList var6 = var10000;
         int var7 = 0;
         do {
-            var6.method_34(this.method_514(var1, var2, var3, var4, var7++, var5));
+            var6.add(this.method_514(var1, var2, var3, var4, var7++, var5));
         } while (var1.field_872[var1.field_873] != 62);
         ++var1.field_873;
-        class_40[] var8 = new class_40[var6.method_29()];
-        var6.method_33(var8);
+        class_40[] var8 = new class_40[var6.size()];
+        var6.toArray(var8);
         return var8;
     }
 
@@ -1067,12 +1067,12 @@ public class class_80 implements class_17 {
         if (var3 == -1) {
             var3 = var1.length;
         }
-        char[][] var6 = class_233.method_1386('/', var1, var2, var3);
+        char[][] var6 = CharOperation.method_1386('/', var1, var2, var3);
         boolean var7 = false;
         if (var5 != null) {
             int var8 = 0;
             for (int var9 = var5.length; var8 < var9; ++var8) {
-                if (class_233.method_1363(var6, var5[var8])) {
+                if (CharOperation.method_1363(var6, var5[var8])) {
                     var7 = true;
                     break;
                 }
@@ -1157,7 +1157,7 @@ public class class_80 implements class_17 {
                 return (class_40)(var5 == 0 ? var15 : this.method_493(var15, var5));
             } else {
                 var16 = (class_43)var15;
-                if (var16 instanceof class_44 && class_233.method_1371('$', var16.field_197[var16.field_197.length - 1]) > 0) {
+                if (var16 instanceof class_44 && CharOperation.method_1371('$', var16.field_197[var16.field_197.length - 1]) > 0) {
                     var16 = class_49.method_267(var16, this, false);
                 }
                 class_43 var17 = var16.method_137();
@@ -1206,19 +1206,19 @@ public class class_80 implements class_17 {
                             --var10;
                             if (var10 < 0) {
                                 if ((var3 = var3.method_137()) == null) {
-                                    this.field_353.method_1782(class_233.method_1388(var1.field_872, var6, var7), var16);
+                                    this.field_353.method_1782(CharOperation.method_1388(var1.field_872, var6, var7), var16);
                                     return null;
                                 }
                                 continue label86;
                             }
-                        } while (!class_233.method_1365(var9[var10].field_198, var1.field_872, var6, var7));
+                        } while (!CharOperation.method_1365(var9[var10].field_198, var1.field_872, var6, var7));
                         if (var5 == 0) {
                             return var9[var10];
                         }
                         return this.method_493(var9[var10], var5);
                     }
                 }
-            } while (!class_233.method_1365(var2[var8].field_198, var1.field_872, var6, var7));
+            } while (!CharOperation.method_1365(var2[var8].field_198, var1.field_872, var6, var7));
             if (var5 == 0) {
                 return var2[var8];
             }
@@ -1276,7 +1276,7 @@ public class class_80 implements class_17 {
         this.field_346 = null;
         class_324 var6 = new class_324();
         this.field_348 = var6;
-        class_312 var4 = new class_312(3);
+        HashMap var4 = new HashMap(3);
         this.field_345 = var4;
         this.field_365 = null;
         int var1 = this.field_357.length;
@@ -1321,7 +1321,7 @@ public class class_80 implements class_17 {
     public void method_519(class_43 var1, class_345 var2) {
         if (var2 != null) {
             var1.field_199 |= 262144;
-            this.field_345.method_39(var1, var2);
+            this.field_345.put(var1, var2);
         }
     }
 
@@ -1362,9 +1362,9 @@ public class class_80 implements class_17 {
     }
 
     static {
-        class_39 var10000 = new class_39(class_233.field_994, 1);
+        class_39 var10000 = new class_39(CharOperation.field_994, 1);
         field_366 = var10000;
-        class_51 var0 = new class_51(class_233.field_995, (class_43)null, 1);
+        class_51 var0 = new class_51(CharOperation.field_995, (class_43)null, 1);
         field_367 = var0;
     }
 }

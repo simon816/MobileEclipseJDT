@@ -1,8 +1,8 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import f.class_325;
-import g.class_312;
+import java.util.HashMap;
 import h.class_114;
 import h.class_121;
 import h.class_123;
@@ -30,7 +30,7 @@ import m.class_83;
 import m.class_85;
 import m.class_87;
 import n.class_241;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_84 extends class_83 {
 
@@ -197,14 +197,14 @@ public class class_84 extends class_83 {
                     default:
                         Object var10 = var4;
                         do {
-                            if (class_233.method_1364(((class_43)var10).field_198, var9.field_580)) {
+                            if (CharOperation.method_1364(((class_43)var10).field_198, var9.field_580)) {
                                 this.method_644().method_1772(var9);
                                 continue label43;
                             }
                             var10 = ((class_43)var10).method_137();
                         } while (var10 != null);
                         for (int var11 = 0; var11 < var8; ++var11) {
-                            if (class_233.method_1364(this.field_376.field_585[var11].field_580, var9.field_580)) {
+                            if (CharOperation.method_1364(this.field_376.field_585[var11].field_580, var9.field_580)) {
                                 this.method_644().method_1534(var9);
                                 continue label43;
                             }
@@ -252,14 +252,14 @@ public class class_84 extends class_83 {
                     default:
                         Object var8 = var2;
                         do {
-                            if (class_233.method_1364(((class_43)var8).field_198, var7.field_580)) {
+                            if (CharOperation.method_1364(((class_43)var8).field_198, var7.field_580)) {
                                 this.method_644().method_1772(var7);
                                 continue label50;
                             }
                             var8 = ((class_43)var8).method_137();
                         } while (var8 != null);
                         for (int var9 = 0; var9 < var6; ++var9) {
-                            if (class_233.method_1364(this.field_376.field_585[var9].field_580, var7.field_580)) {
+                            if (CharOperation.method_1364(this.field_376.field_585[var9].field_580, var7.field_580)) {
                                 this.method_644().method_1534(var7);
                                 continue label50;
                             }
@@ -328,13 +328,13 @@ public class class_84 extends class_83 {
         var10000.field_588 = var10001;
         char[][] var4;
         if (var1 == null) {
-            var4 = class_233.method_1353(var2.field_171, this.field_376.field_580);
+            var4 = CharOperation.method_1353(var2.field_171, this.field_376.field_580);
             var10000 = this.field_376;
             class_54 var6 = new class_54(var4, var2, this);
             var10000.field_586 = var6;
         } else {
-            var4 = class_233.method_1362(var1.field_197);
-            var4[var4.length - 1] = class_233.method_1357(var4[var4.length - 1], this.field_376.field_580, '$');
+            var4 = CharOperation.method_1362(var1.field_197);
+            var4[var4.length - 1] = CharOperation.method_1357(var4[var4.length - 1], this.field_376.field_580, '$');
             class_43 var5 = var2.method_124(var4[var4.length - 1]);
             if (var5 != null && !(var5 instanceof class_44)) {
                 this.field_374.method_644().method_1534(this.field_376);
@@ -642,8 +642,8 @@ public class class_84 extends class_83 {
     public void method_659() {
         class_54 var1 = this.field_376.field_586;
         class_43[] var2 = var1.field_253;
-        class_312 var10000 = new class_312(2);
-        class_312 var3 = var10000;
+        HashMap var10000 = new HashMap(2);
+        HashMap var3 = var10000;
         class_43 var4 = var1.method_157() ? null : var1.field_252;
         int var5 = 0;
         int var6;
@@ -1129,10 +1129,10 @@ public class class_84 extends class_83 {
         return var11;
     }
 
-    public class_248 method_644() {
+    public ProblemReporter method_644() {
         class_87 var1;
         if ((var1 = this.method_641()) == null) {
-            class_248 var2 = this.method_645().field_454;
+            ProblemReporter var2 = this.method_645().field_454;
             var2.field_1065 = this.field_376;
             return var2;
         } else {

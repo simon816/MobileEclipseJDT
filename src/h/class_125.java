@@ -1,7 +1,7 @@
 package h;
 
 import a.class_331;
-import b.class_233;
+import b.CharOperation;
 import c.class_264;
 import h.class_124;
 import h.class_146;
@@ -38,7 +38,7 @@ public class class_125 extends class_124 {
                         var5 = true;
                     } else {
                         class_93 var6 = var1.method_730();
-                        if (var6 != null && class_233.method_1381(field_671, var6.field_479)) {
+                        if (var6 != null && CharOperation.method_1381(field_671, var6.field_479)) {
                             var5 = true;
                         }
                     }

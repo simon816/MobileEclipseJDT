@@ -1,13 +1,13 @@
 package batch;
 
-import batch.class_238;
+import batch.Main;
 import c.class_7;
 
 class class_211 implements class_7 {
 
-    private final class_238 field_904;
+    private final Main field_904;
 
-    class_211(class_238 var1) {
+    class_211(Main var1) {
         this.field_904 = var1;
     }
 

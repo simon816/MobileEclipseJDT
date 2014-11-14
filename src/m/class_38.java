@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import f.class_324;
 import f.class_328;
 import m.class_17;
@@ -43,7 +43,7 @@ public class class_38 extends class_34 implements class_17 {
     }
 
     public class_38(class_80 var1) {
-        this(class_233.field_995, (class_38)null, var1);
+        this(CharOperation.field_995, (class_38)null, var1);
     }
 
     private void method_115(char[] var1) {
@@ -87,7 +87,7 @@ public class class_38 extends class_34 implements class_17 {
         if (!this.field_173.method_515(this.field_171, var1)) {
             return null;
         } else {
-            char[][] var2 = class_233.method_1353(this.field_171, var1);
+            char[][] var2 = CharOperation.method_1353(this.field_171, var1);
             class_38 var10000 = new class_38(var2, this, this.field_173);
             class_38 var3 = var10000;
             this.method_117(var3);
@@ -179,15 +179,15 @@ public class class_38 extends class_34 implements class_17 {
     }
 
     public char[] method_103() {
-        return class_233.method_1361(this.field_171, '.');
+        return CharOperation.method_1361(this.field_171, '.');
     }
 
     public String toString() {
         String var1;
-        if (this.field_171 == class_233.field_995) {
+        if (this.field_171 == CharOperation.field_995) {
             var1 = "The Default Package";
         } else {
-            var1 = "package " + (this.field_171 != null ? class_233.method_1389(this.field_171) : "UNNAMED");
+            var1 = "package " + (this.field_171 != null ? CharOperation.method_1389(this.field_171) : "UNNAMED");
         }
         if ((this.field_170 & 128L) != 0L) {
             var1 = var1 + "[MISSING]";

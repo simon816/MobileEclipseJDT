@@ -1,6 +1,6 @@
 package j;
 
-import b.class_232;
+import b.InvalidInputException;
 
 public class class_279 {
 

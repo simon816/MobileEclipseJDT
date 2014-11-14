@@ -9,7 +9,7 @@ import a.class_337;
 import a.class_338;
 import a.class_339;
 import a.class_340;
-import b.class_233;
+import b.CharOperation;
 import e.class_186;
 import e.class_199;
 import h.class_164;
@@ -284,7 +284,7 @@ public class class_196 extends class_186 implements class_29 {
                 int var4 = this.field_806[this.method_1104(var2)] - this.field_807;
                 char[] var5 = this.method_1106(var4 + 3, this.method_1104(var4 + 1));
                 var2 += 2;
-                if (var5.length == 38 && class_233.method_1364(var5, class_272.field_1509)) {
+                if (var5.length == 38 && CharOperation.method_1364(var5, class_272.field_1509)) {
                     var4 = this.field_806[this.method_1104(var2)] - this.field_807;
                     char[] var6 = this.method_1106(var4 + 3, this.method_1104(var4 + 1));
                     this.field_869 |= class_164.method_1069(var6);
@@ -370,7 +370,7 @@ public class class_196 extends class_186 implements class_29 {
                 int var4 = this.field_806[this.method_1104(var2)] - this.field_807;
                 char[] var5 = this.method_1106(var4 + 3, this.method_1104(var4 + 1));
                 var2 += 2;
-                if (var5.length == 34 && class_233.method_1364(var5, class_272.field_1507)) {
+                if (var5.length == 34 && CharOperation.method_1364(var5, class_272.field_1507)) {
                     var4 = this.field_806[this.method_1104(var2)] - this.field_807;
                     char[] var6 = this.method_1106(var4 + 3, this.method_1104(var4 + 1));
                     this.field_869 |= class_164.method_1070(var6);
@@ -391,29 +391,29 @@ public class class_196 extends class_186 implements class_29 {
         if (var2 && var3) {
             switch (var6.length) {
                 case 22:
-                    if (class_233.method_1364(var6, class_272.field_1511)) {
+                    if (CharOperation.method_1364(var6, class_272.field_1511)) {
                         this.field_869 |= 70368744177664L;
                         return var4;
                     }
                     break;
                 case 29:
-                    if (class_233.method_1364(var6, class_272.field_1510)) {
+                    if (CharOperation.method_1364(var6, class_272.field_1510)) {
                         var4 += 2;
                         return this.method_1156(var4);
                     }
                     break;
                 case 32:
-                    if (class_233.method_1364(var6, class_272.field_1508)) {
+                    if (CharOperation.method_1364(var6, class_272.field_1508)) {
                         var4 += 2;
                         return this.method_1155(var4);
                     }
-                    if (class_233.method_1364(var6, class_272.field_1512)) {
+                    if (CharOperation.method_1364(var6, class_272.field_1512)) {
                         this.field_869 |= 281474976710656L;
                         return var4;
                     }
                     break;
                 case 33:
-                    if (class_233.method_1364(var6, class_272.field_1506)) {
+                    if (CharOperation.method_1364(var6, class_272.field_1506)) {
                         this.field_869 |= 140737488355328L;
                         return var4;
                     }

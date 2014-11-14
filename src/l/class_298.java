@@ -1,6 +1,6 @@
 package l;
 
-import g.class_313;
+import java.util.ArrayList;
 import h.class_116;
 import h.class_117;
 import h.class_89;
@@ -31,7 +31,7 @@ public class class_298 extends class_293 {
 
     public class_303 field_1770;
 
-    public class_313 field_1771;
+    public ArrayList field_1771;
 
     public class_298(class_293 var1, class_89 var2, class_43[] var3, class_86 var4, class_303 var5) {
         super(var1, var2);
@@ -127,26 +127,26 @@ public class class_298 extends class_293 {
 
     public void method_3064(class_40 var1) {
         if (this.field_1771 == null) {
-            class_313 var10001 = new class_313(5);
+            ArrayList var10001 = new ArrayList(5);
             this.field_1771 = var10001;
             for (int var2 = 0; var2 < this.field_1764.length; ++var2) {
-                this.field_1771.method_34(this.field_1764[var2]);
+                this.field_1771.add(this.field_1764[var2]);
             }
         }
         boolean var4 = false;
-        for (int var3 = this.field_1771.method_29() - 1; var3 >= 0; --var3) {
-            switch (class_83.method_566(var1, (class_40)this.field_1771.method_36(var3))) {
+        for (int var3 = this.field_1771.size() - 1; var3 >= 0; --var3) {
+            switch (class_83.method_566(var1, (class_40)this.field_1771.get(var3))) {
                 case -1:
                     var4 = true;
                 case 0:
                 default:
                     break;
                 case 1:
-                    this.field_1771.method_3163(var3);
+                    this.field_1771.remove(var3);
             }
         }
         if (!var4) {
-            this.field_1771.method_34(var1);
+            this.field_1771.add(var1);
         }
     }
 

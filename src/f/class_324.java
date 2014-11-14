@@ -1,6 +1,6 @@
 package f;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_38;
 
 public final class class_324 {
@@ -30,11 +30,11 @@ public final class class_324 {
 
     public class_38 method_3219(char[] var1) {
         int var2 = this.field_1840.length;
-        int var3 = class_233.method_1369(var1) % var2;
+        int var3 = CharOperation.method_1369(var1) % var2;
         int var4 = var1.length;
         char[] var5;
         while ((var5 = this.field_1840[var3]) != null) {
-            if (var5.length == var4 && class_233.method_1364(var5, var1)) {
+            if (var5.length == var4 && CharOperation.method_1364(var5, var1)) {
                 return this.field_1841[var3];
             }
             ++var3;
@@ -47,11 +47,11 @@ public final class class_324 {
 
     public class_38 method_3220(char[] var1, class_38 var2) {
         int var3 = this.field_1840.length;
-        int var4 = class_233.method_1369(var1) % var3;
+        int var4 = CharOperation.method_1369(var1) % var3;
         int var5 = var1.length;
         char[] var6;
         while ((var6 = this.field_1840[var4]) != null) {
-            if (var6.length == var5 && class_233.method_1364(var6, var1)) {
+            if (var6.length == var5 && CharOperation.method_1364(var6, var1)) {
                 return this.field_1841[var4] = var2;
             }
             ++var4;

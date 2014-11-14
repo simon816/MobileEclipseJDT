@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import m.class_32;
 import m.class_321;
 import m.class_34;
@@ -208,7 +208,7 @@ public class class_46 extends class_43 {
     }
 
     public char[] method_142() {
-        return this.field_225 != null ? this.field_225 : (this.field_225 = class_233.method_1359('T', this.field_198, ';'));
+        return this.field_225 != null ? this.field_225 : (this.field_225 = CharOperation.method_1359('T', this.field_198, ';'));
     }
 
     public int method_257() {

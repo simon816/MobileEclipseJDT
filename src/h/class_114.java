@@ -1,12 +1,12 @@
 package h;
 
 import a.class_33;
-import b.class_233;
+import b.CharOperation;
 import b.class_235;
 import c.class_264;
 import c.class_284;
 import c.class_288;
-import f.class_226;
+import f.Util;
 import h.class_121;
 import h.class_122;
 import h.class_123;
@@ -24,7 +24,7 @@ import h.class_95;
 import h.class_96;
 import h.class_98;
 import i.class_268;
-import j.class_278;
+import j.Parser;
 import l.class_293;
 import l.class_299;
 import l.class_301;
@@ -48,7 +48,7 @@ import n.class_241;
 import n.class_242;
 import n.class_243;
 import n.class_244;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_114 extends class_98 implements class_33 {
 
@@ -241,7 +241,7 @@ public class class_114 extends class_98 implements class_33 {
         }
     }
 
-    public boolean method_850(class_278 var1) {
+    public boolean method_850(Parser var1) {
         boolean var2 = false;
         if (this.field_584 != null) {
             int var3 = this.field_584.length;
@@ -252,7 +252,7 @@ public class class_114 extends class_98 implements class_33 {
                 }
                 class_93 var4;
                 if ((var4 = this.field_584[var3]).method_795()) {
-                    if (!class_233.method_1364(var4.field_479, this.field_580)) {
+                    if (!CharOperation.method_1364(var4.field_479, this.field_580)) {
                         class_94 var5 = (class_94)var4;
                         if (var5.field_493 == null || var5.field_493.method_831()) {
                             class_96 var6 = var1.method_2821(var5, this.field_596);
@@ -632,7 +632,7 @@ public class class_114 extends class_98 implements class_33 {
         }
     }
 
-    public void method_863(class_278 var1, class_90 var2) {
+    public void method_863(Parser var1, class_90 var2) {
         if (!var2.field_452) {
             int var3;
             int var4;
@@ -896,7 +896,7 @@ public class class_114 extends class_98 implements class_33 {
                                     this.field_590 = true;
                                     continue;
                                 }
-                                if (var3 && (var10.field_300 & 24) == 24 && class_233.method_1364(class_17.field_37, var10.field_302) && class_40.field_183 == var10.field_301) {
+                                if (var3 && (var10.field_300 & 24) == 24 && CharOperation.method_1364(class_17.field_37, var10.field_302) && class_40.field_183 == var10.field_301) {
                                     var3 = false;
                                 }
                                 ++this.field_591;
@@ -960,11 +960,11 @@ public class class_114 extends class_98 implements class_33 {
                 }
                 if (!var1.method_158()) {
                     var28 = var1.field_199 & 7;
-                    class_248 var26 = this.field_587.method_644();
+                    ProblemReporter var26 = this.field_587.method_644();
                     var11 = var26.method_1449(-1610612250);
                     if (var11 != -1) {
                         if (this.field_599 != null) {
-                            var28 = class_226.method_1318(this.field_599, var28);
+                            var28 = Util.method_1318(this.field_599, var28);
                         }
                         int var12 = this.field_586.field_199 & -8 | var28;
                     }

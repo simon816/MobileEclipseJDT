@@ -10,17 +10,17 @@ import a.class_337;
 import a.class_338;
 import a.class_339;
 import a.class_340;
-import b.class_233;
+import b.CharOperation;
 import e.class_186;
 import e.class_188;
 import e.class_196;
-import f.class_226;
-import g.class_11;
-import i.class_5;
+import f.Util;
+import java.lang.Comparable;
+import i.AttributeNamesConstants;
 import k.class_27;
 import k.class_29;
 
-public class class_187 extends class_186 implements class_11, class_27 {
+public class class_187 extends class_186 implements Comparable, class_27 {
 
     protected int field_808;
 
@@ -88,16 +88,16 @@ public class class_187 extends class_186 implements class_11, class_27 {
         return null;
     }
 
-    public int method_28(Object var1) {
+    public int compareTo(Object var1) {
         return (new String(this.method_75())).compareTo(new String(((class_187)var1).method_75()));
     }
 
     public boolean equals(Object var1) {
-        return !(var1 instanceof class_187) ? false : class_233.method_1364(this.method_75(), ((class_187)var1).method_75());
+        return !(var1 instanceof class_187) ? false : CharOperation.method_1364(this.method_75(), ((class_187)var1).method_75());
     }
 
     public int hashCode() {
-        return class_233.method_1369(this.method_75());
+        return CharOperation.method_1369(this.method_75());
     }
 
     public class_331 method_79() {
@@ -170,9 +170,9 @@ public class class_187 extends class_186 implements class_11, class_27 {
                 switch (var6[0]) {
                     case 82:
                         class_196[] var7 = null;
-                        if (class_233.method_1364(var6, class_5.field_18)) {
+                        if (CharOperation.method_1364(var6, AttributeNamesConstants.field_18)) {
                             var7 = this.method_1108(var2, true);
-                        } else if (class_233.method_1364(var6, class_5.field_17)) {
+                        } else if (CharOperation.method_1364(var6, AttributeNamesConstants.field_17)) {
                             var7 = this.method_1108(var2, false);
                         }
                         if (var7 != null) {
@@ -188,7 +188,7 @@ public class class_187 extends class_186 implements class_11, class_27 {
                         }
                         break;
                     case 83:
-                        if (class_233.method_1364(class_5.field_13, var6)) {
+                        if (CharOperation.method_1364(AttributeNamesConstants.field_13, var6)) {
                             this.field_814 = this.field_806[this.method_1104(var2 + 6)] - this.field_807;
                         }
                 }
@@ -206,7 +206,7 @@ public class class_187 extends class_186 implements class_11, class_27 {
         for (int var4 = 0; var4 < var1; ++var4) {
             int var5 = this.field_806[this.method_1104(var2)] - this.field_807;
             char[] var6 = this.method_1106(var5 + 3, this.method_1104(var5 + 1));
-            if (class_233.method_1364(var6, class_5.field_5)) {
+            if (CharOperation.method_1364(var6, AttributeNamesConstants.field_5)) {
                 var3 = true;
                 int var7 = this.field_806[this.method_1104(var2 + 6)] - this.field_807;
                 label35:
@@ -269,12 +269,12 @@ public class class_187 extends class_186 implements class_11, class_27 {
             if (var5.length != 0) {
                 switch (var5[0]) {
                     case 68:
-                        if (class_233.method_1364(var5, class_5.field_12)) {
+                        if (CharOperation.method_1364(var5, AttributeNamesConstants.field_12)) {
                             this.field_808 |= 1048576;
                         }
                         break;
                     case 83:
-                        if (class_233.method_1364(var5, class_5.field_4)) {
+                        if (CharOperation.method_1364(var5, AttributeNamesConstants.field_4)) {
                             this.field_808 |= 4096;
                         }
                 }
@@ -295,6 +295,6 @@ public class class_187 extends class_186 implements class_11, class_27 {
 
     protected void method_1114(StringBuffer var1) {
         int var2 = this.method_69();
-        var1.append('{').append(((var2 & 1048576) != 0 ? "deprecated " : class_226.field_982) + ((var2 & 1) == 1 ? "public " : class_226.field_982) + ((var2 & 2) == 2 ? "private " : class_226.field_982) + ((var2 & 4) == 4 ? "protected " : class_226.field_982) + ((var2 & 8) == 8 ? "static " : class_226.field_982) + ((var2 & 16) == 16 ? "final " : class_226.field_982) + ((var2 & 64) == 64 ? "volatile " : class_226.field_982) + ((var2 & 128) == 128 ? "transient " : class_226.field_982)).append(this.method_77()).append(' ').append(this.method_75()).append(' ').append(this.method_79()).append('}').toString();
+        var1.append('{').append(((var2 & 1048576) != 0 ? "deprecated " : Util.field_982) + ((var2 & 1) == 1 ? "public " : Util.field_982) + ((var2 & 2) == 2 ? "private " : Util.field_982) + ((var2 & 4) == 4 ? "protected " : Util.field_982) + ((var2 & 8) == 8 ? "static " : Util.field_982) + ((var2 & 16) == 16 ? "final " : Util.field_982) + ((var2 & 64) == 64 ? "volatile " : Util.field_982) + ((var2 & 128) == 128 ? "transient " : Util.field_982)).append(this.method_77()).append(' ').append(this.method_75()).append(' ').append(this.method_79()).append('}').toString();
     }
 }

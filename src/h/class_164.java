@@ -1,8 +1,8 @@
 package h;
 
 import a.class_331;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import c.class_264;
 import h.class_114;
 import h.class_121;
@@ -49,17 +49,17 @@ public abstract class class_164 extends class_126 {
         if (var0 != null && var0.length != 0) {
             switch (var0[0]) {
                 case 67:
-                    if (class_233.method_1364(var0, class_17.field_74)) {
+                    if (CharOperation.method_1364(var0, class_17.field_74)) {
                         return 35184372088832L;
                     }
                     break;
                 case 82:
-                    if (class_233.method_1364(var0, class_17.field_75)) {
+                    if (CharOperation.method_1364(var0, class_17.field_75)) {
                         return 52776558133248L;
                     }
                     break;
                 case 83:
-                    if (class_233.method_1364(var0, class_17.field_73)) {
+                    if (CharOperation.method_1364(var0, class_17.field_73)) {
                         return 17592186044416L;
                     }
             }
@@ -73,7 +73,7 @@ public abstract class class_164 extends class_126 {
         if (var0 != null && var0.length != 0) {
             switch (var0[0]) {
                 case 65:
-                    if (class_233.method_1364(var0, class_17.field_84)) {
+                    if (CharOperation.method_1364(var0, class_17.field_84)) {
                         return 4398046511104L;
                     }
                 case 66:
@@ -92,35 +92,35 @@ public abstract class class_164 extends class_126 {
                 default:
                     break;
                 case 67:
-                    if (class_233.method_1364(var0, class_17.field_82)) {
+                    if (CharOperation.method_1364(var0, class_17.field_82)) {
                         return 1099511627776L;
                     }
                     break;
                 case 70:
-                    if (class_233.method_1364(var0, class_17.field_79)) {
+                    if (CharOperation.method_1364(var0, class_17.field_79)) {
                         return 137438953472L;
                     }
                     break;
                 case 76:
-                    if (class_233.method_1364(var0, class_17.field_83)) {
+                    if (CharOperation.method_1364(var0, class_17.field_83)) {
                         return 2199023255552L;
                     }
                     break;
                 case 77:
-                    if (class_233.method_1364(var0, class_17.field_80)) {
+                    if (CharOperation.method_1364(var0, class_17.field_80)) {
                         return 274877906944L;
                     }
                     break;
                 case 80:
-                    if (class_233.method_1364(var0, class_17.field_81)) {
+                    if (CharOperation.method_1364(var0, class_17.field_81)) {
                         return 549755813888L;
                     }
-                    if (class_233.method_1364(var0, class_17.field_85)) {
+                    if (CharOperation.method_1364(var0, class_17.field_85)) {
                         return 8796093022208L;
                     }
                     break;
                 case 84:
-                    if (class_233.method_1364(var0, class_17.field_78)) {
+                    if (CharOperation.method_1364(var0, class_17.field_78)) {
                         return 68719476736L;
                     }
             }
@@ -218,7 +218,7 @@ public abstract class class_164 extends class_126 {
         int var8 = 0;
         for (int var9 = var7.length; var8 < var9; ++var8) {
             class_92 var10 = var7[var8];
-            if (class_233.method_1364(var10.field_474, class_17.field_70)) {
+            if (CharOperation.method_1364(var10.field_474, class_17.field_70)) {
                 class_126 var11 = var10.field_475;
                 if (var11 instanceof class_128) {
                     class_128 var12 = (class_128)var11;
@@ -228,7 +228,7 @@ public abstract class class_164 extends class_126 {
                         for (int var15 = var13.length; var14 < var15; ++var14) {
                             class_331 var16 = var13[var14].field_672;
                             if (var16 != class_331.field_1896 && var16.method_3288() == 11) {
-                                long var17 = class_341.method_3320(var16.method_3287());
+                                long var17 = CompilerOptions.method_3320(var16.method_3287());
                                 if (var17 != 0L) {
                                     if ((var5 & var17) == var17) {
                                         var1.method_644().method_1816(var13[var14]);
@@ -244,7 +244,7 @@ public abstract class class_164 extends class_126 {
                 } else {
                     class_331 var19 = var11.field_672;
                     if (var19 != class_331.field_1896 && var19.method_3288() == 11) {
-                        long var20 = class_341.method_3320(var19.method_3287());
+                        long var20 = CompilerOptions.method_3320(var19.method_3287());
                         if (var20 != 0L) {
                             var5 |= var20;
                         } else {
@@ -298,8 +298,8 @@ public abstract class class_164 extends class_126 {
                                     class_92 var15 = var7[var14];
                                     if (var15 != null) {
                                         char[] var16 = var15.field_474;
-                                        if (class_233.method_1364(var16, var12)) {
-                                            if (var6 == null && class_233.method_1364(var16, class_17.field_70)) {
+                                        if (CharOperation.method_1364(var16, var12)) {
+                                            if (var6 == null && CharOperation.method_1364(var16, class_17.field_70)) {
                                                 var6 = var15;
                                             }
                                             var15.field_476 = var11;
@@ -309,7 +309,7 @@ public abstract class class_164 extends class_126 {
                                             boolean var17 = false;
                                             for (int var18 = var14 + 1; var18 < var8; ++var18) {
                                                 class_92 var19 = var7[var18];
-                                                if (var19 != null && class_233.method_1364(var19.field_474, var12)) {
+                                                if (var19 != null && CharOperation.method_1364(var19.field_474, var12)) {
                                                     var17 = true;
                                                     var1.method_644().method_1519(var3, var19);
                                                     var19.field_476 = var11;

@@ -11,8 +11,8 @@ import h.class_167;
 import h.class_89;
 import h.class_92;
 import j.class_251;
-import j.class_271;
-import j.class_278;
+import j.RecoveryScanner;
+import j.Parser;
 
 public class class_257 extends class_251 {
 
@@ -55,7 +55,7 @@ public class class_257 extends class_251 {
     }
 
     public void method_1852() {
-        class_278 var1 = this.method_1844();
+        Parser var1 = this.method_1844();
         if (this.field_1116 == null && this.field_1111 <= var1.field_1584) {
             Object var2 = null;
             boolean var3 = false;
@@ -68,7 +68,7 @@ public class class_257 extends class_251 {
                 var8 = (int)(var6 >>> 32);
                 var9 = (int)var6;
                 int var10 = this.field_1115 > -1 ? this.field_1115 : var9;
-                class_162 var10000 = new class_162(class_271.field_1301, ((long)var10 + 1L << 32) + (long)var10);
+                class_162 var10000 = new class_162(RecoveryScanner.field_1301, ((long)var10 + 1L << 32) + (long)var10);
                 class_162 var11 = var10000;
                 class_92 var14 = new class_92(var5, var8, var9, var11);
                 var4 = var14;

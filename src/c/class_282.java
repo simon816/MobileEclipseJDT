@@ -1,12 +1,12 @@
 package c;
 
-import c.class_286;
+import c.Compiler;
 import f.class_329;
 import h.class_90;
 
 public class class_282 implements Runnable {
 
-    class_286 field_1649;
+    Compiler field_1649;
 
     private int field_1650;
 
@@ -28,7 +28,7 @@ public class class_282 implements Runnable {
 
     public static int field_1659;
 
-    public class_282(class_286 var1) {
+    public class_282(Compiler var1) {
         this.field_1649 = var1;
         this.field_1650 = 0;
         this.field_1654 = 0;

@@ -1,6 +1,6 @@
 package h;
 
-import b.class_233;
+import b.CharOperation;
 import c.class_264;
 import h.class_126;
 import h.class_130;
@@ -417,7 +417,7 @@ public abstract class class_89 implements class_17 {
                 }
                 for (int var14 = 0; var14 < var4; ++var14) {
                     class_146 var17 = var1[var14].field_767;
-                    if (!class_233.method_1364(class_17.field_119[2], var17.method_1010())) {
+                    if (!CharOperation.method_1364(class_17.field_119[2], var17.method_1010())) {
                         return;
                     }
                     class_40 var18 = var1[var14].field_767.method_925(var0);

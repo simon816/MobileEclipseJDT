@@ -1,7 +1,7 @@
 package m;
 
-import b.class_233;
-import g.class_13;
+import b.CharOperation;
+import java.util.List;
 import h.class_146;
 import h.class_89;
 import m.class_17;
@@ -124,7 +124,7 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    public class_13 method_132(class_13 var1) {
+    public List method_132(List var1) {
         if ((this.field_178 & 128L) != 0L) {
             if (this.field_251 != null) {
                 var1 = this.field_251.method_132(var1);
@@ -495,7 +495,7 @@ public class class_52 extends class_43 implements class_32 {
                 return null;
             }
             var4 = this.field_249[var3];
-        } while (var4.field_198.length != var2 || !class_233.method_1364(var4.field_198, var1));
+        } while (var4.field_198.length != var2 || !CharOperation.method_1364(var4.field_198, var1));
         return var4;
     }
 
@@ -721,9 +721,9 @@ public class class_52 extends class_43 implements class_32 {
     public char[] method_103() {
         StringBuffer var1 = new StringBuffer(10);
         if (this.method_159()) {
-            var1.append(class_233.method_1357(this.method_137().method_103(), this.field_198, '.'));
+            var1.append(CharOperation.method_1357(this.method_137().method_103(), this.field_198, '.'));
         } else {
-            var1.append(class_233.method_1361(this.field_242.field_197, '.'));
+            var1.append(CharOperation.method_1361(this.field_242.field_197, '.'));
         }
         int var2;
         if (this.field_243 != null) {
@@ -773,7 +773,7 @@ public class class_52 extends class_43 implements class_32 {
     public char[] method_104() {
         StringBuffer var1 = new StringBuffer(10);
         if (this.method_159()) {
-            var1.append(class_233.method_1357(this.method_137().method_104(), this.field_198, '.'));
+            var1.append(CharOperation.method_1357(this.method_137().method_104(), this.field_198, '.'));
         } else {
             var1.append(this.field_242.field_198);
         }

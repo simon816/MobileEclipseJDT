@@ -1,7 +1,7 @@
 package h;
 
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import c.class_264;
 import c.class_284;
 import h.class_114;
@@ -10,7 +10,7 @@ import h.class_146;
 import h.class_90;
 import h.class_93;
 import h.class_98;
-import j.class_278;
+import j.Parser;
 import l.class_298;
 import l.class_299;
 import l.class_301;
@@ -81,7 +81,7 @@ public class class_96 extends class_93 {
         }
     }
 
-    public void method_800(class_278 var1, class_90 var2) {
+    public void method_800(Parser var1, class_90 var2) {
         var1.method_2859(this, var2);
     }
 
@@ -93,7 +93,7 @@ public class class_96 extends class_93 {
         if (this.field_497 != null && this.field_488 != null) {
             this.field_497.field_675 = this.field_488.field_275;
         }
-        if (class_233.method_1364(this.field_478.method_585().field_198, this.field_479)) {
+        if (CharOperation.method_1364(this.field_478.method_585().field_198, this.field_479)) {
             this.field_478.method_644().method_1674(this);
         }
         int var2;
@@ -103,7 +103,7 @@ public class class_96 extends class_93 {
                 this.field_498[var1].method_821(this.field_478);
             }
         }
-        class_341 var6 = this.field_478.method_577();
+        CompilerOptions var6 = this.field_478.method_577();
         if (this.field_488 != null) {
             long var7 = var6.field_1928;
             if (var7 >= 3211264L) {

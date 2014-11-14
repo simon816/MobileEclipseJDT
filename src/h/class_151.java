@@ -1,6 +1,6 @@
 package h;
 
-import b.class_233;
+import b.CharOperation;
 import c.class_264;
 import h.class_146;
 import h.class_152;
@@ -44,7 +44,7 @@ public class class_151 extends class_146 {
             } else {
                 this.field_675 = var2.method_613(this.field_732[var1], (class_43)this.field_675);
                 if (!this.field_675.method_101()) {
-                    class_51 var10001 = new class_51(class_233.method_1387(this.field_732, 0, var1 + 1), (class_43)this.field_675.method_131(), this.field_675.method_102());
+                    class_51 var10001 = new class_51(CharOperation.method_1387(this.field_732, 0, var1 + 1), (class_43)this.field_675.method_131(), this.field_675.method_102());
                     this.field_675 = var10001;
                 }
             }

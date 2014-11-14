@@ -1,7 +1,7 @@
 package m;
 
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import f.class_229;
 import f.class_325;
 import h.class_114;
@@ -16,7 +16,7 @@ import m.class_49;
 import m.class_54;
 import m.class_58;
 import m.class_80;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_81 {
 
@@ -98,7 +98,7 @@ public class class_81 {
         if (this.field_368.method_145()) {
             this.method_552().method_1466(var1, var2[var3 - 1]);
         } else {
-            class_341 var5 = this.field_368.field_258.method_577();
+            CompilerOptions var5 = this.field_368.field_258.method_577();
             int[] var6 = var3 > 1 ? this.method_545(var2, var3) : null;
             int var7 = var3;
             label91:
@@ -694,7 +694,7 @@ public class class_81 {
     }
 
     boolean method_543(class_58 var1, class_58 var2) {
-        if (!class_233.method_1364(var1.field_274, var2.field_274)) {
+        if (!CharOperation.method_1364(var1.field_274, var2.field_274)) {
             return false;
         } else if (var1 != var2 && !var1.method_370() && !var2.method_370()) {
             if (var2.method_367()) {
@@ -820,12 +820,12 @@ public class class_81 {
         return !this.field_368.method_157() && !this.field_368.method_217();
     }
 
-    class_248 method_552() {
+    ProblemReporter method_552() {
         return this.field_368.field_258.method_644();
     }
 
-    class_248 method_553(class_58 var1) {
-        class_248 var2 = this.method_552();
+    ProblemReporter method_553(class_58 var1) {
+        ProblemReporter var2 = this.method_552();
         if (var1.field_278 == this.field_368 && var1.method_384() != null) {
             var2.field_1065 = var1.method_384();
         }

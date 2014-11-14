@@ -1,6 +1,6 @@
 package h;
 
-import b.class_233;
+import b.CharOperation;
 import c.class_264;
 import h.class_146;
 import h.class_147;
@@ -27,9 +27,9 @@ public class class_148 extends class_147 {
             case 0:
                 return new char[][] {field_51};
             case 1:
-                return new char[][] {class_233.method_1356(field_51, field_53, class_233.method_1361(this.field_727.method_1012(), '.'))};
+                return new char[][] {CharOperation.method_1356(field_51, field_53, CharOperation.method_1361(this.field_727.method_1012(), '.'))};
             default:
-                return new char[][] {class_233.method_1356(field_51, field_52, class_233.method_1361(this.field_727.method_1012(), '.'))};
+                return new char[][] {CharOperation.method_1356(field_51, field_52, CharOperation.method_1361(this.field_727.method_1012(), '.'))};
         }
     }
 

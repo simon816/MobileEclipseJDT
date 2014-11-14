@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_91;
 import m.class_34;
 
@@ -30,7 +30,7 @@ public class class_35 extends class_34 {
     }
 
     public char[] method_103() {
-        return this.field_163 ? class_233.method_1355(class_233.method_1361(this.field_162, '.'), ".*".toCharArray()) : class_233.method_1361(this.field_162, '.');
+        return this.field_163 ? CharOperation.method_1355(CharOperation.method_1361(this.field_162, '.'), ".*".toCharArray()) : CharOperation.method_1361(this.field_162, '.');
     }
 
     public String toString() {

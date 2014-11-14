@@ -1,11 +1,11 @@
 package batch;
 
-import b.class_233;
+import b.CharOperation;
 import batch.class_219;
 import batch.class_237;
 import e.class_190;
-import f.class_226;
-import g.class_308;
+import f.Util;
+import java.io.File;
 import j.class_346;
 
 import java.util.Hashtable;
@@ -34,9 +34,9 @@ public class class_220 extends class_219 {
         } else if (var2 != null) {
             return var2;
         } else {
-            class_308 var10000 = new class_308(this.field_937 + var1);
-            class_308 var3 = var10000;
-            if (var3.method_3146()) {
+            File var10000 = new File(this.field_937 + var1);
+            File var3 = var10000;
+            if (var3.isDirectory()) {
                 label46: {
                     int var4 = var1.length();
                     int var5 = var1.lastIndexOf(47);
@@ -45,7 +45,7 @@ public class class_220 extends class_219 {
                     } while (var4 > var5 && !class_346.method_3342(var1.charAt(var4)));
                     if (var4 > var5) {
                         if (var5 == -1) {
-                            if (!this.method_1281(var1, class_226.field_982)) {
+                            if (!this.method_1281(var1, Util.field_982)) {
                                 break label46;
                             }
                         } else {
@@ -56,8 +56,8 @@ public class class_220 extends class_219 {
                             }
                         }
                     }
-                    if ((var2 = var3.method_3150()) == null) {
-                        var2 = class_233.field_996;
+                    if ((var2 = var3.list()) == null) {
+                        var2 = CharOperation.field_996;
                     }
                     this.field_941.put(var1, var2);
                     return var2;
@@ -101,10 +101,10 @@ public class class_220 extends class_219 {
                     return var15;
                 }
                 String var9 = this.field_937 + var3;
-                class_308 var10000 = new class_308(var9);
-                long var10 = var10000.method_3154();
-                var10000 = new class_308(var8);
-                long var12 = var10000.method_3154();
+                File var10000 = new File(var9);
+                long var10 = var10000.lastModified();
+                var10000 = new File(var8);
+                long var12 = var10000.lastModified();
                 if (var12 > var10) {
                     var10002 = new class_237((char[])null, var8, this.field_944, this.field_940);
                     var15 = new class_317(var10002, this.method_1279(var3));

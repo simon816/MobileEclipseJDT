@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_121;
 import h.class_93;
 import m.class_17;
@@ -36,7 +36,7 @@ public class class_60 extends class_58 {
         class_60[] var5 = var4.method_319();
         int var6 = var5 == null ? 0 : var5.length;
         this.field_289 = var6;
-        this.field_274 = class_233.method_1355(class_17.field_143, String.valueOf(var6).toCharArray());
+        this.field_274 = CharOperation.method_1355(class_17.field_143, String.valueOf(var6).toCharArray());
         if (var2) {
             this.field_275 = var1.field_301;
             if (var1.method_431()) {
@@ -91,7 +91,7 @@ public class class_60 extends class_58 {
                 if (var5 != null) {
                     var11 = 0;
                     for (var12 = var5.length; var11 < var12; ++var11) {
-                        if (var5[var11] != null && class_233.method_1364(this.field_274, var5[var11].field_274) && this.method_344(var10[var11])) {
+                        if (var5[var11] != null && CharOperation.method_1364(this.field_274, var5[var11].field_274) && this.method_344(var10[var11])) {
                             var7 = true;
                             break;
                         }
@@ -100,7 +100,7 @@ public class class_60 extends class_58 {
             }
             if (var7) {
                 ++var6;
-                this.method_381(class_233.method_1355(class_17.field_143, String.valueOf(var6).toCharArray()));
+                this.method_381(CharOperation.method_1355(class_17.field_143, String.valueOf(var6).toCharArray()));
             }
         } while (var7);
         class_121[] var17 = var4.field_258.field_376.field_583;
@@ -164,7 +164,7 @@ public class class_60 extends class_58 {
                 if (var6 != null) {
                     var12 = 0;
                     for (var13 = var6.length; var12 < var13; ++var12) {
-                        if (var6[var12] != null && class_233.method_1364(this.field_274, var6[var12].field_274) && this.method_344(var11[var12])) {
+                        if (var6[var12] != null && CharOperation.method_1364(this.field_274, var6[var12].field_274) && this.method_344(var11[var12])) {
                             var8 = true;
                             break;
                         }
@@ -173,7 +173,7 @@ public class class_60 extends class_58 {
             }
             if (var8) {
                 ++var7;
-                this.method_381(class_233.method_1355(var4, String.valueOf(var7).toCharArray()));
+                this.method_381(CharOperation.method_1355(var4, String.valueOf(var7).toCharArray()));
             }
         } while (var8);
         this.field_288 = var5.field_258.field_376.field_444;
@@ -251,7 +251,7 @@ public class class_60 extends class_58 {
             int var7 = var5.length;
             while (true) {
                 if (var6 < var7) {
-                    if (!class_233.method_1364(this.field_274, var5[var6].field_274) || !this.method_344(var5[var6])) {
+                    if (!CharOperation.method_1364(this.field_274, var5[var6].field_274) || !this.method_344(var5[var6])) {
                         ++var6;
                         continue;
                     }
@@ -259,7 +259,7 @@ public class class_60 extends class_58 {
                 } else if (var3 != null) {
                     var6 = 0;
                     for (var7 = var3.length; var6 < var7; ++var6) {
-                        if (var3[var6] != null && class_233.method_1364(this.field_274, var3[var6].field_274) && this.method_344(var3[var6])) {
+                        if (var3[var6] != null && CharOperation.method_1364(this.field_274, var3[var6].field_274) && this.method_344(var3[var6])) {
                             var4 = true;
                             break;
                         }
@@ -296,7 +296,7 @@ public class class_60 extends class_58 {
         class_60[] var5 = var4.method_319();
         int var6 = var5 == null ? 0 : var5.length;
         this.field_289 = var6;
-        this.field_274 = class_233.method_1355(class_17.field_143, String.valueOf(var6).toCharArray());
+        this.field_274 = CharOperation.method_1355(class_17.field_143, String.valueOf(var6).toCharArray());
         this.field_275 = var1.field_275;
         this.field_287 = var2 ? 5 : 3;
         if (var1.method_370()) {
@@ -315,7 +315,7 @@ public class class_60 extends class_58 {
             int var10 = var8.length;
             while (true) {
                 if (var9 < var10) {
-                    if (!class_233.method_1364(this.field_274, var8[var9].field_274) || !this.method_344(var8[var9])) {
+                    if (!CharOperation.method_1364(this.field_274, var8[var9].field_274) || !this.method_344(var8[var9])) {
                         ++var9;
                         continue;
                     }
@@ -323,7 +323,7 @@ public class class_60 extends class_58 {
                 } else if (var5 != null) {
                     var9 = 0;
                     for (var10 = var5.length; var9 < var10; ++var9) {
-                        if (var5[var9] != null && class_233.method_1364(this.field_274, var5[var9].field_274) && this.method_344(var5[var9])) {
+                        if (var5[var9] != null && CharOperation.method_1364(this.field_274, var5[var9].field_274) && this.method_344(var5[var9])) {
                             var7 = true;
                             break;
                         }
@@ -331,7 +331,7 @@ public class class_60 extends class_58 {
                 }
                 if (var7) {
                     ++var6;
-                    this.method_381(class_233.method_1355(class_17.field_143, String.valueOf(var6).toCharArray()));
+                    this.method_381(CharOperation.method_1355(class_17.field_143, String.valueOf(var6).toCharArray()));
                 }
                 if (!var7) {
                     class_93[] var11 = var4.field_258.field_376.field_584;

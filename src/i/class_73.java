@@ -1,6 +1,6 @@
 package i;
 
-import b.class_233;
+import b.CharOperation;
 import i.class_268;
 import i.class_72;
 import m.class_40;
@@ -52,7 +52,7 @@ public class class_73 extends class_72 {
         var1 = var1.substring(var1.lastIndexOf(46) + 1);
         StringBuffer var2 = new StringBuffer(var1);
         var2.append('@').append(Integer.toHexString(this.hashCode()));
-        var2.append("(type=").append(this.field_326 == null ? class_233.field_994 : this.field_326.method_103());
+        var2.append("(type=").append(this.field_326 == null ? CharOperation.field_994 : this.field_326.method_103());
         var2.append(", position=").append(this.field_323);
         var2.append(", ranges = ");
         if (this.field_325 == 0) {

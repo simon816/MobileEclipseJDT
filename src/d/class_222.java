@@ -1,26 +1,26 @@
 package d;
 
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import batch.eclipse;
 import d.class_207;
 import d.class_210;
-import d.class_213;
+import d.LexStream;
 import d.class_224;
 import d.class_227;
-import f.class_226;
-import j.class_271;
-import j.class_278;
+import f.Util;
+import j.RecoveryScanner;
+import j.Parser;
 import j.class_346;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_222 {
 
     private boolean field_947;
 
-    private class_341 field_948;
+    private CompilerOptions field_948;
 
-    private class_213 field_949;
+    private LexStream field_949;
 
     private int field_950;
 
@@ -66,29 +66,29 @@ public class class_222 {
 
     class_210[] field_971;
 
-    private class_278 field_972;
+    private Parser field_972;
 
-    private class_271 field_973;
+    private RecoveryScanner field_973;
 
     private boolean field_974;
 
-    public class_222(class_278 var1, int var2, int var3, int var4, class_341 var5) {
-        this(var1, var2, var3, var4, class_226.field_983, class_226.field_983, class_226.field_983, var5);
+    public class_222(Parser var1, int var2, int var3, int var4, CompilerOptions var5) {
+        this(var1, var2, var3, var4, Util.field_983, Util.field_983, Util.field_983, var5);
     }
 
-    public class_222(class_278 var1, int var2, int var3, int var4, int[] var5, int[] var6, int[] var7, class_341 var8) {
+    public class_222(Parser var1, int var2, int var3, int var4, int[] var5, int[] var6, int[] var7, CompilerOptions var8) {
         this.field_947 = false;
         this.field_952 = 0;
         this.field_967 = new int[422];
         this.field_968 = new int[32];
         this.field_972 = var1;
         this.field_948 = var8;
-        class_213 var10001 = new class_213(32, var1.field_1628, var5, var6, var7, var2, var3, var4);
+        LexStream var10001 = new LexStream(32, var1.field_1628, var5, var6, var7, var2, var3, var4);
         this.field_949 = var10001;
         this.field_973 = var1.field_1627;
     }
 
-    private class_248 method_1286() {
+    private ProblemReporter method_1286() {
         return this.field_972.method_2862();
     }
 
@@ -145,10 +145,10 @@ public class class_222 {
                 for (var9 = 0; var9 <= this.field_954; ++var9) {
                     this.field_959[var9] = this.field_955[var9];
                 }
-                for (var6 = class_278.method_2517(var6, var7); var6 <= 700; var6 = class_278.method_2517(var6, var7)) {
+                for (var6 = Parser.method_2517(var6, var7); var6 <= 700; var6 = Parser.method_2517(var6, var7)) {
                     do {
-                        this.field_958 -= class_278.field_1540[var6] - 1;
-                        var6 = class_278.method_2509(this.field_959[this.field_958], class_278.field_1534[var6]);
+                        this.field_958 -= Parser.field_1540[var6] - 1;
+                        var6 = Parser.method_2509(this.field_959[this.field_958], Parser.field_1534[var6]);
                     } while (var6 <= 700);
                     if (this.field_958 + 1 >= this.field_953) {
                         this.method_1287();
@@ -168,8 +168,8 @@ public class class_222 {
                     if (var6 > 12828) {
                         var6 -= 12828;
                         do {
-                            this.field_962 -= class_278.field_1540[var6] - 1;
-                            var6 = class_278.method_2509(this.field_963[this.field_962], class_278.field_1534[var6]);
+                            this.field_962 -= Parser.field_1540[var6] - 1;
+                            var6 = Parser.method_2509(this.field_963[this.field_962], Parser.field_1534[var6]);
                         } while (var6 <= 700);
                         var4 = var4 < this.field_962 ? var4 : this.field_962;
                     }
@@ -181,12 +181,12 @@ public class class_222 {
                     var5 = this.field_962;
                     this.field_952 = this.field_949.method_1205();
                     var7 = this.field_949.method_1212(this.field_952);
-                    for (var6 = class_278.method_2517(var6, var7); var6 <= 700; var6 = class_278.method_2517(var6, var7)) {
+                    for (var6 = Parser.method_2517(var6, var7); var6 <= 700; var6 = Parser.method_2517(var6, var7)) {
                         do {
-                            char var14 = class_278.field_1534[var6];
-                            this.field_958 -= class_278.field_1540[var6] - 1;
+                            char var14 = Parser.field_1534[var6];
+                            this.field_958 -= Parser.field_1540[var6] - 1;
                             var6 = this.field_958 > var5 ? this.field_959[this.field_958] : this.field_963[this.field_958];
-                            var6 = class_278.method_2509(var6, var14);
+                            var6 = Parser.method_2509(var6, var14);
                         } while (var6 <= 700);
                         if (this.field_958 + 1 >= this.field_953) {
                             this.method_1287();
@@ -223,12 +223,12 @@ public class class_222 {
                     }
                     var6 = this.field_955[this.field_954];
                     if (var15.field_984 == 0) {
-                        break;
+                        return;
                     }
                     if (var15.field_984 > 110) {
                         int var10 = var15.field_984 - 110;
-                        for (var6 = class_278.method_2509(var6, var10); var6 <= 700; var6 = class_278.method_2509(this.field_955[this.field_954], class_278.field_1534[var6])) {
-                            this.field_954 -= class_278.field_1540[var6] - 1;
+                        for (var6 = Parser.method_2509(var6, var10); var6 <= 700; var6 = Parser.method_2509(this.field_955[this.field_954], Parser.field_1534[var6])) {
+                            this.field_954 -= Parser.field_1540[var6] - 1;
                         }
                         this.field_955[++this.field_954] = var6;
                         this.field_952 = this.field_949.method_1205();
@@ -298,7 +298,7 @@ public class class_222 {
         int var3 = this.field_949.method_1206(var1);
         int var4 = this.field_949.method_1212(var3);
         if (var2) {
-            char var8 = class_278.field_1555[69];
+            char var8 = Parser.field_1555[69];
             this.method_1307(3, var8, var3, var3);
             class_227 var10000 = new class_227();
             class_227 var9 = var10000;
@@ -321,7 +321,7 @@ public class class_222 {
                 if (var5.field_984 != 0) {
                     return var5;
                 } else if (this.field_949.method_1212(var1) == 68) {
-                    this.method_1307(11, class_278.field_1555[68], var3, var3);
+                    this.method_1307(11, Parser.field_1555[68], var3, var3);
                     var5.field_984 = 0;
                     var5.field_985 = var1;
                     return var5;
@@ -336,7 +336,7 @@ public class class_222 {
                     for (var6 = 31; this.field_949.method_1212(this.field_968[var6]) == 68; --var6) {
                         ;
                     }
-                    this.method_1307(6, class_278.field_1555[var4], var1, this.field_968[var6]);
+                    this.method_1307(6, Parser.field_1555[var4], var1, this.field_968[var6]);
                     var5.field_984 = 0;
                     var5.field_985 = this.field_968[var6];
                     return var5;
@@ -416,13 +416,13 @@ public class class_222 {
         char[] var3 = this.field_949.method_1213(this.field_968[var2]);
         char[] var4 = this.field_949.method_1213(this.field_968[var2 + 1]);
         int var5 = var3.length + var4.length;
-        char[] var6 = class_233.method_1355(var3, var4);
-        for (int var7 = class_278.method_2504(var1); class_278.field_1530[var7] != 0; ++var7) {
-            char var8 = class_278.field_1555[class_278.field_1530[var7]];
-            if (var5 == class_278.field_1535[var8].length()) {
-                char[] var9 = class_278.field_1535[var8].toCharArray();
-                if (class_233.method_1367(var6, var9, false)) {
-                    return class_278.field_1530[var7];
+        char[] var6 = CharOperation.method_1355(var3, var4);
+        for (int var7 = Parser.method_2504(var1); Parser.field_1530[var7] != 0; ++var7) {
+            char var8 = Parser.field_1555[Parser.field_1530[var7]];
+            if (var5 == Parser.field_1535[var8].length()) {
+                char[] var9 = Parser.field_1535[var8].toCharArray();
+                if (CharOperation.method_1367(var6, var9, false)) {
+                    return Parser.field_1530[var7];
                 }
             }
         }
@@ -466,12 +466,12 @@ public class class_222 {
         int var12 = this.field_949.method_1212(this.field_968[var3.field_978]);
         this.field_949.method_1210(this.field_968[var3.field_978 + 1]);
         char var15;
-        for (int var9 = class_278.method_2517(var7, var12); var9 <= 700; var9 = class_278.method_2517(var9, var12)) {
+        for (int var9 = Parser.method_2517(var7, var12); var9 <= 700; var9 = Parser.method_2517(var9, var12)) {
             do {
-                this.field_958 -= class_278.field_1540[var9] - 1;
-                var15 = class_278.field_1534[var9];
+                this.field_958 -= Parser.field_1540[var9] - 1;
+                var15 = Parser.field_1534[var9];
                 var9 = this.field_958 > var8 ? this.field_959[this.field_958] : var1[this.field_958];
-                var9 = class_278.method_2509(var9, var15);
+                var9 = Parser.method_2509(var9, var15);
             } while (var9 <= 700);
             var8 = var8 < this.field_958 ? var8 : this.field_958;
             this.field_959[this.field_958 + 1] = var9;
@@ -479,8 +479,8 @@ public class class_222 {
         }
         char var10 = 0;
         int var4;
-        for (var4 = class_278.method_2504(var7); class_278.field_1530[var4] != 0; ++var4) {
-            var15 = class_278.field_1530[var4];
+        for (var4 = Parser.method_2504(var7); Parser.field_1530[var4] != 0; ++var4) {
+            var15 = Parser.field_1530[var4];
             if (var15 != 68 && var15 != 110) {
                 if (var10 == 0) {
                     this.field_967[var15] = var15;
@@ -492,8 +492,8 @@ public class class_222 {
             }
         }
         if (var1[var2] != var7) {
-            for (var4 = class_278.method_2504(var1[var2]); class_278.field_1530[var4] != 0; ++var4) {
-                var15 = class_278.field_1530[var4];
+            for (var4 = Parser.method_2504(var1[var2]); Parser.field_1530[var4] != 0; ++var4) {
+                var15 = Parser.field_1530[var4];
                 if (var15 != 68 && var15 != 110 && this.field_967[var15] == 0) {
                     if (var10 == 0) {
                         this.field_967[var15] = var15;
@@ -560,8 +560,8 @@ public class class_222 {
                 this.field_967[var4] = 0;
             }
         }
-        for (var4 = class_278.method_2508(var1[var2]); class_278.field_1537[var4] != 0; ++var4) {
-            var11 = class_278.field_1537[var4] + 110;
+        for (var4 = Parser.method_2508(var1[var2]); Parser.field_1537[var4] != 0; ++var4) {
+            var11 = Parser.field_1537[var4] + 110;
             var5 = this.method_1306(var1, var2, var11, var3.field_978 + 1);
             if (var5 > var3.field_975) {
                 var3.field_976 = 0;
@@ -602,10 +602,10 @@ public class class_222 {
                 break;
             case 5:
                 if (var1.field_976 >= 6) {
-                    var2 = class_278.field_1555[var1.field_979];
+                    var2 = Parser.field_1555[var1.field_979];
                 } else {
                     var2 = this.method_1295(this.field_955, this.field_954, var1.field_979, var1.field_978 + 1);
-                    if (var2 != class_278.field_1555[var1.field_979]) {
+                    if (var2 != Parser.field_1555[var1.field_979]) {
                         var1.field_977 = 4;
                     }
                 }
@@ -614,16 +614,16 @@ public class class_222 {
             case 6:
             case 8:
             default:
-                this.method_1307(var1.field_977, class_278.field_1555[110], var4, var4);
+                this.method_1307(var1.field_977, Parser.field_1555[110], var4, var4);
                 break;
             case 7:
-                this.method_1307(var1.field_977, class_278.field_1555[var1.field_979], var4, this.field_949.method_1207(var4));
+                this.method_1307(var1.field_977, Parser.field_1555[var1.field_979], var4, this.field_949.method_1207(var4));
                 break;
             case 9:
                 for (var5 = 0; var5 < this.field_964; ++var5) {
-                    this.method_1308(var1.field_977, -this.field_965[var5], this.field_956[this.field_966[var5]], var3, class_278.field_1538[class_278.field_1547[this.field_965[var5]]]);
+                    this.method_1308(var1.field_977, -this.field_965[var5], this.field_956[this.field_966[var5]], var3, Parser.field_1538[Parser.field_1547[this.field_965[var5]]]);
                 }
-                var1.field_979 = class_278.field_1547[this.field_965[this.field_964]] + 110;
+                var1.field_979 = Parser.field_1547[this.field_965[this.field_964]] + 110;
                 this.field_954 = this.field_966[this.field_964];
                 this.method_1308(var1.field_977, -this.field_965[this.field_964], this.field_956[this.field_966[this.field_964]], var3, this.method_1296(this.field_955[this.field_954], var1.field_979, var1.field_978));
         }
@@ -664,12 +664,12 @@ public class class_222 {
         int var7 = var3;
         this.field_958 = var2 - 1;
         this.field_949.method_1210(this.field_968[var4]);
-        for (var5 = class_278.method_2517(var5, var3); var5 <= 700; var5 = class_278.method_2517(var5, var3)) {
+        for (var5 = Parser.method_2517(var5, var3); var5 <= 700; var5 = Parser.method_2517(var5, var3)) {
             do {
-                this.field_958 -= class_278.field_1540[var5] - 1;
-                char var8 = class_278.field_1534[var5];
+                this.field_958 -= Parser.field_1540[var5] - 1;
+                char var8 = Parser.field_1534[var5];
                 var5 = this.field_958 > var6 ? this.field_959[this.field_958] : var1[this.field_958];
-                var5 = class_278.method_2509(var5, var8);
+                var5 = Parser.method_2509(var5, var8);
             } while (var5 <= 700);
             var6 = var6 < this.field_958 ? var6 : this.field_958;
             this.field_959[this.field_958 + 1] = var5;
@@ -682,25 +682,25 @@ public class class_222 {
             var5 -= 12828;
         } else {
             this.field_959[this.field_958 + 1] = var5;
-            var5 = class_278.method_2517(var5, var3);
+            var5 = Parser.method_2517(var5, var3);
         }
         while (var5 <= 700) {
             do {
-                this.field_958 -= class_278.field_1540[var5] - 1;
+                this.field_958 -= Parser.field_1540[var5] - 1;
                 if (this.field_958 < var10) {
-                    return var7 > 110 ? class_278.field_1538[var7 - 110] : class_278.field_1555[var7];
+                    return var7 > 110 ? Parser.field_1538[var7 - 110] : Parser.field_1555[var7];
                 }
-                char var9 = class_278.field_1534[var5];
+                char var9 = Parser.field_1534[var5];
                 if (this.field_958 == var10) {
                     var7 = var9 + 110;
                 }
                 var5 = this.field_958 > var6 ? this.field_959[this.field_958] : var1[this.field_958];
-                var5 = class_278.method_2509(var5, var9);
+                var5 = Parser.method_2509(var5, var9);
             } while (var5 <= 700);
             this.field_959[this.field_958 + 1] = var5;
-            var5 = class_278.method_2517(var5, var3);
+            var5 = Parser.method_2517(var5, var3);
         }
-        return var7 > 110 ? class_278.field_1538[var7 - 110] : class_278.field_1555[var7];
+        return var7 > 110 ? Parser.field_1538[var7 - 110] : Parser.field_1555[var7];
     }
 
     private int method_1296(int var1, int var2, int var3) {
@@ -709,26 +709,26 @@ public class class_222 {
         this.field_949.method_1210(this.field_968[var3 + 1]);
         this.field_958 = 0;
         this.field_959[this.field_958] = var1;
-        int var6 = class_278.method_2509(var1, var4);
+        int var6 = Parser.method_2509(var1, var4);
         if (var6 > 700) {
             this.field_959[this.field_958 + 1] = var6;
-            var6 = class_278.method_2517(var6, var5);
+            var6 = Parser.method_2517(var6, var5);
         }
         while (var6 <= 700) {
             do {
-                this.field_958 -= class_278.field_1540[var6] - 1;
+                this.field_958 -= Parser.field_1540[var6] - 1;
                 if (this.field_958 < 0) {
-                    return class_278.field_1538[var4];
+                    return Parser.field_1538[var4];
                 }
                 if (this.field_958 == 0) {
-                    var4 = class_278.field_1534[var6];
+                    var4 = Parser.field_1534[var6];
                 }
-                var6 = class_278.method_2509(this.field_959[this.field_958], class_278.field_1534[var6]);
+                var6 = Parser.method_2509(this.field_959[this.field_958], Parser.field_1534[var6]);
             } while (var6 <= 700);
             this.field_959[this.field_958 + 1] = var6;
-            var6 = class_278.method_2517(var6, var5);
+            var6 = Parser.method_2517(var6, var5);
         }
-        return class_278.field_1538[var4];
+        return Parser.field_1538[var4];
     }
 
     private boolean method_1297(int var1, int var2) {
@@ -736,7 +736,7 @@ public class class_222 {
     }
 
     private int method_1298(int var1, int var2) {
-        char[] var3 = class_278.field_1535[class_278.field_1555[var1]].toCharArray();
+        char[] var3 = Parser.field_1535[Parser.field_1555[var1]].toCharArray();
         int var4 = var3.length;
         char[] var5 = new char[var4 + 1];
         for (int var6 = 0; var6 < var4; ++var6) {
@@ -838,14 +838,14 @@ public class class_222 {
                 var5 = var1[var2];
                 this.field_958 = var2 - 1;
                 int var8 = var2;
-                byte var9 = class_278.field_1546[var7];
+                byte var9 = Parser.field_1546[var7];
                 this.field_949.method_1210(this.field_968[var3.field_978]);
-                for (var5 = class_278.method_2517(var5, var9); var5 <= 700; var5 = class_278.method_2517(var5, var9)) {
+                for (var5 = Parser.method_2517(var5, var9); var5 <= 700; var5 = Parser.method_2517(var5, var9)) {
                     do {
-                        this.field_958 -= class_278.field_1540[var5] - 1;
-                        char var10 = class_278.field_1534[var5];
+                        this.field_958 -= Parser.field_1540[var5] - 1;
+                        char var10 = Parser.field_1534[var5];
                         var5 = this.field_958 > var8 ? this.field_959[this.field_958] : var1[this.field_958];
-                        var5 = class_278.method_2509(var5, var10);
+                        var5 = Parser.method_2509(var5, var10);
                     } while (var5 <= 700);
                     if (this.field_958 + 1 >= this.field_953) {
                         return;
@@ -854,32 +854,32 @@ public class class_222 {
                     this.field_959[this.field_958 + 1] = var5;
                 }
                 if (var5 != 12828) {
-                    int var11 = class_278.field_1548[var7];
+                    int var11 = Parser.field_1548[var7];
                     int var17;
-                    for (var17 = this.field_958 + 1; var17 >= var8 + 1 && class_278.method_2506(this.field_959[var17]) == class_278.field_1549[var11]; --var17) {
+                    for (var17 = this.field_958 + 1; var17 >= var8 + 1 && Parser.method_2506(this.field_959[var17]) == Parser.field_1549[var11]; --var17) {
                         ++var11;
                     }
                     if (var17 == var8) {
-                        for (var17 = var8; var17 >= 1 && class_278.method_2506(var1[var17]) == class_278.field_1549[var11]; --var17) {
+                        for (var17 = var8; var17 >= 1 && Parser.method_2506(var1[var17]) == Parser.field_1549[var11]; --var17) {
                             ++var11;
                         }
                     }
                     int var12 = var8 < var2 ? var8 + 1 : var2;
-                    if (class_278.field_1549[var11] == 0 && var17 < var12) {
+                    if (Parser.field_1549[var11] == 0 && var17 < var12) {
                         int var13 = var17;
-                        for (var17 = class_278.field_1551[var7]; var1[var13] != class_278.field_1550[var17] && class_278.field_1550[var17] != 0; ++var17) {
+                        for (var17 = Parser.field_1551[var7]; var1[var13] != Parser.field_1550[var17] && Parser.field_1550[var17] != 0; ++var17) {
                             ;
                         }
-                        if (class_278.field_1550[var17] != 0) {
+                        if (Parser.field_1550[var17] != 0) {
                             int var14 = var3.field_975;
-                            int var15 = this.method_1306(var1, var13, class_278.field_1547[var7] + 110, var3.field_978);
+                            int var15 = this.method_1306(var1, var13, Parser.field_1547[var7] + 110, var3.field_978);
                             if (var15 - var3.field_978 + 1 < 3) {
                                 int var16 = var13;
-                                for (var5 = class_278.method_2509(var1[var13], class_278.field_1547[var7]); var5 <= 700; var5 = class_278.method_2509(var1[var16], class_278.field_1534[var5])) {
-                                    if (class_278.field_1545[var5] > this.field_948.field_1928) {
+                                for (var5 = Parser.method_2509(var1[var13], Parser.field_1547[var7]); var5 <= 700; var5 = Parser.method_2509(var1[var16], Parser.field_1534[var5])) {
+                                    if (Parser.field_1545[var5] > this.field_948.field_1928) {
                                         continue label134;
                                     }
-                                    var16 -= class_278.field_1540[var5] - 1;
+                                    var16 -= Parser.field_1540[var5] - 1;
                                 }
                                 ++var16;
                                 var17 = var5;
@@ -1025,7 +1025,7 @@ public class class_222 {
                 if (var6 - var7 > 3 && var6 - var7 > var2.field_893 - var2.field_896) {
                     var2.field_892 = 9;
                     var5 = this.field_965[this.field_964];
-                    var2.field_897 = class_278.field_1547[var5] + 110;
+                    var2.field_897 = Parser.field_1547[var5] + 110;
                     var2.field_895 = this.field_954;
                     var2.field_894 = var13.field_978;
                 }
@@ -1041,7 +1041,7 @@ public class class_222 {
                 if (var13.field_975 > 0) {
                     var2.field_892 = 9;
                     var5 = this.field_965[this.field_964];
-                    var2.field_897 = class_278.field_1547[var5] + 110;
+                    var2.field_897 = Parser.field_1547[var5] + 110;
                     var2.field_895 = var8;
                     var2.field_894 = var13.field_978;
                 }
@@ -1118,8 +1118,8 @@ public class class_222 {
                         var4.field_898 = var5;
                     }
                 }
-                for (var11 = class_278.method_2508(var1[var8]); var11 >= 0 && class_278.field_1537[var11] != 0; ++var11) {
-                    int var12 = class_278.field_1537[var11] + 110;
+                for (var11 = Parser.method_2508(var1[var8]); var11 >= 0 && Parser.field_1537[var11] != 0; ++var11) {
+                    int var12 = Parser.field_1537[var11] + 110;
                     var10 = this.method_1306(var1, var8, var12, var9);
                     if (var10 == 30) {
                         var10 = var3;
@@ -1146,17 +1146,17 @@ public class class_222 {
         switch (var1.field_892) {
             case 9:
                 if (var1.field_895 < this.field_954) {
-                    this.method_1307(6, class_278.field_1555[110], this.field_956[var1.field_895], this.field_968[1]);
+                    this.method_1307(6, Parser.field_1555[110], this.field_956[var1.field_895], this.field_968[1]);
                 }
                 for (int var2 = 0; var2 < this.field_964; ++var2) {
-                    this.method_1308(9, -this.field_965[var2], this.field_956[this.field_966[var2]], this.field_968[1], class_278.field_1538[class_278.field_1547[this.field_965[var2]]]);
+                    this.method_1308(9, -this.field_965[var2], this.field_956[this.field_966[var2]], this.field_968[1], Parser.field_1538[Parser.field_1547[this.field_965[var2]]]);
                 }
-                var1.field_897 = class_278.field_1547[this.field_965[this.field_964]] + 110;
+                var1.field_897 = Parser.field_1547[this.field_965[this.field_964]] + 110;
                 this.field_954 = this.field_966[this.field_964];
                 this.method_1308(9, -this.field_965[this.field_964], this.field_956[this.field_966[this.field_964]], this.field_968[1], this.method_1296(this.field_955[this.field_954], var1.field_897, var1.field_894));
                 break;
             default:
-                this.method_1307(var1.field_892, var1.field_892 == 10 ? this.method_1296(this.field_955[var1.field_895], var1.field_897, var1.field_894) : class_278.field_1555[110], this.field_956[var1.field_895], this.field_968[var1.field_894 - 1]);
+                this.method_1307(var1.field_892, var1.field_892 == 10 ? this.method_1296(this.field_955[var1.field_895], var1.field_897, var1.field_894) : Parser.field_1555[110], this.field_956[var1.field_895], this.field_968[var1.field_894 - 1]);
                 this.field_954 = var1.field_895;
         }
     }
@@ -1170,35 +1170,35 @@ public class class_222 {
         if (var3 > 110) {
             this.field_958 = var2;
             if (this.field_947) {
-                eclipse.field_427.method_736(this.field_958);
+                eclipse.instance.method_736(this.field_958);
             }
             var5 = var2;
             var6 = var4;
             var7 = this.field_949.method_1212(this.field_968[var4]);
             this.field_949.method_1210(this.field_949.method_1207(this.field_968[var4]));
             int var9 = var3 - 110;
-            var8 = class_278.method_2509(var8, var9);
+            var8 = Parser.method_2509(var8, var9);
             if (var8 <= 700) {
                 while (true) {
-                    this.field_958 -= class_278.field_1540[var8] - 1;
+                    this.field_958 -= Parser.field_1540[var8] - 1;
                     if (this.field_947) {
-                        eclipse.field_427.method_743(this.field_958);
-                        eclipse.field_427.method_744(" (");
-                        eclipse.field_427.method_743(-(class_278.field_1540[var8] - 1));
-                        eclipse.field_427.method_744(") [max:");
-                        eclipse.field_427.method_743(var5);
-                        eclipse.field_427.method_744("]\tprocess_non_terminal\t");
-                        eclipse.field_427.method_743(var8);
-                        eclipse.field_427.method_744("\t");
-                        eclipse.field_427.method_744(class_278.field_1535[class_278.field_1538[class_278.field_1534[var8]]]);
-                        eclipse.field_427.method_735();
+                        eclipse.instance.method_743(this.field_958);
+                        eclipse.instance.method_744(" (");
+                        eclipse.instance.method_743(-(Parser.field_1540[var8] - 1));
+                        eclipse.instance.method_744(") [max:");
+                        eclipse.instance.method_743(var5);
+                        eclipse.instance.method_744("]\tprocess_non_terminal\t");
+                        eclipse.instance.method_743(var8);
+                        eclipse.instance.method_744("\t");
+                        eclipse.instance.method_744(Parser.field_1535[Parser.field_1538[Parser.field_1534[var8]]]);
+                        eclipse.instance.newLine();
                     }
-                    if (class_278.field_1545[var8] > this.field_948.field_1928) {
+                    if (Parser.field_1545[var8] > this.field_948.field_1928) {
                         return 0;
                     }
-                    var10 = class_278.field_1534[var8];
+                    var10 = Parser.field_1534[var8];
                     var8 = this.field_958 > var5 ? this.field_959[this.field_958] : var1[this.field_958];
-                    var8 = class_278.method_2509(var8, var10);
+                    var8 = Parser.method_2509(var8, var10);
                     if (var8 > 700) {
                         var5 = var5 < this.field_958 ? var5 : this.field_958;
                         break;
@@ -1208,7 +1208,7 @@ public class class_222 {
         } else {
             this.field_958 = var2 - 1;
             if (this.field_947) {
-                eclipse.field_427.method_736(this.field_958);
+                eclipse.instance.method_736(this.field_958);
             }
             var5 = this.field_958;
             var6 = var4 - 1;
@@ -1217,28 +1217,28 @@ public class class_222 {
         }
         while (true) {
             if (this.field_947) {
-                eclipse.field_427.method_743(this.field_958 + 1);
-                eclipse.field_427.method_744(" (+1) [max:");
-                eclipse.field_427.method_743(var5);
-                eclipse.field_427.method_744("]\tprocess_terminal    \t");
-                eclipse.field_427.method_743(var7);
-                eclipse.field_427.method_744("\t");
-                eclipse.field_427.method_744(class_278.field_1535[class_278.field_1555[var7]]);
-                eclipse.field_427.method_735();
+                eclipse.instance.method_743(this.field_958 + 1);
+                eclipse.instance.method_744(" (+1) [max:");
+                eclipse.instance.method_743(var5);
+                eclipse.instance.method_744("]\tprocess_terminal    \t");
+                eclipse.instance.method_743(var7);
+                eclipse.instance.method_744("\t");
+                eclipse.instance.method_744(Parser.field_1535[Parser.field_1555[var7]]);
+                eclipse.instance.newLine();
             }
             if (++this.field_958 >= this.field_953) {
                 return var6;
             }
             this.field_959[this.field_958] = var8;
-            var8 = class_278.method_2517(var8, var7);
+            var8 = Parser.method_2517(var8, var7);
             if (var8 <= 700) {
                 --this.field_958;
                 if (this.field_947) {
-                    eclipse.field_427.method_743(this.field_958);
-                    eclipse.field_427.method_744(" (-1) [max:");
-                    eclipse.field_427.method_743(var5);
-                    eclipse.field_427.method_744("]\treduce");
-                    eclipse.field_427.method_735();
+                    eclipse.instance.method_743(this.field_958);
+                    eclipse.instance.method_744(" (-1) [max:");
+                    eclipse.instance.method_743(var5);
+                    eclipse.instance.method_744("]\treduce");
+                    eclipse.instance.newLine();
                 }
             } else {
                 if (var8 >= 12827 && var8 <= 12828) {
@@ -1255,37 +1255,37 @@ public class class_222 {
                 this.field_949.method_1210(this.field_949.method_1207(this.field_968[var6]));
                 if (var8 <= 12828) {
                     if (this.field_947) {
-                        eclipse.field_427.method_733("\tshift");
+                        eclipse.instance.print("\tshift");
                     }
                     continue;
                 }
                 var8 -= 12828;
                 if (this.field_947) {
-                    eclipse.field_427.method_743(this.field_958);
-                    eclipse.field_427.method_744("\tshift reduce");
-                    eclipse.field_427.method_735();
+                    eclipse.instance.method_743(this.field_958);
+                    eclipse.instance.method_744("\tshift reduce");
+                    eclipse.instance.newLine();
                 }
             }
             do {
-                this.field_958 -= class_278.field_1540[var8] - 1;
+                this.field_958 -= Parser.field_1540[var8] - 1;
                 if (this.field_947) {
-                    eclipse.field_427.method_743(this.field_958);
-                    eclipse.field_427.method_744(" (");
-                    eclipse.field_427.method_743(-(class_278.field_1540[var8] - 1));
-                    eclipse.field_427.method_744(") [max:");
-                    eclipse.field_427.method_743(var5);
-                    eclipse.field_427.method_744("]\tprocess_non_terminal\t");
-                    eclipse.field_427.method_743(var8);
-                    eclipse.field_427.method_744("\t");
-                    eclipse.field_427.method_744(class_278.field_1535[class_278.field_1538[class_278.field_1534[var8]]]);
-                    eclipse.field_427.method_735();
+                    eclipse.instance.method_743(this.field_958);
+                    eclipse.instance.method_744(" (");
+                    eclipse.instance.method_743(-(Parser.field_1540[var8] - 1));
+                    eclipse.instance.method_744(") [max:");
+                    eclipse.instance.method_743(var5);
+                    eclipse.instance.method_744("]\tprocess_non_terminal\t");
+                    eclipse.instance.method_743(var8);
+                    eclipse.instance.method_744("\t");
+                    eclipse.instance.method_744(Parser.field_1535[Parser.field_1538[Parser.field_1534[var8]]]);
+                    eclipse.instance.newLine();
                 }
-                if (var8 <= 700 && class_278.field_1545[var8] > this.field_948.field_1928) {
+                if (var8 <= 700 && Parser.field_1545[var8] > this.field_948.field_1928) {
                     return 0;
                 }
-                var10 = class_278.field_1534[var8];
+                var10 = Parser.field_1534[var8];
                 var8 = this.field_958 > var5 ? this.field_959[this.field_958] : var1[this.field_958];
-                var8 = class_278.method_2509(var8, var10);
+                var8 = Parser.method_2509(var8, var10);
             } while (var8 <= 700);
             var5 = var5 < this.field_958 ? var5 : this.field_958;
         }
@@ -1307,21 +1307,21 @@ public class class_222 {
     private void method_1309(int var1, int var2, int var3, int var4) {
         String var5;
         if (var2 >= 0) {
-            var5 = class_278.field_1539[var2];
+            var5 = Parser.field_1539[var2];
         } else {
-            var5 = class_226.field_982;
+            var5 = Util.field_982;
         }
         int var6 = this.field_949.method_1215(var3);
         int var7 = this.field_949.method_1216(var3);
         int var8 = this.field_949.method_1212(var3);
-        String var9 = class_278.field_1535[class_278.field_1555[this.field_949.method_1212(var3)]];
+        String var9 = Parser.field_1535[Parser.field_1555[this.field_949.method_1212(var3)]];
         char[] var10 = this.field_949.method_1213(var3);
         if (var8 == 52) {
             var10 = method_1289(var10, 1, var10.length - 1);
         }
         int var11 = -1;
         if (this.field_973 != null && var2 >= 0) {
-            var11 = class_278.field_1541[var2];
+            var11 = Parser.field_1541[var2];
         }
         int[] var21;
         int[] var20;
@@ -1431,16 +1431,16 @@ public class class_222 {
                 int[] var13 = null;
                 int var14 = 0;
                 if (this.field_973 != null) {
-                    var13 = new int[class_278.field_1549.length - class_278.field_1552[-var2]];
+                    var13 = new int[Parser.field_1549.length - Parser.field_1552[-var2]];
                 }
                 int var15;
-                for (var15 = class_278.field_1552[-var2]; class_278.field_1549[var15] != 0; ++var15) {
-                    var12.append(class_278.field_1539[class_278.field_1549[var15]]);
-                    if (class_278.field_1549[var15 + 1] != 0) {
+                for (var15 = Parser.field_1552[-var2]; Parser.field_1549[var15] != 0; ++var15) {
+                    var12.append(Parser.field_1539[Parser.field_1549[var15]]);
+                    if (Parser.field_1549[var15 + 1] != 0) {
                         var12.append(' ');
                     }
                     if (var13 != null) {
-                        int var16 = class_278.field_1541[class_278.field_1549[var15]];
+                        int var16 = Parser.field_1541[Parser.field_1549[var15]];
                         if (var16 > -1) {
                             int var17 = var13.length;
                             if (var14 == var17) {
@@ -1468,13 +1468,13 @@ public class class_222 {
                     System.arraycopy(var13, 0, var13 = new int[var14], 0, var14);
                     var15 = -1;
                     if (var4 != 0) {
-                        var15 = -class_278.field_1541[var4];
+                        var15 = -Parser.field_1541[var4];
                     }
                     this.field_973.method_2448(var13, var15, var7);
                 }
                 if (var4 != 0) {
                     if (this.field_974) {
-                        this.method_1286().method_1727(var6, var7, var12.toString(), class_278.field_1539[var4]);
+                        this.method_1286().method_1727(var6, var7, var12.toString(), Parser.field_1539[var4]);
                     }
                 } else if (this.field_974) {
                     this.method_1286().method_1729(var6, var7, var12.toString());
@@ -1515,9 +1515,9 @@ public class class_222 {
     private void method_1310(int var1, int var2, int var3, int var4, int var5) {
         String var6;
         if (var2 >= 0) {
-            var6 = class_278.field_1539[var2];
+            var6 = Parser.field_1539[var2];
         } else {
-            var6 = class_226.field_982;
+            var6 = Util.field_982;
         }
         int var7 = -1;
         int var8;
@@ -1544,7 +1544,7 @@ public class class_222 {
         var8 = this.field_949.method_1216(var4);
         int var9 = -1;
         if (this.field_973 != null && var2 >= 0) {
-            var9 = class_278.field_1541[var2];
+            var9 = Parser.field_1541[var2];
         }
         int[] var19;
         switch (var1) {
@@ -1585,16 +1585,16 @@ public class class_222 {
                 int[] var11 = null;
                 int var12 = 0;
                 if (this.field_973 != null) {
-                    var11 = new int[class_278.field_1549.length - class_278.field_1552[-var2]];
+                    var11 = new int[Parser.field_1549.length - Parser.field_1552[-var2]];
                 }
                 int var13;
-                for (var13 = class_278.field_1552[-var2]; class_278.field_1549[var13] != 0; ++var13) {
-                    var10.append(class_278.field_1539[class_278.field_1549[var13]]);
-                    if (class_278.field_1549[var13 + 1] != 0) {
+                for (var13 = Parser.field_1552[-var2]; Parser.field_1549[var13] != 0; ++var13) {
+                    var10.append(Parser.field_1539[Parser.field_1549[var13]]);
+                    if (Parser.field_1549[var13 + 1] != 0) {
                         var10.append(' ');
                     }
                     if (var11 != null) {
-                        int var14 = class_278.field_1541[class_278.field_1549[var13]];
+                        int var14 = Parser.field_1541[Parser.field_1549[var13]];
                         if (var14 > -1) {
                             int var15 = var11.length;
                             if (var12 == var15) {
@@ -1622,13 +1622,13 @@ public class class_222 {
                     System.arraycopy(var11, 0, var11 = new int[var12], 0, var12);
                     var13 = -1;
                     if (var5 != 0) {
-                        var13 = -class_278.field_1541[var5];
+                        var13 = -Parser.field_1541[var5];
                     }
                     this.field_973.method_2448(var11, var13, var8);
                 }
                 if (var5 != 0) {
                     if (this.field_974) {
-                        this.method_1286().method_1727(var7, var8, var10.toString(), class_278.field_1539[var5]);
+                        this.method_1286().method_1727(var7, var8, var10.toString(), Parser.field_1539[var5]);
                     }
                 } else if (this.field_974) {
                     this.method_1286().method_1728(var7, var8, var10.toString());
@@ -1661,14 +1661,14 @@ public class class_222 {
     }
 
     private int[] method_1311(int var1) {
-        char var2 = class_278.field_1542[var1];
+        char var2 = Parser.field_1542[var1];
         if (var2 <= 0) {
             return null;
         } else {
-            int[] var3 = new int[class_278.field_1543.length];
+            int[] var3 = new int[Parser.field_1543.length];
             int var4 = 0;
-            for (int var5 = var2; class_278.field_1543[var5] != 0; ++var5) {
-                var3[var4++] = class_278.field_1543[var5];
+            for (int var5 = var2; Parser.field_1543[var5] != 0; ++var5) {
+                var3[var4++] = Parser.field_1543[var5];
             }
             System.arraycopy(var3, 0, var3 = new int[var4], 0, var4);
             return var3;

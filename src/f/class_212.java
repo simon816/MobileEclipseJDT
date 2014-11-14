@@ -1,6 +1,6 @@
 package f;
 
-import b.class_233;
+import b.CharOperation;
 
 public final class class_212 {
 
@@ -32,7 +32,7 @@ public final class class_212 {
             if (var2 < 0) {
                 return false;
             }
-        } while (!class_233.method_1363(var1, this.field_908[var2]));
+        } while (!CharOperation.method_1363(var1, this.field_908[var2]));
         return true;
     }
 
@@ -43,7 +43,7 @@ public final class class_212 {
     public String toString() {
         StringBuffer var1 = new StringBuffer();
         for (int var2 = 0; var2 < this.field_906; ++var2) {
-            var1.append(class_233.method_1389(this.field_908[var2])).append("\n");
+            var1.append(CharOperation.method_1389(this.field_908[var2])).append("\n");
         }
         return var1.toString();
     }

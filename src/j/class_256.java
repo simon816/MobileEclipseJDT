@@ -12,7 +12,7 @@ import j.class_251;
 import j.class_252;
 import j.class_257;
 import j.class_260;
-import j.class_278;
+import j.Parser;
 
 public class class_256 extends class_251 {
 
@@ -34,7 +34,7 @@ public class class_256 extends class_251 {
 
     int field_1109;
 
-    public class_256(class_90 var1, int var2, class_278 var3) {
+    public class_256(class_90 var1, int var2, Parser var3) {
         super((class_251)null, var2, var3);
         this.field_1107 = -1;
         this.field_1101 = var1;

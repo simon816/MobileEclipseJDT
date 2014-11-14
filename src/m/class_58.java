@@ -1,8 +1,8 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import c.class_288;
-import g.class_13;
+import java.util.List;
 import h.class_114;
 import h.class_89;
 import h.class_93;
@@ -269,7 +269,7 @@ public class class_58 extends class_34 {
         }
     }
 
-    public class_13 method_348(class_13 var1) {
+    public List method_348(List var1) {
         if ((this.field_281 & 128L) != 0L) {
             var1 = this.field_275.method_132(var1);
             int var2 = 0;
@@ -387,7 +387,7 @@ public class class_58 extends class_34 {
             if (var2 < 0) {
                 return null;
             }
-        } while (!class_233.method_1364(this.field_279[var2].field_198, var1));
+        } while (!CharOperation.method_1364(this.field_279[var2].field_198, var1));
         return this.field_279[var2];
     }
 
@@ -432,7 +432,7 @@ public class class_58 extends class_34 {
     }
 
     public final boolean method_364() {
-        if (this.field_274.length == 4 && class_233.method_1364(this.field_274, class_17.field_36) && (this.field_273 & 9) != 0 && class_40.field_188 == this.field_275 && this.field_276.length == 1) {
+        if (this.field_274.length == 4 && CharOperation.method_1364(this.field_274, class_17.field_36) && (this.field_273 & 9) != 0 && class_40.field_188 == this.field_275 && this.field_276.length == 1) {
             class_40 var1 = this.field_276[0];
             if (var1.method_136() == 1 && var1.method_173().field_177 == 11) {
                 return true;

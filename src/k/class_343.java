@@ -1,6 +1,6 @@
 package k;
 
-import b.class_233;
+import b.CharOperation;
 import k.class_344;
 import k.class_345;
 
@@ -41,7 +41,7 @@ public class class_343 {
         int var2 = 0;
         for (int var3 = this.field_1974.length; var2 < var3; ++var2) {
             class_344 var4 = this.field_1974[var2];
-            if (class_233.method_1379(var4.field_1977, var1, true, '/')) {
+            if (CharOperation.method_1379(var4.field_1977, var1, true, '/')) {
                 switch (var4.method_3326()) {
                     case 16777496:
                     case 16777523:

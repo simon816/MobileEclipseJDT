@@ -1,6 +1,6 @@
 package i;
 
-import b.class_233;
+import b.CharOperation;
 
 public class class_262 {
 
@@ -38,9 +38,9 @@ public class class_262 {
 
     public int method_1895(char[] var1) {
         int var2 = this.field_1153.length;
-        int var3 = class_233.method_1369(var1) % var2;
+        int var3 = CharOperation.method_1369(var1) % var2;
         while (this.field_1153[var3] != null) {
-            if (class_233.method_1364(this.field_1153[var3], var1)) {
+            if (CharOperation.method_1364(this.field_1153[var3], var1)) {
                 return this.field_1154[var3];
             }
             ++var3;
@@ -53,9 +53,9 @@ public class class_262 {
 
     public int method_1896(char[] var1, int var2) {
         int var3 = this.field_1153.length;
-        int var4 = class_233.method_1369(var1) % var3;
+        int var4 = CharOperation.method_1369(var1) % var3;
         while (this.field_1153[var4] != null) {
-            if (class_233.method_1364(this.field_1153[var4], var1)) {
+            if (CharOperation.method_1364(this.field_1153[var4], var1)) {
                 return this.field_1154[var4];
             }
             ++var4;
@@ -73,9 +73,9 @@ public class class_262 {
 
     private int method_1897(char[] var1, int var2) {
         int var3 = this.field_1153.length;
-        int var4 = class_233.method_1369(var1) % var3;
+        int var4 = CharOperation.method_1369(var1) % var3;
         while (this.field_1153[var4] != null) {
-            if (class_233.method_1364(this.field_1153[var4], var1)) {
+            if (CharOperation.method_1364(this.field_1153[var4], var1)) {
                 return this.field_1154[var4] = var2;
             }
             ++var4;
@@ -111,9 +111,9 @@ public class class_262 {
 
     public void method_1899(char[] var1) {
         int var2 = this.field_1153.length;
-        int var3 = class_233.method_1369(var1) % var2;
+        int var3 = CharOperation.method_1369(var1) % var2;
         while (this.field_1153[var3] != null) {
-            if (class_233.method_1364(this.field_1153[var3], var1)) {
+            if (CharOperation.method_1364(this.field_1153[var3], var1)) {
                 this.field_1154[var3] = 0;
                 this.field_1153[var3] = null;
                 return;

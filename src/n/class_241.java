@@ -2,7 +2,7 @@ package n;
 
 import b.class_235;
 import c.class_284;
-import f.class_226;
+import f.Util;
 import h.class_89;
 import m.class_0;
 
@@ -45,7 +45,7 @@ public class class_241 extends RuntimeException {
                 this.field_1051.method_13(var1.method_5());
                 this.field_1051.method_11(var1.method_6());
                 int[] var3 = var2.method_2921();
-                this.field_1051.method_12(class_226.method_1324(var1.method_5(), var3, 0, var3.length - 1));
+                this.field_1051.method_12(Util.method_1324(var1.method_5(), var3, 0, var3.length - 1));
                 this.field_1049 = var2;
             }
         }
@@ -57,7 +57,7 @@ public class class_241 extends RuntimeException {
                 this.field_1051.method_13(var1.method_5());
                 this.field_1051.method_11(var1.method_6());
                 int[] var3 = var2.method_2921();
-                this.field_1051.method_12(class_226.method_1324(var1.method_5(), var3, 0, var3.length - 1));
+                this.field_1051.method_12(Util.method_1324(var1.method_5(), var3, 0, var3.length - 1));
                 this.field_1049 = var2;
             }
         }

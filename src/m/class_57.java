@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_108;
 import h.class_114;
 import h.class_146;
@@ -34,7 +34,7 @@ public final class class_57 extends class_55 {
     public class_58 field_272;
 
     public class_57(class_84 var1, class_54 var2, class_108 var3, class_43 var4) {
-        super(new char[][] {class_233.method_1355(field_267, var1.field_376.field_580)}, var1, var2);
+        super(new char[][] {CharOperation.method_1355(field_267, var1.field_376.field_580)}, var1, var2);
         class_114 var5 = var1.field_376;
         if ((var5.field_446 & 512) != 0) {
             this.field_178 |= 52L;
@@ -124,9 +124,9 @@ public final class class_57 extends class_55 {
     public char[] method_103() {
         char[] var1;
         if (this.method_146()) {
-            var1 = class_233.method_1356(class_17.field_49, this.method_335().method_103(), class_17.field_50);
+            var1 = CharOperation.method_1356(class_17.field_49, this.method_335().method_103(), class_17.field_50);
         } else if (this.method_159()) {
-            var1 = class_233.method_1357(this.method_137().method_103(), this.field_198, '.');
+            var1 = CharOperation.method_1357(this.method_137().method_103(), this.field_198, '.');
         } else {
             var1 = this.field_198;
         }
@@ -152,9 +152,9 @@ public final class class_57 extends class_55 {
     public char[] method_104() {
         char[] var1;
         if (this.method_146()) {
-            var1 = class_233.method_1356(class_17.field_49, this.method_335().method_104(), class_17.field_50);
+            var1 = CharOperation.method_1356(class_17.field_49, this.method_335().method_104(), class_17.field_50);
         } else if (this.method_159()) {
-            var1 = class_233.method_1357(this.method_137().method_104(), this.field_198, '.');
+            var1 = CharOperation.method_1357(this.method_137().method_104(), this.field_198, '.');
         } else {
             var1 = this.field_198;
         }
@@ -197,7 +197,7 @@ public final class class_57 extends class_55 {
     }
 
     public char[] method_179() {
-        return this.method_146() ? class_233.method_1356(class_17.field_49, this.method_335().method_179(), class_17.field_50) : this.field_198;
+        return this.method_146() ? CharOperation.method_1356(class_17.field_49, this.method_335().method_179(), class_17.field_50) : this.field_198;
     }
 
     public String toString() {

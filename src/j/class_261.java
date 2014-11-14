@@ -1,6 +1,6 @@
 package j;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_112;
 import h.class_114;
 import h.class_121;
@@ -317,7 +317,7 @@ public class class_261 extends class_258 {
     public class_251 method_1834(class_121 var1, int var2) {
         this.method_1846();
         char[][] var3;
-        if ((var1.field_656 & -17) == 0 && var1.field_660 != null && ((var3 = var1.field_660.method_1012()).length != 1 || !class_233.method_1364(var3[0], class_40.field_188.method_179()))) {
+        if ((var1.field_656 & -17) == 0 && var1.field_660 != null && ((var3 = var1.field_660.method_1012()).length != 1 || !CharOperation.method_1364(var3[0], class_40.field_188.method_179()))) {
             return (class_251)(this.field_1144.field_445 != 0 && var1.field_653 > this.field_1144.field_445 ? this.field_1068.method_1834(var1, var2) : this);
         } else {
             this.method_1857(this.method_1847(var1.field_653 - 1));

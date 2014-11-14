@@ -1,6 +1,6 @@
 package m;
 
-import b.class_233;
+import b.CharOperation;
 import h.class_91;
 import m.class_34;
 import m.class_35;
@@ -16,7 +16,7 @@ public class class_36 extends class_35 {
     }
 
     public char[] method_103() {
-        return class_233.method_1361(this.field_162, '.');
+        return CharOperation.method_1361(this.field_162, '.');
     }
 
     public String toString() {

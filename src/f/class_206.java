@@ -2,7 +2,7 @@ package f;
 
 import f.class_209;
 import g.class_15;
-import g.class_312;
+import java.util.HashMap;
 import g.class_316;
 
 import java.io.OutputStream;
@@ -56,7 +56,7 @@ public class class_206 extends PrintStream {
 
     public void method_1189(String var1, boolean var2, boolean var3) {
         --this.field_891;
-        this.method_1191('/' + var1, (class_312)null, var2, var3, false);
+        this.method_1191('/' + var1, (HashMap)null, var2, var3, false);
     }
 
     private void method_1190() {
@@ -65,16 +65,16 @@ public class class_206 extends PrintStream {
         }
     }
 
-    public void method_1191(String var1, class_312 var2, boolean var3, boolean var4, boolean var5) {
+    public void method_1191(String var1, HashMap var2, boolean var3, boolean var4, boolean var5) {
         if (var3) {
             this.method_1190();
         }
         this.print('<');
         this.print(var1);
         if (var2 != null) {
-            int var6 = var2.method_37();
+            int var6 = var2.size();
             class_15[] var7 = new class_15[var6];
-            var2.method_44().method_33(var7);
+            var2.entrySet().toArray(var7);
             class_209 var10001 = new class_209(this);
             class_316.method_3170(var7, var10001);
             for (int var8 = 0; var8 < var6; ++var8) {

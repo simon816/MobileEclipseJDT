@@ -1,8 +1,8 @@
 package m;
 
 import a.class_331;
-import b.class_233;
-import g.class_13;
+import b.CharOperation;
+import java.util.List;
 import m.class_17;
 import m.class_321;
 import m.class_38;
@@ -50,7 +50,7 @@ public final class class_42 extends class_40 {
         }
     }
 
-    public class_13 method_132(class_13 var1) {
+    public List method_132(List var1) {
         if ((this.field_178 & 128L) != 0L) {
             var1 = this.field_192.method_132(var1);
         }
@@ -84,7 +84,7 @@ public final class class_42 extends class_40 {
             for (int var2 = this.field_193 - 1; var2 >= 0; --var2) {
                 var1[var2] = 91;
             }
-            return this.field_195 = class_233.method_1355(var1, this.field_192.method_178());
+            return this.field_195 = CharOperation.method_1355(var1, this.field_192.method_178());
         }
     }
 
@@ -123,7 +123,7 @@ public final class class_42 extends class_40 {
             for (int var2 = this.field_193 - 1; var2 >= 0; --var2) {
                 var1[var2] = 91;
             }
-            this.field_196 = class_233.method_1355(var1, this.field_192.method_142());
+            this.field_196 = CharOperation.method_1355(var1, this.field_192.method_142());
         }
         return this.field_196;
     }
@@ -198,7 +198,7 @@ public final class class_42 extends class_40 {
             var1[var2] = 93;
             var1[var2 - 1] = 91;
         }
-        return class_233.method_1355(this.field_192.method_177(), var1);
+        return CharOperation.method_1355(this.field_192.method_177(), var1);
     }
 
     public char[] method_103() {
@@ -207,7 +207,7 @@ public final class class_42 extends class_40 {
             var1[var2] = 93;
             var1[var2 - 1] = 91;
         }
-        return class_233.method_1355(this.field_192.method_103(), var1);
+        return CharOperation.method_1355(this.field_192.method_103(), var1);
     }
 
     public char[] method_104() {
@@ -216,7 +216,7 @@ public final class class_42 extends class_40 {
             var1[var2] = 93;
             var1[var2 - 1] = 91;
         }
-        return class_233.method_1355(this.field_192.method_104(), var1);
+        return CharOperation.method_1355(this.field_192.method_104(), var1);
     }
 
     public char[] method_179() {
@@ -225,7 +225,7 @@ public final class class_42 extends class_40 {
             var1[var2] = 93;
             var1[var2 - 1] = 91;
         }
-        return class_233.method_1355(this.field_192.method_179(), var1);
+        return CharOperation.method_1355(this.field_192.method_179(), var1);
     }
 
     public void method_180(class_44 var1, class_43 var2, class_80 var3) {

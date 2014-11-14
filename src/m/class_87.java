@@ -24,7 +24,7 @@ import m.class_67;
 import m.class_69;
 import m.class_84;
 import m.class_86;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_87 extends class_86 {
 
@@ -330,10 +330,10 @@ public class class_87 extends class_86 {
         return this.field_403 instanceof class_114 || this.field_403 instanceof class_94;
     }
 
-    public class_248 method_644() {
+    public ProblemReporter method_644() {
         class_87 var1;
         if ((var1 = this.method_641()) == this) {
-            class_248 var2 = this.method_645().field_454;
+            ProblemReporter var2 = this.method_645().field_454;
             var2.field_1065 = this.field_403;
             return var2;
         } else {

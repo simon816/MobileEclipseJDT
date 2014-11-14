@@ -1,10 +1,10 @@
 package i;
 
 import c.class_288;
-import g.class_12;
-import g.class_16;
-import g.class_312;
-import g.class_313;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.HashMap;
+import java.util.ArrayList;
 import g.class_316;
 import i.class_268;
 import i.class_272;
@@ -27,13 +27,13 @@ public class class_269 extends class_268 {
 
     public int field_1218;
 
-    private class_312 field_1219;
+    private HashMap field_1219;
 
     public Vector field_1220;
 
-    public class_313 field_1221;
+    public ArrayList field_1221;
 
-    public class_313 field_1222;
+    public ArrayList field_1222;
 
     public class_269(class_288 var1) {
         super(var1);
@@ -97,12 +97,12 @@ public class class_269 extends class_268 {
     public void method_2391(int var1) {
         Integer var2 = new Integer(var1);
         class_281 var3;
-        if ((var3 = (class_281)this.field_1219.method_38(var2)) != null) {
+        if ((var3 = (class_281)this.field_1219.get(var2)) != null) {
             ++var3.field_1648;
         } else {
-            class_312 var10000 = this.field_1219;
+            HashMap var10000 = this.field_1219;
             class_281 var10002 = new class_281();
-            var10000.method_39(var2, var10002);
+            var10000.put(var2, var10002);
         }
     }
 
@@ -114,10 +114,10 @@ public class class_269 extends class_268 {
     public void method_2392(int var1) {
         Integer var2 = new Integer(var1);
         class_281 var3;
-        if ((var3 = (class_281)this.field_1219.method_38(var2)) != null) {
+        if ((var3 = (class_281)this.field_1219.get(var2)) != null) {
             --var3.field_1648;
             if (var3.field_1648 <= 0) {
-                this.field_1219.method_40(var2);
+                this.field_1219.remove(var2);
             }
         }
     }
@@ -131,38 +131,38 @@ public class class_269 extends class_268 {
 
     private void method_2393(int var1, int var2) {
         class_71 var4;
-        class_313 var10000;
+        ArrayList var10000;
         if (this.field_1222 == null) {
-            class_313 var10001 = new class_313();
+            ArrayList var10001 = new ArrayList();
             this.field_1222 = var10001;
             var10000 = this.field_1222;
             var4 = new class_71(var1, var2);
-            var10000.method_34(var4);
+            var10000.add(var4);
         } else {
-            int var3 = this.field_1222.method_29();
-            if (var3 == 0 || ((class_71)this.field_1222.method_36(var3 - 1)).field_319 != this.field_1208) {
+            int var3 = this.field_1222.size();
+            if (var3 == 0 || ((class_71)this.field_1222.get(var3 - 1)).field_319 != this.field_1208) {
                 var10000 = this.field_1222;
                 var4 = new class_71(var1, var2);
-                var10000.method_34(var4);
+                var10000.add(var4);
             }
         }
     }
 
     private void method_2394(int var1, int var2, class_40 var3) {
         class_78 var5;
-        class_313 var10000;
+        ArrayList var10000;
         if (this.field_1221 == null) {
-            class_313 var10001 = new class_313();
+            ArrayList var10001 = new ArrayList();
             this.field_1221 = var10001;
             var10000 = this.field_1221;
             var5 = new class_78(var1, var2, var3);
-            var10000.method_34(var5);
+            var10000.add(var5);
         } else {
-            int var4 = this.field_1221.method_29();
-            if (var4 == 0 || ((class_78)this.field_1221.method_36(var4 - 1)).field_340 != this.field_1208) {
+            int var4 = this.field_1221.size();
+            if (var4 == 0 || ((class_78)this.field_1221.get(var4 - 1)).field_340 != this.field_1208) {
                 var10000 = this.field_1221;
                 var5 = new class_78(var1, var2, var3);
-                var10000.method_34(var5);
+                var10000.add(var5);
             }
         }
     }
@@ -233,11 +233,11 @@ public class class_269 extends class_268 {
     }
 
     public int[] method_2396() {
-        class_12 var1 = this.field_1219.method_42();
-        int var2 = var1.method_29();
+        Collection var1 = this.field_1219.keySet();
+        int var2 = var1.size();
         int[] var3 = new int[var2];
         int var4 = 0;
-        for (class_16 var5 = var1.method_31(); var5.method_47(); var3[var4++] = ((Integer)var5.method_48()).intValue()) {
+        for (Iterator var5 = var1.iterator(); var5.hasNext(); var3[var4++] = ((Integer)var5.next()).intValue()) {
             ;
         }
         class_316.method_3169(var3);
@@ -248,12 +248,12 @@ public class class_269 extends class_268 {
         if (this.field_1221 == null) {
             return null;
         } else {
-            int var1 = this.field_1221.method_29();
+            int var1 = this.field_1221.size();
             if (var1 == 0) {
                 return null;
             } else {
                 class_78[] var2 = new class_78[var1];
-                this.field_1221.method_33(var2);
+                this.field_1221.toArray(var2);
                 return var2;
             }
         }
@@ -263,45 +263,45 @@ public class class_269 extends class_268 {
         if (this.field_1222 == null) {
             return null;
         } else {
-            int var1 = this.field_1222.method_29();
+            int var1 = this.field_1222.size();
             if (var1 == 0) {
                 return null;
             } else {
                 class_71[] var2 = new class_71[var1];
-                this.field_1222.method_33(var2);
+                this.field_1222.toArray(var2);
                 return var2;
             }
         }
     }
 
     public boolean method_2399() {
-        return this.field_1219.method_37() != 0;
+        return this.field_1219.size() != 0;
     }
 
     public void method_2255(class_288 var1) {
         super.method_2255(var1);
         this.field_1218 = 0;
         if (this.field_1219 != null) {
-            this.field_1219.method_41();
+            this.field_1219.clear();
         }
         if (this.field_1220 != null) {
             this.field_1220.removeAllElements();
         }
         if (this.field_1221 != null) {
-            this.field_1221.method_35();
+            this.field_1221.clear();
         }
         if (this.field_1222 != null) {
-            this.field_1222.method_35();
+            this.field_1222.clear();
         }
     }
 
     public void method_2256(class_58 var1) {
         super.method_2256(var1);
         if (this.field_1219 == null) {
-            class_312 var10001 = new class_312();
+            HashMap var10001 = new HashMap();
             this.field_1219 = var10001;
         } else {
-            this.field_1219.method_41();
+            this.field_1219.clear();
         }
     }
 
@@ -346,16 +346,16 @@ public class class_269 extends class_268 {
         super.method_2367(var1);
         this.field_1218 = 0;
         if (this.field_1219 != null) {
-            this.field_1219.method_41();
+            this.field_1219.clear();
         }
         if (this.field_1220 != null) {
             this.field_1220.removeAllElements();
         }
         if (this.field_1221 != null) {
-            this.field_1221.method_35();
+            this.field_1221.clear();
         }
         if (this.field_1222 != null) {
-            this.field_1222.method_35();
+            this.field_1222.clear();
         }
     }
 

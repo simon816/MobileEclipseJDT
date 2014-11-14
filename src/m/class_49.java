@@ -1,9 +1,9 @@
 package m;
 
 import a.class_331;
-import b.class_233;
+import b.CharOperation;
 import f.class_327;
-import g.class_313;
+import java.util.ArrayList;
 import k.class_22;
 import k.class_23;
 import k.class_25;
@@ -155,7 +155,7 @@ public class class_49 extends class_43 {
 
     public class_49(class_38 var1, class_22 var2, class_80 var3) {
         this.field_239 = null;
-        this.field_197 = class_233.method_1385('/', var2.method_60());
+        this.field_197 = CharOperation.method_1385('/', var2.method_60());
         this.method_198();
         this.field_178 |= 64L;
         this.field_238 = var3;
@@ -243,13 +243,13 @@ public class class_49 extends class_43 {
             this.field_178 |= 33554432L;
             this.field_233 = class_34.field_155;
             if (!var14.method_1161()) {
-                class_313 var12 = new class_313(2);
-                class_313 var15 = var12;
+                ArrayList var12 = new ArrayList(2);
+                ArrayList var15 = var12;
                 do {
-                    var15.method_34(this.field_238.method_513(var14, class_34.field_157, this, var7));
+                    var15.add(this.field_238.method_513(var14, class_34.field_157, this, var7));
                 } while (!var14.method_1161());
-                this.field_233 = new class_43[var15.method_29()];
-                var15.method_33(this.field_233);
+                this.field_233 = new class_43[var15.size()];
+                var15.toArray(this.field_233);
                 this.field_178 |= 67108864L;
             }
         }
@@ -409,22 +409,22 @@ public class class_49 extends class_43 {
                 var8 = this.method_274(var22, false, var4);
                 ++var22.field_873;
             }
-            class_313 var24;
-            class_313 var28;
+            ArrayList var24;
+            ArrayList var28;
             if (var22.field_872[var22.field_873] == 40) {
                 ++var22.field_873;
                 if (var22.field_872[var22.field_873] == 41) {
                     ++var22.field_873;
                 } else {
-                    var28 = new class_313(2);
+                    var28 = new ArrayList(2);
                     var24 = var28;
                     while (var22.field_872[var22.field_873] != 41) {
-                        var24.method_34(this.field_238.method_513(var22, var8, this, var4));
+                        var24.add(this.field_238.method_513(var22, var8, this, var4));
                     }
                     ++var22.field_873;
-                    var25 = var24.method_29();
+                    var25 = var24.size();
                     var7 = new class_40[var25];
-                    var24.method_33(var7);
+                    var24.toArray(var7);
                     if (this.field_238.field_352.field_1963) {
                         var9 = new class_203[var25][];
                         for (var16 = 0; var16 < var25; ++var16) {
@@ -435,14 +435,14 @@ public class class_49 extends class_43 {
             }
             var10 = this.field_238.method_513(var22, var8, this, var4);
             if (!var22.method_1161() && var22.field_872[var22.field_873] == 94) {
-                var28 = new class_313(2);
+                var28 = new ArrayList(2);
                 var24 = var28;
                 do {
                     ++var22.field_873;
-                    var24.method_34(this.field_238.method_513(var22, var8, this, var4));
+                    var24.add(this.field_238.method_513(var22, var8, this, var4));
                 } while (!var22.method_1161() && var22.field_872[var22.field_873] == 94);
-                var6 = new class_43[var24.method_29()];
-                var24.method_33(var6);
+                var6 = new class_43[var24.size()];
+                var24.toArray(var6);
             } else {
                 char[][] var23 = var1.method_73();
                 if (var23 != null) {
@@ -551,8 +551,8 @@ public class class_49 extends class_43 {
         boolean var5 = false;
         int var6 = var4.length;
         int var7 = 0;
-        class_313 var10000 = new class_313(1);
-        class_313 var8 = var10000;
+        ArrayList var10000 = new ArrayList(1);
+        ArrayList var8 = var10000;
         int var13 = 0;
         boolean var9 = true;
         int var11;
@@ -571,10 +571,10 @@ public class class_49 extends class_43 {
                 default:
                     if (var9) {
                         var9 = false;
-                        var11 = class_233.method_1374(':', var4, var10);
-                        char[] var12 = class_233.method_1388(var4, var10, var11);
+                        var11 = CharOperation.method_1374(':', var4, var10);
+                        char[] var12 = CharOperation.method_1388(var4, var10, var11);
                         class_46 var10001 = new class_46(var12, this, var7++);
-                        var8.method_34(var10001);
+                        var8.add(var10001);
                     }
                     break;
                 case 62:
@@ -585,7 +585,7 @@ public class class_49 extends class_43 {
             }
         }
         class_46[] var14;
-        var8.method_33(var14 = new class_46[var7]);
+        var8.toArray(var14 = new class_46[var7]);
         if (var2) {
             this.field_237 = var14;
         }
@@ -735,10 +735,10 @@ public class class_49 extends class_43 {
             if (var3 instanceof class_44) {
                 char[] var4 = var3.field_198;
                 int var5 = this.field_197[this.field_197.length - 1].length + 1;
-                if (var4.length == var5 + var1.length && class_233.method_1368(var1, var4, var5, true)) {
+                if (var4.length == var5 + var1.length && CharOperation.method_1368(var1, var4, var5, true)) {
                     return this.field_236[var2] = method_267(var3, this.field_238, false);
                 }
-            } else if (class_233.method_1364(var1, var3.field_198)) {
+            } else if (CharOperation.method_1364(var1, var3.field_198)) {
                 return var3;
             }
         }
@@ -797,7 +797,7 @@ public class class_49 extends class_43 {
     }
 
     private void method_275(class_46 var1, class_46[] var2, class_197 var3, char[][][] var4) {
-        int var5 = class_233.method_1374(':', var3.field_872, var3.field_873);
+        int var5 = CharOperation.method_1374(':', var3.field_872, var3.field_873);
         var3.field_873 = var5 + 1;
         class_43 var7 = null;
         class_43 var6;
@@ -811,14 +811,14 @@ public class class_49 extends class_43 {
         var1.field_223 = var6;
         class_43[] var8 = null;
         if (var3.field_872[var3.field_873] == 58) {
-            class_313 var10000 = new class_313(2);
-            class_313 var9 = var10000;
+            ArrayList var10000 = new ArrayList(2);
+            ArrayList var9 = var10000;
             do {
                 ++var3.field_873;
-                var9.method_34(this.field_238.method_513(var3, var2, this, var4));
+                var9.add(this.field_238.method_513(var3, var2, this, var4));
             } while (var3.field_872[var3.field_873] == 58);
-            var8 = new class_43[var9.method_29()];
-            var9.method_33(var8);
+            var8 = new class_43[var9.size()];
+            var9.toArray(var8);
         }
         var1.field_224 = var8 == null ? class_34.field_155 : var8;
         if (var7 == null) {
@@ -1047,7 +1047,7 @@ public class class_49 extends class_43 {
         } else {
             var1.append("interface ");
         }
-        var1.append(this.field_197 != null ? class_233.method_1389(this.field_197) : "UNNAMED TYPE");
+        var1.append(this.field_197 != null ? CharOperation.method_1389(this.field_197) : "UNNAMED TYPE");
         var1.append("\n\textends ");
         var1.append(this.field_231 != null ? this.field_231.method_135() : "NULL TYPE");
         int var2;

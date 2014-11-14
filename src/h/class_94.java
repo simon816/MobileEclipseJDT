@@ -1,11 +1,11 @@
 package h;
 
-import b.class_233;
+import b.CharOperation;
 import b.class_235;
 import c.class_264;
 import c.class_284;
 import c.class_288;
-import g.class_313;
+import java.util.ArrayList;
 import h.class_105;
 import h.class_114;
 import h.class_121;
@@ -16,7 +16,7 @@ import h.class_90;
 import h.class_93;
 import h.class_98;
 import i.class_268;
-import j.class_278;
+import j.Parser;
 import l.class_298;
 import l.class_299;
 import l.class_301;
@@ -64,7 +64,7 @@ public class class_94 extends class_93 {
                     this.field_478.method_644().method_1812(this);
                 }
             }
-            if (this.method_811((class_313)null)) {
+            if (this.method_811((ArrayList)null)) {
                 this.field_478.method_644().method_1743(this.field_493);
             }
             try {
@@ -73,10 +73,10 @@ public class class_94 extends class_93 {
                 var2.method_3067(this.field_478, var13, var3);
                 int var8;
                 if (this.field_488.field_278.method_146()) {
-                    class_313 var7 = var13.field_1771;
-                    if (var7 != null && (var8 = var7.method_29()) > 0) {
+                    ArrayList var7 = var13.field_1771;
+                    if (var7 != null && (var8 = var7.size()) > 0) {
                         class_43[] var9;
-                        var7.method_33(var9 = new class_43[var8]);
+                        var7.toArray(var9 = new class_43[var8]);
                         this.field_488.field_277 = var9;
                     }
                 }
@@ -304,22 +304,22 @@ public class class_94 extends class_93 {
         return true;
     }
 
-    public boolean method_811(class_313 var1) {
+    public boolean method_811(ArrayList var1) {
         if (this.field_488 != null && this.field_493 != null && this.field_493.field_548 != null && !this.field_493.method_1() && this.field_493.field_548.method_101()) {
             class_94 var2 = (class_94)this.field_478.method_718().method_854(this.field_493.field_548.method_376());
             if (this == var2) {
                 return true;
             } else {
                 if (var1 == null) {
-                    class_313 var10000 = new class_313(1);
+                    ArrayList var10000 = new ArrayList(1);
                     var1 = var10000;
                 } else {
-                    int var3 = var1.method_3164(this);
+                    int var3 = var1.indexOf(this);
                     if (var3 >= 0) {
                         return var3 == 0;
                     }
                 }
-                var1.method_34(this);
+                var1.add(this);
                 return var2.method_811(var1);
             }
         } else {
@@ -327,7 +327,7 @@ public class class_94 extends class_93 {
         }
     }
 
-    public void method_800(class_278 var1, class_90 var2) {
+    public void method_800(Parser var1, class_90 var2) {
         if ((this.field_446 & 128) != 0 && this.field_493 == null) {
             this.field_493 = class_158.method_1047();
             this.field_493.field_444 = this.field_444;
@@ -358,7 +358,7 @@ public class class_94 extends class_93 {
 
     public void method_805() {
         class_54 var1 = this.field_478.method_585();
-        if (!class_233.method_1364(var1.field_198, this.field_479)) {
+        if (!CharOperation.method_1364(var1.field_198, this.field_479)) {
             this.field_478.method_644().method_1680(this);
         }
         if (this.field_494 != null) {

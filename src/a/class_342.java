@@ -1,8 +1,8 @@
 package a;
 
-import g.class_11;
+import java.lang.Comparable;
 
-public class class_342 implements class_11 {
+public class class_342 implements Comparable {
 
     public long field_1967;
 
@@ -25,7 +25,7 @@ public class class_342 implements class_11 {
         return this.field_1968 - this.field_1967;
     }
 
-    public int method_28(Object var1) {
+    public int compareTo(Object var1) {
         class_342 var2 = (class_342)var1;
         long var3 = this.method_3323();
         long var5 = var2.method_3323();

@@ -1,8 +1,8 @@
 package h;
 
 import a.class_331;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import c.class_264;
 import h.class_126;
 import h.class_130;
@@ -28,7 +28,7 @@ import m.class_67;
 import m.class_83;
 import m.class_86;
 import m.class_87;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_155 extends class_154 implements class_0 {
 
@@ -110,8 +110,8 @@ public class class_155 extends class_154 implements class_0 {
                     if (this.field_743 instanceof class_43) {
                         class_43 var7 = (class_43)this.field_743;
                         if (!var7.method_196(var1)) {
-                            class_248 var10000 = var1.method_644();
-                            class_51 var10002 = new class_51(class_233.method_1385('.', var7.method_104()), var7, 2);
+                            ProblemReporter var10000 = var1.method_644();
+                            class_51 var10002 = new class_51(CharOperation.method_1385('.', var7.method_104()), var7, 2);
                             var10000.method_1639(this, var10002);
                         }
                     }
@@ -351,7 +351,7 @@ public class class_155 extends class_154 implements class_0 {
                 }
             }
             if (this.field_738.field_314 != this.field_742 && !this.field_742.method_147() && this.field_738.field_314 != null && this.field_738.method_407() == class_331.field_1896) {
-                class_341 var6 = var1.method_577();
+                CompilerOptions var6 = var1.method_577();
                 if (var6.field_1929 >= 3014656L && (var6.field_1927 >= 3145728L || !this.field_736.method_752() || !this.field_739.method_431()) && this.field_738.field_314.field_177 != 1 || !this.field_738.field_314.method_196(var1)) {
                     this.field_739 = var1.method_585().method_311(this.field_739, (class_43)this.field_742.method_138());
                 }

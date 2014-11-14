@@ -1,8 +1,8 @@
 package h;
 
 import a.class_331;
-import a.class_341;
-import b.class_233;
+import a.CompilerOptions;
+import b.CharOperation;
 import c.class_264;
 import h.class_126;
 import h.class_131;
@@ -25,7 +25,7 @@ import m.class_69;
 import m.class_83;
 import m.class_86;
 import m.class_87;
-import n.class_248;
+import n.ProblemReporter;
 
 public class class_163 extends class_161 {
 
@@ -235,8 +235,8 @@ public class class_163 extends class_161 {
                     if (var9 instanceof class_43) {
                         class_43 var10 = (class_43)var9;
                         if (!var10.method_196(var1)) {
-                            class_248 var10000 = var1.method_644();
-                            class_51 var10002 = new class_51(class_233.method_1385('.', var10.method_104()), var10, 2);
+                            ProblemReporter var10000 = var1.method_644();
+                            class_51 var10002 = new class_51(CharOperation.method_1385('.', var10.method_104()), var10, 2);
                             var10000.method_1639(this, var10002);
                         }
                     }
@@ -658,7 +658,7 @@ public class class_163 extends class_161 {
                     }
                 }
                 if (var2.field_314 != var3 && !var3.method_147() && var2.field_314 != null && var2.method_407() == class_331.field_1896) {
-                    class_341 var10 = var1.method_577();
+                    CompilerOptions var10 = var1.method_577();
                     if (var10.field_1929 >= 3014656L && (var10.field_1927 >= 3145728L || var4 > 1 || this.field_759 != 1 || !var2.method_431()) && var2.field_314.field_177 != 1 || !var2.field_314.method_196(var1)) {
                         this.method_1066(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4, var1.method_585().method_311(this.method_1060(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4), (class_43)var3.method_138()));
                     }
@@ -760,7 +760,7 @@ public class class_163 extends class_161 {
             switch (this.field_446 & 7) {
                 case 3:
                 case 7:
-                    class_248 var10000;
+                    ProblemReporter var10000;
                     class_69 var10002;
                     if (this.field_748 instanceof class_65) {
                         class_65 var7 = (class_65)this.field_748;

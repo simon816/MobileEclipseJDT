@@ -1,7 +1,7 @@
 package j;
 
-import b.class_233;
-import f.class_226;
+import b.CharOperation;
+import f.Util;
 import h.class_105;
 import h.class_112;
 import h.class_114;
@@ -22,8 +22,8 @@ import j.class_251;
 import j.class_257;
 import j.class_260;
 import j.class_261;
-import j.class_270;
-import j.class_278;
+import j.Scanner;
+import j.Parser;
 import m.class_40;
 
 public class class_255 extends class_251 {
@@ -54,7 +54,7 @@ public class class_255 extends class_251 {
 
     int field_1100;
 
-    public class_255(class_93 var1, class_251 var2, int var3, class_278 var4) {
+    public class_255(class_93 var1, class_251 var2, int var3, Parser var4) {
         super(var2, var3, var4);
         this.field_1096 = true;
         this.field_1098 = -1;
@@ -86,7 +86,7 @@ public class class_255 extends class_251 {
     public class_251 method_1834(class_121 var1, int var2) {
         this.method_1846();
         char[][] var3;
-        if ((var1.field_656 & -17) == 0 && var1.field_660 != null && ((var3 = var1.field_660.method_1012()).length != 1 || !class_233.method_1364(var3[0], class_40.field_188.method_179()))) {
+        if ((var1.field_656 & -17) == 0 && var1.field_660 != null && ((var3 = var1.field_660.method_1012()).length != 1 || !CharOperation.method_1364(var3[0], class_40.field_188.method_179()))) {
             if (this.field_1088.field_481 > 0 && var1.field_653 > this.field_1088.field_481) {
                 return (class_251)(this.field_1068 == null ? this : this.field_1068.method_1834(var1, var2));
             } else {
@@ -299,7 +299,7 @@ public class class_255 extends class_251 {
 
     public void method_1852() {
         if (this.method_1865() && this.field_1068 != null) {
-            class_278 var1 = this.method_1844();
+            Parser var1 = this.method_1844();
             if (var1.field_1595 > 0 && var1.field_1557 > 0) {
                 int var2;
                 int var3;
@@ -354,7 +354,7 @@ public class class_255 extends class_251 {
                         }
                         class_125 var8 = (class_125)var7;
                         char[][] var9 = var8.field_660.method_1012();
-                        if ((var8.field_656 & -17) != 0 || var9.length == 1 && class_233.method_1364(var9[0], class_40.field_188.method_179())) {
+                        if ((var8.field_656 & -17) != 0 || var9.length == 1 && CharOperation.method_1364(var9[0], class_40.field_188.method_179())) {
                             var1.field_1558[var1.field_1557] = var6;
                             var1.field_1559 = var3 + var6 - 1;
                             var1.field_1595 = var6;
@@ -468,9 +468,9 @@ public class class_255 extends class_251 {
     void method_1867(class_123[] var1, int var2) {
         if (this.field_1088.field_482 == 0) {
             int var3 = var1[var1.length - 1].field_445;
-            class_278 var4 = this.method_1844();
-            class_270 var5 = var4.field_1628;
-            if (class_226.method_1324(this.field_1088.field_480, var5.field_1256, 0, var5.field_1257) == class_226.method_1324(var3, var5.field_1256, 0, var5.field_1257)) {
+            Parser var4 = this.method_1844();
+            Scanner var5 = var4.field_1628;
+            if (Util.method_1324(this.field_1088.field_480, var5.field_1256, 0, var5.field_1257) == Util.method_1324(var3, var5.field_1256, 0, var5.field_1257)) {
                 if (var4.field_1600 <= var3 || var4.field_1600 >= this.field_1088.field_480) {
                     if (this.field_1088 instanceof class_96) {
                         ((class_96)this.field_1088).field_498 = var1;

@@ -1,10 +1,10 @@
 package n;
 
 import java.io.IOException;
-import b.class_233;
+import b.CharOperation;
 import b.class_235;
 import c.class_8;
-import f.class_226;
+import f.Util;
 import f.class_323;
 import java.io.InputStream;
 import n.class_236;
@@ -76,9 +76,9 @@ public class class_246 implements class_8 {
                 if (var6 == null) {
                     return "Unable to retrieve the error message elaboration for elaboration id: " + var2 + ". Check compiler resources.";
                 }
-                var5 = class_233.method_1383(var5, field_1059, var6.toCharArray());
+                var5 = CharOperation.method_1383(var5, field_1059, var6.toCharArray());
             }
-            var5 = class_233.method_1383(var5, field_1057, field_1058);
+            var5 = CharOperation.method_1383(var5, field_1057, field_1058);
             if (var3 == null) {
                 return new String(var5);
             } else {
@@ -91,18 +91,18 @@ public class class_246 implements class_8 {
                 }
                 while (true) {
                     int var8;
-                    if ((var8 = class_233.method_1374('{', var5, var7)) > -1) {
+                    if ((var8 = CharOperation.method_1374('{', var5, var7)) > -1) {
                         if (var9 == null) {
                             var9 = new StringBuffer(var13 + var3.length * 20);
                         }
                         var9.append(var5, var7, var8 - var7);
-                        if ((var7 = class_233.method_1374('}', var5, var8 + 1)) > -1) {
+                        if ((var7 = CharOperation.method_1374('}', var5, var8 + 1)) > -1) {
                             try {
-                                var9.append(var3[class_233.method_1380(var5, var8 + 1, var7 - var8 - 1)]);
+                                var9.append(var3[CharOperation.method_1380(var5, var8 + 1, var7 - var8 - 1)]);
                             } catch (NumberFormatException var11) {
                                 var9.append(var5, var8 + 1, var7 - var8);
                             } catch (ArrayIndexOutOfBoundsException var12) {
-                                return "Cannot bind message for problem (id: " + (var1 & 16777215) + ") \"" + new String(var5) + "\" with arguments: {" + class_226.method_1328(var3) + "}";
+                                return "Cannot bind message for problem (id: " + (var1 & 16777215) + ") \"" + new String(var5) + "\" with arguments: {" + Util.method_1328(var3) + "}";
                             }
                             ++var7;
                             continue;

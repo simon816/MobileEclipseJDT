@@ -1,7 +1,7 @@
 package m;
 
-import b.class_233;
-import g.class_13;
+import b.CharOperation;
+import java.util.List;
 import m.class_17;
 import m.class_321;
 import m.class_34;
@@ -81,7 +81,7 @@ public class class_45 extends class_43 {
         return false;
     }
 
-    public class_13 method_132(class_13 var1) {
+    public List method_132(List var1) {
         if ((this.field_178 & 128L) != 0L) {
             var1 = this.field_212.method_132(var1);
         }
@@ -288,10 +288,10 @@ public class class_45 extends class_43 {
                     this.field_214 = class_17.field_55;
                     break;
                 case 1:
-                    this.field_214 = class_233.method_1355(class_17.field_56, this.field_212.method_142());
+                    this.field_214 = CharOperation.method_1355(class_17.field_56, this.field_212.method_142());
                     break;
                 default:
-                    this.field_214 = class_233.method_1355(class_17.field_54, this.field_212.method_142());
+                    this.field_214 = CharOperation.method_1355(class_17.field_54, this.field_212.method_142());
             }
         }
         return this.field_214;
@@ -331,7 +331,7 @@ public class class_45 extends class_43 {
                 return class_17.field_51;
             case 1:
                 if (this.field_213 == null) {
-                    return class_233.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_103());
+                    return CharOperation.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_103());
                 }
                 StringBuffer var1 = new StringBuffer(10);
                 var1.append(this.field_212.method_103());
@@ -343,7 +343,7 @@ public class class_45 extends class_43 {
                 var1.getChars(0, var2, var4, 0);
                 return var4;
             default:
-                return class_233.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_103());
+                return CharOperation.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_103());
         }
     }
 
@@ -377,7 +377,7 @@ public class class_45 extends class_43 {
                 return class_17.field_51;
             case 1:
                 if (this.field_213 == null) {
-                    return class_233.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_104());
+                    return CharOperation.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_104());
                 }
                 StringBuffer var1 = new StringBuffer(10);
                 var1.append(this.field_212.method_104());
@@ -389,7 +389,7 @@ public class class_45 extends class_43 {
                 var1.getChars(0, var2, var4, 0);
                 return var4;
             default:
-                return class_233.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_104());
+                return CharOperation.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_104());
         }
     }
 
@@ -411,9 +411,9 @@ public class class_45 extends class_43 {
             case 0:
                 return class_17.field_51;
             case 1:
-                return class_233.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_179());
+                return CharOperation.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_179());
             default:
-                return class_233.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_179());
+                return CharOperation.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_179());
         }
     }
 
@@ -490,7 +490,7 @@ public class class_45 extends class_43 {
                 return new String(class_17.field_51);
             case 1:
                 if (this.field_213 == null) {
-                    return new String(class_233.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_135().toCharArray()));
+                    return new String(CharOperation.method_1356(class_17.field_51, class_17.field_53, this.field_212.method_135().toCharArray()));
                 }
                 StringBuffer var1 = new StringBuffer(this.field_212.method_135());
                 int var2 = 0;
@@ -499,7 +499,7 @@ public class class_45 extends class_43 {
                 }
                 return var1.toString();
             default:
-                return new String(class_233.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_135().toCharArray()));
+                return new String(CharOperation.method_1356(class_17.field_51, class_17.field_52, this.field_212.method_135().toCharArray()));
         }
     }
 

@@ -1,6 +1,6 @@
 package k;
 
-import b.class_233;
+import b.CharOperation;
 import k.class_20;
 import k.class_23;
 import k.class_25;
@@ -9,7 +9,7 @@ import k.class_29;
 
 public interface class_22 extends class_20 {
 
-    char[][] field_145 = class_233.field_995;
+    char[][] field_145 = CharOperation.field_995;
 
     class_23[] field_146 = new class_23[0];
 

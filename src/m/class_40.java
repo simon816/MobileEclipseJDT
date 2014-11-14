@@ -1,7 +1,7 @@
 package m;
 
-import b.class_233;
-import g.class_13;
+import b.CharOperation;
+import java.util.List;
 import java.util.Vector;
 import m.class_17;
 import m.class_321;
@@ -91,7 +91,7 @@ public abstract class class_40 extends class_34 {
         return this;
     }
 
-    public class_13 method_132(class_13 var1) {
+    public List method_132(List var1) {
         return var1;
     }
 
@@ -945,7 +945,7 @@ public abstract class class_40 extends class_34 {
 
     public char[] method_176() {
         class_38 var1 = this.method_143();
-        return var1 != null && var1.field_171 != class_233.field_995 ? var1.method_103() : class_233.field_994;
+        return var1 != null && var1.field_171 != CharOperation.field_995 ? var1.method_103() : CharOperation.field_994;
     }
 
     public abstract char[] method_177();

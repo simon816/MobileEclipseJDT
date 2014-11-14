@@ -1,7 +1,7 @@
 package j;
 
-import b.class_232;
-import g.class_305;
+import b.InvalidInputException;
+import java.lang.Character;
 import java.io.DataInputStream;
 import java.io.IOException;
 
@@ -27,14 +27,14 @@ public class class_346 {
     }
 
     public static boolean method_3333(char var0) {
-        return var0 < 128 ? (field_1984[var0] & 8) != 0 : class_305.method_3124(var0);
+        return var0 < 128 ? (field_1984[var0] & 8) != 0 : Character.isJavaIdentifierPart(var0);
     }
 
     public static boolean method_3334(char var0, char var1) {
         int var2 = method_3337(var0, var1);
         switch ((var2 & 2031616) >> 16) {
             case 0:
-                return class_305.method_3124((char)var2);
+                return Character.isJavaIdentifierPart((char)var2);
             case 1:
                 return method_3332(field_1983[1][0], var2 & '\uffff');
             case 2:
@@ -47,14 +47,14 @@ public class class_346 {
     }
 
     public static boolean method_3335(char var0) {
-        return var0 < 128 ? (field_1984[var0] & 64) != 0 : class_305.method_3128(var0);
+        return var0 < 128 ? (field_1984[var0] & 64) != 0 : Character.method_3128(var0);
     }
 
     public static boolean method_3336(char var0, char var1) {
         int var2 = method_3337(var0, var1);
         switch ((var2 & 2031616) >> 16) {
             case 0:
-                return class_305.method_3128((char)var2);
+                return Character.method_3128((char)var2);
             case 1:
                 return method_3332(field_1983[0][0], var2 & '\uffff');
             case 2:
@@ -68,11 +68,11 @@ public class class_346 {
         return (var0 - '\ud800') * 1024 + (var1 - '\udc00') + 65536;
     }
 
-    public static boolean method_3338(char var0) throws class_232 {
+    public static boolean method_3338(char var0) throws InvalidInputException {
         if (var0 < 128) {
             return (field_1984[var0] & 4) != 0;
         } else if (Character.isDigit(var0)) {
-            class_232 var10000 = new class_232("Invalid_Digit");
+            InvalidInputException var10000 = new InvalidInputException("Invalid_Digit");
             throw var10000;
         } else {
             return false;
@@ -119,7 +119,7 @@ public class class_346 {
                     return 10 + var0 - 65;
             }
         }
-        return class_305.method_3129(var0);
+        return Character.method_3129(var0);
     }
 
     public static char method_3341(char var0) {
@@ -135,11 +135,11 @@ public class class_346 {
     }
 
     public static boolean method_3342(char var0) {
-        return var0 < 128 ? (field_1984[var0] & 32) != 0 : class_305.method_3125(var0);
+        return var0 < 128 ? (field_1984[var0] & 32) != 0 : Character.method_3125(var0);
     }
 
     public static boolean method_3343(char var0) {
-        return var0 < 128 ? (field_1984[var0] & 1) != 0 : class_305.method_3126(var0);
+        return var0 < 128 ? (field_1984[var0] & 1) != 0 : Character.method_3126(var0);
     }
 
     static Class method_3344(String var0) {

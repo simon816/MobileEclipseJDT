@@ -11,7 +11,7 @@ import h.class_93;
 import i.class_268;
 import i.class_272;
 import i.class_74;
-import j.class_278;
+import j.Parser;
 import l.class_298;
 import l.class_299;
 import l.class_301;
@@ -224,7 +224,7 @@ public class class_95 extends class_93 {
         return true;
     }
 
-    public void method_800(class_278 var1, class_90 var2) {}
+    public void method_800(Parser var1, class_90 var2) {}
 
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2).append("<clinit>()");
