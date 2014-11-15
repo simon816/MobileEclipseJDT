@@ -4,7 +4,7 @@ import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_124;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
@@ -37,7 +37,7 @@ public class class_125 extends class_124 {
                     if (var1.method_726()) {
                         var5 = true;
                     } else {
-                        class_93 var6 = var1.method_730();
+                        AbstractMethodDeclaration var6 = var1.method_730();
                         if (var6 != null && CharOperation.method_1381(field_671, var6.field_479)) {
                             var5 = true;
                         }

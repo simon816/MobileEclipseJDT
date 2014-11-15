@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_62;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 
 class class_88 implements class_32 {
 
@@ -30,7 +30,7 @@ class class_88 implements class_32 {
         this.field_418 = var6;
     }
 
-    public class_80 method_91() {
+    public LookupEnvironment method_91() {
         return this.field_414.field_244;
     }
 

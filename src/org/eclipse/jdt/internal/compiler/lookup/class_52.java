@@ -2,13 +2,13 @@ package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_32;
 import org.eclipse.jdt.internal.compiler.lookup.class_321;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_44;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
@@ -19,35 +19,35 @@ import org.eclipse.jdt.internal.compiler.lookup.class_62;
 import org.eclipse.jdt.internal.compiler.lookup.class_66;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_70;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_85;
 
 import java.util.List;
 
-public class class_52 extends class_43 implements class_32 {
+public class class_52 extends ReferenceBinding implements class_32 {
 
-    private class_43 field_242;
+    private ReferenceBinding field_242;
 
     public class_40[] field_243;
 
-    public class_80 field_244;
+    public LookupEnvironment field_244;
 
     public char[] field_245;
 
-    public class_43 field_246;
+    public ReferenceBinding field_246;
 
-    public class_43[] field_247;
+    public ReferenceBinding[] field_247;
 
     public class_67[] field_248;
 
-    public class_43[] field_249;
+    public ReferenceBinding[] field_249;
 
     public class_58[] field_250;
 
-    private class_43 field_251;
+    private ReferenceBinding field_251;
 
-    public class_52(class_43 var1, class_40[] var2, class_43 var3, class_80 var4) {
+    public class_52(ReferenceBinding var1, class_40[] var2, ReferenceBinding var3, LookupEnvironment var4) {
         this.field_244 = var4;
         this.field_251 = var3;
         this.method_287(var1, var2);
@@ -65,7 +65,7 @@ public class class_52 extends class_43 implements class_32 {
         this.field_178 |= 16777216L;
     }
 
-    protected class_43 method_283() {
+    protected ReferenceBinding method_283() {
         return this.field_242;
     }
 
@@ -103,12 +103,12 @@ public class class_52 extends class_43 implements class_32 {
             class_40[] var5 = new class_40[var4];
             Object var6 = var1.method_585();
             if (var6 != null) {
-                var6 = ((class_43)var6).method_233();
+                var6 = ((ReferenceBinding)var6).method_233();
             }
             for (int var7 = 0; var7 < var4; ++var7) {
                 class_40 var8 = var3[var7];
                 if (var8.method_98() == 516) {
-                    class_47 var10002 = new class_47((class_45)var8, (class_43)var6, var2, var1.method_576().method_686());
+                    class_47 var10002 = new class_47((class_45)var8, (ReferenceBinding)var6, var2, var1.method_576().method_686());
                     var5[var7] = var10002;
                 } else {
                     var5[var7] = var8;
@@ -144,7 +144,7 @@ public class class_52 extends class_43 implements class_32 {
     public void method_133(class_83 var1, class_40 var2, class_321 var3, int var4) {
         if ((this.field_178 & 536870912L) != 0L) {
             if (var2 != class_40.field_187) {
-                if (var2 instanceof class_43) {
+                if (var2 instanceof ReferenceBinding) {
                     Object var5;
                     class_40 var6;
                     switch (var4) {
@@ -164,7 +164,7 @@ public class class_52 extends class_43 implements class_32 {
                             }
                             var6 = var2;
                     }
-                    class_43 var7 = ((class_40)var5).method_137();
+                    ReferenceBinding var7 = ((class_40)var5).method_137();
                     if (var7 != null) {
                         var7.method_133(var1, var6.method_137(), var3, var4);
                     }
@@ -268,11 +268,11 @@ public class class_52 extends class_43 implements class_32 {
         return var1.toString();
     }
 
-    public class_43 method_137() {
+    public ReferenceBinding method_137() {
         return this.field_251;
     }
 
-    public class_80 method_91() {
+    public LookupEnvironment method_91() {
         return this.field_244;
     }
 
@@ -307,7 +307,7 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    public class_43 method_286() {
+    public ReferenceBinding method_286() {
         if (this.field_242 instanceof class_44) {
             ((class_44)this.field_242).method_247(this.field_244, false);
         }
@@ -321,7 +321,7 @@ public class class_52 extends class_43 implements class_32 {
             } else {
                 StringBuffer var1 = new StringBuffer(10);
                 if (this.method_159()) {
-                    class_43 var2 = this.method_137();
+                    ReferenceBinding var2 = this.method_137();
                     char[] var3 = var2.method_142();
                     var1.append(var3, 0, var3.length - 1);
                     if ((var2.field_199 & 1073741824) != 0) {
@@ -361,7 +361,7 @@ public class class_52 extends class_43 implements class_32 {
         class_58 var3 = null;
         if ((this.field_178 & 32768L) != 0L) {
             long var4;
-            if ((var4 = class_43.method_190(class_17.field_135, this.field_250)) >= 0L) {
+            if ((var4 = ReferenceBinding.method_190(class_17.field_135, this.field_250)) >= 0L) {
                 int var6 = (int)var4;
                 label61:
                 for (int var7 = (int)(var4 >> 32); var6 <= var7; ++var6) {
@@ -413,7 +413,7 @@ public class class_52 extends class_43 implements class_32 {
         class_58 var6 = null;
         if ((this.field_178 & 32768L) != 0L) {
             long var7;
-            if ((var7 = class_43.method_190(var1, this.field_250)) >= 0L) {
+            if ((var7 = ReferenceBinding.method_190(var1, this.field_250)) >= 0L) {
                 int var9 = (int)var7;
                 label99:
                 for (int var10 = (int)(var7 >> 32); var9 <= var10; ++var9) {
@@ -482,14 +482,14 @@ public class class_52 extends class_43 implements class_32 {
 
     public class_67 method_208(char[] var1, boolean var2) {
         this.method_204();
-        return class_43.method_189(var1, this.field_248);
+        return ReferenceBinding.method_189(var1, this.field_248);
     }
 
-    public class_43 method_209(char[] var1) {
+    public ReferenceBinding method_209(char[] var1) {
         this.method_231();
         int var2 = var1.length;
         int var3 = this.field_249.length;
-        class_43 var4;
+        ReferenceBinding var4;
         do {
             --var3;
             if (var3 < 0) {
@@ -505,7 +505,7 @@ public class class_52 extends class_43 implements class_32 {
         int var4;
         int var5;
         class_58[] var6;
-        if (this.field_250 != null && (var2 = class_43.method_190(var1, this.field_250)) >= 0L) {
+        if (this.field_250 != null && (var2 = ReferenceBinding.method_190(var1, this.field_250)) >= 0L) {
             var4 = (int)var2;
             var5 = (int)(var2 >> 32) - var4 + 1;
             System.arraycopy(this.field_250, var4, var6 = new class_58[var5], 0, var5);
@@ -536,7 +536,7 @@ public class class_52 extends class_43 implements class_32 {
                     System.arraycopy(var10, 0, var6, 0, var4);
                     System.arraycopy(this.field_250, 0, var6, var4, this.field_250.length);
                     if (var5 > 1) {
-                        class_43.method_193(var6, 0, var5);
+                        ReferenceBinding.method_193(var6, 0, var5);
                     }
                     this.field_250 = var6;
                 }
@@ -559,7 +559,7 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_242.method_216(var1);
     }
 
-    void method_287(class_43 var1, class_40[] var2) {
+    void method_287(ReferenceBinding var1, class_40[] var2) {
         this.field_242 = var1;
         this.field_198 = var1.field_198;
         this.field_197 = var1.field_197;
@@ -616,9 +616,9 @@ public class class_52 extends class_43 implements class_32 {
                         return false;
                     } else {
                         if (!this.method_226()) {
-                            class_43 var3 = this.method_137();
+                            ReferenceBinding var3 = this.method_137();
                             if (var3 != null) {
-                                class_43 var4 = var2.method_137();
+                                ReferenceBinding var4 = var2.method_137();
                                 if (var4 == null) {
                                     return false;
                                 }
@@ -670,12 +670,12 @@ public class class_52 extends class_43 implements class_32 {
         return 260;
     }
 
-    public class_43[] method_231() {
+    public ReferenceBinding[] method_231() {
         if (this.field_249 == null) {
             try {
-                class_43[] var1 = this.field_242.method_231();
+                ReferenceBinding[] var1 = this.field_242.method_231();
                 int var2 = var1.length;
-                class_43[] var3 = new class_43[var2];
+                ReferenceBinding[] var3 = new ReferenceBinding[var2];
                 for (int var4 = 0; var4 < var2; ++var4) {
                     var3[var4] = this.field_244.method_500(var1[var4], (class_40[])null, this);
                 }
@@ -744,12 +744,12 @@ public class class_52 extends class_43 implements class_32 {
         return var4;
     }
 
-    class_43 method_289() {
+    ReferenceBinding method_289() {
         if ((this.field_178 & 16777216L) == 0L) {
             return this;
         } else {
             this.field_178 &= -16777217L;
-            class_43 var1 = class_49.method_267(this.field_242, this.field_244, false);
+            ReferenceBinding var1 = class_49.method_267(this.field_242, this.field_244, false);
             if (this.field_243 != null) {
                 int var2 = this.field_243.length;
                 for (int var3 = 0; var3 < var2; ++var3) {
@@ -758,12 +758,12 @@ public class class_52 extends class_43 implements class_32 {
                 class_46[] var4 = var1.method_181();
                 if (var4 == class_34.field_157) {
                     if ((var1.field_178 & 128L) == 0L) {
-                        this.field_244.field_353.method_1702(0, (class_89)null, var1, this.field_243);
+                        this.field_244.field_353.method_1702(0, (ASTNode)null, var1, this.field_243);
                     }
                     return this;
                 }
                 if (var2 != var4.length) {
-                    this.field_244.field_353.method_1609((class_89)null, var1, this.field_243);
+                    this.field_244.field_353.method_1609((ASTNode)null, var1, this.field_243);
                     return this;
                 }
             }
@@ -823,7 +823,7 @@ public class class_52 extends class_43 implements class_32 {
             if (var2.method_226()) {
                 break;
             }
-            class_43 var5 = var2.method_137();
+            ReferenceBinding var5 = var2.method_137();
             if (!(var5 instanceof class_52)) {
                 break;
             }
@@ -832,18 +832,18 @@ public class class_52 extends class_43 implements class_32 {
         return var1;
     }
 
-    public class_43 method_240() {
+    public ReferenceBinding method_240() {
         if (this.field_246 == null) {
-            class_43 var1 = this.field_242.method_240();
+            ReferenceBinding var1 = this.field_242.method_240();
             if (var1 == null) {
                 return null;
             }
-            this.field_246 = (class_43)class_83.method_571(this, var1);
+            this.field_246 = (ReferenceBinding)class_83.method_571(this, var1);
         }
         return this.field_246;
     }
 
-    public class_43[] method_241() {
+    public ReferenceBinding[] method_241() {
         if (this.field_247 == null) {
             if (this.field_242.method_222()) {
                 return class_34.field_155;
@@ -853,14 +853,14 @@ public class class_52 extends class_43 implements class_32 {
         return this.field_247;
     }
 
-    public void method_180(class_44 var1, class_43 var2, class_80 var3) {
+    public void method_180(class_44 var1, ReferenceBinding var2, LookupEnvironment var3) {
         boolean var4 = false;
         if (this.field_242 == var1) {
             this.field_242 = var2;
             var4 = true;
-            class_43 var5 = var2.method_137();
+            ReferenceBinding var5 = var2.method_137();
             if (var5 != null) {
-                this.field_251 = (class_43)var3.method_491(var5);
+                this.field_251 = (ReferenceBinding)var3.method_491(var5);
             }
         }
         if (this.field_243 != null) {
@@ -877,7 +877,7 @@ public class class_52 extends class_43 implements class_32 {
         }
     }
 
-    public class_43[] method_242() {
+    public ReferenceBinding[] method_242() {
         return this.field_242.method_242();
     }
 

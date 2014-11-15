@@ -2,12 +2,12 @@ package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.class_264;
-import org.eclipse.jdt.internal.compiler.class_284;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_123;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.flow.class_298;
 import org.eclipse.jdt.internal.compiler.flow.class_299;
@@ -19,13 +19,13 @@ import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.parser.Parser;
 import org.eclipse.jdt.internal.compiler.problem.class_244;
 
-public class class_96 extends class_93 {
+public class class_96 extends AbstractMethodDeclaration {
 
     public class_146 field_497;
 
     public class_123[] field_498;
 
-    public class_96(class_284 var1) {
+    public class_96(CompilationResult var1) {
         super(var1);
     }
 
@@ -81,7 +81,7 @@ public class class_96 extends class_93 {
         }
     }
 
-    public void method_800(Parser var1, class_90 var2) {
+    public void method_800(Parser var1, CompilationUnitDeclaration var2) {
         var1.method_2859(this, var2);
     }
 

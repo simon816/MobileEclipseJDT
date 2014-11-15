@@ -4,9 +4,9 @@ import org.eclipse.jdt.internal.compiler.ast.class_112;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
 import org.eclipse.jdt.internal.compiler.ast.class_124;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_91;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.ImportReference;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.parser.class_254;
 import org.eclipse.jdt.internal.compiler.parser.class_255;
@@ -46,7 +46,7 @@ public class class_251 {
         }
     }
 
-    public class_251 method_1832(class_93 var1, int var2) {
+    public class_251 method_1832(AbstractMethodDeclaration var1, int var2) {
         this.method_1846();
         if (this.field_1068 == null) {
             return this;
@@ -76,7 +76,7 @@ public class class_251 {
         }
     }
 
-    public class_251 method_1835(class_91 var1, int var2) {
+    public class_251 method_1835(ImportReference var1, int var2) {
         this.method_1846();
         if (this.field_1068 == null) {
             return this;
@@ -164,7 +164,7 @@ public class class_251 {
         return null;
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return null;
     }
 

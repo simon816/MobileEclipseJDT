@@ -5,14 +5,14 @@ import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_137;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_41;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
 public class class_138 extends class_137 {
@@ -110,12 +110,12 @@ public class class_138 extends class_137 {
             class_331 var7 = this.field_702.method_922();
             boolean var8 = var7 == class_331.field_1896 || var7.method_3257();
             boolean var9 = var7 == class_331.field_1896 || !var7.method_3257();
-            class_74 var10000 = new class_74(var2);
-            class_74 var5 = var10000;
-            var10000 = new class_74(var2);
-            class_74 var6 = var10000;
+            BranchLabel var10000 = new BranchLabel(var2);
+            BranchLabel var5 = var10000;
+            var10000 = new BranchLabel(var2);
+            BranchLabel var6 = var10000;
             var6.field_330 |= 2;
-            this.field_702.method_913(var1, var2, (class_74)null, var6, var7 == class_331.field_1896);
+            this.field_702.method_913(var1, var2, (BranchLabel)null, var6, var7 == class_331.field_1896);
             if (this.field_708 != -1) {
                 var2.method_2363(var1, this.field_708);
                 var2.method_2088(var1, this.field_708);
@@ -157,19 +157,19 @@ public class class_138 extends class_137 {
         }
     }
 
-    public void method_913(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_913(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if ((this.field_672 == class_331.field_1896 || this.field_672.method_3288() != 5) && (this.field_703.field_674 & 255) >> 4 == 5) {
             class_331 var6 = this.field_702.field_672;
             class_331 var7 = this.field_702.method_922();
             boolean var8 = (var6 == class_331.field_1896 || var6.method_3257()) && (var7 == class_331.field_1896 || var7.method_3257());
             boolean var9 = (var6 == class_331.field_1896 || !var6.method_3257()) && (var7 == class_331.field_1896 || !var7.method_3257());
-            class_74 var10000 = new class_74(var2);
-            class_74 var11 = var10000;
+            BranchLabel var10000 = new BranchLabel(var2);
+            BranchLabel var11 = var10000;
             boolean var12 = var6 == class_331.field_1896 && var7 == class_331.field_1896;
             class_126 var14 = this.field_702;
-            class_74 var10004 = new class_74(var2);
-            class_74 var10 = var10004;
-            var14.method_913(var1, var2, (class_74)null, var10004, var12);
+            BranchLabel var10004 = new BranchLabel(var2);
+            BranchLabel var10 = var10004;
+            var14.method_913(var1, var2, (BranchLabel)null, var10004, var12);
             if (this.field_708 != -1) {
                 var2.method_2363(var1, this.field_708);
                 var2.method_2088(var1, this.field_708);
@@ -241,7 +241,7 @@ public class class_138 extends class_137 {
 
     public class_40 method_925(class_86 var1) {
         this.field_672 = class_331.field_1896;
-        class_80 var2 = var1.method_586();
+        LookupEnvironment var2 = var1.method_586();
         boolean var3 = var1.method_577().field_1928 >= 3211264L;
         class_40 var4 = this.field_702.method_926(var1, class_40.field_186);
         this.field_702.method_911(var1, class_40.field_186, var4);

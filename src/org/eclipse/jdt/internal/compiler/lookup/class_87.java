@@ -5,18 +5,18 @@ import org.eclipse.jdt.internal.compiler.ast.class_123;
 import org.eclipse.jdt.internal.compiler.ast.class_125;
 import org.eclipse.jdt.internal.compiler.ast.class_162;
 import org.eclipse.jdt.internal.compiler.ast.class_163;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_94;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
-import org.eclipse.jdt.internal.compiler.impl.class_33;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.impl.ReferenceContext;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_66;
@@ -28,7 +28,7 @@ import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
 
 public class class_87 extends class_86 {
 
-    public class_33 field_403;
+    public ReferenceContext field_403;
 
     public boolean field_404;
 
@@ -50,7 +50,7 @@ public class class_87 extends class_86 {
 
     public class_66[] field_413;
 
-    public class_87(class_84 var1, class_33 var2, boolean var3) {
+    public class_87(class_84 var1, ReferenceContext var2, boolean var3) {
         super(2, var1);
         this.field_405 = false;
         this.field_407 = -1;
@@ -89,9 +89,9 @@ public class class_87 extends class_86 {
 
     private void method_721(class_58 var1) {
         int var2 = var1.field_273;
-        class_43 var3 = var1.field_278;
+        ReferenceBinding var3 = var1.field_278;
         if ((var2 & 4194304) != 0) {
-            this.method_644().method_1531(var3, (class_93)this.field_403);
+            this.method_644().method_1531(var3, (AbstractMethodDeclaration)this.field_403);
         }
         int var6;
         if ((((class_94)this.field_403).field_446 & 128) != 0 && (var6 = var3.field_199 & 16389) != 0) {
@@ -106,21 +106,21 @@ public class class_87 extends class_86 {
         int var4 = var2 & '\uffff';
         if (var3.method_153() && (((class_94)this.field_403).field_446 & 128) == 0) {
             if ((var4 & -2051) != 0) {
-                this.method_644().method_1583((class_93)this.field_403);
+                this.method_644().method_1583((AbstractMethodDeclaration)this.field_403);
                 var2 &= -63486;
-            } else if ((((class_93)this.field_403).field_482 & 2048) != 0) {
-                this.method_644().method_1593((class_93)this.field_403);
+            } else if ((((AbstractMethodDeclaration)this.field_403).field_482 & 2048) != 0) {
+                this.method_644().method_1593((AbstractMethodDeclaration)this.field_403);
             }
             var2 |= 2;
         } else if ((var4 & -2056) != 0) {
-            this.method_644().method_1593((class_93)this.field_403);
+            this.method_644().method_1593((AbstractMethodDeclaration)this.field_403);
             var2 &= -63481;
-        } else if ((((class_93)this.field_403).field_482 & 2048) != 0) {
-            this.method_644().method_1593((class_93)this.field_403);
+        } else if ((((AbstractMethodDeclaration)this.field_403).field_482 & 2048) != 0) {
+            this.method_644().method_1593((AbstractMethodDeclaration)this.field_403);
         }
         var6 = var4 & 7;
         if ((var6 & var6 - 1) != 0) {
-            this.method_644().method_1603(var3, (class_93)this.field_403);
+            this.method_644().method_1603(var3, (AbstractMethodDeclaration)this.field_403);
             if ((var6 & 1) != 0) {
                 if ((var6 & 4) != 0) {
                     var2 &= -5;
@@ -137,27 +137,27 @@ public class class_87 extends class_86 {
 
     private void method_722(class_58 var1) {
         int var2 = var1.field_273;
-        class_43 var3 = var1.field_278;
+        ReferenceBinding var3 = var1.field_278;
         if ((var2 & 4194304) != 0) {
-            this.method_644().method_1531(var3, (class_93)this.field_403);
+            this.method_644().method_1531(var3, (AbstractMethodDeclaration)this.field_403);
         }
         int var4 = var2 & '\uffff';
         if (var3.method_157()) {
             if ((var4 & -1026) != 0) {
                 if ((var3.field_199 & 8192) != 0) {
-                    this.method_644().method_1577((class_93)this.field_403);
+                    this.method_644().method_1577((AbstractMethodDeclaration)this.field_403);
                 } else {
-                    this.method_644().method_1587((class_93)this.field_403);
+                    this.method_644().method_1587((AbstractMethodDeclaration)this.field_403);
                 }
             }
         } else {
             if ((var4 & -3392) != 0) {
-                this.method_644().method_1593((class_93)this.field_403);
+                this.method_644().method_1593((AbstractMethodDeclaration)this.field_403);
                 var2 &= -62145;
             }
             int var6 = var4 & 7;
             if ((var6 & var6 - 1) != 0) {
-                this.method_644().method_1603(var3, (class_93)this.field_403);
+                this.method_644().method_1603(var3, (AbstractMethodDeclaration)this.field_403);
                 if ((var6 & 1) != 0) {
                     if ((var6 & 4) != 0) {
                         var2 &= -5;
@@ -172,17 +172,17 @@ public class class_87 extends class_86 {
             if ((var2 & 1024) != 0) {
                 short var7 = 2362;
                 if ((var2 & var7) != 0) {
-                    this.method_644().method_1566(var3, (class_93)this.field_403);
+                    this.method_644().method_1566(var3, (AbstractMethodDeclaration)this.field_403);
                 }
                 if (!var1.field_278.method_217()) {
-                    this.method_644().method_1462((class_54)var3, (class_93)this.field_403);
+                    this.method_644().method_1462((SourceTypeBinding)var3, (AbstractMethodDeclaration)this.field_403);
                 }
             }
             if ((var2 & 256) != 0 && (var2 & 2048) != 0) {
-                this.method_644().method_1688(var3, (class_93)this.field_403);
+                this.method_644().method_1688(var3, (AbstractMethodDeclaration)this.field_403);
             }
             if ((var4 & 8) != 0 && var3.method_160() && !var3.method_226()) {
-                this.method_644().method_1785(var3, (class_93)this.field_403);
+                this.method_644().method_1785(var3, (AbstractMethodDeclaration)this.field_403);
             }
             var1.field_273 = var2;
         }
@@ -234,31 +234,31 @@ public class class_87 extends class_86 {
                     this.field_394 += 2;
                 }
                 if (this.field_394 > 255) {
-                    this.method_644().method_1697(var7, (class_89)this.field_403);
+                    this.method_644().method_1697(var7, (ASTNode)this.field_403);
                 }
             }
         }
         this.method_709(var3, this.field_394, var2);
     }
 
-    class_58 method_725(class_93 var1) {
+    class_58 method_725(AbstractMethodDeclaration var1) {
         this.field_403 = var1;
         var1.field_478 = this;
-        class_54 var2 = this.method_718().field_586;
+        SourceTypeBinding var2 = this.method_718().field_586;
         int var3 = var1.field_482 | 33554432;
         class_58 var10001;
         if (var1.method_795()) {
             if (var1.method_796()) {
                 var3 |= 67108864;
             }
-            var10001 = new class_58(var3, (class_40[])null, (class_43[])null, var2);
+            var10001 = new class_58(var3, (class_40[])null, (ReferenceBinding[])null, var2);
             var1.field_488 = var10001;
             this.method_721(var1.field_488);
         } else {
             if (var2.method_157()) {
                 var3 |= 1025;
             }
-            var10001 = new class_58(var3, var1.field_479, (class_40)null, (class_40[])null, (class_43[])null, var2);
+            var10001 = new class_58(var3, var1.field_479, (class_40)null, (class_40[])null, (ReferenceBinding[])null, var2);
             var1.field_488 = var10001;
             this.method_722(var1.field_488);
         }
@@ -290,7 +290,7 @@ public class class_87 extends class_86 {
         return var1.field_488;
     }
 
-    public class_67 method_590(class_40 var1, char[] var2, class_0 var3, boolean var4) {
+    public class_67 method_590(class_40 var1, char[] var2, InvocationSite var3, boolean var4) {
         class_67 var5 = super.method_590(var1, var2, var3, var4);
         if (var5 == null) {
             return null;
@@ -384,8 +384,8 @@ public class class_87 extends class_86 {
         }
     }
 
-    public class_93 method_730() {
-        return this.field_403 instanceof class_93 ? (class_93)this.field_403 : null;
+    public AbstractMethodDeclaration method_730() {
+        return this.field_403 instanceof AbstractMethodDeclaration ? (AbstractMethodDeclaration)this.field_403 : null;
     }
 
     public class_114 method_718() {

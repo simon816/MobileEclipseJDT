@@ -1,8 +1,8 @@
 package org.eclipse.jdt.internal.compiler.flow;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_295;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
@@ -11,7 +11,7 @@ public class class_296 extends class_295 {
 
     public char[] field_1747;
 
-    public class_296(class_293 var1, class_89 var2, char[] var3, class_74 var4, class_86 var5) {
+    public class_296(class_293 var1, ASTNode var2, char[] var3, BranchLabel var4, class_86 var5) {
         super(var1, var2, var4);
         this.field_1747 = var3;
         this.method_3055(var5);

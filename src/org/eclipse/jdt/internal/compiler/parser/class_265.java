@@ -3,10 +3,10 @@ package org.eclipse.jdt.internal.compiler.parser;
 import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_122;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_94;
 import org.eclipse.jdt.internal.compiler.ast.class_96;
-import org.eclipse.jdt.internal.compiler.impl.class_33;
+import org.eclipse.jdt.internal.compiler.impl.ReferenceContext;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.lookup.class_87;
@@ -71,7 +71,7 @@ class class_265 extends class_264 {
         this.method_2076(var1, var2);
     }
 
-    private void method_2076(class_93 var1, class_84 var2) {
+    private void method_2076(AbstractMethodDeclaration var1, class_84 var2) {
         class_114[] var3 = null;
         int var4 = 0;
         if (this.field_1162 > -1) {
@@ -79,7 +79,7 @@ class class_265 extends class_264 {
             var3 = new class_114[var4];
             System.arraycopy(this.field_1161, 0, var3, 0, var4);
         }
-        class_33 var5 = this.field_1163.field_1615;
+        ReferenceContext var5 = this.field_1163.field_1615;
         this.field_1163.field_1627.method_2435(var1.field_490, var1.field_491);
         Scanner var6 = this.field_1163.field_1628;
         this.field_1163.field_1628 = this.field_1163.field_1627;
@@ -100,7 +100,7 @@ class class_265 extends class_264 {
                 var3 = new class_114[var4];
                 System.arraycopy(this.field_1161, 0, var3, 0, var4);
             }
-            class_33 var5 = this.field_1163.field_1615;
+            ReferenceContext var5 = this.field_1163.field_1615;
             this.field_1163.field_1627.method_2435(var1.field_666, var1.field_667);
             Scanner var6 = this.field_1163.field_1628;
             this.field_1163.field_1628 = this.field_1163.field_1627;

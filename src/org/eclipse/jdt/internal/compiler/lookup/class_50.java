@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_49;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 
 public class class_50 extends class_49 {
 
-    public class_50(class_38 var1, char[][] var2, class_80 var3) {
+    public class_50(PackageBinding var1, char[][] var2, LookupEnvironment var3) {
         this.field_197 = var2;
         this.method_198();
         this.field_178 |= 131264L;
@@ -44,7 +44,7 @@ public class class_50 extends class_49 {
         return 1;
     }
 
-    void method_279(class_43 var1) {
+    void method_279(ReferenceBinding var1) {
         this.field_231 = var1;
     }
 

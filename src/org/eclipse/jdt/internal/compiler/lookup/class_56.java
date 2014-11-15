@@ -1,14 +1,14 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_55;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 
 public final class class_56 extends class_55 {
 
-    public class_56(char[][] var1, class_84 var2, class_54 var3) {
+    public class_56(char[][] var1, class_84 var2, SourceTypeBinding var3) {
         super(var1, var2, var3);
         this.field_178 |= 12L;
     }
@@ -29,7 +29,7 @@ public final class class_56 extends class_55 {
         if ((this.field_178 & 17179869184L) == 0L) {
             super.method_100();
             if ((this.field_178 & 70368744177664L) == 0L) {
-                class_43 var1;
+                ReferenceBinding var1;
                 if (((var1 = this.method_137()).field_178 & 17179869184L) == 0L) {
                     var1.method_100();
                 }

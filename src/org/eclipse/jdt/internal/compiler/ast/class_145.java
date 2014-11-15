@@ -4,7 +4,7 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_141;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
@@ -73,13 +73,13 @@ public class class_145 extends class_141 {
                 var2.method_2380(var1, var2.field_1208);
                 var2.method_2360(var4, this.field_444);
             } else {
-                class_74 var6;
+                BranchLabel var6;
                 boolean var8;
                 boolean var9;
                 boolean var10;
                 boolean var11;
                 label108: {
-                    class_74 var10000 = new class_74(var2);
+                    BranchLabel var10000 = new BranchLabel(var2);
                     var6 = var10000;
                     var5 = this.field_715.method_922();
                     var8 = var5 != class_331.field_1896;
@@ -93,7 +93,7 @@ public class class_145 extends class_141 {
                             break label108;
                         }
                     } else {
-                        this.field_715.method_913(var1, var2, var6, (class_74)null, true);
+                        this.field_715.method_913(var1, var2, var6, (BranchLabel)null, true);
                     }
                     if (this.field_724 != -1) {
                         var2.method_2088(var1, this.field_724);
@@ -101,7 +101,7 @@ public class class_145 extends class_141 {
                     if (var10) {
                         this.field_716.method_912(var1, var2, false);
                     } else {
-                        this.field_716.method_913(var1, var2, var6, (class_74)null, var3);
+                        this.field_716.method_913(var1, var2, var6, (BranchLabel)null, var3);
                     }
                 }
                 if (this.field_725 != -1) {
@@ -125,8 +125,8 @@ public class class_145 extends class_141 {
                                 var6.method_458();
                                 var2.method_2222();
                             } else {
-                                class_74 var10001 = new class_74(var2);
-                                class_74 var7 = var10001;
+                                BranchLabel var10001 = new BranchLabel(var2);
+                                BranchLabel var7 = var10001;
                                 var2.method_2209(var10001);
                                 var2.method_2125(1);
                                 var6.method_458();
@@ -146,7 +146,7 @@ public class class_145 extends class_141 {
         }
     }
 
-    public void method_913(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_913(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if (this.field_672 != class_331.field_1896) {
             super.method_913(var1, var2, var3, var4, var5);
         } else {
@@ -167,7 +167,7 @@ public class class_145 extends class_141 {
                 boolean var10 = var9 && var6.method_3257();
                 if (var4 == null) {
                     if (var3 != null) {
-                        this.field_715.method_913(var1, var2, var3, (class_74)null, !var7);
+                        this.field_715.method_913(var1, var2, var3, (BranchLabel)null, !var7);
                         if (var8) {
                             if (var5) {
                                 var2.method_2209(var3);
@@ -177,7 +177,7 @@ public class class_145 extends class_141 {
                             if (this.field_724 != -1) {
                                 var2.method_2088(var1, this.field_724);
                             }
-                            this.field_716.method_913(var1, var2, var3, (class_74)null, var5 && !var9);
+                            this.field_716.method_913(var1, var2, var3, (BranchLabel)null, var5 && !var9);
                             if (var5 && var10) {
                                 var2.method_2209(var3);
                                 var2.method_2380(var1, var2.field_1208);
@@ -185,16 +185,16 @@ public class class_145 extends class_141 {
                         }
                     }
                 } else if (var3 == null) {
-                    class_74 var10000 = new class_74(var2);
-                    class_74 var11 = var10000;
-                    this.field_715.method_913(var1, var2, var11, (class_74)null, !var7);
+                    BranchLabel var10000 = new BranchLabel(var2);
+                    BranchLabel var11 = var10000;
+                    this.field_715.method_913(var1, var2, var11, (BranchLabel)null, !var7);
                     if (var8) {
                         var11.method_458();
                     } else {
                         if (this.field_724 != -1) {
                             var2.method_2088(var1, this.field_724);
                         }
-                        this.field_716.method_913(var1, var2, (class_74)null, var4, var5 && !var9);
+                        this.field_716.method_913(var1, var2, (BranchLabel)null, var4, var5 && !var9);
                         if (var5 && var9 && !var10) {
                             var2.method_2209(var4);
                             var2.method_2380(var1, var2.field_1208);

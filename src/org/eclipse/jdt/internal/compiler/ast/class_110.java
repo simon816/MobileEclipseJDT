@@ -4,7 +4,7 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_109;
 import org.eclipse.jdt.internal.compiler.ast.class_116;
 import org.eclipse.jdt.internal.compiler.ast.class_117;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_294;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -47,7 +47,7 @@ public class class_110 extends class_109 {
                 }
                 var5.method_3048(var3.method_3109());
                 if (var5 instanceof class_294) {
-                    class_89 var8 = var5.field_1739;
+                    ASTNode var8 = var5.field_1739;
                     if (var8 instanceof class_117) {
                         class_117 var9 = (class_117)var8;
                         var3.method_3071(var9.field_624);

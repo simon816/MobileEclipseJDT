@@ -5,9 +5,9 @@ import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_152;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
@@ -25,17 +25,17 @@ public class class_153 extends class_152 {
 
     public void method_1007(class_83 var1) {
         if (this.field_675 != null) {
-            this.method_1033((class_43)this.field_675.method_173(), var1, this.field_735.length - 1);
+            this.method_1033((ReferenceBinding)this.field_675.method_173(), var1, this.field_735.length - 1);
         }
     }
 
-    public void method_1033(class_43 var1, class_83 var2, int var3) {
+    public void method_1033(ReferenceBinding var1, class_83 var2, int var3) {
         if (var3 > 0 && var1.method_137() != null) {
             this.method_1033(var1.method_137(), var2, var3 - 1);
         }
         if (var1.method_162()) {
             class_52 var4 = (class_52)var1;
-            class_43 var5 = var4.method_286();
+            ReferenceBinding var5 = var4.method_286();
             class_46[] var6 = var5.method_181();
             class_40[] var7 = var4.field_243;
             if (var7 != null && var6 != null) {
@@ -78,7 +78,7 @@ public class class_153 extends class_152 {
             int var8;
             int var9;
             if (var4 != null && !var4.method_101()) {
-                this.field_675 = (class_43)var4;
+                this.field_675 = (ReferenceBinding)var4;
                 this.method_1015(var1);
                 int var21 = 0;
                 for (int var22 = this.field_732.length; var21 < var22; ++var21) {
@@ -97,7 +97,7 @@ public class class_153 extends class_152 {
                 }
                 return null;
             } else {
-                class_38 var5 = var4 == null ? null : (class_38)var4;
+                PackageBinding var5 = var4 == null ? null : (PackageBinding)var4;
                 boolean var6 = true;
                 Object var7 = null;
                 var8 = var5 == null ? 0 : var5.field_171.length;
@@ -123,15 +123,15 @@ public class class_153 extends class_152 {
                         }
                         return null;
                     }
-                    class_43 var10 = (class_43)this.field_675;
+                    ReferenceBinding var10 = (ReferenceBinding)this.field_675;
                     if (var7 == null) {
                         var7 = var10.method_137();
                         if (var7 != null) {
-                            var7 = var10.method_226() ? (class_43)var1.method_586().method_490((class_40)var7, false) : var1.method_586().method_489((class_43)var7);
+                            var7 = var10.method_226() ? (ReferenceBinding)var1.method_586().method_490((class_40)var7, false) : var1.method_586().method_489((ReferenceBinding)var7);
                         }
                     }
-                    if (var6 && var10.method_226() && var7 != null && (((class_43)var7).method_162() && ((class_52)var7).field_243 != null || ((class_43)var7).method_155())) {
-                        var1.method_644().method_1759(this, var1.method_586().method_500((class_43)var10.method_138(), (class_40[])null, (class_43)var7));
+                    if (var6 && var10.method_226() && var7 != null && (((ReferenceBinding)var7).method_162() && ((class_52)var7).field_243 != null || ((ReferenceBinding)var7).method_155())) {
+                        var1.method_644().method_1759(this, var1.method_586().method_500((ReferenceBinding)var10.method_138(), (class_40[])null, (ReferenceBinding)var7));
                         var6 = false;
                     }
                     var11 = this.field_735[var8];
@@ -144,7 +144,7 @@ public class class_153 extends class_152 {
                         var13 = var11.length;
                         class_40[] var14 = new class_40[var13];
                         boolean var15 = false;
-                        class_43 var16 = (class_43)var10.method_138();
+                        ReferenceBinding var16 = (ReferenceBinding)var10.method_138();
                         for (int var17 = 0; var17 < var13; ++var17) {
                             class_146 var18 = var11[var17];
                             class_40 var19 = var3 ? var18.method_1020((class_84)var1, var16, var17) : var18.method_1019((class_86)var1, var16, var17);
@@ -169,7 +169,7 @@ public class class_153 extends class_152 {
                                 var1.method_644().method_1702(var8, this, var10, var14);
                                 return null;
                             }
-                            this.field_675 = (class_40)(var7 != null && ((class_43)var7).method_162() ? var1.method_586().method_500(var16, (class_40[])null, (class_43)var7) : var10);
+                            this.field_675 = (class_40)(var7 != null && ((ReferenceBinding)var7).method_162() ? var1.method_586().method_500(var16, (class_40[])null, (ReferenceBinding)var7) : var10);
                             if (this.field_734 > 0) {
                                 if (this.field_734 > 255) {
                                     var1.method_644().method_1768(this);
@@ -183,30 +183,30 @@ public class class_153 extends class_152 {
                             return null;
                         }
                         if (var6 && !var10.method_226()) {
-                            class_43 var31 = var10.method_137();
+                            ReferenceBinding var31 = var10.method_137();
                             if (var31 != null && var31.method_166()) {
                                 var1.method_644().method_1741(this, var1.method_586().method_501(var16, var31), var14);
                                 var6 = false;
                             }
                         }
-                        class_52 var30 = var1.method_586().method_500(var16, var14, (class_43)var7);
+                        class_52 var30 = var1.method_586().method_500(var16, var14, (ReferenceBinding)var7);
                         if (var2) {
                             var30.method_284(var1, var11);
                         }
                         var7 = var30;
                     } else {
-                        class_43 var26 = (class_43)var10.method_138();
+                        ReferenceBinding var26 = (ReferenceBinding)var10.method_138();
                         if (var3 && ((class_84)var1).method_668(var26, this)) {
                             return null;
                         }
                         if (var26.method_155()) {
-                            if (var6 && var7 != null && ((class_43)var7).method_162()) {
-                                var1.method_644().method_1722(this, var1.method_586().method_500(var26, (class_40[])null, (class_43)var7));
+                            if (var6 && var7 != null && ((ReferenceBinding)var7).method_162()) {
+                                var1.method_644().method_1722(this, var1.method_586().method_500(var26, (class_40[])null, (ReferenceBinding)var7));
                                 var6 = false;
                             }
-                            var7 = var1.method_586().method_501(var26, (class_43)var7);
+                            var7 = var1.method_586().method_501(var26, (ReferenceBinding)var7);
                         } else {
-                            var7 = var7 != null && ((class_43)var7).method_162() ? var1.method_586().method_500(var26, (class_40[])null, (class_43)var7) : var10;
+                            var7 = var7 != null && ((ReferenceBinding)var7).method_162() ? var1.method_586().method_500(var26, (class_40[])null, (ReferenceBinding)var7) : var10;
                         }
                     }
                     if (this.method_756((class_40)var7, var1)) {

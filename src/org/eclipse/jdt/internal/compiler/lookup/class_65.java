@@ -2,12 +2,12 @@ package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.internal.compiler.ast.class_124;
 import org.eclipse.jdt.internal.compiler.ast.class_164;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_203;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_64;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
@@ -65,7 +65,7 @@ public class class_65 extends class_64 {
             }
             return class_34.field_158;
         } else {
-            class_54 var1 = this.field_308.method_585();
+            SourceTypeBinding var1 = this.field_308.method_585();
             if (var1 == null) {
                 return class_34.field_158;
             } else {
@@ -74,7 +74,7 @@ public class class_65 extends class_64 {
                     class_164[] var3 = this.field_309.field_658;
                     if (var3 != null) {
                         var4 = var3.length;
-                        class_89.method_761(this.field_308, var3, this);
+                        ASTNode.method_761(this.field_308, var3, this);
                         var2 = new class_203[var4];
                         for (int var5 = 0; var5 < var4; ++var5) {
                             class_203 var10002 = new class_203(var3[var5]);
@@ -119,7 +119,7 @@ public class class_65 extends class_64 {
 
     public void method_416(class_203[] var1) {
         if (this.field_308 != null) {
-            class_54 var2 = this.field_308.method_585();
+            SourceTypeBinding var2 = this.field_308.method_585();
             if (var2 != null) {
                 var2.method_238(this, var1);
             }

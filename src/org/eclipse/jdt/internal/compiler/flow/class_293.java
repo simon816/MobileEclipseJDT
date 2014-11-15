@@ -6,9 +6,9 @@ import org.eclipse.jdt.internal.compiler.ast.class_116;
 import org.eclipse.jdt.internal.compiler.ast.class_117;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_154;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_294;
 import org.eclipse.jdt.internal.compiler.flow.class_298;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -17,7 +17,7 @@ import org.eclipse.jdt.internal.compiler.flow.class_304;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_64;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
@@ -27,7 +27,7 @@ public class class_293 implements class_17 {
 
     public static final class_293 field_1738;
 
-    public class_89 field_1739;
+    public ASTNode field_1739;
 
     public class_293 field_1740;
 
@@ -37,7 +37,7 @@ public class class_293 implements class_17 {
 
     boolean field_1743;
 
-    public class_293(class_293 var1, class_89 var2) {
+    public class_293(class_293 var1, ASTNode var2) {
         this.field_1740 = var1;
         this.field_1739 = var2;
         if (var1 != null) {
@@ -46,11 +46,11 @@ public class class_293 implements class_17 {
         }
     }
 
-    public class_74 method_3031() {
+    public BranchLabel method_3031() {
         return null;
     }
 
-    public void method_3032(class_40 var1, class_89 var2, class_301 var3, class_86 var4) {
+    public void method_3032(class_40 var1, ASTNode var2, class_301 var3, class_86 var4) {
         for (class_293 var5 = this; var5 != null; var5 = var5.field_1740) {
             class_116 var6;
             if ((var6 = var5.method_3052()) != null && var6.method_876()) {
@@ -58,12 +58,12 @@ public class class_293 implements class_17 {
             }
             if (var5 instanceof class_298) {
                 class_298 var7 = (class_298)var5;
-                class_43[] var8 = var7.field_1764;
+                ReferenceBinding[] var8 = var7.field_1764;
                 if (var7.field_1764 != class_34.field_151) {
                     boolean var9 = false;
                     int var10 = 0;
                     for (int var11 = var8.length; var10 < var11; ++var10) {
-                        class_43 var12 = var8[var10];
+                        ReferenceBinding var12 = var8[var10];
                         int var13 = var12 == null ? -1 : class_83.method_566(var1, var12);
                         switch (var13) {
                             case -1:
@@ -82,8 +82,8 @@ public class class_293 implements class_17 {
                     if (var1.method_171(false)) {
                         return;
                     }
-                    if (var7.field_1739 instanceof class_93) {
-                        class_93 var16 = (class_93)var7.field_1739;
+                    if (var7.field_1739 instanceof AbstractMethodDeclaration) {
+                        AbstractMethodDeclaration var16 = (AbstractMethodDeclaration)var7.field_1739;
                         if (var16.method_795() && var16.field_488.field_278.method_146()) {
                             var7.method_3064(var1);
                             return;
@@ -94,7 +94,7 @@ public class class_293 implements class_17 {
             }
             var5.method_3048(var3.method_3109());
             if (var5 instanceof class_294) {
-                class_89 var14 = var5.field_1739;
+                ASTNode var14 = var5.field_1739;
                 if (var14 instanceof class_117) {
                     class_117 var15 = (class_117)var14;
                     var3.method_3071(var15.field_624);
@@ -104,7 +104,7 @@ public class class_293 implements class_17 {
         var4.method_644().method_1786(var1, var2);
     }
 
-    public void method_3033(class_40[] var1, class_89 var2, class_301 var3, class_86 var4) {
+    public void method_3033(class_40[] var1, ASTNode var2, class_301 var3, class_86 var4) {
         int var6;
         if (var1 != null && (var6 = var1.length) != 0) {
             int var5 = var6;
@@ -116,14 +116,14 @@ public class class_293 implements class_17 {
                 }
                 if (var7 instanceof class_298) {
                     class_298 var9 = (class_298)var7;
-                    class_43[] var10 = var9.field_1764;
+                    ReferenceBinding[] var10 = var9.field_1764;
                     int var11;
                     if (var9.field_1764 != class_34.field_151) {
                         var11 = var10.length;
                         boolean[] var12 = new boolean[var6];
                         int var13;
                         for (var13 = 0; var13 < var11; ++var13) {
-                            class_43 var14 = var10[var13];
+                            ReferenceBinding var14 = var10[var13];
                             for (int var15 = 0; var15 < var6; ++var15) {
                                 class_40 var16;
                                 if ((var16 = var1[var15]) != null) {
@@ -156,8 +156,8 @@ public class class_293 implements class_17 {
                                 var1[var11] = null;
                             }
                         }
-                        if (var9.field_1739 instanceof class_93) {
-                            class_93 var25 = (class_93)var9.field_1739;
+                        if (var9.field_1739 instanceof AbstractMethodDeclaration) {
+                            AbstractMethodDeclaration var25 = (AbstractMethodDeclaration)var9.field_1739;
                             if (var25.method_795() && var25.field_488.field_278.method_146()) {
                                 for (int var24 = 0; var24 < var6; ++var24) {
                                     class_40 var26;
@@ -176,7 +176,7 @@ public class class_293 implements class_17 {
                 }
                 var7.method_3048(var3.method_3109());
                 if (var7 instanceof class_294) {
-                    class_89 var19 = var7.field_1739;
+                    ASTNode var19 = var7.field_1739;
                     if (var19 instanceof class_117) {
                         class_117 var21 = (class_117)var19;
                         var3.method_3071(var21.field_624);
@@ -198,7 +198,7 @@ public class class_293 implements class_17 {
         }
     }
 
-    public class_74 method_3034() {
+    public BranchLabel method_3034() {
         return null;
     }
 
@@ -405,7 +405,7 @@ public class class_293 implements class_17 {
     }
 
     static {
-        class_293 var10000 = new class_293((class_293)null, (class_89)null);
+        class_293 var10000 = new class_293((class_293)null, (ASTNode)null);
         field_1738 = var10000;
     }
 }

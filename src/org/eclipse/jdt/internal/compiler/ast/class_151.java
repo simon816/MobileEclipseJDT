@@ -5,16 +5,16 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_152;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_51;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
-import org.eclipse.jdt.internal.compiler.problem.class_241;
+import org.eclipse.jdt.internal.compiler.problem.AbortCompilation;
 
 public class class_151 extends class_146 {
 
@@ -34,22 +34,22 @@ public class class_151 extends class_146 {
         return var10000;
     }
 
-    protected class_40 method_1030(int var1, class_83 var2, class_38 var3) {
-        class_80 var4 = var2.method_586();
+    protected class_40 method_1030(int var1, class_83 var2, PackageBinding var3) {
+        LookupEnvironment var4 = var2.method_586();
         class_40 var5;
         try {
             var4.field_363 = this;
             if (this.field_675 == null) {
                 this.field_675 = var2.method_617(this.field_732[var1], var3);
             } else {
-                this.field_675 = var2.method_613(this.field_732[var1], (class_43)this.field_675);
+                this.field_675 = var2.method_613(this.field_732[var1], (ReferenceBinding)this.field_675);
                 if (!this.field_675.method_101()) {
-                    class_51 var10001 = new class_51(CharOperation.method_1387(this.field_732, 0, var1 + 1), (class_43)this.field_675.method_131(), this.field_675.method_102());
+                    class_51 var10001 = new class_51(CharOperation.method_1387(this.field_732, 0, var1 + 1), (ReferenceBinding)this.field_675.method_131(), this.field_675.method_102());
                     this.field_675 = var10001;
                 }
             }
             var5 = this.field_675;
-        } catch (class_241 var9) {
+        } catch (AbortCompilation var9) {
             var9.method_1438(this, var2.method_645().field_455);
             throw var9;
         } finally {
@@ -71,13 +71,13 @@ public class class_151 extends class_146 {
                 if (var2 instanceof class_51 && var2.method_102() == 1) {
                     class_51 var11 = (class_51)var2;
                     class_34 var12 = var1.method_620(this.field_732);
-                    class_51 var10000 = new class_51(var11.field_197, var12 instanceof class_38 ? null : var1.method_586().method_496((class_38)null, this.field_732), 1);
+                    class_51 var10000 = new class_51(var11.field_197, var12 instanceof PackageBinding ? null : var1.method_586().method_496((PackageBinding)null, this.field_732), 1);
                     return var10000;
                 } else {
-                    return (class_43)var2;
+                    return (ReferenceBinding)var2;
                 }
             } else {
-                class_38 var3 = var2 == null ? null : (class_38)var2;
+                PackageBinding var3 = var2 == null ? null : (PackageBinding)var2;
                 boolean var4 = var1.field_373 == 3;
                 Object var5 = null;
                 int var6 = var3 == null ? 0 : var3.field_171.length;
@@ -97,22 +97,22 @@ public class class_151 extends class_146 {
                     if (var4 && ((class_84)var1).method_668(this.field_675, this)) {
                         return null;
                     }
-                    class_43 var9 = (class_43)this.field_675;
+                    ReferenceBinding var9 = (ReferenceBinding)this.field_675;
                     if (var5 != null) {
                         if (var9.method_155()) {
-                            var5 = var1.method_586().method_501(var9, (class_43)var5);
+                            var5 = var1.method_586().method_501(var9, (ReferenceBinding)var5);
                         } else {
                             boolean var10;
-                            if ((var10 = ((class_43)var5).method_166()) && !var9.method_226()) {
-                                var5 = var1.method_586().method_501((class_43)var9.method_138(), (class_43)var5);
-                            } else if ((var10 || ((class_43)var5).method_162()) && ((class_43)var5).method_138() == var9.method_137().method_138()) {
-                                var5 = var1.method_586().method_500((class_43)var9.method_138(), (class_40[])null, (class_43)var5);
+                            if ((var10 = ((ReferenceBinding)var5).method_166()) && !var9.method_226()) {
+                                var5 = var1.method_586().method_501((ReferenceBinding)var9.method_138(), (ReferenceBinding)var5);
+                            } else if ((var10 || ((ReferenceBinding)var5).method_162()) && ((ReferenceBinding)var5).method_138() == var9.method_137().method_138()) {
+                                var5 = var1.method_586().method_500((ReferenceBinding)var9.method_138(), (class_40[])null, (ReferenceBinding)var5);
                             } else {
                                 var5 = var9;
                             }
                         }
                     } else {
-                        var5 = var9.method_155() ? (class_43)var1.method_586().method_490(var9, false) : var9;
+                        var5 = var9.method_155() ? (ReferenceBinding)var1.method_586().method_490(var9, false) : var9;
                     }
                 }
                 this.field_675 = (class_40)var5;

@@ -9,7 +9,7 @@ import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_51;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
@@ -183,7 +183,7 @@ public abstract class class_146 extends class_126 {
             return null;
         } else if (var2.method_169()) {
             if (this.field_675.method_101()) {
-                class_51 var10001 = new class_51(this.method_1012(), (class_43)this.field_675, 9);
+                class_51 var10001 = new class_51(this.method_1012(), (ReferenceBinding)this.field_675, 9);
                 this.field_675 = var10001;
                 this.method_1015(var1);
             }
@@ -205,11 +205,11 @@ public abstract class class_146 extends class_126 {
         return this.method_1013(var1);
     }
 
-    public class_40 method_1019(class_86 var1, class_43 var2, int var3) {
+    public class_40 method_1019(class_86 var1, ReferenceBinding var2, int var3) {
         return this.method_1017(var1, true);
     }
 
-    public class_40 method_1020(class_84 var1, class_43 var2, int var3) {
+    public class_40 method_1020(class_84 var1, ReferenceBinding var2, int var3) {
         return this.method_1018(var1);
     }
 

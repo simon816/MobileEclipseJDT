@@ -13,10 +13,10 @@ import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_50;
 import org.eclipse.jdt.internal.compiler.lookup.class_51;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_60;
 import org.eclipse.jdt.internal.compiler.lookup.class_64;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
@@ -232,8 +232,8 @@ public class class_163 extends class_161 {
                     class_40 var8 = !var3.method_148() && var2.method_148() ? var3 : var2;
                     class_40 var9 = var7.method_141(var8);
                     this.method_1067(var5, var9);
-                    if (var9 instanceof class_43) {
-                        class_43 var10 = (class_43)var9;
+                    if (var9 instanceof ReferenceBinding) {
+                        ReferenceBinding var10 = (ReferenceBinding)var9;
                         if (!var10.method_196(var1)) {
                             ProblemReporter var10000 = var1.method_644();
                             class_51 var10002 = new class_51(CharOperation.method_1385('.', var10.method_104()), var10, 2);
@@ -429,7 +429,7 @@ public class class_163 extends class_161 {
                 if (var5.method_407() == class_331.field_1896 && (var4 && !var5.method_431() || var6 != null)) {
                     var15 = var2.field_1208;
                     if ((this.field_446 & 8160) != 0) {
-                        class_43 var16 = var1.method_585().method_201((this.field_446 & 8160) >> 5);
+                        ReferenceBinding var16 = var1.method_585().method_201((this.field_446 & 8160) >> 5);
                         Object[] var18 = var1.method_714(var16, true, false);
                         var2.method_2191(var18, this, var16, var1);
                     } else {
@@ -579,7 +579,7 @@ public class class_163 extends class_161 {
                         if (var9 != null) {
                             Object var11 = var4;
                             class_40 var12 = var4.method_138();
-                            if (var12 instanceof class_43 && var12.method_140(var3.field_314) == null) {
+                            if (var12 instanceof ReferenceBinding && var12.method_140(var3.field_314) == null) {
                                 var11 = var3.field_314;
                             }
                             class_67 var13 = var9.method_435();
@@ -594,10 +594,10 @@ public class class_163 extends class_161 {
                             this.field_672 = var3.method_407();
                         }
                         if (var3.method_431()) {
-                            class_43 var15 = var3.field_314;
+                            ReferenceBinding var15 = var3.field_314;
                             if (var15.method_153()) {
                                 class_87 var14 = var1.method_635();
-                                class_54 var16 = var14.method_585();
+                                SourceTypeBinding var16 = var14.method_585();
                                 if ((var16 == var15 || var16.field_252 == var15) && var3.method_407() == class_331.field_1896 && !var14.field_404 && var14.method_728()) {
                                     var1.method_644().method_1543(var3, this);
                                 }
@@ -644,7 +644,7 @@ public class class_163 extends class_161 {
                 if (var2.method_428()) {
                     class_67 var7 = this.method_1060(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4);
                     if (var7.field_314 != var1.method_585()) {
-                        this.method_1068(var2, var4, ((class_54)var7.field_314).method_298(var7, var4 >= 0));
+                        this.method_1068(var2, var4, ((SourceTypeBinding)var7.field_314).method_298(var7, var4 >= 0));
                         var1.method_644().method_1690(var7, this, var4 >= 0);
                         return;
                     }
@@ -652,7 +652,7 @@ public class class_163 extends class_161 {
                     int var9 = var4 != 0 && (var4 >= 0 || this.field_758 != null) ? this.field_758[var4 < 0 ? this.field_758.length - 1 : var4 - 1] : (this.field_446 & 8160) >> 5;
                     if (var9 > 0 && var2.field_314.method_143() != var1.method_585().method_143()) {
                         class_67 var8 = this.method_1060(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4);
-                        this.method_1068(var2, var4, ((class_54)var1.method_585().method_201(var9)).method_298(var8, var4 >= 0));
+                        this.method_1068(var2, var4, ((SourceTypeBinding)var1.method_585().method_201(var9)).method_298(var8, var4 >= 0));
                         var1.method_644().method_1690(var8, this, var4 >= 0);
                         return;
                     }
@@ -660,7 +660,7 @@ public class class_163 extends class_161 {
                 if (var2.field_314 != var3 && !var3.method_147() && var2.field_314 != null && var2.method_407() == class_331.field_1896) {
                     CompilerOptions var10 = var1.method_577();
                     if (var10.field_1929 >= 3014656L && (var10.field_1927 >= 3145728L || var4 > 1 || this.field_759 != 1 || !var2.method_431()) && var2.field_314.field_177 != 1 || !var2.field_314.method_196(var1)) {
-                        this.method_1066(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4, var1.method_585().method_311(this.method_1060(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4), (class_43)var3.method_138()));
+                        this.method_1066(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4, var1.method_585().method_311(this.method_1060(var4 < 0 ? (this.field_756 == null ? 0 : this.field_756.length) : var4), (ReferenceBinding)var3.method_138()));
                     }
                 }
             }
@@ -789,9 +789,9 @@ public class class_163 extends class_161 {
                             var1.method_644().method_1556(this, 0, var3.method_585());
                         }
                         if (var6.method_431()) {
-                            class_43 var4 = var6.field_314;
+                            ReferenceBinding var4 = var6.field_314;
                             if (var4.method_153()) {
-                                class_54 var5 = var3.method_585();
+                                SourceTypeBinding var5 = var3.method_585();
                                 if ((var5 == var4 || var5.field_252 == var4) && var6.method_407() == class_331.field_1896 && !var3.field_404 && var3.method_728()) {
                                     var1.method_644().method_1543(var6, this);
                                 }

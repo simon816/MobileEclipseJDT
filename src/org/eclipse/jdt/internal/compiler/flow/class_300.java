@@ -2,7 +2,7 @@ package org.eclipse.jdt.internal.compiler.flow;
 
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_154;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.lookup.class_64;
@@ -27,7 +27,7 @@ public class class_300 extends class_293 {
 
     int field_1782;
 
-    public class_300(class_293 var1, class_89 var2) {
+    public class_300(class_293 var1, ASTNode var2) {
         super(var1, var2);
     }
 

@@ -4,11 +4,11 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_151;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
-import org.eclipse.jdt.internal.compiler.problem.class_241;
+import org.eclipse.jdt.internal.compiler.problem.AbortCompilation;
 
 public class class_152 extends class_151 {
 
@@ -30,13 +30,13 @@ public class class_152 extends class_151 {
             if (this.field_734 > 255) {
                 var1.method_644().method_1768(this);
             }
-            class_80 var2 = var1.method_586();
+            LookupEnvironment var2 = var1.method_586();
             class_42 var4;
             try {
                 var2.field_363 = this;
                 class_40 var3 = super.method_1011(var1);
                 var4 = (class_42)(this.field_675 = var1.method_580(var3, this.field_734));
-            } catch (class_241 var8) {
+            } catch (AbortCompilation var8) {
                 var8.method_1438(this, var1.method_645().field_455);
                 throw var8;
             } finally {

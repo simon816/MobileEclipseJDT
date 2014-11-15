@@ -10,7 +10,7 @@ import org.eclipse.jdt.internal.compiler.impl.class_338;
 import org.eclipse.jdt.internal.compiler.impl.class_339;
 import org.eclipse.jdt.internal.compiler.impl.class_340;
 import org.eclipse.jdt.internal.compiler.problem.class_249;
-import org.eclipse.jdt.internal.compiler.util.class_329;
+import org.eclipse.jdt.internal.compiler.util.Messages;
 
 public abstract class class_331 {
 
@@ -20,12 +20,12 @@ public abstract class class_331 {
     }
 
     public boolean method_3257() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "boolean"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "boolean"}));
         throw var10000;
     }
 
     public byte method_3258() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "byte"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "byte"}));
         throw var10000;
     }
 
@@ -281,7 +281,7 @@ public abstract class class_331 {
     }
 
     public char method_3260() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "char"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "char"}));
         throw var10000;
     }
 
@@ -2664,12 +2664,12 @@ public abstract class class_331 {
     }
 
     public double method_3281() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "double"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "double"}));
         throw var10000;
     }
 
     public float method_3282() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "float"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "float"}));
         throw var10000;
     }
 
@@ -2710,22 +2710,22 @@ public abstract class class_331 {
     }
 
     public int method_3284() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "int"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "int"}));
         throw var10000;
     }
 
     public long method_3285() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1894, new String[] {this.method_3289(), "long"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1894, new String[] {this.method_3289(), "long"}));
         throw var10000;
     }
 
     public short method_3286() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1895, new String[] {this.method_3289(), "short"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1895, new String[] {this.method_3289(), "short"}));
         throw var10000;
     }
 
     public String method_3287() {
-        class_249 var10000 = new class_249(class_329.method_3253(class_329.field_1895, new String[] {this.method_3289(), "String"}));
+        class_249 var10000 = new class_249(Messages.method_3253(Messages.field_1895, new String[] {this.method_3289(), "String"}));
         throw var10000;
     }
 

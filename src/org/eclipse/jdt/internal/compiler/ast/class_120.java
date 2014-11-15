@@ -6,12 +6,12 @@ import org.eclipse.jdt.internal.compiler.ast.class_164;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
-public abstract class class_120 extends class_98 implements class_0 {
+public abstract class class_120 extends class_98 implements InvocationSite {
 
     public int field_651;
 
@@ -87,7 +87,7 @@ public abstract class class_120 extends class_98 implements class_0 {
 
     public void method_821(class_86 var1) {}
 
-    public void method_4(class_43 var1) {}
+    public void method_4(ReferenceBinding var1) {}
 
     public void method_2(int var1) {
         this.field_654 = var1;

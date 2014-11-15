@@ -6,31 +6,31 @@ import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_96;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_44;
 import org.eclipse.jdt.internal.compiler.lookup.class_49;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
 import org.eclipse.jdt.internal.compiler.util.class_229;
-import org.eclipse.jdt.internal.compiler.util.class_325;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfObject;
 
 public class class_81 {
 
-    class_54 field_368;
+    SourceTypeBinding field_368;
 
-    class_325 field_369;
+    HashtableOfObject field_369;
 
-    class_325 field_370;
+    HashtableOfObject field_370;
 
-    class_80 field_371;
+    LookupEnvironment field_371;
 
     private boolean field_372;
 
-    class_81(class_80 var1) {
+    class_81(LookupEnvironment var1) {
         this.field_368 = null;
         this.field_369 = null;
         this.field_370 = null;
@@ -135,7 +135,7 @@ public class class_81 {
                         this.method_553(var1).method_1823(var1, var8);
                     }
                     if (var5.field_1940 && var8.method_375() && (!var1.method_375() || var5.field_1939)) {
-                        class_43 var9 = var8.field_278;
+                        ReferenceBinding var9 = var8.field_278;
                         if (var9.method_157()) {
                             int var10 = var3;
                             while (true) {
@@ -190,15 +190,15 @@ public class class_81 {
     }
 
     void method_532(class_58 var1, class_58 var2) {
-        class_43[] var3 = this.method_555(var1);
-        class_43[] var4 = this.method_555(var2);
+        ReferenceBinding[] var3 = this.method_555(var1);
+        ReferenceBinding[] var4 = this.method_555(var2);
         int var5 = var3.length;
         while (true) {
             --var5;
             if (var5 < 0) {
                 return;
             }
-            class_43 var6 = var3[var5];
+            ReferenceBinding var6 = var3[var5];
             int var7 = var4.length;
             do {
                 --var7;
@@ -211,7 +211,7 @@ public class class_81 {
 
     void method_533(class_58 var1, class_58 var2, class_58[] var3) {}
 
-    void method_534(class_43 var1, class_43[] var2) {
+    void method_534(ReferenceBinding var1, ReferenceBinding[] var2) {
         if (var2 != class_34.field_155) {
             class_229 var10000 = new class_229(var2.length);
             class_229 var3 = var10000;
@@ -219,17 +219,17 @@ public class class_81 {
             for (int var5 = var2.length; var4 < var5; ++var4) {
                 var3.method_1335(var2[var4]);
             }
-            class_43[] var16 = null;
+            ReferenceBinding[] var16 = null;
             var10000 = new class_229(5);
             class_229 var17 = var10000;
-            class_43 var6;
+            ReferenceBinding var6;
             int var7;
             int var11;
             for (var6 = var1; var6 != null && var6.method_101(); var6 = var6.method_240()) {
                 if ((var16 = var6.method_241()) != class_34.field_155) {
                     var7 = 0;
                     for (int var8 = var16.length; var7 < var8; ++var7) {
-                        class_43 var9 = var16[var7];
+                        ReferenceBinding var9 = var16[var7];
                         if (!var17.method_1337(var9) && var9.method_101()) {
                             if (var3.method_1337(var9)) {
                                 class_146[] var10 = this.field_368.field_258.field_376.field_582;
@@ -249,17 +249,17 @@ public class class_81 {
             }
             var7 = var17.field_988;
             if (var7 != 0) {
-                class_43[] var18 = new class_43[var7];
+                ReferenceBinding[] var18 = new ReferenceBinding[var7];
                 var17.method_1336(var18);
                 for (int var19 = 0; var19 < var7; ++var19) {
                     var6 = var18[var19];
                     if ((var16 = var6.method_241()) != class_34.field_155) {
                         int var20 = var16.length;
                         if (var7 + var20 >= var18.length) {
-                            System.arraycopy(var18, 0, var18 = new class_43[var7 + var20 + 5], 0, var7);
+                            System.arraycopy(var18, 0, var18 = new ReferenceBinding[var7 + var20 + 5], 0, var7);
                         }
                         for (var11 = 0; var11 < var20; ++var11) {
-                            class_43 var21 = var16[var11];
+                            ReferenceBinding var21 = var16[var11];
                             if (!var17.method_1337(var21) && var21.method_101()) {
                                 if (var3.method_1337(var21)) {
                                     class_146[] var13 = this.field_368.field_258.field_376.field_582;
@@ -463,9 +463,9 @@ public class class_81 {
     }
 
     void method_538(class_58 var1) {
-        class_38 var2 = var1.field_278.field_200;
+        PackageBinding var2 = var1.field_278.field_200;
         if (var2 != this.field_368.field_200) {
-            class_43 var3 = this.field_368.method_240();
+            ReferenceBinding var3 = this.field_368.method_240();
             char[] var4 = var1.field_274;
             while (var3.method_101()) {
                 if (!var3.method_217()) {
@@ -494,25 +494,25 @@ public class class_81 {
     }
 
     void method_539() {
-        class_43 var1 = this.field_368.method_157() ? this.field_368.field_258.method_609() : this.field_368.method_240();
+        ReferenceBinding var1 = this.field_368.method_157() ? this.field_368.field_258.method_609() : this.field_368.method_240();
         this.method_540(var1, this.field_368.method_241());
         this.method_534(var1, this.field_368.method_241());
     }
 
-    void method_540(class_43 var1, class_43[] var2) {
-        class_325 var10001 = new class_325(51);
+    void method_540(ReferenceBinding var1, ReferenceBinding[] var2) {
+        HashtableOfObject var10001 = new HashtableOfObject(51);
         this.field_369 = var10001;
-        class_43[] var3 = null;
+        ReferenceBinding[] var3 = null;
         int var4 = 0;
         if (var2 != class_34.field_155) {
             var4 = var2.length;
             var3 = var2;
         }
-        class_43 var6 = var1;
-        class_325 var10000 = new class_325(3);
-        class_325 var7 = var10000;
+        ReferenceBinding var6 = var1;
+        HashtableOfObject var10000 = new HashtableOfObject(3);
+        HashtableOfObject var7 = var10000;
         boolean var8 = true;
-        class_43[] var5;
+        ReferenceBinding[] var5;
         int var10;
         int var12;
         int var14;
@@ -529,11 +529,11 @@ public class class_81 {
                         } else {
                             int var9 = var5.length;
                             if (var4 + var9 >= var3.length) {
-                                System.arraycopy(var3, 0, var3 = new class_43[var4 + var9 + 5], 0, var4);
+                                System.arraycopy(var3, 0, var3 = new ReferenceBinding[var4 + var9 + 5], 0, var4);
                             }
                             label216:
                             for (var10 = 0; var10 < var9; ++var10) {
-                                class_43 var11 = var5[var10];
+                                ReferenceBinding var11 = var5[var10];
                                 for (var12 = 0; var12 < var4; ++var12) {
                                     if (var11 == var3[var12]) {
                                         continue label216;
@@ -622,11 +622,11 @@ public class class_81 {
                     if ((var5 = var6.method_241()) != class_34.field_155) {
                         int var21 = var5.length;
                         if (var4 + var21 >= var3.length) {
-                            System.arraycopy(var3, 0, var3 = new class_43[var4 + var21 + 5], 0, var4);
+                            System.arraycopy(var3, 0, var3 = new ReferenceBinding[var4 + var21 + 5], 0, var4);
                         }
                         label149:
                         for (var12 = 0; var12 < var21; ++var12) {
-                            class_43 var24 = var5[var12];
+                            ReferenceBinding var24 = var5[var12];
                             for (var14 = 0; var14 < var4; ++var14) {
                                 if (var24 == var3[var14]) {
                                     continue label149;
@@ -667,7 +667,7 @@ public class class_81 {
     void method_541() {
         class_58[] var1 = this.field_368.method_232();
         int var2 = var1.length;
-        class_325 var10001 = new class_325(var2 == 0 ? 1 : var2);
+        HashtableOfObject var10001 = new HashtableOfObject(var2 == 0 ? 1 : var2);
         this.field_370 = var10001;
         int var3 = var2;
         while (true) {
@@ -717,17 +717,17 @@ public class class_81 {
         }
     }
 
-    class_229 method_544(class_43 var1, class_43[] var2) {
+    class_229 method_544(ReferenceBinding var1, ReferenceBinding[] var2) {
         return null;
     }
 
     int[] method_545(class_58[] var1, int var2) {
         int[] var3 = null;
         int var4 = 0;
-        class_43 var5 = var1[var4].field_278;
+        ReferenceBinding var5 = var1[var4].field_278;
         if (!var5.method_157()) {
             ++var4;
-            class_43 var6;
+            ReferenceBinding var6;
             for (var6 = var1[var4].field_278; var5 == var6; var6 = var1[var4].field_278) {
                 ++var4;
                 if (var4 == var2) {
@@ -751,7 +751,7 @@ public class class_81 {
                 var5 = var1[var4].field_278;
                 for (int var8 = var4 + 1; var8 < var2; ++var8) {
                     if (var3 == null || var3[var8] != -1) {
-                        class_43 var7 = var1[var8].field_278;
+                        ReferenceBinding var7 = var1[var8].field_278;
                         if (var5 != var7) {
                             if (var5.method_215(var7, true)) {
                                 if (var3 == null) {
@@ -777,7 +777,7 @@ public class class_81 {
         return var2.field_273 == var1.field_273 ? true : (var1.method_369() ? true : (var2.method_369() ? false : (var1.method_368() ? true : (var2.method_368() ? false : !var1.method_367()))));
     }
 
-    boolean method_547(class_58 var1, class_58 var2, class_43 var3) {
+    boolean method_547(class_58 var1, class_58 var2, ReferenceBinding var3) {
         return this.method_523(var2, var1) && var2.field_278.method_215(var3, true);
     }
 
@@ -785,7 +785,7 @@ public class class_81 {
         return this.method_523(var1, var2);
     }
 
-    boolean method_549(class_43 var1, class_43 var2) {
+    boolean method_549(ReferenceBinding var1, ReferenceBinding var2) {
         do {
             if (var1 == var2) {
                 return true;
@@ -794,8 +794,8 @@ public class class_81 {
         return false;
     }
 
-    boolean method_550(class_43 var1) {
-        class_43 var2 = this.field_368.method_240();
+    boolean method_550(ReferenceBinding var1) {
+        ReferenceBinding var2 = this.field_368.method_240();
         if (var1.method_151()) {
             while (var2.method_217() && var2 != var1) {
                 var2 = var2.method_240();
@@ -837,8 +837,8 @@ public class class_81 {
         return true;
     }
 
-    class_43[] method_555(class_58 var1) {
-        class_43[] var2 = var1.field_277;
+    ReferenceBinding[] method_555(class_58 var1) {
+        ReferenceBinding[] var2 = var1.field_277;
         if ((var1.field_273 & 33554432) == 0) {
             return var2;
         } else if (!(var1.field_278 instanceof class_49)) {
@@ -855,7 +855,7 @@ public class class_81 {
         }
     }
 
-    void method_556(class_54 var1) {
+    void method_556(SourceTypeBinding var1) {
         this.field_368 = var1;
         this.method_541();
         this.method_539();

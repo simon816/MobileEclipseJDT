@@ -1,6 +1,6 @@
 package org.eclipse.jdt.internal.compiler.parser;
 
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.parser.class_251;
 
@@ -13,7 +13,7 @@ public class class_258 extends class_251 {
         this.field_1117 = var1;
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return this.field_1117;
     }
 

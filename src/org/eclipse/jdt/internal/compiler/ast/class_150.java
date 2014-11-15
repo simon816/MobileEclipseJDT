@@ -6,7 +6,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_149;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
@@ -27,7 +27,7 @@ public class class_150 extends class_149 {
         if (this.field_675 != null) {
             if (this.field_675.method_173() instanceof class_52) {
                 class_52 var2 = (class_52)this.field_675.method_173();
-                class_43 var3 = var2.method_286();
+                ReferenceBinding var3 = var2.method_286();
                 class_46[] var4 = var3.method_181();
                 class_40[] var5 = var2.field_243;
                 if (var5 != null && var4 != null) {
@@ -46,7 +46,7 @@ public class class_150 extends class_149 {
         return null;
     }
 
-    private class_40 method_1028(class_83 var1, class_43 var2, boolean var3) {
+    private class_40 method_1028(class_83 var1, ReferenceBinding var2, boolean var3) {
         this.field_672 = class_331.field_1896;
         if ((this.field_446 & 262144) != 0 && this.field_675 != null) {
             if (this.field_675.method_101()) {
@@ -72,7 +72,7 @@ public class class_150 extends class_149 {
             if (var2 == null) {
                 this.field_675 = var1.method_616(this.field_726);
                 if (this.field_675.method_101()) {
-                    var5 = (class_43)this.field_675;
+                    var5 = (ReferenceBinding)this.field_675;
                 } else {
                     var4 = true;
                     this.method_1015(var1);
@@ -81,8 +81,8 @@ public class class_150 extends class_149 {
                         case 2:
                         case 5:
                             class_40 var6 = this.field_675.method_131();
-                            if (var6 instanceof class_43) {
-                                var5 = (class_43)var6;
+                            if (var6 instanceof ReferenceBinding) {
+                                var5 = (ReferenceBinding)var6;
                                 break;
                             }
                         case 3:
@@ -101,10 +101,10 @@ public class class_150 extends class_149 {
                             return null;
                     }
                 }
-                var2 = ((class_43)var5).method_137();
+                var2 = ((ReferenceBinding)var5).method_137();
                 if (var2 != null) {
-                    var2 = ((class_43)var5).method_226() ? (class_43)var1.method_586().method_490(var2, false) : var1.method_586().method_489(var2);
-                    var5 = var1.method_586().method_500((class_43)((class_43)var5).method_138(), (class_40[])null, var2);
+                    var2 = ((ReferenceBinding)var5).method_226() ? (ReferenceBinding)var1.method_586().method_490(var2, false) : var1.method_586().method_489(var2);
+                    var5 = var1.method_586().method_500((ReferenceBinding)((ReferenceBinding)var5).method_138(), (class_40[])null, var2);
                 }
             } else {
                 this.field_675 = (class_40)(var5 = var1.method_613(this.field_726, var2));
@@ -126,7 +126,7 @@ public class class_150 extends class_149 {
             var8 = this.field_731.length;
             class_40[] var18 = new class_40[var8];
             boolean var19 = false;
-            class_43 var11 = (class_43)((class_43)var5).method_138();
+            ReferenceBinding var11 = (ReferenceBinding)((ReferenceBinding)var5).method_138();
             for (int var12 = 0; var12 < var8; ++var12) {
                 class_146 var13 = this.field_731[var12];
                 class_40 var14 = var16 ? var13.method_1020((class_84)var1, var11, var12) : var13.method_1019((class_86)var1, var11, var12);
@@ -172,8 +172,8 @@ public class class_150 extends class_149 {
                         var1.method_644().method_1609(this, (class_40)var5, var18);
                         return null;
                     }
-                    if (!((class_43)var5).method_226()) {
-                        class_43 var21 = ((class_43)var5).method_137();
+                    if (!((ReferenceBinding)var5).method_226()) {
+                        ReferenceBinding var21 = ((ReferenceBinding)var5).method_137();
                         if (var21 != null && var21.method_166()) {
                             var1.method_644().method_1741(this, var1.method_586().method_501(var11, var21), var18);
                             return null;
@@ -228,14 +228,14 @@ public class class_150 extends class_149 {
     }
 
     public class_40 method_1017(class_86 var1, boolean var2) {
-        return this.method_1028(var1, (class_43)null, var2);
+        return this.method_1028(var1, (ReferenceBinding)null, var2);
     }
 
     public class_40 method_1018(class_84 var1) {
-        return this.method_1028(var1, (class_43)null, false);
+        return this.method_1028(var1, (ReferenceBinding)null, false);
     }
 
-    public class_40 method_1023(class_86 var1, class_43 var2) {
+    public class_40 method_1023(class_86 var1, ReferenceBinding var2) {
         return this.method_1028(var1, var2, true);
     }
 

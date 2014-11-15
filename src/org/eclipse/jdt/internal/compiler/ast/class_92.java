@@ -8,7 +8,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_129;
 import org.eclipse.jdt.internal.compiler.ast.class_161;
 import org.eclipse.jdt.internal.compiler.ast.class_164;
 import org.eclipse.jdt.internal.compiler.ast.class_176;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_320;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
@@ -18,7 +18,7 @@ import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
-public class class_92 extends class_89 {
+public class class_92 extends ASTNode {
 
     public char[] field_474;
 
@@ -80,7 +80,7 @@ public class class_92 extends class_89 {
                         if (var13.method_145() && !var3.method_145()) {
                             var1.method_644().method_1474(this.field_476.field_278, this.field_474, this.field_475, var13);
                         } else {
-                            var1.method_644().method_1777(var3, var2, this.field_475, (class_89)null);
+                            var1.method_644().method_1777(var3, var2, this.field_475, (ASTNode)null);
                         }
                         return;
                     }

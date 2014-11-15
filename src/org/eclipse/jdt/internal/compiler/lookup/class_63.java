@@ -1,26 +1,26 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.internal.compiler.ast.class_168;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_32;
 import org.eclipse.jdt.internal.compiler.lookup.class_321;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_53;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_61;
 import org.eclipse.jdt.internal.compiler.lookup.class_62;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 
 public class class_63 extends class_62 implements class_32 {
 
     public class_40[] field_293;
 
-    private class_80 field_294;
+    private LookupEnvironment field_294;
 
     public boolean field_295;
 
@@ -32,7 +32,7 @@ public class class_63 extends class_62 implements class_32 {
 
     public boolean field_299;
 
-    public static class_58 method_400(class_58 var0, class_40[] var1, class_83 var2, class_0 var3) {
+    public static class_58 method_400(class_58 var0, class_40[] var1, class_83 var2, InvocationSite var3) {
         class_46[] var5 = var0.field_279;
         class_40[] var6 = var3.method_0();
         class_63 var4;
@@ -251,7 +251,7 @@ public class class_63 extends class_62 implements class_32 {
         return true;
     }
 
-    public class_63(class_58 var1, class_53 var2, class_80 var3) {
+    public class_63(class_58 var1, class_53 var2, LookupEnvironment var3) {
         class_46[] var4 = var1.field_279;
         int var5 = var4.length;
         class_40[] var6 = new class_40[var5];
@@ -263,7 +263,7 @@ public class class_63 extends class_62 implements class_32 {
         this.field_294 = var3;
         this.field_273 = var1.field_273;
         this.field_274 = var1.field_274;
-        this.field_278 = (class_43)(var2 == null ? var1.field_278 : var2);
+        this.field_278 = (ReferenceBinding)(var2 == null ? var1.field_278 : var2);
         this.field_279 = class_34.field_157;
         this.field_293 = var6;
         this.field_292 = var1;
@@ -277,7 +277,7 @@ public class class_63 extends class_62 implements class_32 {
         this.field_296 = false;
     }
 
-    public class_63(class_58 var1, class_40[] var2, class_80 var3) {
+    public class_63(class_58 var1, class_40[] var2, LookupEnvironment var3) {
         this.field_294 = var3;
         this.field_273 = var1.field_273;
         this.field_274 = var1.field_274;
@@ -326,7 +326,7 @@ public class class_63 extends class_62 implements class_32 {
         this.field_296 = true;
     }
 
-    public class_80 method_91() {
+    public LookupEnvironment method_91() {
         return this.field_294;
     }
 
@@ -456,7 +456,7 @@ public class class_63 extends class_62 implements class_32 {
                 if (var5.method_257() <= 1) {
                     var3[var4] = this.field_294.method_490(var5.method_261(), false);
                 } else {
-                    var3[var4] = this.field_294.method_490(this.field_294.method_502((class_43)null, 0, var5.method_240(), var5.method_241(), 1), false);
+                    var3[var4] = this.field_294.method_490(this.field_294.method_502((ReferenceBinding)null, 0, var5.method_240(), var5.method_241(), 1), false);
                 }
             }
             this.field_298 = this.field_294.method_499(this.field_292, var3);

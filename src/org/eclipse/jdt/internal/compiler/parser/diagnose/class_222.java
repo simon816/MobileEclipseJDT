@@ -1170,7 +1170,7 @@ public class class_222 {
         if (var3 > 110) {
             this.field_958 = var2;
             if (this.field_947) {
-                eclipse.instance.method_736(this.field_958);
+                eclipse.instance.println(this.field_958);
             }
             var5 = var2;
             var6 = var4;
@@ -1182,16 +1182,16 @@ public class class_222 {
                 while (true) {
                     this.field_958 -= Parser.field_1540[var8] - 1;
                     if (this.field_947) {
-                        eclipse.instance.method_743(this.field_958);
-                        eclipse.instance.method_744(" (");
-                        eclipse.instance.method_743(-(Parser.field_1540[var8] - 1));
-                        eclipse.instance.method_744(") [max:");
-                        eclipse.instance.method_743(var5);
-                        eclipse.instance.method_744("]\tprocess_non_terminal\t");
-                        eclipse.instance.method_743(var8);
-                        eclipse.instance.method_744("\t");
-                        eclipse.instance.method_744(Parser.field_1535[Parser.field_1538[Parser.field_1534[var8]]]);
-                        eclipse.instance.newLine();
+                        eclipse.instance.print(this.field_958);
+                        eclipse.instance.print(" (");
+                        eclipse.instance.print(-(Parser.field_1540[var8] - 1));
+                        eclipse.instance.print(") [max:");
+                        eclipse.instance.print(var5);
+                        eclipse.instance.print("]\tprocess_non_terminal\t");
+                        eclipse.instance.print(var8);
+                        eclipse.instance.print("\t");
+                        eclipse.instance.print(Parser.field_1535[Parser.field_1538[Parser.field_1534[var8]]]);
+                        eclipse.instance.println();
                     }
                     if (Parser.field_1545[var8] > this.field_948.field_1928) {
                         return 0;
@@ -1208,7 +1208,7 @@ public class class_222 {
         } else {
             this.field_958 = var2 - 1;
             if (this.field_947) {
-                eclipse.instance.method_736(this.field_958);
+                eclipse.instance.println(this.field_958);
             }
             var5 = this.field_958;
             var6 = var4 - 1;
@@ -1217,14 +1217,14 @@ public class class_222 {
         }
         while (true) {
             if (this.field_947) {
-                eclipse.instance.method_743(this.field_958 + 1);
-                eclipse.instance.method_744(" (+1) [max:");
-                eclipse.instance.method_743(var5);
-                eclipse.instance.method_744("]\tprocess_terminal    \t");
-                eclipse.instance.method_743(var7);
-                eclipse.instance.method_744("\t");
-                eclipse.instance.method_744(Parser.field_1535[Parser.field_1555[var7]]);
-                eclipse.instance.newLine();
+                eclipse.instance.print(this.field_958 + 1);
+                eclipse.instance.print(" (+1) [max:");
+                eclipse.instance.print(var5);
+                eclipse.instance.print("]\tprocess_terminal    \t");
+                eclipse.instance.print(var7);
+                eclipse.instance.print("\t");
+                eclipse.instance.print(Parser.field_1535[Parser.field_1555[var7]]);
+                eclipse.instance.println();
             }
             if (++this.field_958 >= this.field_953) {
                 return var6;
@@ -1234,11 +1234,11 @@ public class class_222 {
             if (var8 <= 700) {
                 --this.field_958;
                 if (this.field_947) {
-                    eclipse.instance.method_743(this.field_958);
-                    eclipse.instance.method_744(" (-1) [max:");
-                    eclipse.instance.method_743(var5);
-                    eclipse.instance.method_744("]\treduce");
-                    eclipse.instance.newLine();
+                    eclipse.instance.print(this.field_958);
+                    eclipse.instance.print(" (-1) [max:");
+                    eclipse.instance.print(var5);
+                    eclipse.instance.print("]\treduce");
+                    eclipse.instance.println();
                 }
             } else {
                 if (var8 >= 12827 && var8 <= 12828) {
@@ -1255,30 +1255,30 @@ public class class_222 {
                 this.field_949.method_1210(this.field_949.method_1207(this.field_968[var6]));
                 if (var8 <= 12828) {
                     if (this.field_947) {
-                        eclipse.instance.print("\tshift");
+                        eclipse.instance.println("\tshift");
                     }
                     continue;
                 }
                 var8 -= 12828;
                 if (this.field_947) {
-                    eclipse.instance.method_743(this.field_958);
-                    eclipse.instance.method_744("\tshift reduce");
-                    eclipse.instance.newLine();
+                    eclipse.instance.print(this.field_958);
+                    eclipse.instance.print("\tshift reduce");
+                    eclipse.instance.println();
                 }
             }
             do {
                 this.field_958 -= Parser.field_1540[var8] - 1;
                 if (this.field_947) {
-                    eclipse.instance.method_743(this.field_958);
-                    eclipse.instance.method_744(" (");
-                    eclipse.instance.method_743(-(Parser.field_1540[var8] - 1));
-                    eclipse.instance.method_744(") [max:");
-                    eclipse.instance.method_743(var5);
-                    eclipse.instance.method_744("]\tprocess_non_terminal\t");
-                    eclipse.instance.method_743(var8);
-                    eclipse.instance.method_744("\t");
-                    eclipse.instance.method_744(Parser.field_1535[Parser.field_1538[Parser.field_1534[var8]]]);
-                    eclipse.instance.newLine();
+                    eclipse.instance.print(this.field_958);
+                    eclipse.instance.print(" (");
+                    eclipse.instance.print(-(Parser.field_1540[var8] - 1));
+                    eclipse.instance.print(") [max:");
+                    eclipse.instance.print(var5);
+                    eclipse.instance.print("]\tprocess_non_terminal\t");
+                    eclipse.instance.print(var8);
+                    eclipse.instance.print("\t");
+                    eclipse.instance.print(Parser.field_1535[Parser.field_1538[Parser.field_1534[var8]]]);
+                    eclipse.instance.println();
                 }
                 if (var8 <= 700 && Parser.field_1545[var8] > this.field_948.field_1928) {
                     return 0;

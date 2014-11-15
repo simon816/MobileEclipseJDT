@@ -9,9 +9,9 @@ import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
@@ -31,7 +31,7 @@ public class class_129 extends class_126 {
     }
 
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
-        class_54 var4 = var1.method_640().method_585();
+        SourceTypeBinding var4 = var1.method_640().method_585();
         if (!var4.method_157() && !this.field_682.method_148() && var1.method_577().field_1928 < 3211264L) {
             this.field_683 = var4.method_295(this.field_682, var1);
         }
@@ -70,7 +70,7 @@ public class class_129 extends class_126 {
             } else if (this.field_682.method_169()) {
                 var1.method_644().method_1568((class_46)this.field_682, this);
             }
-            class_43 var4 = var1.method_606();
+            ReferenceBinding var4 = var1.method_606();
             if (var4.method_155()) {
                 var3 = null;
                 Object var5;
@@ -79,7 +79,7 @@ public class class_129 extends class_126 {
                 } else {
                     var5 = var1.method_574(this.field_682);
                 }
-                this.field_675 = var1.method_586().method_500(var4, new class_40[] {(class_40)var5}, (class_43)null);
+                this.field_675 = var1.method_586().method_500(var4, new class_40[] {(class_40)var5}, (ReferenceBinding)null);
             } else {
                 this.field_675 = var4;
             }

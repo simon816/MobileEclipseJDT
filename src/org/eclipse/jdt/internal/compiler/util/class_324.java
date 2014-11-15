@@ -1,13 +1,13 @@
 package org.eclipse.jdt.internal.compiler.util;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 
 public final class class_324 {
 
     public char[][] field_1840;
 
-    public class_38[] field_1841;
+    public PackageBinding[] field_1841;
 
     public int field_1842;
 
@@ -25,10 +25,10 @@ public final class class_324 {
             ++var2;
         }
         this.field_1840 = new char[var2][];
-        this.field_1841 = new class_38[var2];
+        this.field_1841 = new PackageBinding[var2];
     }
 
-    public class_38 method_3219(char[] var1) {
+    public PackageBinding method_3219(char[] var1) {
         int var2 = this.field_1840.length;
         int var3 = CharOperation.method_1369(var1) % var2;
         int var4 = var1.length;
@@ -45,7 +45,7 @@ public final class class_324 {
         return null;
     }
 
-    public class_38 method_3220(char[] var1, class_38 var2) {
+    public PackageBinding method_3220(char[] var1, PackageBinding var2) {
         int var3 = this.field_1840.length;
         int var4 = CharOperation.method_1369(var1) % var3;
         int var5 = var1.length;
@@ -90,7 +90,7 @@ public final class class_324 {
         String var1 = "";
         int var3 = 0;
         for (int var4 = this.field_1841.length; var3 < var4; ++var3) {
-            class_38 var2;
+            PackageBinding var2;
             if ((var2 = this.field_1841[var3]) != null) {
                 var1 = var1 + var2.toString() + "\n";
             }

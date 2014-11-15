@@ -1,23 +1,23 @@
 package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.internal.compiler.class_264;
-import org.eclipse.jdt.internal.compiler.class_284;
-import org.eclipse.jdt.internal.compiler.class_288;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
+import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
 import org.eclipse.jdt.internal.compiler.ast.class_122;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.codegen.class_272;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_298;
 import org.eclipse.jdt.internal.compiler.flow.class_299;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
@@ -25,13 +25,13 @@ import org.eclipse.jdt.internal.compiler.lookup.class_87;
 import org.eclipse.jdt.internal.compiler.parser.Parser;
 import org.eclipse.jdt.internal.compiler.problem.class_244;
 
-public class class_95 extends class_93 {
+public class class_95 extends AbstractMethodDeclaration {
 
     private class_67 field_495;
 
     private class_67 field_496;
 
-    public class_95(class_284 var1) {
+    public class_95(CompilationResult var1) {
         super(var1);
         this.field_495 = null;
         this.field_496 = null;
@@ -63,7 +63,7 @@ public class class_95 extends class_93 {
         }
     }
 
-    public void method_789(class_84 var1, class_288 var2) {
+    public void method_789(class_84 var1, ClassFile var2) {
         byte var3 = 0;
         if (!this.field_489) {
             try {
@@ -88,7 +88,7 @@ public class class_95 extends class_93 {
         }
     }
 
-    private void method_812(class_84 var1, class_288 var2, int var3) {
+    private void method_812(class_84 var1, ClassFile var2, int var3) {
         class_272 var4 = var2.field_1716;
         int var5 = var4.field_1321;
         int var6 = var4.field_1320;
@@ -104,12 +104,12 @@ public class class_95 extends class_93 {
         if (this.field_495 != null) {
             var8.method_2177(var1.method_640().method_585(), this.field_496);
             var8.method_2264();
-            class_74 var10000 = new class_74(var8);
-            class_74 var11 = var10000;
+            BranchLabel var10000 = new BranchLabel(var8);
+            BranchLabel var11 = var10000;
             var8.method_2242(var11);
             var8.method_2222();
-            var10000 = new class_74(var8);
-            class_74 var12 = var10000;
+            var10000 = new BranchLabel(var8);
+            BranchLabel var12 = var10000;
             var8.method_2125(1);
             var8.method_2209(var12);
             var11.method_458();
@@ -224,7 +224,7 @@ public class class_95 extends class_93 {
         return true;
     }
 
-    public void method_800(Parser var1, class_90 var2) {}
+    public void method_800(Parser var1, CompilationUnitDeclaration var2) {}
 
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2).append("<clinit>()");
@@ -245,7 +245,7 @@ public class class_95 extends class_93 {
     public void method_813(class_67 var1, boolean var2) {
         this.field_495 = var1;
         if (var2) {
-            class_54 var3 = this.field_478.method_640().method_585();
+            SourceTypeBinding var3 = this.field_478.method_640().method_585();
             if (!var3.method_157() && !var3.method_148()) {
                 this.field_496 = var3.method_295(var3, this.field_478);
             }

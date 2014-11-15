@@ -2,14 +2,14 @@ package org.eclipse.jdt.internal.compiler.flow;
 
 import org.eclipse.jdt.internal.compiler.ast.class_116;
 import org.eclipse.jdt.internal.compiler.ast.class_117;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.codegen.class_277;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.lookup.class_87;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class class_298 extends class_293 {
 
-    public class_43[] field_1764;
+    public ReferenceBinding[] field_1764;
 
     int[] field_1765;
 
@@ -34,7 +34,7 @@ public class class_298 extends class_293 {
 
     public ArrayList field_1771;
 
-    public class_298(class_293 var1, class_89 var2, class_43[] var3, class_86 var4, class_303 var5) {
+    public class_298(class_293 var1, ASTNode var2, ReferenceBinding[] var3, class_86 var4, class_303 var5) {
         super(var1, var2);
         class_277 var10001 = new class_277();
         this.field_1768 = var10001;
@@ -47,7 +47,7 @@ public class class_298 extends class_293 {
         this.field_1767 = new class_303[var6];
         boolean var8 = !this.field_1769 || var4.method_577().field_1946;
         for (int var9 = 0; var9 < var6; ++var9) {
-            class_43 var10 = var3[var9];
+            ReferenceBinding var10 = var3[var9];
             this.field_1768.method_2501(var10, var9);
             if (var10.method_171(true)) {
                 if (var8 || var10.field_177 != 21 && var10.field_177 != 25) {
@@ -64,7 +64,7 @@ public class class_298 extends class_293 {
         this.field_1770 = class_301.field_1784;
     }
 
-    public void method_3061(class_93 var1) {
+    public void method_3061(AbstractMethodDeclaration var1) {
         class_87 var2 = var1.field_478;
         if ((var1.field_488.field_273 & 805306368) == 0 || var2.method_577().field_1944) {
             Object var3 = null;
@@ -121,7 +121,7 @@ public class class_298 extends class_293 {
         return var1.toString();
     }
 
-    public class_303 method_3063(class_43 var1) {
+    public class_303 method_3063(ReferenceBinding var1) {
         int var2;
         return (var2 = this.field_1768.method_2499(var1)) < 0 ? class_301.field_1784 : this.field_1767[var2];
     }
@@ -151,7 +151,7 @@ public class class_298 extends class_293 {
         }
     }
 
-    public void method_3065(class_43 var1, class_303 var2, class_40 var3, class_89 var4, boolean var5) {
+    public void method_3065(ReferenceBinding var1, class_303 var2, class_40 var3, ASTNode var4, boolean var5) {
         int var6 = this.field_1768.method_2499(var1);
         int var7 = var6 / 32;
         int var8 = 1 << var6 % 32;

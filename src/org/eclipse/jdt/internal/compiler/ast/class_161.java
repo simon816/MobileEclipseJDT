@@ -1,13 +1,13 @@
 package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.internal.compiler.ast.class_154;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 
-public abstract class class_161 extends class_154 implements class_0 {
+public abstract class class_161 extends class_154 implements InvocationSite {
 
     public class_34 field_748;
 
@@ -27,7 +27,7 @@ public abstract class class_161 extends class_154 implements class_0 {
         return false;
     }
 
-    public void method_4(class_43 var1) {
+    public void method_4(ReferenceBinding var1) {
         if (var1 != null) {
             this.field_750 = var1;
         }

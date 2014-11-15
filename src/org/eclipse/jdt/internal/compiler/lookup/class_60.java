@@ -2,15 +2,15 @@ package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 
 public class class_60 extends class_58 {
 
@@ -28,11 +28,11 @@ public class class_60 extends class_58 {
 
     public int field_289;
 
-    public class_60(class_67 var1, boolean var2, class_43 var3) {
+    public class_60(class_67 var1, boolean var2, ReferenceBinding var3) {
         this.field_288 = 0;
         this.field_273 = 4104;
         this.field_281 |= 25769803776L;
-        class_54 var4 = (class_54)var3;
+        SourceTypeBinding var4 = (SourceTypeBinding)var3;
         class_60[] var5 = var4.method_319();
         int var6 = var5 == null ? 0 : var5.length;
         this.field_289 = var6;
@@ -70,7 +70,7 @@ public class class_60 extends class_58 {
                 long var8;
                 int var11;
                 int var12;
-                if ((var8 = class_43.method_190(this.field_274, var10)) >= 0L) {
+                if ((var8 = ReferenceBinding.method_190(this.field_274, var10)) >= 0L) {
                     var11 = this.field_276.length;
                     var12 = (int)var8;
                     label90:
@@ -116,11 +116,11 @@ public class class_60 extends class_58 {
         this.field_288 = var4.field_258.field_376.field_444;
     }
 
-    public class_60(class_67 var1, class_43 var2, class_40 var3, char[] var4) {
+    public class_60(class_67 var1, ReferenceBinding var2, class_40 var3, char[] var4) {
         this.field_288 = 0;
         this.field_273 = 4104;
         this.field_281 |= 25769803776L;
-        class_54 var5 = (class_54)var2;
+        SourceTypeBinding var5 = (SourceTypeBinding)var2;
         class_60[] var6 = var5.method_319();
         int var7 = var6 == null ? 0 : var6.length;
         this.field_289 = var7;
@@ -143,7 +143,7 @@ public class class_60 extends class_58 {
                 long var9;
                 int var12;
                 int var13;
-                if ((var9 = class_43.method_190(this.field_274, var11)) >= 0L) {
+                if ((var9 = ReferenceBinding.method_190(this.field_274, var11)) >= 0L) {
                     var12 = this.field_276.length;
                     var13 = (int)var9;
                     label62:
@@ -179,7 +179,7 @@ public class class_60 extends class_58 {
         this.field_288 = var5.field_258.field_376.field_444;
     }
 
-    public class_60(class_58 var1, boolean var2, class_43 var3) {
+    public class_60(class_58 var1, boolean var2, ReferenceBinding var3) {
         this.field_288 = 0;
         if (var1.method_358()) {
             this.method_393(var1);
@@ -188,7 +188,7 @@ public class class_60 extends class_58 {
         }
     }
 
-    public class_60(class_58 var1, class_58 var2, class_54 var3) {
+    public class_60(class_58 var1, class_58 var2, SourceTypeBinding var3) {
         this.field_288 = 0;
         this.field_278 = var3;
         this.field_274 = var1.field_274;
@@ -204,13 +204,13 @@ public class class_60 extends class_58 {
         this.field_289 = var5;
     }
 
-    public class_60(class_54 var1, char[] var2) {
+    public class_60(SourceTypeBinding var1, char[] var2) {
         this.field_288 = 0;
         this.field_278 = var1;
         this.field_274 = var2;
         this.field_273 = 9;
         this.field_281 |= 25769803776L;
-        class_80 var3 = var1.field_258.method_586();
+        LookupEnvironment var3 = var1.field_258.method_586();
         this.field_277 = class_34.field_151;
         if (var2 == class_17.field_71) {
             this.field_275 = var3.method_493(var3.method_489(var1), 1);
@@ -221,7 +221,7 @@ public class class_60 extends class_58 {
             this.field_276 = new class_40[] {var1.field_258.method_610()};
             this.field_287 = 8;
         }
-        class_60[] var4 = ((class_54)this.field_278).method_319();
+        class_60[] var4 = ((SourceTypeBinding)this.field_278).method_319();
         int var5 = var4 == null ? 0 : var4.length;
         this.field_289 = var5;
         if (var1.method_227()) {
@@ -233,7 +233,7 @@ public class class_60 extends class_58 {
         this.field_285 = var1;
         this.field_273 = 4096;
         this.field_281 |= 25769803776L;
-        class_54 var2 = (class_54)var1.field_278;
+        SourceTypeBinding var2 = (SourceTypeBinding)var1.field_278;
         class_60[] var3 = var2.method_319();
         this.field_289 = var3 == null ? 0 : var3.length;
         this.field_274 = var1.field_274;
@@ -271,7 +271,7 @@ public class class_60 extends class_58 {
                     this.field_276[var8] = this.field_278;
                 }
                 if (!var4) {
-                    class_93[] var9 = var2.field_258.field_376.field_584;
+                    AbstractMethodDeclaration[] var9 = var2.field_258.field_376.field_584;
                     if (var9 != null) {
                         var6 = 0;
                         for (var7 = var9.length; var6 < var7; ++var6) {
@@ -288,11 +288,11 @@ public class class_60 extends class_58 {
         }
     }
 
-    public void method_394(class_58 var1, boolean var2, class_43 var3) {
+    public void method_394(class_58 var1, boolean var2, ReferenceBinding var3) {
         this.field_285 = var1;
         this.field_273 = 4104;
         this.field_281 |= 25769803776L;
-        class_54 var4 = (class_54)var3;
+        SourceTypeBinding var4 = (SourceTypeBinding)var3;
         class_60[] var5 = var4.method_319();
         int var6 = var5 == null ? 0 : var5.length;
         this.field_289 = var6;
@@ -334,7 +334,7 @@ public class class_60 extends class_58 {
                     this.method_381(CharOperation.method_1355(class_17.field_143, String.valueOf(var6).toCharArray()));
                 }
                 if (!var7) {
-                    class_93[] var11 = var4.field_258.field_376.field_584;
+                    AbstractMethodDeclaration[] var11 = var4.field_258.field_376.field_584;
                     if (var11 != null) {
                         var9 = 0;
                         for (var10 = var11.length; var9 < var10; ++var9) {

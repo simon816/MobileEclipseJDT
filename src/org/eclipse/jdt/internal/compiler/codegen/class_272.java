@@ -1,7 +1,7 @@
 package org.eclipse.jdt.internal.compiler.codegen;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.class_288;
+import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.codegen.class_262;
 import org.eclipse.jdt.internal.compiler.codegen.class_263;
 import org.eclipse.jdt.internal.compiler.codegen.class_274;
@@ -11,7 +11,7 @@ import org.eclipse.jdt.internal.compiler.codegen.AttributeNamesConstants;
 import org.eclipse.jdt.internal.compiler.codegen.class_76;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.util.class_325;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfObject;
 
 public class class_272 {
 
@@ -27,11 +27,11 @@ public class class_272 {
 
     protected class_262 field_1315;
 
-    protected class_325 field_1316;
+    protected HashtableOfObject field_1316;
 
     protected class_262 field_1317;
 
-    protected class_325 field_1318;
+    protected HashtableOfObject field_1318;
 
     public byte[] field_1319;
 
@@ -41,7 +41,7 @@ public class class_272 {
 
     public int[] field_1322;
 
-    public class_288 field_1323;
+    public ClassFile field_1323;
 
     public static final char[] field_1324;
 
@@ -421,23 +421,23 @@ public class class_272 {
 
     public static final char[] field_1512;
 
-    public class_272(class_288 var1) {
+    public class_272(ClassFile var1) {
         this.field_1320 = 1;
         class_262 var10001 = new class_262(778);
         this.field_1314 = var10001;
         var10001 = new class_262(761);
         this.field_1315 = var10001;
-        class_325 var2 = new class_325(450);
+        HashtableOfObject var2 = new HashtableOfObject(450);
         this.field_1316 = var2;
         var10001 = new class_262(86);
         this.field_1317 = var10001;
-        var2 = new class_325(272);
+        var2 = new HashtableOfObject(272);
         this.field_1318 = var2;
         this.field_1322 = new int[5];
         this.method_2456(var1);
     }
 
-    public void method_2456(class_288 var1) {
+    public void method_2456(ClassFile var1) {
         this.field_1319 = var1.field_1722;
         this.field_1321 = var1.field_1723;
         this.field_1320 = 1;
@@ -930,11 +930,11 @@ public class class_272 {
     }
 
     private int method_2474(char[] var1, char[] var2, char[] var3, int var4) {
-        class_325 var6 = (class_325)this.field_1316.method_3226(var1);
+        HashtableOfObject var6 = (HashtableOfObject)this.field_1316.method_3226(var1);
         int var5;
         class_263 var11;
         if (var6 == null) {
-            class_325 var10000 = new class_325();
+            HashtableOfObject var10000 = new HashtableOfObject();
             var6 = var10000;
             this.field_1316.method_3227(var1, var6);
             var11 = new class_263(var3, var4);

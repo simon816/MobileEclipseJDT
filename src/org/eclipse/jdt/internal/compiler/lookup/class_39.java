@@ -1,8 +1,8 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 
-public class class_39 extends class_38 {
+public class class_39 extends PackageBinding {
 
     private int field_176;
 

@@ -14,7 +14,7 @@ import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.impl.class_337;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
@@ -72,7 +72,7 @@ public class class_108 extends class_98 {
         } else {
             var3.field_607[var3.field_610++] = this;
             if (var2 != null && var2.method_153() && this.field_566 instanceof class_162) {
-                ((class_162)this.field_566).method_4((class_43)var2);
+                ((class_162)this.field_566).method_4((ReferenceBinding)var2);
             }
             class_40 var4 = this.field_566.method_925(var1);
             if (var4 != null && var2 != null) {

@@ -4,11 +4,11 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_112;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.lookup.class_87;
@@ -54,7 +54,7 @@ public class class_122 extends class_121 {
         return (this.field_656 & 8) != 0;
     }
 
-    public void method_895(Parser var1, class_114 var2, class_90 var3) {
+    public void method_895(Parser var1, class_114 var2, CompilationUnitDeclaration var3) {
         var1.method_2858(this, var2, var3);
     }
 
@@ -88,7 +88,7 @@ public class class_122 extends class_121 {
             var1.field_406 = null;
             var1.field_407 = this.field_665;
             if (this.method_891()) {
-                class_54 var4 = var1.method_585();
+                SourceTypeBinding var4 = var1.method_585();
                 if (var4.method_160() && !var4.method_226()) {
                     var1.method_644().method_1619(var4, this);
                 }

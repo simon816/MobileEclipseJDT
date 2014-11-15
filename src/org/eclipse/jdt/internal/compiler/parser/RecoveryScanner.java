@@ -2,7 +2,7 @@ package org.eclipse.jdt.internal.compiler.parser;
 
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.parser.class_267;
+import org.eclipse.jdt.internal.compiler.parser.RecoveryScannerData;
 import org.eclipse.jdt.internal.compiler.parser.Scanner;
 import org.eclipse.jdt.internal.compiler.parser.Parser;
 
@@ -10,7 +10,7 @@ public class RecoveryScanner extends Scanner {
 
     public static final char[] field_1301;
 
-    private class_267 field_1302;
+    private RecoveryScannerData field_1302;
 
     private int[] field_1303;
 
@@ -26,7 +26,7 @@ public class RecoveryScanner extends Scanner {
 
     public boolean field_1309;
 
-    public RecoveryScanner(Scanner var1, class_267 var2) {
+    public RecoveryScanner(Scanner var1, RecoveryScannerData var2) {
         super(false, var1.field_1236, var1.field_1292, var1.field_1223, var1.field_1224, var1.field_1252, var1.field_1253, var1.field_1254);
         this.field_1304 = -1;
         this.field_1305 = null;
@@ -200,13 +200,13 @@ public class RecoveryScanner extends Scanner {
         return this.field_1305 != null ? this.field_1305 : super.method_2409();
     }
 
-    public class_267 method_2452() {
+    public RecoveryScannerData method_2452() {
         return this.field_1302;
     }
 
-    public void method_2453(class_267 var1) {
+    public void method_2453(RecoveryScannerData var1) {
         if (var1 == null) {
-            class_267 var10001 = new class_267();
+            RecoveryScannerData var10001 = new RecoveryScannerData();
             this.field_1302 = var10001;
         } else {
             this.field_1302 = var1;

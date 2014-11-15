@@ -5,27 +5,27 @@ import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_148;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_94;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_53;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_57;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_61;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.lookup.class_87;
 
-public class class_105 extends class_98 implements class_0 {
+public class class_105 extends class_98 implements InvocationSite {
 
     public class_126[] field_546;
 
@@ -62,9 +62,9 @@ public class class_105 extends class_98 implements class_0 {
                     var3 = this.field_546[var4].method_814(var1, var2, (class_301)var3).method_3109();
                 }
             }
-            class_43[] var9 = this.field_548.field_277;
+            ReferenceBinding[] var9 = this.field_548.field_277;
             if (this.field_548.field_277 != class_34.field_151) {
-                var2.method_3033(var9, (class_89)(this.field_551 == 1 ? (class_89)var1.method_635().field_403 : this), (class_301)var3, var1);
+                var2.method_3033(var9, (ASTNode)(this.field_551 == 1 ? (ASTNode)var1.method_635().field_403 : this), (class_301)var3, var1);
             }
             this.method_832(var1, (class_301)var3);
             this.method_833(var1, (class_301)var3);
@@ -81,7 +81,7 @@ public class class_105 extends class_98 implements class_0 {
                 ((class_87)var1).field_405 = true;
                 int var3 = var2.field_1208;
                 var2.method_2093();
-                class_43 var4 = this.field_549.field_278;
+                ReferenceBinding var4 = this.field_549.field_278;
                 if (var4.method_138().field_177 == 41 || var4.method_153()) {
                     var2.method_2094();
                     var2.method_2249();
@@ -122,7 +122,7 @@ public class class_105 extends class_98 implements class_0 {
     }
 
     void method_832(class_86 var1, class_301 var2) {
-        class_43 var3 = (class_43)this.field_548.field_278.method_138();
+        ReferenceBinding var3 = (ReferenceBinding)this.field_548.field_278.method_138();
         if ((var2.field_1783 & 1) == 0 && var3.method_160() && var1.method_585().method_158()) {
             if (var3.method_158()) {
                 ((class_57)var3).method_334(var1, this.field_547 != null);
@@ -136,11 +136,11 @@ public class class_105 extends class_98 implements class_0 {
         if ((var2.field_1783 & 1) == 0) {
             this.field_549 = this.field_548.method_376();
             if (this.field_548.method_367() && this.field_551 != 3) {
-                class_43 var3 = this.field_549.field_278;
+                ReferenceBinding var3 = this.field_549.field_278;
                 if ((var3.field_178 & 16L) != 0L && var1.method_577().field_1927 >= 3145728L) {
                     this.field_549.field_281 |= 1024L;
                 } else {
-                    this.field_550 = ((class_54)var3).method_302(this.field_549, this.method_1());
+                    this.field_550 = ((SourceTypeBinding)var3).method_302(this.field_549, this.method_1());
                     var1.method_644().method_1691(this.field_549, this);
                 }
             }
@@ -182,7 +182,7 @@ public class class_105 extends class_98 implements class_0 {
     public void method_821(class_86 var1) {
         class_87 var2 = var1.method_635();
         try {
-            class_93 var3 = var2.method_730();
+            AbstractMethodDeclaration var3 = var2.method_730();
             if (var3 == null || !var3.method_795() || ((class_94)var3).field_493 != this) {
                 var1.method_644().method_1627(this);
                 if (this.field_547 != null) {
@@ -204,7 +204,7 @@ public class class_105 extends class_98 implements class_0 {
                 }
             } else {
                 var2.field_405 = true;
-                class_43 var4 = var1.method_584();
+                ReferenceBinding var4 = var1.method_584();
                 boolean var5 = false;
                 if (this.field_551 != 3) {
                     var4 = var4.method_240();
@@ -222,7 +222,7 @@ public class class_105 extends class_98 implements class_0 {
                             var1.method_644().method_1792(this.field_547, var4);
                         }
                         if (!var5) {
-                            class_43 var19 = var4.method_137();
+                            ReferenceBinding var19 = var4.method_137();
                             if (var19 == null) {
                                 var1.method_644().method_1792(this.field_547, var4);
                                 this.field_446 |= 8192;
@@ -346,7 +346,7 @@ public class class_105 extends class_98 implements class_0 {
         }
     }
 
-    public void method_4(class_43 var1) {}
+    public void method_4(ReferenceBinding var1) {}
 
     public void method_2(int var1) {}
 

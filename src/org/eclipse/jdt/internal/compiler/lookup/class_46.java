@@ -5,13 +5,13 @@ import org.eclipse.jdt.internal.compiler.lookup.class_32;
 import org.eclipse.jdt.internal.compiler.lookup.class_321;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_49;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 
-public class class_46 extends class_43 {
+public class class_46 extends ReferenceBinding {
 
     public class_34 field_220;
 
@@ -19,9 +19,9 @@ public class class_46 extends class_43 {
 
     public class_40 field_222;
 
-    public class_43 field_223;
+    public ReferenceBinding field_223;
 
-    public class_43[] field_224;
+    public ReferenceBinding[] field_224;
 
     public char[] field_225;
 
@@ -40,7 +40,7 @@ public class class_46 extends class_43 {
     public int method_255(class_32 var1, class_40 var2) {
         if (var2 != class_40.field_187 && var2 != this) {
             boolean var3 = var1 != null;
-            if (!(var2 instanceof class_43) && !var2.method_147()) {
+            if (!(var2 instanceof ReferenceBinding) && !var2.method_147()) {
                 return 2;
             } else if (this.field_223 == null) {
                 return 0;
@@ -82,7 +82,7 @@ public class class_46 extends class_43 {
                             if (var5 == this) {
                                 return 0;
                             } else {
-                                class_43 var6 = var3 ? (class_43)class_83.method_571(var1, this.field_223) : this.field_223;
+                                ReferenceBinding var6 = var3 ? (ReferenceBinding)class_83.method_571(var1, this.field_223) : this.field_223;
                                 boolean var7 = var5.method_147();
                                 if (!var5.method_157() && var6.field_177 != 1) {
                                     if (var7) {
@@ -107,11 +107,11 @@ public class class_46 extends class_43 {
                                         }
                                     }
                                 }
-                                class_43[] var20 = var3 ? class_83.method_570(var1, this.field_224) : this.field_224;
+                                ReferenceBinding[] var20 = var3 ? class_83.method_570(var1, this.field_224) : this.field_224;
                                 int var9 = var20.length;
-                                boolean var10 = var7 || ((class_43)var5).method_221();
+                                boolean var10 = var7 || ((ReferenceBinding)var5).method_221();
                                 for (int var11 = 0; var11 < var9; ++var11) {
-                                    class_43 var12 = var20[var11];
+                                    ReferenceBinding var12 = var20[var11];
                                     if (var7) {
                                         if (!var5.method_152(var12)) {
                                             return 2;
@@ -264,16 +264,16 @@ public class class_46 extends class_43 {
         return this.field_198;
     }
 
-    class_43 method_260(class_80 var1) {
+    ReferenceBinding method_260(LookupEnvironment var1) {
         if ((this.field_199 & 33554432) == 0) {
             return this;
         } else {
-            class_43 var2 = this.field_223;
-            class_43 var3 = null;
+            ReferenceBinding var2 = this.field_223;
+            ReferenceBinding var3 = null;
             if (this.field_223 != null) {
                 this.field_223 = class_49.method_267(this.field_223, var1, true);
             }
-            class_43[] var4 = this.field_224;
+            ReferenceBinding[] var4 = this.field_224;
             int var5;
             if ((var5 = var4.length) != 0) {
                 var3 = var4[0];
@@ -302,11 +302,11 @@ public class class_46 extends class_43 {
         return this.method_103();
     }
 
-    public class_43 method_240() {
+    public ReferenceBinding method_240() {
         return this.field_223;
     }
 
-    public class_43[] method_241() {
+    public ReferenceBinding[] method_241() {
         return this.field_224;
     }
 

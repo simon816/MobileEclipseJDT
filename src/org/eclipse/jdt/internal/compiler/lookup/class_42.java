@@ -6,14 +6,14 @@ import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_321;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_44;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_47;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 
 public final class class_42 extends class_40 {
@@ -24,13 +24,13 @@ public final class class_42 extends class_40 {
 
     public int field_193;
 
-    class_80 field_194;
+    LookupEnvironment field_194;
 
     char[] field_195;
 
     char[] field_196;
 
-    public class_42(class_40 var1, int var2, class_80 var3) {
+    public class_42(class_40 var1, int var2, LookupEnvironment var3) {
         this.field_178 |= 1L;
         this.field_192 = var1;
         this.field_193 = var2;
@@ -114,7 +114,7 @@ public final class class_42 extends class_40 {
         return this.field_192 != var1 ? this.field_194.method_493(var1, this.field_193) : this;
     }
 
-    public class_80 method_188() {
+    public LookupEnvironment method_188() {
         return this.field_194;
     }
 
@@ -129,7 +129,7 @@ public final class class_42 extends class_40 {
         return this.field_196;
     }
 
-    public class_38 method_143() {
+    public PackageBinding method_143() {
         return this.field_192.method_143();
     }
 
@@ -229,7 +229,7 @@ public final class class_42 extends class_40 {
         return CharOperation.method_1355(this.field_192.method_179(), var1);
     }
 
-    public void method_180(class_44 var1, class_43 var2, class_80 var3) {
+    public void method_180(class_44 var1, ReferenceBinding var2, LookupEnvironment var3) {
         if (this.field_192 == var1) {
             this.field_192 = var3.method_491(var2);
             this.field_178 |= this.field_192.field_178 & 1610612864L;
@@ -241,7 +241,7 @@ public final class class_42 extends class_40 {
     }
 
     static {
-        class_67 var10000 = new class_67(class_17.field_32, class_40.field_179, 17, (class_43)null, class_331.field_1896);
+        class_67 var10000 = new class_67(class_17.field_32, class_40.field_179, 17, (ReferenceBinding)null, class_331.field_1896);
         field_191 = var10000;
     }
 }

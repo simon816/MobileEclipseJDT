@@ -4,7 +4,7 @@ import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
@@ -18,11 +18,11 @@ public class class_47 extends class_46 {
 
     public int field_228;
 
-    public class_43 field_229;
+    public ReferenceBinding field_229;
 
     public int field_230;
 
-    public class_47(class_45 var1, class_43 var2, int var3, int var4) {
+    public class_47(class_45 var1, ReferenceBinding var2, int var3, int var4) {
         super(class_17.field_57, (class_34)null, 0);
         this.field_227 = var1;
         this.field_199 = 1073741825;
@@ -63,10 +63,10 @@ public class class_47 extends class_46 {
                     class_40 var12 = var11.method_130(var1, this.field_230);
                     if (var11.method_157()) {
                         this.field_223 = var1.method_609();
-                        this.field_224 = new class_43[] {(class_43)var12};
+                        this.field_224 = new ReferenceBinding[] {(ReferenceBinding)var12};
                     } else {
                         if (!var12.method_147() && var12 != this) {
-                            this.field_223 = (class_43)var12;
+                            this.field_223 = (ReferenceBinding)var12;
                         } else {
                             this.field_223 = var1.method_609();
                         }
@@ -86,13 +86,13 @@ public class class_47 extends class_46 {
                     }
             }
         } else {
-            class_43 var4 = var3.field_223;
-            class_43 var5 = (class_43)class_83.method_571(var2, var4);
+            ReferenceBinding var4 = var3.field_223;
+            ReferenceBinding var5 = (ReferenceBinding)class_83.method_571(var2, var4);
             if (var5 == this) {
                 var5 = var4;
             }
-            class_43[] var6 = var3.method_241();
-            class_43[] var7 = class_83.method_570(var2, var6);
+            ReferenceBinding[] var6 = var3.method_241();
+            ReferenceBinding[] var7 = class_83.method_570(var2, var6);
             if (var7 != var6) {
                 int var8 = 0;
                 for (int var9 = var7.length; var8 < var9; ++var8) {
@@ -113,16 +113,16 @@ public class class_47 extends class_46 {
                     if (var13.method_157()) {
                         this.field_223 = var5;
                         if (var7 == class_34.field_155) {
-                            this.field_224 = new class_43[] {(class_43)var14};
+                            this.field_224 = new ReferenceBinding[] {(ReferenceBinding)var14};
                         } else {
                             int var10 = var7.length;
-                            System.arraycopy(var7, 0, var7 = new class_43[var10 + 1], 1, var10);
-                            var7[0] = (class_43)var14;
+                            System.arraycopy(var7, 0, var7 = new ReferenceBinding[var10 + 1], 1, var10);
+                            var7[0] = (ReferenceBinding)var14;
                             this.field_224 = class_83.method_568(var7);
                         }
                     } else {
                         if (!var14.method_147() && var14 != this) {
-                            this.field_223 = (class_43)var14;
+                            this.field_223 = (ReferenceBinding)var14;
                             if (this.field_223.method_228(var5)) {
                                 this.field_223 = var5;
                             }

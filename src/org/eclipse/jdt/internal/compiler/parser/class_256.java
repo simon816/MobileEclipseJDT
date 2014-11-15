@@ -4,10 +4,10 @@ import org.eclipse.jdt.internal.compiler.ast.class_112;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
 import org.eclipse.jdt.internal.compiler.ast.class_122;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_91;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.ImportReference;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.parser.class_251;
 import org.eclipse.jdt.internal.compiler.parser.class_252;
 import org.eclipse.jdt.internal.compiler.parser.class_257;
@@ -16,7 +16,7 @@ import org.eclipse.jdt.internal.compiler.parser.Parser;
 
 public class class_256 extends class_251 {
 
-    public class_90 field_1101;
+    public CompilationUnitDeclaration field_1101;
 
     public class_252[] field_1102;
 
@@ -34,7 +34,7 @@ public class class_256 extends class_251 {
 
     int field_1109;
 
-    public class_256(class_90 var1, int var2, Parser var3) {
+    public class_256(CompilationUnitDeclaration var1, int var2, Parser var3) {
         super((class_251)null, var2, var3);
         this.field_1107 = -1;
         this.field_1101 = var1;
@@ -60,7 +60,7 @@ public class class_256 extends class_251 {
         }
     }
 
-    public class_251 method_1832(class_93 var1, int var2) {
+    public class_251 method_1832(AbstractMethodDeclaration var1, int var2) {
         if (this.field_1105 > 0) {
             class_260 var3 = this.field_1104[this.field_1105 - 1];
             int var4 = var3.field_1136;
@@ -101,7 +101,7 @@ public class class_256 extends class_251 {
         }
     }
 
-    public class_251 method_1835(class_91 var1, int var2) {
+    public class_251 method_1835(ImportReference var1, int var2) {
         this.method_1846();
         if (this.field_1102 == null) {
             this.field_1102 = new class_252[5];
@@ -149,7 +149,7 @@ public class class_256 extends class_251 {
         }
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return this.field_1101;
     }
 
@@ -182,9 +182,9 @@ public class class_256 extends class_251 {
         return var2.toString();
     }
 
-    public class_90 method_1870() {
+    public CompilationUnitDeclaration method_1870() {
         if (this.field_1103 > 0) {
-            class_91[] var1 = new class_91[this.field_1103];
+            ImportReference[] var1 = new ImportReference[this.field_1103];
             for (int var2 = 0; var2 < this.field_1103; ++var2) {
                 var1[var2] = this.field_1102[var2].method_1859();
             }

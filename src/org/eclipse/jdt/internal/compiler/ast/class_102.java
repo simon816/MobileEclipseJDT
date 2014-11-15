@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_124;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_297;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -14,7 +14,7 @@ import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
@@ -36,9 +36,9 @@ public class class_102 extends class_98 {
 
     private class_40 field_518;
 
-    private class_74 field_519;
+    private BranchLabel field_519;
 
-    private class_74 field_520;
+    private BranchLabel field_520;
 
     public class_86 field_521;
 
@@ -68,9 +68,9 @@ public class class_102 extends class_98 {
     }
 
     public class_301 method_814(class_86 var1, class_293 var2, class_301 var3) {
-        class_74 var10001 = new class_74();
+        BranchLabel var10001 = new BranchLabel();
         this.field_519 = var10001;
-        var10001 = new class_74();
+        var10001 = new BranchLabel();
         this.field_520 = var10001;
         this.field_514.method_909(var1, var2, var3);
         var3 = this.field_512.method_814(this.field_521, var2, var3);
@@ -148,7 +148,7 @@ public class class_102 extends class_98 {
                     case 1:
                     case 2:
                         this.field_514.method_912(this.field_521, var2, true);
-                        class_58 var10000 = new class_58(1, "iterator".toCharArray(), this.field_521.method_612(), class_34.field_150, class_34.field_151, (class_43)this.field_517.method_138());
+                        class_58 var10000 = new class_58(1, "iterator".toCharArray(), this.field_521.method_612(), class_34.field_150, class_34.field_151, (ReferenceBinding)this.field_517.method_138());
                         class_58 var5 = var10000;
                         if (this.field_517.method_157()) {
                             var2.method_2261(var5);
@@ -158,11 +158,11 @@ public class class_102 extends class_98 {
                         var2.method_2376(this.field_522, false);
                         var2.method_2091(this.field_522);
                 }
-                class_74 var8 = new class_74(var2);
-                class_74 var9 = var8;
+                BranchLabel var8 = new BranchLabel(var2);
+                BranchLabel var9 = var8;
                 var9.field_330 |= 2;
-                var8 = new class_74(var2);
-                class_74 var6 = var8;
+                var8 = new BranchLabel(var2);
+                BranchLabel var6 = var8;
                 var6.field_330 |= 2;
                 this.field_519.method_456(var2);
                 int var7;
@@ -324,12 +324,12 @@ public class class_102 extends class_98 {
                     this.field_513 = 512 | var4 << 4 | var4;
                     this.field_521.method_644().method_1485(this.field_514, this.field_518, var2);
                 }
-            } else if (var3 instanceof class_43) {
-                class_43 var9 = ((class_43)var3).method_139(38, false);
+            } else if (var3 instanceof ReferenceBinding) {
+                ReferenceBinding var9 = ((ReferenceBinding)var3).method_139(38, false);
                 if (var9 != null) {
                     label90: {
                         this.field_517 = var3.method_138();
-                        if (((class_43)this.field_517).method_139(38, false) == null) {
+                        if (((ReferenceBinding)this.field_517).method_139(38, false) == null) {
                             this.field_517 = var9;
                             this.field_514.method_911(this.field_521, var9, var3);
                         } else {

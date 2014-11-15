@@ -3,7 +3,7 @@ package org.eclipse.jdt.internal.compiler.ast;
 import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
@@ -119,7 +119,7 @@ public class class_112 extends class_98 {
         var1.method_1918(this, var2);
     }
 
-    public void method_815(class_74 var1) {
+    public void method_815(BranchLabel var1) {
         if (this.field_572 != null) {
             this.field_572[this.field_572.length - 1].method_815(var1);
         }

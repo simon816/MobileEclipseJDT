@@ -6,7 +6,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.ast.class_99;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
@@ -100,21 +100,21 @@ public class class_101 extends class_98 {
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
             int var3 = var2.field_1208;
-            class_74 var10000 = new class_74(var2);
-            class_74 var4 = var10000;
+            BranchLabel var10000 = new BranchLabel(var2);
+            BranchLabel var4 = var10000;
             class_331 var5;
             boolean var6 = ((var5 = this.field_506.method_922()) == class_331.field_1896 || var5.method_3257()) && this.field_507 != null && !this.field_507.method_819();
             boolean var7 = (var5 == class_331.field_1896 || !var5.method_3257()) && this.field_508 != null && !this.field_508.method_819();
             if (var6) {
-                class_74 var8 = null;
-                class_74 var10004;
+                BranchLabel var8 = null;
+                BranchLabel var10004;
                 if (var7) {
-                    var10004 = new class_74(var2);
+                    var10004 = new BranchLabel(var2);
                     var8 = var10004;
                 } else {
                     var10004 = var4;
                 }
-                this.field_506.method_913(var1, var2, (class_74)null, var10004, true);
+                this.field_506.method_913(var1, var2, (BranchLabel)null, var10004, true);
                 if (this.field_509 != -1) {
                     var2.method_2363(var1, this.field_509);
                     var2.method_2088(var1, this.field_509);
@@ -137,7 +137,7 @@ public class class_101 extends class_98 {
                     this.field_508.method_818(var1, var2);
                 }
             } else if (var7) {
-                this.field_506.method_913(var1, var2, var4, (class_74)null, true);
+                this.field_506.method_913(var1, var2, var4, (BranchLabel)null, true);
                 if (this.field_510 != -1) {
                     var2.method_2363(var1, this.field_510);
                     var2.method_2088(var1, this.field_510);

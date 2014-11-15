@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_137;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
@@ -74,10 +74,10 @@ public class class_141 extends class_137 {
             }
             var2.method_2360(var4, this.field_444);
         } else {
-            class_74 var5;
-            class_74 var6;
-            class_74 var10004;
-            class_74 var10001;
+            BranchLabel var5;
+            BranchLabel var6;
+            BranchLabel var10004;
+            BranchLabel var10001;
             label314:
             switch ((this.field_446 & 4032) >> 6) {
                 case 2:
@@ -159,9 +159,9 @@ public class class_141 extends class_137 {
                             break label314;
                     }
                 case 4:
-                    var10004 = new class_74(var2);
+                    var10004 = new BranchLabel(var2);
                     var5 = var10004;
-                    this.method_984(var1, var2, (class_74)null, var10004, var3);
+                    this.method_984(var1, var2, (BranchLabel)null, var10004, var3);
                     if (var3) {
                         var2.method_2222();
                         if ((this.field_446 & 16) != 0) {
@@ -170,7 +170,7 @@ public class class_141 extends class_137 {
                             var5.method_458();
                             var2.method_2221();
                         } else {
-                            var10001 = new class_74(var2);
+                            var10001 = new BranchLabel(var2);
                             var6 = var10001;
                             var2.method_2209(var10001);
                             var2.method_2125(1);
@@ -181,9 +181,9 @@ public class class_141 extends class_137 {
                     }
                     break;
                 case 5:
-                    var10004 = new class_74(var2);
+                    var10004 = new BranchLabel(var2);
                     var5 = var10004;
-                    this.method_985(var1, var2, (class_74)null, var10004, var3);
+                    this.method_985(var1, var2, (BranchLabel)null, var10004, var3);
                     if (var3) {
                         var2.method_2222();
                         if ((this.field_446 & 16) != 0) {
@@ -192,7 +192,7 @@ public class class_141 extends class_137 {
                             var5.method_458();
                             var2.method_2221();
                         } else {
-                            var10001 = new class_74(var2);
+                            var10001 = new BranchLabel(var2);
                             var6 = var10001;
                             var2.method_2209(var10001);
                             var2.method_2125(1);
@@ -203,9 +203,9 @@ public class class_141 extends class_137 {
                     }
                     break;
                 case 6:
-                    var10004 = new class_74(var2);
+                    var10004 = new BranchLabel(var2);
                     var5 = var10004;
-                    this.method_982(var1, var2, (class_74)null, var10004, var3);
+                    this.method_982(var1, var2, (BranchLabel)null, var10004, var3);
                     if (var3) {
                         var2.method_2222();
                         if ((this.field_446 & 16) != 0) {
@@ -214,7 +214,7 @@ public class class_141 extends class_137 {
                             var5.method_458();
                             var2.method_2221();
                         } else {
-                            var10001 = new class_74(var2);
+                            var10001 = new BranchLabel(var2);
                             var6 = var10001;
                             var2.method_2209(var10001);
                             var2.method_2125(1);
@@ -225,9 +225,9 @@ public class class_141 extends class_137 {
                     }
                     break;
                 case 7:
-                    var10004 = new class_74(var2);
+                    var10004 = new BranchLabel(var2);
                     var5 = var10004;
-                    this.method_983(var1, var2, (class_74)null, var10004, var3);
+                    this.method_983(var1, var2, (BranchLabel)null, var10004, var3);
                     if (var3) {
                         var2.method_2222();
                         if ((this.field_446 & 16) != 0) {
@@ -236,7 +236,7 @@ public class class_141 extends class_137 {
                             var5.method_458();
                             var2.method_2221();
                         } else {
-                            var10001 = new class_74(var2);
+                            var10001 = new BranchLabel(var2);
                             var6 = var10001;
                             var2.method_2209(var10001);
                             var2.method_2125(1);
@@ -512,7 +512,7 @@ public class class_141 extends class_137 {
         }
     }
 
-    public void method_913(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_913(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if (this.field_672 != class_331.field_1896 && this.field_672.method_3288() == 5) {
             super.method_913(var1, var2, var3, var4, var5);
         } else {
@@ -544,7 +544,7 @@ public class class_141 extends class_137 {
         }
     }
 
-    public void method_982(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_982(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         int var6 = (this.field_715.field_674 & 255) >> 4;
         if (var6 == 10) {
             if (this.field_715.field_672 != class_331.field_1896 && this.field_715.field_672.method_3284() == 0) {
@@ -623,7 +623,7 @@ public class class_141 extends class_137 {
         }
     }
 
-    public void method_983(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_983(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         int var6 = (this.field_715.field_674 & 255) >> 4;
         if (var6 == 10) {
             if (this.field_715.field_672 != class_331.field_1896 && this.field_715.field_672.method_3284() == 0) {
@@ -702,7 +702,7 @@ public class class_141 extends class_137 {
         }
     }
 
-    public void method_984(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_984(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         int var6 = (this.field_715.field_674 & 255) >> 4;
         if (var6 == 10) {
             if (this.field_715.field_672 != class_331.field_1896 && this.field_715.field_672.method_3284() == 0) {
@@ -781,7 +781,7 @@ public class class_141 extends class_137 {
         }
     }
 
-    public void method_985(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_985(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         int var6 = (this.field_715.field_674 & 255) >> 4;
         if (var6 == 10) {
             if (this.field_715.field_672 != class_331.field_1896 && this.field_715.field_672.method_3284() == 0) {
@@ -984,7 +984,7 @@ public class class_141 extends class_137 {
         var2.method_2380(var1, var2.field_1208);
     }
 
-    public void method_989(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_989(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if ((this.field_715.field_674 & 15) == 5) {
             class_331 var6;
             if ((var6 = this.field_715.method_922()) != class_331.field_1896) {
@@ -1006,8 +1006,8 @@ public class class_141 extends class_137 {
                     this.field_715.method_913(var1, var2, var3, var4, var5);
                     this.field_716.method_913(var1, var2, var3, var4, false);
                 } else {
-                    class_74 var10000 = new class_74(var2);
-                    class_74 var7 = var10000;
+                    BranchLabel var10000 = new BranchLabel(var2);
+                    BranchLabel var7 = var10000;
                     this.field_715.method_913(var1, var2, var7, var4, false);
                     var7.method_458();
                     this.field_716.method_913(var1, var2, var3, var4, false);
@@ -1034,15 +1034,15 @@ public class class_141 extends class_137 {
         var2.method_2380(var1, var2.field_1208);
     }
 
-    public void method_990(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_990(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if ((this.field_715.field_674 & 15) == 5) {
             class_331 var6;
-            class_74 var7;
-            class_74 var10000;
+            BranchLabel var7;
+            BranchLabel var10000;
             if ((var6 = this.field_715.method_922()) != class_331.field_1896) {
                 if (var6.method_3257()) {
                     this.field_715.method_913(var1, var2, var3, var4, false);
-                    var10000 = new class_74(var2);
+                    var10000 = new BranchLabel(var2);
                     var7 = var10000;
                     this.field_716.method_913(var1, var2, var3, var7, false);
                     var7.method_458();
@@ -1058,7 +1058,7 @@ public class class_141 extends class_137 {
             }
             if ((var6 = this.field_716.method_922()) != class_331.field_1896) {
                 if (var6.method_3257()) {
-                    var10000 = new class_74(var2);
+                    var10000 = new BranchLabel(var2);
                     var7 = var10000;
                     this.field_715.method_913(var1, var2, var3, var7, false);
                     var7.method_458();
@@ -1089,7 +1089,7 @@ public class class_141 extends class_137 {
         var2.method_2380(var1, var2.field_1208);
     }
 
-    public void method_991(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_991(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if ((this.field_715.field_674 & 15) == 5) {
             class_331 var6;
             if ((var6 = this.field_715.method_922()) != class_331.field_1896) {

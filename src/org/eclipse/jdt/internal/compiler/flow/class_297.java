@@ -2,8 +2,8 @@ package org.eclipse.jdt.internal.compiler.flow;
 
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_154;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_295;
 import org.eclipse.jdt.internal.compiler.flow.class_296;
@@ -17,7 +17,7 @@ import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
 public class class_297 extends class_295 {
 
-    public class_74 field_1748;
+    public BranchLabel field_1748;
 
     public class_303 field_1749;
 
@@ -49,7 +49,7 @@ public class class_297 extends class_295 {
 
     class_83 field_1763;
 
-    public class_297(class_293 var1, class_301 var2, class_89 var3, class_74 var4, class_74 var5, class_83 var6) {
+    public class_297(class_293 var1, class_301 var2, ASTNode var3, BranchLabel var4, BranchLabel var5, class_83 var6) {
         super(var1, var3, var4);
         this.field_1749 = class_301.field_1784;
         this.field_1751 = null;
@@ -217,7 +217,7 @@ public class class_297 extends class_295 {
         }
     }
 
-    public class_74 method_3034() {
+    public BranchLabel method_3034() {
         return this.field_1748;
     }
 

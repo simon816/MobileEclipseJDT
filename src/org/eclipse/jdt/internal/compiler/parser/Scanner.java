@@ -2,7 +2,7 @@ package org.eclipse.jdt.internal.compiler.parser;
 
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.class_284;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.eclipse.jdt.internal.compiler.parser.class_279;
 import org.eclipse.jdt.internal.compiler.parser.ScannerHelper;
 import org.eclipse.jdt.internal.compiler.util.Util;
@@ -3468,7 +3468,7 @@ public class Scanner {
         this.field_1257 = -1;
     }
 
-    public final void method_2441(char[] var1, class_284 var2) {
+    public final void method_2441(char[] var1, CompilationResult var2) {
         if (var1 == null) {
             char[] var3 = var2.field_1677.method_51();
             this.method_2440(var3);

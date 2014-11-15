@@ -1,15 +1,15 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 
-public class class_51 extends class_43 {
+public class class_51 extends ReferenceBinding {
 
-    class_43 field_240;
+    ReferenceBinding field_240;
 
     private int field_241;
 
-    public class_51(char[][] var1, class_43 var2, int var3) {
+    public class_51(char[][] var1, ReferenceBinding var2, int var3) {
         this.field_197 = var1;
         this.field_240 = var2;
         this.field_241 = var3;
@@ -19,7 +19,7 @@ public class class_51 extends class_43 {
         return this.field_240;
     }
 
-    public class_43 method_281() {
+    public ReferenceBinding method_281() {
         return this.field_240;
     }
 

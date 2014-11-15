@@ -1,8 +1,8 @@
 package org.eclipse.jdt.internal.compiler.env;
 
-import org.eclipse.jdt.internal.compiler.env.class_18;
+import org.eclipse.jdt.internal.compiler.env.IDependent;
 
-public interface class_20 extends class_18 {
+public interface class_20 extends IDependent {
 
     int method_54();
 }

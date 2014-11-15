@@ -4,7 +4,7 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_149;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
@@ -45,13 +45,13 @@ public class class_147 extends class_146 {
         return var2.append(this.field_726);
     }
 
-    public class_40 method_1023(class_86 var1, class_43 var2) {
+    public class_40 method_1023(class_86 var1, ReferenceBinding var2) {
         Object var3 = this.field_675 = var1.method_613(this.field_726, var2);
         boolean var4 = false;
         if (!((class_40)var3).method_101()) {
             var4 = true;
             var1.method_644().method_1626(this, (class_40)var3, var2);
-            var3 = ((class_43)var3).method_131();
+            var3 = ((ReferenceBinding)var3).method_131();
             if (var3 == null) {
                 return null;
             }

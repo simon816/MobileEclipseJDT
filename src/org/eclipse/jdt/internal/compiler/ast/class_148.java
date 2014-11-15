@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_147;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
@@ -33,7 +33,7 @@ public class class_148 extends class_147 {
         }
     }
 
-    private class_40 method_1025(class_83 var1, class_43 var2, int var3) {
+    private class_40 method_1025(class_83 var1, ReferenceBinding var2, int var3) {
         class_40 var4 = null;
         if (this.field_727 != null) {
             var4 = var1.field_373 == 3 ? this.field_727.method_1018((class_84)var1) : this.field_727.method_1017((class_86)var1, true);
@@ -75,11 +75,11 @@ public class class_148 extends class_147 {
         return null;
     }
 
-    public class_40 method_1019(class_86 var1, class_43 var2, int var3) {
+    public class_40 method_1019(class_86 var1, ReferenceBinding var2, int var3) {
         return this.method_1025(var1, var2, var3);
     }
 
-    public class_40 method_1020(class_84 var1, class_43 var2, int var3) {
+    public class_40 method_1020(class_84 var1, ReferenceBinding var2, int var3) {
         return this.method_1025(var1, var2, var3);
     }
 

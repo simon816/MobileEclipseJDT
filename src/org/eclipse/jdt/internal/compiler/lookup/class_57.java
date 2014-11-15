@@ -4,17 +4,17 @@ import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.ast.class_108;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_55;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_79;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.lookup.class_87;
@@ -33,7 +33,7 @@ public final class class_57 extends class_55 {
 
     public class_58 field_272;
 
-    public class_57(class_84 var1, class_54 var2, class_108 var3, class_43 var4) {
+    public class_57(class_84 var1, SourceTypeBinding var2, class_108 var3, ReferenceBinding var4) {
         super(new char[][] {CharOperation.method_1355(field_267, var1.field_376.field_580)}, var1, var2);
         class_114 var5 = var1.field_376;
         if ((var5.field_446 & 512) != 0) {
@@ -44,7 +44,7 @@ public final class class_57 extends class_55 {
         this.field_270 = var3;
         this.field_271 = var5.field_444;
         class_87 var6 = var1.method_583();
-        class_93 var7 = var6.method_730();
+        AbstractMethodDeclaration var7 = var6.method_730();
         if (var7 != null) {
             this.field_272 = var7.field_488;
         }
@@ -69,7 +69,7 @@ public final class class_57 extends class_55 {
         var10000[var3] = var10002;
     }
 
-    public class_43 method_335() {
+    public ReferenceBinding method_335() {
         if (this.field_253 != class_34.field_155) {
             return this.field_253[0];
         } else if ((this.field_178 & 131072L) == 0L) {
@@ -78,7 +78,7 @@ public final class class_57 extends class_55 {
             if (this.field_258 != null) {
                 class_146 var1 = this.field_258.field_376.field_598.field_691;
                 if (var1 != null) {
-                    return (class_43)var1.field_675;
+                    return (ReferenceBinding)var1.field_675;
                 }
             }
             return this.field_252;
@@ -89,7 +89,7 @@ public final class class_57 extends class_55 {
         return this.field_202;
     }
 
-    class_42 method_336(int var1, class_80 var2) {
+    class_42 method_336(int var1, LookupEnvironment var2) {
         if (this.field_269 == null) {
             class_42[] var10001 = new class_42[1];
             class_42 var10004 = new class_42(this, var1, var2);

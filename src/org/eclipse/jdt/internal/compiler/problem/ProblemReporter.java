@@ -2,9 +2,9 @@ package org.eclipse.jdt.internal.compiler.problem;
 
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.class_284;
-import org.eclipse.jdt.internal.compiler.class_7;
-import org.eclipse.jdt.internal.compiler.class_8;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
+import org.eclipse.jdt.internal.compiler.IErrorHandlingPolicy;
+import org.eclipse.jdt.internal.compiler.IProblemFactory;
 import org.eclipse.jdt.internal.compiler.ast.class_104;
 import org.eclipse.jdt.internal.compiler.ast.class_105;
 import org.eclipse.jdt.internal.compiler.ast.class_108;
@@ -51,28 +51,28 @@ import org.eclipse.jdt.internal.compiler.ast.class_169;
 import org.eclipse.jdt.internal.compiler.ast.class_177;
 import org.eclipse.jdt.internal.compiler.ast.class_180;
 import org.eclipse.jdt.internal.compiler.ast.class_183;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_91;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.ImportReference;
 import org.eclipse.jdt.internal.compiler.ast.class_92;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_94;
 import org.eclipse.jdt.internal.compiler.ast.class_96;
 import org.eclipse.jdt.internal.compiler.ast.class_97;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
-import org.eclipse.jdt.internal.compiler.env.class_19;
-import org.eclipse.jdt.internal.compiler.impl.class_33;
+import org.eclipse.jdt.internal.compiler.env.ICompilationUnit;
+import org.eclipse.jdt.internal.compiler.impl.ReferenceContext;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_51;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_61;
 import org.eclipse.jdt.internal.compiler.lookup.class_63;
@@ -85,15 +85,15 @@ import org.eclipse.jdt.internal.compiler.parser.Scanner;
 import org.eclipse.jdt.internal.compiler.parser.RecoveryScanner;
 import org.eclipse.jdt.internal.compiler.parser.Parser;
 import org.eclipse.jdt.internal.compiler.parser.ScannerHelper;
-import org.eclipse.jdt.internal.compiler.problem.class_242;
+import org.eclipse.jdt.internal.compiler.problem.AbortCompilationUnit;
 import org.eclipse.jdt.internal.compiler.problem.class_247;
-import org.eclipse.jdt.internal.compiler.util.class_329;
+import org.eclipse.jdt.internal.compiler.util.Messages;
 
 import java.util.List;
 
 public class ProblemReporter extends class_247 {
 
-    public class_33 field_1065;
+    public ReferenceContext field_1065;
 
     private Scanner field_1066;
 
@@ -415,29 +415,29 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public ProblemReporter(class_7 var1, CompilerOptions var2, class_8 var3) {
+    public ProblemReporter(IErrorHandlingPolicy var1, CompilerOptions var2, IProblemFactory var3) {
         super(var1, var2, var3);
     }
 
     public void method_1459(String var1) {
-        this.method_1460(var1, (class_89)null);
+        this.method_1460(var1, (ASTNode)null);
     }
 
-    public void method_1460(String var1, class_89 var2) {
+    public void method_1460(String var1, ASTNode var2) {
         String[] var3 = new String[] {var1};
         this.method_1562(0, var3, var3, 159, var2 == null ? 0 : var2.field_444, var2 == null ? 0 : var2.field_445);
     }
 
-    public void method_1461(class_54 var1, class_58 var2) {
+    public void method_1461(SourceTypeBinding var1, class_58 var2) {
         this.method_1560(67109275, new String[] {new String(var1.method_179()), new String(CharOperation.method_1357(var2.field_278.method_103(), var2.method_103(), '.'))}, new String[] {new String(var1.method_179()), new String(CharOperation.method_1357(var2.field_278.method_104(), var2.method_104(), '.'))}, var1.method_318(), var1.method_317());
     }
 
-    public void method_1462(class_54 var1, class_93 var2) {
+    public void method_1462(SourceTypeBinding var1, AbstractMethodDeclaration var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109227, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1463(class_54 var1, class_58 var2) {
+    public void method_1463(SourceTypeBinding var1, class_58 var2) {
         if (var1.method_153() && var1.method_158()) {
             class_67 var3 = var1.field_258.method_583().field_406;
             class_121 var4 = var3.method_437();
@@ -447,17 +447,17 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1464(class_93 var1) {
+    public void method_1464(AbstractMethodDeclaration var1) {
         this.method_1453(603979889, field_1061, field_1061, var1.field_444, var1.field_445, var1, var1.method_94());
     }
 
-    public void method_1465(char[] var1, class_89 var2) {
+    public void method_1465(char[] var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1)};
         this.method_1560(536871083, var3, var3, var2.field_444, var2.field_445);
     }
 
     public void method_1466(class_58 var1, class_58 var2) {
-        class_93 var3 = var1.method_384();
+        AbstractMethodDeclaration var3 = var1.method_384();
         this.method_1560(67109480, new String[] {new String(var1.field_278.method_103()), new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var1.field_278.method_104()), new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var3.field_444, var3.field_445);
     }
 
@@ -489,7 +489,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(1610613356, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1473(class_54 var1, class_146 var2, class_43 var3) {
+    public void method_1473(SourceTypeBinding var1, class_146 var2, ReferenceBinding var3) {
         this.method_1560(16777842, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
@@ -521,7 +521,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777245, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1479(class_54 var1, class_93 var2, class_125 var3) {
+    public void method_1479(SourceTypeBinding var1, AbstractMethodDeclaration var2, class_125 var3) {
         String[] var4 = new String[] {new String(var2.field_479), new String(var3.field_659)};
         this.method_1560(67109228, var4, var4, var2.field_444, var2.field_445);
     }
@@ -565,15 +565,15 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1486(class_89 var1, class_40 var2) {
+    public void method_1486(ASTNode var1, class_40 var2) {
         this.method_1560(16777784, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1487(class_89 var1, class_40 var2) {
+    public void method_1487(ASTNode var1, class_40 var2) {
         this.method_1560(16777745, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1488(class_93 var1) {
+    public void method_1488(AbstractMethodDeclaration var1) {
         class_58 var2 = var1.field_488;
         if (var1.method_795()) {
             this.method_1562(536870981, new String[] {new String(var1.field_479), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var1.field_479), this.method_1779(var2.method_374(), var2.field_276, true)}, 159, var1.field_444, var1.field_445);
@@ -590,16 +590,16 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536870966, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1491(class_67 var1, class_89 var2) {
+    public void method_1491(class_67 var1, ASTNode var2) {
         this.method_1560(33554512, new String[] {var1.field_314 == null ? "array" : new String(var1.field_314.method_103()), new String(var1.method_103())}, new String[] {var1.field_314 == null ? "array" : new String(var1.field_314.method_104()), new String(var1.method_104())}, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    public void method_1492(class_65 var1, class_89 var2) {
+    public void method_1492(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870970, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    public void method_1493(class_65 var1, class_89 var2) {
+    public void method_1493(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870972, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
@@ -612,7 +612,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(67108968, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1496(class_54 var1, class_146 var2, class_40 var3) {
+    public void method_1496(SourceTypeBinding var1, class_146 var2, class_40 var3) {
         String var4 = new String(var1.method_179());
         String var5 = new String(var3.method_103());
         String var6 = new String(var3.method_104());
@@ -622,7 +622,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777972, new String[] {var5, var4}, new String[] {var6, var4}, var2.field_444, var2.field_445);
     }
 
-    public void method_1497(class_91 var1) {
+    public void method_1497(ImportReference var1) {
         String[] var2 = new String[] {CharOperation.method_1389(var1.field_467)};
         this.method_1560(268435843, var2, var2, var1.field_444, var1.field_445);
     }
@@ -635,27 +635,27 @@ public class ProblemReporter extends class_247 {
         this.method_1560(67109621, new String[] {new String(var2.field_278.method_179()), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_179()), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1500(class_90 var1, class_242 var2, boolean var3) {
+    public void method_1500(CompilationUnitDeclaration var1, AbortCompilationUnit var2, boolean var3) {
         String var4 = new String(var1.field_455.field_1690);
         var2.field_1050.printStackTrace();
         String[] var5 = new String[] {var4, var2.field_1050.getClass().getName() + ": " + var2.field_1050.getMessage()};
         this.method_1560(536871614, var5, var5, 0, 0);
     }
 
-    public void method_1501(class_65 var1, class_89 var2) {
+    public void method_1501(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870937, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    public void method_1502(class_89 var1) {
+    public void method_1502(ASTNode var1) {
         this.method_1560(536871074, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1503(class_89 var1) {
+    public void method_1503(ASTNode var1) {
         this.method_1560(536871089, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1504(class_89 var1, class_40 var2) {
+    public void method_1504(ASTNode var1, class_40 var2) {
         this.method_1560(16777536, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
@@ -663,7 +663,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(33555187, new String[] {String.valueOf(var2.field_314.method_103()), String.valueOf(var2.field_302)}, new String[] {String.valueOf(var2.field_314.method_104()), String.valueOf(var2.field_302)}, this.method_1695(var2, var1), this.method_1693(var2, var1));
     }
 
-    public void method_1506(class_89 var1) {
+    public void method_1506(ASTNode var1) {
         this.method_1560(16777217, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
@@ -671,7 +671,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871065, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1508(class_54 var1, class_146 var2, class_40 var3) {
+    public void method_1508(SourceTypeBinding var1, class_146 var2, class_40 var3) {
         String var4 = new String(var1.method_179());
         String var5 = new String(var3.method_103());
         String var6 = new String(var3.method_104());
@@ -765,7 +765,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777232, new String[] {new String(var2.method_103()), new String(var3.method_103())}, new String[] {new String(var2.method_179()), new String(var3.method_179())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1510(class_91 var1) {
+    public void method_1510(ImportReference var1) {
         String[] var2 = new String[] {CharOperation.method_1389(var1.field_467)};
         this.method_1560(268435841, var2, var2, var1.field_444, var1.field_445);
     }
@@ -808,14 +808,14 @@ public class ProblemReporter extends class_247 {
         this.method_1562(536871612, new String[] {new String(var1.method_103()), new String(var2), String.valueOf(var3)}, new String[] {new String(var1.method_104()), new String(var2), String.valueOf(var3)}, 159, 0, 0);
     }
 
-    public void method_1514(class_67 var1, class_89 var2) {
+    public void method_1514(class_67 var1, ASTNode var2) {
         int var3 = this.method_1449(33554505);
         if (var3 != -1) {
             this.method_1562(33554505, new String[] {new String(var1.field_314.method_103()), new String(var1.field_302)}, new String[] {new String(var1.field_314.method_104()), new String(var1.field_302)}, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
         }
     }
 
-    public void method_1515(class_58 var1, class_89 var2) {
+    public void method_1515(class_58 var1, ASTNode var2) {
         boolean var3 = var1.method_358();
         int var4 = this.method_1449(var3 ? 134217861 : 67108967);
         if (var4 != -1) {
@@ -827,7 +827,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1516(class_40 var1, class_89 var2) {
+    public void method_1516(class_40 var1, ASTNode var2) {
         if (var2 != null) {
             int var3 = this.method_1449(16777221);
             if (var3 != -1) {
@@ -850,7 +850,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871522, new String[] {var3, new String(var1.method_103())}, new String[] {var3, new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    public void method_1520(class_89 var1, class_40 var2) {
+    public void method_1520(ASTNode var1, class_40 var2) {
         this.method_1560(16777783, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
@@ -858,25 +858,25 @@ public class ProblemReporter extends class_247 {
         this.method_1560(33554602, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1522(class_89 var1) {
+    public void method_1522(ASTNode var1) {
         this.method_1560(536871078, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1523(class_54 var1, class_93 var2) {
+    public void method_1523(SourceTypeBinding var1, AbstractMethodDeclaration var2) {
         class_58 var3 = var2.field_488;
         this.method_1560(67109618, new String[] {new String(var2.field_479), new String(var3.field_278.method_103()), this.method_1779(var3.method_374(), var3.field_276, false)}, new String[] {new String(var2.field_479), new String(var3.field_278.method_104()), this.method_1779(var3.method_374(), var3.field_276, true)}, var2.field_444, var2.field_445);
     }
 
-    public void method_1524(class_54 var1, class_121 var2) {
+    public void method_1524(SourceTypeBinding var1, class_121 var2) {
         this.method_1560(33554772, new String[] {new String(var1.method_179()), new String(var2.field_659)}, new String[] {new String(var1.method_104()), new String(var2.field_659)}, var2.field_444, var2.field_445);
     }
 
-    public void method_1525(class_91 var1) {
+    public void method_1525(ImportReference var1) {
         String[] var2 = new String[] {CharOperation.method_1389(var1.field_467)};
         this.method_1560(268435842, var2, var2, var1.field_444, var1.field_445);
     }
 
-    public void method_1526(class_54 var1, class_58 var2, class_58 var3) {
+    public void method_1526(SourceTypeBinding var1, class_58 var2, class_58 var3) {
         this.method_1560(67109429, new String[] {new String(var2.field_274), new String(var2.field_278.method_103()), this.method_1779(var2.method_374(), var2.method_376().field_276, false), this.method_1779(var3.method_374(), var3.method_376().field_276, false)}, new String[] {new String(var2.field_274), new String(var2.field_278.method_104()), this.method_1779(var2.method_374(), var2.method_376().field_276, true), this.method_1779(var3.method_374(), var3.method_376().field_276, true)}, var1.method_318(), var1.method_317());
     }
 
@@ -885,12 +885,12 @@ public class ProblemReporter extends class_247 {
         this.method_1560(33554514, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    public void method_1528(class_65 var1, class_89 var2) {
+    public void method_1528(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870969, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    public void method_1529(class_54 var1, class_93 var2, boolean var3) {
+    public void method_1529(SourceTypeBinding var1, AbstractMethodDeclaration var2, boolean var3) {
         class_58 var4 = var2.field_488;
         if (var3) {
             this.method_1560(67109219, new String[] {new String(var2.field_479), new String(var4.field_278.method_103()), this.method_1779(var4.method_374(), var4.field_276, false)}, new String[] {new String(var2.field_479), new String(var4.field_278.method_104()), this.method_1779(var4.method_374(), var4.field_276, true)}, var2.field_444, var2.field_445);
@@ -904,16 +904,16 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1530(class_43 var1, class_121 var2) {
+    public void method_1530(ReferenceBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554773, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1531(class_43 var1, class_93 var2) {
+    public void method_1531(ReferenceBinding var1, AbstractMethodDeclaration var2) {
         this.method_1560(67109221, new String[] {new String(var1.method_179()), new String(var2.field_479)}, new String[] {new String(var1.method_104()), new String(var2.field_479)}, var2.field_444, var2.field_445);
     }
 
-    public void method_1532(class_54 var1) {
+    public void method_1532(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777517, var2, var2, var1.method_318(), var1.method_317());
     }
@@ -928,7 +928,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777535, var2, var2, var1.field_444, var1.field_445);
     }
 
-    public void method_1535(class_54 var1, class_146 var2, class_43 var3) {
+    public void method_1535(SourceTypeBinding var1, class_146 var2, ReferenceBinding var3) {
         this.method_1560(16777530, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
@@ -942,7 +942,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871432, new String[] {new String(var1.field_659)}, new String[] {new String(var1.field_659)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1538(class_90 var1, class_114 var2) {
+    public void method_1538(CompilationUnitDeclaration var1, class_114 var2) {
         String[] var3 = new String[] {new String(var1.method_771()), new String(var2.field_580)};
         this.field_1065 = var2;
         this.method_1561(16777539, var3, var3, var2.field_444, var2.field_445, var1.field_455);
@@ -952,12 +952,12 @@ public class ProblemReporter extends class_247 {
         this.method_1560(553648316, field_1061, field_1061, var1, var2);
     }
 
-    public void method_1540(class_93 var1) {
+    public void method_1540(AbstractMethodDeclaration var1) {
         class_58 var2 = var1.field_488;
         this.method_1560(67109622, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.method_5(), var1.method_6());
     }
 
-    public void method_1541(class_93 var1, class_121 var2) {
+    public void method_1541(AbstractMethodDeclaration var1, class_121 var2) {
         class_58 var3 = var1.field_488;
         this.method_1560(67109627, new String[] {new String(var3.field_274), this.method_1779(var3.method_374(), var3.field_276, false), new String(var2.field_659)}, new String[] {new String(var3.field_274), this.method_1779(var3.method_374(), var3.field_276, true), new String(var2.field_659)}, var2.method_5(), var2.method_6());
     }
@@ -966,7 +966,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(1610613178, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1543(class_67 var1, class_89 var2) {
+    public void method_1543(class_67 var1, ASTNode var2) {
         this.method_1560(33555194, new String[] {new String(var1.field_314.method_103()), new String(var1.field_302)}, new String[] {new String(var1.field_314.method_104()), new String(var1.field_302)}, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
@@ -990,7 +990,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(var6, new String[] {new String(var2.method_103()), new String(var1.field_773), var4.toString()}, new String[] {new String(var2.method_104()), new String(var1.field_773), var5.toString()}, var1.field_444, var1.field_445);
     }
 
-    public void method_1546(class_89 var1) {
+    public void method_1546(ASTNode var1) {
         String[] var2 = new String[] {var1.method_754() ? "super" : "this"};
         this.method_1560(536871112, var2, var2, var1.field_444, var1.field_445);
     }
@@ -1036,14 +1036,14 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1553(class_67 var1, class_89 var2, byte var3, String var4, int var5) {
+    public void method_1553(class_67 var1, ASTNode var2, byte var3, String var4, int var5) {
         int var6 = this.method_1449(var5);
         if (var6 != -1) {
             this.method_1559(var5, new String[] {new String(var1.method_103())}, method_1456(16777523, (byte)(4 | var3)), new String[] {var4, new String(var1.method_104()), new String(var1.field_314.method_104())}, var6, this.method_1695(var1, var2), this.method_1693(var1, var2));
         }
     }
 
-    public void method_1554(class_58 var1, class_89 var2, byte var3, String var4, int var5) {
+    public void method_1554(class_58 var1, ASTNode var2, byte var3, String var4, int var5) {
         int var6 = this.method_1449(var5);
         if (var6 != -1) {
             if (var1.method_358()) {
@@ -1054,7 +1054,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1555(class_40 var1, class_89 var2, byte var3, String var4, int var5) {
+    public void method_1555(class_40 var1, ASTNode var2, byte var3, String var4, int var5) {
         if (var2 != null) {
             int var6 = this.method_1449(var5);
             if (var6 != -1) {
@@ -1067,7 +1067,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(570425419, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1557(class_89 var1, class_46 var2) {
+    public void method_1557(ASTNode var1, class_46 var2) {
         this.method_1560(16777744, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
@@ -1086,7 +1086,7 @@ public class ProblemReporter extends class_247 {
         this.field_1065 = null;
     }
 
-    private void method_1561(int var1, String[] var2, String[] var3, int var4, int var5, class_284 var6) {
+    private void method_1561(int var1, String[] var2, String[] var3, int var4, int var5, CompilationResult var6) {
         this.method_1453(var1, var2, var3, var4, var5, this.field_1065, var6);
         this.field_1065 = null;
     }
@@ -1095,11 +1095,11 @@ public class ProblemReporter extends class_247 {
         this.method_1559(var1, var2, 0, var3, var4, var5, var6);
     }
 
-    public void method_1563(class_43 var1, class_89 var2) {
+    public void method_1563(ReferenceBinding var1, ASTNode var2) {
         this.method_1560(16777381, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    public void method_1564(class_54 var1, class_43 var2, class_146 var3) {
+    public void method_1564(SourceTypeBinding var1, ReferenceBinding var2, class_146 var3) {
         boolean var4 = false;
         boolean var5 = false;
         int var6;
@@ -1118,22 +1118,22 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1565(class_54 var1) {
+    public void method_1565(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777543, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1566(class_43 var1, class_93 var2) {
+    public void method_1566(ReferenceBinding var1, AbstractMethodDeclaration var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109226, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1567(class_46 var1, class_89 var2) {
+    public void method_1567(class_46 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.field_198)};
         this.method_1560(16777791, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1568(class_46 var1, class_89 var2) {
+    public void method_1568(class_46 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.field_198)};
         this.method_1560(16777774, var3, var3, var2.field_444, var2.field_445);
     }
@@ -1146,11 +1146,11 @@ public class ProblemReporter extends class_247 {
         this.method_1560(1610613536, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1571(class_40 var1, class_89 var2) {
+    public void method_1571(class_40 var1, ASTNode var2) {
         this.method_1560(16777751, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    public void method_1572(class_40 var1, class_89 var2) {
+    public void method_1572(class_40 var1, ASTNode var2) {
         if (var1.method_169()) {
             this.method_1560(536871459, new String[] {new String(var1.method_103()), new String(var1.method_138().method_103())}, new String[] {new String(var1.method_104()), new String(var1.method_138().method_104())}, var2.field_444, var2.field_445);
         } else {
@@ -1175,12 +1175,12 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1574(class_54 var1) {
+    public void method_1574(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777524, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1575(class_43 var1, class_121 var2) {
+    public void method_1575(ReferenceBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554777, var3, var3, var2.field_444, var2.field_445);
     }
@@ -1190,45 +1190,45 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871527, new String[] {new String(var1.field_661.field_314.method_103()), var2}, new String[] {new String(var1.field_661.field_314.method_104()), var2}, var1.field_444, var1.field_445);
     }
 
-    public void method_1577(class_93 var1) {
+    public void method_1577(AbstractMethodDeclaration var1) {
         this.method_1560(67109464, new String[] {new String(var1.field_488.field_278.method_103()), new String(var1.field_479)}, new String[] {new String(var1.field_488.field_278.method_104()), new String(var1.field_479)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1578(class_54 var1) {
+    public void method_1578(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777820, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1579(class_54 var1) {
+    public void method_1579(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777819, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1580(class_54 var1) {
+    public void method_1580(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777518, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1581(class_54 var1) {
+    public void method_1581(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777966, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1582(class_43 var1, class_121 var2) {
+    public void method_1582(ReferenceBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33555183, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1583(class_93 var1) {
+    public void method_1583(AbstractMethodDeclaration var1) {
         this.method_1560(67109624, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1584(class_43 var1, class_121 var2) {
+    public void method_1584(ReferenceBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554774, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1585(class_54 var1) {
+    public void method_1585(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777519, var2, var2, var1.method_318(), var1.method_317());
     }
@@ -1238,36 +1238,36 @@ public class ProblemReporter extends class_247 {
         this.method_1560(33554775, new String[] {new String(var1.field_661.field_314.method_103()), var2}, new String[] {new String(var1.field_661.field_314.method_104()), var2}, var1.field_444, var1.field_445);
     }
 
-    public void method_1587(class_93 var1) {
+    public void method_1587(AbstractMethodDeclaration var1) {
         this.method_1560(67109223, new String[] {new String(var1.field_488.field_278.method_103()), new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, false)}, new String[] {new String(var1.field_488.field_278.method_104()), new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1588(class_54 var1) {
+    public void method_1588(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777522, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1589(class_54 var1) {
+    public void method_1589(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777968, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1590(class_54 var1) {
+    public void method_1590(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777520, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1591(class_54 var1) {
+    public void method_1591(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777969, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1592(class_54 var1) {
+    public void method_1592(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777521, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1593(class_93 var1) {
+    public void method_1593(AbstractMethodDeclaration var1) {
         this.method_1560(67109222, new String[] {new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, false), new String(var1.field_488.field_278.method_103())}, new String[] {new String(var1.field_479), this.method_1779(var1.field_488.method_374(), var1.field_488.field_276, true), new String(var1.field_488.field_278.method_104())}, var1.field_444, var1.field_445);
     }
 
@@ -1276,7 +1276,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(var2 ? 67109220 : 67109260, var3, var3, var1.field_444, var1.field_445);
     }
 
-    public void method_1595(class_40 var1, class_89 var2) {
+    public void method_1595(class_40 var1, ASTNode var2) {
         this.method_1560(16777243, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
@@ -1284,7 +1284,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777782, new String[] {new String(var2.method_103()), new String(var2.method_137().method_103())}, new String[] {new String(var2.method_104()), new String(var2.method_137().method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1597(class_54 var1) {
+    public void method_1597(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777527, var2, var2, var1.method_318(), var1.method_317());
     }
@@ -1306,36 +1306,36 @@ public class ProblemReporter extends class_247 {
         this.method_1560(1610613314, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1600(class_125 var1, class_93 var2) {
+    public void method_1600(class_125 var1, AbstractMethodDeclaration var2) {
         String[] var3 = new String[] {CharOperation.method_1389(var1.field_660.method_1012()), new String(var2.field_479)};
         this.method_1560(67109279, var3, var3, var1.field_444, var1.field_445);
     }
 
-    public void method_1601(class_43 var1, class_121 var2) {
+    public void method_1601(ReferenceBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554776, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1602(class_54 var1) {
+    public void method_1602(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777526, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1603(class_43 var1, class_93 var2) {
+    public void method_1603(ReferenceBinding var1, AbstractMethodDeclaration var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109224, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1604(class_54 var1) {
+    public void method_1604(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(16777525, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1605(class_89 var1) {
+    public void method_1605(ASTNode var1) {
         this.method_1560(536871076, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1606(class_91 var1, class_34 var2) {
+    public void method_1606(ImportReference var1, class_34 var2) {
         if (var2 instanceof class_67) {
             int var7 = 33554502;
             class_67 var8 = (class_67)var2;
@@ -1375,7 +1375,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1607(class_54 var1, class_58 var2, class_58 var3, class_43 var4) {
+    public void method_1607(SourceTypeBinding var1, class_58 var2, class_58 var3, ReferenceBinding var4) {
         if (var1 == var2.field_278) {
             int var5;
             if (var2.field_278.method_157() && !var3.method_369()) {
@@ -1394,19 +1394,19 @@ public class ProblemReporter extends class_247 {
         var3.append(var2.field_278.method_103()).append('.').append(var2.method_103());
         StringBuffer var4 = new StringBuffer();
         var4.append(var2.field_278.method_104()).append('.').append(var2.method_104());
-        class_43 var6 = var1.field_278;
+        ReferenceBinding var6 = var1.field_278;
         int var5;
         if (var6.method_157() && !var2.method_369()) {
             var5 = 67109277;
         } else {
             var5 = 67109268;
         }
-        class_93 var7 = var1.method_384();
+        AbstractMethodDeclaration var7 = var1.method_384();
         int var8 = 0;
         int var9 = 0;
         if (var7 == null) {
-            if (var6 instanceof class_54) {
-                class_54 var10 = (class_54)var6;
+            if (var6 instanceof SourceTypeBinding) {
+                SourceTypeBinding var10 = (SourceTypeBinding)var6;
                 var8 = var10.method_318();
                 var9 = var10.method_317();
             }
@@ -1434,7 +1434,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(var5, new String[] {var3.toString()}, new String[] {var4.toString()}, var8, var9);
     }
 
-    public void method_1609(class_89 var1, class_40 var2, class_40[] var3) {
+    public void method_1609(ASTNode var1, class_40 var2, class_40[] var3) {
         if (var1 == null) {
             this.method_1562(16777741, new String[] {new String(var2.method_103()), this.method_1779(false, var3, false)}, new String[] {new String(var2.method_104()), this.method_1779(false, var3, true)}, 131, 0, 0);
         } else {
@@ -1450,21 +1450,21 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777385, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1612(class_89 var1, class_67 var2) {
+    public void method_1612(ASTNode var1, class_67 var2) {
         int var3 = this.method_1449(570425422);
         if (var3 != -1) {
             this.method_1562(570425422, new String[] {new String(var2.field_314.method_103()), new String(var2.field_302)}, new String[] {new String(var2.field_314.method_104()), new String(var2.field_302)}, var3, this.method_1695(var2, var1), this.method_1693(var2, var1));
         }
     }
 
-    public void method_1613(class_89 var1, class_58 var2) {
+    public void method_1613(ASTNode var1, class_58 var2) {
         int var3 = this.method_1449(603979895);
         if (var3 != -1) {
             this.method_1562(603979895, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var3, var1.field_444, var1.field_445);
         }
     }
 
-    public void method_1614(class_54 var1, class_58 var2, class_58[] var3) {
+    public void method_1614(SourceTypeBinding var1, class_58 var2, class_58[] var3) {
         StringBuffer var4 = new StringBuffer();
         var4.append(var2.field_278.method_103()).append('.').append(var2.method_103());
         StringBuffer var5 = new StringBuffer();
@@ -1472,7 +1472,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(67109269, new String[] {var4.toString(), new String(var3[0].field_278.method_103())}, new String[] {new String(var5.toString()), new String(var3[0].field_278.method_104())}, var1.method_318(), var1.method_317());
     }
 
-    public void method_1615(class_89 var1, class_58[] var2, int var3) {
+    public void method_1615(ASTNode var1, class_58[] var2, int var3) {
         StringBuffer var4 = new StringBuffer();
         StringBuffer var5 = new StringBuffer();
         int var6 = var3;
@@ -1491,7 +1491,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1616(class_54 var1, class_58[] var2, int var3) {
+    public void method_1616(SourceTypeBinding var1, class_58[] var2, int var3) {
         StringBuffer var4 = new StringBuffer();
         StringBuffer var5 = new StringBuffer();
         int var6 = var3;
@@ -1510,7 +1510,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1617(class_54 var1, class_58 var2, class_58 var3) {
+    public void method_1617(SourceTypeBinding var1, class_58 var2, class_58 var3) {
         this.method_1560(67109424, new String[] {new String(var2.field_274), this.method_1779(var2.method_376().method_374(), var2.method_376().field_276, false), new String(var2.field_278.method_103()), this.method_1779(var3.method_376().method_374(), var3.method_376().field_276, false), new String(var3.field_278.method_103())}, new String[] {new String(var2.field_274), this.method_1779(var2.method_376().method_374(), var2.method_376().field_276, true), new String(var2.field_278.method_104()), this.method_1779(var3.method_376().method_374(), var3.method_376().field_276, true), new String(var3.field_278.method_104())}, var1.method_318(), var1.method_317());
     }
 
@@ -1518,7 +1518,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871075, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1619(class_43 var1, class_122 var2) {
+    public void method_1619(ReferenceBinding var1, class_122 var2) {
         this.method_1560(536870936, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_444);
     }
 
@@ -1526,7 +1526,7 @@ public class ProblemReporter extends class_247 {
         this.method_1453(1610612943, field_1061, field_1061, var1.field_444, var1.field_445, var1, var1.method_94());
     }
 
-    public void method_1621(class_54 var1, class_121 var2) {
+    public void method_1621(SourceTypeBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var1.method_179())};
         this.method_1560(16777516, var3, var3, var2.field_444, var2.field_445);
     }
@@ -1535,7 +1535,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777821, new String[] {new String(var1.field_488.field_275.method_103()), new String(var1.field_479), new String(var1.field_488.field_278.method_103())}, new String[] {new String(var1.field_488.field_275.method_104()), new String(var1.field_479), new String(var1.field_488.field_278.method_104())}, var1.field_497.field_444, var1.field_497.field_445);
     }
 
-    public void method_1623(class_89 var1) {
+    public void method_1623(ASTNode var1) {
         this.method_1560(536871084, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
@@ -1635,11 +1635,11 @@ public class ProblemReporter extends class_247 {
         this.method_1560(var15, new String[] {new String(var2.field_278.method_103()), this.method_1779(var8.method_374(), var8.field_276, false)}, new String[] {new String(var2.field_278.method_104()), this.method_1779(var8.method_374(), var8.field_276, true)}, var5, var6);
     }
 
-    public void method_1625(class_89 var1) {
+    public void method_1625(ASTNode var1) {
         this.method_1560(536871085, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1626(class_126 var1, class_40 var2, class_43 var3) {
+    public void method_1626(class_126 var1, class_40 var2, ReferenceBinding var3) {
         if (var3.method_146()) {
             var3 = var3.method_240();
         }
@@ -1666,7 +1666,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1627(class_89 var1) {
+    public void method_1627(ASTNode var1) {
         this.method_1560(1207959691, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
@@ -1731,7 +1731,7 @@ public class ProblemReporter extends class_247 {
                 this.method_1689(var1);
                 break;
             case 1:
-                class_43 var4 = var2.field_314;
+                ReferenceBinding var4 = var2.field_314;
                 if (var4 != null && (var4.field_178 & 128L) != 0L) {
                     this.method_1560(16777218, new String[] {new String(var2.field_314.method_103())}, new String[] {new String(var2.field_314.method_104())}, var1.field_444, var1.field_445);
                     return;
@@ -1934,22 +1934,22 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871072, new String[] {var1.method_974(), new String(var2.method_103())}, new String[] {var1.method_974(), new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1637(class_40 var1, class_89 var2) {
+    public void method_1637(class_40 var1, ASTNode var2) {
         this.method_1560(16777750, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
-    public void method_1638(class_89 var1) {
+    public void method_1638(ASTNode var1) {
         this.method_1560(1610612961, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1639(class_89 var1, class_40 var2) {
-        if (var2 instanceof class_43) {
-            if (this.method_1660(((class_43)var2).field_197)) {
+    public void method_1639(ASTNode var1, class_40 var2) {
+        if (var2 instanceof ReferenceBinding) {
+            if (this.method_1660(((ReferenceBinding)var2).field_197)) {
                 return;
             }
         } else if (var2 instanceof class_42) {
             class_40 var3 = ((class_42)var2).field_192;
-            if (var3 instanceof class_43 && this.method_1660(((class_43)var3).field_197)) {
+            if (var3 instanceof ReferenceBinding && this.method_1660(((ReferenceBinding)var3).field_197)) {
                 return;
             }
         }
@@ -1998,8 +1998,8 @@ public class ProblemReporter extends class_247 {
                 if (this.method_1660(var9.field_732)) {
                     return;
                 }
-                if (var2 instanceof class_43) {
-                    var6 = ((class_43)var2).field_197;
+                if (var2 instanceof ReferenceBinding) {
+                    var6 = ((ReferenceBinding)var2).field_197;
                     var4 = (int)var9.field_733[var6.length - 1];
                 }
             } else if (var1 instanceof class_152) {
@@ -2008,8 +2008,8 @@ public class ProblemReporter extends class_247 {
                     return;
                 }
                 class_40 var14 = var2.method_173();
-                if (var14 instanceof class_43) {
-                    char[][] var7 = ((class_43)var14).field_197;
+                if (var14 instanceof ReferenceBinding) {
+                    char[][] var7 = ((ReferenceBinding)var14).field_197;
                     var4 = (int)var11.field_733[var7.length - 1];
                 } else {
                     long[] var15 = var11.field_733;
@@ -2020,19 +2020,19 @@ public class ProblemReporter extends class_247 {
                 if (this.method_1660(var10.field_732)) {
                     return;
                 }
-                if (var2 instanceof class_43) {
-                    var6 = ((class_43)var2).field_197;
+                if (var2 instanceof ReferenceBinding) {
+                    var6 = ((ReferenceBinding)var2).field_197;
                     if (var6.length <= var10.field_733.length) {
                         var4 = (int)var10.field_733[var6.length - 1];
                     }
                 }
-            } else if (var1 instanceof class_91) {
-                class_91 var13 = (class_91)var1;
+            } else if (var1 instanceof ImportReference) {
+                ImportReference var13 = (ImportReference)var1;
                 if (this.method_1660(var13.field_467)) {
                     return;
                 }
-                if (var2 instanceof class_43) {
-                    var6 = ((class_43)var2).field_197;
+                if (var2 instanceof ReferenceBinding) {
+                    var6 = ((ReferenceBinding)var2).field_197;
                     var4 = (int)var13.field_468[var6.length - 1];
                 }
             } else if (var1 instanceof class_149) {
@@ -2058,7 +2058,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871087, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
-    public void method_1643(class_40 var1, class_89 var2) {
+    public void method_1643(class_40 var1, ASTNode var2) {
         this.method_1560(16777749, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
@@ -2082,7 +2082,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(1610613328, field_1061, field_1061, var1.field_653, var2.field_445);
     }
 
-    public void method_1649(class_91 var1) {
+    public void method_1649(ImportReference var1) {
         this.method_1560(1610613327, field_1061, field_1061, var1.field_470, var1.field_471);
     }
 
@@ -2110,18 +2110,18 @@ public class ProblemReporter extends class_247 {
         this.method_1560(1610613331, field_1061, field_1061, var1.field_660.field_444, var1.field_445);
     }
 
-    public void method_1655(char[][] var1, class_90 var2, Object var3) {
+    public void method_1655(char[][] var1, CompilationUnitDeclaration var2, Object var3) {
         this.field_1065 = var2;
         String[] var4 = new String[] {CharOperation.method_1389(var1)};
         int var5 = 0;
         int var6 = 0;
         if (var3 != null) {
-            if (var3 instanceof class_0) {
-                class_0 var7 = (class_0)var3;
+            if (var3 instanceof InvocationSite) {
+                InvocationSite var7 = (InvocationSite)var3;
                 var5 = var7.method_5();
                 var6 = var7.method_6();
-            } else if (var3 instanceof class_89) {
-                class_89 var8 = (class_89)var3;
+            } else if (var3 instanceof ASTNode) {
+                ASTNode var8 = (ASTNode)var3;
                 var5 = var8.method_5();
                 var6 = var8.method_6();
             }
@@ -2292,7 +2292,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1662(class_65 var1, class_89 var2) {
+    public void method_1662(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871370);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2300,7 +2300,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1663(class_65 var1, class_89 var2) {
+    public void method_1663(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871366);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2308,7 +2308,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1664(class_65 var1, class_89 var2) {
+    public void method_1664(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871368);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2316,7 +2316,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1665(class_65 var1, class_89 var2) {
+    public void method_1665(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871363);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2324,7 +2324,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1666(class_65 var1, class_89 var2) {
+    public void method_1666(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871364);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2332,7 +2332,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1667(class_65 var1, class_89 var2) {
+    public void method_1667(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871369);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2340,7 +2340,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1668(class_65 var1, class_89 var2) {
+    public void method_1668(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871365);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2348,7 +2348,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1669(class_65 var1, class_89 var2) {
+    public void method_1669(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536871367);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.field_302)};
@@ -2356,7 +2356,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1670(class_93 var1) {
+    public void method_1670(AbstractMethodDeclaration var1) {
         class_58 var2 = var1.field_488;
         this.method_1560(this.field_1064.field_1928 == 3211264L ? 67109487 : 67109498, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.field_444, var1.field_445);
     }
@@ -2365,7 +2365,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(67109424, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, false), new String(var1.field_278.method_103()), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, true), new String(var1.field_278.method_104()), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    public void method_1672(class_93 var1) {
+    public void method_1672(AbstractMethodDeclaration var1) {
         this.method_1560(603979883, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
@@ -2385,7 +2385,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1676(class_93 var1) {
+    public void method_1676(AbstractMethodDeclaration var1) {
         int var2 = this.method_1449(536871541);
         if (var2 != -1) {
             class_58 var3 = var1.field_488;
@@ -2396,7 +2396,7 @@ public class ProblemReporter extends class_247 {
     public void method_1677(class_114 var1) {
         int var2 = this.method_1449(536871542);
         if (var2 != -1) {
-            class_54 var3 = var1.field_586;
+            SourceTypeBinding var3 = var1.field_586;
             this.method_1562(536871542, new String[] {new String(var3.method_103())}, new String[] {new String(var3.method_104())}, var2, var1.field_444, var1.field_445);
         }
     }
@@ -2405,7 +2405,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(33555193, new String[] {new String(var2.field_314.method_103()), new String(var2.field_302)}, new String[] {new String(var2.field_314.method_104()), new String(var2.field_302)}, var1.field_602.field_444, var1.field_602.field_445);
     }
 
-    public void method_1679(class_93 var1) {
+    public void method_1679(AbstractMethodDeclaration var1) {
         int var2 = this.method_1449(67109491);
         if (var2 != -1) {
             class_58 var3 = var1.field_488;
@@ -2413,7 +2413,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1680(class_93 var1) {
+    public void method_1680(AbstractMethodDeclaration var1) {
         this.method_1560(16777327, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
@@ -2422,7 +2422,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871008, var2, var2, var1.field_444, var1.field_445);
     }
 
-    public void method_1682(class_89 var1, class_58 var2) {
+    public void method_1682(ASTNode var1, class_58 var2) {
         List var3 = var2.method_348((List)null);
         class_40 var4 = (class_40)var3.get(0);
         int var5 = var1.field_444;
@@ -2452,7 +2452,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871071, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1686(class_90 var1) {
+    public void method_1686(CompilationUnitDeclaration var1) {
         String[] var2 = new String[] {new String(var1.method_771())};
         this.method_1560(536871238, var2, var2, var1.field_444, var1.field_444 + 1);
     }
@@ -2461,16 +2461,16 @@ public class ProblemReporter extends class_247 {
         this.method_1560(603979977, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1688(class_43 var1, class_93 var2) {
+    public void method_1688(ReferenceBinding var1, AbstractMethodDeclaration var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109231, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1689(class_89 var1) {
-        this.method_1460(class_329.field_1879, var1);
+    public void method_1689(ASTNode var1) {
+        this.method_1460(Messages.field_1879, var1);
     }
 
-    public void method_1690(class_67 var1, class_89 var2, boolean var3) {
+    public void method_1690(class_67 var1, ASTNode var2, boolean var3) {
         int var4 = var3 ? 33554622 : 33554623;
         int var5 = this.method_1449(var4);
         if (var5 != -1) {
@@ -2478,7 +2478,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1691(class_58 var1, class_89 var2) {
+    public void method_1691(class_58 var1, ASTNode var2) {
         int var3;
         if (var1.method_358()) {
             var3 = this.method_1449(67109057);
@@ -2499,11 +2499,11 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777789, new String[] {new String(var1.field_675.method_103())}, new String[] {new String(var1.field_675.method_104())}, var1.field_444, var1.field_445);
     }
 
-    private int method_1693(class_34 var1, class_89 var2) {
+    private int method_1693(class_34 var1, ASTNode var2) {
         return this.method_1694(var1, var2, 0);
     }
 
-    private int method_1694(class_34 var1, class_89 var2, int var3) {
+    private int method_1694(class_34 var1, ASTNode var2, int var3) {
         if (var2 instanceof class_149) {
             return ((class_149)var2).field_730;
         } else {
@@ -2550,11 +2550,11 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    private int method_1695(class_34 var1, class_89 var2) {
+    private int method_1695(class_34 var1, ASTNode var2) {
         return this.method_1696(var1, var2, 0);
     }
 
-    private int method_1696(class_34 var1, class_89 var2, int var3) {
+    private int method_1696(class_34 var1, ASTNode var2, int var3) {
         if (var2 instanceof class_155) {
             class_155 var10 = (class_155)var2;
             return (int)(var10.field_741 >> 32);
@@ -2596,7 +2596,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1697(class_65 var1, class_89 var2) {
+    public void method_1697(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.field_302)};
         this.method_1562(var1 instanceof class_66 ? 536870979 : 536870977, var3, var3, 159, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
@@ -2605,7 +2605,7 @@ public class ProblemReporter extends class_247 {
         this.method_1562(536871343, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, 159, var1.field_444, var1.field_445);
     }
 
-    public void method_1699(class_65 var1, class_89 var2) {
+    public void method_1699(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.field_302)};
         this.method_1562(536870978, var3, var3, 159, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
@@ -2614,11 +2614,11 @@ public class ProblemReporter extends class_247 {
         this.method_1562(536871342, new String[] {new String(var1.field_586.method_103())}, new String[] {new String(var1.field_586.method_104())}, 159, var1.field_444, var1.field_445);
     }
 
-    public void method_1701(class_89 var1) {
+    public void method_1701(ASTNode var1) {
         this.method_1560(536871173, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1702(int var1, class_89 var2, class_40 var3, class_40[] var4) {
+    public void method_1702(int var1, ASTNode var2, class_40 var3, class_40[] var4) {
         if (var2 == null) {
             this.method_1562(16777740, new String[] {new String(var3.method_103()), this.method_1779(false, var4, false)}, new String[] {new String(var3.method_104()), this.method_1779(false, var4, true)}, 131, 0, 0);
         } else {
@@ -2626,27 +2626,27 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1703(class_89 var1, class_67 var2) {
+    public void method_1703(ASTNode var1, class_67 var2) {
         this.method_1704(var1, var2, -1);
     }
 
-    public void method_1704(class_89 var1, class_67 var2, int var3) {
+    public void method_1704(ASTNode var1, class_67 var2, int var3) {
         int var4 = this.method_1449(570425420);
         if (var4 != -1) {
             this.method_1562(570425420, new String[] {new String(var2.field_314.method_103()), new String(var2.field_302)}, new String[] {new String(var2.field_314.method_104()), new String(var2.field_302)}, var4, this.method_1696(var2, var1, var3), this.method_1694(var2, var1, var3));
         }
     }
 
-    public void method_1705(class_89 var1, class_58 var2) {
+    public void method_1705(ASTNode var1, class_58 var2) {
         this.method_1560(603979893, new String[] {new String(var2.field_278.method_103()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, false)}, new String[] {new String(var2.field_278.method_104()), new String(var2.field_274), this.method_1779(var2.method_374(), var2.field_276, true)}, var1.field_444, var1.field_445);
     }
 
-    public void method_1706(class_54 var1) {
+    public void method_1706(SourceTypeBinding var1) {
         String[] var2 = new String[] {new String(var1.method_179())};
         this.method_1560(536870944, var2, var2, var1.method_318(), var1.method_317());
     }
 
-    public void method_1707(class_40 var1, class_89 var2, boolean var3) {
+    public void method_1707(class_40 var1, ASTNode var2, boolean var3) {
         int var4;
         if (var3) {
             var4 = 536870940;
@@ -2700,11 +2700,11 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871435, field_1061, field_1061, var1.field_601[0].field_444, var1.field_601[var1.field_601.length - 1].field_445);
     }
 
-    public void method_1712(class_54 var1) {
+    public void method_1712(SourceTypeBinding var1) {
         this.method_1560(536871241, field_1061, field_1061, var1.method_318(), var1.method_317());
     }
 
-    public void method_1713(class_54 var1) {
+    public void method_1713(SourceTypeBinding var1) {
         this.method_1560(536871242, field_1061, field_1061, var1.method_318(), var1.method_317());
     }
 
@@ -2732,17 +2732,17 @@ public class ProblemReporter extends class_247 {
         this.method_1560(67109274, new String[] {new String(CharOperation.method_1357(var1.field_278.method_103(), var1.method_103(), '.')), new String(var2.field_278.method_103())}, new String[] {new String(CharOperation.method_1357(var1.field_278.method_104(), var1.method_104(), '.')), new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    public void method_1718(class_90 var1) {
+    public void method_1718(CompilationUnitDeclaration var1) {
         String[] var2 = new String[] {CharOperation.method_1389(var1.field_448.field_467)};
         this.method_1560(16777537, var2, var2, var1.field_448.field_444, var1.field_448.field_445);
     }
 
-    public void method_1719(class_90 var1) {
+    public void method_1719(CompilationUnitDeclaration var1) {
         String[] var2 = new String[] {CharOperation.method_1389(var1.field_455.field_1677.method_53()), var1.field_448 == null ? "" : CharOperation.method_1389(var1.field_448.field_467)};
         this.method_1560(536871240, var2, var2, var1.field_448 == null ? 0 : var1.field_448.field_444, var1.field_448 == null ? 0 : var1.field_448.field_445);
     }
 
-    public void method_1720(class_65 var1, class_89 var2) {
+    public void method_1720(class_65 var1, ASTNode var2) {
         int var3 = this.method_1449(536870971);
         if (var3 != -1) {
             String[] var4 = new String[] {new String(var1.method_103())};
@@ -2767,7 +2767,7 @@ public class ProblemReporter extends class_247 {
         return var3.toString();
     }
 
-    public void method_1722(class_89 var1, class_40 var2) {
+    public void method_1722(ASTNode var1, class_40 var2) {
         if (var1 == null) {
             this.method_1562(16777778, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, 131, 0, 0);
         } else {
@@ -2839,13 +2839,13 @@ public class ProblemReporter extends class_247 {
     public void method_1737(int var1, int var2) {
         String[] var3;
         if (this.field_1065 instanceof class_94) {
-            var3 = new String[] {class_329.field_1890};
+            var3 = new String[] {Messages.field_1890};
         } else if (this.field_1065 instanceof class_96) {
-            var3 = new String[] {class_329.field_1891};
+            var3 = new String[] {Messages.field_1891};
         } else if (this.field_1065 instanceof class_114) {
-            var3 = new String[] {class_329.field_1892};
+            var3 = new String[] {Messages.field_1892};
         } else {
-            var3 = new String[] {class_329.field_1889};
+            var3 = new String[] {Messages.field_1889};
         }
         this.method_1560(1610612975, var3, var3, var1, var2);
     }
@@ -2858,13 +2858,13 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871106, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1740(class_90 var1, class_114 var2) {
+    public void method_1740(CompilationUnitDeclaration var1, class_114 var2) {
         this.field_1065 = var2;
         String[] var3 = new String[] {new String(var1.method_771()), new String(var2.field_580)};
         this.method_1561(16777541, var3, var3, var2.field_444, var2.field_445, var1.field_455);
     }
 
-    public void method_1741(class_89 var1, class_43 var2, class_40[] var3) {
+    public void method_1741(ASTNode var1, ReferenceBinding var2, class_40[] var3) {
         if (var1 == null) {
             this.method_1562(16777777, new String[] {new String(var2.method_103()), this.method_1779(false, var3, false), new String(var2.method_137().method_103())}, new String[] {new String(var2.method_104()), this.method_1779(false, var3, true), new String(var2.method_137().method_104())}, 131, 0, 0);
         } else {
@@ -2872,7 +2872,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1742(class_89 var1, class_40 var2) {
+    public void method_1742(ASTNode var1, class_40 var2) {
         var2 = var2.method_173();
         this.method_1560(16777788, new String[] {new String(var2.method_103()), new String(var2.method_138().method_103())}, new String[] {new String(var2.method_104()), new String(var2.method_138().method_104())}, var1.field_444, this.method_1693((class_34)null, var1));
     }
@@ -2891,7 +2891,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536870967, var2, var2, var1.field_444, var1.field_445);
     }
 
-    public void method_1746(class_54 var1, class_146 var2, class_43 var3, class_43 var4) {
+    public void method_1746(SourceTypeBinding var1, class_146 var2, ReferenceBinding var3, ReferenceBinding var4) {
         int var5 = this.method_1449(16777547);
         if (var5 != -1) {
             this.method_1562(16777547, new String[] {new String(var3.method_103()), new String(var1.method_103()), new String(var4.method_103())}, new String[] {new String(var3.method_104()), new String(var1.method_104()), new String(var4.method_104())}, var5, var2.field_444, var2.field_445);
@@ -2910,11 +2910,11 @@ public class ProblemReporter extends class_247 {
         if (this.field_1065 == null) {
             return var1;
         } else {
-            class_284 var2 = this.field_1065.method_94();
+            CompilationResult var2 = this.field_1065.method_94();
             if (var2 == null) {
                 return var1;
             } else {
-                class_19 var3 = var2.method_2918();
+                ICompilationUnit var3 = var2.method_2918();
                 if (var3 == null) {
                     return var1;
                 } else {
@@ -2963,11 +2963,11 @@ public class ProblemReporter extends class_247 {
         if (this.field_1065 == null) {
             return var2;
         } else {
-            class_284 var4 = this.field_1065.method_94();
+            CompilationResult var4 = this.field_1065.method_94();
             if (var4 == null) {
                 return var2;
             } else {
-                class_19 var5 = var4.method_2918();
+                ICompilationUnit var5 = var4.method_2918();
                 if (var5 == null) {
                     return var2;
                 } else {
@@ -3006,11 +3006,11 @@ public class ProblemReporter extends class_247 {
         if (this.field_1065 == null) {
             return var1;
         } else {
-            class_284 var4 = this.field_1065.method_94();
+            CompilationResult var4 = this.field_1065.method_94();
             if (var4 == null) {
                 return var1;
             } else {
-                class_19 var5 = var4.method_2918();
+                ICompilationUnit var5 = var4.method_2918();
                 if (var5 == null) {
                     return var1;
                 } else {
@@ -3105,7 +3105,7 @@ public class ProblemReporter extends class_247 {
         this.method_1561(var4, var9, var9, var5, var6, var1.field_1561.field_455);
     }
 
-    public void method_1754(class_40 var1, class_89 var2) {
+    public void method_1754(class_40 var1, ASTNode var2) {
         this.method_1560(603979884, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
@@ -3121,16 +3121,16 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1757(class_89 var1, class_67 var2) {
+    public void method_1757(ASTNode var1, class_67 var2) {
         String[] var3 = new String[] {new String(var2.method_103())};
         this.method_1560(33554506, var3, var3, this.method_1695(var2, var1), this.method_1693(var2, var1));
     }
 
-    public void method_1758(class_54 var1, class_58 var2, class_58[] var3) {
+    public void method_1758(SourceTypeBinding var1, class_58 var2, class_58[] var3) {
         this.method_1560(67109272, new String[] {new String(var2.method_103()), new String(var3[0].field_278.method_103())}, new String[] {new String(var2.method_103()), new String(var3[0].field_278.method_104())}, var1.method_318(), var1.method_317());
     }
 
-    public void method_1759(class_89 var1, class_43 var2) {
+    public void method_1759(ASTNode var1, ReferenceBinding var2) {
         if (var1 == null) {
             this.method_1562(16777779, new String[] {new String(var2.method_103()), new String(var2.method_137().method_103())}, new String[] {new String(var2.method_104()), new String(var2.method_137().method_104())}, 131, 0, 0);
         } else {
@@ -3139,11 +3139,11 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1760(class_89 var1) {
+    public void method_1760(ASTNode var1) {
         this.method_1560(536871064, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1761(class_54 var1, class_146 var2, class_43 var3) {
+    public void method_1761(SourceTypeBinding var1, class_146 var2, ReferenceBinding var3) {
         this.method_1560(16777528, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
@@ -3151,15 +3151,15 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871092, field_1061, field_1061, var1, var2);
     }
 
-    public void method_1763(class_54 var1, class_146 var2, class_43 var3) {
+    public void method_1763(SourceTypeBinding var1, class_146 var2, ReferenceBinding var3) {
         this.method_1560(16777531, new String[] {new String(var3.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    public void method_1764(class_40 var1, class_89 var2, class_40 var3, class_40 var4) {
+    public void method_1764(class_40 var1, ASTNode var2, class_40 var3, class_40 var4) {
         this.method_1560(16777755, new String[] {new String(var3.method_103()), new String(var4.method_103()), new String(var1.method_179())}, new String[] {new String(var3.method_104()), new String(var4.method_104()), new String(var1.method_179())}, var2.field_444, var2.field_445);
     }
 
-    public void method_1765(class_54 var1, class_146 var2, class_40 var3) {
+    public void method_1765(SourceTypeBinding var1, class_146 var2, class_40 var3) {
         String var4 = new String(var1.method_179());
         String var5 = new String(var3.method_103());
         String var6 = new String(var3.method_104());
@@ -3189,7 +3189,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871362, new String[] {var1, var2, var3}, new String[] {var1, var2, var3}, var4, var5);
     }
 
-    public void method_1768(class_89 var1) {
+    public void method_1768(ASTNode var1) {
         this.method_1560(536870980, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
@@ -3218,7 +3218,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(16777534, var2, var2, var1.field_444, var1.field_445);
     }
 
-    public void method_1773(class_90 var1, class_114 var2) {
+    public void method_1773(CompilationUnitDeclaration var1, class_114 var2) {
         this.field_1065 = var2;
         String[] var3 = new String[] {new String(var1.method_771()), new String(var2.field_580)};
         this.method_1561(16777538, var3, var3, var2.field_444, var2.field_445, var1.field_455);
@@ -3252,7 +3252,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1777(class_40 var1, class_40 var2, class_89 var3, class_89 var4) {
+    public void method_1777(class_40 var1, class_40 var2, ASTNode var3, ASTNode var4) {
         if (var1 != null && (var1.field_178 & 128L) != 0L) {
             this.method_1560(16777218, new String[] {new String(var1.method_173().method_103())}, new String[] {new String(var1.method_173().method_104())}, var3.field_444, var3.field_445);
         } else if (var4 != null && (var2.field_178 & 128L) != 0L) {
@@ -3262,7 +3262,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1778(class_40 var1, class_46 var2, class_43 var3, class_89 var4) {
+    public void method_1778(class_40 var1, class_46 var2, ReferenceBinding var3, ASTNode var4) {
         if (var4 == null) {
             this.method_1562(16777742, new String[] {new String(var1.method_103()), new String(var3.method_103()), new String(var2.field_198), this.method_1721(var2, false)}, new String[] {new String(var1.method_104()), new String(var3.method_104()), new String(var2.field_198), this.method_1721(var2, true)}, 131, 0, 0);
         } else {
@@ -3304,7 +3304,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1782(char[] var1, class_43 var2) {
+    public void method_1782(char[] var1, ReferenceBinding var2) {
         this.method_1562(536871450, new String[] {new String(var1), new String(var2.method_103())}, new String[] {new String(var1), new String(var2.method_104())}, 131, 0, 0);
     }
 
@@ -3312,17 +3312,17 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871372, field_1061, field_1061, var1, var2);
     }
 
-    public void method_1784(class_54 var1, class_121 var2) {
+    public void method_1784(SourceTypeBinding var1, class_121 var2) {
         String[] var3 = new String[] {new String(var2.field_659)};
         this.method_1560(33554778, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1785(class_43 var1, class_93 var2) {
+    public void method_1785(ReferenceBinding var1, AbstractMethodDeclaration var2) {
         String[] var3 = new String[] {new String(var1.method_179()), new String(var2.field_479)};
         this.method_1560(67109225, var3, var3, var2.field_444, var2.field_445);
     }
 
-    public void method_1786(class_40 var1, class_89 var2) {
+    public void method_1786(class_40 var1, ASTNode var2) {
         boolean var3 = this.field_1065 instanceof class_94 && ((class_94)this.field_1065).method_796();
         boolean var4 = var2 instanceof class_105 && ((class_105)var2).field_551 == 1;
         this.method_1560(var3 ? 16777362 : (var4 ? 134217871 : 16777384), new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
@@ -3333,12 +3333,12 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871543, var2, var2, var1.field_444, var1.field_445);
     }
 
-    public void method_1788(class_67 var1, class_89 var2) {
+    public void method_1788(class_67 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(33554513, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
 
-    public void method_1789(class_65 var1, class_89 var2) {
+    public void method_1789(class_65 var1, ASTNode var2) {
         String[] var3 = new String[] {new String(var1.method_103())};
         this.method_1560(536870963, var3, var3, this.method_1695(var1, var2), this.method_1693(var1, var2));
     }
@@ -3351,11 +3351,11 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1791(class_89 var1) {
+    public void method_1791(ASTNode var1) {
         this.method_1560(536871101, field_1061, field_1061, var1.field_444, var1.field_445);
     }
 
-    public void method_1792(class_126 var1, class_43 var2) {
+    public void method_1792(class_126 var1, ReferenceBinding var2) {
         this.method_1560(16777239, new String[] {new String(var2.method_103())}, new String[] {new String(var2.method_104())}, var1.field_444, var1.field_445);
     }
 
@@ -3395,7 +3395,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(570425423, new String[] {new String(var2.field_314.method_103()), new String(var2.field_302)}, new String[] {new String(var2.field_314.method_104()), new String(var2.field_302)}, var3, var4);
     }
 
-    public void method_1797(class_43 var1, class_89 var2) {
+    public void method_1797(ReferenceBinding var1, ASTNode var2) {
         this.method_1560(83886247, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var2.field_444, var2.field_445);
     }
 
@@ -3444,21 +3444,21 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1801(class_40 var1, class_89 var2) {
+    public void method_1801(class_40 var1, ASTNode var2) {
         int var3 = this.method_1449(67109438);
         if (var3 != -1) {
             this.method_1562(67109438, new String[] {new String(var1.method_103())}, new String[] {new String(var1.method_104())}, var3, var2.field_444, var2.field_445);
         }
     }
 
-    public void method_1802(class_67 var1, class_40 var2, class_89 var3) {
+    public void method_1802(class_67 var1, class_40 var2, ASTNode var3) {
         int var4 = this.method_1449(16777752);
         if (var4 != -1) {
             this.method_1562(16777752, new String[] {new String(var2.method_103()), new String(var1.field_302), new String(var1.field_314.method_103()), new String(var1.field_314.method_138().method_103())}, new String[] {new String(var2.method_104()), new String(var1.field_302), new String(var1.field_314.method_104()), new String(var1.field_314.method_138().method_104())}, var4, this.method_1695(var1, var3), this.method_1693(var1, var3));
         }
     }
 
-    public void method_1803(class_89 var1, class_58 var2) {
+    public void method_1803(ASTNode var1, class_58 var2) {
         boolean var3 = var2.method_358();
         int var4 = this.method_1449(var3 ? 16777785 : 16777786);
         if (var4 != -1) {
@@ -3470,7 +3470,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1804(class_89 var1, class_58 var2) {
+    public void method_1804(ASTNode var1, class_58 var2) {
         boolean var3 = var2.method_358();
         int var4 = this.method_1449(var3 ? 16777746 : 16777747);
         if (var4 != -1) {
@@ -3482,7 +3482,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1805(class_58 var1, class_58 var2, class_54 var3) {
+    public void method_1805(class_58 var1, class_58 var2, SourceTypeBinding var3) {
         int var4 = this.method_1449(67109423);
         if (var4 != -1) {
             int var5 = var3.method_318();
@@ -3511,7 +3511,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1808(class_43 var1, class_93 var2, class_89 var3) {
+    public void method_1808(ReferenceBinding var1, AbstractMethodDeclaration var2, ASTNode var3) {
         boolean var4 = var2.method_795();
         int var5 = this.method_1449(var4 ? 536871098 : 536871097);
         if (var5 != -1) {
@@ -3523,7 +3523,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1809(class_91 var1) {
+    public void method_1809(ImportReference var1) {
         int var2 = this.method_1449(268435844);
         if (var2 != -1) {
             String[] var3 = new String[] {CharOperation.method_1389(var1.field_467)};
@@ -3567,7 +3567,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1814(class_93 var1) {
+    public void method_1814(AbstractMethodDeclaration var1) {
         int var2 = this.method_1449(603979894);
         if (var2 != -1) {
             class_58 var3 = var1.field_488;
@@ -3586,7 +3586,7 @@ public class ProblemReporter extends class_247 {
     public void method_1815(class_114 var1) {
         int var2 = this.method_1449(553648135);
         if (var2 != -1) {
-            class_54 var3 = var1.field_586;
+            SourceTypeBinding var3 = var1.field_586;
             this.method_1562(553648135, new String[] {new String(var3.method_103())}, new String[] {new String(var3.method_104())}, var2, var1.field_444, var1.field_445);
         }
     }
@@ -3604,7 +3604,7 @@ public class ProblemReporter extends class_247 {
         this.method_1560(536871353, field_1061, field_1061, var1, var2);
     }
 
-    public void method_1819(class_58 var1, class_40 var2, class_0 var3) {
+    public void method_1819(class_58 var1, class_40 var2, InvocationSite var3) {
         int var4 = this.field_1064.method_3313(34359738368L);
         if (var4 != -1) {
             class_42 var5 = (class_42)var1.field_276[var1.field_276.length - 1];
@@ -3616,7 +3616,7 @@ public class ProblemReporter extends class_247 {
         }
     }
 
-    public void method_1820(class_58 var1, class_58 var2, class_54 var3) {
+    public void method_1820(class_58 var1, class_58 var2, SourceTypeBinding var3) {
         this.method_1560(67109667, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, false), new String(var1.field_278.method_103()), this.method_1779(var2.method_374(), var2.field_276, false), new String(var2.field_278.method_103())}, new String[] {new String(var1.field_274), this.method_1779(var1.method_374(), var1.field_276, true), new String(var1.field_278.method_104()), this.method_1779(var2.method_374(), var2.field_276, true), new String(var2.field_278.method_104())}, var1.field_278 == var3 ? var1.method_385() : var3.method_318(), var1.field_278 == var3 ? var1.method_383() : var3.method_317());
     }
 
@@ -3633,11 +3633,11 @@ public class ProblemReporter extends class_247 {
         this.method_1560(67109273, new String[] {new String(var2.field_278.method_103())}, new String[] {new String(var2.field_278.method_104())}, var1.method_385(), var1.method_383());
     }
 
-    public void method_1824(class_40 var1, class_40 var2, class_89 var3) {
+    public void method_1824(class_40 var1, class_40 var2, ASTNode var3) {
         this.method_1560(16777758, new String[] {new String(var2.method_103()), new String(var1.method_103())}, new String[] {new String(var2.method_104()), new String(var1.method_104())}, var3.field_444, var3.field_445);
     }
 
-    public void method_1825(class_89 var1, class_40 var2, class_58 var3, class_40[] var4) {
+    public void method_1825(ASTNode var1, class_40 var2, class_58 var3, class_40[] var4) {
         class_40 var5 = null;
         class_40 var6 = null;
         int var7 = 0;

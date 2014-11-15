@@ -2,24 +2,24 @@ package org.eclipse.jdt.internal.compiler.codegen;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.core.compiler.CategorizedProblem;
-import org.eclipse.jdt.internal.compiler.class_284;
-import org.eclipse.jdt.internal.compiler.class_288;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
+import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.ast.class_105;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_135;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.codegen.class_272;
 import org.eclipse.jdt.internal.compiler.codegen.class_73;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.codegen.class_75;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_55;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_60;
@@ -40,19 +40,19 @@ public class class_268 {
 
     static class_73[] field_1182;
 
-    static class_74[] field_1183;
+    static BranchLabel[] field_1183;
 
     static class_65[] field_1184;
 
     static class_65[] field_1185;
 
-    public static final class_284 field_1186;
+    public static final CompilationResult field_1186;
 
     public int field_1187;
 
     public byte[] field_1188;
 
-    public class_288 field_1189;
+    public ClassFile field_1189;
 
     public int field_1190;
 
@@ -66,7 +66,7 @@ public class class_268 {
 
     public int field_1195;
 
-    public class_74[] field_1196;
+    public BranchLabel[] field_1196;
 
     public int field_1197;
 
@@ -84,7 +84,7 @@ public class class_268 {
 
     public int field_1204;
 
-    public class_93 field_1205;
+    public AbstractMethodDeclaration field_1205;
 
     public int[] field_1206;
 
@@ -170,9 +170,9 @@ public class class_268 {
         var3[var1] = var4;
     }
 
-    public class_268(class_288 var1) {
+    public class_268(ClassFile var1) {
         this.field_1193 = new class_73[5];
-        this.field_1196 = new class_74[5];
+        this.field_1196 = new BranchLabel[5];
         this.field_1202 = new class_65[10];
         this.field_1206 = new int[24];
         this.field_1214 = new class_65[10];
@@ -228,9 +228,9 @@ public class class_268 {
         }
     }
 
-    public void method_2089(class_74 var1) {
+    public void method_2089(BranchLabel var1) {
         if (this.field_1192 == this.field_1196.length) {
-            System.arraycopy(this.field_1196, 0, this.field_1196 = new class_74[this.field_1192 + 5], 0, this.field_1192);
+            System.arraycopy(this.field_1196, 0, this.field_1196 = new BranchLabel[this.field_1192 + 5], 0, this.field_1192);
         }
         this.field_1196[this.field_1192++] = var1;
     }
@@ -1495,8 +1495,8 @@ public class class_268 {
             if (this.field_1213 >= 3211264L) {
                 this.method_2312(var1);
             } else {
-                class_74 var10000 = new class_74(this);
-                class_74 var3 = var10000;
+                BranchLabel var10000 = new BranchLabel(this);
+                BranchLabel var3 = var10000;
                 if (var2 != null) {
                     this.method_2207(var2);
                     this.method_2141();
@@ -1617,7 +1617,7 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2471(var3, var4, var5));
     }
 
-    private void method_2181(byte var1, int var2, class_43 var3, char[] var4, class_40 var5) {
+    private void method_2181(byte var1, int var2, ReferenceBinding var3, char[] var4, class_40 var5) {
         if (var3.method_160()) {
             this.field_1189.method_3012(var3);
         }
@@ -2014,17 +2014,17 @@ public class class_268 {
         }
     }
 
-    public void method_2191(Object[] var1, class_89 var2, class_34 var3, class_83 var4) {
+    public void method_2191(Object[] var1, ASTNode var2, class_34 var3, class_83 var4) {
         if (var1 == null) {
             if (var3 instanceof class_65) {
                 var4.method_644().method_1689(var2);
             } else {
-                var4.method_644().method_1707((class_43)var3, var2, false);
+                var4.method_644().method_1707((ReferenceBinding)var3, var2, false);
             }
         } else if (var1 == class_86.field_401) {
-            var4.method_644().method_1707((class_43)var3, var2, true);
+            var4.method_644().method_1707((ReferenceBinding)var3, var2, true);
         } else if (var1 == class_86.field_402) {
-            var4.method_644().method_1707((class_43)var3, var2, false);
+            var4.method_644().method_1707((ReferenceBinding)var3, var2, false);
         } else if (var1 == class_86.field_400) {
             this.method_2093();
         } else {
@@ -2104,7 +2104,7 @@ public class class_268 {
         int var4 = var3.length;
         int var5 = 1;
         this.method_2093();
-        class_43 var6 = var2.field_278;
+        ReferenceBinding var6 = var2.field_278;
         if (var6.method_138().field_177 == 41 || var6.method_153()) {
             this.method_2094();
             this.method_2249();
@@ -2152,7 +2152,7 @@ public class class_268 {
 
     public void method_2195(class_60 var1) {
         this.method_2256(var1);
-        class_43 var2 = var1.field_278;
+        ReferenceBinding var2 = var1.field_278;
         this.method_2312(var2);
         this.method_2093();
         this.method_2265(var2);
@@ -2161,7 +2161,7 @@ public class class_268 {
     }
 
     public void method_2196(class_60 var1) {
-        class_84 var2 = ((class_54)var1.field_278).field_258;
+        class_84 var2 = ((SourceTypeBinding)var1.field_278).field_258;
         class_67 var3 = var2.field_376.field_600;
         this.method_2256(var1);
         class_40 var4 = var1.field_275;
@@ -2302,10 +2302,10 @@ public class class_268 {
     }
 
     public void method_2200(class_60 var1) {
-        class_84 var2 = ((class_54)var1.field_278).field_258;
+        class_84 var2 = ((SourceTypeBinding)var1.field_278).field_258;
         this.method_2256(var1);
-        class_74 var10000 = new class_74(this);
-        class_74 var3 = var10000;
+        BranchLabel var10000 = new BranchLabel(this);
+        BranchLabel var3 = var10000;
         class_67 var4 = var1.field_283;
         this.method_2207(var4);
         this.method_2141();
@@ -2314,7 +2314,7 @@ public class class_268 {
         this.method_2354(var4.field_301);
         var3.method_458();
         this.method_2352();
-        class_43 var5 = (class_43)var1.field_286;
+        ReferenceBinding var5 = (ReferenceBinding)var1.field_286;
         class_42 var6 = var2.method_580(var5, 1);
         this.method_2266(var5, var6);
         this.method_2101();
@@ -2329,8 +2329,8 @@ public class class_268 {
             for (int var10 = var8.length; var9 < var10; ++var9) {
                 class_67 var11 = var8[var9];
                 if ((var11.method_425() & 16384) != 0) {
-                    var10000 = new class_74(this);
-                    class_74 var12 = var10000;
+                    var10000 = new BranchLabel(this);
+                    BranchLabel var12 = var10000;
                     class_73 var14 = new class_73(this, class_40.field_183);
                     class_73 var13 = var14;
                     var13.method_449();
@@ -2355,15 +2355,15 @@ public class class_268 {
         this.method_2365(var7);
     }
 
-    public void method_2201(class_86 var1, class_43 var2, class_126 var3, class_89 var4) {
-        class_43 var5 = var2.method_146() ? (class_43)var2.method_240().method_138() : var2;
+    public void method_2201(class_86 var1, ReferenceBinding var2, class_126 var3, ASTNode var4) {
+        ReferenceBinding var5 = var2.method_146() ? (ReferenceBinding)var2.method_240().method_138() : var2;
         boolean var6 = var3 != null;
         if (var6 && (!var5.method_160() || var5.method_226())) {
             var1.method_644().method_1792(var3, var5);
         } else {
-            class_43[] var7;
+            ReferenceBinding[] var7;
             if ((var7 = var2.method_242()) != null) {
-                class_43 var8 = var5.method_137();
+                ReferenceBinding var8 = var5.method_137();
                 long var9 = var1.method_577().field_1927;
                 boolean var11;
                 if (var9 <= 3080192L) {
@@ -2376,7 +2376,7 @@ public class class_268 {
                 boolean var12 = var9 >= 3145728L;
                 int var13 = 0;
                 for (int var14 = var7.length; var13 < var14; ++var13) {
-                    class_43 var15 = var7[var13];
+                    ReferenceBinding var15 = var7[var13];
                     if (var6 && var15 == var8) {
                         var6 = false;
                         var3.method_912(var1, this, true);
@@ -2397,7 +2397,7 @@ public class class_268 {
         }
     }
 
-    public void method_2202(class_86 var1, class_43 var2, class_89 var3) {
+    public void method_2202(class_86 var1, ReferenceBinding var2, ASTNode var3) {
         class_66[] var4;
         if ((var4 = var2.method_243()) != null) {
             int var5 = 0;
@@ -2439,9 +2439,9 @@ public class class_268 {
         }
     }
 
-    public void method_2204(byte var1, class_74 var2) {
-        class_74 var10000 = new class_74(this);
-        class_74 var3 = var10000;
+    public void method_2204(byte var1, BranchLabel var2) {
+        BranchLabel var10000 = new BranchLabel(this);
+        BranchLabel var3 = var10000;
         if (this.field_1190 >= this.field_1188.length) {
             this.method_2369();
         }
@@ -2504,7 +2504,7 @@ public class class_268 {
         }
     }
 
-    public void method_2209(class_74 var1) {
+    public void method_2209(BranchLabel var1) {
         if (this.field_1216) {
             this.method_2210(var1);
         } else {
@@ -2530,7 +2530,7 @@ public class class_268 {
         }
     }
 
-    public void method_2210(class_74 var1) {
+    public void method_2210(BranchLabel var1) {
         if (this.field_1190 >= this.field_1188.length) {
             this.method_2369();
         }
@@ -2743,7 +2743,7 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 108;
     }
 
-    public void method_2229(class_74 var1) {
+    public void method_2229(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2758,7 +2758,7 @@ public class class_268 {
         }
     }
 
-    public void method_2230(class_74 var1) {
+    public void method_2230(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2773,7 +2773,7 @@ public class class_268 {
         }
     }
 
-    public void method_2231(class_74 var1) {
+    public void method_2231(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2788,7 +2788,7 @@ public class class_268 {
         }
     }
 
-    public void method_2232(class_74 var1) {
+    public void method_2232(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2803,7 +2803,7 @@ public class class_268 {
         }
     }
 
-    public void method_2233(class_74 var1) {
+    public void method_2233(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2818,7 +2818,7 @@ public class class_268 {
         }
     }
 
-    public void method_2234(class_74 var1) {
+    public void method_2234(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2833,7 +2833,7 @@ public class class_268 {
         }
     }
 
-    public void method_2235(class_74 var1) {
+    public void method_2235(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2848,7 +2848,7 @@ public class class_268 {
         }
     }
 
-    public void method_2236(class_74 var1) {
+    public void method_2236(BranchLabel var1) {
         this.field_1192 = 0;
         this.field_1210 -= 2;
         if (this.field_1216) {
@@ -2863,7 +2863,7 @@ public class class_268 {
         }
     }
 
-    public void method_2237(class_74 var1) {
+    public void method_2237(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2878,7 +2878,7 @@ public class class_268 {
         }
     }
 
-    public void method_2238(class_74 var1) {
+    public void method_2238(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2893,7 +2893,7 @@ public class class_268 {
         }
     }
 
-    public void method_2239(class_74 var1) {
+    public void method_2239(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2908,7 +2908,7 @@ public class class_268 {
         }
     }
 
-    public void method_2240(class_74 var1) {
+    public void method_2240(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2923,7 +2923,7 @@ public class class_268 {
         }
     }
 
-    public void method_2241(class_74 var1) {
+    public void method_2241(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2938,7 +2938,7 @@ public class class_268 {
         }
     }
 
-    public void method_2242(class_74 var1) {
+    public void method_2242(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2953,7 +2953,7 @@ public class class_268 {
         }
     }
 
-    public void method_2243(class_74 var1) {
+    public void method_2243(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -2968,7 +2968,7 @@ public class class_268 {
         }
     }
 
-    public void method_2244(class_74 var1) {
+    public void method_2244(BranchLabel var1) {
         this.field_1192 = 0;
         --this.field_1210;
         if (this.field_1216) {
@@ -3125,13 +3125,13 @@ public class class_268 {
         this.field_1188[this.field_1190++] = 116;
     }
 
-    public boolean method_2254(class_74 var1, int var2) {
+    public boolean method_2254(BranchLabel var1, int var2) {
         if (var1.field_329 != null) {
             return false;
         } else {
             int var3 = 0;
             for (int var4 = this.field_1192 - 1; var4 >= 0; --var4) {
-                class_74 var5 = this.field_1196[var4];
+                BranchLabel var5 = this.field_1196[var4];
                 if (var5.field_323 != var2) {
                     break;
                 }
@@ -3150,7 +3150,7 @@ public class class_268 {
         }
     }
 
-    public void method_2255(class_288 var1) {
+    public void method_2255(ClassFile var1) {
         this.field_1189 = var1;
         this.field_1191 = var1.field_1716;
         this.field_1188 = var1.field_1718;
@@ -3178,7 +3178,7 @@ public class class_268 {
         this.field_1194 = 0;
         var2 = this.field_1196.length;
         if (field_1183.length < var2) {
-            field_1183 = new class_74[var2];
+            field_1183 = new BranchLabel[var2];
         }
         System.arraycopy(field_1183, 0, this.field_1196, 0, var2);
         this.field_1192 = 0;
@@ -3200,7 +3200,7 @@ public class class_268 {
             int var3;
             int var4;
             if (var1.method_358() && var1.field_278.method_160()) {
-                class_43[] var2;
+                ReferenceBinding[] var2;
                 if ((var2 = var1.field_278.method_242()) != null) {
                     var3 = 0;
                     for (var4 = var2.length; var3 < var4; ++var3) {
@@ -3370,7 +3370,7 @@ public class class_268 {
         this.method_2258(-74, 0, 1, class_272.field_1410, class_272.field_1346, class_272.field_1347);
     }
 
-    public void method_2265(class_43 var1) {
+    public void method_2265(ReferenceBinding var1) {
         this.method_2258(-72, 2, 1, class_272.field_1414, class_272.field_1497, class_272.field_1505);
     }
 
@@ -3411,9 +3411,9 @@ public class class_268 {
         this.method_2387(this.field_1191.method_2469(var1.method_350(), var1.field_274, var1.method_382(this.field_1189), false));
         int var3;
         if (var1.method_358()) {
-            class_43 var4 = var1.field_278;
+            ReferenceBinding var4 = var1.field_278;
             if (var4.method_160()) {
-                class_43[] var5 = var4.method_242();
+                ReferenceBinding[] var5 = var4.method_242();
                 int var7;
                 if (var5 != null) {
                     int var6 = 0;
@@ -3865,7 +3865,7 @@ public class class_268 {
         this.field_1188[this.field_1190++] = -126;
     }
 
-    public final void method_2297(class_74 var1) {
+    public final void method_2297(BranchLabel var1) {
         if (this.field_1216) {
             this.method_2298(var1);
         } else {
@@ -3879,7 +3879,7 @@ public class class_268 {
         }
     }
 
-    public final void method_2298(class_74 var1) {
+    public final void method_2298(BranchLabel var1) {
         this.field_1192 = 0;
         if (this.field_1190 >= this.field_1188.length) {
             this.method_2369();
@@ -4789,9 +4789,9 @@ public class class_268 {
         }
     }
 
-    public void method_2351(int var1, class_74 var2) {
+    public void method_2351(int var1, BranchLabel var2) {
         for (int var3 = 0; var3 < this.field_1192; ++var3) {
-            class_74 var4 = this.field_1196[var3];
+            BranchLabel var4 = this.field_1196[var3];
             if (var1 == var4.field_323) {
                 var4.field_323 = this.field_1208;
                 int var7;
@@ -5134,7 +5134,7 @@ public class class_268 {
         }
     }
 
-    public void method_2366(class_93 var1, class_288 var2) {
+    public void method_2366(AbstractMethodDeclaration var1, ClassFile var2) {
         this.method_2255(var2);
         this.field_1205 = var1;
         int[] var3 = this.field_1199;
@@ -5162,7 +5162,7 @@ public class class_268 {
         this.method_2256(var1.field_488);
     }
 
-    public void method_2367(class_288 var1) {
+    public void method_2367(ClassFile var1) {
         this.field_1213 = var1.field_1731;
         int var2 = var1.field_1728;
         this.field_1195 = var2;
@@ -5173,7 +5173,7 @@ public class class_268 {
         }
     }
 
-    public void method_2368(class_288 var1) {
+    public void method_2368(ClassFile var1) {
         this.method_2255(var1);
         this.method_2256((class_58)null);
     }
@@ -5595,7 +5595,7 @@ public class class_268 {
         }
     }
 
-    protected void method_2381(class_74 var1) {
+    protected void method_2381(BranchLabel var1) {
         int var2 = var1.field_323 - this.field_1208 + 1;
         if (Math.abs(var2) > 32767 && !this.field_1216) {
             class_244 var10000 = new class_244(field_1186, (CategorizedProblem)null);
@@ -5610,7 +5610,7 @@ public class class_268 {
         }
     }
 
-    protected void method_2382(class_74 var1, int var2) {
+    protected void method_2382(BranchLabel var1, int var2) {
         int var3 = var1.field_323 - var2 + 1;
         if (Math.abs(var3) > 32767 && !this.field_1216) {
             class_244 var10000 = new class_244(field_1186, (CategorizedProblem)null);
@@ -5674,7 +5674,7 @@ public class class_268 {
         this.field_1188[this.field_1190++] = (byte)var1;
     }
 
-    protected void method_2388(class_74 var1) {
+    protected void method_2388(BranchLabel var1) {
         int var2 = var1.field_323;
         int var3 = var2 - this.field_1208 + 1;
         this.method_2385(var3);
@@ -5690,10 +5690,10 @@ public class class_268 {
     static {
         field_1181 = new class_67[0];
         field_1182 = new class_73[5];
-        field_1183 = new class_74[5];
+        field_1183 = new BranchLabel[5];
         field_1184 = new class_65[10];
         field_1185 = new class_65[10];
-        class_284 var10000 = new class_284((String)null, 0, 0, 0);
+        CompilationResult var10000 = new CompilationResult((String)null, 0, 0, 0);
         field_1186 = var10000;
     }
 }

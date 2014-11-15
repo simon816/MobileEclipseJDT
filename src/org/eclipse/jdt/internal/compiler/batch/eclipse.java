@@ -40,19 +40,19 @@ public class eclipse extends MIDlet implements CommandListener {
 
     ConsoleCanvas canvas;
 
-    Integer field_429;
+    Integer stdErrColor;
 
-    Integer field_430;
+    Integer stdOutColor;
 
     Font font;
 
-    char[] field_432;
+    char[] currentTextOutput;
 
-    int field_433;
+    int currentLine;
 
-    static Vector field_434;
+    static Vector outputTextBuffer;
 
-    static Vector field_435;
+    static Vector outputColorBuffer;
 
     TextField resTextbox;
 
@@ -78,10 +78,10 @@ public class eclipse extends MIDlet implements CommandListener {
         this.exitCommand = new Command("Exit", 7, 1);
         this.creditTicker = new Ticker("Credits: Alvin Alexander & Yosep Karli");
         this.developerTicker = new Ticker("Developer: ASM \u00a9 2012-2013");
-        this.field_429 = new Integer(16711680);
-        this.field_430 = new Integer(255);
+        this.stdErrColor = new Integer(16711680);
+        this.stdOutColor = new Integer(255);
         this.font = Font.getDefaultFont();
-        this.field_433 = 0;
+        this.currentLine = 0;
     }
 
     public void startApp() {
@@ -140,75 +140,75 @@ public class eclipse extends MIDlet implements CommandListener {
         }
     }
 
-    public void print(String var1) {
+    public void println(String var1) {
         if (var1 != null) {
-            this.method_742(var1);
+            this.writeLine(var1);
         }
     }
 
-    public void print(Object var1) {
+    public void println(Object var1) {
         if (var1 != null) {
-            this.method_742(var1.toString());
+            this.writeLine(var1.toString());
         }
     }
 
-    public void newLine() {
-        this.method_742("");
+    public void println() {
+        this.writeLine("");
     }
 
-    public void method_736(int var1) {
-        this.method_742(String.valueOf(var1));
+    public void println(int var1) {
+        this.writeLine(String.valueOf(var1));
     }
 
-    public void method_737(String var1) {
+    public void printErrLn(String var1) {
         if (var1 != null) {
-            this.method_738(var1);
+            this.writeErrorLine(var1);
         }
     }
 
-    private void method_738(String var1) {
-        this.field_432 = var1.toCharArray();
-        this.method_740(true);
+    private void writeErrorLine(String var1) {
+        this.currentTextOutput = var1.toCharArray();
+        this.wrapAndBufferText(true);
         this.canvas.repaint();
     }
 
-    private void method_739(int var1, int var2, boolean var3) {
-        if (this.field_433 < field_435.size() - 17) {
-            ++this.field_433;
+    private void addLineToBuffer(int var1, int var2, boolean var3) {
+        if (this.currentLine < outputColorBuffer.size() - 17) {
+            ++this.currentLine;
         }
-        field_434.addElement(new String(this.field_432, var1, var2));
-        field_435.addElement(var3 ? this.field_429 : this.field_430);
+        outputTextBuffer.addElement(new String(this.currentTextOutput, var1, var2));
+        outputColorBuffer.addElement(var3 ? this.stdErrColor : this.stdOutColor);
     }
 
-    synchronized void method_740(boolean var1) {
-        int var2 = this.field_432.length - 1;
+    synchronized void wrapAndBufferText(boolean var1) {
+        int var2 = this.currentTextOutput.length - 1;
         int var3 = 0;
         for (int var4 = 0; var4 < var2; ++var4) {
-            if (this.field_432[var4] == 10) {
-                this.field_432[var4] = 32;
-                this.method_741(var3, var4, var1);
+            if (this.currentTextOutput[var4] == 10) {
+                this.currentTextOutput[var4] = 32;
+                this.bufferText(var3, var4, var1);
                 ++var4;
-                while (var4 < var2 && (this.field_432[var4] == 13 || this.field_432[var4] == 10)) {
+                while (var4 < var2 && (this.currentTextOutput[var4] == 13 || this.currentTextOutput[var4] == 10)) {
                     ++var4;
                 }
                 var3 = var4--;
-            } else if (this.field_432[var4] >= 0 && this.field_432[var4] < 32) {
-                this.field_432[var4] = 32;
+            } else if (this.currentTextOutput[var4] >= 0 && this.currentTextOutput[var4] < 32) {
+                this.currentTextOutput[var4] = 32;
             }
         }
-        this.method_741(var3, var2, var1);
+        this.bufferText(var3, var2, var1);
     }
 
-    private void method_741(int var1, int var2, boolean var3) {
+    private void bufferText(int var1, int var2, boolean var3) {
         if (var1 < var2) {
-            if (this.field_432[var2] == 32) {
+            if (this.currentTextOutput[var2] == 32) {
                 --var2;
             }
             int var5;
-            for (; var2 > var1; this.method_739(var1, var1 - var5, var3)) {
+            for (; var2 > var1; this.addLineToBuffer(var1, var1 - var5, var3)) {
                 var5 = var1;
                 int var4;
-                for (var4 = 0; var4 < 230 && var1 <= var2; var4 += this.font.charWidth(this.field_432[var1++])) {
+                for (var4 = 0; var4 < 230 && var1 <= var2; var4 += this.font.charWidth(this.currentTextOutput[var1++])) {
                     ;
                 }
                 if (var4 >= 230) {
@@ -218,18 +218,18 @@ public class eclipse extends MIDlet implements CommandListener {
         }
     }
 
-    private void method_742(String var1) {
-        this.field_432 = var1.toCharArray();
-        this.method_740(false);
+    private void writeLine(String var1) {
+        this.currentTextOutput = var1.toCharArray();
+        this.wrapAndBufferText(false);
         this.canvas.repaint();
     }
 
-    public void method_743(int var1) {
-        this.method_742(">>  " + var1);
+    public void print(int var1) {
+        this.writeLine(">>  " + var1);
     }
 
-    public void method_744(String var1) {
-        this.method_742(">>  " + var1);
+    public void print(String var1) {
+        this.writeLine(">>  " + var1);
     }
 
     private void showAbout() {
@@ -259,7 +259,7 @@ public class eclipse extends MIDlet implements CommandListener {
     }
 
     static {
-        field_434 = new Vector(500);
-        field_435 = new Vector(500);
+        outputTextBuffer = new Vector(500);
+        outputColorBuffer = new Vector(500);
     }
 }

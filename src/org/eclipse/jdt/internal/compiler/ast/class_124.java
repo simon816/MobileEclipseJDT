@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_120;
 import org.eclipse.jdt.internal.compiler.ast.class_128;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_131;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -147,7 +147,7 @@ public class class_124 extends class_120 {
                         if (!this.field_655.method_919(var4, var2) && (!var2.method_148() || !class_41.method_185(var2.field_177, var4.field_177)) && !var4.method_152(var2)) {
                             if (!var1.method_624(var4, var2) && (!var4.method_148() || var1.method_577().field_1928 < 3211264L || var2.method_148() || !this.field_655.method_919(var4, var1.method_586().method_486(var2)))) {
                                 if ((var2.field_178 & 128L) == 0L) {
-                                    var1.method_644().method_1777(var4, var2, this.field_655, (class_89)null);
+                                    var1.method_644().method_1777(var4, var2, this.field_655, (ASTNode)null);
                                 }
                             } else {
                                 this.field_655.method_911(var1, var2, var4);

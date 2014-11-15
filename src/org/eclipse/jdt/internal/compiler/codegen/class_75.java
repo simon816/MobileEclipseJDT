@@ -1,9 +1,9 @@
 package org.eclipse.jdt.internal.compiler.codegen;
 
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 
-public class class_75 extends class_74 {
+public class class_75 extends BranchLabel {
 
     public int field_331;
 

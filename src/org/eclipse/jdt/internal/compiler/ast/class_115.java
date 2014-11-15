@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_108;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.codegen.class_75;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_295;
@@ -13,8 +13,8 @@ import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_60;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
@@ -29,7 +29,7 @@ public class class_115 extends class_98 {
 
     public int field_605;
 
-    public class_74 field_606;
+    public BranchLabel field_606;
 
     public class_108[] field_607;
 
@@ -56,7 +56,7 @@ public class class_115 extends class_98 {
         class_303 var17;
         try {
             var3 = this.field_602.method_814(var1, var2, var3);
-            class_74 var10005 = new class_74();
+            BranchLabel var10005 = new BranchLabel();
             class_295 var10000 = new class_295(var2, this, this.field_606 = var10005);
             class_295 var4 = var10000;
             Object var5 = class_301.field_1784;
@@ -100,7 +100,7 @@ public class class_115 extends class_98 {
             }
             class_40 var15 = this.field_602.field_675;
             if (this.field_610 > 0 && var15.method_153()) {
-                class_54 var18 = this.field_604.method_575().field_376.field_586;
+                SourceTypeBinding var18 = this.field_604.method_575().field_376.field_586;
                 this.field_612 = var18.method_301(var15);
             }
             if (this.field_608 == null) {
@@ -316,8 +316,8 @@ public class class_115 extends class_98 {
             }
             if (var2 && this.field_608 == null && var1.method_577().method_3313(2199023255552L) != -1) {
                 var4 = this.field_611 == null ? 0 : this.field_611.length;
-                if (var4 == this.field_610 && this.field_610 != ((class_43)var3).method_202()) {
-                    class_67[] var20 = ((class_43)var3.method_138()).method_204();
+                if (var4 == this.field_610 && this.field_610 != ((ReferenceBinding)var3).method_202()) {
+                    class_67[] var20 = ((ReferenceBinding)var3.method_138()).method_204();
                     var6 = 0;
                     label231:
                     for (var7 = var20.length; var6 < var7; ++var6) {
@@ -353,7 +353,7 @@ public class class_115 extends class_98 {
         var1.method_1975(this, var2);
     }
 
-    public void method_815(class_74 var1) {
+    public void method_815(BranchLabel var1) {
         if (this.field_606.method_454() > 0) {
             var1.method_451(this.field_606);
         }

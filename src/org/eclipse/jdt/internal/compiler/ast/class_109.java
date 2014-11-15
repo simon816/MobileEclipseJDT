@@ -3,7 +3,7 @@ package org.eclipse.jdt.internal.compiler.ast;
 import org.eclipse.jdt.internal.compiler.ast.class_116;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
@@ -11,7 +11,7 @@ public abstract class class_109 extends class_98 {
 
     public char[] field_568;
 
-    public class_74 field_569;
+    public BranchLabel field_569;
 
     public class_116[] field_570;
 

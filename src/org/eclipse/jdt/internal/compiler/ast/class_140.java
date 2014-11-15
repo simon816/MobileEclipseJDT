@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_137;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
@@ -47,14 +47,14 @@ public class class_140 extends class_137 {
                     switch ((this.field_713.field_674 & 255) >> 4) {
                         case 5:
                             class_126 var10000 = this.field_713;
-                            class_74 var10004 = new class_74(var2);
-                            class_74 var5 = var10004;
-                            var10000.method_913(var1, var2, (class_74)null, var10004, var3);
+                            BranchLabel var10004 = new BranchLabel(var2);
+                            BranchLabel var5 = var10004;
+                            var10000.method_913(var1, var2, (BranchLabel)null, var10004, var3);
                             if (var3) {
                                 var2.method_2221();
                                 if (var5.method_454() > 0) {
-                                    class_74 var10001 = new class_74(var2);
-                                    class_74 var6 = var10001;
+                                    BranchLabel var10001 = new BranchLabel(var2);
+                                    BranchLabel var6 = var10001;
                                     var2.method_2209(var10001);
                                     var2.method_2125(1);
                                     var5.method_458();
@@ -131,7 +131,7 @@ public class class_140 extends class_137 {
         }
     }
 
-    public void method_913(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_913(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         if (this.field_672 != class_331.field_1896 && this.field_672.method_3288() == 5) {
             super.method_913(var1, var2, var3, var4, var5);
         } else {

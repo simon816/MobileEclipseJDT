@@ -1,6 +1,6 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 
 public final class class_41 extends class_40 {
@@ -20,7 +20,7 @@ public final class class_41 extends class_40 {
         return this.field_190;
     }
 
-    public class_38 method_143() {
+    public PackageBinding method_143() {
         return null;
     }
 

@@ -1,6 +1,6 @@
 package java.io;
 
-import g.DummyFileConnection;
+import javax.microedition.io.file.DummyFileConnection;
 
 import java.io.IOException;
 import java.util.Enumeration;

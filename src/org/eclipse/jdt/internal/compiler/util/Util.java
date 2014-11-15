@@ -1,6 +1,6 @@
 package org.eclipse.jdt.internal.compiler.util;
 
-import g.class_307;
+import java.util.StringTokenizer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,12 +10,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.class_288;
+import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.util.class_1;
 import org.eclipse.jdt.internal.compiler.util.SuffixConstants;
 import org.eclipse.jdt.internal.compiler.util.class_223;
-import org.eclipse.jdt.internal.compiler.util.class_329;
+import org.eclipse.jdt.internal.compiler.util.Messages;
 
 public class Util implements SuffixConstants {
 
@@ -67,19 +67,19 @@ public class Util implements SuffixConstants {
                 var8 = true;
             } else if (!var4.mkdirs()) {
                 if (!var4.exists()) {
-                    throw new IOException(class_329.method_3251(class_329.field_1873, var4.getPath()));
+                    throw new IOException(Messages.method_3251(Messages.field_1873, var4.getPath()));
                 }
                 var8 = true;
             }
             if (var8 && !var4.isDirectory()) {
-                throw new IOException(class_329.method_3251(class_329.field_1872, var4.getPath()));
+                throw new IOException(Messages.method_3251(Messages.field_1872, var4.getPath()));
             } else {
                 StringBuffer var9 = new StringBuffer(var0);
                 var9.append(var3);
-                class_307 var12 = new class_307(var1, var3);
-                class_307 var10 = var12;
+                StringTokenizer var12 = new StringTokenizer(var1, var3);
+                StringTokenizer var10 = var12;
                 String var11;
-                for (var11 = var10.method_3140(); var10.method_3139(); var11 = var10.method_3140()) {
+                for (var11 = var10.nextToken(); var10.hasMoreTokens(); var11 = var10.nextToken()) {
                     var10000 = new File(var9.append(var11).append(var3).toString());
                     var4 = var10000;
                     var8 = false;
@@ -87,12 +87,12 @@ public class Util implements SuffixConstants {
                         var8 = true;
                     } else if (!var4.mkdir()) {
                         if (!var4.exists()) {
-                            throw new IOException(class_329.method_3252(class_329.field_1874, var9.toString().substring(var0.length() + 1, var9.length() - 1), var0));
+                            throw new IOException(Messages.method_3252(Messages.field_1874, var9.toString().substring(var0.length() + 1, var9.length() - 1), var0));
                         }
                         var8 = true;
                     }
                     if (var8 && !var4.isDirectory()) {
-                        throw new IOException(class_329.method_3251(class_329.field_1872, var4.getPath()));
+                        throw new IOException(Messages.method_3251(Messages.field_1872, var4.getPath()));
                     }
                 }
                 return var9.append(var11).toString();
@@ -395,7 +395,7 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static void method_1330(boolean var0, String var1, String var2, class_288 var3) throws IOException {
+    public static void method_1330(boolean var0, String var1, String var2, ClassFile var3) throws IOException {
         FileOutputStream var4 = method_1321(var0, var1, var2);
         FileOutputStream var5 = var4;
         try {

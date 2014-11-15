@@ -4,11 +4,11 @@ import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_112;
 import org.eclipse.jdt.internal.compiler.ast.class_116;
 import org.eclipse.jdt.internal.compiler.ast.class_125;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_269;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream;
 import org.eclipse.jdt.internal.compiler.codegen.class_73;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_294;
 import org.eclipse.jdt.internal.compiler.flow.class_298;
@@ -18,7 +18,7 @@ import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.flow.class_304;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
@@ -44,11 +44,11 @@ public class class_117 extends class_116 {
 
     public class_303 field_624;
 
-    class_43[] field_625;
+    ReferenceBinding[] field_625;
 
     boolean[] field_626;
 
-    class_74 field_627;
+    BranchLabel field_627;
 
     public class_65 field_628;
 
@@ -60,7 +60,7 @@ public class class_117 extends class_116 {
 
     private Object[] field_632;
 
-    private class_74[] field_633;
+    private BranchLabel[] field_633;
 
     private int[] field_634;
 
@@ -228,7 +228,7 @@ public class class_117 extends class_116 {
 
     public void method_818(class_86 var1, class_268 var2) {
         if ((this.field_446 & Integer.MIN_VALUE) != 0) {
-            boolean var3 = var2 instanceof class_269;
+            boolean var3 = var2 instanceof StackMapFrameCodeStream;
             this.field_615 = null;
             this.field_632 = null;
             this.field_633 = null;
@@ -262,9 +262,9 @@ public class class_117 extends class_116 {
             }
             boolean var18 = var2.field_1208 != var4;
             if (var18) {
-                class_74 var17 = new class_74(var2);
-                class_74 var19 = var17;
-                class_74 var11 = null;
+                BranchLabel var17 = new BranchLabel(var2);
+                BranchLabel var19 = var17;
+                BranchLabel var11 = null;
                 int var12;
                 for (var12 = 0; var12 < var7; ++var12) {
                     var8[var12].method_448();
@@ -296,7 +296,7 @@ public class class_117 extends class_116 {
                 this.method_874();
                 int var14;
                 if (this.field_621 != null) {
-                    var17 = new class_74(var2);
+                    var17 = new BranchLabel(var2);
                     var11 = var17;
                     for (var12 = 0; var12 < var7; ++var12) {
                         if (var8[var12].field_325 != 0) {
@@ -335,7 +335,7 @@ public class class_117 extends class_116 {
                                         break;
                                     case 3:
                                         if (var3) {
-                                            ((class_269)var2).method_2401(this.field_638);
+                                            ((StackMapFrameCodeStream)var2).method_2401(this.field_638);
                                         }
                                         if (this.field_639[var12] != -1) {
                                             var2.method_2363(var1, this.field_639[var12]);
@@ -344,7 +344,7 @@ public class class_117 extends class_116 {
                                         this.field_622.method_818(this.field_623, var2);
                                         var2.method_2209(var11);
                                         if (var3) {
-                                            ((class_269)var2).method_2400();
+                                            ((StackMapFrameCodeStream)var2).method_2400();
                                         }
                                 }
                             }
@@ -419,7 +419,7 @@ public class class_117 extends class_116 {
                                 break;
                             case 3:
                                 if (var3) {
-                                    ((class_269)var2).method_2401(this.field_638);
+                                    ((StackMapFrameCodeStream)var2).method_2401(this.field_638);
                                 }
                                 if (this.field_638 != -1) {
                                     var2.method_2363(var1, this.field_638);
@@ -433,7 +433,7 @@ public class class_117 extends class_116 {
                                     var2.method_2360(var14, this.field_622.field_445);
                                 }
                                 if (var3) {
-                                    ((class_269)var2).method_2400();
+                                    ((StackMapFrameCodeStream)var2).method_2400();
                                 }
                                 break;
                             default:
@@ -458,7 +458,7 @@ public class class_117 extends class_116 {
     }
 
     public boolean method_875(class_86 var1, class_268 var2, Object var3, int var4, class_65 var5) {
-        boolean var6 = var2 instanceof class_269;
+        boolean var6 = var2 instanceof StackMapFrameCodeStream;
         int var7 = this.method_879();
         switch (var7) {
             case 0:
@@ -485,18 +485,18 @@ public class class_117 extends class_116 {
                         }
                     } else {
                         this.field_632 = new Object[3];
-                        this.field_633 = new class_74[3];
+                        this.field_633 = new BranchLabel[3];
                         this.field_634 = new int[3];
                     }
                     if (var8) {
                         if (this.field_635 == this.field_632.length) {
                             System.arraycopy(this.field_632, 0, this.field_632 = new Object[2 * this.field_635], 0, this.field_635);
-                            System.arraycopy(this.field_633, 0, this.field_633 = new class_74[2 * this.field_635], 0, this.field_635);
+                            System.arraycopy(this.field_633, 0, this.field_633 = new BranchLabel[2 * this.field_635], 0, this.field_635);
                             System.arraycopy(this.field_634, 0, this.field_634 = new int[2 * this.field_635], 0, this.field_635);
                         }
                         this.field_632[this.field_635] = var3;
-                        class_74 var10000 = new class_74(var2);
-                        class_74 var12 = var10000;
+                        BranchLabel var10000 = new BranchLabel(var2);
+                        BranchLabel var12 = var10000;
                         var12.method_458();
                         this.field_634[this.field_635] = var4;
                         this.field_633[this.field_635++] = var12;
@@ -504,7 +504,7 @@ public class class_117 extends class_116 {
                 }
                 if (var7 == 3) {
                     if (var6) {
-                        ((class_269)var2).method_2401(var4);
+                        ((StackMapFrameCodeStream)var2).method_2401(var4);
                         if (this.field_638 != -1 || var4 != -1) {
                             var2.method_2363(var1, this.field_638);
                             var2.method_2088(var1, this.field_638);
@@ -520,7 +520,7 @@ public class class_117 extends class_116 {
                     this.method_878(var2);
                     this.field_622.method_818(var1, var2);
                     if (var6) {
-                        ((class_269)var2).method_2400();
+                        ((StackMapFrameCodeStream)var2).method_2400();
                     }
                 } else {
                     var2.method_2297(this.field_627);
@@ -576,14 +576,14 @@ public class class_117 extends class_116 {
                     var3.method_704(this.field_629);
                     this.field_629.method_410(class_331.field_1896);
                 }
-                class_74 var9 = new class_74();
+                BranchLabel var9 = new BranchLabel();
                 this.field_627 = var9;
                 var10 = new class_65(field_617, this.field_623.method_611(), 0, false);
                 this.field_628 = var10;
                 var3.method_704(this.field_628);
                 this.field_628.method_410(class_331.field_1896);
                 if (!var4.method_727()) {
-                    class_58 var5 = ((class_93)var4.field_403).field_488;
+                    class_58 var5 = ((AbstractMethodDeclaration)var4.field_403).field_488;
                     if (var5 != null) {
                         class_40 var6 = var5.field_275;
                         if (var6.field_177 != 6) {
@@ -619,9 +619,9 @@ public class class_117 extends class_116 {
             if (var13) {
                 return;
             }
-            this.field_625 = new class_43[var11];
+            this.field_625 = new ReferenceBinding[var11];
             for (var7 = 0; var7 < var11; ++var7) {
-                this.field_625[var7] = (class_43)var12[var7];
+                this.field_625[var7] = (ReferenceBinding)var12[var7];
                 for (int var14 = 0; var14 < var7; ++var14) {
                     if (this.field_625[var7].method_152(var12[var14])) {
                         this.field_623.method_644().method_1826(this, this.field_625[var7], var7, var12[var14]);
@@ -629,7 +629,7 @@ public class class_117 extends class_116 {
                 }
             }
         } else {
-            this.field_625 = new class_43[0];
+            this.field_625 = new ReferenceBinding[0];
         }
         if (var3 != null) {
             this.field_623.method_705(var3);

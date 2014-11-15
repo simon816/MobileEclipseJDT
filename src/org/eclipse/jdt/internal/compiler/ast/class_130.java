@@ -11,15 +11,15 @@ import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_63;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
@@ -79,7 +79,7 @@ public class class_130 extends class_126 {
                     if (var4.method_148() || var4.method_147()) {
                         return;
                     }
-                    if (var3 == var0.method_613(var3.method_179(), (class_43)var4)) {
+                    if (var3 == var0.method_613(var3.method_179(), (ReferenceBinding)var4)) {
                         var0.method_644().method_1790((class_130)var1);
                     }
                 }
@@ -103,7 +103,7 @@ public class class_130 extends class_126 {
         }
     }
 
-    public static void method_937(class_86 var0, class_126 var1, class_40 var2, class_58 var3, class_126[] var4, class_40[] var5, class_0 var6) {
+    public static void method_937(class_86 var0, class_126 var1, class_40 var2, class_58 var3, class_126[] var4, class_40[] var5, InvocationSite var6) {
         if (var0.method_577().method_3313(67108864L) != -1) {
             int var7 = var5.length;
             class_40[] var8 = var5;
@@ -194,12 +194,12 @@ public class class_130 extends class_126 {
         }
     }
 
-    private static void method_939(class_86 var0, class_126 var1, class_40 var2, class_58 var3, class_126[] var4, class_40[] var5, class_40[] var6, class_0 var7) {
+    private static void method_939(class_86 var0, class_126 var1, class_40 var2, class_58 var3, class_126[] var4, class_40[] var5, class_40[] var6, InvocationSite var7) {
         class_250 var10000 = new class_250(var7);
         class_250 var8 = var10000;
         class_58 var9;
         if (var3.method_358()) {
-            var9 = var0.method_599((class_43)var2, var6, var8);
+            var9 = var0.method_599((ReferenceBinding)var2, var6, var8);
         } else {
             if (var1.method_752()) {
                 var9 = var0.method_602(var3.field_274, var6, var8);
@@ -288,8 +288,8 @@ public class class_130 extends class_126 {
                                                             class_40[] var11;
                                                             System.arraycopy(var6.field_243, 0, var11 = new class_40[var9], 0, var9);
                                                             var11[var10] = var1.method_609();
-                                                            class_80 var12 = var1.method_586();
-                                                            class_52 var13 = var12.method_500((class_43)var2.method_138(), var11, var2.method_137());
+                                                            LookupEnvironment var12 = var1.method_586();
+                                                            class_52 var13 = var12.method_500((ReferenceBinding)var2.method_138(), var11, var2.method_137());
                                                             if (var13.method_140(var3) == var4) {
                                                                 this.field_446 |= 128;
                                                                 return true;

@@ -1,10 +1,10 @@
 package org.eclipse.jdt.internal.compiler.batch;
 
 import java.util.Map;
-import g.class_15;
+import java.util.Map$Entry;
 import java.util.Iterator;
 import java.io.File;
-import g.class_309;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
 import java.io.IOException;
@@ -13,31 +13,31 @@ import java.util.Hashtable;
 
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.core.compiler.class_234;
-import org.eclipse.jdt.internal.compiler.class_284;
+import org.eclipse.jdt.core.compiler.CompilationProgress;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.eclipse.jdt.internal.compiler.Compiler;
-import org.eclipse.jdt.internal.compiler.class_288;
-import org.eclipse.jdt.internal.compiler.class_7;
-import org.eclipse.jdt.internal.compiler.class_8;
-import org.eclipse.jdt.internal.compiler.class_9;
-import org.eclipse.jdt.internal.compiler.batch.class_208;
-import org.eclipse.jdt.internal.compiler.batch.class_211;
-import org.eclipse.jdt.internal.compiler.batch.class_214;
-import org.eclipse.jdt.internal.compiler.batch.Logger;
-import org.eclipse.jdt.internal.compiler.batch.class_221;
-import org.eclipse.jdt.internal.compiler.batch.class_237;
-import org.eclipse.jdt.internal.compiler.batch.class_239;
-import org.eclipse.jdt.internal.compiler.batch.class_4;
+import org.eclipse.jdt.internal.compiler.ClassFile;
+import org.eclipse.jdt.internal.compiler.IErrorHandlingPolicy;
+import org.eclipse.jdt.internal.compiler.IProblemFactory;
+import org.eclipse.jdt.internal.compiler.ICompilerRequestor;
+import org.eclipse.jdt.internal.compiler.batch.Main$1;
+import org.eclipse.jdt.internal.compiler.batch.Main$2;
+import org.eclipse.jdt.internal.compiler.batch.Main$ResourceBundleFactory;
+import org.eclipse.jdt.internal.compiler.batch.Main$Logger;
+import org.eclipse.jdt.internal.compiler.batch.ClasspathJar;
+import org.eclipse.jdt.internal.compiler.batch.CompilationUnit;
+import org.eclipse.jdt.internal.compiler.batch.FileSystem;
+import org.eclipse.jdt.internal.compiler.batch.FileSystem$Classpath;
 import org.eclipse.jdt.internal.compiler.batch.eclipse;
-import org.eclipse.jdt.internal.compiler.env.class_19;
-import org.eclipse.jdt.internal.compiler.env.class_343;
+import org.eclipse.jdt.internal.compiler.env.ICompilationUnit;
+import org.eclipse.jdt.internal.compiler.env.AccessRuleSet;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
-import org.eclipse.jdt.internal.compiler.impl.class_342;
-import org.eclipse.jdt.internal.compiler.problem.class_246;
+import org.eclipse.jdt.internal.compiler.impl.CompilerStats;
+import org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory;
 import org.eclipse.jdt.internal.compiler.util.SuffixConstants;
 import org.eclipse.jdt.internal.compiler.util.Util;
-import org.eclipse.jdt.internal.compiler.util.class_325;
-import org.eclipse.jdt.internal.compiler.util.class_329;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfObject;
+import org.eclipse.jdt.internal.compiler.util.Messages;
 
 public class Main implements SuffixConstants {
 
@@ -47,11 +47,11 @@ public class Main implements SuffixConstants {
 
     public static Hashtable field_1014;
 
-    protected class_4[] field_1015;
+    protected FileSystem$Classpath[] field_1015;
 
     public CompilerOptions field_1016;
 
-    public class_234 field_1017;
+    public CompilationProgress field_1017;
 
     public String field_1018;
 
@@ -73,7 +73,7 @@ public class Main implements SuffixConstants {
 
     public int field_1027;
 
-    public Logger logger;
+    public Main$Logger logger;
 
     public Map options;
 
@@ -99,18 +99,18 @@ public class Main implements SuffixConstants {
 
     public int field_1040;
 
-    public class_342[] field_1041;
+    public CompilerStats[] field_1041;
 
     public boolean field_1042;
 
     ArrayList field_1043;
 
     public static void main(String[] var0) {
-        Main var10000 = new Main(System.out, System.err, true, (Map)null, (class_234)null);
+        Main var10000 = new Main(System.out, System.err, true, (Map)null, (CompilationProgress)null);
         var10000.compile(var0);
     }
 
-    public Main(PrintStream var1, PrintStream var2, boolean var3, Map var4, class_234 var5) {
+    public Main(PrintStream var1, PrintStream var2, boolean var3, Map var4, CompilationProgress var5) {
         this.field_1031 = true;
         this.field_1032 = false;
         this.field_1033 = false;
@@ -118,7 +118,7 @@ public class Main implements SuffixConstants {
         this.field_1040 = 0;
         this.field_1042 = true;
         this.method_1423(var1, var2, var3, var4, var5);
-        field_1014 = class_214.method_1219();
+        field_1014 = Main$ResourceBundleFactory.method_1219();
     }
 
     public String method_1411(String var1) {
@@ -143,7 +143,7 @@ public class Main implements SuffixConstants {
             } catch (Exception var5) {
                 var5.printStackTrace();
             }
-            return class_309.method_3156(var3, var2);
+            return MessageFormat.format(var3, var2);
         }
     }
 
@@ -159,7 +159,7 @@ public class Main implements SuffixConstants {
                     if (this.field_1042) {
                         eclipse var10000 = eclipse.instance;
                         CompilerOptions var10002 = new CompilerOptions(this.options);
-                        var10000.print(this.field_1016 = var10002);
+                        var10000.println(this.field_1016 = var10002);
                     }
                     if (this.field_1036) {
                         this.logger.compiling();
@@ -219,8 +219,8 @@ public class Main implements SuffixConstants {
         File var10001 = new File(var1[0]);
         this.field_1022 = method_1426(var10001, "JAVA");
         this.field_1018 = var1[2];
-        class_4[] var4 = new class_4[1];
-        class_221 var10004 = new class_221((class_343)null, (String)null);
+        FileSystem$Classpath[] var4 = new FileSystem$Classpath[1];
+        ClasspathJar var10004 = new ClasspathJar((AccessRuleSet)null, (String)null);
         var4[0] = var10004;
         this.field_1015 = var4;
         this.field_1032 = true;
@@ -237,7 +237,7 @@ public class Main implements SuffixConstants {
             this.field_1035 = 1;
         }
         if (this.field_1035 >= 3 && (this.field_1040 & 1) != 0) {
-            this.field_1041 = new class_342[this.field_1035];
+            this.field_1041 = new CompilerStats[this.field_1035];
         }
         if (this.field_1038 != null) {
             Iterator var2 = this.field_1038.iterator();
@@ -249,8 +249,8 @@ public class Main implements SuffixConstants {
         }
     }
 
-    public String method_1417(class_284 var1) {
-        class_19 var2 = var1.field_1677;
+    public String method_1417(CompilationResult var1) {
+        ICompilationUnit var2 = var1.field_1677;
         if (var2 != null) {
             char[] var3 = var2.method_50().toCharArray();
             int var4 = CharOperation.method_1376('/', var3);
@@ -266,16 +266,16 @@ public class Main implements SuffixConstants {
         return null;
     }
 
-    public class_9 method_1418() {
-        class_208 var10000 = new class_208(this);
+    public ICompilerRequestor method_1418() {
+        Main$1 var10000 = new Main$1(this);
         return var10000;
     }
 
-    public class_237[] method_1419() throws InvalidInputException {
+    public CompilationUnit[] method_1419() throws InvalidInputException {
         int var1 = this.field_1022.length;
-        class_237[] var2 = new class_237[var1];
-        class_325 var10000 = new class_325(var1);
-        class_325 var3 = var10000;
+        CompilationUnit[] var2 = new CompilationUnit[var1];
+        HashtableOfObject var10000 = new HashtableOfObject(var1);
+        HashtableOfObject var3 = var10000;
         for (int var4 = 0; var4 < var1; ++var4) {
             char[] var5 = this.field_1022[var4].toCharArray();
             InvalidInputException var8;
@@ -290,29 +290,29 @@ public class Main implements SuffixConstants {
                 var8 = new InvalidInputException(this.method_1412("unit.missing", this.field_1022[var4]));
                 throw var8;
             }
-            class_237 var10002 = new class_237((char[])null, this.field_1022[var4], (String)null, (String)null);
+            CompilationUnit var10002 = new CompilationUnit((char[])null, this.field_1022[var4], (String)null, (String)null);
             var2[var4] = var10002;
         }
         return var2;
     }
 
-    public class_7 method_1420() {
-        class_211 var10000 = new class_211(this);
+    public IErrorHandlingPolicy method_1420() {
+        Main$2 var10000 = new Main$2(this);
         return var10000;
     }
 
-    public class_239 method_1421() {
-        class_239 var10000 = new class_239(this.field_1015, this.field_1022);
+    public FileSystem method_1421() {
+        FileSystem var10000 = new FileSystem(this.field_1015, this.field_1022);
         return var10000;
     }
 
-    public class_8 method_1422() {
-        class_246 var10000 = new class_246();
+    public IProblemFactory method_1422() {
+        DefaultProblemFactory var10000 = new DefaultProblemFactory();
         return var10000;
     }
 
-    protected void method_1423(PrintStream var1, PrintStream var2, boolean var3, Map var4, class_234 var5) {
-        Logger var10001 = new Logger(this, var1, var2);
+    protected void method_1423(PrintStream var1, PrintStream var2, boolean var3, Map var4, CompilationProgress var5) {
+        Main$Logger var10001 = new Main$Logger(this, var1, var2);
         this.logger = var10001;
         this.field_1031 = true;
         this.field_1030 = var1;
@@ -325,8 +325,8 @@ public class Main implements SuffixConstants {
             this.field_1020 = var4.get("org.eclipse.jdt.core.compiler.codegen.targetPlatform") != null;
             Iterator var6 = var4.entrySet().iterator();
             while (var6.hasNext()) {
-                class_15 var7 = (class_15)var6.next();
-                this.options.put(var7.method_45(), var7.method_46());
+                Map$Entry var7 = (Map$Entry)var6.next();
+                this.options.put(var7.getKey(), var7.getValue());
             }
         } else {
             this.field_1019 = false;
@@ -335,12 +335,12 @@ public class Main implements SuffixConstants {
         this.field_1023 = null;
     }
 
-    public void method_1424(class_284 var1) {
+    public void method_1424(CompilationResult var1) {
         if (var1 != null && (!var1.method_2924() || this.field_1032)) {
-            class_288[] var2 = var1.method_2917();
+            ClassFile[] var2 = var1.method_2917();
             String var3 = null;
             boolean var4 = false;
-            class_237 var5 = (class_237)var1.field_1677;
+            CompilationUnit var5 = (CompilationUnit)var1.field_1677;
             if (var5.field_1011 == null) {
                 if (this.field_1018 == null) {
                     var3 = this.method_1417(var1);
@@ -355,7 +355,7 @@ public class Main implements SuffixConstants {
             if (var3 != null) {
                 int var6 = 0;
                 for (int var7 = var2.length; var6 < var7; ++var6) {
-                    class_288 var8 = var2[var6];
+                    ClassFile var8 = var2[var6];
                     char[] var9 = var8.method_2987();
                     int var10 = var9.length;
                     char[] var11 = new char[var10 + 6];
@@ -365,7 +365,7 @@ public class Main implements SuffixConstants {
                     String var12 = new String(var11);
                     try {
                         if (this.field_1016.field_1931) {
-                            this.field_1030.println(class_329.method_3253(class_329.field_1865, new String[] {String.valueOf(this.field_1021 + 1), var12}));
+                            this.field_1030.println(Messages.method_3253(Messages.field_1865, new String[] {String.valueOf(this.field_1021 + 1), var12}));
                         }
                         Util.method_1330(var4, var3, var12, var8);
                         this.logger.method_1243(var4, var3, var12);
@@ -381,7 +381,7 @@ public class Main implements SuffixConstants {
 
     public void method_1425() throws InvalidInputException {
         this.field_1037 = System.currentTimeMillis();
-        class_239 var1 = this.method_1421();
+        FileSystem var1 = this.method_1421();
         this.field_1016.field_1961 = false;
         this.field_1016.field_1962 = false;
         Compiler var10001 = new Compiler(var1, this.method_1420(), this.field_1016, this.method_1418(), this.method_1422(), this.field_1030, this.field_1017);

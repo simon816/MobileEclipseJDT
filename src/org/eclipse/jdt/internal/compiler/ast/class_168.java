@@ -8,29 +8,29 @@ import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_148;
 import org.eclipse.jdt.internal.compiler.ast.class_160;
 import org.eclipse.jdt.internal.compiler.ast.class_161;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
-import org.eclipse.jdt.internal.compiler.impl.class_33;
+import org.eclipse.jdt.internal.compiler.impl.ReferenceContext;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_51;
 import org.eclipse.jdt.internal.compiler.lookup.class_53;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_61;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
 
-public class class_168 extends class_126 implements class_0 {
+public class class_168 extends class_126 implements InvocationSite {
 
     public class_126 field_772;
 
@@ -73,7 +73,7 @@ public class class_168 extends class_126 implements class_0 {
                 var7 = this.field_774[var6].method_814(var1, var2, var7).method_3109();
             }
         }
-        class_43[] var8 = this.field_775.field_277;
+        ReferenceBinding[] var8 = this.field_775.field_277;
         if (this.field_775.field_277 != class_34.field_151) {
             var2.method_3033(var8, this, var7.method_3078(), var1);
         }
@@ -92,8 +92,8 @@ public class class_168 extends class_126 implements class_0 {
                 } else if (this.field_780.method_147() && var2.field_177 != 1 && this.field_775.field_276 == class_34.field_150 && var1.method_577().field_1927 >= 3211264L && CharOperation.method_1364(this.field_775.field_274, class_17.field_33)) {
                     this.field_782 = var2;
                 }
-                if (this.field_782 instanceof class_43) {
-                    class_43 var7 = (class_43)this.field_782;
+                if (this.field_782 instanceof ReferenceBinding) {
+                    ReferenceBinding var7 = (ReferenceBinding)this.field_782;
                     if (!var7.method_196(var1)) {
                         ProblemReporter var10000 = var1.method_644();
                         class_51 var10002 = new class_51(CharOperation.method_1385('.', var7.method_104()), var7, 2);
@@ -112,7 +112,7 @@ public class class_168 extends class_126 implements class_0 {
             this.field_772.method_912(var1, var2, false);
             var2.method_2360(var4, this.field_444);
         } else if ((this.field_446 & 8160) != 0 && this.field_772.method_752()) {
-            class_43 var6 = var1.method_585().method_201((this.field_446 & 8160) >> 5);
+            ReferenceBinding var6 = var1.method_585().method_201((this.field_446 & 8160) >> 5);
             Object[] var7 = var1.method_714(var6, true, false);
             var2.method_2191(var7, this, var6, var1);
         } else {
@@ -175,20 +175,20 @@ public class class_168 extends class_126 implements class_0 {
             this.field_776 = this.field_775.method_376();
             if (this.field_775.method_367()) {
                 if (var1.method_585() != this.field_776.field_278) {
-                    this.field_777 = ((class_54)this.field_776.field_278).method_302(this.field_776, this.method_1());
+                    this.field_777 = ((SourceTypeBinding)this.field_776.field_278).method_302(this.field_776, this.method_1());
                     var1.method_644().method_1691(this.field_776, this);
                     return;
                 }
             } else {
-                class_54 var3;
+                SourceTypeBinding var3;
                 if (this.field_772 instanceof class_160) {
-                    var3 = (class_54)((class_54)((class_160)this.field_772).field_747);
+                    var3 = (SourceTypeBinding)((SourceTypeBinding)((class_160)this.field_772).field_747);
                     this.field_777 = var3.method_302(this.field_776, this.method_1());
                     var1.method_644().method_1691(this.field_776, this);
                     return;
                 }
                 if (this.field_775.method_368() && (this.field_446 & 8160) != 0 && this.field_776.field_278.method_143() != (var3 = var1.method_585()).method_143()) {
-                    class_54 var4 = (class_54)var3.method_201((this.field_446 & 8160) >> 5);
+                    SourceTypeBinding var4 = (SourceTypeBinding)var3.method_201((this.field_446 & 8160) >> 5);
                     this.field_777 = var4.method_302(this.field_776, this.method_1());
                     var1.method_644().method_1691(this.field_776, this);
                     return;
@@ -197,7 +197,7 @@ public class class_168 extends class_126 implements class_0 {
             if (this.field_775.field_278 != this.field_780 && this.field_781 == null && !this.field_780.method_147()) {
                 CompilerOptions var5 = var1.method_577();
                 if (var5.field_1929 >= 3014656L && (var5.field_1927 >= 3145728L || !this.field_772.method_752() || !this.field_776.method_370()) && this.field_775.field_278.field_177 != 1 || !this.field_775.field_278.method_196(var1)) {
-                    this.field_776 = var1.method_585().method_312(this.field_776, (class_43)this.field_780.method_138());
+                    this.field_776 = var1.method_585().method_312(this.field_776, (ReferenceBinding)this.field_780.method_138());
                 }
             }
         }
@@ -328,13 +328,13 @@ public class class_168 extends class_126 implements class_0 {
                 }
             }
             if (var6) {
-                if (this.field_780 instanceof class_43) {
+                if (this.field_780 instanceof ReferenceBinding) {
                     class_40[] var17 = new class_40[var7];
                     int var21 = var7;
                     while (true) {
                         --var21;
                         if (var21 < 0) {
-                            this.field_775 = this.field_772.method_752() ? var1.method_602(this.field_773, var17, this) : var1.method_592((class_43)this.field_780, this.field_773, var17, this);
+                            this.field_775 = this.field_772.method_752() ? var1.method_602(this.field_773, var17, this) : var1.method_592((ReferenceBinding)this.field_780, this.field_773, var17, this);
                             if (this.field_775 != null && !this.field_775.method_101()) {
                                 Object var22 = ((class_61)this.field_775).field_291;
                                 if (var22 != null) {
@@ -369,11 +369,11 @@ public class class_168 extends class_126 implements class_0 {
             }
             if (!this.field_775.method_101()) {
                 if (this.field_775.field_278 == null) {
-                    if (!(this.field_780 instanceof class_43)) {
+                    if (!(this.field_780 instanceof ReferenceBinding)) {
                         var1.method_644().method_1545(this, this.field_780, var11);
                         return null;
                     }
-                    this.field_775.field_278 = (class_43)this.field_780;
+                    this.field_775.field_278 = (ReferenceBinding)this.field_780;
                 }
                 var1.method_644().method_1632(this, this.field_775);
                 class_58 var13 = ((class_61)this.field_775).field_291;
@@ -414,7 +414,7 @@ public class class_168 extends class_126 implements class_0 {
                     } else {
                         this.field_772.method_911(var1, this.field_780, this.field_780);
                         var12 = this.field_780.method_138();
-                        if (var12 instanceof class_43 && var12.method_140(this.field_775.field_278) == null) {
+                        if (var12 instanceof ReferenceBinding && var12.method_140(this.field_775.field_278) == null) {
                             this.field_781 = this.field_775.field_278;
                         }
                     }
@@ -443,9 +443,9 @@ public class class_168 extends class_126 implements class_0 {
                     this.field_675 = var12;
                 }
                 if (this.field_772.method_754() && var14.method_3313(562949953421312L) != -1) {
-                    class_33 var16 = var1.method_635().field_403;
-                    if (var16 instanceof class_93) {
-                        class_93 var19 = (class_93)var16;
+                    ReferenceContext var16 = var1.method_635().field_403;
+                    if (var16 instanceof AbstractMethodDeclaration) {
+                        AbstractMethodDeclaration var19 = (AbstractMethodDeclaration)var16;
                         class_58 var18 = var19.field_488;
                         if (var18.method_366() && CharOperation.method_1364(this.field_775.field_274, var18.field_274) && this.field_775.method_344(var18)) {
                             var19.field_446 |= 16;
@@ -460,7 +460,7 @@ public class class_168 extends class_126 implements class_0 {
         }
     }
 
-    public void method_4(class_43 var1) {
+    public void method_4(ReferenceBinding var1) {
         if (var1 != null) {
             this.field_780 = var1;
         }

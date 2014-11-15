@@ -1,6 +1,6 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
@@ -51,7 +51,7 @@ public abstract class class_64 extends class_34 {
 
     public String toString() {
         StringBuffer var1 = new StringBuffer(10);
-        class_89.method_760(this.field_300, var1);
+        ASTNode.method_760(this.field_300, var1);
         if ((this.field_300 & 33554432) != 0) {
             var1.append("[unresolved] ");
         }

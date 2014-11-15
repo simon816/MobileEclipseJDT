@@ -3,17 +3,17 @@ package org.eclipse.jdt.internal.compiler.lookup;
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_62;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 
 public class class_53 extends class_52 {
 
-    public class_53(class_43 var1, class_43 var2, class_80 var3) {
+    public class_53(ReferenceBinding var1, ReferenceBinding var2, LookupEnvironment var3) {
         super(var1, (class_40[])null, var2, var3);
         if (var2 == null || (var2.field_199 & 1073741824) == 0) {
             this.field_199 &= -1073741825;
@@ -41,7 +41,7 @@ public class class_53 extends class_52 {
             } else {
                 StringBuffer var1 = new StringBuffer(10);
                 if (this.method_159()) {
-                    class_43 var2 = this.method_137();
+                    ReferenceBinding var2 = this.method_137();
                     char[] var3 = var2.method_142();
                     var1.append(var3, 0, var3.length - 1);
                     if ((var2.field_199 & 1073741824) != 0) {

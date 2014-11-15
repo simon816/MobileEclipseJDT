@@ -1,15 +1,15 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_66;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 
-public class class_55 extends class_54 {
+public class class_55 extends SourceTypeBinding {
 
-    public class_54 field_262;
+    public SourceTypeBinding field_262;
 
     public class_66[] field_263;
 
@@ -19,7 +19,7 @@ public class class_55 extends class_54 {
 
     public int field_266;
 
-    public class_55(char[][] var1, class_84 var2, class_54 var3) {
+    public class_55(char[][] var1, class_84 var2, SourceTypeBinding var3) {
         super(var1, var3.field_200, var2);
         this.field_178 |= 4L;
         this.field_262 = var3;
@@ -61,7 +61,7 @@ public class class_55 extends class_54 {
         return var2;
     }
 
-    public class_66 method_324(class_43 var1) {
+    public class_66 method_324(ReferenceBinding var1) {
         class_66 var2 = null;
         if (this.field_263 == null) {
             class_66 var10000 = new class_66(var1);
@@ -108,7 +108,7 @@ public class class_55 extends class_54 {
         }
     }
 
-    public class_66 method_326(class_43 var1) {
+    public class_66 method_326(ReferenceBinding var1) {
         class_66 var2 = this.method_324(var1);
         if (var2 == null) {
             return null;
@@ -150,7 +150,7 @@ public class class_55 extends class_54 {
         this.field_266 = var1;
     }
 
-    public class_43 method_137() {
+    public ReferenceBinding method_137() {
         return this.field_262;
     }
 
@@ -173,14 +173,14 @@ public class class_55 extends class_54 {
         return this.field_263;
     }
 
-    public class_43[] method_242() {
+    public ReferenceBinding[] method_242() {
         if (this.field_263 == null) {
             return null;
         } else {
             int var1 = this.field_263.length;
-            class_43[] var2 = new class_43[var1];
+            ReferenceBinding[] var2 = new ReferenceBinding[var1];
             for (int var3 = 0; var3 < var1; ++var3) {
-                var2[var3] = (class_43)this.field_263[var3].field_301;
+                var2[var3] = (ReferenceBinding)this.field_263[var3].field_301;
             }
             return var2;
         }
@@ -192,7 +192,7 @@ public class class_55 extends class_54 {
 
     public void method_330() {}
 
-    public class_66 method_331(class_43 var1, boolean var2) {
+    public class_66 method_331(ReferenceBinding var1, boolean var2) {
         if (this.field_263 == null) {
             return null;
         } else {

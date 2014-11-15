@@ -10,19 +10,19 @@ import org.eclipse.jdt.internal.compiler.ast.class_128;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_154;
 import org.eclipse.jdt.internal.compiler.ast.class_161;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.ast.class_92;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_203;
 import org.eclipse.jdt.internal.compiler.lookup.class_320;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
@@ -134,7 +134,7 @@ public abstract class class_164 extends class_126 {
         return class_34.field_159;
     }
 
-    private long method_1072(class_83 var1, class_43 var2, class_92 var3) {
+    private long method_1072(class_83 var1, ReferenceBinding var2, class_92 var3) {
         long var4 = 0L;
         class_126 var6;
         class_67 var15;
@@ -271,10 +271,10 @@ public abstract class class_164 extends class_126 {
             } else {
                 this.field_675 = var2;
                 if (!var2.method_145() && var2.method_101()) {
-                    var1.method_644().method_1777(var2, var1.method_604(), this.field_767, (class_89)null);
+                    var1.method_644().method_1777(var2, var1.method_604(), this.field_767, (ASTNode)null);
                     return null;
                 } else {
-                    class_43 var3 = (class_43)this.field_675;
+                    ReferenceBinding var3 = (ReferenceBinding)this.field_675;
                     class_58[] var4 = var3.method_232();
                     class_92[] var5 = this.method_1074();
                     class_92 var6 = null;
@@ -339,18 +339,18 @@ public abstract class class_164 extends class_126 {
                             var7[var9].method_784(var1, (class_40)null);
                         }
                     }
-                    this.field_768 = var1.method_586().method_492((class_43)this.field_675, this.method_1071());
+                    this.field_768 = var1.method_586().method_492((ReferenceBinding)this.field_675, this.method_1071());
                     long var21 = this.method_1072(var1, var3, var6);
                     var1.method_645().method_776(256L, (class_164)null, this.field_444, this.field_765);
                     if (this.field_766 != null) {
                         if (var21 != 0L) {
-                            class_54 var20;
+                            SourceTypeBinding var20;
                             switch (this.field_766.method_98()) {
                                 case 1:
                                     class_67 var27 = (class_67)this.field_766;
                                     var27.field_305 |= var21;
                                     if ((var21 & 1125899906842624L) != 0L) {
-                                        var20 = (class_54)var27.field_314;
+                                        var20 = (SourceTypeBinding)var27.field_314;
                                         class_121 var28 = var20.field_258.field_376.method_853(var27);
                                         this.method_1075(var1, var28.field_653, var28.field_652, var1.method_577().field_1959);
                                     }
@@ -365,7 +365,7 @@ public abstract class class_164 extends class_126 {
                                     break;
                                 case 4:
                                 case 2052:
-                                    var20 = (class_54)this.field_766;
+                                    var20 = (SourceTypeBinding)this.field_766;
                                     var20.field_178 |= var21;
                                     if ((var21 & 1125899906842624L) != 0L) {
                                         class_114 var24 = var20.field_258.field_376;
@@ -382,13 +382,13 @@ public abstract class class_164 extends class_126 {
                                     class_58 var22 = (class_58)this.field_766;
                                     var22.field_281 |= var21;
                                     if ((var21 & 1125899906842624L) != 0L) {
-                                        var20 = (class_54)var22.field_278;
-                                        class_93 var25 = var20.field_258.field_376.method_854(var22);
+                                        var20 = (SourceTypeBinding)var22.field_278;
+                                        AbstractMethodDeclaration var25 = var20.field_258.field_376.method_854(var22);
                                         this.method_1075(var1, var25.field_480, var25.field_481, var1.method_577().field_1959);
                                     }
                                     break;
                                 case 16:
-                                    ((class_38)this.field_766).field_170 |= var21;
+                                    ((PackageBinding)this.field_766).field_170 |= var21;
                             }
                         }
                         long var23 = var3.method_99();
@@ -410,7 +410,7 @@ public abstract class class_164 extends class_126 {
                                     break;
                                 case 4:
                                 case 2052:
-                                    if (((class_43)this.field_766).method_145()) {
+                                    if (((ReferenceBinding)this.field_766).method_145()) {
                                         if ((var23 & 4466765987840L) != 0L) {
                                             return this.field_675;
                                         }

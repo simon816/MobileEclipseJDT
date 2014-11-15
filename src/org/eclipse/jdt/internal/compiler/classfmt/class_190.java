@@ -16,14 +16,14 @@ import org.eclipse.jdt.internal.compiler.classfmt.class_194;
 import org.eclipse.jdt.internal.compiler.classfmt.class_196;
 import org.eclipse.jdt.internal.compiler.classfmt.class_198;
 import org.eclipse.jdt.internal.compiler.codegen.AttributeNamesConstants;
-import org.eclipse.jdt.internal.compiler.env.class_22;
+import org.eclipse.jdt.internal.compiler.env.IBinaryType;
 import org.eclipse.jdt.internal.compiler.env.class_23;
 import org.eclipse.jdt.internal.compiler.env.class_25;
 import org.eclipse.jdt.internal.compiler.env.class_27;
 import org.eclipse.jdt.internal.compiler.env.class_29;
 import org.eclipse.jdt.internal.compiler.util.Util;
 
-public class class_190 extends class_186 implements class_22 {
+public class class_190 extends class_186 implements IBinaryType {
 
     private int field_828;
 

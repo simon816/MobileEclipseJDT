@@ -3,16 +3,16 @@ package org.eclipse.jdt.internal.compiler.ast;
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.core.compiler.CategorizedProblem;
 import org.eclipse.jdt.internal.compiler.class_264;
-import org.eclipse.jdt.internal.compiler.class_284;
-import org.eclipse.jdt.internal.compiler.class_288;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
+import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.ast.class_105;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
 import org.eclipse.jdt.internal.compiler.ast.class_123;
 import org.eclipse.jdt.internal.compiler.ast.class_158;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_298;
@@ -20,8 +20,8 @@ import org.eclipse.jdt.internal.compiler.flow.class_299;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_55;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_65;
@@ -34,13 +34,13 @@ import org.eclipse.jdt.internal.compiler.problem.class_244;
 
 import java.util.ArrayList;
 
-public class class_94 extends class_93 {
+public class class_94 extends AbstractMethodDeclaration {
 
     public class_105 field_493;
 
     public class_123[] field_494;
 
-    public class_94(class_284 var1) {
+    public class_94(CompilationResult var1) {
         super(var1);
     }
 
@@ -76,8 +76,8 @@ public class class_94 extends class_93 {
                 if (this.field_488.field_278.method_146()) {
                     ArrayList var7 = var13.field_1771;
                     if (var7 != null && (var8 = var7.size()) > 0) {
-                        class_43[] var9;
-                        var7.toArray(var9 = new class_43[var8]);
+                        ReferenceBinding[] var9;
+                        var7.toArray(var9 = new ReferenceBinding[var8]);
                         this.field_488.field_277 = var9;
                     }
                 }
@@ -125,7 +125,7 @@ public class class_94 extends class_93 {
                     var8 = 0;
                     for (var17 = var15.length; var8 < var17; ++var8) {
                         if (!(var10 = var15[var8]).method_431() && var10.method_409() && !var12.method_3082(var15[var8])) {
-                            class_89 var18;
+                            ASTNode var18;
                             if ((this.field_446 & 128) != 0) {
                                 var18 = this.field_478.method_718();
                             } else {
@@ -143,7 +143,7 @@ public class class_94 extends class_93 {
         }
     }
 
-    public void method_789(class_84 var1, class_288 var2) {
+    public void method_789(class_84 var1, ClassFile var2) {
         byte var3 = 0;
         CategorizedProblem[] var6;
         if (this.field_489) {
@@ -184,7 +184,7 @@ public class class_94 extends class_93 {
         }
     }
 
-    public void method_809(class_87 var1, class_268 var2, class_43 var3) {
+    public void method_809(class_87 var1, class_268 var2, ReferenceBinding var3) {
         if (var3.method_160()) {
             class_55 var4 = (class_55)var3;
             class_66[] var5 = var4.method_329();
@@ -210,7 +210,7 @@ public class class_94 extends class_93 {
         }
     }
 
-    private void method_810(class_84 var1, class_288 var2) {
+    private void method_810(class_84 var1, ClassFile var2) {
         var2.method_2995(this.field_488);
         int var3 = var2.field_1719;
         int var4 = var2.method_2993(this.field_488);
@@ -220,7 +220,7 @@ public class class_94 extends class_93 {
             var2.method_2989();
             class_268 var7 = var2.field_1715;
             var7.method_2366(this, var2);
-            class_43 var8 = this.field_488.field_278;
+            ReferenceBinding var8 = this.field_488.field_278;
             int var9 = var8.method_153() ? 2 : 0;
             int var10 = 1 + var9;
             if (var8.method_160()) {
@@ -328,7 +328,7 @@ public class class_94 extends class_93 {
         }
     }
 
-    public void method_800(Parser var1, class_90 var2) {
+    public void method_800(Parser var1, CompilationUnitDeclaration var2) {
         if ((this.field_446 & 128) != 0 && this.field_493 == null) {
             this.field_493 = class_158.method_1047();
             this.field_493.field_444 = this.field_444;
@@ -358,7 +358,7 @@ public class class_94 extends class_93 {
     public void method_804() {}
 
     public void method_805() {
-        class_54 var1 = this.field_478.method_585();
+        SourceTypeBinding var1 = this.field_478.method_585();
         if (!CharOperation.method_1364(var1.field_198, this.field_479)) {
             this.field_478.method_644().method_1680(this);
         }

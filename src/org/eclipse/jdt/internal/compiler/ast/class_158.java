@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_105;
 import org.eclipse.jdt.internal.compiler.ast.class_157;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
 public class class_158 extends class_157 {
@@ -40,7 +40,7 @@ public class class_158 extends class_157 {
         if (!this.method_1046(var1.method_635())) {
             return null;
         } else {
-            class_43 var2 = var1.method_584();
+            ReferenceBinding var2 = var1.method_584();
             if (var2.field_177 == 1) {
                 var1.method_644().method_1506(this);
                 return null;

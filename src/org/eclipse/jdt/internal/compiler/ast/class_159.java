@@ -8,14 +8,14 @@ import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
 public class class_159 extends class_157 {
 
     public class_146 field_746;
 
-    class_43 field_747;
+    ReferenceBinding field_747;
 
     public class_159(class_146 var1, int var2, int var3) {
         super(var2, var3);
@@ -50,8 +50,8 @@ public class class_159 extends class_157 {
         class_40 var2 = this.field_746.method_1017(var1, true);
         if (var2 != null && var2.method_101()) {
             var2 = var2.method_138();
-            if (var2 instanceof class_43) {
-                this.field_675 = var1.method_586().method_489((class_43)var2);
+            if (var2 instanceof ReferenceBinding) {
+                this.field_675 = var1.method_586().method_489((ReferenceBinding)var2);
             } else {
                 this.field_675 = var2;
             }

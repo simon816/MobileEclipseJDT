@@ -4,11 +4,11 @@ import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_32;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_52;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_88;
 
@@ -45,7 +45,7 @@ public class class_62 extends class_58 {
                 var9 = var3[var8];
                 class_46 var10 = var7[var8];
                 class_40 var11 = class_83.method_571((class_32)var4, var9.field_223);
-                class_43[] var12 = class_83.method_570((class_32)var4, var9.field_224);
+                ReferenceBinding[] var12 = class_83.method_570((class_32)var4, var9.field_224);
                 if (var9.field_222 != null) {
                     var10.field_222 = (class_40)(var9.field_222 == var9.field_223 ? var11 : var12[0]);
                 }
@@ -58,11 +58,11 @@ public class class_62 extends class_58 {
                         if (var11.method_157()) {
                             var10.field_223 = var1.field_244.method_506(class_17.field_99, (class_83)null);
                             int var13 = var12.length;
-                            System.arraycopy(var12, 0, var12 = new class_43[var13 + 1], 1, var13);
-                            var12[0] = (class_43)var11;
+                            System.arraycopy(var12, 0, var12 = new ReferenceBinding[var13 + 1], 1, var13);
+                            var12[0] = (ReferenceBinding)var11;
                             var10.field_224 = var12;
                         } else {
-                            var10.field_223 = (class_43)var11;
+                            var10.field_223 = (ReferenceBinding)var11;
                             var10.field_224 = var12;
                         }
                 }
@@ -117,10 +117,10 @@ public class class_62 extends class_58 {
         var3.field_276 = var1.field_276;
         var3.field_277 = var1.field_277;
         var3.field_281 = var1.field_281;
-        class_43 var4 = var2.method_606();
-        class_80 var5 = var2.method_586();
+        ReferenceBinding var4 = var2.method_606();
+        LookupEnvironment var5 = var2.method_586();
         class_40 var6 = var5.method_490(var0.method_138(), false);
-        var3.field_275 = var5.method_500(var4, new class_40[] {var5.method_502(var4, 0, var6, (class_40[])null, 1)}, (class_43)null);
+        var3.field_275 = var5.method_500(var4, new class_40[] {var5.method_502(var4, 0, var6, (class_40[])null, 1)}, (ReferenceBinding)null);
         if ((var3.field_275.field_178 & 128L) != 0L) {
             var3.field_281 |= 128L;
         }

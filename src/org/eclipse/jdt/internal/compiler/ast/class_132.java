@@ -10,7 +10,7 @@ import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
 public class class_132 extends class_131 {
@@ -93,7 +93,7 @@ public class class_132 extends class_131 {
             class_40 var2 = this.field_687.method_925(var1);
             class_40 var3 = this.field_688.method_925(var1);
             if (var2 != null && var3 != null) {
-                class_80 var4 = var1.method_586();
+                LookupEnvironment var4 = var1.method_586();
                 class_40 var5 = var2;
                 class_40 var6 = var3;
                 boolean var7 = var1.method_577().field_1928 >= 3211264L;

@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_120;
 import org.eclipse.jdt.internal.compiler.ast.class_128;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_131;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -14,7 +14,7 @@ import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_41;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
@@ -45,7 +45,7 @@ public class class_121 extends class_120 {
             var1.method_644().method_1813(this);
         }
         if (this.field_661 != null && this.field_661.method_101() && this.field_661.method_431() && this.field_661.method_407() == class_331.field_1896 && this.field_661.field_314.method_160() && !this.field_661.field_314.method_226()) {
-            var1.method_644().method_1784((class_54)this.field_661.field_314, this);
+            var1.method_644().method_1784((SourceTypeBinding)this.field_661.field_314, this);
         }
         if (this.field_655 != null) {
             var3 = this.field_655.method_814(var1, var2, (class_301)var3).method_3109();
@@ -92,7 +92,7 @@ public class class_121 extends class_120 {
                 class_84 var2 = var1.method_582();
                 if (var2 != null) {
                     label338: {
-                        class_54 var3 = var2.method_585();
+                        SourceTypeBinding var3 = var2.method_585();
                         if (var3.field_252 != null) {
                             class_67 var4 = var2.method_590(var3.field_252, this.field_659, this, false);
                             if (var4 != null && var4.method_101()) {
@@ -156,7 +156,7 @@ public class class_121 extends class_120 {
                             if (!this.field_655.method_919(var18, var17) && (!var17.method_148() || !class_41.method_185(var17.field_177, var18.field_177)) && !var18.method_152(var17)) {
                                 if (!var1.method_624(var18, var17) && (!var18.method_148() || var1.method_577().field_1928 < 3211264L || var17.method_148() || !this.field_655.method_919(var18, var1.method_586().method_486(var17)))) {
                                     if ((var17.field_178 & 128L) == 0L) {
-                                        var1.method_644().method_1777(var18, var17, this.field_655, (class_89)null);
+                                        var1.method_644().method_1777(var18, var17, this.field_655, (ASTNode)null);
                                     }
                                 } else {
                                     this.field_655.method_911(var1, var17, var18);

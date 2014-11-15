@@ -1,13 +1,13 @@
 package org.eclipse.jdt.internal.compiler.flow;
 
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_298;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
 public class class_299 extends class_298 {
@@ -16,14 +16,14 @@ public class class_299 extends class_298 {
 
     public class_40[] field_1773;
 
-    public class_89[] field_1774;
+    public ASTNode[] field_1774;
 
     public class_301[] field_1775;
 
-    public class_299(class_293 var1, class_89 var2, class_86 var3) {
+    public class_299(class_293 var1, ASTNode var2, class_86 var3) {
         super(var1, var2, class_34.field_151, var3, class_301.field_1784);
         this.field_1773 = new class_40[5];
-        this.field_1774 = new class_89[5];
+        this.field_1774 = new ASTNode[5];
         this.field_1775 = new class_301[5];
     }
 
@@ -42,11 +42,11 @@ public class class_299 extends class_298 {
         return var1.toString();
     }
 
-    public void method_3065(class_43 var1, class_303 var2, class_40 var3, class_89 var4, boolean var5) {
+    public void method_3065(ReferenceBinding var1, class_303 var2, class_40 var3, ASTNode var4, boolean var5) {
         int var6 = this.field_1773.length;
         if (this.field_1772 == var6) {
             System.arraycopy(this.field_1773, 0, this.field_1773 = new class_40[var6 * 2], 0, var6);
-            System.arraycopy(this.field_1774, 0, this.field_1774 = new class_89[var6 * 2], 0, var6);
+            System.arraycopy(this.field_1774, 0, this.field_1774 = new ASTNode[var6 * 2], 0, var6);
             System.arraycopy(this.field_1775, 0, this.field_1775 = new class_301[var6 * 2], 0, var6);
         }
         this.field_1773[this.field_1772] = var3;

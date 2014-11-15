@@ -1,7 +1,7 @@
 package org.eclipse.jdt.internal.compiler.flow;
 
 import org.eclipse.jdt.internal.compiler.ast.class_116;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.flow.class_303;
@@ -10,7 +10,7 @@ public class class_294 extends class_293 {
 
     public class_303 field_1744;
 
-    public class_294(class_293 var1, class_89 var2) {
+    public class_294(class_293 var1, ASTNode var2) {
         super(var1, var2);
         this.field_1744 = class_301.field_1784;
     }

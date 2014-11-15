@@ -2,17 +2,17 @@ package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.class_264;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_41;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_45;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
@@ -20,7 +20,7 @@ import org.eclipse.jdt.internal.compiler.lookup.class_65;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 import org.eclipse.jdt.internal.compiler.problem.class_249;
-import org.eclipse.jdt.internal.compiler.util.class_329;
+import org.eclipse.jdt.internal.compiler.util.Messages;
 
 import java.util.ArrayList;
 
@@ -300,7 +300,7 @@ public abstract class class_126 extends class_98 {
                         }
                         return this.method_908(var1, var2, ((class_46)var3).method_261(), var4);
                     default:
-                        class_43 var14;
+                        ReferenceBinding var14;
                         if (!var3.method_157()) {
                             switch (var2.method_98()) {
                                 case 68:
@@ -320,7 +320,7 @@ public abstract class class_126 extends class_98 {
                                     return this.method_908(var1, ((class_46)var2).method_261(), var3, var4);
                                 default:
                                     if (var2.method_157()) {
-                                        var14 = (class_43)var3;
+                                        var14 = (ReferenceBinding)var3;
                                         var6 = var14.method_140(var2);
                                         if (var6 != null) {
                                             return this.method_910(var1, var2, var3, var6, false);
@@ -334,7 +334,7 @@ public abstract class class_126 extends class_98 {
                                             } else {
                                                 if (var5) {
                                                     this.method_910(var1, var2, var3, (class_40)null, true);
-                                                    if (var14.method_212((class_43)var2)) {
+                                                    if (var14.method_212((ReferenceBinding)var2)) {
                                                         return false;
                                                     }
                                                 }
@@ -386,12 +386,12 @@ public abstract class class_126 extends class_98 {
                                             var6 = var2.method_140(var3);
                                             if (var6 != null) {
                                                 return this.method_910(var1, var2, var3, var6, true);
-                                            } else if (((class_43)var2).method_221()) {
+                                            } else if (((ReferenceBinding)var2).method_221()) {
                                                 return false;
                                             } else {
                                                 if (var5) {
                                                     this.method_910(var1, var2, var3, (class_40)null, true);
-                                                    if (((class_43)var2).method_212((class_43)var3)) {
+                                                    if (((ReferenceBinding)var2).method_212((ReferenceBinding)var3)) {
                                                         return false;
                                                     }
                                                 }
@@ -399,7 +399,7 @@ public abstract class class_126 extends class_98 {
                                             }
                                         }
                                     } else {
-                                        var14 = (class_43)var3;
+                                        var14 = (ReferenceBinding)var3;
                                         var6 = var14.method_140(var2);
                                         if (var6 != null) {
                                             return this.method_910(var1, var2, var14, var6, false);
@@ -411,12 +411,12 @@ public abstract class class_126 extends class_98 {
                                             } else {
                                                 if (var5) {
                                                     this.method_910(var1, var2, var3, (class_40)null, true);
-                                                    if (var14.method_212((class_43)var2)) {
+                                                    if (var14.method_212((ReferenceBinding)var2)) {
                                                         return false;
                                                     }
                                                 } else {
-                                                    class_58[] var15 = this.method_916((class_43)var2);
-                                                    class_58[] var9 = this.method_916((class_43)var3);
+                                                    class_58[] var15 = this.method_916((ReferenceBinding)var2);
+                                                    class_58[] var9 = this.method_916((ReferenceBinding)var3);
                                                     int var10 = var9.length;
                                                     int var11 = 0;
                                                     for (int var12 = var15.length; var11 < var12; ++var11) {
@@ -541,12 +541,12 @@ public abstract class class_126 extends class_98 {
             var2.method_2179(this.field_672, this.field_674);
             var2.method_2360(var4, this.field_444);
         } else {
-            class_249 var10000 = new class_249(class_329.field_1893);
+            class_249 var10000 = new class_249(Messages.field_1893);
             throw var10000;
         }
     }
 
-    public void method_913(class_86 var1, class_268 var2, class_74 var3, class_74 var4, boolean var5) {
+    public void method_913(class_86 var1, class_268 var2, BranchLabel var3, BranchLabel var4, boolean var5) {
         class_331 var6 = this.method_922();
         this.method_912(var1, var2, var5 && var6 == class_331.field_1896);
         int var7;
@@ -613,14 +613,14 @@ public abstract class class_126 extends class_98 {
         var2.method_2276();
     }
 
-    private class_58[] method_916(class_43 var1) {
+    private class_58[] method_916(ReferenceBinding var1) {
         ArrayList var10000 = new ArrayList();
         ArrayList var2 = var10000;
         this.method_917(var1, var2);
         return (class_58[])((class_58[])var2.toArray(new class_58[var2.size()]));
     }
 
-    private void method_917(class_43 var1, ArrayList var2) {
+    private void method_917(ReferenceBinding var1, ArrayList var2) {
         if (var1.method_157()) {
             class_58[] var3 = var1.method_232();
             int var4 = 0;
@@ -628,7 +628,7 @@ public abstract class class_126 extends class_98 {
             for (var5 = var3.length; var4 < var5; ++var4) {
                 var2.add(var3[var4]);
             }
-            class_43[] var7 = var1.method_241();
+            ReferenceBinding[] var7 = var1.method_241();
             var5 = 0;
             for (int var6 = var7.length; var5 < var6; ++var5) {
                 this.method_917(var7[var5], var2);
@@ -726,7 +726,7 @@ public abstract class class_126 extends class_98 {
         } else {
             if (!var3.method_152(var2)) {
                 if (!var1.method_624(var3, var2)) {
-                    var1.method_644().method_1777(var3, var2, this, (class_89)null);
+                    var1.method_644().method_1777(var3, var2, this, (ASTNode)null);
                     return null;
                 }
                 this.method_911(var1, var2, var3);

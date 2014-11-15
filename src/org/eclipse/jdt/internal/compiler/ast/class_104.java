@@ -1,11 +1,11 @@
 package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.internal.compiler.class_264;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.ast.class_99;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_296;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -18,7 +18,7 @@ public class class_104 extends class_98 {
 
     public char[] field_542;
 
-    public class_74 field_543;
+    public BranchLabel field_543;
 
     public int field_544;
 
@@ -42,7 +42,7 @@ public class class_104 extends class_98 {
         } else {
             class_98 var10000 = this.field_541;
             char[] var10006 = this.field_542;
-            class_74 var10008 = new class_74();
+            BranchLabel var10008 = new BranchLabel();
             class_296 var10002 = new class_296(var2, this, var10006, this.field_543 = var10008, var1);
             class_296 var4 = var10002;
             class_301 var5 = var10000.method_814(var1, var10002, var3);
@@ -59,7 +59,7 @@ public class class_104 extends class_98 {
         }
     }
 
-    public class_89 method_750() {
+    public ASTNode method_750() {
         return this.field_541;
     }
 

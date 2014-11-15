@@ -6,8 +6,8 @@ import java.util.Hashtable;
 
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.class_283;
-import org.eclipse.jdt.internal.compiler.class_284;
+import org.eclipse.jdt.internal.compiler.ReadManager;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.eclipse.jdt.internal.compiler.ast.class_100;
 import org.eclipse.jdt.internal.compiler.ast.class_101;
 import org.eclipse.jdt.internal.compiler.ast.class_102;
@@ -85,19 +85,19 @@ import org.eclipse.jdt.internal.compiler.ast.class_181;
 import org.eclipse.jdt.internal.compiler.ast.class_182;
 import org.eclipse.jdt.internal.compiler.ast.class_183;
 import org.eclipse.jdt.internal.compiler.ast.class_184;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_91;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.ImportReference;
 import org.eclipse.jdt.internal.compiler.ast.class_92;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_94;
 import org.eclipse.jdt.internal.compiler.ast.class_96;
 import org.eclipse.jdt.internal.compiler.ast.class_97;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.ast.class_99;
 import org.eclipse.jdt.internal.compiler.batch.eclipse;
-import org.eclipse.jdt.internal.compiler.env.class_19;
-import org.eclipse.jdt.internal.compiler.impl.class_33;
+import org.eclipse.jdt.internal.compiler.env.ICompilationUnit;
+import org.eclipse.jdt.internal.compiler.impl.ReferenceContext;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
@@ -113,19 +113,19 @@ import org.eclipse.jdt.internal.compiler.parser.class_260;
 import org.eclipse.jdt.internal.compiler.parser.class_261;
 import org.eclipse.jdt.internal.compiler.parser.class_265;
 import org.eclipse.jdt.internal.compiler.parser.class_266;
-import org.eclipse.jdt.internal.compiler.parser.class_267;
+import org.eclipse.jdt.internal.compiler.parser.RecoveryScannerData;
 import org.eclipse.jdt.internal.compiler.parser.Scanner;
 import org.eclipse.jdt.internal.compiler.parser.RecoveryScanner;
 import org.eclipse.jdt.internal.compiler.parser.class_279;
 import org.eclipse.jdt.internal.compiler.parser.ScannerHelper;
 import org.eclipse.jdt.internal.compiler.parser.diagnose.class_222;
 import org.eclipse.jdt.internal.compiler.parser.diagnose.class_230;
-import org.eclipse.jdt.internal.compiler.problem.class_241;
-import org.eclipse.jdt.internal.compiler.problem.class_242;
-import org.eclipse.jdt.internal.compiler.problem.class_246;
+import org.eclipse.jdt.internal.compiler.problem.AbortCompilation;
+import org.eclipse.jdt.internal.compiler.problem.AbortCompilationUnit;
+import org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
 import org.eclipse.jdt.internal.compiler.util.Util;
-import org.eclipse.jdt.internal.compiler.util.class_329;
+import org.eclipse.jdt.internal.compiler.util.Messages;
 
 public class Parser {
 
@@ -191,9 +191,9 @@ public class Parser {
 
     protected int field_1559;
 
-    protected class_89[] field_1560;
+    protected ASTNode[] field_1560;
 
-    public class_90 field_1561;
+    public CompilationUnitDeclaration field_1561;
 
     protected class_251 field_1562;
 
@@ -227,7 +227,7 @@ public class Parser {
 
     protected int field_1577;
 
-    protected class_89[] field_1578;
+    protected ASTNode[] field_1578;
 
     protected boolean field_1579;
 
@@ -279,7 +279,7 @@ public class Parser {
 
     protected int field_1603;
 
-    class_89[] field_1604;
+    ASTNode[] field_1604;
 
     class_126[] field_1605;
 
@@ -301,7 +301,7 @@ public class Parser {
 
     protected int field_1614;
 
-    public class_33 field_1615;
+    public ReferenceContext field_1615;
 
     public boolean field_1616;
 
@@ -343,7 +343,7 @@ public class Parser {
 
     protected int field_1635;
 
-    public class_283 field_1636;
+    public ReadManager field_1636;
 
     static Class field_1637;
 
@@ -484,7 +484,7 @@ public class Parser {
     protected static byte[] method_2512(String var0) throws IOException {
         InputStream var1 = (field_1637 == null ? (field_1637 = method_2886("j.Parser")) : field_1637).getResourceAsStream(var0);
         if (var1 == null) {
-            throw new IOException(class_329.method_3251(class_329.field_1887, var0));
+            throw new IOException(Messages.method_3251(Messages.field_1887, var0));
         } else {
             Object var2 = null;
             byte[] var11;
@@ -523,7 +523,7 @@ public class Parser {
                     if (var3.available() <= 0) {
                         break label62;
                     }
-                    String var4 = class_246.method_1446(var3);
+                    String var4 = DefaultProblemFactory.method_1446(var3);
                     int var5 = var4.indexOf(61);
                     if (!var4.startsWith("#") && var5 >= 0) {
                         var2.put(var4.substring(0, var5), var4.substring(var5 + 1));
@@ -560,7 +560,7 @@ public class Parser {
     protected static char[] method_2515(String var0) throws IOException {
         InputStream var1 = (field_1637 == null ? (field_1637 = method_2886("j.Parser")) : field_1637).getResourceAsStream(var0);
         if (var1 == null) {
-            throw new IOException(class_329.method_3251(class_329.field_1887, var0));
+            throw new IOException(Messages.method_3251(Messages.field_1887, var0));
         } else {
             Object var2 = null;
             byte[] var12;
@@ -575,7 +575,7 @@ public class Parser {
             }
             int var3 = var12.length;
             if ((var3 & 1) != 0) {
-                throw new IOException(class_329.method_3251(class_329.field_1888, var0));
+                throw new IOException(Messages.method_3251(Messages.field_1888, var0));
             } else {
                 char[] var4 = new char[var3 / 2];
                 int var5 = 0;
@@ -591,7 +591,7 @@ public class Parser {
     protected static long[] method_2516(String var0) throws IOException {
         InputStream var1 = (field_1637 == null ? (field_1637 = method_2886("j.Parser")) : field_1637).getResourceAsStream(var0);
         if (var1 == null) {
-            throw new IOException(class_329.method_3251(class_329.field_1887, var0));
+            throw new IOException(Messages.method_3251(Messages.field_1887, var0));
         } else {
             Object var2 = null;
             byte[] var12;
@@ -606,7 +606,7 @@ public class Parser {
             }
             int var3 = var12.length;
             if (var3 % 8 != 0) {
-                throw new IOException(class_329.method_3251(class_329.field_1888, var0));
+                throw new IOException(Messages.method_3251(Messages.field_1888, var0));
             } else {
                 long[] var4 = new long[var3 / 8];
                 int var5 = 0;
@@ -624,15 +624,15 @@ public class Parser {
     }
 
     public Parser(ProblemReporter var1, boolean var2) {
-        this.field_1560 = new class_89[100];
+        this.field_1560 = new ASTNode[100];
         this.field_1564 = false;
         this.field_1565 = 0;
         this.field_1571 = new class_126[100];
         this.field_1574 = new int[10];
         this.field_1576 = new int[10];
-        this.field_1578 = new class_89[10];
+        this.field_1578 = new ASTNode[10];
         this.field_1592 = -1;
-        this.field_1604 = new class_89[100];
+        this.field_1604 = new ASTNode[100];
         this.field_1605 = new class_126[100];
         this.field_1606 = true;
         this.field_1616 = false;
@@ -682,7 +682,7 @@ public class Parser {
         this.field_1590 = 0;
         this.field_1592 = this.field_1628.field_1231;
         Object var1 = null;
-        if (this.field_1615 instanceof class_90) {
+        if (this.field_1615 instanceof CompilationUnitDeclaration) {
             class_256 var8 = new class_256(this.field_1561, 0, this);
             class_256 var17 = var8;
             this.field_1561.field_448 = null;
@@ -696,10 +696,10 @@ public class Parser {
             return var17;
         } else {
             class_121 var4;
-            if (this.field_1615 instanceof class_93) {
-                class_255 var10000 = new class_255((class_93)this.field_1615, (class_251)null, 0, this);
+            if (this.field_1615 instanceof AbstractMethodDeclaration) {
+                class_255 var10000 = new class_255((AbstractMethodDeclaration)this.field_1615, (class_251)null, 0, this);
                 var1 = var10000;
-                this.field_1590 = ((class_93)this.field_1615).field_490;
+                this.field_1590 = ((AbstractMethodDeclaration)this.field_1615).field_490;
                 if (this.field_1622) {
                     class_112 var10001 = new class_112(0);
                     var1 = ((class_251)var1).method_1833(var10001, 0);
@@ -720,9 +720,9 @@ public class Parser {
                 return (class_251)var1;
             } else {
                 for (int var5 = 0; var5 <= this.field_1559; ++var5) {
-                    class_89 var6 = this.field_1560[var5];
-                    if (var6 instanceof class_93) {
-                        class_93 var9 = (class_93)var6;
+                    ASTNode var6 = this.field_1560[var5];
+                    if (var6 instanceof AbstractMethodDeclaration) {
+                        AbstractMethodDeclaration var9 = (AbstractMethodDeclaration)var6;
                         if (var9.field_481 == 0) {
                             var1 = ((class_251)var1).method_1832(var9, 0);
                             this.field_1590 = var9.field_490;
@@ -764,8 +764,8 @@ public class Parser {
                             this.field_1590 = var11.field_593 + 1;
                         }
                     } else {
-                        if (var6 instanceof class_91) {
-                            class_91 var13 = (class_91)var6;
+                        if (var6 instanceof ImportReference) {
+                            ImportReference var13 = (ImportReference)var6;
                             var1 = ((class_251)var1).method_1835(var13, 0);
                             this.field_1590 = var13.field_471 + 1;
                         }
@@ -1630,7 +1630,7 @@ public class Parser {
     }
 
     protected void method_2571() {
-        this.method_2866((class_89)null);
+        this.method_2866((ASTNode)null);
         this.field_1566 = this.field_1598;
     }
 
@@ -1948,7 +1948,7 @@ public class Parser {
     }
 
     protected void method_2591() {
-        class_93 var1 = (class_93)this.field_1560[this.field_1559];
+        AbstractMethodDeclaration var1 = (AbstractMethodDeclaration)this.field_1560[this.field_1559];
         if (this.field_1563 == 69) {
             var1.field_490 = this.field_1628.field_1231;
         }
@@ -2102,7 +2102,7 @@ public class Parser {
     }
 
     protected void method_2608() {
-        class_93 var1 = (class_93)this.field_1560[this.field_1559];
+        AbstractMethodDeclaration var1 = (AbstractMethodDeclaration)this.field_1560[this.field_1559];
         if (var1.method_793()) {
             this.method_2868(0);
         }
@@ -2362,7 +2362,7 @@ public class Parser {
             ((class_120)var5).field_660 = this.method_2822(var7, var10);
         }
         ++this.field_1632[this.field_1602];
-        this.method_2866((class_89)var5);
+        this.method_2866((ASTNode)var5);
         if (this.field_1562 != null) {
             if (!(this.field_1562 instanceof class_260) && (this.field_1563 == 3 || Util.method_1324(((class_120)var5).field_660.field_444, this.field_1628.field_1256, 0, this.field_1628.field_1257) != Util.method_1324((int)(var2 >>> 32), this.field_1628.field_1256, 0, this.field_1628.field_1257))) {
                 this.field_1590 = (int)(var2 >>> 32);
@@ -2843,7 +2843,7 @@ public class Parser {
     protected void method_2659() {}
 
     protected void method_2660() {
-        class_91 var1 = (class_91)this.field_1560[this.field_1559];
+        ImportReference var1 = (ImportReference)this.field_1560[this.field_1559];
         var1.field_469 = this.field_1567;
         var1.field_471 = this.method_2831(var1.field_471);
         if (this.field_1562 != null) {
@@ -3201,7 +3201,7 @@ public class Parser {
     }
 
     protected void method_2695() {
-        class_93 var1 = (class_93)this.field_1560[this.field_1559];
+        AbstractMethodDeclaration var1 = (AbstractMethodDeclaration)this.field_1560[this.field_1559];
         if (this.field_1563 == 69) {
             var1.field_490 = this.field_1628.field_1231;
         }
@@ -3280,7 +3280,7 @@ public class Parser {
             System.arraycopy(this.field_1571, (this.field_1570 -= var5) + 1, ((class_96)var2).field_483 = new class_164[var5], 0, var5);
         }
         ((class_96)var2).field_444 = (int)(var3 >>> 32);
-        this.method_2866((class_89)var2);
+        this.method_2866((ASTNode)var2);
         ((class_96)var2).field_445 = this.field_1597;
         ((class_96)var2).field_490 = this.field_1597 + 1;
         this.field_1595 = 0;
@@ -3290,7 +3290,7 @@ public class Parser {
                 this.field_1618 = true;
             } else {
                 this.field_1590 = ((class_96)var2).field_490;
-                this.field_1562 = this.field_1562.method_1832((class_93)var2, 0);
+                this.field_1562 = this.field_1562.method_1832((AbstractMethodDeclaration)var2, 0);
                 this.field_1593 = -1;
             }
         }
@@ -3319,7 +3319,7 @@ public class Parser {
             System.arraycopy(this.field_1571, (this.field_1570 -= var5) + 1, ((class_96)var2).field_483 = new class_164[var5], 0, var5);
         }
         ((class_96)var2).field_444 = (int)(var3 >>> 32);
-        this.method_2866((class_89)var2);
+        this.method_2866((ASTNode)var2);
         ((class_96)var2).field_445 = this.field_1597;
         ((class_96)var2).field_490 = this.field_1597 + 1;
         this.field_1595 = 0;
@@ -3333,7 +3333,7 @@ public class Parser {
                     ((class_260)this.field_1562).field_1138 = null;
                 }
                 this.field_1590 = ((class_96)var2).field_490;
-                this.field_1562 = this.field_1562.method_1832((class_93)var2, 0);
+                this.field_1562 = this.field_1562.method_1832((AbstractMethodDeclaration)var2, 0);
                 this.field_1593 = -1;
             }
         }
@@ -3342,7 +3342,7 @@ public class Parser {
     protected void method_2700() {
         int var1 = this.field_1558[this.field_1557--];
         this.field_1559 -= var1;
-        class_93 var2 = (class_93)this.field_1560[this.field_1559];
+        AbstractMethodDeclaration var2 = (AbstractMethodDeclaration)this.field_1560[this.field_1559];
         var2.field_445 = this.field_1598;
         if (var1 != 0) {
             System.arraycopy(this.field_1560, this.field_1559 + 1, var2.field_484 = new class_125[var1], 0, var1);
@@ -3364,7 +3364,7 @@ public class Parser {
     protected void method_2701() {
         int var1 = this.field_1558[this.field_1557--];
         this.field_1559 -= var1;
-        class_93 var2 = (class_93)this.field_1560[this.field_1559];
+        AbstractMethodDeclaration var2 = (AbstractMethodDeclaration)this.field_1560[this.field_1559];
         System.arraycopy(this.field_1560, this.field_1559 + 1, var2.field_485 = new class_146[var1], 0, var1);
         var2.field_445 = var2.field_485[var1 - 1].field_445;
         var2.field_490 = var2.field_485[var1 - 1].field_445 + 1;
@@ -3556,7 +3556,7 @@ public class Parser {
     }
 
     protected void method_2720() {
-        class_91 var1 = this.field_1561.field_448;
+        ImportReference var1 = this.field_1561.field_448;
         var1.field_469 = this.field_1567;
         var1.field_471 = this.method_2831(var1.field_471);
     }
@@ -3568,8 +3568,8 @@ public class Parser {
         long[] var4 = new long[var2];
         System.arraycopy(this.field_1585, ++this.field_1584, var3, 0, var2);
         System.arraycopy(this.field_1583, this.field_1584--, var4, 0, var2);
-        class_91 var10000 = new class_91(var3, var4, true, 0);
-        class_91 var1 = var10000;
+        ImportReference var10000 = new ImportReference(var3, var4, true, 0);
+        ImportReference var1 = var10000;
         this.field_1561.field_448 = var1;
         if (this.field_1563 == 27) {
             var1.field_471 = this.field_1628.field_1231 - 1;
@@ -3593,8 +3593,8 @@ public class Parser {
         System.arraycopy(this.field_1583, this.field_1584--, var4, 0, var2);
         int var5 = this.field_1588[this.field_1587--];
         int var6 = this.field_1588[this.field_1587--];
-        class_91 var10000 = new class_91(var3, var4, true, var6);
-        class_91 var1 = var10000;
+        ImportReference var10000 = new ImportReference(var3, var4, true, var6);
+        ImportReference var1 = var10000;
         this.field_1561.field_448 = var1;
         if ((var2 = this.field_1569[this.field_1568--]) != 0) {
             System.arraycopy(this.field_1571, (this.field_1570 -= var2) + 1, var1.field_473 = new class_164[var2], 0, var2);
@@ -3756,7 +3756,7 @@ public class Parser {
         int var1;
         if ((var1 = this.field_1558[this.field_1557--]) != 0) {
             this.field_1559 -= var1;
-            System.arraycopy(this.field_1560, this.field_1559 + 1, this.field_1561.field_449 = new class_91[var1], 0, var1);
+            System.arraycopy(this.field_1560, this.field_1559 + 1, this.field_1561.field_449 = new ImportReference[var1], 0, var1);
         }
     }
 
@@ -5336,8 +5336,8 @@ public class Parser {
         long[] var4 = new long[var2];
         System.arraycopy(this.field_1585, this.field_1584 + 1, var3, 0, var2);
         System.arraycopy(this.field_1583, this.field_1584 + 1, var4, 0, var2);
-        class_91 var10001 = new class_91(var3, var4, false, 8);
-        class_91 var1 = var10001;
+        ImportReference var10001 = new ImportReference(var3, var4, false, 8);
+        ImportReference var1 = var10001;
         this.method_2866(var10001);
         this.field_1599 = 0;
         this.field_1600 = -1;
@@ -5367,8 +5367,8 @@ public class Parser {
         long[] var4 = new long[var2];
         System.arraycopy(this.field_1585, this.field_1584 + 1, var3, 0, var2);
         System.arraycopy(this.field_1583, this.field_1584 + 1, var4, 0, var2);
-        class_91 var10001 = new class_91(var3, var4, false, 0);
-        class_91 var1 = var10001;
+        ImportReference var10001 = new ImportReference(var3, var4, false, 0);
+        ImportReference var1 = var10001;
         this.method_2866(var10001);
         if (this.field_1563 == 27) {
             var1.field_471 = this.field_1628.field_1231 - 1;
@@ -5424,7 +5424,7 @@ public class Parser {
         --this.field_1587;
         class_98 var1 = (class_98)this.field_1560[this.field_1559];
         --this.field_1568;
-        class_89[] var10000 = this.field_1560;
+        ASTNode[] var10000 = this.field_1560;
         int var10001 = this.field_1559;
         class_100 var10002 = new class_100(this.field_1571[this.field_1570--], var1, this.field_1588[this.field_1587--], this.field_1567);
         var10000[var10001] = var10002;
@@ -5470,7 +5470,7 @@ public class Parser {
     protected void method_2764() {
         --this.field_1568;
         class_98 var1 = (class_98)this.field_1560[this.field_1559];
-        class_89[] var10000 = this.field_1560;
+        ASTNode[] var10000 = this.field_1560;
         int var10001 = this.field_1559;
         class_101 var10002 = new class_101(this.field_1571[this.field_1570--], var1, this.field_1588[this.field_1587--], this.field_1567);
         var10000[var10001] = var10002;
@@ -5479,7 +5479,7 @@ public class Parser {
     protected void method_2765() {
         --this.field_1568;
         --this.field_1557;
-        class_89[] var10000 = this.field_1560;
+        ASTNode[] var10000 = this.field_1560;
         int var10001 = --this.field_1559;
         class_101 var10002 = new class_101(this.field_1571[this.field_1570--], (class_98)this.field_1560[this.field_1559], (class_98)this.field_1560[this.field_1559 + 1], this.field_1588[this.field_1587--], this.field_1567);
         var10000[var10001] = var10002;
@@ -5487,7 +5487,7 @@ public class Parser {
 
     protected void method_2766() {
         class_98 var1 = (class_98)this.field_1560[this.field_1559];
-        class_89[] var10000 = this.field_1560;
+        ASTNode[] var10000 = this.field_1560;
         int var10001 = this.field_1559;
         class_104 var10002 = new class_104(this.field_1585[this.field_1584], var1, this.field_1583[this.field_1584--], this.field_1567);
         var10000[var10001] = var10002;
@@ -5527,7 +5527,7 @@ public class Parser {
 
     protected void method_2769() {
         int var10001;
-        class_89[] var10000;
+        ASTNode[] var10000;
         class_118 var10002;
         if (this.field_1558[this.field_1557] == 0) {
             this.field_1558[this.field_1557] = 1;
@@ -5581,7 +5581,7 @@ public class Parser {
     protected void method_2772() {
         --this.field_1568;
         class_98 var1 = (class_98)this.field_1560[this.field_1559];
-        class_89[] var10000 = this.field_1560;
+        ASTNode[] var10000 = this.field_1560;
         int var10001 = this.field_1559;
         class_107 var10002 = new class_107(this.field_1571[this.field_1570--], var1, this.field_1588[this.field_1587--], this.field_1567);
         var10000[var10001] = var10002;
@@ -5594,8 +5594,8 @@ public class Parser {
         long[] var4 = new long[var2];
         System.arraycopy(this.field_1585, this.field_1584 + 1, var3, 0, var2);
         System.arraycopy(this.field_1583, this.field_1584 + 1, var4, 0, var2);
-        class_91 var10001 = new class_91(var3, var4, true, 8);
-        class_91 var1 = var10001;
+        ImportReference var10001 = new ImportReference(var3, var4, true, 8);
+        ImportReference var1 = var10001;
         this.method_2866(var10001);
         this.field_1599 = 0;
         this.field_1600 = -1;
@@ -6007,8 +6007,8 @@ public class Parser {
         long[] var4 = new long[var2];
         System.arraycopy(this.field_1585, this.field_1584 + 1, var3, 0, var2);
         System.arraycopy(this.field_1583, this.field_1584 + 1, var4, 0, var2);
-        class_91 var10001 = new class_91(var3, var4, true, 0);
-        class_91 var1 = var10001;
+        ImportReference var10001 = new ImportReference(var3, var4, true, 0);
+        ImportReference var1 = var10001;
         this.method_2866(var10001);
         if (this.field_1563 == 27) {
             var1.field_471 = this.field_1628.field_1231 - 1;
@@ -6319,7 +6319,7 @@ public class Parser {
         return false;
     }
 
-    public class_96 method_2821(class_94 var1, class_284 var2) {
+    public class_96 method_2821(class_94 var1, CompilationResult var2) {
         class_96 var10000 = new class_96(var2);
         class_96 var3 = var10000;
         var3.field_498 = var1.field_494;
@@ -6363,9 +6363,9 @@ public class Parser {
         return this.field_1562 != null ? (this.field_1562 instanceof class_260 ? (class_260)this.field_1562 : this.field_1562.method_1843()) : null;
     }
 
-    public class_90 method_2827(class_19 var1, class_284 var2) {
+    public CompilationUnitDeclaration method_2827(ICompilationUnit var1, CompilationResult var2) {
         boolean var4 = this.field_1564;
-        class_90 var3;
+        CompilationUnitDeclaration var3;
         try {
             this.field_1564 = true;
             var3 = this.method_2856(var1, var2);
@@ -6383,11 +6383,11 @@ public class Parser {
             int var5 = 0;
             boolean var6 = false;
             for (int var7 = var1 - 1; var7 >= 0; --var7) {
-                class_89 var8 = this.field_1560[this.field_1559--];
-                if (var8 instanceof class_93) {
+                ASTNode var8 = this.field_1560[this.field_1559--];
+                if (var8 instanceof AbstractMethodDeclaration) {
                     var2[var7] = 2;
                     ++var4;
-                    if (((class_93)var8).method_792()) {
+                    if (((AbstractMethodDeclaration)var8).method_792()) {
                         var6 = true;
                     }
                 } else if (var8 instanceof class_114) {
@@ -6403,7 +6403,7 @@ public class Parser {
                 var12.field_583 = new class_121[var3];
             }
             if (var4 != 0) {
-                var12.field_584 = new class_93[var4];
+                var12.field_584 = new AbstractMethodDeclaration[var4];
                 if (var6) {
                     var12.field_446 |= 2048;
                 }
@@ -6455,11 +6455,11 @@ public class Parser {
             boolean var7 = false;
             int var8;
             for (var8 = var1 - 1; var8 >= 0; --var8) {
-                class_89 var9 = this.field_1560[this.field_1559--];
-                if (var9 instanceof class_93) {
+                ASTNode var9 = this.field_1560[this.field_1559--];
+                if (var9 instanceof AbstractMethodDeclaration) {
                     var2[var8] = 2;
                     ++var4;
-                    if (((class_93)var9).method_792()) {
+                    if (((AbstractMethodDeclaration)var9).method_792()) {
                         var7 = true;
                     }
                 } else if (var9 instanceof class_114) {
@@ -6474,7 +6474,7 @@ public class Parser {
                 var6.field_583 = new class_121[var3];
             }
             if (var4 != 0) {
-                var6.field_584 = new class_93[var4];
+                var6.field_584 = new AbstractMethodDeclaration[var4];
                 if (var7) {
                     var6.field_446 |= 2048;
                 }
@@ -6516,7 +6516,7 @@ public class Parser {
         }
     }
 
-    protected class_90 method_2830(int var1) {
+    protected CompilationUnitDeclaration method_2830(int var1) {
         this.field_1589 = var1;
         if (this.field_1622) {
             class_251 var2 = this.method_2522();
@@ -6528,17 +6528,17 @@ public class Parser {
             }
         } else if (this.field_1562 != null) {
             if (field_1556) {
-                eclipse.instance.method_744(class_329.field_1885);
-                eclipse.instance.print("--------------------------");
-                eclipse.instance.print(this.field_1561);
-                eclipse.instance.print("----------------------------------");
+                eclipse.instance.print(Messages.field_1885);
+                eclipse.instance.println("--------------------------");
+                eclipse.instance.println(this.field_1561);
+                eclipse.instance.println("----------------------------------");
             }
             this.field_1562.method_1849().method_1855();
         } else if (this.field_1564 & field_1556) {
-            eclipse.instance.method_744(class_329.field_1886);
-            eclipse.instance.print("--------------------------");
-            eclipse.instance.print(this.field_1561);
-            eclipse.instance.print("----------------------------------");
+            eclipse.instance.print(Messages.field_1886);
+            eclipse.instance.println("--------------------------");
+            eclipse.instance.println(this.field_1561);
+            eclipse.instance.println("----------------------------------");
         }
         this.method_2861();
         for (int var3 = 0; var3 < this.field_1628.field_1251; ++var3) {
@@ -6628,14 +6628,14 @@ public class Parser {
         return this.field_1572;
     }
 
-    public void method_2834(class_90 var1) {
+    public void method_2834(CompilationUnitDeclaration var1) {
         if (var1 != null) {
             if (var1.field_452) {
                 var1.field_451 = true;
             } else if ((var1.field_446 & 16) == 0) {
                 int[] var2 = this.field_1628.field_1256;
                 int var3 = this.field_1628.field_1257;
-                class_284 var4 = var1.field_455;
+                CompilationResult var4 = var1.field_455;
                 char[] var5 = this.field_1636 != null ? this.field_1636.method_2910(var4.field_1677) : var4.field_1677.method_51();
                 this.field_1628.method_2441(var5, var4);
                 if (var1.field_450 != null) {
@@ -6844,7 +6844,7 @@ public class Parser {
         this.field_1567 = 0;
         int var2 = this.field_1560.length;
         if (this.field_1604.length < var2) {
-            this.field_1604 = new class_89[var2];
+            this.field_1604 = new ASTNode[var2];
         }
         System.arraycopy(this.field_1604, 0, this.field_1560, 0, var2);
         int var3 = this.field_1571.length;
@@ -6922,14 +6922,14 @@ public class Parser {
     protected void method_2849() {
         if (this.field_1562 == null) {
             for (int var1 = this.field_1559; var1 >= 0; --var1) {
-                class_89 var2 = this.field_1560[var1];
-                if (var2 instanceof class_93 || var2 instanceof class_121 || var2 instanceof class_114 && ((class_114)var2).field_593 == 0) {
+                ASTNode var2 = this.field_1560[var1];
+                if (var2 instanceof AbstractMethodDeclaration || var2 instanceof class_121 || var2 instanceof class_114 && ((class_114)var2).field_593 == 0) {
                     var2.field_446 |= 2;
                     return;
                 }
             }
-            if (this.field_1615 instanceof class_93 || this.field_1615 instanceof class_114) {
-                ((class_89)this.field_1615).field_446 |= 2;
+            if (this.field_1615 instanceof AbstractMethodDeclaration || this.field_1615 instanceof class_114) {
+                ((ASTNode)this.field_1615).field_446 |= 2;
             }
         }
     }
@@ -7100,7 +7100,7 @@ public class Parser {
             if (!this.field_1607.field_1962) {
                 this.method_2877(var1, var2);
             } else {
-                class_267 var11 = this.field_1615.method_94().field_1685;
+                RecoveryScannerData var11 = this.field_1615.method_94().field_1685;
                 if (this.field_1627 == null) {
                     RecoveryScanner var10001 = new RecoveryScanner(this.field_1628, var11);
                     this.field_1627 = var10001;
@@ -7124,7 +7124,7 @@ public class Parser {
         }
     }
 
-    public void method_2855(class_94 var1, class_90 var2, boolean var3) {
+    public void method_2855(class_94 var1, CompilationUnitDeclaration var2, boolean var3) {
         boolean var4 = this.field_1621;
         if (this.field_1607.field_1961) {
             this.field_1621 = true;
@@ -7141,7 +7141,7 @@ public class Parser {
         this.field_1628.method_2435(var1.field_490, var1.field_491);
         try {
             this.method_2854();
-        } catch (class_241 var9) {
+        } catch (AbortCompilation var9) {
             this.field_1589 = 12828;
         } finally {
             --this.field_1601[this.field_1602];
@@ -7177,21 +7177,21 @@ public class Parser {
         }
     }
 
-    public class_90 method_2856(class_19 var1, class_284 var2) {
+    public CompilationUnitDeclaration method_2856(ICompilationUnit var1, CompilationResult var2) {
         return this.method_2857(var1, var2, -1, -1);
     }
 
-    public class_90 method_2857(class_19 var1, class_284 var2, int var3, int var4) {
-        class_90 var5;
+    public CompilationUnitDeclaration method_2857(ICompilationUnit var1, CompilationResult var2, int var3, int var4) {
+        CompilationUnitDeclaration var5;
         try {
             this.method_2845(true);
             this.method_2841();
-            class_90 var10002 = new class_90(this.field_1608, var2, 0);
+            CompilationUnitDeclaration var10002 = new CompilationUnitDeclaration(this.field_1608, var2, 0);
             this.field_1615 = this.field_1561 = var10002;
             char[] var6;
             try {
                 var6 = this.field_1636 != null ? this.field_1636.method_2910(var1) : var1.method_51();
-            } catch (class_242 var11) {
+            } catch (AbortCompilationUnit var11) {
                 this.method_2862().method_1500(this.field_1561, var11, this.field_1607.field_1931);
                 var6 = CharOperation.field_994;
             }
@@ -7211,7 +7211,7 @@ public class Parser {
         return var5;
     }
 
-    public void method_2858(class_122 var1, class_114 var2, class_90 var3) {
+    public void method_2858(class_122 var1, class_114 var2, CompilationUnitDeclaration var3) {
         boolean var4 = this.field_1621;
         if (this.field_1607.field_1961) {
             this.field_1621 = true;
@@ -7225,7 +7225,7 @@ public class Parser {
         this.field_1628.method_2435(var1.field_666, var1.field_667);
         try {
             this.method_2854();
-        } catch (class_241 var9) {
+        } catch (AbortCompilation var9) {
             this.field_1589 = 12828;
         } finally {
             --this.field_1601[this.field_1602];
@@ -7248,7 +7248,7 @@ public class Parser {
         }
     }
 
-    public void method_2859(class_96 var1, class_90 var2) {
+    public void method_2859(class_96 var1, CompilationUnitDeclaration var2) {
         if (!var1.method_792()) {
             if (!var1.method_798()) {
                 if ((var1.field_482 & 16777216) == 0) {
@@ -7266,7 +7266,7 @@ public class Parser {
                     this.field_1628.method_2435(var1.field_490, var1.field_491);
                     try {
                         this.method_2854();
-                    } catch (class_241 var8) {
+                    } catch (AbortCompilation var8) {
                         this.field_1589 = 12828;
                     } finally {
                         --this.field_1601[this.field_1602];
@@ -7289,7 +7289,7 @@ public class Parser {
         }
     }
 
-    public void method_2860(class_33 var1, int var2, int var3, class_114[] var4, class_90 var5) {
+    public void method_2860(ReferenceContext var1, int var2, int var3, class_114[] var4, CompilationUnitDeclaration var5) {
         boolean var6 = this.field_1622;
         this.field_1622 = true;
         this.method_2844();
@@ -7314,7 +7314,7 @@ public class Parser {
         this.field_1630 = -1;
         try {
             this.method_2854();
-        } catch (class_241 var11) {
+        } catch (AbortCompilation var11) {
             this.field_1589 = 12828;
         } finally {
             --this.field_1601[this.field_1602];
@@ -7369,10 +7369,10 @@ public class Parser {
         this.field_1558[this.field_1557] = var1;
     }
 
-    protected void method_2866(class_89 var1) {
+    protected void method_2866(ASTNode var1) {
         int var2 = this.field_1560.length;
         if (++this.field_1559 >= var2) {
-            System.arraycopy(this.field_1560, 0, this.field_1560 = new class_89[var2 + 100], 0, var2);
+            System.arraycopy(this.field_1560, 0, this.field_1560 = new ASTNode[var2 + 100], 0, var2);
             this.field_1559 = var2;
         }
         this.field_1560[this.field_1559] = var1;
@@ -7404,10 +7404,10 @@ public class Parser {
         this.field_1569[this.field_1568] = var1;
     }
 
-    protected void method_2869(class_89 var1) {
+    protected void method_2869(ASTNode var1) {
         int var2 = this.field_1578.length;
         if (++this.field_1577 >= var2) {
-            System.arraycopy(this.field_1578, 0, this.field_1578 = new class_89[var2 + 10], 0, var2);
+            System.arraycopy(this.field_1578, 0, this.field_1578 = new ASTNode[var2 + 10], 0, var2);
         }
         this.field_1578[this.field_1577] = var1;
         var2 = this.field_1576.length;
@@ -7456,8 +7456,8 @@ public class Parser {
         class_266 var2 = var8;
         var1.field_1159 = var2;
         var2.field_1164 = var1;
-        if (this.field_1615 instanceof class_93) {
-            ((class_93)this.field_1615).method_806(var1, (class_84)null);
+        if (this.field_1615 instanceof AbstractMethodDeclaration) {
+            ((AbstractMethodDeclaration)this.field_1615).method_806(var1, (class_84)null);
         } else if (this.field_1615 instanceof class_114) {
             class_114 var3 = (class_114)this.field_1615;
             int var4 = var3.field_583.length;
@@ -7572,11 +7572,11 @@ public class Parser {
                 if (var3 != null) {
                     this.method_2878(var3);
                 }
-                class_93[] var4 = var1[var2].field_584;
+                AbstractMethodDeclaration[] var4 = var1[var2].field_584;
                 class_222 var10000;
                 if (var4 != null) {
                     for (int var5 = 0; var5 < var4.length; ++var5) {
-                        class_93 var6 = var4[var5];
+                        AbstractMethodDeclaration var6 = var4[var5];
                         if ((var6.field_446 & 32) != 0) {
                             class_222 var7;
                             if (var6.method_793()) {
@@ -7641,7 +7641,7 @@ public class Parser {
             this.method_2879();
             if (!this.method_2850()) {
                 return false;
-            } else if (this.field_1615 instanceof class_90) {
+            } else if (this.field_1615 instanceof CompilationUnitDeclaration) {
                 this.method_2842();
                 this.field_1564 = true;
                 return true;

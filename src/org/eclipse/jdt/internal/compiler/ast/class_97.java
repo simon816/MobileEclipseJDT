@@ -1,11 +1,11 @@
 package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.internal.compiler.class_264;
-import org.eclipse.jdt.internal.compiler.class_284;
-import org.eclipse.jdt.internal.compiler.class_288;
+import org.eclipse.jdt.internal.compiler.CompilationResult;
+import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.ast.class_123;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_92;
 import org.eclipse.jdt.internal.compiler.ast.class_96;
 import org.eclipse.jdt.internal.compiler.lookup.class_320;
@@ -19,11 +19,11 @@ public class class_97 extends class_96 {
 
     public int field_500;
 
-    public class_97(class_284 var1) {
+    public class_97(CompilationResult var1) {
         super(var1);
     }
 
-    public void method_790(class_288 var1) {
+    public void method_790(ClassFile var1) {
         var1.method_2995(this.field_488);
         int var2 = var1.field_1719;
         int var3 = var1.method_2994(this.field_488, this);
@@ -34,7 +34,7 @@ public class class_97 extends class_96 {
         return true;
     }
 
-    public void method_800(Parser var1, class_90 var2) {}
+    public void method_800(Parser var1, CompilationUnitDeclaration var2) {}
 
     public StringBuffer method_757(int var1, StringBuffer var2) {
         method_759(var1, var2);

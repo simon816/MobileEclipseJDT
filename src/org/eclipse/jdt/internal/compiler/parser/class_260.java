@@ -8,8 +8,8 @@ import org.eclipse.jdt.internal.compiler.ast.class_123;
 import org.eclipse.jdt.internal.compiler.ast.class_136;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_164;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.parser.class_251;
 import org.eclipse.jdt.internal.compiler.parser.class_253;
@@ -79,7 +79,7 @@ public class class_260 extends class_258 {
         this.field_1135 = this.method_1844().field_1621 || this.method_1844().field_1622;
     }
 
-    public class_251 method_1832(class_93 var1, int var2) {
+    public class_251 method_1832(AbstractMethodDeclaration var1, int var2) {
         if (this.field_1124.field_593 != 0 && var1.field_480 > this.field_1124.field_593) {
             this.field_1138 = null;
             this.method_1846();
@@ -276,7 +276,7 @@ public class class_260 extends class_258 {
         return null;
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return this.field_1124;
     }
 
@@ -413,12 +413,12 @@ public class class_260 extends class_258 {
         boolean var14 = false;
         boolean var5 = false;
         int var6 = -1;
-        class_93[] var7;
+        AbstractMethodDeclaration[] var7;
         int var8;
         int var13;
         if (this.field_1134 > 0) {
-            var7 = new class_93[var2 + this.field_1134];
-            class_93 var9;
+            var7 = new AbstractMethodDeclaration[var2 + this.field_1134];
+            AbstractMethodDeclaration var9;
             for (var8 = 0; var8 < var2; ++var8) {
                 var9 = this.field_1124.field_584[var8];
                 if (var9.method_796()) {
@@ -472,7 +472,7 @@ public class class_260 extends class_258 {
             }
         }
         if (var6 >= 0 && var14) {
-            var7 = new class_93[this.field_1124.field_584.length - 1];
+            var7 = new AbstractMethodDeclaration[this.field_1124.field_584.length - 1];
             if (var6 != 0) {
                 System.arraycopy(this.field_1124.field_584, 0, var7, 0, var6);
             }

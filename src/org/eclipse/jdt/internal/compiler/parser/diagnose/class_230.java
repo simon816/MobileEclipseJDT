@@ -3,7 +3,7 @@ package org.eclipse.jdt.internal.compiler.parser.diagnose;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
 import org.eclipse.jdt.internal.compiler.ast.class_122;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.parser.diagnose.class_231;
 
 public class class_230 {
@@ -11,7 +11,7 @@ public class class_230 {
     public class_230() {
     }
 
-    public static boolean method_1340(class_93 var0) {
+    public static boolean method_1340(AbstractMethodDeclaration var0) {
         return var0.field_445 + 1 == var0.field_490 || var0.field_491 == var0.field_481;
     }
 
@@ -32,12 +32,12 @@ public class class_230 {
             if (var3 != null && var3.length > 0) {
                 method_1342(var0[var2].field_585, var1);
             }
-            class_93[] var4 = var0[var2].field_584;
+            AbstractMethodDeclaration[] var4 = var0[var2].field_584;
             int var6;
             if (var4 != null) {
                 int var5 = var4.length;
                 for (var6 = 0; var6 < var5; ++var6) {
-                    class_93 var7 = var4[var6];
+                    AbstractMethodDeclaration var7 = var4[var6];
                     if (method_1343(var7)) {
                         if (method_1340(var7)) {
                             var7.field_446 |= 32;
@@ -67,7 +67,7 @@ public class class_230 {
         }
     }
 
-    public static boolean method_1343(class_93 var0) {
+    public static boolean method_1343(AbstractMethodDeclaration var0) {
         return !var0.method_796() && !var0.method_794() && (var0.field_482 & 16777216) == 0;
     }
 }

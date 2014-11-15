@@ -2,9 +2,9 @@ package org.eclipse.jdt.internal.compiler.ast;
 
 import org.eclipse.jdt.internal.compiler.ast.class_115;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
@@ -13,14 +13,14 @@ import org.eclipse.jdt.internal.compiler.lookup.class_42;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_86;
 
-public abstract class class_98 extends class_89 {
+public abstract class class_98 extends ASTNode {
 
     public class_98() {
     }
 
     public abstract class_301 method_814(class_86 var1, class_293 var2, class_301 var3);
 
-    public void method_815(class_74 var1) {}
+    public void method_815(BranchLabel var1) {}
 
     public boolean method_816(class_301 var1, class_86 var2, boolean var3) {
         if ((var1.method_3102() & 1) != 0) {

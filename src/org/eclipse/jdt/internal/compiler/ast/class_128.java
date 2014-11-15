@@ -3,7 +3,7 @@ package org.eclipse.jdt.internal.compiler.ast;
 import org.eclipse.jdt.internal.compiler.class_264;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_176;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -145,7 +145,7 @@ public class class_128 extends class_126 {
                         }
                         if (!var12.method_919(var11, var8) && (!var8.method_148() || !class_41.method_185(var8.field_177, var11.field_177)) && !var11.method_152(var8)) {
                             if (!var1.method_624(var11, var8) && (!var11.method_148() || var1.method_577().field_1928 < 3211264L || var8.method_148() || !var12.method_919(var11, var1.method_586().method_486(var8)))) {
-                                var1.method_644().method_1777(var11, var8, var12, (class_89)null);
+                                var1.method_644().method_1777(var11, var8, var12, (ASTNode)null);
                             } else {
                                 var12.method_911(var1, var8, var11);
                             }
@@ -186,7 +186,7 @@ public class class_128 extends class_126 {
             if (var3 != null) {
                 this.field_675 = var1.method_580((class_40)var3, var4);
                 if (var2 != null) {
-                    var1.method_644().method_1777(this.field_675, var2, this, (class_89)null);
+                    var1.method_644().method_1777(this.field_675, var2, this, (ASTNode)null);
                 }
             }
             return null;

@@ -7,8 +7,8 @@ import org.eclipse.jdt.internal.compiler.ast.class_118;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.ast.class_130;
 import org.eclipse.jdt.internal.compiler.ast.class_176;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
@@ -66,7 +66,7 @@ public class class_119 extends class_98 {
             }
             var4.method_3048(var3.method_3109());
             if (var4 instanceof class_294) {
-                class_89 var9 = var4.field_1739;
+                ASTNode var9 = var4.field_1739;
                 if (var9 instanceof class_118) {
                     this.field_446 |= 1073741824;
                 } else if (var9 instanceof class_117) {
@@ -176,9 +176,9 @@ public class class_119 extends class_98 {
     public void method_821(class_86 var1) {
         class_87 var2 = var1.method_635();
         Object var10000;
-        if (var2.field_403 instanceof class_93) {
-            class_58 var3 = ((class_93)var2.field_403).field_488;
-            var10000 = ((class_93)var2.field_403).field_488 == null ? null : var3.field_275;
+        if (var2.field_403 instanceof AbstractMethodDeclaration) {
+            class_58 var3 = ((AbstractMethodDeclaration)var2.field_403).field_488;
+            var10000 = ((AbstractMethodDeclaration)var2.field_403).field_488 == null ? null : var3.field_275;
         } else {
             var10000 = class_40.field_188;
         }
@@ -206,7 +206,7 @@ public class class_119 extends class_98 {
                     if (!this.field_647.method_919(var5, (class_40)var4) && !var5.method_152((class_40)var4)) {
                         if (!var1.method_624(var5, (class_40)var4) && (!var5.method_148() || var1.method_577().field_1928 < 3211264L || ((class_40)var4).method_148() || !this.field_647.method_919(var5, var1.method_586().method_486((class_40)var4)))) {
                             if ((((class_40)var4).field_178 & 128L) == 0L) {
-                                var1.method_644().method_1777(var5, (class_40)var4, this.field_647, (class_89)null);
+                                var1.method_644().method_1777(var5, (class_40)var4, this.field_647, (ASTNode)null);
                             }
                         } else {
                             this.field_647.method_911(var1, (class_40)var4, var5);

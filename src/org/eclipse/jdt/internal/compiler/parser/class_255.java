@@ -11,9 +11,9 @@ import org.eclipse.jdt.internal.compiler.ast.class_125;
 import org.eclipse.jdt.internal.compiler.ast.class_146;
 import org.eclipse.jdt.internal.compiler.ast.class_158;
 import org.eclipse.jdt.internal.compiler.ast.class_164;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.ast.class_92;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_94;
 import org.eclipse.jdt.internal.compiler.ast.class_96;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
@@ -28,7 +28,7 @@ import org.eclipse.jdt.internal.compiler.util.Util;
 
 public class class_255 extends class_251 {
 
-    public class_93 field_1088;
+    public AbstractMethodDeclaration field_1088;
 
     public class_257[] field_1089;
 
@@ -54,7 +54,7 @@ public class class_255 extends class_251 {
 
     int field_1100;
 
-    public class_255(class_93 var1, class_251 var2, int var3, Parser var4) {
+    public class_255(AbstractMethodDeclaration var1, class_251 var2, int var3, Parser var4) {
         super(var2, var3, var4);
         this.field_1096 = true;
         this.field_1098 = -1;
@@ -198,7 +198,7 @@ public class class_255 extends class_251 {
         return this.field_1088.field_490 == this.field_1088.field_445 + 1;
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return this.field_1088;
     }
 
@@ -238,7 +238,7 @@ public class class_255 extends class_251 {
         this.field_1088.field_490 = var1;
     }
 
-    public class_93 method_1866() {
+    public AbstractMethodDeclaration method_1866() {
         if (this.field_1091 != 0) {
             this.field_1088.field_482 |= this.field_1091;
             if (this.field_1092 < this.field_1088.field_480) {
@@ -310,7 +310,7 @@ public class class_255 extends class_251 {
                     var3 = var1.field_1559 - var2;
                     var4 = var3 >= 0;
                     if (var4) {
-                        if (!(var1.field_1560[var3] instanceof class_93)) {
+                        if (!(var1.field_1560[var3] instanceof AbstractMethodDeclaration)) {
                             var4 = false;
                         }
                         int var5 = 1;
@@ -344,7 +344,7 @@ public class class_255 extends class_251 {
                         var3 = var1.field_1559 - var2 + 1;
                     }
                     for (var6 = 0; var6 < var2; ++var6) {
-                        class_89 var7 = var1.field_1560[var3 + var6];
+                        ASTNode var7 = var1.field_1560[var3 + var6];
                         if (!(var7 instanceof class_125)) {
                             var1.field_1558[var1.field_1557] = var6;
                             var1.field_1559 = var3 + var6 - 1;
@@ -370,7 +370,7 @@ public class class_255 extends class_251 {
                         int var14 = var1.field_1559 - var13;
                         boolean var15 = var14 >= 0;
                         if (var15) {
-                            if (!(var1.field_1560[var14] instanceof class_93)) {
+                            if (!(var1.field_1560[var14] instanceof AbstractMethodDeclaration)) {
                                 var15 = false;
                             }
                             int var10 = 1;

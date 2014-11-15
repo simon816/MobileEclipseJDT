@@ -2,52 +2,52 @@ package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.ast.class_114;
-import org.eclipse.jdt.internal.compiler.ast.class_90;
-import org.eclipse.jdt.internal.compiler.ast.class_91;
-import org.eclipse.jdt.internal.compiler.env.class_345;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.ImportReference;
+import org.eclipse.jdt.internal.compiler.env.AccessRestriction;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 import org.eclipse.jdt.internal.compiler.lookup.class_35;
 import org.eclipse.jdt.internal.compiler.lookup.class_36;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_44;
 import org.eclipse.jdt.internal.compiler.lookup.class_50;
 import org.eclipse.jdt.internal.compiler.lookup.class_51;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_57;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
 import org.eclipse.jdt.internal.compiler.lookup.class_69;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_81;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
 import org.eclipse.jdt.internal.compiler.util.class_212;
 import org.eclipse.jdt.internal.compiler.util.class_218;
-import org.eclipse.jdt.internal.compiler.util.class_325;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfObject;
 import org.eclipse.jdt.internal.compiler.util.class_326;
 import org.eclipse.jdt.internal.compiler.util.class_328;
 
 public class class_85 extends class_83 {
 
-    public class_80 field_378;
+    public LookupEnvironment field_378;
 
-    public class_90 field_379;
+    public CompilationUnitDeclaration field_379;
 
     public char[][] field_380;
 
-    public class_38 field_381;
+    public PackageBinding field_381;
 
     public class_35[] field_382;
 
-    public class_325 field_383;
+    public HashtableOfObject field_383;
 
-    public class_54[] field_384;
+    public SourceTypeBinding[] field_384;
 
     private class_212 field_385;
 
@@ -61,7 +61,7 @@ public class class_85 extends class_83 {
 
     private int field_390;
 
-    public class_85(class_90 var1, class_80 var2) {
+    public class_85(CompilationUnitDeclaration var1, LookupEnvironment var2) {
         super(4, (class_83)null);
         this.field_390 = 1;
         this.field_378 = var2;
@@ -92,8 +92,8 @@ public class class_85 extends class_83 {
         }
     }
 
-    void method_674(class_345 var1) {
-        this.field_384 = new class_54[0];
+    void method_674(AccessRestriction var1) {
+        this.field_384 = new SourceTypeBinding[0];
         boolean var2 = false;
         if (this.field_379.field_455.field_1677 != null) {
             char[][] var3 = this.field_379.field_455.field_1677.method_53();
@@ -127,11 +127,11 @@ public class class_85 extends class_83 {
         }
         class_114[] var12 = this.field_379.field_450;
         int var4 = var12 == null ? 0 : var12.length;
-        this.field_384 = new class_54[var4];
+        this.field_384 = new SourceTypeBinding[var4];
         int var5 = 0;
         for (int var6 = 0; var6 < var4; ++var6) {
             class_114 var7 = var12[var6];
-            class_43 var8 = this.field_381.method_124(var7.field_580);
+            ReferenceBinding var8 = this.field_381.method_124(var7.field_580);
             this.method_690(var7.field_580);
             if (var8 != null && var8.method_101() && !(var8 instanceof class_44)) {
                 this.method_644().method_1538(this.field_379, var7);
@@ -145,7 +145,7 @@ public class class_85 extends class_83 {
                 }
                 class_84 var13 = new class_84(this, var7);
                 class_84 var14 = var13;
-                class_54 var10 = var14.method_655((class_54)null, this.field_381, var1);
+                SourceTypeBinding var10 = var14.method_655((SourceTypeBinding)null, this.field_381, var1);
                 if (var2 && var6 == 0) {
                     var10.field_199 |= 4096;
                 }
@@ -155,7 +155,7 @@ public class class_85 extends class_83 {
             }
         }
         if (var5 != this.field_384.length) {
-            System.arraycopy(this.field_384, 0, this.field_384 = new class_54[var5], 0, var5);
+            System.arraycopy(this.field_384, 0, this.field_384 = new SourceTypeBinding[var5], 0, var5);
         }
     }
 
@@ -166,7 +166,7 @@ public class class_85 extends class_83 {
             int var1 = this.field_379.field_449.length;
             int var2 = var1 + 1;
             for (int var3 = 0; var3 < var1; ++var3) {
-                class_91 var4 = this.field_379.field_449[var3];
+                ImportReference var4 = this.field_379.field_449[var3];
                 if ((var4.field_446 & 131072) != 0 && CharOperation.method_1363(class_17.field_86, var4.field_467) && !var4.method_781()) {
                     --var2;
                     break;
@@ -177,7 +177,7 @@ public class class_85 extends class_83 {
             int var11 = 1;
             int var5 = 0;
             while (var5 < var1) {
-                class_91 var6 = this.field_379.field_449[var5];
+                ImportReference var6 = this.field_379.field_449[var5];
                 char[][] var7 = var6.field_467;
                 int var8 = 0;
                 while (true) {
@@ -193,7 +193,7 @@ public class class_85 extends class_83 {
                         if ((var6.field_446 & 131072) != 0) {
                             if (!CharOperation.method_1363(var7, this.field_380)) {
                                 class_34 var12 = this.method_681(var7, var7.length);
-                                if (var12.method_101() && (!var6.method_781() || !(var12 instanceof class_38))) {
+                                if (var12.method_101() && (!var6.method_781() || !(var12 instanceof PackageBinding))) {
                                     var10001 = var11++;
                                     var10002 = new class_35(var7, true, var12, var6);
                                     var10[var10001] = var10002;
@@ -235,7 +235,7 @@ public class class_85 extends class_83 {
                 class_328 var10001 = new class_328();
                 this.field_389 = var10001;
             }
-            class_54 var2 = var1.field_258.method_640().method_585();
+            SourceTypeBinding var2 = var1.field_258.method_640().method_585();
             int var3 = 0;
             boolean var5 = this.method_577().field_1927 >= 3211264L;
             while (true) {
@@ -275,9 +275,9 @@ public class class_85 extends class_83 {
 
     void method_679() {
         if (this.field_383 == null) {
-            class_325 var17;
+            HashtableOfObject var17;
             if (this.field_379.field_449 == null) {
-                var17 = new class_325(1);
+                var17 = new HashtableOfObject(1);
                 this.field_383 = var17;
             } else {
                 int var1 = this.field_379.field_449.length;
@@ -303,7 +303,7 @@ public class class_85 extends class_83 {
                 }
                 var3 = var1 + 1;
                 for (var4 = 0; var4 < var1; ++var4) {
-                    class_91 var19 = this.field_379.field_449[var4];
+                    ImportReference var19 = this.field_379.field_449[var4];
                     if ((var19.field_446 & 131072) != 0 && CharOperation.method_1363(class_17.field_86, var19.field_467) && !var19.method_781()) {
                         --var3;
                         break;
@@ -314,7 +314,7 @@ public class class_85 extends class_83 {
                 var5 = 1;
                 int var6 = 0;
                 while (var6 < var1) {
-                    class_91 var7 = this.field_379.field_449[var6];
+                    ImportReference var7 = this.field_379.field_449[var6];
                     char[][] var8 = var7.field_467;
                     int var9 = 0;
                     while (true) {
@@ -335,7 +335,7 @@ public class class_85 extends class_83 {
                                     var22 = this.method_681(var8, var8.length);
                                     if (!var22.method_101()) {
                                         this.method_644().method_1606(var7, var22);
-                                    } else if (var7.method_781() && var22 instanceof class_38) {
+                                    } else if (var7.method_781() && var22 instanceof PackageBinding) {
                                         this.method_644().method_1497(var7);
                                     } else {
                                         var10001 = var5++;
@@ -347,18 +347,18 @@ public class class_85 extends class_83 {
                                 var22 = this.method_682(var8, var7.method_781());
                                 if (!var22.method_101() && var22.method_102() != 3) {
                                     this.method_644().method_1606(var7, var22);
-                                } else if (var22 instanceof class_38) {
+                                } else if (var22 instanceof PackageBinding) {
                                     this.method_644().method_1497(var7);
                                 } else {
                                     label226: {
-                                        class_43 var24 = null;
+                                        ReferenceBinding var24 = null;
                                         if (var22 instanceof class_58) {
-                                            var24 = (class_43)this.method_618(var8, var8.length);
+                                            var24 = (ReferenceBinding)this.method_618(var8, var8.length);
                                             if (!var24.method_101()) {
                                                 var24 = null;
                                             }
                                         }
-                                        if (!(var22 instanceof class_43) && var24 == null) {
+                                        if (!(var22 instanceof ReferenceBinding) && var24 == null) {
                                             if (var22 instanceof class_67) {
                                                 for (int var23 = 0; var23 < var5; ++var23) {
                                                     class_35 var25 = var18[var23];
@@ -369,12 +369,12 @@ public class class_85 extends class_83 {
                                                 }
                                             }
                                         } else {
-                                            class_43 var11 = var24 == null ? (class_43)var22 : var24;
-                                            class_43 var12 = var11.method_102() == 3 ? ((class_51)var11).field_240 : var11;
+                                            ReferenceBinding var11 = var24 == null ? (ReferenceBinding)var22 : var24;
+                                            ReferenceBinding var12 = var11.method_102() == 3 ? ((class_51)var11).field_240 : var11;
                                             if (var7.method_756(var12, this)) {
                                                 this.method_644().method_1516(var12, var7);
                                             }
-                                            class_43 var13 = var2.method_3247(var8[var8.length - 1]);
+                                            ReferenceBinding var13 = var2.method_3247(var8[var8.length - 1]);
                                             if (var13 != null) {
                                                 if (var13 != var11) {
                                                     int var14 = 0;
@@ -411,11 +411,11 @@ public class class_85 extends class_83 {
                 }
                 this.field_382 = var18;
                 var6 = this.field_382.length;
-                var17 = new class_325(var6);
+                var17 = new HashtableOfObject(var6);
                 this.field_383 = var17;
                 for (int var20 = 0; var20 < var6; ++var20) {
                     class_35 var21 = this.field_382[var20];
-                    if (!var21.field_163 && var21.field_165 instanceof class_43 || var21 instanceof class_36) {
+                    if (!var21.field_163 && var21.field_165 instanceof ReferenceBinding || var21 instanceof class_36) {
                         this.field_383.method_3227(var21.field_162[var21.field_162.length - 1], var21);
                     }
                 }
@@ -436,7 +436,7 @@ public class class_85 extends class_83 {
         Object var3 = this.field_378.method_507(var1[0]);
         int var4 = 1;
         if (var3 != null) {
-            class_38 var5 = (class_38)var3;
+            PackageBinding var5 = (PackageBinding)var3;
             while (true) {
                 if (var4 >= var2) {
                     return var5;
@@ -446,27 +446,27 @@ public class class_85 extends class_83 {
                     var3 = null;
                     break;
                 }
-                if (!(var3 instanceof class_38)) {
+                if (!(var3 instanceof PackageBinding)) {
                     break;
                 }
-                var5 = (class_38)var3;
+                var5 = (PackageBinding)var3;
             }
         }
-        class_43 var7;
+        ReferenceBinding var7;
         class_51 var10000;
         if (var3 == null) {
             if (this.field_378.field_347 == null || this.method_577().field_1927 >= 3145728L) {
-                var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), (class_43)null, 1);
+                var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), (ReferenceBinding)null, 1);
                 return var10000;
             }
             var7 = this.method_596(var1[0], this.field_378.field_347, this.field_378.field_347);
             if (var7 == null || !var7.method_101()) {
-                var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), (class_43)null, 1);
+                var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), (ReferenceBinding)null, 1);
                 return var10000;
             }
             var4 = 1;
         } else {
-            var7 = (class_43)var3;
+            var7 = (ReferenceBinding)var3;
         }
         do {
             if (var4 >= var2) {
@@ -476,7 +476,7 @@ public class class_85 extends class_83 {
                 }
                 return var7;
             }
-            var7 = (class_43)this.field_378.method_490(var7, false);
+            var7 = (ReferenceBinding)this.field_378.method_490(var7, false);
             if (!var7.method_194(this.field_381)) {
                 var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), var7, 2);
                 return var10000;
@@ -484,7 +484,7 @@ public class class_85 extends class_83 {
             char[] var6 = var1[var4++];
             var7 = var7.method_209(var6);
         } while (var7 != null);
-        var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), (class_43)null, 1);
+        var10000 = new class_51(CharOperation.method_1387(var1, 0, var4), (ReferenceBinding)null, 1);
         return var10000;
     }
 
@@ -492,15 +492,15 @@ public class class_85 extends class_83 {
         if (var1.length == 1) {
             class_51 var10000;
             if (this.field_378.field_347 != null && this.method_577().field_1927 < 3145728L) {
-                class_43 var3 = this.method_596(var1[0], this.field_378.field_347, this.field_381);
+                ReferenceBinding var3 = this.method_596(var1[0], this.field_378.field_347, this.field_381);
                 if (var3 == null) {
-                    var10000 = new class_51(var1, (class_43)null, 1);
+                    var10000 = new class_51(var1, (ReferenceBinding)null, 1);
                     return var10000;
                 } else {
                     return var3;
                 }
             } else {
-                var10000 = new class_51(var1, (class_43)null, 1);
+                var10000 = new class_51(var1, (ReferenceBinding)null, 1);
                 return var10000;
             }
         } else {
@@ -515,22 +515,22 @@ public class class_85 extends class_83 {
         } else {
             char[] var3 = var1[var1.length - 1];
             class_51 var10000;
-            if (var2 instanceof class_38) {
-                class_34 var7 = ((class_38)var2).method_125(var3);
-                if (var7 != null && var7 instanceof class_43) {
-                    var10000 = new class_51(var1, (class_43)var7, 14);
+            if (var2 instanceof PackageBinding) {
+                class_34 var7 = ((PackageBinding)var2).method_125(var3);
+                if (var7 != null && var7 instanceof ReferenceBinding) {
+                    var10000 = new class_51(var1, (ReferenceBinding)var7, 14);
                     return var10000;
                 } else {
                     return var2;
                 }
             } else {
-                class_43 var4 = (class_43)var2;
-                class_67 var5 = this.method_590(var4, var3, (class_0)null, true);
+                ReferenceBinding var4 = (ReferenceBinding)var2;
+                class_67 var5 = this.method_590(var4, var3, (InvocationSite)null, true);
                 if (var5 != null) {
                     if (var5.method_102() == 3 && ((class_69)var5).field_317.method_431()) {
                         return var5;
                     }
-                    if (var5.method_101() && var5.method_431() && var5.method_423(var4, (class_0)null, this)) {
+                    if (var5.method_101() && var5.method_431() && var5.method_423(var4, (InvocationSite)null, this)) {
                         return var5;
                     }
                 }
@@ -560,7 +560,7 @@ public class class_85 extends class_83 {
         }
     }
 
-    private class_58 method_684(class_43 var1, char[] var2) {
+    private class_58 method_684(ReferenceBinding var1, char[] var2) {
         if (!var1.method_196(this)) {
             return null;
         } else {
@@ -591,16 +591,16 @@ public class class_85 extends class_83 {
         } else {
             Object var1 = this.field_378.method_507(class_17.field_26);
             if (var1 != null) {
-                var1 = ((class_38)var1).method_125(class_17.field_86[1]);
+                var1 = ((PackageBinding)var1).method_125(class_17.field_86[1]);
             }
             if (var1 == null || !((class_34)var1).method_101()) {
                 this.method_644().method_1655(class_17.field_99, this.field_379, this.field_378.field_363);
-                class_50 var2 = this.field_378.method_496((class_38)null, class_17.field_99);
+                class_50 var2 = this.field_378.method_496((PackageBinding)null, class_17.field_99);
                 var1 = var2.field_200;
             }
-            class_80 var10000 = this.field_378;
+            LookupEnvironment var10000 = this.field_378;
             class_35[] var10001 = new class_35[1];
-            class_35 var10004 = new class_35(class_17.field_86, true, (class_34)var1, (class_91)null);
+            class_35 var10004 = new class_35(class_17.field_86, true, (class_34)var1, (ImportReference)null);
             var10001[0] = var10004;
             return var10000.field_346 = var10001;
         }
@@ -642,8 +642,8 @@ public class class_85 extends class_83 {
         this.method_690(var2);
     }
 
-    void method_689(class_43 var1, char[] var2) {
-        class_43 var3 = this.method_697(var1);
+    void method_689(ReferenceBinding var1, char[] var2) {
+        ReferenceBinding var3 = this.method_697(var1);
         if (var3 != null) {
             this.method_688(var3.field_197, var2);
         }
@@ -659,7 +659,7 @@ public class class_85 extends class_83 {
 
     void method_691(class_40 var1) {
         if (this.field_388 != null) {
-            class_43 var2 = this.method_697(var1);
+            ReferenceBinding var2 = this.method_697(var1);
             if (var2 != null && !this.field_388.method_3233(var2)) {
                 this.field_388.method_3231(var2);
             }
@@ -672,7 +672,7 @@ public class class_85 extends class_83 {
 
     void method_693(class_40 var1) {
         if (this.field_387 != null) {
-            class_43 var2 = this.method_697(var1);
+            ReferenceBinding var2 = this.method_697(var1);
             if (var2 != null && !this.field_387.method_3233(var2)) {
                 this.field_387.method_3231(var2);
             }
@@ -684,7 +684,7 @@ public class class_85 extends class_83 {
             if (var1 != null && var1.length != 0) {
                 int var2 = 0;
                 for (int var3 = var1.length; var2 < var3; ++var2) {
-                    class_43 var4 = this.method_697(var1[var2]);
+                    ReferenceBinding var4 = this.method_697(var1[var2]);
                     if (var4 != null && !this.field_387.method_3233(var4)) {
                         this.field_387.method_3231(var4);
                     }
@@ -696,7 +696,7 @@ public class class_85 extends class_83 {
     class_34 method_695(class_35 var1) {
         if (var1.field_165 == null) {
             var1.field_165 = this.method_682(var1.field_162, var1.method_106());
-            if (!var1.field_165.method_101() || var1.field_165 instanceof class_38) {
+            if (!var1.field_165.method_101() || var1.field_165 instanceof PackageBinding) {
                 if (var1.field_165.method_102() == 3) {
                     return var1.field_165;
                 }
@@ -719,9 +719,9 @@ public class class_85 extends class_83 {
 
     public void method_696() {
         int var1;
-        class_43 var3;
+        ReferenceBinding var3;
         for (var1 = 0; var1 < this.field_388.field_1849; ++var1) {
-            class_43 var2 = (class_43)this.field_388.method_3237(var1);
+            ReferenceBinding var2 = (ReferenceBinding)this.field_388.method_3237(var1);
             if (!this.field_387.method_3233(var2)) {
                 this.field_387.method_3231(var2);
             }
@@ -735,7 +735,7 @@ public class class_85 extends class_83 {
             if (var3 != null) {
                 this.method_691(var3);
             }
-            class_43[] var4 = var2.method_241();
+            ReferenceBinding[] var4 = var2.method_241();
             if (var4 != null) {
                 int var5 = 0;
                 for (int var6 = var4.length; var5 < var6; ++var5) {
@@ -745,7 +745,7 @@ public class class_85 extends class_83 {
         }
         var1 = 0;
         for (int var7 = this.field_387.field_1849; var1 < var7; ++var1) {
-            var3 = (class_43)this.field_387.method_3237(var1);
+            var3 = (ReferenceBinding)this.field_387.method_3237(var1);
             if (!var3.method_158()) {
                 this.method_687(var3.method_159() ? CharOperation.method_1385('.', var3.method_103()) : var3.field_197);
             }
@@ -768,7 +768,7 @@ public class class_85 extends class_83 {
         return "--- CompilationUnit Scope : " + new String(this.field_379.method_771());
     }
 
-    private class_43 method_697(class_40 var1) {
+    private ReferenceBinding method_697(class_40 var1) {
         if (var1.method_147()) {
             var1 = ((class_42)var1).field_192;
         }
@@ -782,7 +782,7 @@ public class class_85 extends class_83 {
             case 1028:
                 var1 = var1.method_138();
             default:
-                class_43 var2 = (class_43)var1;
+                ReferenceBinding var2 = (ReferenceBinding)var1;
                 return var2.method_158() ? null : var2;
         }
     }

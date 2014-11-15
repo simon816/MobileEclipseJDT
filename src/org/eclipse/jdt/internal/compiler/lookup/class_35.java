@@ -1,7 +1,7 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.ast.class_91;
+import org.eclipse.jdt.internal.compiler.ast.ImportReference;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
 
 public class class_35 extends class_34 {
@@ -10,11 +10,11 @@ public class class_35 extends class_34 {
 
     public boolean field_163;
 
-    public class_91 field_164;
+    public ImportReference field_164;
 
     public class_34 field_165;
 
-    public class_35(char[][] var1, boolean var2, class_34 var3, class_91 var4) {
+    public class_35(char[][] var1, boolean var2, class_34 var3, ImportReference var4) {
         this.field_162 = var1;
         this.field_163 = var2;
         this.field_165 = var3;

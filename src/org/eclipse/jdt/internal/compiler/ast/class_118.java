@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_112;
 import org.eclipse.jdt.internal.compiler.ast.class_116;
 import org.eclipse.jdt.internal.compiler.ast.class_126;
 import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_74;
+import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
 import org.eclipse.jdt.internal.compiler.flow.class_293;
 import org.eclipse.jdt.internal.compiler.flow.class_294;
 import org.eclipse.jdt.internal.compiler.flow.class_301;
@@ -82,8 +82,8 @@ public class class_118 extends class_116 {
                 if (this.field_642 != var1) {
                     var2.method_2148(this.field_642, this.field_643);
                 }
-                class_74 var10000 = new class_74(var2);
-                class_74 var4 = var10000;
+                BranchLabel var10000 = new BranchLabel(var2);
+                BranchLabel var4 = var10000;
                 if ((this.field_446 & 536870912) == 0) {
                     var2.method_2324(this.field_643);
                     var2.method_2341();

@@ -4,19 +4,19 @@ import org.eclipse.jdt.internal.compiler.ast.class_164;
 import org.eclipse.jdt.internal.compiler.lookup.class_17;
 import org.eclipse.jdt.internal.compiler.lookup.class_320;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_58;
 import org.eclipse.jdt.internal.compiler.lookup.class_67;
-import org.eclipse.jdt.internal.compiler.lookup.class_80;
+import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 
 public class class_203 {
 
-    class_43 field_886;
+    ReferenceBinding field_886;
 
     class_320[] field_887;
 
-    public static class_203[] method_1176(class_203[] var0, long var1, class_80 var3) {
+    public static class_203[] method_1176(class_203[] var0, long var1, LookupEnvironment var3) {
         int var4 = 0;
         if ((var1 & 17557826306048L) != 0L) {
             ++var4;
@@ -70,13 +70,13 @@ public class class_203 {
         }
     }
 
-    private static class_203 method_1177(char[][] var0, class_80 var1) {
-        class_43 var2 = var1.method_506(var0, (class_83)null);
+    private static class_203 method_1177(char[][] var0, LookupEnvironment var1) {
+        ReferenceBinding var2 = var1.method_506(var0, (class_83)null);
         return var1.method_492(var2, class_34.field_159);
     }
 
-    private static class_203 method_1178(long var0, class_80 var2) {
-        class_43 var3 = var2.method_506(class_17.field_126, (class_83)null);
+    private static class_203 method_1178(long var0, LookupEnvironment var2) {
+        ReferenceBinding var3 = var2.method_506(class_17.field_126, (class_83)null);
         class_67 var4 = null;
         if ((var0 & 52776558133248L) != 0L) {
             var4 = var3.method_208(class_17.field_75, true);
@@ -85,15 +85,15 @@ public class class_203 {
         } else if ((var0 & 17592186044416L) != 0L) {
             var4 = var3.method_208(class_17.field_73, true);
         }
-        class_43 var10001 = var2.method_506(class_17.field_123, (class_83)null);
+        ReferenceBinding var10001 = var2.method_506(class_17.field_123, (class_83)null);
         class_320[] var10002 = new class_320[1];
         class_320 var10005 = new class_320(class_17.field_70, var4, (class_58)null);
         var10002[0] = var10005;
         return var2.method_492(var10001, var10002);
     }
 
-    private static class_203 method_1179(long var0, class_80 var2) {
-        class_43 var3 = var2.method_506(class_17.field_125, (class_83)null);
+    private static class_203 method_1179(long var0, LookupEnvironment var2) {
+        ReferenceBinding var3 = var2.method_506(class_17.field_125, (class_83)null);
         if ((var0 & 34359738368L) != 0L) {
             class_203 var10000 = new class_203(var3, class_34.field_159);
             return var10000;
@@ -125,7 +125,7 @@ public class class_203 {
             }
             Object[] var5 = new Object[var4];
             if (var4 > 0) {
-                class_43 var6 = var2.method_506(class_17.field_127, (class_83)null);
+                ReferenceBinding var6 = var2.method_506(class_17.field_127, (class_83)null);
                 int var7 = 0;
                 if ((var0 & 4398046511104L) != 0L) {
                     var5[var7++] = var6.method_208(class_17.field_84, true);
@@ -159,20 +159,20 @@ public class class_203 {
         }
     }
 
-    class_203(class_43 var1, class_320[] var2) {
+    class_203(ReferenceBinding var1, class_320[] var2) {
         this.field_886 = var1;
         this.field_887 = var2;
     }
 
     class_203(class_164 var1) {
-        this((class_43)var1.field_675, var1.method_1071());
+        this((ReferenceBinding)var1.field_675, var1.method_1071());
     }
 
-    public class_43 method_1182() {
+    public ReferenceBinding method_1182() {
         return this.field_886;
     }
 
-    public static void method_1183(class_43 var0, class_320[] var1) {
+    public static void method_1183(ReferenceBinding var0, class_320[] var1) {
         int var2 = var1.length;
         while (true) {
             --var2;

@@ -2,17 +2,17 @@ package org.eclipse.jdt.internal.compiler.lookup;
 
 import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.impl.class_331;
-import org.eclipse.jdt.internal.compiler.lookup.class_0;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 import org.eclipse.jdt.internal.compiler.lookup.class_203;
 import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_38;
+import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.lookup.class_42;
-import org.eclipse.jdt.internal.compiler.lookup.class_43;
+import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_46;
-import org.eclipse.jdt.internal.compiler.lookup.class_54;
+import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.class_64;
 import org.eclipse.jdt.internal.compiler.lookup.class_83;
 import org.eclipse.jdt.internal.compiler.lookup.class_84;
@@ -20,45 +20,45 @@ import org.eclipse.jdt.internal.compiler.lookup.class_87;
 
 public class class_67 extends class_64 {
 
-    public class_43 field_314;
+    public ReferenceBinding field_314;
 
     protected class_67() {
         super((char[])null, (class_40)null, 0, (class_331)null);
     }
 
-    public class_67(char[] var1, class_40 var2, int var3, class_43 var4, class_331 var5) {
+    public class_67(char[] var1, class_40 var2, int var3, ReferenceBinding var4, class_331 var5) {
         super(var1, var2, var3, var5);
         this.field_314 = var4;
     }
 
-    public class_67(class_67 var1, class_43 var2) {
+    public class_67(class_67 var1, ReferenceBinding var2) {
         super(var1.field_302, var1.field_301, var1.field_300, var1.method_407());
         this.field_314 = var2;
         this.field_304 = var1.field_304;
         this.method_436(var1.method_426());
     }
 
-    public class_67(class_121 var1, class_40 var2, int var3, class_43 var4) {
+    public class_67(class_121 var1, class_40 var2, int var3, ReferenceBinding var4) {
         this(var1.field_659, var2, var3, var4, (class_331)null);
         var1.field_661 = this;
     }
 
-    public final boolean method_422(class_38 var1) {
+    public final boolean method_422(PackageBinding var1) {
         return this.method_430() ? true : (this.method_428() ? false : var1 == this.field_314.method_143());
     }
 
-    public final boolean method_423(class_40 var1, class_0 var2, class_83 var3) {
+    public final boolean method_423(class_40 var1, InvocationSite var2, class_83 var3) {
         if (this.method_430()) {
             return true;
         } else {
-            class_54 var4 = var3.method_585();
+            SourceTypeBinding var4 = var3.method_585();
             if (var4 == this.field_314 && var4 == var1) {
                 return true;
             } else if (var4 == null) {
                 return !this.method_428() && var3.method_600() == this.field_314.field_200;
             } else {
                 Object var5;
-                class_43 var7;
+                ReferenceBinding var7;
                 if (this.method_429()) {
                     if (var4 == this.field_314) {
                         return true;
@@ -67,10 +67,10 @@ public class class_67 extends class_64 {
                     } else {
                         var5 = var4;
                         int var10 = 0;
-                        var7 = (class_43)var1.method_138();
-                        class_43 var8 = (class_43)this.field_314.method_138();
+                        var7 = (ReferenceBinding)var1.method_138();
+                        ReferenceBinding var8 = (ReferenceBinding)this.field_314.method_138();
                         do {
-                            if (((class_43)var5).method_140(var8) != null) {
+                            if (((ReferenceBinding)var5).method_140(var8) != null) {
                                 if (var2.method_1()) {
                                     return true;
                                 }
@@ -91,25 +91,25 @@ public class class_67 extends class_64 {
                                 }
                             }
                             ++var10;
-                            var5 = ((class_43)var5).method_137();
+                            var5 = ((ReferenceBinding)var5).method_137();
                         } while (var5 != null);
                         return false;
                     }
                 } else {
-                    class_43 var6;
+                    ReferenceBinding var6;
                     if (!this.method_428()) {
-                        class_38 var9 = this.field_314.field_200;
+                        PackageBinding var9 = this.field_314.field_200;
                         if (var4.field_200 != var9) {
                             return false;
                         } else if (var1 instanceof class_42) {
                             return false;
                         } else {
-                            var6 = (class_43)var1;
+                            var6 = (ReferenceBinding)var1;
                             do {
                                 if (this.field_314 == var6) {
                                     return true;
                                 }
-                                class_38 var11 = var6.field_200;
+                                PackageBinding var11 = var6.field_200;
                                 if (var11 != null && var11 != var9) {
                                     return false;
                                 }
@@ -124,7 +124,7 @@ public class class_67 extends class_64 {
                             for (var6 = var4.method_137(); var6 != null; var6 = var6.method_137()) {
                                 var5 = var6;
                             }
-                            var7 = (class_43)this.field_314.method_138();
+                            var7 = (ReferenceBinding)this.field_314.method_138();
                             for (var6 = var7.method_137(); var6 != null; var6 = var6.method_137()) {
                                 var7 = var6;
                             }
@@ -144,8 +144,8 @@ public class class_67 extends class_64 {
         if (var1 == null) {
             if (this.method_409()) {
                 class_67 var2 = this.method_435();
-                if (var2.field_314 instanceof class_54) {
-                    class_54 var3 = (class_54)var2.field_314;
+                if (var2.field_314 instanceof SourceTypeBinding) {
+                    SourceTypeBinding var3 = (SourceTypeBinding)var2.field_314;
                     if (var3.field_258 != null) {
                         class_114 var4 = var3.field_258.field_376;
                         class_121 var5 = var4.method_853(var2);
@@ -175,14 +175,14 @@ public class class_67 extends class_64 {
 
     public class_203[] method_426() {
         class_67 var1 = this.method_435();
-        class_43 var2 = var1.field_314;
+        ReferenceBinding var2 = var1.field_314;
         return var2 == null ? class_34.field_158 : var2.method_235(var1);
     }
 
     public long method_99() {
         class_67 var1 = this.method_435();
-        if ((var1.field_305 & 8589934592L) == 0L && var1.field_314 instanceof class_54) {
-            class_84 var2 = ((class_54)var1.field_314).field_258;
+        if ((var1.field_305 & 8589934592L) == 0L && var1.field_314 instanceof SourceTypeBinding) {
+            class_84 var2 = ((SourceTypeBinding)var1.field_314).field_258;
             if (var2 == null) {
                 this.field_305 |= 25769803776L;
                 return 0L;
@@ -196,7 +196,7 @@ public class class_67 extends class_64 {
                 try {
                     var5.field_406 = var1;
                     var5.field_407 = var1.field_304;
-                    class_89.method_761(var5, var4.field_658, var1);
+                    ASTNode.method_761(var5, var4.field_658, var1);
                 } finally {
                     var5.field_406 = var6;
                     var5.field_407 = var7;
@@ -251,9 +251,9 @@ public class class_67 extends class_64 {
     }
 
     public class_121 method_437() {
-        class_54 var1;
+        SourceTypeBinding var1;
         try {
-            var1 = (class_54)this.field_314;
+            var1 = (SourceTypeBinding)this.field_314;
         } catch (ClassCastException var4) {
             return null;
         }

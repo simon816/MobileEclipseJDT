@@ -6,8 +6,8 @@ import org.eclipse.jdt.internal.compiler.ast.class_114;
 import org.eclipse.jdt.internal.compiler.ast.class_121;
 import org.eclipse.jdt.internal.compiler.ast.class_124;
 import org.eclipse.jdt.internal.compiler.ast.class_125;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
-import org.eclipse.jdt.internal.compiler.ast.class_93;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.class_98;
 import org.eclipse.jdt.internal.compiler.lookup.class_40;
 import org.eclipse.jdt.internal.compiler.parser.class_251;
@@ -47,7 +47,7 @@ public class class_261 extends class_258 {
         this.field_1147 = this.method_1844().field_1621 || this.method_1844().field_1622;
     }
 
-    public class_251 method_1832(class_93 var1, int var2) {
+    public class_251 method_1832(AbstractMethodDeclaration var1, int var2) {
         if (this.field_1068 != null && this.field_1068 instanceof class_255) {
             class_255 var3 = (class_255)this.field_1068;
             if (var3.field_1095 == this && var3.field_1068 == null) {
@@ -184,7 +184,7 @@ public class class_261 extends class_258 {
         this.field_1150 = var4;
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return this.field_1144;
     }
 

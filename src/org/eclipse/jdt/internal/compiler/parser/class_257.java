@@ -8,7 +8,7 @@ import org.eclipse.jdt.internal.compiler.ast.class_164;
 import org.eclipse.jdt.internal.compiler.ast.class_165;
 import org.eclipse.jdt.internal.compiler.ast.class_166;
 import org.eclipse.jdt.internal.compiler.ast.class_167;
-import org.eclipse.jdt.internal.compiler.ast.class_89;
+import org.eclipse.jdt.internal.compiler.ast.ASTNode;
 import org.eclipse.jdt.internal.compiler.ast.class_92;
 import org.eclipse.jdt.internal.compiler.parser.class_251;
 import org.eclipse.jdt.internal.compiler.parser.RecoveryScanner;
@@ -147,7 +147,7 @@ public class class_257 extends class_251 {
         }
     }
 
-    public class_89 method_1845() {
+    public ASTNode method_1845() {
         return this.field_1116;
     }
 
