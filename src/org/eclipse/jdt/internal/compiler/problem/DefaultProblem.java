@@ -18,17 +18,17 @@ public class DefaultProblem extends CategorizedProblem {
 
     private int field_1003;
 
-    private String[] field_1004;
+    private String[] arguments;
 
     private String field_1005;
 
-    public static final Object[] field_1006;
+    public static final Object[] EMPTY_VALUES;
 
     public DefaultProblem(String var1, String var2, int var3, String[] var4, int var5, int var6, int var7, int var8, int var9) {
         this.field_997 = var1;
         this.field_1005 = var2;
         this.field_998 = var3;
-        this.field_1004 = var4;
+        this.arguments = var4;
         this.field_1003 = var5;
         this.field_999 = var6;
         this.field_1000 = var7;
@@ -36,8 +36,8 @@ public class DefaultProblem extends CategorizedProblem {
         this.field_1002 = var9;
     }
 
-    public String[] method_9() {
-        return this.field_1004;
+    public String[] getArguments() {
+        return this.arguments;
     }
 
     public int method_1398() {
@@ -92,15 +92,15 @@ public class DefaultProblem extends CategorizedProblem {
         String var1 = "Pb(" + (this.field_998 & 16777215) + ") ";
         if (this.field_1005 != null) {
             var1 = var1 + this.field_1005;
-        } else if (this.field_1004 != null) {
-            for (int var2 = 0; var2 < this.field_1004.length; ++var2) {
-                var1 = var1 + " " + this.field_1004[var2];
+        } else if (this.arguments != null) {
+            for (int var2 = 0; var2 < this.arguments.length; ++var2) {
+                var1 = var1 + " " + this.arguments[var2];
             }
         }
         return var1;
     }
 
     static {
-        field_1006 = new Object[0];
+        EMPTY_VALUES = new Object[0];
     }
 }

@@ -3,7 +3,7 @@ package org.eclipse.jdt.internal.compiler.parser;
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.CompilationResult;
-import org.eclipse.jdt.internal.compiler.parser.class_279;
+import org.eclipse.jdt.internal.compiler.parser.NLSTag;
 import org.eclipse.jdt.internal.compiler.parser.ScannerHelper;
 import org.eclipse.jdt.internal.compiler.util.Util;
 
@@ -21,7 +21,7 @@ public class Scanner {
 
     public boolean field_1228;
 
-    public char field_1229;
+    public char currentCharacter;
 
     public int field_1230;
 
@@ -63,7 +63,7 @@ public class Scanner {
 
     public char[][] field_1249;
 
-    public int[][] field_1250;
+    public int[][] foundTaskPositions;
 
     public int field_1251;
 
@@ -81,7 +81,7 @@ public class Scanner {
 
     public boolean field_1258;
 
-    private static final int[] field_1259;
+    private static final int[] EMPTY_LINE_ENDS;
 
     static final char[] field_1260;
 
@@ -137,13 +137,13 @@ public class Scanner {
 
     static final char[] field_1286;
 
-    public final char[][][][] field_1287;
+    public final char[][][][] charArray_length;
 
-    public static final char[] field_1288;
+    public static final char[] TAG_PREFIX;
 
-    public static final int field_1289;
+    public static final int TAG_PREFIX_LENGTH;
 
-    private class_279[] field_1290;
+    private NLSTag[] nlsTags;
 
     protected int field_1291;
 
@@ -194,15 +194,15 @@ public class Scanner {
         this.field_1256 = new int[250];
         this.field_1257 = -1;
         this.field_1258 = false;
-        this.field_1287 = new char[7][30][6][];
-        this.field_1290 = null;
+        this.charArray_length = new char[7][30][6][];
+        this.nlsTags = null;
         this.field_1294 = false;
         int var11;
         int var13;
         for (var11 = 0; var11 < 6; ++var11) {
             for (int var12 = 0; var12 < 30; ++var12) {
                 for (var13 = 0; var13 < 6; ++var13) {
-                    this.field_1287[var11][var12][var13] = field_1286;
+                    this.charArray_length[var11][var12][var13] = field_1286;
                 }
             }
         }
@@ -225,14 +225,14 @@ public class Scanner {
                 for (var13 = 0; var13 < var11; var15[var13] = var13++) {
                     ;
                 }
-                Util.method_1326(var8, 0, var8.length - 1, var15);
+                Util.reverseQuickSort(var8, 0, var8.length - 1, var15);
                 char[][] var16 = new char[var11][];
                 for (int var14 = 0; var14 < var11; ++var14) {
                     var16[var14] = var9[var15[var14]];
                 }
                 this.field_1253 = var16;
             } else {
-                Util.method_1325(var8, 0, var8.length - 1);
+                Util.reverseQuickSort(var8, 0, var8.length - 1);
             }
             this.field_1252 = var8;
             this.field_1254 = var10;
@@ -249,7 +249,7 @@ public class Scanner {
 
     public void method_2406(int var1, int var2) {
         char[] var3 = this.field_1237;
-        if (this.field_1251 <= 0 || this.field_1250[this.field_1251 - 1][0] < var1) {
+        if (this.field_1251 <= 0 || this.foundTaskPositions[this.field_1251 - 1][0] < var1) {
             int var4 = this.field_1251;
             char var5 = var3[var1 + 1];
             int var9;
@@ -276,18 +276,18 @@ public class Scanner {
                                     this.field_1247 = new char[5][];
                                     this.field_1248 = new char[5][];
                                     this.field_1249 = new char[5][];
-                                    this.field_1250 = new int[5][];
+                                    this.foundTaskPositions = new int[5][];
                                 } else if (this.field_1251 == this.field_1247.length) {
                                     System.arraycopy(this.field_1247, 0, this.field_1247 = new char[this.field_1251 * 2][], 0, this.field_1251);
                                     System.arraycopy(this.field_1248, 0, this.field_1248 = new char[this.field_1251 * 2][], 0, this.field_1251);
                                     System.arraycopy(this.field_1249, 0, this.field_1249 = new char[this.field_1251 * 2][], 0, this.field_1251);
-                                    System.arraycopy(this.field_1250, 0, this.field_1250 = new int[this.field_1251 * 2][], 0, this.field_1251);
+                                    System.arraycopy(this.foundTaskPositions, 0, this.foundTaskPositions = new int[this.field_1251 * 2][], 0, this.field_1251);
                                 }
                                 char[] var19 = this.field_1253 != null && var9 < this.field_1253.length ? this.field_1253[var9] : null;
                                 this.field_1247[this.field_1251] = var16;
                                 this.field_1249[this.field_1251] = var19;
-                                this.field_1250[this.field_1251] = new int[] {var6, var6 + var10 - 1};
-                                this.field_1248[this.field_1251] = CharOperation.field_994;
+                                this.foundTaskPositions[this.field_1251] = new int[] {var6, var6 + var10 - 1};
+                                this.field_1248[this.field_1251] = CharOperation.NO_CHAR;
                                 ++this.field_1251;
                                 var6 += var10 - 1;
                                 break;
@@ -301,8 +301,8 @@ public class Scanner {
             int var17 = var4;
             int var18;
             while (var17 < this.field_1251) {
-                var18 = this.field_1250[var17][0] + this.field_1247[var17].length;
-                var9 = var17 + 1 < this.field_1251 ? this.field_1250[var17 + 1][0] - 1 : var2 - 1;
+                var18 = this.foundTaskPositions[var17][0] + this.field_1247[var17].length;
+                var9 = var17 + 1 < this.field_1251 ? this.foundTaskPositions[var17 + 1][0] - 1 : var2 - 1;
                 if (var9 < var18) {
                     var9 = var18;
                 }
@@ -331,13 +331,13 @@ public class Scanner {
                     if (var18 == var10) {
                         var15 = true;
                     } else {
-                        while (CharOperation.method_1370(var3[var10]) && var18 <= var10) {
+                        while (CharOperation.isWhitespace(var3[var10]) && var18 <= var10) {
                             --var10;
                         }
-                        while (CharOperation.method_1370(var3[var18]) && var18 <= var10) {
+                        while (CharOperation.isWhitespace(var3[var18]) && var18 <= var10) {
                             ++var18;
                         }
-                        this.field_1250[var17][1] = var10;
+                        this.foundTaskPositions[var17][1] = var10;
                         var20 = var10 - var18 + 1;
                         char[] var22 = new char[var20];
                         System.arraycopy(var3, var18, var22, 0, var20);
@@ -354,7 +354,7 @@ public class Scanner {
                         for (var9 = var17 + 1; var9 < var18; ++var9) {
                             if (this.field_1248[var9].length != 0) {
                                 this.field_1248[var17] = this.field_1248[var9];
-                                this.field_1250[var17][1] = this.field_1250[var9][1];
+                                this.foundTaskPositions[var17][1] = this.foundTaskPositions[var9][1];
                                 break;
                             }
                         }
@@ -423,9 +423,9 @@ public class Scanner {
         return this.field_1230;
     }
 
-    public final int[] method_2412() {
+    public final int[] getLineEnds() {
         if (this.field_1257 == -1) {
-            return field_1259;
+            return EMPTY_LINE_ENDS;
         } else {
             int[] var1;
             System.arraycopy(this.field_1256, 0, var1 = new int[this.field_1257 + 1], 0, this.field_1257 + 1);
@@ -433,9 +433,9 @@ public class Scanner {
         }
     }
 
-    public final int method_2413() {
+    public final int getNextChar() {
         try {
-            if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+            if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                 this.method_2420();
             } else {
                 this.field_1240 = false;
@@ -443,7 +443,7 @@ public class Scanner {
                     this.method_2443();
                 }
             }
-            return this.field_1229;
+            return this.currentCharacter;
         } catch (IndexOutOfBoundsException var2) {
             return -1;
         } catch (InvalidInputException var3) {
@@ -451,23 +451,23 @@ public class Scanner {
         }
     }
 
-    public final boolean method_2414(char var1) {
+    public final boolean getNextChar(char var1) {
         if (this.field_1231 >= this.field_1233) {
             this.field_1240 = false;
             return false;
         } else {
             int var2 = this.field_1231;
             try {
-                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                     this.method_2420();
-                    if (this.field_1229 != var1) {
+                    if (this.currentCharacter != var1) {
                         this.field_1231 = var2;
                         --this.field_1239;
                         return false;
                     } else {
                         return true;
                     }
-                } else if (this.field_1229 != var1) {
+                } else if (this.currentCharacter != var1) {
                     this.field_1231 = var2;
                     return false;
                 } else {
@@ -489,18 +489,18 @@ public class Scanner {
         }
     }
 
-    public final int method_2415(char var1, char var2) {
+    public final int getNextChar(char var1, char var2) {
         if (this.field_1231 >= this.field_1233) {
             return -1;
         } else {
             int var3 = this.field_1231;
             try {
-                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                     this.method_2420();
                     byte var7;
-                    if (this.field_1229 == var1) {
+                    if (this.currentCharacter == var1) {
                         var7 = 0;
-                    } else if (this.field_1229 == var2) {
+                    } else if (this.currentCharacter == var2) {
                         var7 = 1;
                     } else {
                         this.field_1231 = var3;
@@ -510,10 +510,10 @@ public class Scanner {
                     return var7;
                 } else {
                     byte var4;
-                    if (this.field_1229 == var1) {
+                    if (this.currentCharacter == var1) {
                         var4 = 0;
                     } else {
-                        if (this.field_1229 != var2) {
+                        if (this.currentCharacter != var2) {
                             this.field_1231 = var3;
                             return -1;
                         }
@@ -534,22 +534,22 @@ public class Scanner {
         }
     }
 
-    public final boolean method_2416() {
+    public final boolean getNextCharAsDigit() {
         if (this.field_1231 >= this.field_1233) {
             return false;
         } else {
             int var1 = this.field_1231;
             try {
-                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                     this.method_2420();
-                    if (!ScannerHelper.method_3338(this.field_1229)) {
+                    if (!ScannerHelper.method_3338(this.currentCharacter)) {
                         this.field_1231 = var1;
                         --this.field_1239;
                         return false;
                     } else {
                         return true;
                     }
-                } else if (!ScannerHelper.method_3338(this.field_1229)) {
+                } else if (!ScannerHelper.method_3338(this.currentCharacter)) {
                     this.field_1231 = var1;
                     return false;
                 } else {
@@ -568,22 +568,22 @@ public class Scanner {
         }
     }
 
-    public final boolean method_2417(int var1) {
+    public final boolean getNextCharAsDigit(int var1) {
         if (this.field_1231 >= this.field_1233) {
             return false;
         } else {
             int var2 = this.field_1231;
             try {
-                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                     this.method_2420();
-                    if (ScannerHelper.method_3339(this.field_1229, var1) == -1) {
+                    if (ScannerHelper.digit(this.currentCharacter, var1) == -1) {
                         this.field_1231 = var2;
                         --this.field_1239;
                         return false;
                     } else {
                         return true;
                     }
-                } else if (ScannerHelper.method_3339(this.field_1229, var1) == -1) {
+                } else if (ScannerHelper.digit(this.currentCharacter, var1) == -1) {
                     this.field_1231 = var2;
                     return false;
                 } else {
@@ -602,7 +602,7 @@ public class Scanner {
         }
     }
 
-    public boolean method_2418() {
+    public boolean getNextCharAsJavaIdentifierPart() {
         int var1 = this.field_1231;
         if (this.field_1231 >= this.field_1233) {
             return false;
@@ -610,11 +610,11 @@ public class Scanner {
             int var2 = this.field_1239;
             try {
                 boolean var3 = false;
-                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                     this.method_2420();
                     var3 = true;
                 }
-                char var4 = this.field_1229;
+                char var4 = this.currentCharacter;
                 boolean var5 = false;
                 if (var4 >= '\ud800' && var4 <= '\udbff') {
                     if (this.field_1224 < 3211264L) {
@@ -622,7 +622,7 @@ public class Scanner {
                         this.field_1239 = var2;
                         return false;
                     }
-                    char var6 = (char)this.method_2413();
+                    char var6 = (char)this.getNextChar();
                     if (var6 < '\udc00' || var6 > '\udfff') {
                         this.field_1231 = var1;
                         this.field_1239 = var2;
@@ -666,7 +666,7 @@ public class Scanner {
         }
     }
 
-    public int method_2419() throws InvalidInputException {
+    public int getNextToken() throws InvalidInputException {
         this.field_1258 = false;
         if (this.field_1255) {
             this.method_2422();
@@ -688,7 +688,7 @@ public class Scanner {
                         var4 = this.field_1231;
                         this.field_1230 = this.field_1231;
                         try {
-                            var6 = (this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117;
+                            var6 = (this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117;
                         } catch (IndexOutOfBoundsException var18) {
                             if (this.field_1236 && var22 != this.field_1231 - 1) {
                                 --this.field_1231;
@@ -707,10 +707,10 @@ public class Scanner {
                             var4 = this.field_1231 - var4;
                         } else {
                             var4 = this.field_1231 - var4;
-                            if ((this.field_1229 == 13 || this.field_1229 == 10) && this.field_1228) {
-                                this.method_2432();
+                            if ((this.currentCharacter == 13 || this.currentCharacter == 10) && this.field_1228) {
+                                this.pushLineSeparator();
                             }
-                            switch (this.field_1229) {
+                            switch (this.currentCharacter) {
                                 case 9:
                                 case 10:
                                 case 12:
@@ -746,7 +746,7 @@ public class Scanner {
                     boolean var9;
                     InvalidInputException var10000;
                     int var26;
-                    switch (this.field_1229) {
+                    switch (this.currentCharacter) {
                         case 26:
                             if (this.method_2405()) {
                                 return 68;
@@ -827,13 +827,13 @@ public class Scanner {
                         case 121:
                         case 122:
                         default:
-                            char var27 = this.field_1229;
+                            char var27 = this.currentCharacter;
                             if (var27 < 128) {
-                                if ((ScannerHelper.field_1984[var27] & 64) != 0) {
+                                if ((ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var27] & 64) != 0) {
                                     return this.method_2437();
                                 }
-                                if ((ScannerHelper.field_1984[var27] & 4) != 0) {
-                                    return this.method_2439(false);
+                                if ((ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var27] & 4) != 0) {
+                                    return this.scanNumber(false);
                                 }
                                 return 110;
                             }
@@ -842,7 +842,7 @@ public class Scanner {
                                     var10000 = new InvalidInputException("Invalid_Unicode_Escape");
                                     throw var10000;
                                 }
-                                char var23 = (char)this.method_2413();
+                                char var23 = (char)this.getNextChar();
                                 if (var23 < '\udc00' || var23 > '\udfff') {
                                     var10000 = new InvalidInputException("Invalid_Low_Surrogate");
                                     throw var10000;
@@ -862,12 +862,12 @@ public class Scanner {
                             if (var9) {
                                 return this.method_2437();
                             }
-                            if (ScannerHelper.method_3338(this.field_1229)) {
-                                return this.method_2439(false);
+                            if (ScannerHelper.method_3338(this.currentCharacter)) {
+                                return this.scanNumber(false);
                             }
                             return 110;
                         case 33:
-                            if (this.method_2414('=')) {
+                            if (this.getNextChar('=')) {
                                 return 19;
                             }
                             return 66;
@@ -875,14 +875,14 @@ public class Scanner {
                             try {
                                 this.field_1240 = false;
                                 boolean var24 = false;
-                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                     this.method_2420();
                                     var24 = true;
                                 } else if (this.field_1239 != 0) {
                                     this.method_2443();
                                 }
-                                while (this.field_1229 != 34) {
-                                    if (this.field_1229 == 10 || this.field_1229 == 13) {
+                                while (this.currentCharacter != 34) {
+                                    if (this.currentCharacter == 10 || this.currentCharacter == 13) {
                                         if (var24) {
                                             var26 = this.field_1231;
                                             for (int var25 = 0; var25 < 50; ++var25) {
@@ -890,17 +890,17 @@ public class Scanner {
                                                     this.field_1231 = var26;
                                                     break;
                                                 }
-                                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                                     var24 = true;
                                                     this.method_2420();
                                                 } else {
                                                     var24 = false;
                                                 }
-                                                if (!var24 && this.field_1229 == 10) {
+                                                if (!var24 && this.currentCharacter == 10) {
                                                     --this.field_1231;
                                                     break;
                                                 }
-                                                if (this.field_1229 == 34) {
+                                                if (this.currentCharacter == 34) {
                                                     var10000 = new InvalidInputException("Invalid_Char_In_String");
                                                     throw var10000;
                                                 }
@@ -911,11 +911,11 @@ public class Scanner {
                                         var10000 = new InvalidInputException("Invalid_Char_In_String");
                                         throw var10000;
                                     }
-                                    if (this.field_1229 == 92) {
+                                    if (this.currentCharacter == 92) {
                                         if (this.field_1240) {
                                             --this.field_1239;
                                             this.field_1240 = false;
-                                            if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                            if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                                 this.method_2420();
                                                 var24 = true;
                                                 --this.field_1239;
@@ -927,7 +927,7 @@ public class Scanner {
                                                 this.method_2442(this.field_1231 - this.field_1230);
                                             }
                                             --this.field_1239;
-                                            this.field_1229 = this.field_1237[this.field_1231++];
+                                            this.currentCharacter = this.field_1237[this.field_1231++];
                                         }
                                         this.method_2436();
                                         if (this.field_1239 != 0) {
@@ -935,7 +935,7 @@ public class Scanner {
                                         }
                                     }
                                     this.field_1240 = false;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                         var24 = true;
                                     } else {
@@ -962,12 +962,12 @@ public class Scanner {
                             }
                             return 52;
                         case 37:
-                            if (this.method_2414('=')) {
+                            if (this.getNextChar('=')) {
                                 return 91;
                             }
                             return 5;
                         case 38:
-                            if ((var8 = this.method_2415('&', '=')) == 0) {
+                            if ((var8 = this.getNextChar('&', '=')) == 0) {
                                 return 24;
                             }
                             if (var8 > 0) {
@@ -975,7 +975,7 @@ public class Scanner {
                             }
                             return 20;
                         case 39:
-                            if ((var8 = this.method_2415('\n', '\r')) == 0) {
+                            if ((var8 = this.getNextChar('\n', '\r')) == 0) {
                                 var10000 = new InvalidInputException("Invalid_Character_Constant");
                                 throw var10000;
                             }
@@ -989,7 +989,7 @@ public class Scanner {
                                 var10000 = new InvalidInputException("Invalid_Character_Constant");
                                 throw var10000;
                             }
-                            if (this.method_2414('\'')) {
+                            if (this.getNextChar('\'')) {
                                 for (var8 = 0; var8 < 3 && this.field_1231 + var8 != this.field_1233 && this.field_1237[this.field_1231 + var8] != 10; ++var8) {
                                     if (this.field_1237[this.field_1231 + var8] == 39) {
                                         this.field_1231 += var8 + 1;
@@ -999,23 +999,23 @@ public class Scanner {
                                 var10000 = new InvalidInputException("Invalid_Character_Constant");
                                 throw var10000;
                             }
-                            if (this.method_2414('\\')) {
+                            if (this.getNextChar('\\')) {
                                 if (this.field_1240) {
                                     this.field_1240 = false;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                     } else if (this.field_1239 != 0) {
                                         this.method_2443();
                                     }
                                 } else {
-                                    this.field_1229 = this.field_1237[this.field_1231++];
+                                    this.currentCharacter = this.field_1237[this.field_1231++];
                                 }
                                 this.method_2436();
                             } else {
                                 this.field_1240 = false;
                                 var6 = false;
                                 try {
-                                    var6 = (this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117;
+                                    var6 = (this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117;
                                 } catch (IndexOutOfBoundsException var15) {
                                     --this.field_1231;
                                     var10000 = new InvalidInputException("Invalid_Character_Constant");
@@ -1027,7 +1027,7 @@ public class Scanner {
                                     this.method_2443();
                                 }
                             }
-                            if (this.method_2414('\'')) {
+                            if (this.getNextChar('\'')) {
                                 return 51;
                             }
                             for (var8 = 0; var8 < 20 && this.field_1231 + var8 != this.field_1233 && this.field_1237[this.field_1231 + var8] != 10; ++var8) {
@@ -1043,12 +1043,12 @@ public class Scanner {
                         case 41:
                             return 29;
                         case 42:
-                            if (this.method_2414('=')) {
+                            if (this.getNextChar('=')) {
                                 return 86;
                             }
                             return 4;
                         case 43:
-                            if ((var8 = this.method_2415('+', '=')) == 0) {
+                            if ((var8 = this.getNextChar('+', '=')) == 0) {
                                 return 8;
                             }
                             if (var8 > 0) {
@@ -1058,7 +1058,7 @@ public class Scanner {
                         case 44:
                             return 30;
                         case 45:
-                            if ((var8 = this.method_2415('-', '=')) == 0) {
+                            if ((var8 = this.getNextChar('-', '=')) == 0) {
                                 return 9;
                             }
                             if (var8 > 0) {
@@ -1066,12 +1066,12 @@ public class Scanner {
                             }
                             return 2;
                         case 46:
-                            if (this.method_2416()) {
-                                return this.method_2439(true);
+                            if (this.getNextCharAsDigit()) {
+                                return this.scanNumber(true);
                             }
                             int var7 = this.field_1231;
-                            if (this.method_2414('.')) {
-                                if (this.method_2414('.')) {
+                            if (this.getNextChar('.')) {
+                                if (this.getNextChar('.')) {
                                     return 107;
                                 }
                                 this.field_1231 = var7;
@@ -1081,34 +1081,34 @@ public class Scanner {
                             return 3;
                         case 47:
                             if (this.field_1234) {
-                                return this.method_2414('=') ? 87 : 6;
+                                return this.getNextChar('=') ? 87 : 6;
                             }
-                            var8 = this.method_2415('/', '*');
+                            var8 = this.getNextChar('/', '*');
                             if (var8 == 0) {
                                 this.field_1246 = this.field_1231;
                                 try {
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                     }
-                                    if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                    if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                         ++this.field_1231;
                                     }
                                     var9 = false;
-                                    while (this.field_1229 != 13 && this.field_1229 != 10) {
+                                    while (this.currentCharacter != 13 && this.currentCharacter != 10) {
                                         this.field_1246 = this.field_1231;
                                         var9 = false;
-                                        if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                        if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                             this.method_2420();
                                             var9 = true;
                                         }
-                                        if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                        if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                             ++this.field_1231;
                                         }
                                     }
-                                    if (this.field_1229 == 13 && this.field_1233 > this.field_1231) {
+                                    if (this.currentCharacter == 13 && this.field_1233 > this.field_1231) {
                                         if (this.field_1237[this.field_1231] == 10) {
                                             ++this.field_1231;
-                                            this.field_1229 = 10;
+                                            this.currentCharacter = 10;
                                         } else if (this.field_1237[this.field_1231] == 92 && this.field_1237[this.field_1231 + 1] == 117) {
                                             this.method_2420();
                                             var9 = true;
@@ -1118,15 +1118,15 @@ public class Scanner {
                                     if (this.field_1252 != null) {
                                         this.method_2406(this.field_1230, this.field_1231);
                                     }
-                                    if (this.field_1229 == 13 || this.field_1229 == 10) {
+                                    if (this.currentCharacter == 13 || this.currentCharacter == 10) {
                                         if (this.field_1292 && this.field_1293 < this.field_1231) {
-                                            this.method_2430();
+                                            this.parseTags();
                                         }
                                         if (this.field_1228) {
                                             if (var9) {
                                                 this.method_2433();
                                             } else {
-                                                this.method_2432();
+                                                this.pushLineSeparator();
                                             }
                                         }
                                     }
@@ -1140,7 +1140,7 @@ public class Scanner {
                                         this.method_2406(this.field_1230, this.field_1231);
                                     }
                                     if (this.field_1292 && this.field_1293 < this.field_1231) {
-                                        this.method_2430();
+                                        this.parseTags();
                                     }
                                     if (this.field_1235) {
                                         return 1001;
@@ -1149,14 +1149,14 @@ public class Scanner {
                                 }
                             } else {
                                 if (var8 <= 0) {
-                                    return this.method_2414('=') ? 87 : 6;
+                                    return this.getNextChar('=') ? 87 : 6;
                                 }
                                 try {
                                     var9 = false;
                                     boolean var10 = false;
                                     boolean var11 = false;
                                     this.field_1240 = false;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                         var11 = true;
                                     } else {
@@ -1165,41 +1165,41 @@ public class Scanner {
                                             this.method_2443();
                                         }
                                     }
-                                    if (this.field_1229 == 42) {
+                                    if (this.currentCharacter == 42) {
                                         var9 = true;
                                         var10 = true;
                                     }
-                                    if ((this.field_1229 == 13 || this.field_1229 == 10) && this.field_1228) {
+                                    if ((this.currentCharacter == 13 || this.currentCharacter == 10) && this.field_1228) {
                                         if (var11) {
                                             this.method_2433();
                                         } else {
-                                            this.method_2432();
+                                            this.pushLineSeparator();
                                         }
                                     }
                                     var11 = false;
                                     int var12 = this.field_1231;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                         var11 = true;
                                     } else {
                                         var11 = false;
                                     }
-                                    if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                    if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                         ++this.field_1231;
                                     }
-                                    if (this.field_1229 == 47) {
+                                    if (this.currentCharacter == 47) {
                                         var9 = false;
                                     }
                                     int var13 = 0;
-                                    while (this.field_1229 != 47 || !var10) {
-                                        if ((this.field_1229 == 13 || this.field_1229 == 10) && this.field_1228) {
+                                    while (this.currentCharacter != 47 || !var10) {
+                                        if ((this.currentCharacter == 13 || this.currentCharacter == 10) && this.field_1228) {
                                             if (var11) {
                                                 this.method_2433();
                                             } else {
-                                                this.method_2432();
+                                                this.pushLineSeparator();
                                             }
                                         }
-                                        switch (this.field_1229) {
+                                        switch (this.currentCharacter) {
                                             case 42:
                                                 var10 = true;
                                                 break;
@@ -1211,13 +1211,13 @@ public class Scanner {
                                                 var10 = false;
                                         }
                                         var12 = this.field_1231;
-                                        if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                        if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                             this.method_2420();
                                             var11 = true;
                                         } else {
                                             var11 = false;
                                         }
-                                        if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                        if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                             ++this.field_1231;
                                         }
                                     }
@@ -1242,18 +1242,18 @@ public class Scanner {
                         case 59:
                             return 27;
                         case 60:
-                            if ((var8 = this.method_2415('=', '<')) == 0) {
+                            if ((var8 = this.getNextChar('=', '<')) == 0) {
                                 return 15;
                             }
                             if (var8 > 0) {
-                                if (this.method_2414('=')) {
+                                if (this.getNextChar('=')) {
                                     return 92;
                                 }
                                 return 17;
                             }
                             return 7;
                         case 61:
-                            if (this.method_2414('=')) {
+                            if (this.getNextChar('=')) {
                                 return 18;
                             }
                             return 71;
@@ -1261,15 +1261,15 @@ public class Scanner {
                             if (this.field_1294) {
                                 return 13;
                             }
-                            if ((var8 = this.method_2415('=', '>')) == 0) {
+                            if ((var8 = this.getNextChar('=', '>')) == 0) {
                                 return 16;
                             }
                             if (var8 > 0) {
-                                if ((var8 = this.method_2415('=', '>')) == 0) {
+                                if ((var8 = this.getNextChar('=', '>')) == 0) {
                                     return 93;
                                 }
                                 if (var8 > 0) {
-                                    if (this.method_2414('=')) {
+                                    if (this.getNextChar('=')) {
                                         return 94;
                                     }
                                     return 11;
@@ -1286,14 +1286,14 @@ public class Scanner {
                         case 93:
                             return 70;
                         case 94:
-                            if (this.method_2414('=')) {
+                            if (this.getNextChar('=')) {
                                 return 90;
                             }
                             return 21;
                         case 123:
                             return 69;
                         case 124:
-                            if ((var8 = this.method_2415('|', '=')) == 0) {
+                            if ((var8 = this.getNextChar('|', '=')) == 0) {
                                 return 25;
                             }
                             if (var8 > 0) {
@@ -1345,13 +1345,13 @@ public class Scanner {
                 int var7;
                 int var8;
                 int var9;
-                if ((var6 = ScannerHelper.method_3340(this.field_1237[this.field_1231++])) <= 15 && var6 >= 0 && (var7 = ScannerHelper.method_3340(this.field_1237[this.field_1231++])) <= 15 && var7 >= 0 && (var8 = ScannerHelper.method_3340(this.field_1237[this.field_1231++])) <= 15 && var8 >= 0 && (var9 = ScannerHelper.method_3340(this.field_1237[this.field_1231++])) <= 15 && var9 >= 0) {
-                    this.field_1229 = (char)(((var6 * 16 + var7) * 16 + var8) * 16 + var9);
+                if ((var6 = ScannerHelper.getNumericValue(this.field_1237[this.field_1231++])) <= 15 && var6 >= 0 && (var7 = ScannerHelper.getNumericValue(this.field_1237[this.field_1231++])) <= 15 && var7 >= 0 && (var8 = ScannerHelper.getNumericValue(this.field_1237[this.field_1231++])) <= 15 && var8 >= 0 && (var9 = ScannerHelper.getNumericValue(this.field_1237[this.field_1231++])) <= 15 && var9 >= 0) {
+                    this.currentCharacter = (char)(((var6 * 16 + var7) * 16 + var8) * 16 + var9);
                     if (this.field_1239 == 0) {
                         this.method_2442(this.field_1231 - var5 - this.field_1230);
                     }
                     this.method_2443();
-                    this.field_1240 = this.field_1229 == 92;
+                    this.field_1240 = this.currentCharacter == 92;
                 } else {
                     var10000 = new InvalidInputException("Invalid_Unicode_Escape");
                     throw var10000;
@@ -1364,11 +1364,11 @@ public class Scanner {
         }
     }
 
-    public class_279[] method_2421() {
+    public NLSTag[] getNLSTags() {
         int var1 = this.field_1291;
         if (var1 != 0) {
-            class_279[] var2 = new class_279[var1];
-            System.arraycopy(this.field_1290, 0, var2, 0, var1);
+            NLSTag[] var2 = new NLSTag[var1];
+            System.arraycopy(this.nlsTags, 0, var2, 0, var1);
             this.field_1291 = 0;
             return var2;
         } else {
@@ -1386,22 +1386,22 @@ public class Scanner {
                 boolean var2;
                 do {
                     this.field_1230 = this.field_1231;
-                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                         var2 = this.method_2423();
                     } else {
-                        if (this.field_1228 && (this.field_1229 == 13 || this.field_1229 == 10)) {
-                            this.method_2432();
+                        if (this.field_1228 && (this.currentCharacter == 13 || this.currentCharacter == 10)) {
+                            this.pushLineSeparator();
                         }
-                        var2 = CharOperation.method_1370(this.field_1229);
+                        var2 = CharOperation.isWhitespace(this.currentCharacter);
                     }
                 } while (var2);
                 boolean var4;
-                switch (this.field_1229) {
+                switch (this.currentCharacter) {
                     case 34:
                         try {
                             try {
                                 this.field_1240 = false;
-                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                     this.method_2420();
                                 } else if (this.field_1239 != 0) {
                                     this.method_2443();
@@ -1410,29 +1410,29 @@ public class Scanner {
                                 ;
                             }
                             while (true) {
-                                if (this.field_1229 == 34) {
+                                if (this.currentCharacter == 34) {
                                     continue label401;
                                 }
-                                if (this.field_1229 == 13) {
+                                if (this.currentCharacter == 13) {
                                     if (this.field_1237[this.field_1231] == 10) {
                                         ++this.field_1231;
                                     }
                                     continue label401;
                                 }
-                                if (this.field_1229 == 10) {
+                                if (this.currentCharacter == 10) {
                                     continue label401;
                                 }
-                                if (this.field_1229 == 92) {
+                                if (this.currentCharacter == 92) {
                                     try {
                                         if (this.field_1240) {
                                             this.field_1240 = false;
-                                            if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                            if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                                 this.method_2420();
                                             } else if (this.field_1239 != 0) {
                                                 this.method_2443();
                                             }
                                         } else {
-                                            this.field_1229 = this.field_1237[this.field_1231++];
+                                            this.currentCharacter = this.field_1237[this.field_1231++];
                                         }
                                         this.method_2436();
                                     } catch (InvalidInputException var13) {
@@ -1441,7 +1441,7 @@ public class Scanner {
                                 }
                                 try {
                                     this.field_1240 = false;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                     } else if (this.field_1239 != 0) {
                                         this.method_2443();
@@ -1454,18 +1454,18 @@ public class Scanner {
                             return;
                         }
                     case 39:
-                        boolean var20 = this.method_2414('\\');
+                        boolean var20 = this.getNextChar('\\');
                         if (var20) {
                             try {
                                 if (this.field_1240) {
                                     this.field_1240 = false;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                     } else if (this.field_1239 != 0) {
                                         this.method_2443();
                                     }
                                 } else {
-                                    this.field_1229 = this.field_1237[this.field_1231++];
+                                    this.currentCharacter = this.field_1237[this.field_1231++];
                                 }
                                 this.method_2436();
                             } catch (InvalidInputException var12) {
@@ -1474,7 +1474,7 @@ public class Scanner {
                         } else {
                             try {
                                 this.field_1240 = false;
-                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                     this.method_2420();
                                 } else if (this.field_1239 != 0) {
                                     this.method_2443();
@@ -1483,59 +1483,59 @@ public class Scanner {
                                 ;
                             }
                         }
-                        this.method_2414('\'');
+                        this.getNextChar('\'');
                         break;
                     case 47:
                         int var3;
-                        if ((var3 = this.method_2415('/', '*')) == 0) {
+                        if ((var3 = this.getNextChar('/', '*')) == 0) {
                             try {
                                 this.field_1246 = this.field_1231;
-                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                     this.method_2420();
                                 }
-                                if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                     ++this.field_1231;
                                 }
                                 var4 = false;
-                                while (this.field_1229 != 13 && this.field_1229 != 10) {
+                                while (this.currentCharacter != 13 && this.currentCharacter != 10) {
                                     this.field_1246 = this.field_1231;
                                     var4 = false;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         var4 = true;
                                         this.method_2420();
                                     }
-                                    if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                    if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                         ++this.field_1231;
                                     }
                                 }
-                                if (this.field_1229 == 13 && this.field_1233 > this.field_1231) {
+                                if (this.currentCharacter == 13 && this.field_1233 > this.field_1231) {
                                     if (this.field_1237[this.field_1231] == 10) {
                                         ++this.field_1231;
-                                        this.field_1229 = 10;
+                                        this.currentCharacter = 10;
                                     } else if (this.field_1237[this.field_1231] == 92 && this.field_1237[this.field_1231 + 1] == 117) {
                                         var4 = true;
                                         this.method_2420();
                                     }
                                 }
                                 this.method_2434(1001);
-                                if (!this.field_1228 || this.field_1229 != 13 && this.field_1229 != 10) {
+                                if (!this.field_1228 || this.currentCharacter != 13 && this.currentCharacter != 10) {
                                     continue;
                                 }
                                 if (this.field_1292 && this.field_1293 < this.field_1231) {
-                                    this.method_2430();
+                                    this.parseTags();
                                 }
                                 if (this.field_1228) {
                                     if (var4) {
                                         this.method_2433();
                                     } else {
-                                        this.method_2432();
+                                        this.pushLineSeparator();
                                     }
                                 }
                             } catch (IndexOutOfBoundsException var9) {
                                 --this.field_1231;
                                 this.method_2434(1001);
                                 if (this.field_1292 && this.field_1293 < this.field_1231) {
-                                    this.method_2430();
+                                    this.parseTags();
                                 }
                                 if (!this.field_1235) {
                                     ++this.field_1231;
@@ -1550,7 +1550,7 @@ public class Scanner {
                                 boolean var5 = false;
                                 boolean var7 = false;
                                 this.field_1240 = false;
-                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                     this.method_2420();
                                     var7 = true;
                                 } else {
@@ -1559,41 +1559,41 @@ public class Scanner {
                                         this.method_2443();
                                     }
                                 }
-                                if (this.field_1229 == 42) {
+                                if (this.currentCharacter == 42) {
                                     var4 = true;
                                     var5 = true;
                                 }
-                                if ((this.field_1229 == 13 || this.field_1229 == 10) && this.field_1228) {
+                                if ((this.currentCharacter == 13 || this.currentCharacter == 10) && this.field_1228) {
                                     if (var7) {
                                         this.method_2433();
                                     } else {
-                                        this.method_2432();
+                                        this.pushLineSeparator();
                                     }
                                 }
                                 var7 = false;
                                 int var6 = this.field_1231;
-                                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                     this.method_2420();
                                     var7 = true;
                                 } else {
                                     var7 = false;
                                 }
-                                if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                     ++this.field_1231;
                                 }
-                                if (this.field_1229 == 47) {
+                                if (this.currentCharacter == 47) {
                                     var4 = false;
                                 }
                                 int var8 = 0;
-                                while (this.field_1229 != 47 || !var5) {
-                                    if ((this.field_1229 == 13 || this.field_1229 == 10) && this.field_1228) {
+                                while (this.currentCharacter != 47 || !var5) {
+                                    if ((this.currentCharacter == 13 || this.currentCharacter == 10) && this.field_1228) {
                                         if (var7) {
                                             this.method_2433();
                                         } else {
-                                            this.method_2432();
+                                            this.pushLineSeparator();
                                         }
                                     }
-                                    switch (this.field_1229) {
+                                    switch (this.currentCharacter) {
                                         case 42:
                                             var5 = true;
                                             break;
@@ -1605,13 +1605,13 @@ public class Scanner {
                                             var5 = false;
                                     }
                                     var6 = this.field_1231;
-                                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                                         this.method_2420();
                                         var7 = true;
                                     } else {
                                         var7 = false;
                                     }
-                                    if (this.field_1229 == 92 && this.field_1237[this.field_1231] == 92) {
+                                    if (this.currentCharacter == 92 && this.field_1237[this.field_1231] == 92) {
                                         ++this.field_1231;
                                     }
                                 }
@@ -1633,12 +1633,12 @@ public class Scanner {
                         break;
                     default:
                         try {
-                            char var21 = this.field_1229;
+                            char var21 = this.currentCharacter;
                             if (var21 < 128) {
-                                if ((ScannerHelper.field_1984[var21] & 64) != 0) {
+                                if ((ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var21] & 64) != 0) {
                                     this.method_2437();
-                                } else if ((ScannerHelper.field_1984[var21] & 4) != 0) {
-                                    this.method_2439(false);
+                                } else if ((ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var21] & 4) != 0) {
+                                    this.scanNumber(false);
                                 }
                             } else {
                                 if (var21 >= '\ud800' && var21 <= '\udbff') {
@@ -1646,7 +1646,7 @@ public class Scanner {
                                         InvalidInputException var10000 = new InvalidInputException("Invalid_Unicode_Escape");
                                         throw var10000;
                                     }
-                                    char var22 = (char)this.method_2413();
+                                    char var22 = (char)this.getNextChar();
                                     if (var22 < '\udc00' || var22 > '\udfff') {
                                         continue;
                                     }
@@ -1676,7 +1676,7 @@ public class Scanner {
     public final boolean method_2423() throws InvalidInputException {
         this.field_1258 = false;
         this.method_2420();
-        return CharOperation.method_1370(this.field_1229);
+        return CharOperation.isWhitespace(this.currentCharacter);
     }
 
     final char[] method_2424() {
@@ -1745,7 +1745,7 @@ public class Scanner {
         char var3;
         char var4;
         int var5 = (((var3 = var1[var2]) << 6) + (var4 = var1[var2 + 1])) % 30;
-        char[][] var6 = this.field_1287[0][var5];
+        char[][] var6 = this.charArray_length[0][var5];
         int var7 = this.field_1295;
         char[] var8;
         do {
@@ -1780,7 +1780,7 @@ public class Scanner {
         char var3;
         char var5;
         int var6 = (((var3 = var1[var2]) << 6) + (var5 = var1[var2 + 2])) % 30;
-        char[][] var7 = this.field_1287[1][var6];
+        char[][] var7 = this.charArray_length[1][var6];
         int var8 = this.field_1296;
         char[] var9;
         do {
@@ -1816,7 +1816,7 @@ public class Scanner {
         char var3;
         char var5;
         int var7 = (((var3 = var1[var2]) << 6) + (var5 = var1[var2 + 2])) % 30;
-        char[][] var8 = this.field_1287[2][var7];
+        char[][] var8 = this.charArray_length[2][var7];
         int var9 = this.field_1297;
         char[] var10;
         do {
@@ -1853,7 +1853,7 @@ public class Scanner {
         char var5;
         char var7;
         int var8 = (((var3 = var1[var2]) << 12) + ((var5 = var1[var2 + 2]) << 6) + (var7 = var1[var2 + 4])) % 30;
-        char[][] var9 = this.field_1287[3][var8];
+        char[][] var9 = this.charArray_length[3][var8];
         int var10 = this.field_1298;
         char[] var11;
         do {
@@ -1891,7 +1891,7 @@ public class Scanner {
         char var5;
         char var7;
         int var9 = (((var3 = var1[var2]) << 12) + ((var5 = var1[var2 + 2]) << 6) + (var7 = var1[var2 + 4])) % 30;
-        char[][] var10 = this.field_1287[4][var9];
+        char[][] var10 = this.charArray_length[4][var9];
         int var11 = this.field_1299;
         char[] var12;
         do {
@@ -1919,7 +1919,7 @@ public class Scanner {
         return var12;
     }
 
-    private void method_2430() {
+    private void parseTags() {
         int var1 = 0;
         int var2 = this.field_1230;
         int var3 = this.field_1257;
@@ -1943,31 +1943,31 @@ public class Scanner {
             } else {
                 var15 = this.field_1237;
             }
-            int var8 = CharOperation.method_1373(field_1288, var15, true, var6, var5);
+            int var8 = CharOperation.indexOf(TAG_PREFIX, var15, true, var6, var5);
             if (var8 != -1) {
-                if (this.field_1290 == null) {
-                    this.field_1290 = new class_279[10];
+                if (this.nlsTags == null) {
+                    this.nlsTags = new NLSTag[10];
                     this.field_1291 = 0;
                 }
                 int var10;
-                for (; var8 != -1; var8 = CharOperation.method_1373(field_1288, var15, true, var10, var5)) {
-                    int var9 = var8 + field_1289;
+                for (; var8 != -1; var8 = CharOperation.indexOf(TAG_PREFIX, var15, true, var10, var5)) {
+                    int var9 = var8 + TAG_PREFIX_LENGTH;
                     var10 = CharOperation.method_1375('$', var15, var9, var5);
                     if (var10 != -1) {
-                        class_279 var11 = null;
+                        NLSTag var11 = null;
                         int var12 = var3 + 1;
-                        class_279 var10000;
+                        NLSTag var10000;
                         try {
-                            var10000 = new class_279(var8 + var7, var10 + var7, var12, this.method_2431(var15, var9, var10));
+                            var10000 = new NLSTag(var8 + var7, var10 + var7, var12, this.extractInt(var15, var9, var10));
                             var11 = var10000;
                         } catch (NumberFormatException var14) {
-                            var10000 = new class_279(var8 + var7, var10 + var7, var12, -1);
+                            var10000 = new NLSTag(var8 + var7, var10 + var7, var12, -1);
                             var11 = var10000;
                         }
-                        if (this.field_1291 == this.field_1290.length) {
-                            System.arraycopy(this.field_1290, 0, this.field_1290 = new class_279[this.field_1291 + 10], 0, this.field_1291);
+                        if (this.field_1291 == this.nlsTags.length) {
+                            System.arraycopy(this.nlsTags, 0, this.nlsTags = new NLSTag[this.field_1291 + 10], 0, this.field_1291);
                         }
-                        this.field_1290[this.field_1291++] = var11;
+                        this.nlsTags[this.field_1291++] = var11;
                     } else {
                         var10 = var9;
                     }
@@ -1976,7 +1976,7 @@ public class Scanner {
         }
     }
 
-    private int method_2431(char[] var1, int var2, int var3) {
+    private int extractInt(char[] var1, int var2, int var3) {
         int var4 = 0;
         for (int var5 = var2; var5 < var3; ++var5) {
             char var6 = var1[var5];
@@ -2025,10 +2025,10 @@ public class Scanner {
         return var4;
     }
 
-    public final void method_2432() {
+    public final void pushLineSeparator() {
         int var2;
         int var3;
-        if (this.field_1229 == 13) {
+        if (this.currentCharacter == 13) {
             var2 = this.field_1231 - 1;
             if (this.field_1257 >= 0 && this.field_1256[this.field_1257] >= var2) {
                 return;
@@ -2048,7 +2048,7 @@ public class Scanner {
             } catch (IndexOutOfBoundsException var5) {
                 this.field_1258 = true;
             }
-        } else if (this.field_1229 == 10) {
+        } else if (this.currentCharacter == 10) {
             if (this.field_1258 && this.field_1256[this.field_1257] == this.field_1231 - 2) {
                 this.field_1256[this.field_1257] = this.field_1231 - 1;
             } else {
@@ -2067,13 +2067,13 @@ public class Scanner {
     }
 
     public final void method_2433() {
-        if (this.field_1229 == 13) {
+        if (this.currentCharacter == 13) {
             if (this.field_1237[this.field_1231] == 10) {
                 this.field_1258 = false;
             } else {
                 this.field_1258 = true;
             }
-        } else if (this.field_1229 == 10) {
+        } else if (this.currentCharacter == 10) {
             this.field_1258 = false;
         }
     }
@@ -2111,48 +2111,48 @@ public class Scanner {
     }
 
     public final void method_2436() throws InvalidInputException {
-        switch (this.field_1229) {
+        switch (this.currentCharacter) {
             case 34:
-                this.field_1229 = 34;
+                this.currentCharacter = 34;
                 break;
             case 39:
-                this.field_1229 = 39;
+                this.currentCharacter = 39;
                 break;
             case 92:
-                this.field_1229 = 92;
+                this.currentCharacter = 92;
                 break;
             case 98:
-                this.field_1229 = 8;
+                this.currentCharacter = 8;
                 break;
             case 102:
-                this.field_1229 = 12;
+                this.currentCharacter = 12;
                 break;
             case 110:
-                this.field_1229 = 10;
+                this.currentCharacter = 10;
                 break;
             case 114:
-                this.field_1229 = 13;
+                this.currentCharacter = 13;
                 break;
             case 116:
-                this.field_1229 = 9;
+                this.currentCharacter = 9;
                 break;
             default:
-                int var1 = ScannerHelper.method_3340(this.field_1229);
+                int var1 = ScannerHelper.getNumericValue(this.currentCharacter);
                 InvalidInputException var10000;
                 if (var1 < 0 || var1 > 7) {
                     var10000 = new InvalidInputException("Invalid_Escape");
                     throw var10000;
                 }
                 boolean var2 = var1 > 3;
-                if (ScannerHelper.method_3338(this.field_1229 = this.field_1237[this.field_1231++])) {
-                    int var3 = ScannerHelper.method_3340(this.field_1229);
+                if (ScannerHelper.method_3338(this.currentCharacter = this.field_1237[this.field_1231++])) {
+                    int var3 = ScannerHelper.getNumericValue(this.currentCharacter);
                     if (var3 >= 0 && var3 <= 7) {
                         var1 = var1 * 8 + var3;
-                        if (ScannerHelper.method_3338(this.field_1229 = this.field_1237[this.field_1231++])) {
+                        if (ScannerHelper.method_3338(this.currentCharacter = this.field_1237[this.field_1231++])) {
                             if (var2) {
                                 --this.field_1231;
                             } else {
-                                var3 = ScannerHelper.method_3340(this.field_1229);
+                                var3 = ScannerHelper.getNumericValue(this.currentCharacter);
                                 if (var3 >= 0 && var3 <= 7) {
                                     var1 = var1 * 8 + var3;
                                 } else {
@@ -2172,7 +2172,7 @@ public class Scanner {
                     var10000 = new InvalidInputException("Invalid_Escape");
                     throw var10000;
                 }
-                this.field_1229 = (char)var1;
+                this.currentCharacter = (char)var1;
         }
     }
 
@@ -2190,19 +2190,19 @@ public class Scanner {
             }
             char var4 = var1[var2];
             if (var4 < 128) {
-                if ((ScannerHelper.field_1984[var4] & 60) != 0) {
+                if ((ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var4] & 60) != 0) {
                     if (this.field_1239 != 0) {
-                        this.field_1229 = var4;
+                        this.currentCharacter = var4;
                         this.method_2443();
                     }
                     ++this.field_1231;
                     continue;
                 }
-                if ((ScannerHelper.field_1984[var4] & 258) != 0) {
-                    this.field_1229 = var4;
+                if ((ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var4] & 258) != 0) {
+                    this.currentCharacter = var4;
                 } else {
                     while (true) {
-                        if (this.method_2418()) {
+                        if (this.getNextCharAsJavaIdentifierPart()) {
                             continue;
                         }
                     }
@@ -2210,7 +2210,7 @@ public class Scanner {
                 break;
             }
             while (true) {
-                if (this.method_2418()) {
+                if (this.getNextCharAsJavaIdentifierPart()) {
                     continue;
                 }
                 break label49;
@@ -2231,10 +2231,10 @@ public class Scanner {
             var5 = this.field_1238;
             var2 = 1;
         }
-        return this.method_2438(var2, var3, var5);
+        return this.internalScanIdentifierOrKeyword(var2, var3, var5);
     }
 
-    private int method_2438(int var1, int var2, char[] var3) {
+    private int internalScanIdentifierOrKeyword(int var1, int var2, char[] var3) {
         switch (var3[var1]) {
             case 97:
                 switch (var2) {
@@ -3234,24 +3234,24 @@ public class Scanner {
         }
     }
 
-    public int method_2439(boolean var1) throws InvalidInputException {
+    public int scanNumber(boolean var1) throws InvalidInputException {
         boolean var2 = var1;
         InvalidInputException var10000;
-        if (!var1 && this.field_1229 == 48) {
-            if (this.method_2415('x', 'X') >= 0) {
+        if (!var1 && this.currentCharacter == 48) {
+            if (this.getNextChar('x', 'X') >= 0) {
                 int var6 = this.field_1231;
-                while (this.method_2417(16)) {
+                while (this.getNextCharAsDigit(16)) {
                     ;
                 }
                 int var4 = this.field_1231;
-                if (this.method_2415('l', 'L') >= 0) {
+                if (this.getNextChar('l', 'L') >= 0) {
                     if (var4 == var6) {
                         var10000 = new InvalidInputException("Invalid_Hexa_Literal");
                         throw var10000;
                     }
                     return 48;
                 }
-                if (this.method_2414('.')) {
+                if (this.getNextChar('.')) {
                     if (this.field_1223 < 3211264L) {
                         if (var4 == var6) {
                             var10000 = new InvalidInputException("Invalid_Hexa_Literal");
@@ -3262,7 +3262,7 @@ public class Scanner {
                     }
                     boolean var5 = var4 == var6;
                     var6 = this.field_1231;
-                    while (this.method_2417(16)) {
+                    while (this.getNextCharAsDigit(16)) {
                         ;
                     }
                     var4 = this.field_1231;
@@ -3270,76 +3270,76 @@ public class Scanner {
                         var10000 = new InvalidInputException("Invalid_Hexa_Literal");
                         throw var10000;
                     }
-                    if (this.method_2415('p', 'P') < 0) {
+                    if (this.getNextChar('p', 'P') < 0) {
                         var10000 = new InvalidInputException("Invalid_Hexa_Literal");
                         throw var10000;
                     }
                     this.field_1240 = false;
-                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                         this.method_2420();
                     } else if (this.field_1239 != 0) {
                         this.method_2443();
                     }
-                    if (this.field_1229 == 45 || this.field_1229 == 43) {
+                    if (this.currentCharacter == 45 || this.currentCharacter == 43) {
                         this.field_1240 = false;
-                        if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                        if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                             this.method_2420();
                         } else if (this.field_1239 != 0) {
                             this.method_2443();
                         }
                     }
-                    if (!ScannerHelper.method_3338(this.field_1229)) {
+                    if (!ScannerHelper.method_3338(this.currentCharacter)) {
                         var10000 = new InvalidInputException("Invalid_Hexa_Literal");
                         throw var10000;
                     }
-                    while (this.method_2416()) {
+                    while (this.getNextCharAsDigit()) {
                         ;
                     }
-                    if (this.method_2415('f', 'F') >= 0) {
+                    if (this.getNextChar('f', 'F') >= 0) {
                         return 49;
                     }
-                    if (this.method_2415('d', 'D') >= 0) {
+                    if (this.getNextChar('d', 'D') >= 0) {
                         return 50;
                     }
-                    if (this.method_2415('l', 'L') >= 0) {
+                    if (this.getNextChar('l', 'L') >= 0) {
                         var10000 = new InvalidInputException("Invalid_Hexa_Literal");
                         throw var10000;
                     }
                     return 50;
                 }
-                if (this.method_2415('p', 'P') >= 0) {
+                if (this.getNextChar('p', 'P') >= 0) {
                     if (this.field_1223 < 3211264L) {
                         this.field_1231 = var4;
                         return 47;
                     }
                     this.field_1240 = false;
-                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                         this.method_2420();
                     } else if (this.field_1239 != 0) {
                         this.method_2443();
                     }
-                    if (this.field_1229 == 45 || this.field_1229 == 43) {
+                    if (this.currentCharacter == 45 || this.currentCharacter == 43) {
                         this.field_1240 = false;
-                        if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                        if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                             this.method_2420();
                         } else if (this.field_1239 != 0) {
                             this.method_2443();
                         }
                     }
-                    if (!ScannerHelper.method_3338(this.field_1229)) {
+                    if (!ScannerHelper.method_3338(this.currentCharacter)) {
                         var10000 = new InvalidInputException("Invalid_Float_Literal");
                         throw var10000;
                     }
-                    while (this.method_2416()) {
+                    while (this.getNextCharAsDigit()) {
                         ;
                     }
-                    if (this.method_2415('f', 'F') >= 0) {
+                    if (this.getNextChar('f', 'F') >= 0) {
                         return 49;
                     }
-                    if (this.method_2415('d', 'D') >= 0) {
+                    if (this.getNextChar('d', 'D') >= 0) {
                         return 50;
                     }
-                    if (this.method_2415('l', 'L') >= 0) {
+                    if (this.getNextChar('l', 'L') >= 0) {
                         var10000 = new InvalidInputException("Invalid_Hexa_Literal");
                         throw var10000;
                     }
@@ -3351,111 +3351,111 @@ public class Scanner {
                 }
                 return 47;
             }
-            if (this.method_2416()) {
-                while (this.method_2416()) {
+            if (this.getNextCharAsDigit()) {
+                while (this.getNextCharAsDigit()) {
                     ;
                 }
-                if (this.method_2415('l', 'L') >= 0) {
+                if (this.getNextChar('l', 'L') >= 0) {
                     return 48;
                 }
-                if (this.method_2415('f', 'F') >= 0) {
+                if (this.getNextChar('f', 'F') >= 0) {
                     return 49;
                 }
-                if (this.method_2415('d', 'D') >= 0) {
+                if (this.getNextChar('d', 'D') >= 0) {
                     return 50;
                 }
                 boolean var3 = true;
-                if (this.method_2414('.')) {
+                if (this.getNextChar('.')) {
                     var3 = false;
                     while (true) {
-                        if (this.method_2416()) {
+                        if (this.getNextCharAsDigit()) {
                             continue;
                         }
                     }
                 }
-                if (this.method_2415('e', 'E') >= 0) {
+                if (this.getNextChar('e', 'E') >= 0) {
                     var3 = false;
                     this.field_1240 = false;
-                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                         this.method_2420();
                     } else if (this.field_1239 != 0) {
                         this.method_2443();
                     }
-                    if (this.field_1229 == 45 || this.field_1229 == 43) {
+                    if (this.currentCharacter == 45 || this.currentCharacter == 43) {
                         this.field_1240 = false;
-                        if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                        if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                             this.method_2420();
                         } else if (this.field_1239 != 0) {
                             this.method_2443();
                         }
                     }
-                    if (!ScannerHelper.method_3338(this.field_1229)) {
+                    if (!ScannerHelper.method_3338(this.currentCharacter)) {
                         var10000 = new InvalidInputException("Invalid_Float_Literal");
                         throw var10000;
                     }
                     while (true) {
-                        if (this.method_2416()) {
+                        if (this.getNextCharAsDigit()) {
                             continue;
                         }
                     }
                 }
-                if (this.method_2415('f', 'F') >= 0) {
+                if (this.getNextChar('f', 'F') >= 0) {
                     return 49;
                 }
-                if (this.method_2415('d', 'D') < 0 && var3) {
+                if (this.getNextChar('d', 'D') < 0 && var3) {
                     return 47;
                 }
                 return 50;
             }
         }
-        while (this.method_2416()) {
+        while (this.getNextCharAsDigit()) {
             ;
         }
-        if (!var1 && this.method_2415('l', 'L') >= 0) {
+        if (!var1 && this.getNextChar('l', 'L') >= 0) {
             return 48;
         } else {
-            if (!var1 && this.method_2414('.')) {
+            if (!var1 && this.getNextChar('.')) {
                 while (true) {
-                    if (!this.method_2416()) {
+                    if (!this.getNextCharAsDigit()) {
                         var2 = true;
                         break;
                     }
                 }
             }
-            if (this.method_2415('e', 'E') >= 0) {
+            if (this.getNextChar('e', 'E') >= 0) {
                 var2 = true;
                 this.field_1240 = false;
-                if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                     this.method_2420();
                 } else if (this.field_1239 != 0) {
                     this.method_2443();
                 }
-                if (this.field_1229 == 45 || this.field_1229 == 43) {
+                if (this.currentCharacter == 45 || this.currentCharacter == 43) {
                     this.field_1240 = false;
-                    if ((this.field_1229 = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
+                    if ((this.currentCharacter = this.field_1237[this.field_1231++]) == 92 && this.field_1237[this.field_1231] == 117) {
                         this.method_2420();
                     } else if (this.field_1239 != 0) {
                         this.method_2443();
                     }
                 }
-                if (!ScannerHelper.method_3338(this.field_1229)) {
+                if (!ScannerHelper.method_3338(this.currentCharacter)) {
                     var10000 = new InvalidInputException("Invalid_Float_Literal");
                     throw var10000;
                 }
                 while (true) {
-                    if (this.method_2416()) {
+                    if (this.getNextCharAsDigit()) {
                         continue;
                     }
                 }
             }
-            return this.method_2415('d', 'D') >= 0 ? 50 : (this.method_2415('f', 'F') >= 0 ? 49 : (var2 ? 50 : 47));
+            return this.getNextChar('d', 'D') >= 0 ? 50 : (this.getNextChar('f', 'F') >= 0 ? 49 : (var2 ? 50 : 47));
         }
     }
 
-    public final void method_2440(char[] var1) {
+    public final void setSource(char[] var1) {
         int var2;
         if (var1 == null) {
-            this.field_1237 = CharOperation.field_994;
+            this.field_1237 = CharOperation.NO_CHAR;
             var2 = 0;
         } else {
             this.field_1237 = var1;
@@ -3468,14 +3468,14 @@ public class Scanner {
         this.field_1257 = -1;
     }
 
-    public final void method_2441(char[] var1, CompilationResult var2) {
+    public final void setSource(char[] var1, CompilationResult var2) {
         if (var1 == null) {
-            char[] var3 = var2.field_1677.method_51();
-            this.method_2440(var3);
+            char[] var3 = var2.compilationUnit.getContents();
+            this.setSource(var3);
         } else {
-            this.method_2440(var1);
+            this.setSource(var1);
         }
-        int[] var4 = var2.field_1684;
+        int[] var4 = var2.lineSeparatorPositions;
         if (var4 != null) {
             this.field_1256 = var4;
             this.field_1257 = var4.length - 1;
@@ -3498,7 +3498,7 @@ public class Scanner {
                 var3 = new char[var2];
                 System.arraycopy(this.field_1237, this.field_1230, var3, 0, var2);
             } else {
-                var3 = CharOperation.field_994;
+                var3 = CharOperation.NO_CHAR;
             }
             char[] var4 = new char[this.field_1233 - (this.field_1231 - 1)];
             System.arraycopy(this.field_1237, this.field_1231 - 1 + 1, var4, 0, this.field_1233 - (this.field_1231 - 1) - 1);
@@ -3527,11 +3527,11 @@ public class Scanner {
         if (var1 == var2) {
             System.arraycopy(this.field_1238, 0, this.field_1238 = new char[var2 * 2], 0, var2);
         }
-        this.field_1238[var1] = this.field_1229;
+        this.field_1238[var1] = this.currentCharacter;
     }
 
     static {
-        field_1259 = Util.field_983;
+        EMPTY_LINE_ENDS = Util.EMPTY_INT_ARRAY;
         field_1260 = new char[] {'a'};
         field_1261 = new char[] {'b'};
         field_1262 = new char[] {'c'};
@@ -3559,7 +3559,7 @@ public class Scanner {
         field_1284 = new char[] {'y'};
         field_1285 = new char[] {'z'};
         field_1286 = new char[] {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'};
-        field_1288 = "//$NON-NLS-".toCharArray();
-        field_1289 = field_1288.length;
+        TAG_PREFIX = "//$NON-NLS-".toCharArray();
+        TAG_PREFIX_LENGTH = TAG_PREFIX.length;
     }
 }

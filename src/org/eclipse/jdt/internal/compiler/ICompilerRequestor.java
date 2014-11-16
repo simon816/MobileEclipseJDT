@@ -4,5 +4,5 @@ import org.eclipse.jdt.internal.compiler.CompilationResult;
 
 public interface ICompilerRequestor {
 
-    void method_26(CompilationResult var1);
+    void acceptResult(CompilationResult var1);
 }

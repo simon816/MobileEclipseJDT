@@ -7,57 +7,57 @@ import org.eclipse.jdt.internal.compiler.env.AccessRestriction;
 
 public class NameEnvironmentAnswer {
 
-    IBinaryType field_1816;
+    IBinaryType binaryType;
 
-    ICompilationUnit field_1817;
+    ICompilationUnit compilationUnit;
 
-    ISourceType[] field_1818;
+    ISourceType[] sourceTypes;
 
-    AccessRestriction field_1819;
+    AccessRestriction accessRestriction;
 
     public NameEnvironmentAnswer(IBinaryType var1, AccessRestriction var2) {
-        this.field_1816 = var1;
-        this.field_1819 = var2;
+        this.binaryType = var1;
+        this.accessRestriction = var2;
     }
 
     public NameEnvironmentAnswer(ICompilationUnit var1, AccessRestriction var2) {
-        this.field_1817 = var1;
-        this.field_1819 = var2;
+        this.compilationUnit = var1;
+        this.accessRestriction = var2;
     }
 
-    public AccessRestriction method_3183() {
-        return this.field_1819;
+    public AccessRestriction getAccessRestriction() {
+        return this.accessRestriction;
     }
 
-    public IBinaryType method_3184() {
-        return this.field_1816;
+    public IBinaryType getBinaryType() {
+        return this.binaryType;
     }
 
-    public ICompilationUnit method_3185() {
-        return this.field_1817;
+    public ICompilationUnit getCompilationUnit() {
+        return this.compilationUnit;
     }
 
-    public ISourceType[] method_3186() {
-        return this.field_1818;
+    public ISourceType[] getSourceTypes() {
+        return this.sourceTypes;
     }
 
     public boolean method_3187() {
-        return this.field_1816 != null;
+        return this.binaryType != null;
     }
 
     public boolean method_3188() {
-        return this.field_1817 != null;
+        return this.compilationUnit != null;
     }
 
     public boolean method_3189() {
-        return this.field_1818 != null;
+        return this.sourceTypes != null;
     }
 
     public boolean method_3190() {
-        return this.field_1819 != null && this.field_1819.method_3330();
+        return this.accessRestriction != null && this.accessRestriction.ignoreIfBetter();
     }
 
-    public boolean method_3191(NameEnvironmentAnswer var1) {
-        return var1 == null ? true : (this.field_1819 == null ? true : var1.field_1819 != null && this.field_1819.method_3329() < var1.field_1819.method_3329());
+    public boolean isBetter(NameEnvironmentAnswer var1) {
+        return var1 == null ? true : (this.accessRestriction == null ? true : var1.accessRestriction != null && this.accessRestriction.getProblemId() < var1.accessRestriction.getProblemId());
     }
 }

@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.util.Hashtable;
 
 import org.eclipse.jdt.internal.compiler.batch.ClasspathLocation;
-import org.eclipse.jdt.internal.compiler.classfmt.class_190;
-import org.eclipse.jdt.internal.compiler.classfmt.class_198;
+import org.eclipse.jdt.internal.compiler.classfmt.ClassFileReader;
+import org.eclipse.jdt.internal.compiler.classfmt.ClassFormatException;
 import org.eclipse.jdt.internal.compiler.env.NameEnvironmentAnswer;
 import org.eclipse.jdt.internal.compiler.env.AccessRuleSet;
 
@@ -20,13 +20,13 @@ public class ClasspathJar extends ClasspathLocation {
         super(var1, var2);
     }
 
-    public NameEnvironmentAnswer method_14(char[] var1, String var2, String var3, boolean var4) {
-        if (this.method_15(var2) && field_946.containsKey(var3.substring(0, var3.length() - 6))) {
+    public NameEnvironmentAnswer findClass(char[] var1, String var2, String var3, boolean var4) {
+        if (this.isPackage(var2) && field_946.containsKey(var3.substring(0, var3.length() - 6))) {
             try {
-                class_190 var10002 = new class_190(this.method_1283(var3), var3, false);
-                NameEnvironmentAnswer var10000 = new NameEnvironmentAnswer(var10002, this.method_1279(var3));
+                ClassFileReader var10002 = new ClassFileReader(this.method_1283(var3), var3, false);
+                NameEnvironmentAnswer var10000 = new NameEnvironmentAnswer(var10002, this.fetchAccessRestriction(var3));
                 return var10000;
-            } catch (class_198 var6) {
+            } catch (ClassFormatException var6) {
                 ;
             } catch (IOException var7) {
                 ;
@@ -37,7 +37,7 @@ public class ClasspathJar extends ClasspathLocation {
         }
     }
 
-    public void method_18() {
+    public void reset() {
         if (field_945 == null) {
             try {
                 Hashtable var1 = new Hashtable(600);
@@ -88,17 +88,17 @@ public class ClasspathJar extends ClasspathLocation {
         return var4;
     }
 
-    public boolean method_15(String var1) {
+    public boolean isPackage(String var1) {
         return field_945.containsKey(var1);
     }
 
-    public void method_16() {}
+    public void cleanup() {}
 
     public String toString() {
         return "Classpath for jar file ";
     }
 
-    public char[] method_17() {
-        return this.field_938;
+    public char[] normalizedPath() {
+        return this.normalizedPath;
     }
 }

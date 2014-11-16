@@ -97,7 +97,7 @@ public class CompilerOptions {
 
     public boolean field_1965;
 
-    public static final String[] field_1966;
+    public static final String[] warningTokens;
 
     public CompilerOptions() {
         this.field_1924 = 0L;
@@ -107,7 +107,7 @@ public class CompilerOptions {
         this.field_1928 = 3080192L;
         this.field_1929 = 3014656L;
         this.field_1930 = null;
-        this.field_1931 = Compiler.field_1708;
+        this.field_1931 = Compiler.DEBUG;
         this.field_1932 = false;
         this.field_1933 = false;
         this.field_1934 = true;
@@ -152,7 +152,7 @@ public class CompilerOptions {
         this.field_1928 = 3080192L;
         this.field_1929 = 3014656L;
         this.field_1930 = null;
-        this.field_1931 = Compiler.field_1708;
+        this.field_1931 = Compiler.DEBUG;
         this.field_1932 = false;
         this.field_1933 = false;
         this.field_1934 = true;
@@ -255,8 +255,8 @@ public class CompilerOptions {
         if (this.field_1930 != null) {
             var1.put("org.eclipse.jdt.core.encoding", this.field_1930);
         }
-        var1.put("org.eclipse.jdt.core.compiler.taskTags", this.field_1936 == null ? Util.field_982 : new String(CharOperation.method_1361(this.field_1936, ',')));
-        var1.put("org.eclipse.jdt.core.compiler.taskPriorities", this.field_1937 == null ? Util.field_982 : new String(CharOperation.method_1361(this.field_1937, ',')));
+        var1.put("org.eclipse.jdt.core.compiler.taskTags", this.field_1936 == null ? Util.field_982 : new String(CharOperation.concatWith(this.field_1936, ',')));
+        var1.put("org.eclipse.jdt.core.compiler.taskPriorities", this.field_1937 == null ? Util.field_982 : new String(CharOperation.concatWith(this.field_1937, ',')));
         var1.put("org.eclipse.jdt.core.compiler.taskCaseSensitive", this.field_1938 ? "enabled" : "disabled");
         var1.put("org.eclipse.jdt.core.compiler.problem.unusedParameterWhenImplementingAbstract", this.field_1941 ? "enabled" : "disabled");
         var1.put("org.eclipse.jdt.core.compiler.problem.unusedParameterWhenOverridingConcrete", this.field_1942 ? "enabled" : "disabled");
@@ -486,19 +486,19 @@ public class CompilerOptions {
         }
         long var3;
         if ((var2 = var1.get("org.eclipse.jdt.core.compiler.compliance")) != null) {
-            var3 = method_3318(var2);
+            var3 = versionToJdkLevel(var2);
             if (var3 != 0L) {
                 this.field_1927 = var3;
             }
         }
         if ((var2 = var1.get("org.eclipse.jdt.core.compiler.source")) != null) {
-            var3 = method_3318(var2);
+            var3 = versionToJdkLevel(var2);
             if (var3 != 0L) {
                 this.field_1928 = var3;
             }
         }
         if ((var2 = var1.get("org.eclipse.jdt.core.compiler.codegen.targetPlatform")) != null) {
-            var3 = method_3318(var2);
+            var3 = versionToJdkLevel(var2);
             if (var3 != 0L) {
                 this.field_1929 = var3;
             }
@@ -834,8 +834,8 @@ public class CompilerOptions {
         var1.append("\n\t- produce reference info : ").append(this.field_1932 ? "ON" : "OFF");
         var1.append("\n\t- parse literal expressions as constants : ").append(this.field_1934 ? "ON" : "OFF");
         var1.append("\n\t- encoding : ").append(this.field_1930 == null ? "<default>" : this.field_1930);
-        var1.append("\n\t- task tags: ").append(this.field_1936 == null ? Util.field_982 : new String(CharOperation.method_1361(this.field_1936, ',')));
-        var1.append("\n\t- task priorities : ").append(this.field_1937 == null ? Util.field_982 : new String(CharOperation.method_1361(this.field_1937, ',')));
+        var1.append("\n\t- task tags: ").append(this.field_1936 == null ? Util.field_982 : new String(CharOperation.concatWith(this.field_1936, ',')));
+        var1.append("\n\t- task priorities : ").append(this.field_1937 == null ? Util.field_982 : new String(CharOperation.concatWith(this.field_1937, ',')));
         var1.append("\n\t- report deprecation inside deprecated code : ").append(this.field_1939 ? "enabled" : "disabled");
         var1.append("\n\t- report deprecation when overriding deprecated method : ").append(this.field_1940 ? "enabled" : "disabled");
         var1.append("\n\t- report unused parameter when implementing abstract method : ").append(this.field_1941 ? "enabled" : "disabled");
@@ -884,7 +884,7 @@ public class CompilerOptions {
         }
     }
 
-    public static long method_3318(Object var0) {
+    public static long versionToJdkLevel(Object var0) {
         if (var0 instanceof String) {
             String var1 = (String)var0;
             if (var1.length() == 3 && var1.charAt(0) == 49 && var1.charAt(1) == 46) {
@@ -957,7 +957,7 @@ public class CompilerOptions {
         return Util.field_982;
     }
 
-    public static long method_3320(String var0) {
+    public static long optionKeyToIrritant(String var0) {
         if (var0 != null && var0.length() != 0) {
             switch (var0.charAt(0)) {
                 case 97:
@@ -1056,6 +1056,6 @@ public class CompilerOptions {
     }
 
     static {
-        field_1966 = new String[] {"all", "boxing", "cast", "dep-ann", "deprecation", "fallthrough", "finally", "hiding", "incomplete-switch", "nls", "null", "restriction", "serial", "static-access", "super", "synthetic-access", "unchecked", "unqualified-field-access", "unused"};
+        warningTokens = new String[] {"all", "boxing", "cast", "dep-ann", "deprecation", "fallthrough", "finally", "hiding", "incomplete-switch", "nls", "null", "restriction", "serial", "static-access", "super", "synthetic-access", "unchecked", "unqualified-field-access", "unused"};
     }
 }

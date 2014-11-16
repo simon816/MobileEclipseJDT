@@ -2,7 +2,7 @@ package org.eclipse.jdt.core.compiler;
 
 public interface IProblem {
 
-    String[] method_9();
+    String[] getArguments();
 
     boolean method_10();
 

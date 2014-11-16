@@ -8,7 +8,7 @@ import org.eclipse.jdt.internal.compiler.problem.AbortCompilation;
 
 public class AbortCompilationUnit extends AbortCompilation {
 
-    public String field_1054;
+    public String encoding;
 
     public AbortCompilationUnit(CompilationResult var1, CategorizedProblem var2) {
         super(var1, var2);
@@ -16,6 +16,6 @@ public class AbortCompilationUnit extends AbortCompilation {
 
     public AbortCompilationUnit(CompilationResult var1, IOException var2, String var3) {
         super(var1, var2);
-        this.field_1054 = var3;
+        this.encoding = var3;
     }
 }

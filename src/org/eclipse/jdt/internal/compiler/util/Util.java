@@ -11,10 +11,10 @@ import java.io.InputStreamReader;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
 import org.eclipse.jdt.internal.compiler.ClassFile;
-import org.eclipse.jdt.internal.compiler.ast.class_114;
-import org.eclipse.jdt.internal.compiler.util.class_1;
+import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
+import org.eclipse.jdt.internal.compiler.util.Util$Displayable;
 import org.eclipse.jdt.internal.compiler.util.SuffixConstants;
-import org.eclipse.jdt.internal.compiler.util.class_223;
+import org.eclipse.jdt.internal.compiler.util.Util$1;
 import org.eclipse.jdt.internal.compiler.util.Messages;
 
 public class Util implements SuffixConstants {
@@ -23,12 +23,12 @@ public class Util implements SuffixConstants {
 
     public static final String field_982;
 
-    public static final int[] field_983;
+    public static final int[] EMPTY_INT_ARRAY;
 
     public Util() {
     }
 
-    public static String method_1317(String var0, String var1) throws IOException {
+    public static String buildAllDirectoriesInto(String var0, String var1) throws IOException {
         char var2 = 47;
         String var3 = "/";
         var0 = var0.replace('/', var2);
@@ -67,12 +67,12 @@ public class Util implements SuffixConstants {
                 var8 = true;
             } else if (!var4.mkdirs()) {
                 if (!var4.exists()) {
-                    throw new IOException(Messages.method_3251(Messages.field_1873, var4.getPath()));
+                    throw new IOException(Messages.bind(Messages.field_1873, var4.getPath()));
                 }
                 var8 = true;
             }
             if (var8 && !var4.isDirectory()) {
-                throw new IOException(Messages.method_3251(Messages.field_1872, var4.getPath()));
+                throw new IOException(Messages.bind(Messages.field_1872, var4.getPath()));
             } else {
                 StringBuffer var9 = new StringBuffer(var0);
                 var9.append(var3);
@@ -87,12 +87,12 @@ public class Util implements SuffixConstants {
                         var8 = true;
                     } else if (!var4.mkdir()) {
                         if (!var4.exists()) {
-                            throw new IOException(Messages.method_3252(Messages.field_1874, var9.toString().substring(var0.length() + 1, var9.length() - 1), var0));
+                            throw new IOException(Messages.bind(Messages.field_1874, var9.toString().substring(var0.length() + 1, var9.length() - 1), var0));
                         }
                         var8 = true;
                     }
                     if (var8 && !var4.isDirectory()) {
-                        throw new IOException(Messages.method_3251(Messages.field_1872, var4.getPath()));
+                        throw new IOException(Messages.bind(Messages.field_1872, var4.getPath()));
                     }
                 }
                 return var9.append(var11).toString();
@@ -100,8 +100,8 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static int method_1318(class_114 var0, int var1) {
-        for (; var0 != null; var0 = var0.field_599) {
+    public static int computeOuterMostVisibility(TypeDeclaration var0, int var1) {
+        for (; var0 != null; var0 = var0.enclosingType) {
             switch (var0.field_577 & 7) {
                 case 0:
                     if (var1 != 2) {
@@ -129,7 +129,7 @@ public class Util implements SuffixConstants {
         try {
             FileInputStream var10000 = new FileInputStream(var0);
             var1 = var10000;
-            var2 = method_1322(var1, (int)var0.length());
+            var2 = getInputStreamAsByteArray(var1, (int)var0.length());
         } finally {
             if (var1 != null) {
                 try {
@@ -148,7 +148,7 @@ public class Util implements SuffixConstants {
         try {
             FileInputStream var10000 = new FileInputStream(var0);
             var2 = var10000;
-            var3 = method_1323(var2, (int)var0.length(), var1);
+            var3 = getInputStreamAsCharArray(var2, (int)var0.length(), var1);
         } finally {
             if (var2 != null) {
                 try {
@@ -165,7 +165,7 @@ public class Util implements SuffixConstants {
         FileOutputStream var10000;
         File var10002;
         if (var0) {
-            var10002 = new File(method_1317(var1, var2));
+            var10002 = new File(buildAllDirectoriesInto(var1, var2));
             var10000 = new FileOutputStream(var10002);
             return var10000;
         } else {
@@ -194,7 +194,7 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static byte[] method_1322(InputStream var0, int var1) throws IOException {
+    public static byte[] getInputStreamAsByteArray(InputStream var0, int var1) throws IOException {
         byte[] var2;
         int var3;
         int var6;
@@ -225,7 +225,7 @@ public class Util implements SuffixConstants {
         return var2;
     }
 
-    public static char[] method_1323(InputStream var0, int var1, String var2) throws IOException {
+    public static char[] getInputStreamAsCharArray(InputStream var0, int var1, String var2) throws IOException {
         InputStreamReader var3 = null;
         try {
             var3 = new InputStreamReader(var0, "utf-8");
@@ -235,7 +235,7 @@ public class Util implements SuffixConstants {
         int var5 = 0;
         char[] var4;
         if (var1 == -1) {
-            var4 = CharOperation.field_994;
+            var4 = CharOperation.NO_CHAR;
         } else {
             var4 = new char[var1];
         }
@@ -272,7 +272,7 @@ public class Util implements SuffixConstants {
         return var4;
     }
 
-    public static int method_1324(int var0, int[] var1, int var2, int var3) {
+    public static int getLineNumber(int var0, int[] var1, int var2, int var3) {
         if (var1 == null) {
             return 1;
         } else if (var3 == -1) {
@@ -299,7 +299,7 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static void method_1325(char[][] var0, int var1, int var2) {
+    public static void reverseQuickSort(char[][] var0, int var1, int var2) {
         int var3 = var1;
         int var4 = var2;
         char[] var5 = var0[(var2 + var1) / 2];
@@ -317,10 +317,10 @@ public class Util implements SuffixConstants {
                 }
                 if (var1 > var2) {
                     if (var3 < var2) {
-                        method_1325(var0, var3, var2);
+                        reverseQuickSort(var0, var3, var2);
                     }
                     if (var1 < var4) {
-                        method_1325(var0, var1, var4);
+                        reverseQuickSort(var0, var1, var4);
                     }
                     return;
                 }
@@ -329,7 +329,7 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static void method_1326(char[][] var0, int var1, int var2, int[] var3) {
+    public static void reverseQuickSort(char[][] var0, int var1, int var2, int[] var3) {
         int var4 = var1;
         int var5 = var2;
         char[] var6 = var0[(var2 + var1) / 2];
@@ -350,10 +350,10 @@ public class Util implements SuffixConstants {
                 }
                 if (var1 > var2) {
                     if (var4 < var2) {
-                        method_1326(var0, var4, var2, var3);
+                        reverseQuickSort(var0, var4, var2, var3);
                     }
                     if (var1 < var5) {
-                        method_1326(var0, var1, var5, var3);
+                        reverseQuickSort(var0, var1, var5, var3);
                     }
                     return;
                 }
@@ -362,7 +362,7 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static final int method_1327(int[] var0, int var1, int var2) {
+    public static final int searchColumnNumber(int[] var0, int var1, int var2) {
         switch (var1) {
             case 1:
                 return var2 + 1;
@@ -375,12 +375,12 @@ public class Util implements SuffixConstants {
         }
     }
 
-    public static String method_1328(Object[] var0) {
-        class_223 var10001 = new class_223();
-        return method_1329(var0, var10001);
+    public static String toString(Object[] var0) {
+        Util$1 var10001 = new Util$1();
+        return toString(var0, var10001);
     }
 
-    public static String method_1329(Object[] var0, class_1 var1) {
+    public static String toString(Object[] var0, Util$Displayable var1) {
         if (var0 == null) {
             return "";
         } else {
@@ -389,13 +389,13 @@ public class Util implements SuffixConstants {
                 if (var3 > 0) {
                     var2.append(", ");
                 }
-                var2.append(var1.method_7(var0[var3]));
+                var2.append(var1.displayString(var0[var3]));
             }
             return var2.toString();
         }
     }
 
-    public static void method_1330(boolean var0, String var1, String var2, ClassFile var3) throws IOException {
+    public static void writeToDisk(boolean var0, String var1, String var2, ClassFile var3) throws IOException {
         FileOutputStream var4 = method_1321(var0, var1, var2);
         FileOutputStream var5 = var4;
         try {
@@ -411,7 +411,7 @@ public class Util implements SuffixConstants {
 
     static {
         field_981 = System.getProperty("line.separator");
-        field_982 = new String(CharOperation.field_994);
-        field_983 = new int[0];
+        field_982 = new String(CharOperation.NO_CHAR);
+        EMPTY_INT_ARRAY = new int[0];
     }
 }

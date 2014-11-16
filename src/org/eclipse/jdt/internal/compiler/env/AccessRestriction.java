@@ -1,26 +1,26 @@
 package org.eclipse.jdt.internal.compiler.env;
 
-import org.eclipse.jdt.internal.compiler.env.class_344;
+import org.eclipse.jdt.internal.compiler.env.AccessRule;
 
 public class AccessRestriction {
 
-    private class_344 field_1979;
+    private AccessRule accessRule;
 
-    public byte field_1980;
+    public byte classpathEntryType;
 
-    public String field_1981;
+    public String classpathEntryName;
 
-    public AccessRestriction(class_344 var1, byte var2, String var3) {
-        this.field_1979 = var1;
-        this.field_1981 = var3;
-        this.field_1980 = var2;
+    public AccessRestriction(AccessRule var1, byte var2, String var3) {
+        this.accessRule = var1;
+        this.classpathEntryName = var3;
+        this.classpathEntryType = var2;
     }
 
-    public int method_3329() {
-        return this.field_1979.method_3326();
+    public int getProblemId() {
+        return this.accessRule.method_3326();
     }
 
-    public boolean method_3330() {
-        return this.field_1979.method_3327();
+    public boolean ignoreIfBetter() {
+        return this.accessRule.ignoreIfBetter();
     }
 }

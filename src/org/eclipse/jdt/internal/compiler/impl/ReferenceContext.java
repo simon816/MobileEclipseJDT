@@ -5,11 +5,11 @@ import org.eclipse.jdt.internal.compiler.CompilationResult;
 
 public interface ReferenceContext {
 
-    void method_93(int var1, CategorizedProblem var2);
+    void abort(int var1, CategorizedProblem var2);
 
-    CompilationResult method_94();
+    CompilationResult compilationResult();
 
-    boolean method_95();
+    boolean hasErrors();
 
-    void method_96();
+    void tagAsHavingErrors();
 }

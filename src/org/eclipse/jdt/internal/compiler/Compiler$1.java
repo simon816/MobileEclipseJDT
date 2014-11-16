@@ -15,10 +15,10 @@ class Compiler$1 implements ICompilerRequestor {
         this.field_1733 = var2;
     }
 
-    public void method_26(CompilationResult var1) {
-        if (Compiler.field_1713.method_21()) {
-            Compiler.field_1713.method_20(var1);
+    public void acceptResult(CompilationResult var1) {
+        if (Compiler.DebugRequestor.isActive()) {
+            Compiler.DebugRequestor.acceptDebugResult(var1);
         }
-        this.field_1733.method_26(var1);
+        this.field_1733.acceptResult(var1);
     }
 }

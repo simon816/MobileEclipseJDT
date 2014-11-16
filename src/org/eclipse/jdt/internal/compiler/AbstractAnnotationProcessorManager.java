@@ -11,9 +11,9 @@ public abstract class AbstractAnnotationProcessorManager {
 
     public abstract ICompilationUnit[] method_2935();
 
-    public abstract ReferenceBinding[] method_2936();
+    public abstract ReferenceBinding[] getNewClassFiles();
 
-    public abstract void method_2937();
+    public abstract void reset();
 
-    public abstract void method_2938(CompilationUnitDeclaration[] var1, ReferenceBinding[] var2, boolean var3);
+    public abstract void processAnnotations(CompilationUnitDeclaration[] var1, ReferenceBinding[] var2, boolean var3);
 }

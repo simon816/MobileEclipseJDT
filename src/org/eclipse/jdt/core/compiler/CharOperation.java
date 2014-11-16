@@ -4,16 +4,16 @@ import org.eclipse.jdt.internal.compiler.parser.ScannerHelper;
 
 public final class CharOperation {
 
-    public static final char[] field_994;
+    public static final char[] NO_CHAR;
 
-    public static final char[][] field_995;
+    public static final char[][] NO_CHAR_CHAR;
 
-    public static final String[] field_996;
+    public static final String[] NO_STRINGS;
 
     public CharOperation() {
     }
 
-    public static final char[][] method_1353(char[][] var0, char[] var1) {
+    public static final char[][] arrayConcat(char[][] var0, char[] var1) {
         if (var1 == null) {
             return var0;
         } else if (var0 == null) {
@@ -39,7 +39,7 @@ public final class CharOperation {
         return var2 - var3;
     }
 
-    public static final char[] method_1355(char[] var0, char[] var1) {
+    public static final char[] concat(char[] var0, char[] var1) {
         if (var0 == null) {
             return var1;
         } else if (var1 == null) {
@@ -56,11 +56,11 @@ public final class CharOperation {
 
     public static final char[] method_1356(char[] var0, char[] var1, char[] var2) {
         if (var0 == null) {
-            return method_1355(var1, var2);
+            return concat(var1, var2);
         } else if (var1 == null) {
-            return method_1355(var0, var2);
+            return concat(var0, var2);
         } else if (var2 == null) {
-            return method_1355(var0, var1);
+            return concat(var0, var1);
         } else {
             int var3 = var0.length;
             int var4 = var1.length;
@@ -73,7 +73,7 @@ public final class CharOperation {
         }
     }
 
-    public static final char[] method_1357(char[] var0, char[] var1, char var2) {
+    public static final char[] concat(char[] var0, char[] var1, char var2) {
         if (var0 == null) {
             return var1;
         } else if (var1 == null) {
@@ -97,13 +97,13 @@ public final class CharOperation {
         }
     }
 
-    public static final char[] method_1358(char[] var0, char var1, char[] var2, char var3, char[] var4) {
+    public static final char[] concat(char[] var0, char var1, char[] var2, char var3, char[] var4) {
         if (var0 == null) {
-            return method_1357(var2, var4, var3);
+            return concat(var2, var4, var3);
         } else if (var2 == null) {
-            return method_1357(var0, var4, var1);
+            return concat(var0, var4, var1);
         } else if (var4 == null) {
-            return method_1357(var0, var2, var1);
+            return concat(var0, var2, var1);
         } else {
             int var5 = var0.length;
             int var6 = var2.length;
@@ -118,7 +118,7 @@ public final class CharOperation {
         }
     }
 
-    public static final char[] method_1359(char var0, char[] var1, char var2) {
+    public static final char[] concat(char var0, char[] var1, char var2) {
         if (var1 == null) {
             return new char[] {var0, var2};
         } else {
@@ -131,10 +131,10 @@ public final class CharOperation {
         }
     }
 
-    public static final char[] method_1360(char[][] var0, char[] var1, char var2) {
+    public static final char[] concatWith(char[][] var0, char[] var1, char var2) {
         int var3 = var1 == null ? 0 : var1.length;
         if (var3 == 0) {
-            return method_1361(var0, var2);
+            return concatWith(var0, var2);
         } else {
             int var4 = var0 == null ? 0 : var0.length;
             if (var4 == 0) {
@@ -166,10 +166,10 @@ public final class CharOperation {
         }
     }
 
-    public static final char[] method_1361(char[][] var0, char var1) {
+    public static final char[] concatWith(char[][] var0, char var1) {
         int var2 = var0 == null ? 0 : var0.length;
         if (var2 == 0) {
-            return field_994;
+            return NO_CHAR;
         } else {
             int var3 = var2 - 1;
             int var4 = var2;
@@ -177,7 +177,7 @@ public final class CharOperation {
                 --var4;
                 if (var4 < 0) {
                     if (var3 <= 0) {
-                        return field_994;
+                        return NO_CHAR;
                     }
                     char[] var5 = new char[var3];
                     var4 = var2;
@@ -205,7 +205,7 @@ public final class CharOperation {
         }
     }
 
-    public static final char[][] method_1362(char[][] var0) {
+    public static final char[][] deepCopy(char[][] var0) {
         int var1 = var0.length;
         char[][] var2 = new char[var1][];
         for (int var3 = 0; var3 < var1; ++var3) {
@@ -218,7 +218,7 @@ public final class CharOperation {
         return var2;
     }
 
-    public static final boolean method_1363(char[][] var0, char[][] var1) {
+    public static final boolean equals(char[][] var0, char[][] var1) {
         if (var0 == var1) {
             return true;
         } else if (var0 != null && var1 != null) {
@@ -260,11 +260,11 @@ public final class CharOperation {
         }
     }
 
-    public static final boolean method_1365(char[] var0, char[] var1, int var2, int var3) {
-        return method_1366(var0, var1, var2, var3, true);
+    public static final boolean equals(char[] var0, char[] var1, int var2, int var3) {
+        return equals(var0, var1, var2, var3, true);
     }
 
-    public static final boolean method_1366(char[] var0, char[] var1, int var2, int var3, boolean var4) {
+    public static final boolean equals(char[] var0, char[] var1, int var2, int var3, boolean var4) {
         if (var0 == var1) {
             return true;
         } else if (var0 != null && var1 != null) {
@@ -325,7 +325,7 @@ public final class CharOperation {
         }
     }
 
-    public static final boolean method_1368(char[] var0, char[] var1, int var2, boolean var3) {
+    public static final boolean fragmentEquals(char[] var0, char[] var1, int var2, boolean var3) {
         int var4 = var0.length;
         if (var1.length < var4 + var2) {
             return false;
@@ -353,7 +353,7 @@ public final class CharOperation {
         }
     }
 
-    public static final int method_1369(char[] var0) {
+    public static final int hashCode(char[] var0) {
         int var1 = var0.length;
         int var2 = var1 == 0 ? 31 : var0[0];
         int var3;
@@ -375,19 +375,19 @@ public final class CharOperation {
         return var2 & Integer.MAX_VALUE;
     }
 
-    public static boolean method_1370(char var0) {
-        return var0 < 128 && (ScannerHelper.field_1984[var0] & 256) != 0;
+    public static boolean isWhitespace(char var0) {
+        return var0 < 128 && (ScannerHelper.OBVIOUS_IDENT_CHAR_NATURES[var0] & 256) != 0;
     }
 
     public static final int method_1371(char var0, char[] var1) {
         return method_1374(var0, var1, 0);
     }
 
-    public static final int method_1372(char[] var0, char[] var1, boolean var2, int var3) {
-        return method_1373(var0, var1, var2, var3, var1.length);
+    public static final int indexOf(char[] var0, char[] var1, boolean var2, int var3) {
+        return indexOf(var0, var1, var2, var3, var1.length);
     }
 
-    public static final int method_1373(char[] var0, char[] var1, boolean var2, int var3, int var4) {
+    public static final int indexOf(char[] var0, char[] var1, boolean var2, int var3, int var4) {
         int var5 = var4;
         int var6 = var0.length;
         if (var6 > var4) {
@@ -478,7 +478,7 @@ public final class CharOperation {
 
     public static final char[] method_1377(char[] var0, char var1) {
         int var2 = method_1376(var1, var0);
-        return var2 < 0 ? var0 : method_1388(var0, var2 + 1, var0.length);
+        return var2 < 0 ? var0 : subarray(var0, var2 + 1, var0.length);
     }
 
     public static final boolean method_1378(char[] var0, int var1, int var2, char[] var3, int var4, int var5, boolean var6) {
@@ -538,7 +538,7 @@ public final class CharOperation {
         }
     }
 
-    public static final boolean method_1379(char[] var0, char[] var1, boolean var2, char var3) {
+    public static final boolean pathMatch(char[] var0, char[] var1, boolean var2, char var3) {
         if (var1 == null) {
             return false;
         } else if (var0 == null) {
@@ -659,7 +659,7 @@ public final class CharOperation {
         }
     }
 
-    public static final int method_1380(char[] var0, int var1, int var2) {
+    public static final int parseInt(char[] var0, int var1, int var2) {
         if (var2 == 1) {
             int var3 = var0[var1] - 48;
             if (var3 >= 0 && var3 <= 9) {
@@ -688,7 +688,7 @@ public final class CharOperation {
         }
     }
 
-    public static final void method_1382(char[] var0, char var1, char var2) {
+    public static final void replace(char[] var0, char var1, char var2) {
         if (var1 != var2) {
             int var3 = 0;
             for (int var4 = var0.length; var3 < var4; ++var3) {
@@ -709,7 +709,7 @@ public final class CharOperation {
         if (!method_1364(var1, var2)) {
             int var8 = 0;
             while (var8 < var3) {
-                var9 = method_1372(var1, var0, true, var8);
+                var9 = indexOf(var1, var0, true, var8);
                 if (var9 == -1) {
                     ++var8;
                 } else {
@@ -744,7 +744,7 @@ public final class CharOperation {
     public static final char[][] method_1384(char var0, char[] var1) {
         int var2 = var1 == null ? 0 : var1.length;
         if (var2 == 0) {
-            return field_995;
+            return NO_CHAR_CHAR;
         } else {
             int var3 = 1;
             for (int var4 = 0; var4 < var2; ++var4) {
@@ -788,7 +788,7 @@ public final class CharOperation {
     public static final char[][] method_1385(char var0, char[] var1) {
         int var2 = var1 == null ? 0 : var1.length;
         if (var2 == 0) {
-            return field_995;
+            return NO_CHAR_CHAR;
         } else {
             int var3 = 1;
             for (int var4 = 0; var4 < var2; ++var4) {
@@ -812,7 +812,7 @@ public final class CharOperation {
         }
     }
 
-    public static final char[][] method_1386(char var0, char[] var1, int var2, int var3) {
+    public static final char[][] splitOn(char var0, char[] var1, int var2, int var3) {
         int var4 = var1 == null ? 0 : var1.length;
         if (var4 != 0 && var2 <= var3) {
             int var5 = 1;
@@ -835,11 +835,11 @@ public final class CharOperation {
             System.arraycopy(var1, var7, var10[var8], 0, var3 - var7);
             return var10;
         } else {
-            return field_995;
+            return NO_CHAR_CHAR;
         }
     }
 
-    public static final char[][] method_1387(char[][] var0, int var1, int var2) {
+    public static final char[][] subarray(char[][] var0, int var1, int var2) {
         if (var2 == -1) {
             var2 = var0.length;
         }
@@ -856,7 +856,7 @@ public final class CharOperation {
         }
     }
 
-    public static final char[] method_1388(char[] var0, int var1, int var2) {
+    public static final char[] subarray(char[] var0, int var1, int var2) {
         if (var2 == -1) {
             var2 = var0.length;
         }
@@ -873,14 +873,14 @@ public final class CharOperation {
         }
     }
 
-    public static final String method_1389(char[][] var0) {
-        char[] var1 = method_1361(var0, '.');
+    public static final String toString(char[][] var0) {
+        char[] var1 = concatWith(var0, '.');
         return new String(var1);
     }
 
     static {
-        field_994 = new char[0];
-        field_995 = new char[0][];
-        field_996 = new String[0];
+        NO_CHAR = new char[0];
+        NO_CHAR_CHAR = new char[0][];
+        NO_STRINGS = new String[0];
     }
 }

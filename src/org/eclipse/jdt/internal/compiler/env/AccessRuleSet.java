@@ -1,16 +1,16 @@
 package org.eclipse.jdt.internal.compiler.env;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.env.class_344;
+import org.eclipse.jdt.internal.compiler.env.AccessRule;
 import org.eclipse.jdt.internal.compiler.env.AccessRestriction;
 
 public class AccessRuleSet {
 
-    private class_344[] field_1974;
+    private AccessRule[] accessRules;
 
-    public byte field_1975;
+    public byte classpathEntryType;
 
-    public String field_1976;
+    public String classpathEntryName;
 
     public boolean equals(Object var1) {
         if (this == var1) {
@@ -19,13 +19,13 @@ public class AccessRuleSet {
             return false;
         } else {
             AccessRuleSet var2 = (AccessRuleSet)var1;
-            if (this.field_1975 == var2.field_1975 && (this.field_1976 != null || var2.field_1976 == null) && this.field_1976.equals(var2.field_1976)) {
-                int var3 = this.field_1974.length;
-                if (var3 != var2.field_1974.length) {
+            if (this.classpathEntryType == var2.classpathEntryType && (this.classpathEntryName != null || var2.classpathEntryName == null) && this.classpathEntryName.equals(var2.classpathEntryName)) {
+                int var3 = this.accessRules.length;
+                if (var3 != var2.accessRules.length) {
                     return false;
                 } else {
                     for (int var4 = 0; var4 < var3; ++var4) {
-                        if (!this.field_1974[var4].equals(var2.field_1974[var4])) {
+                        if (!this.accessRules[var4].equals(var2.accessRules[var4])) {
                             return false;
                         }
                     }
@@ -37,15 +37,15 @@ public class AccessRuleSet {
         }
     }
 
-    public AccessRestriction method_3324(char[] var1) {
+    public AccessRestriction getViolatedRestriction(char[] var1) {
         int var2 = 0;
-        for (int var3 = this.field_1974.length; var2 < var3; ++var2) {
-            class_344 var4 = this.field_1974[var2];
-            if (CharOperation.method_1379(var4.field_1977, var1, true, '/')) {
+        for (int var3 = this.accessRules.length; var2 < var3; ++var2) {
+            AccessRule var4 = this.accessRules[var2];
+            if (CharOperation.pathMatch(var4.pattern, var1, true, '/')) {
                 switch (var4.method_3326()) {
                     case 16777496:
                     case 16777523:
-                        AccessRestriction var10000 = new AccessRestriction(var4, this.field_1975, this.field_1976);
+                        AccessRestriction var10000 = new AccessRestriction(var4, this.classpathEntryType, this.classpathEntryName);
                         return var10000;
                     default:
                         return null;
@@ -56,21 +56,21 @@ public class AccessRuleSet {
     }
 
     public String toString() {
-        return this.method_3325(true);
+        return this.toString(true);
     }
 
-    public String method_3325(boolean var1) {
+    public String toString(boolean var1) {
         StringBuffer var2 = new StringBuffer(200);
         var2.append("AccessRuleSet {");
         if (var1) {
             var2.append('\n');
         }
         int var3 = 0;
-        for (int var4 = this.field_1974.length; var3 < var4; ++var3) {
+        for (int var4 = this.accessRules.length; var3 < var4; ++var3) {
             if (var1) {
                 var2.append('\t');
             }
-            class_344 var5 = this.field_1974[var3];
+            AccessRule var5 = this.accessRules[var3];
             var2.append(var5);
             if (var1) {
                 var2.append('\n');
@@ -79,7 +79,7 @@ public class AccessRuleSet {
             }
         }
         var2.append("} [classpath entry: ");
-        var2.append(this.field_1976);
+        var2.append(this.classpathEntryName);
         var2.append("]");
         return var2.toString();
     }

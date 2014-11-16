@@ -7,25 +7,25 @@ import org.eclipse.jdt.internal.compiler.util.SuffixConstants;
 
 public abstract class ClasspathLocation implements FileSystem$Classpath, SuffixConstants {
 
-    String field_937;
+    String path;
 
-    char[] field_938;
+    char[] normalizedPath;
 
-    public AccessRuleSet field_939;
+    public AccessRuleSet accessRuleSet;
 
-    public String field_940;
+    public String destinationPath;
 
     protected ClasspathLocation(AccessRuleSet var1, String var2) {
-        this.field_939 = var1;
-        this.field_940 = var2;
+        this.accessRuleSet = var1;
+        this.destinationPath = var2;
     }
 
-    protected AccessRestriction method_1279(String var1) {
-        if (this.field_939 == null) {
+    protected AccessRestriction fetchAccessRestriction(String var1) {
+        if (this.accessRuleSet == null) {
             return null;
         } else {
             char[] var2 = var1.substring(0, var1.length() - field_1.length).toCharArray();
-            return this.field_939.method_3324(var2);
+            return this.accessRuleSet.getViolatedRestriction(var2);
         }
     }
 }

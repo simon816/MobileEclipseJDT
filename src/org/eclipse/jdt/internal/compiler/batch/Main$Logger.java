@@ -21,7 +21,7 @@ import org.eclipse.jdt.internal.compiler.impl.CompilerStats;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
 import org.eclipse.jdt.internal.compiler.util.GenericXMLWriter;
 import org.eclipse.jdt.internal.compiler.util.Util;
-import org.eclipse.jdt.internal.compiler.util.class_323;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfInt;
 import org.eclipse.jdt.internal.compiler.util.Messages;
 
 public class Main$Logger {
@@ -34,9 +34,9 @@ public class Main$Logger {
 
     private HashMap field_929;
 
-    int field_930;
+    int tagBits;
 
-    private static final class_323 field_931;
+    private static final HashtableOfInt FIELD_TABLE;
 
     Main field_932;
 
@@ -48,7 +48,7 @@ public class Main$Logger {
         this.field_929 = var10001;
     }
 
-    public String method_1228(String var1, String var2) {
+    public String buildFileName(String var1, String var2) {
         char var3 = 47;
         String var4 = "/";
         var1 = var1.replace('/', var3);
@@ -67,7 +67,7 @@ public class Main$Logger {
 
     public void close() {
         if (this.field_927 != null) {
-            if ((this.field_930 & 1) != 0) {
+            if ((this.tagBits & 1) != 0) {
                 this.method_1236("compiler");
                 this.flush();
             }
@@ -76,7 +76,7 @@ public class Main$Logger {
     }
 
     public void compiling() {
-        this.method_1262(this.field_932.method_1411("progress.compiling"));
+        this.method_1262(this.field_932.bind("progress.compiling"));
     }
 
     private void method_1231() {
@@ -88,19 +88,19 @@ public class Main$Logger {
     }
 
     public void method_1233() {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.method_1236("source");
         }
     }
 
     public void method_1234() {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.method_1236("sources");
         }
     }
 
     public void method_1235() {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.method_1236("tasks");
         }
     }
@@ -111,7 +111,7 @@ public class Main$Logger {
         }
     }
 
-    private String method_1237(CategorizedProblem var1, char[] var2, int var3) {
+    private String errorReportSource(CategorizedProblem var1, char[] var2, int var3) {
         int var4 = var1.method_1401();
         int var5 = var1.method_1402();
         if (var2 == null && var1.method_1400() != null) {
@@ -126,7 +126,7 @@ public class Main$Logger {
         if (var4 <= var5 && (var4 >= 0 || var5 >= 0) && var6 != 0) {
             StringBuffer var7 = new StringBuffer();
             if ((var3 & 2) == 0) {
-                var7.append(' ').append(Messages.method_3251(Messages.field_1876, String.valueOf(var1.method_1403())));
+                var7.append(' ').append(Messages.bind(Messages.field_1876, String.valueOf(var1.method_1403())));
                 var7.append(Util.field_981);
             }
             var7.append('\t');
@@ -157,7 +157,7 @@ public class Main$Logger {
         }
     }
 
-    private void method_1238(CategorizedProblem var1, char[] var2) {
+    private void extractContext(CategorizedProblem var1, char[] var2) {
         int var3 = var1.method_1401();
         int var4 = var1.method_1402();
         if (var2 == null && var1.method_1400() != null) {
@@ -208,7 +208,7 @@ public class Main$Logger {
     }
 
     private String method_1240(int var1) {
-        return (String)field_931.method_3214(var1 & 16777215);
+        return (String)FIELD_TABLE.get(var1 & 16777215);
     }
 
     private String method_1241(int var1) {
@@ -217,8 +217,8 @@ public class Main$Logger {
     }
 
     public void logAverage() {
-        Arrays.sort(this.field_932.field_1041);
-        long var1 = this.field_932.field_1041[0].field_1969;
+        Arrays.sort(this.field_932.compilerStats);
+        long var1 = this.field_932.compilerStats[0].field_1969;
         int var3 = this.field_932.field_1035;
         long var4 = 0L;
         long var6 = 0L;
@@ -227,8 +227,8 @@ public class Main$Logger {
         long var12 = 0L;
         int var14 = 1;
         for (int var15 = var3 - 1; var14 < var15; ++var14) {
-            CompilerStats var16 = this.field_932.field_1041[var14];
-            var4 += var16.method_3323();
+            CompilerStats var16 = this.field_932.compilerStats[var14];
+            var4 += var16.elapsedTime();
             var6 += var16.field_1970;
             var8 += var16.field_1971;
             var10 += var16.field_1972;
@@ -239,17 +239,17 @@ public class Main$Logger {
         long var18 = var8 / (long)(var3 - 2);
         long var20 = var10 / (long)(var3 - 2);
         long var22 = var12 / (long)(var3 - 2);
-        this.method_1262(this.field_932.method_1414("compile.averageTime", new String[] {String.valueOf(var1), String.valueOf(var24), String.valueOf((double)((int)((double)var1 * 10000.0D / (double)var24)) / 10.0D)}));
+        this.method_1262(this.field_932.bind("compile.averageTime", new String[] {String.valueOf(var1), String.valueOf(var24), String.valueOf((double)((int)((double)var1 * 10000.0D / (double)var24)) / 10.0D)}));
         if ((this.field_932.field_1040 & 2) != 0) {
-            this.method_1262(this.field_932.method_1414("compile.detailedTime", new String[] {String.valueOf(var25), String.valueOf((double)((int)((double)var25 * 1000.0D / (double)var24)) / 10.0D), String.valueOf(var18), String.valueOf((double)((int)((double)var18 * 1000.0D / (double)var24)) / 10.0D), String.valueOf(var20), String.valueOf((double)((int)((double)var20 * 1000.0D / (double)var24)) / 10.0D), String.valueOf(var22), String.valueOf((double)((int)((double)var22 * 1000.0D / (double)var24)) / 10.0D)}));
+            this.method_1262(this.field_932.bind("compile.detailedTime", new String[] {String.valueOf(var25), String.valueOf((double)((int)((double)var25 * 1000.0D / (double)var24)) / 10.0D), String.valueOf(var18), String.valueOf((double)((int)((double)var18 * 1000.0D / (double)var24)) / 10.0D), String.valueOf(var20), String.valueOf((double)((int)((double)var20 * 1000.0D / (double)var24)) / 10.0D), String.valueOf(var22), String.valueOf((double)((int)((double)var22 * 1000.0D / (double)var24)) / 10.0D)}));
         }
     }
 
     public void method_1243(boolean var1, String var2, String var3) {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             String var4 = null;
             if (var1) {
-                var4 = this.method_1228(var2, var3);
+                var4 = this.buildFileName(var2, var3);
             } else {
                 char var5 = 47;
                 String var6 = "/";
@@ -276,14 +276,14 @@ public class Main$Logger {
             this.field_929.put("path", var10.getAbsolutePath());
             this.method_1266("classfile", this.field_929, true, true);
             //} catch (IOException var9) {
-            //   this.method_1247(var2, var3, var9);
+            //   this.logNoClassFileCreated(var2, var3, var9);
             //}
         }
     }
 
     public void method_1244(Exception var1) {
         String var2 = var1.toString();
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             StringBuffer var3 = new StringBuffer();
             String var4 = var1.getMessage();
             if (var4 != null) {
@@ -305,26 +305,26 @@ public class Main$Logger {
 
     private void method_1245(CategorizedProblem var1, int var2, int var3) {
         char[] var4 = var1.method_1400().toCharArray();
-        String var5 = var4 == null ? this.field_932.method_1411("requestor.noFileNameSpecified") : new String(var4);
+        String var5 = var4 == null ? this.field_932.bind("requestor.noFileNameSpecified") : new String(var4);
         String var6;
-        if ((this.field_930 & 2) != 0) {
-            var6 = var5 + ":" + var1.method_1403() + ": " + (var1.method_1399() ? this.field_932.method_1411("output.emacs.error") : this.field_932.method_1411("output.emacs.warning")) + ": " + var1.method_1404();
+        if ((this.tagBits & 2) != 0) {
+            var6 = var5 + ":" + var1.method_1403() + ": " + (var1.method_1399() ? this.field_932.bind("output.emacs.error") : this.field_932.bind("output.emacs.warning")) + ": " + var1.method_1404();
             this.method_1261(var6);
-            String var7 = this.method_1237(var1, (char[])null, this.field_930);
+            String var7 = this.errorReportSource(var1, (char[])null, this.tagBits);
             this.method_1261(var7);
         } else {
             if (var2 == 0) {
                 this.method_1261("----------");
             }
-            this.method_1259(var1.method_1399() ? this.field_932.method_1413("requestor.error", Integer.toString(var3), new String(var5)) : this.field_932.method_1413("requestor.warning", Integer.toString(var3), new String(var5)));
-            var6 = this.method_1237(var1, (char[])null, 0);
+            this.method_1259(var1.method_1399() ? this.field_932.bind("requestor.error", Integer.toString(var3), new String(var5)) : this.field_932.bind("requestor.warning", Integer.toString(var3), new String(var5)));
+            var6 = this.errorReportSource(var1, (char[])null, 0);
             this.method_1261(var6);
             this.method_1261(var1.method_1404());
             this.method_1261("----------");
         }
     }
 
-    public void method_1246(Main var1) {
+    public void loggingExtraProblems(Main var1) {
         ArrayList var2 = this.field_932.field_1043;
         int var3 = var2.size();
         int var4 = 0;
@@ -350,8 +350,8 @@ public class Main$Logger {
                     }
                 }
             }
-            if ((this.field_930 & 1) != 0 && var6 + var7 != 0) {
-                this.method_1267(var3);
+            if ((this.tagBits & 1) != 0 && var6 + var7 != 0) {
+                this.startLoggingExtraProblems(var3);
                 for (var8 = 0; var8 < var3; ++var8) {
                     var9 = (CategorizedProblem)var2.get(var8);
                     if (var9 != null && var9.method_1398() != 536871362) {
@@ -363,40 +363,40 @@ public class Main$Logger {
         }
     }
 
-    public void method_1247(String var1, String var2, IOException var3) {
-        if ((this.field_930 & 1) != 0) {
-            this.field_929.put("message", this.field_932.method_1414("output.noClassFileCreated", new String[] {var1, var2, var3.getMessage()}));
+    public void logNoClassFileCreated(String var1, String var2, IOException var3) {
+        if ((this.tagBits & 1) != 0) {
+            this.field_929.put("message", this.field_932.bind("output.noClassFileCreated", new String[] {var1, var2, var3.getMessage()}));
             this.method_1266("error", this.field_929, true, true);
         }
-        this.method_1261(this.field_932.method_1414("output.noClassFileCreated", new String[] {var1, var2, var3.getMessage()}));
+        this.method_1261(this.field_932.bind("output.noClassFileCreated", new String[] {var1, var2, var3.getMessage()}));
     }
 
     public void method_1248(int var1) {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.field_929.put("value", new Integer(var1));
             this.method_1266("number_of_classfiles", this.field_929, true, true);
         }
         if (var1 == 1) {
-            this.method_1262(this.field_932.method_1411("compile.oneClassFileGenerated"));
+            this.method_1262(this.field_932.bind("compile.oneClassFileGenerated"));
         } else {
-            this.method_1262(this.field_932.method_1412("compile.severalClassFilesGenerated", String.valueOf(var1)));
+            this.method_1262(this.field_932.bind("compile.severalClassFilesGenerated", String.valueOf(var1)));
         }
     }
 
     public void method_1249(String var1) {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.field_929.put("message", var1);
             this.method_1266("error", this.field_929, true, true);
         }
         this.method_1261(var1);
     }
 
-    private void method_1250(CategorizedProblem var1, int var2, int var3, char[] var4) {
+    private void logProblem(CategorizedProblem var1, int var2, int var3, char[] var4) {
         String var5;
-        if ((this.field_930 & 2) != 0) {
-            var5 = new String(var1.method_1400()) + ":" + var1.method_1403() + ": " + (var1.method_1399() ? this.field_932.method_1411("output.emacs.error") : this.field_932.method_1411("output.emacs.warning")) + ": " + var1.method_1404();
+        if ((this.tagBits & 2) != 0) {
+            var5 = new String(var1.method_1400()) + ":" + var1.method_1403() + ": " + (var1.method_1399() ? this.field_932.bind("output.emacs.error") : this.field_932.bind("output.emacs.warning")) + ": " + var1.method_1404();
             this.method_1261(var5);
-            String var6 = this.method_1237(var1, var4, this.field_930);
+            String var6 = this.errorReportSource(var1, var4, this.tagBits);
             if (var6.length() != 0) {
                 this.method_1261(var6);
             }
@@ -404,19 +404,19 @@ public class Main$Logger {
             if (var2 == 0) {
                 this.method_1261("----------");
             }
-            this.method_1259(var1.method_1399() ? this.field_932.method_1413("requestor.error", Integer.toString(var3), new String(var1.method_1400())) : this.field_932.method_1413("requestor.warning", Integer.toString(var3), new String(var1.method_1400())));
+            this.method_1259(var1.method_1399() ? this.field_932.bind("requestor.error", Integer.toString(var3), new String(var1.method_1400())) : this.field_932.bind("requestor.warning", Integer.toString(var3), new String(var1.method_1400())));
             try {
-                var5 = this.method_1237(var1, var4, 0);
+                var5 = this.errorReportSource(var1, var4, 0);
                 this.method_1261(var5);
                 this.method_1261(var1.method_1404());
             } catch (Exception var7) {
-                this.method_1261(this.field_932.method_1412("requestor.notRetrieveErrorMessage", var1.toString()));
+                this.method_1261(this.field_932.bind("requestor.notRetrieveErrorMessage", var1.toString()));
             }
             this.method_1261("----------");
         }
     }
 
-    public int method_1251(CategorizedProblem[] var1, char[] var2, Main var3) {
+    public int logProblems(CategorizedProblem[] var1, char[] var2, Main var3) {
         int var4 = var1.length;
         int var5 = 0;
         int var6 = 0;
@@ -430,7 +430,7 @@ public class Main$Logger {
                 var11 = var1[var10];
                 if (var11 != null) {
                     ++this.field_932.field_1025;
-                    this.method_1250(var11, var6, this.field_932.field_1025, var2);
+                    this.logProblem(var11, var6, this.field_932.field_1025, var2);
                     ++var6;
                     if (var11.method_1399()) {
                         ++var5;
@@ -445,9 +445,9 @@ public class Main$Logger {
                     }
                 }
             }
-            if ((this.field_930 & 1) != 0) {
+            if ((this.tagBits & 1) != 0) {
                 if (var7 + var8 != 0) {
-                    this.method_1268(var7, var8);
+                    this.startLoggingProblems(var7, var8);
                     for (var10 = 0; var10 < var4; ++var10) {
                         var11 = var1[var10];
                         if (var11 != null && var11.method_1398() != 536871362) {
@@ -471,8 +471,8 @@ public class Main$Logger {
         return var5;
     }
 
-    public void method_1252(int var1, int var2, int var3, int var4) {
-        if ((this.field_930 & 1) != 0) {
+    public void logProblemsSummary(int var1, int var2, int var3, int var4) {
+        if ((this.tagBits & 1) != 0) {
             this.field_929.put("problems", new Integer(var1));
             this.field_929.put("errors", new Integer(var2));
             this.field_929.put("warnings", new Integer(var3));
@@ -483,66 +483,66 @@ public class Main$Logger {
         if (var1 == 1) {
             var5 = null;
             if (var2 == 1) {
-                var5 = this.field_932.method_1411("compile.oneError");
+                var5 = this.field_932.bind("compile.oneError");
             } else {
-                var5 = this.field_932.method_1411("compile.oneWarning");
+                var5 = this.field_932.bind("compile.oneWarning");
             }
-            this.method_1259(this.field_932.method_1412("compile.oneProblem", var5));
+            this.method_1259(this.field_932.bind("compile.oneProblem", var5));
         } else {
             var5 = null;
             String var6 = null;
             if (var2 > 0) {
                 if (var2 == 1) {
-                    var5 = this.field_932.method_1411("compile.oneError");
+                    var5 = this.field_932.bind("compile.oneError");
                 } else {
-                    var5 = this.field_932.method_1412("compile.severalErrors", String.valueOf(var2));
+                    var5 = this.field_932.bind("compile.severalErrors", String.valueOf(var2));
                 }
             }
             int var7 = var3 + var4;
             if (var7 > 0) {
                 if (var7 == 1) {
-                    var6 = this.field_932.method_1411("compile.oneWarning");
+                    var6 = this.field_932.bind("compile.oneWarning");
                 } else {
-                    var6 = this.field_932.method_1412("compile.severalWarnings", String.valueOf(var7));
+                    var6 = this.field_932.bind("compile.severalWarnings", String.valueOf(var7));
                 }
             }
             if (var5 != null && var6 != null) {
-                this.method_1259(this.field_932.method_1414("compile.severalProblemsErrorsAndWarnings", new String[] {String.valueOf(var1), var5, var6}));
+                this.method_1259(this.field_932.bind("compile.severalProblemsErrorsAndWarnings", new String[] {String.valueOf(var1), var5, var6}));
             } else if (var5 == null) {
-                this.method_1259(this.field_932.method_1413("compile.severalProblemsErrorsOrWarnings", String.valueOf(var1), var6));
+                this.method_1259(this.field_932.bind("compile.severalProblemsErrorsOrWarnings", String.valueOf(var1), var6));
             } else {
-                this.method_1259(this.field_932.method_1413("compile.severalProblemsErrorsOrWarnings", String.valueOf(var1), var5));
+                this.method_1259(this.field_932.bind("compile.severalProblemsErrorsOrWarnings", String.valueOf(var1), var5));
             }
         }
-        if ((this.field_930 & 2) != 0) {
+        if ((this.tagBits & 2) != 0) {
             this.method_1260();
         }
     }
 
     public void method_1253() {
-        this.method_1264('.');
+        this.printOut('.');
     }
 
     public void logRepetition(int var1, int var2) {
-        this.method_1262(this.field_932.method_1413("compile.repetition", String.valueOf(var1 + 1), String.valueOf(var2)));
+        this.method_1262(this.field_932.bind("compile.repetition", String.valueOf(var1 + 1), String.valueOf(var2)));
     }
 
-    public void method_1255(CompilerStats var1) {
-        long var2 = var1.method_3323();
+    public void logTiming(CompilerStats var1) {
+        long var2 = var1.elapsedTime();
         long var4 = var1.field_1969;
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.field_929.put("value", new Long(var2));
             this.method_1266("time", this.field_929, true, true);
             this.field_929.put("value", new Long(var4));
             this.method_1266("number_of_lines", this.field_929, true, true);
         }
         if (var4 != 0L) {
-            this.method_1262(this.field_932.method_1414("compile.instantTime", new String[] {String.valueOf(var4), String.valueOf(var2), String.valueOf((double)((int)((double)var4 * 10000.0D / (double)var2)) / 10.0D)}));
+            this.method_1262(this.field_932.bind("compile.instantTime", new String[] {String.valueOf(var4), String.valueOf(var2), String.valueOf((double)((int)((double)var4 * 10000.0D / (double)var2)) / 10.0D)}));
         } else {
-            this.method_1262(this.field_932.method_1414("compile.totalTime", new String[] {String.valueOf(var2)}));
+            this.method_1262(this.field_932.bind("compile.totalTime", new String[] {String.valueOf(var2)}));
         }
         if ((this.field_932.field_1040 & 2) != 0) {
-            this.method_1262(this.field_932.method_1414("compile.detailedTime", new String[] {String.valueOf(var1.field_1970), String.valueOf((double)((int)((double)var1.field_1970 * 1000.0D / (double)var2)) / 10.0D), String.valueOf(var1.field_1971), String.valueOf((double)((int)((double)var1.field_1971 * 1000.0D / (double)var2)) / 10.0D), String.valueOf(var1.field_1972), String.valueOf((double)((int)((double)var1.field_1972 * 1000.0D / (double)var2)) / 10.0D), String.valueOf(var1.field_1973), String.valueOf((double)((int)((double)var1.field_1973 * 1000.0D / (double)var2)) / 10.0D)}));
+            this.method_1262(this.field_932.bind("compile.detailedTime", new String[] {String.valueOf(var1.field_1970), String.valueOf((double)((int)((double)var1.field_1970 * 1000.0D / (double)var2)) / 10.0D), String.valueOf(var1.field_1971), String.valueOf((double)((int)((double)var1.field_1971 * 1000.0D / (double)var2)) / 10.0D), String.valueOf(var1.field_1972), String.valueOf((double)((int)((double)var1.field_1972 * 1000.0D / (double)var2)) / 10.0D), String.valueOf(var1.field_1973), String.valueOf((double)((int)((double)var1.field_1973 * 1000.0D / (double)var2)) / 10.0D)}));
         }
     }
 
@@ -557,7 +557,7 @@ public class Main$Logger {
         this.method_1266("extra_problem", this.field_929, true, false);
         this.field_929.put("value", var1.method_1404());
         this.method_1266("message", this.field_929, true, true);
-        this.method_1238(var1, (char[])null);
+        this.extractContext(var1, (char[])null);
         this.method_1236("extra_problem");
     }
 
@@ -577,13 +577,13 @@ public class Main$Logger {
         if (var8 != null) {
             this.field_929.put("optionKey", var8);
         }
-        int var9 = ProblemReporter.method_1458(var7, var5);
+        int var9 = ProblemReporter.getProblemCategory(var7, var5);
         this.field_929.put("categoryID", new Integer(var9));
         this.method_1266("problem", this.field_929, true, false);
         this.field_929.put("value", var1.method_1404());
         this.method_1266("message", this.field_929, true, true);
-        this.method_1238(var1, var2);
-        String[] var10 = var1.method_9();
+        this.extractContext(var1, var2);
+        String[] var10 = var1.getArguments();
         int var11 = var10.length;
         if (var11 != 0) {
             this.method_1266("arguments", (HashMap)null, true, false);
@@ -607,34 +607,34 @@ public class Main$Logger {
         this.method_1266("task", this.field_929, true, false);
         this.field_929.put("value", var1.method_1404());
         this.method_1266("message", this.field_929, true, true);
-        this.method_1238(var1, var2);
+        this.extractContext(var1, var2);
         this.method_1236("task");
     }
 
     private void method_1259(String var1) {
         eclipse.instance.printErrLn(var1);
-        if ((this.field_930 & 1) == 0 && this.field_927 != null) {
+        if ((this.tagBits & 1) == 0 && this.field_927 != null) {
             this.field_927.print(var1);
         }
     }
 
     private void method_1260() {
         this.field_926.println();
-        if ((this.field_930 & 1) == 0 && this.field_927 != null) {
+        if ((this.tagBits & 1) == 0 && this.field_927 != null) {
             this.field_927.println();
         }
     }
 
     private void method_1261(String var1) {
         eclipse.instance.printErrLn(var1);
-        if ((this.field_930 & 1) == 0 && this.field_927 != null) {
+        if ((this.tagBits & 1) == 0 && this.field_927 != null) {
             this.field_927.println(var1);
         }
     }
 
     private void method_1262(String var1) {
         eclipse.instance.println(var1);
-        if ((this.field_930 & 1) == 0 && this.field_927 != null) {
+        if ((this.tagBits & 1) == 0 && this.field_927 != null) {
             this.field_927.println(var1);
         }
     }
@@ -643,29 +643,29 @@ public class Main$Logger {
         eclipse.instance.println("");
     }
 
-    private void method_1264(char var1) {
+    private void printOut(char var1) {
         eclipse.instance.print(String.valueOf(var1));
     }
 
     public void method_1265() {
         Main var10001 = this.field_932;
         boolean var1 = (this.field_932.field_1040 & 1) != 0;
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.method_1266("stats", (HashMap)null, true, false);
         }
         if (var1) {
-            CompilerStats var2 = this.field_932.batchCompiler.field_1702;
+            CompilerStats var2 = this.field_932.batchCompiler.stats;
             var2.field_1967 = this.field_932.field_1037;
             var2.field_1968 = System.currentTimeMillis();
-            this.method_1255(var2);
+            this.logTiming(var2);
         }
         if (this.field_932.field_1025 > 0) {
-            this.method_1252(this.field_932.field_1025, this.field_932.field_1024, this.field_932.field_1027, this.field_932.field_1026);
+            this.logProblemsSummary(this.field_932.field_1025, this.field_932.field_1024, this.field_932.field_1027, this.field_932.field_1026);
         }
         if (this.field_932.field_1021 != 0 && (this.field_932.field_1036 || var1 || this.field_932.field_1042)) {
             this.method_1248(this.field_932.field_1021);
         }
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.method_1236("stats");
         }
     }
@@ -677,21 +677,21 @@ public class Main$Logger {
         this.field_929.clear();
     }
 
-    private void method_1267(int var1) {
+    private void startLoggingExtraProblems(int var1) {
         this.field_929.put("problems", new Integer(var1));
         this.method_1266("extra_problems", this.field_929, true, false);
     }
 
-    private void method_1268(int var1, int var2) {
+    private void startLoggingProblems(int var1, int var2) {
         this.field_929.put("problems", new Integer(var1 + var2));
         this.field_929.put("errors", new Integer(var1));
         this.field_929.put("warnings", new Integer(var2));
         this.method_1266("problems", this.field_929, true, false);
     }
 
-    public void method_1269(CompilationResult var1) {
-        if ((this.field_930 & 1) != 0) {
-            ICompilationUnit var2 = var1.field_1677;
+    public void startLoggingSource(CompilationResult var1) {
+        if ((this.tagBits & 1) != 0) {
+            ICompilationUnit var2 = var1.compilationUnit;
             if (var2 != null) {
                 String var3 = var2.method_50();
                 File var10000 = new File(var3);
@@ -701,7 +701,7 @@ public class Main$Logger {
                 }
                 char[][] var5 = var1.field_1693;
                 if (var5 != null) {
-                    this.field_929.put("package", new String(CharOperation.method_1361(var5, '/')));
+                    this.field_929.put("package", new String(CharOperation.concatWith(var5, '/')));
                 }
                 CompilationUnit var6 = (CompilationUnit)var2;
                 String var7 = var6.field_1011;
@@ -720,20 +720,20 @@ public class Main$Logger {
     }
 
     public void method_1270() {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.method_1266("sources", (HashMap)null, true, false);
         }
     }
 
     public void method_1271(int var1) {
-        if ((this.field_930 & 1) != 0) {
+        if ((this.tagBits & 1) != 0) {
             this.field_929.put("tasks", new Integer(var1));
             this.method_1266("tasks", this.field_929, true, false);
         }
     }
 
     static {
-        class_323 var10000 = new class_323();
-        field_931 = var10000;
+        HashtableOfInt var10000 = new HashtableOfInt();
+        FIELD_TABLE = var10000;
     }
 }

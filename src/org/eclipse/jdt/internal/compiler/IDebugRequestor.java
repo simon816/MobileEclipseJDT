@@ -4,9 +4,9 @@ import org.eclipse.jdt.internal.compiler.CompilationResult;
 
 public interface IDebugRequestor {
 
-    void method_20(CompilationResult var1);
+    void acceptDebugResult(CompilationResult var1);
 
-    boolean method_21();
+    boolean isActive();
 
     void method_22();
 }

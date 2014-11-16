@@ -1,19 +1,19 @@
 package org.eclipse.jdt.internal.compiler.lookup;
 
-import org.eclipse.jdt.internal.compiler.lookup.class_40;
+import org.eclipse.jdt.internal.compiler.lookup.TypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 
 public interface InvocationSite {
 
-    class_40[] method_0();
+    TypeBinding[] genericTypeArguments();
 
-    boolean method_1();
+    boolean isSuperAccess();
 
     void method_2(int var1);
 
-    void method_3(int var1);
+    void setFieldIndex(int var1);
 
-    void method_4(ReferenceBinding var1);
+    void setActualReceiverType(ReferenceBinding var1);
 
     int method_5();
 

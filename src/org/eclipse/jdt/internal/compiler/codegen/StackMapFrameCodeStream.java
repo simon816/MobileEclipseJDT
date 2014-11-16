@@ -9,25 +9,25 @@ import java.util.Arrays;
 import java.util.Vector;
 
 import org.eclipse.jdt.internal.compiler.ClassFile;
-import org.eclipse.jdt.internal.compiler.codegen.class_268;
-import org.eclipse.jdt.internal.compiler.codegen.class_272;
-import org.eclipse.jdt.internal.compiler.codegen.class_273;
-import org.eclipse.jdt.internal.compiler.codegen.class_281;
-import org.eclipse.jdt.internal.compiler.codegen.class_71;
-import org.eclipse.jdt.internal.compiler.codegen.class_73;
+import org.eclipse.jdt.internal.compiler.codegen.CodeStream;
+import org.eclipse.jdt.internal.compiler.codegen.ConstantPool;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$ExceptionMarker;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$FramePosition;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$StackMarker;
+import org.eclipse.jdt.internal.compiler.codegen.ExceptionLabel;
 import org.eclipse.jdt.internal.compiler.codegen.BranchLabel;
-import org.eclipse.jdt.internal.compiler.codegen.class_78;
-import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_58;
-import org.eclipse.jdt.internal.compiler.lookup.class_65;
-import org.eclipse.jdt.internal.compiler.lookup.class_67;
-import org.eclipse.jdt.internal.compiler.lookup.class_83;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$StackDepthMarker;
+import org.eclipse.jdt.internal.compiler.lookup.TypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.MethodBinding;
+import org.eclipse.jdt.internal.compiler.lookup.LocalVariableBinding;
+import org.eclipse.jdt.internal.compiler.lookup.FieldBinding;
+import org.eclipse.jdt.internal.compiler.lookup.Scope;
 
-public class StackMapFrameCodeStream extends class_268 {
+public class StackMapFrameCodeStream extends CodeStream {
 
-    public int[] field_1217;
+    public int[] stateIndexes;
 
-    public int field_1218;
+    public int stateIndexesCounter;
 
     private HashMap field_1219;
 
@@ -42,55 +42,55 @@ public class StackMapFrameCodeStream extends class_268 {
         this.field_1195 |= 16;
     }
 
-    public void method_2088(class_83 var1, int var2) {
-        for (int var3 = 0; var3 < this.field_1215; ++var3) {
-            class_65 var4 = this.field_1214[var3];
+    public void method_2088(Scope var1, int var2) {
+        for (int var3 = 0; var3 < this.visibleLocalsCount; ++var3) {
+            LocalVariableBinding var4 = this.field_1214[var3];
             if (var4 != null) {
-                boolean var5 = this.method_2286(var1, var2, var4);
+                boolean var5 = this.isDefinitelyAssigned(var1, var2, var4);
                 if (!var5) {
-                    if (this.field_1217 != null) {
+                    if (this.stateIndexes != null) {
                         int var6 = 0;
-                        for (int var7 = this.field_1218; var6 < var7; ++var6) {
-                            if (this.method_2286(var1, this.field_1217[var6], var4)) {
-                                if (var4.field_311 == 0 || var4.field_310[(var4.field_311 - 1 << 1) + 1] != -1) {
+                        for (int var7 = this.stateIndexesCounter; var6 < var7; ++var6) {
+                            if (this.isDefinitelyAssigned(var1, this.stateIndexes[var6], var4)) {
+                                if (var4.field_311 == 0 || var4.initializationPCs[(var4.field_311 - 1 << 1) + 1] != -1) {
                                     var4.method_415(this.field_1208);
                                 }
                                 break;
                             }
                         }
                     }
-                } else if (var4.field_311 == 0 || var4.field_310[(var4.field_311 - 1 << 1) + 1] != -1) {
+                } else if (var4.field_311 == 0 || var4.initializationPCs[(var4.field_311 - 1 << 1) + 1] != -1) {
                     var4.method_415(this.field_1208);
                 }
             }
         }
     }
 
-    public void method_2390(int var1, class_40 var2) {
+    public void addExceptionMarker(int var1, TypeBinding var2) {
         if (this.field_1220 == null) {
             this.field_1220 = new Vector();
         }
-        class_273 var10001;
+        StackMapFrameCodeStream$ExceptionMarker var10001;
         Vector var10000;
         if (var2 == null) {
             var10000 = this.field_1220;
-            var10001 = new class_273(var1, class_272.field_1436);
+            var10001 = new StackMapFrameCodeStream$ExceptionMarker(var1, ConstantPool.field_1436);
             var10000.addElement(var10001);
         } else {
-            switch (var2.field_177) {
+            switch (var2.id) {
                 case 7:
                     var10000 = this.field_1220;
-                    var10001 = new class_273(var1, class_272.field_1421);
+                    var10001 = new StackMapFrameCodeStream$ExceptionMarker(var1, ConstantPool.field_1421);
                     var10000.addElement(var10001);
                     break;
                 case 12:
                     var10000 = this.field_1220;
-                    var10001 = new class_273(var1, class_272.field_1411);
+                    var10001 = new StackMapFrameCodeStream$ExceptionMarker(var1, ConstantPool.field_1411);
                     var10000.addElement(var10001);
                     break;
                 default:
                     var10000 = this.field_1220;
-                    var10001 = new class_273(var1, var2.method_134());
+                    var10001 = new StackMapFrameCodeStream$ExceptionMarker(var1, var2.constantPoolName());
                     var10000.addElement(var10001);
             }
         }
@@ -98,72 +98,72 @@ public class StackMapFrameCodeStream extends class_268 {
 
     public void method_2391(int var1) {
         Integer var2 = new Integer(var1);
-        class_281 var3;
-        if ((var3 = (class_281)this.field_1219.get(var2)) != null) {
-            ++var3.field_1648;
+        StackMapFrameCodeStream$FramePosition var3;
+        if ((var3 = (StackMapFrameCodeStream$FramePosition)this.field_1219.get(var2)) != null) {
+            ++var3.counter;
         } else {
             HashMap var10000 = this.field_1219;
-            class_281 var10002 = new class_281();
+            StackMapFrameCodeStream$FramePosition var10002 = new StackMapFrameCodeStream$FramePosition();
             var10000.put(var2, var10002);
         }
     }
 
-    public void method_2351(int var1, BranchLabel var2) {
-        super.method_2351(var1, var2);
+    public void optimizeBranch(int var1, BranchLabel var2) {
+        super.optimizeBranch(var1, var2);
         this.method_2392(var1);
     }
 
     public void method_2392(int var1) {
         Integer var2 = new Integer(var1);
-        class_281 var3;
-        if ((var3 = (class_281)this.field_1219.get(var2)) != null) {
-            --var3.field_1648;
-            if (var3.field_1648 <= 0) {
+        StackMapFrameCodeStream$FramePosition var3;
+        if ((var3 = (StackMapFrameCodeStream$FramePosition)this.field_1219.get(var2)) != null) {
+            --var3.counter;
+            if (var3.counter <= 0) {
                 this.field_1219.remove(var2);
             }
         }
     }
 
-    public void method_2091(class_65 var1) {
-        if (var1.field_310 == null) {
+    public void addVariable(LocalVariableBinding var1) {
+        if (var1.initializationPCs == null) {
             this.method_2358(var1);
         }
         var1.method_415(this.field_1208);
     }
 
-    private void method_2393(int var1, int var2) {
-        class_71 var4;
+    private void addStackMarker(int var1, int var2) {
+        StackMapFrameCodeStream$StackMarker var4;
         ArrayList var10000;
         if (this.field_1222 == null) {
             ArrayList var10001 = new ArrayList();
             this.field_1222 = var10001;
             var10000 = this.field_1222;
-            var4 = new class_71(var1, var2);
+            var4 = new StackMapFrameCodeStream$StackMarker(var1, var2);
             var10000.add(var4);
         } else {
             int var3 = this.field_1222.size();
-            if (var3 == 0 || ((class_71)this.field_1222.get(var3 - 1)).field_319 != this.field_1208) {
+            if (var3 == 0 || ((StackMapFrameCodeStream$StackMarker)this.field_1222.get(var3 - 1)).field_319 != this.field_1208) {
                 var10000 = this.field_1222;
-                var4 = new class_71(var1, var2);
+                var4 = new StackMapFrameCodeStream$StackMarker(var1, var2);
                 var10000.add(var4);
             }
         }
     }
 
-    private void method_2394(int var1, int var2, class_40 var3) {
-        class_78 var5;
+    private void addStackDepthMarker(int var1, int var2, TypeBinding var3) {
+        StackMapFrameCodeStream$StackDepthMarker var5;
         ArrayList var10000;
         if (this.field_1221 == null) {
             ArrayList var10001 = new ArrayList();
             this.field_1221 = var10001;
             var10000 = this.field_1221;
-            var5 = new class_78(var1, var2, var3);
+            var5 = new StackMapFrameCodeStream$StackDepthMarker(var1, var2, var3);
             var10000.add(var5);
         } else {
             int var4 = this.field_1221.size();
-            if (var4 == 0 || ((class_78)this.field_1221.get(var4 - 1)).field_340 != this.field_1208) {
+            if (var4 == 0 || ((StackMapFrameCodeStream$StackDepthMarker)this.field_1221.get(var4 - 1)).field_340 != this.field_1208) {
                 var10000 = this.field_1221;
-                var5 = new class_78(var1, var2, var3);
+                var5 = new StackMapFrameCodeStream$StackDepthMarker(var1, var2, var3);
                 var10000.add(var5);
             }
         }
@@ -171,18 +171,18 @@ public class StackMapFrameCodeStream extends class_268 {
 
     public void method_2125(int var1) {
         super.method_2125(var1);
-        this.method_2394(this.field_1208, -1, (class_40)null);
+        this.addStackDepthMarker(this.field_1208, -1, (TypeBinding)null);
     }
 
-    public void method_2359(class_40 var1) {
-        this.method_2394(this.field_1208, 0, var1);
+    public void method_2359(TypeBinding var1) {
+        this.addStackDepthMarker(this.field_1208, 0, var1);
     }
 
-    public void method_2177(class_40 var1, class_67 var2) {
-        if (var1.method_148() && var1 != class_40.field_187) {
-            this.method_2208(var1.field_177);
+    public void generateClassLiteralAccessForType(TypeBinding var1, FieldBinding var2) {
+        if (var1.method_148() && var1 != TypeBinding.field_187) {
+            this.method_2208(var1.id);
         } else {
-            if (this.field_1213 >= 3211264L) {
+            if (this.targetLevel >= 3211264L) {
                 this.method_2312(var1);
             } else {
                 BranchLabel var10000 = new BranchLabel(this);
@@ -193,10 +193,10 @@ public class StackMapFrameCodeStream extends class_268 {
                     this.method_2243(var3);
                     this.method_2352();
                 }
-                class_73 var7 = new class_73(this, class_40.field_187);
-                class_73 var4 = var7;
+                ExceptionLabel var7 = new ExceptionLabel(this, TypeBinding.field_187);
+                ExceptionLabel var4 = var7;
                 var4.method_449();
-                this.method_2311(var1 == class_40.field_187 ? "java.lang.Object" : String.valueOf(var1.method_134()).replace('/', '.'));
+                this.ldc(var1 == TypeBinding.field_187 ? "java.lang.Object" : String.valueOf(var1.constantPoolName()).replace('/', '.'));
                 this.method_2259();
                 var4.method_448();
                 if (var2 != null) {
@@ -206,7 +206,7 @@ public class StackMapFrameCodeStream extends class_268 {
                 int var5 = this.field_1208;
                 this.method_2209(var3);
                 int var6 = this.field_1210;
-                this.method_2355(class_40.field_187);
+                this.method_2355(TypeBinding.field_187);
                 var4.method_447();
                 this.method_2348();
                 this.method_2142();
@@ -214,27 +214,27 @@ public class StackMapFrameCodeStream extends class_268 {
                 this.method_2281();
                 this.method_2270();
                 this.method_2107();
-                var3.method_458();
-                this.method_2393(var5, this.field_1208);
+                var3.place();
+                this.addStackMarker(var5, this.field_1208);
                 this.field_1210 = var6;
             }
         }
     }
 
-    public class_273[] method_2395() {
+    public StackMapFrameCodeStream$ExceptionMarker[] getExceptionMarkers() {
         Vector var1 = this.field_1220;
         if (this.field_1220 == null) {
             return null;
         } else {
             int var2 = var1.size();
-            class_273[] var3 = new class_273[var2];
+            StackMapFrameCodeStream$ExceptionMarker[] var3 = new StackMapFrameCodeStream$ExceptionMarker[var2];
             var1.copyInto(var3);
             Arrays.sort(var3);
             return var3;
         }
     }
 
-    public int[] method_2396() {
+    public int[] getFramePositions() {
         Collection var1 = this.field_1219.keySet();
         int var2 = var1.size();
         int[] var3 = new int[var2];
@@ -246,7 +246,7 @@ public class StackMapFrameCodeStream extends class_268 {
         return var3;
     }
 
-    public class_78[] method_2397() {
+    public StackMapFrameCodeStream$StackDepthMarker[] getStackDepthMarkers() {
         if (this.field_1221 == null) {
             return null;
         } else {
@@ -254,14 +254,14 @@ public class StackMapFrameCodeStream extends class_268 {
             if (var1 == 0) {
                 return null;
             } else {
-                class_78[] var2 = new class_78[var1];
+                StackMapFrameCodeStream$StackDepthMarker[] var2 = new StackMapFrameCodeStream$StackDepthMarker[var1];
                 this.field_1221.toArray(var2);
                 return var2;
             }
         }
     }
 
-    public class_71[] method_2398() {
+    public StackMapFrameCodeStream$StackMarker[] getStackMarkers() {
         if (this.field_1222 == null) {
             return null;
         } else {
@@ -269,20 +269,20 @@ public class StackMapFrameCodeStream extends class_268 {
             if (var1 == 0) {
                 return null;
             } else {
-                class_71[] var2 = new class_71[var1];
+                StackMapFrameCodeStream$StackMarker[] var2 = new StackMapFrameCodeStream$StackMarker[var1];
                 this.field_1222.toArray(var2);
                 return var2;
             }
         }
     }
 
-    public boolean method_2399() {
+    public boolean hasFramePositions() {
         return this.field_1219.size() != 0;
     }
 
     public void method_2255(ClassFile var1) {
         super.method_2255(var1);
-        this.field_1218 = 0;
+        this.stateIndexesCounter = 0;
         if (this.field_1219 != null) {
             this.field_1219.clear();
         }
@@ -297,8 +297,8 @@ public class StackMapFrameCodeStream extends class_268 {
         }
     }
 
-    public void method_2256(class_58 var1) {
-        super.method_2256(var1);
+    public void initializeMaxLocals(MethodBinding var1) {
+        super.initializeMaxLocals(var1);
         if (this.field_1219 == null) {
             HashMap var10001 = new HashMap();
             this.field_1219 = var10001;
@@ -308,32 +308,32 @@ public class StackMapFrameCodeStream extends class_268 {
     }
 
     public void method_2400() {
-        --this.field_1218;
+        --this.stateIndexesCounter;
     }
 
     public void method_2401(int var1) {
-        if (this.field_1217 == null) {
-            this.field_1217 = new int[3];
+        if (this.stateIndexes == null) {
+            this.stateIndexes = new int[3];
         }
-        int var2 = this.field_1217.length;
-        if (var2 == this.field_1218) {
-            System.arraycopy(this.field_1217, 0, this.field_1217 = new int[var2 * 2], 0, var2);
+        int var2 = this.stateIndexes.length;
+        if (var2 == this.stateIndexesCounter) {
+            System.arraycopy(this.stateIndexes, 0, this.stateIndexes = new int[var2 * 2], 0, var2);
         }
-        this.field_1217[this.field_1218++] = var1;
+        this.stateIndexes[this.stateIndexesCounter++] = var1;
     }
 
-    public void method_2363(class_83 var1, int var2) {
-        int var3 = this.field_1215;
+    public void method_2363(Scope var1, int var2) {
+        int var3 = this.visibleLocalsCount;
         label34:
         for (int var4 = 0; var4 < var3; ++var4) {
-            class_65 var5 = this.field_1214[var4];
+            LocalVariableBinding var5 = this.field_1214[var4];
             if (var5 != null && var5.field_311 > 0) {
-                boolean var6 = this.method_2286(var1, var2, var5);
+                boolean var6 = this.isDefinitelyAssigned(var1, var2, var5);
                 if (!var6) {
-                    if (this.field_1217 != null) {
+                    if (this.stateIndexes != null) {
                         int var7 = 0;
-                        for (int var8 = this.field_1218; var7 < var8; ++var7) {
-                            if (this.method_2286(var1, this.field_1217[var7], var5)) {
+                        for (int var8 = this.stateIndexesCounter; var7 < var8; ++var7) {
+                            if (this.isDefinitelyAssigned(var1, this.stateIndexes[var7], var5)) {
                                 continue label34;
                             }
                         }
@@ -346,7 +346,7 @@ public class StackMapFrameCodeStream extends class_268 {
 
     public void method_2367(ClassFile var1) {
         super.method_2367(var1);
-        this.field_1218 = 0;
+        this.stateIndexesCounter = 0;
         if (this.field_1219 != null) {
             this.field_1219.clear();
         }
@@ -363,22 +363,22 @@ public class StackMapFrameCodeStream extends class_268 {
 
     protected void method_2381(BranchLabel var1) {
         super.method_2381(var1);
-        this.method_2391(var1.field_323);
+        this.method_2391(var1.position);
     }
 
-    protected void method_2382(BranchLabel var1, int var2) {
-        super.method_2382(var1, var2);
-        this.method_2391(var1.field_323);
+    protected void writePosition(BranchLabel var1, int var2) {
+        super.writePosition(var1, var2);
+        this.method_2391(var1.position);
     }
 
-    protected void method_2386(int var1, int var2) {
-        super.method_2386(var1, var2);
+    protected void writeSignedWord(int var1, int var2) {
+        super.writeSignedWord(var1, var2);
         this.method_2391(this.field_1208);
     }
 
     protected void method_2388(BranchLabel var1) {
         super.method_2388(var1);
-        this.method_2391(var1.field_323);
+        this.method_2391(var1.position);
     }
 
     public void method_2098() {
@@ -416,14 +416,14 @@ public class StackMapFrameCodeStream extends class_268 {
         this.method_2391(this.field_1208);
     }
 
-    public void method_2354(class_40 var1) {
+    public void method_2354(TypeBinding var1) {
         super.method_2354(var1);
-        this.method_2394(this.field_1208, 1, var1);
+        this.addStackDepthMarker(this.field_1208, 1, var1);
     }
 
-    public void method_2355(class_40 var1) {
+    public void method_2355(TypeBinding var1) {
         super.method_2355(var1);
-        this.method_2390(this.field_1208, var1);
+        this.addExceptionMarker(this.field_1208, var1);
     }
 
     public void method_2209(BranchLabel var1) {

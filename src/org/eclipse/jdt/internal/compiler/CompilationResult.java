@@ -28,23 +28,23 @@ public class CompilationResult {
 
     public int field_1676;
 
-    public ICompilationUnit field_1677;
+    public ICompilationUnit compilationUnit;
 
     public Map field_1678;
 
     public Vector field_1679;
 
-    private int field_1680;
+    private int maxProblemPerUnit;
 
-    public char[][][] field_1681;
+    public char[][][] qualifiedReferences;
 
     public char[][] field_1682;
 
     public boolean field_1683;
 
-    public int[] field_1684;
+    public int[] lineSeparatorPositions;
 
-    public RecoveryScannerData field_1685;
+    public RecoveryScannerData recoveryScannerData;
 
     public Map field_1686;
 
@@ -64,7 +64,7 @@ public class CompilationResult {
 
     public boolean field_1694;
 
-    private static final int[] field_1695;
+    private static final int[] EMPTY_LINE_ENDS;
 
     private static final Comparator field_1696;
 
@@ -79,7 +79,7 @@ public class CompilationResult {
         this.field_1690 = var1;
         this.field_1687 = var2;
         this.field_1688 = var3;
-        this.field_1680 = var4;
+        this.maxProblemPerUnit = var4;
     }
 
     public CompilationResult(ICompilationUnit var1, int var2, int var3, int var4) {
@@ -91,13 +91,13 @@ public class CompilationResult {
         this.field_1692 = false;
         this.field_1694 = false;
         this.field_1690 = var1.method_50();
-        this.field_1677 = var1;
+        this.compilationUnit = var1;
         this.field_1687 = var2;
         this.field_1688 = var3;
-        this.field_1680 = var4;
+        this.maxProblemPerUnit = var4;
     }
 
-    private int method_2915(CategorizedProblem var1) {
+    private int computePriority(CategorizedProblem var1) {
         int var6 = 10000 - var1.method_1403();
         if (var6 < 0) {
             var6 = 0;
@@ -171,14 +171,14 @@ public class CompilationResult {
         }
     }
 
-    public ClassFile[] method_2917() {
+    public ClassFile[] getClassFiles() {
         ClassFile[] var1 = new ClassFile[this.field_1686.size()];
         this.field_1686.values().toArray(var1);
         return var1;
     }
 
-    public ICompilationUnit method_2918() {
-        return this.field_1677;
+    public ICompilationUnit getCompilationUnit() {
+        return this.compilationUnit;
     }
 
     public CategorizedProblem[] method_2919() {
@@ -207,8 +207,8 @@ public class CompilationResult {
         return this.field_1690;
     }
 
-    public int[] method_2921() {
-        return this.field_1684 == null ? field_1695 : this.field_1684;
+    public int[] getLineSeparatorPositions() {
+        return this.lineSeparatorPositions == null ? EMPTY_LINE_ENDS : this.lineSeparatorPositions;
     }
 
     public CategorizedProblem[] method_2922() {
@@ -216,9 +216,9 @@ public class CompilationResult {
             if (this.field_1675 != this.field_1673.length) {
                 System.arraycopy(this.field_1673, 0, this.field_1673 = new CategorizedProblem[this.field_1675], 0, this.field_1675);
             }
-            if (this.field_1680 > 0 && this.field_1675 > this.field_1680) {
-                this.method_2927(this.field_1673, 0, this.field_1675 - 1);
-                this.field_1675 = this.field_1680;
+            if (this.maxProblemPerUnit > 0 && this.field_1675 > this.maxProblemPerUnit) {
+                this.quickPrioritize(this.field_1673, 0, this.field_1675 - 1);
+                this.field_1675 = this.maxProblemPerUnit;
                 System.arraycopy(this.field_1673, 0, this.field_1673 = new CategorizedProblem[this.field_1675], 0, this.field_1675);
             }
             Arrays.sort(this.field_1673, 0, this.field_1673.length, field_1696);
@@ -255,14 +255,14 @@ public class CompilationResult {
         return this.field_1676 != 0;
     }
 
-    private void method_2927(CategorizedProblem[] var1, int var2, int var3) {
+    private void quickPrioritize(CategorizedProblem[] var1, int var2, int var3) {
         if (var2 < var3) {
             int var4 = var2;
             int var5 = var3;
-            int var6 = this.method_2915(var1[var2 + (var3 - var2) / 2]);
+            int var6 = this.computePriority(var1[var2 + (var3 - var2) / 2]);
             while (true) {
-                while (this.method_2915(var1[var3]) >= var6) {
-                    while (var6 < this.method_2915(var1[var2])) {
+                while (this.computePriority(var1[var3]) >= var6) {
+                    while (var6 < this.computePriority(var1[var2])) {
                         ++var2;
                     }
                     if (var2 <= var3) {
@@ -274,10 +274,10 @@ public class CompilationResult {
                     }
                     if (var2 > var3) {
                         if (var4 < var3) {
-                            this.method_2927(var1, var4, var3);
+                            this.quickPrioritize(var1, var4, var3);
                         }
                         if (var2 < var5) {
-                            this.method_2927(var1, var2, var5);
+                            this.quickPrioritize(var1, var2, var5);
                         }
                         return;
                     }
@@ -287,13 +287,13 @@ public class CompilationResult {
         }
     }
 
-    public void method_2928(char[][] var1) {
+    public void recordPackageName(char[][] var1) {
         this.field_1693 = var1;
     }
 
-    public void method_2929(CategorizedProblem var1, ReferenceContext var2) {
+    public void record(CategorizedProblem var1, ReferenceContext var2) {
         if (var1.method_1398() == 536871362) {
-            this.method_2931(var1);
+            this.recordTask(var1);
         } else {
             if (this.field_1675 == 0) {
                 this.field_1673 = new CategorizedProblem[5];
@@ -309,7 +309,7 @@ public class CompilationResult {
                 if (this.field_1679 == null) {
                     this.field_1679 = new Vector(5);
                 }
-                if (var1.method_1399() && !var2.method_95()) {
+                if (var1.method_1399() && !var2.hasErrors()) {
                     this.field_1679.addElement(var1);
                 }
                 this.field_1678.put(var1, var2);
@@ -320,15 +320,15 @@ public class CompilationResult {
         }
     }
 
-    public void method_2930(char[] var1, ClassFile var2) {
-        SourceTypeBinding var3 = var2.field_1729;
+    public void record(char[] var1, ClassFile var2) {
+        SourceTypeBinding var3 = var2.referenceBinding;
         if (!var3.method_158() && var3.method_156()) {
             this.field_1691 = true;
         }
         this.field_1686.put(var1, var2);
     }
 
-    private void method_2931(CategorizedProblem var1) {
+    private void recordTask(CategorizedProblem var1) {
         if (this.field_1676 == 0) {
             this.field_1674 = new CategorizedProblem[5];
         } else if (this.field_1676 == this.field_1674.length) {
@@ -337,7 +337,7 @@ public class CompilationResult {
         this.field_1674[this.field_1676++] = var1;
     }
 
-    public CompilationResult method_2932() {
+    public CompilationResult tagAsAccepted() {
         this.field_1689 = true;
         this.field_1678 = null;
         this.field_1679 = null;
@@ -371,7 +371,7 @@ public class CompilationResult {
     }
 
     static {
-        field_1695 = Util.field_983;
+        EMPTY_LINE_ENDS = Util.EMPTY_INT_ARRAY;
         CompilationResult$1 var10000 = new CompilationResult$1();
         field_1696 = var10000;
     }

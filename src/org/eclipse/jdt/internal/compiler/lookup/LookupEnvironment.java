@@ -16,233 +16,233 @@ import org.eclipse.jdt.internal.compiler.env.NameEnvironmentAnswer;
 import org.eclipse.jdt.internal.compiler.env.AccessRestriction;
 import org.eclipse.jdt.internal.compiler.impl.ITypeRequestor;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
-import org.eclipse.jdt.internal.compiler.lookup.class_17;
-import org.eclipse.jdt.internal.compiler.lookup.class_197;
-import org.eclipse.jdt.internal.compiler.lookup.class_203;
-import org.eclipse.jdt.internal.compiler.lookup.class_320;
-import org.eclipse.jdt.internal.compiler.lookup.class_35;
+import org.eclipse.jdt.internal.compiler.lookup.TypeConstants;
+import org.eclipse.jdt.internal.compiler.lookup.SignatureWrapper;
+import org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding;
+import org.eclipse.jdt.internal.compiler.lookup.ElementValuePair;
+import org.eclipse.jdt.internal.compiler.lookup.ImportBinding;
 import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
-import org.eclipse.jdt.internal.compiler.lookup.class_39;
-import org.eclipse.jdt.internal.compiler.lookup.class_40;
-import org.eclipse.jdt.internal.compiler.lookup.class_42;
+import org.eclipse.jdt.internal.compiler.lookup.ProblemPackageBinding;
+import org.eclipse.jdt.internal.compiler.lookup.TypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.ArrayBinding;
 import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
-import org.eclipse.jdt.internal.compiler.lookup.class_44;
-import org.eclipse.jdt.internal.compiler.lookup.class_45;
-import org.eclipse.jdt.internal.compiler.lookup.class_46;
-import org.eclipse.jdt.internal.compiler.lookup.class_49;
-import org.eclipse.jdt.internal.compiler.lookup.class_50;
-import org.eclipse.jdt.internal.compiler.lookup.class_51;
-import org.eclipse.jdt.internal.compiler.lookup.class_52;
-import org.eclipse.jdt.internal.compiler.lookup.class_53;
-import org.eclipse.jdt.internal.compiler.lookup.class_57;
-import org.eclipse.jdt.internal.compiler.lookup.class_58;
-import org.eclipse.jdt.internal.compiler.lookup.class_63;
-import org.eclipse.jdt.internal.compiler.lookup.class_81;
-import org.eclipse.jdt.internal.compiler.lookup.class_82;
-import org.eclipse.jdt.internal.compiler.lookup.class_83;
-import org.eclipse.jdt.internal.compiler.lookup.class_85;
+import org.eclipse.jdt.internal.compiler.lookup.UnresolvedReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.WildcardBinding;
+import org.eclipse.jdt.internal.compiler.lookup.TypeVariableBinding;
+import org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.MissingTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.ProblemReferenceBinding;
+import org.eclipse.jdt.internal.compiler.lookup.ParameterizedTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.RawTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.LocalTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.MethodBinding;
+import org.eclipse.jdt.internal.compiler.lookup.ParameterizedGenericMethodBinding;
+import org.eclipse.jdt.internal.compiler.lookup.MethodVerifier;
+import org.eclipse.jdt.internal.compiler.lookup.MethodVerifier15;
+import org.eclipse.jdt.internal.compiler.lookup.Scope;
+import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
-import org.eclipse.jdt.internal.compiler.util.class_324;
-import org.eclipse.jdt.internal.compiler.util.class_327;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfPackage;
+import org.eclipse.jdt.internal.compiler.util.SimpleLookupTable;
 
-public class LookupEnvironment implements class_17 {
+public class LookupEnvironment implements TypeConstants {
 
     private Map field_345;
 
-    class_35[] field_346;
+    ImportBinding[] defaultImports;
 
-    public PackageBinding field_347;
+    public PackageBinding defaultPackage;
 
-    class_324 field_348;
+    HashtableOfPackage knownPackages;
 
     private int field_349;
 
     private int field_350;
 
-    public INameEnvironment field_351;
+    public INameEnvironment nameEnvironment;
 
-    public CompilerOptions field_352;
+    public CompilerOptions globalOptions;
 
-    public ProblemReporter field_353;
+    public ProblemReporter problemReporter;
 
-    public ClassFilePool field_354;
+    public ClassFilePool classFilePool;
 
     private int field_355;
 
-    public ITypeRequestor field_356;
+    public ITypeRequestor typeRequestor;
 
-    private class_42[][] field_357;
+    private ArrayBinding[][] uniqueArrayBindings;
 
-    private class_327 field_358;
+    private SimpleLookupTable field_358;
 
-    private class_327 field_359;
+    private SimpleLookupTable field_359;
 
-    private class_327 field_360;
+    private SimpleLookupTable field_360;
 
-    private class_327 field_361;
+    private SimpleLookupTable field_361;
 
-    public CompilationUnitDeclaration field_362;
+    public CompilationUnitDeclaration unitBeingCompleted;
 
-    public Object field_363;
+    public Object missingClassFileLocation;
 
-    private CompilationUnitDeclaration[] field_364;
+    private CompilationUnitDeclaration[] units;
 
-    private class_81 field_365;
+    private MethodVerifier verifier;
 
-    static final class_39 field_366;
+    static final ProblemPackageBinding TheNotFoundPackage;
 
-    static final class_51 field_367;
+    static final ProblemReferenceBinding TheNotFoundType;
 
     public LookupEnvironment(ITypeRequestor var1, CompilerOptions var2, ProblemReporter var3, INameEnvironment var4) {
         this.field_349 = -1;
         this.field_350 = -1;
-        this.field_362 = null;
-        this.field_363 = null;
-        this.field_364 = new CompilationUnitDeclaration[4];
-        this.field_356 = var1;
-        this.field_352 = var2;
-        this.field_353 = var3;
+        this.unitBeingCompleted = null;
+        this.missingClassFileLocation = null;
+        this.units = new CompilationUnitDeclaration[4];
+        this.typeRequestor = var1;
+        this.globalOptions = var2;
+        this.problemReporter = var3;
         PackageBinding var10001 = new PackageBinding(this);
-        this.field_347 = var10001;
-        this.field_346 = null;
-        this.field_351 = var4;
-        class_324 var8 = new class_324();
-        this.field_348 = var8;
-        this.field_357 = new class_42[5][];
-        this.field_357[0] = new class_42[50];
-        class_327 var7 = new class_327(3);
+        this.defaultPackage = var10001;
+        this.defaultImports = null;
+        this.nameEnvironment = var4;
+        HashtableOfPackage var8 = new HashtableOfPackage();
+        this.knownPackages = var8;
+        this.uniqueArrayBindings = new ArrayBinding[5][];
+        this.uniqueArrayBindings[0] = new ArrayBinding[50];
+        SimpleLookupTable var7 = new SimpleLookupTable(3);
         this.field_358 = var7;
-        var7 = new class_327(3);
+        var7 = new SimpleLookupTable(3);
         this.field_359 = var7;
-        var7 = new class_327(3);
+        var7 = new SimpleLookupTable(3);
         this.field_360 = var7;
-        var7 = new class_327(3);
+        var7 = new SimpleLookupTable(3);
         this.field_361 = var7;
         HashMap var5 = new HashMap(3);
         this.field_345 = var5;
         ClassFilePool var6 = new ClassFilePool();
-        this.field_354 = var6;
+        this.classFilePool = var6;
     }
 
     public ReferenceBinding method_481(char[][] var1) {
-        NameEnvironmentAnswer var2 = this.field_351.method_80(var1);
+        NameEnvironmentAnswer var2 = this.nameEnvironment.findType(var1);
         if (var2 == null) {
             return null;
         } else {
             if (var2.method_3187()) {
-                this.field_356.method_87(var2.method_3184(), this.method_487(var1, false), var2.method_3183());
+                this.typeRequestor.accept(var2.getBinaryType(), this.computePackageFrom(var1, false), var2.getAccessRestriction());
             } else if (var2.method_3188()) {
-                this.field_356.method_88(var2.method_3185(), var2.method_3183());
+                this.typeRequestor.accept(var2.getCompilationUnit(), var2.getAccessRestriction());
             } else if (var2.method_3189()) {
-                this.field_356.method_89(var2.method_3186(), this.method_487(var1, false), var2.method_3183());
+                this.typeRequestor.accept(var2.getSourceTypes(), this.computePackageFrom(var1, false), var2.getAccessRestriction());
             }
             return this.method_504(var1);
         }
     }
 
-    ReferenceBinding method_482(PackageBinding var1, char[] var2) {
+    ReferenceBinding askForType(PackageBinding var1, char[] var2) {
         if (var1 == null) {
-            if (this.field_347 == null) {
+            if (this.defaultPackage == null) {
                 return null;
             }
-            var1 = this.field_347;
+            var1 = this.defaultPackage;
         }
-        NameEnvironmentAnswer var3 = this.field_351.method_81(var2, var1.field_171);
+        NameEnvironmentAnswer var3 = this.nameEnvironment.findType(var2, var1.compoundName);
         if (var3 == null) {
             return null;
         } else {
             if (var3.method_3187()) {
-                this.field_356.method_87(var3.method_3184(), var1, var3.method_3183());
+                this.typeRequestor.accept(var3.getBinaryType(), var1, var3.getAccessRestriction());
             } else if (var3.method_3188()) {
-                this.field_356.method_88(var3.method_3185(), var3.method_3183());
+                this.typeRequestor.accept(var3.getCompilationUnit(), var3.getAccessRestriction());
             } else if (var3.method_3189()) {
-                this.field_356.method_89(var3.method_3186(), var1, var3.method_3183());
+                this.typeRequestor.accept(var3.getSourceTypes(), var1, var3.getAccessRestriction());
             }
             return var1.method_124(var2);
         }
     }
 
-    public void method_483(CompilationUnitDeclaration var1, AccessRestriction var2) {
-        class_85 var10000 = new class_85(var1, this);
-        class_85 var3 = var10000;
-        var3.method_674(var2);
-        int var4 = this.field_364.length;
+    public void buildTypeBindings(CompilationUnitDeclaration var1, AccessRestriction var2) {
+        CompilationUnitScope var10000 = new CompilationUnitScope(var1, this);
+        CompilationUnitScope var3 = var10000;
+        var3.buildTypeBindings(var2);
+        int var4 = this.units.length;
         if (++this.field_350 >= var4) {
-            System.arraycopy(this.field_364, 0, this.field_364 = new CompilationUnitDeclaration[2 * var4], 0, var4);
+            System.arraycopy(this.units, 0, this.units = new CompilationUnitDeclaration[2 * var4], 0, var4);
         }
-        this.field_364[this.field_350] = var1;
+        this.units[this.field_350] = var1;
     }
 
     public void method_484() {
         this.field_355 = 1;
         int var1;
         for (var1 = this.field_349 + 1; var1 <= this.field_350; ++var1) {
-            (this.field_362 = this.field_364[var1]).field_453.method_675();
+            (this.unitBeingCompleted = this.units[var1]).scope.method_675();
         }
         this.field_355 = 2;
         for (var1 = this.field_349 + 1; var1 <= this.field_350; ++var1) {
-            (this.field_362 = this.field_364[var1]).field_453.method_678();
+            (this.unitBeingCompleted = this.units[var1]).scope.method_678();
         }
         this.field_355 = 3;
         for (var1 = this.field_349 + 1; var1 <= this.field_350; ++var1) {
-            class_85 var2 = (this.field_362 = this.field_364[var1]).field_453;
+            CompilationUnitScope var2 = (this.unitBeingCompleted = this.units[var1]).scope;
             var2.method_676();
             var2.method_673();
-            this.field_364[var1] = null;
+            this.units[var1] = null;
         }
         this.field_355 = 4;
         this.field_349 = this.field_350;
-        this.field_362 = null;
+        this.unitBeingCompleted = null;
     }
 
-    public void method_485(CompilationUnitDeclaration var1) {
+    public void completeTypeBindings(CompilationUnitDeclaration var1) {
         if (this.field_355 == 4) {
             this.method_484();
         } else {
-            if (var1.field_453 == null) {
+            if (var1.scope == null) {
                 return;
             }
             if (this.field_355 >= 2) {
-                (this.field_362 = var1).field_453.method_675();
+                (this.unitBeingCompleted = var1).scope.method_675();
             }
             if (this.field_355 >= 3) {
-                (this.field_362 = var1).field_453.method_678();
+                (this.unitBeingCompleted = var1).scope.method_678();
             }
-            this.field_362 = null;
+            this.unitBeingCompleted = null;
         }
     }
 
-    public class_40 method_486(class_40 var1) {
+    public TypeBinding method_486(TypeBinding var1) {
         ReferenceBinding var2;
-        class_51 var10000;
-        switch (var1.field_177) {
+        ProblemReferenceBinding var10000;
+        switch (var1.id) {
             case 2:
                 var2 = this.method_508(field_111);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_111, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_111, (ReferenceBinding)null, 1);
                 return var10000;
             case 3:
                 var2 = this.method_508(field_109);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_109, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_109, (ReferenceBinding)null, 1);
                 return var10000;
             case 4:
                 var2 = this.method_508(field_110);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_110, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_110, (ReferenceBinding)null, 1);
                 return var10000;
             case 5:
                 var2 = this.method_508(field_116);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_116, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_116, (ReferenceBinding)null, 1);
                 return var10000;
             case 6:
             case 11:
@@ -261,27 +261,27 @@ public class LookupEnvironment implements class_17 {
             case 24:
             case 25:
             default:
-                switch (var1.method_98()) {
+                switch (var1.kind()) {
                     case 516:
                     case 4100:
                     case 8196:
-                        switch (var1.method_138().field_177) {
+                        switch (var1.erasure().id) {
                             case 26:
-                                return class_40.field_180;
+                                return TypeBinding.field_180;
                             case 27:
-                                return class_40.field_181;
+                                return TypeBinding.field_181;
                             case 28:
-                                return class_40.field_182;
+                                return TypeBinding.field_182;
                             case 29:
-                                return class_40.field_179;
+                                return TypeBinding.field_179;
                             case 30:
-                                return class_40.field_183;
+                                return TypeBinding.field_183;
                             case 31:
-                                return class_40.field_184;
+                                return TypeBinding.field_184;
                             case 32:
-                                return class_40.field_185;
+                                return TypeBinding.field_185;
                             case 33:
-                                return class_40.field_186;
+                                return TypeBinding.field_186;
                         }
                     default:
                         return var1;
@@ -291,110 +291,110 @@ public class LookupEnvironment implements class_17 {
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_113, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_113, (ReferenceBinding)null, 1);
                 return var10000;
             case 8:
                 var2 = this.method_508(field_115);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_115, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_115, (ReferenceBinding)null, 1);
                 return var10000;
             case 9:
                 var2 = this.method_508(field_114);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_114, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_114, (ReferenceBinding)null, 1);
                 return var10000;
             case 10:
                 var2 = this.method_508(field_112);
                 if (var2 != null) {
                     return var2;
                 }
-                var10000 = new class_51(field_112, (ReferenceBinding)null, 1);
+                var10000 = new ProblemReferenceBinding(field_112, (ReferenceBinding)null, 1);
                 return var10000;
             case 26:
-                return class_40.field_180;
+                return TypeBinding.field_180;
             case 27:
-                return class_40.field_181;
+                return TypeBinding.field_181;
             case 28:
-                return class_40.field_182;
+                return TypeBinding.field_182;
             case 29:
-                return class_40.field_179;
+                return TypeBinding.field_179;
             case 30:
-                return class_40.field_183;
+                return TypeBinding.field_183;
             case 31:
-                return class_40.field_184;
+                return TypeBinding.field_184;
             case 32:
-                return class_40.field_185;
+                return TypeBinding.field_185;
             case 33:
-                return class_40.field_186;
+                return TypeBinding.field_186;
         }
     }
 
-    private PackageBinding method_487(char[][] var1, boolean var2) {
+    private PackageBinding computePackageFrom(char[][] var1, boolean var2) {
         if (var1.length == 1) {
-            return this.field_347;
+            return this.defaultPackage;
         } else {
             PackageBinding var3 = this.method_505(var1[0]);
             PackageBinding var10000;
-            if (var3 == null || var3 == field_366) {
+            if (var3 == null || var3 == TheNotFoundPackage) {
                 var10000 = new PackageBinding(var1[0], this);
                 var3 = var10000;
                 if (var2) {
-                    var3.field_170 |= 128L;
+                    var3.tagBits |= 128L;
                 }
-                this.field_348.method_3220(var1[0], var3);
+                this.knownPackages.put(var1[0], var3);
             }
             int var4 = 1;
             for (int var5 = var1.length - 1; var4 < var5; ++var4) {
                 PackageBinding var6 = var3;
-                if ((var3 = var3.method_122(var1[var4])) == null || var3 == field_366) {
-                    var10000 = new PackageBinding(CharOperation.method_1387(var1, 0, var4 + 1), var6, this);
+                if ((var3 = var3.method_122(var1[var4])) == null || var3 == TheNotFoundPackage) {
+                    var10000 = new PackageBinding(CharOperation.subarray(var1, 0, var4 + 1), var6, this);
                     var3 = var10000;
                     if (var2) {
-                        var3.field_170 |= 128L;
+                        var3.tagBits |= 128L;
                     }
-                    var6.method_117(var3);
+                    var6.addPackage(var3);
                 }
             }
             return var3;
         }
     }
 
-    public class_40 method_488(class_40 var1, ReferenceBinding var2, int var3, Vector var4) {
-        if ((var1.field_178 & 536870912L) != 0L) {
+    public TypeBinding method_488(TypeBinding var1, ReferenceBinding var2, int var3, Vector var4) {
+        if ((var1.tagBits & 536870912L) != 0L) {
             ReferenceBinding var9;
             ReferenceBinding var10;
-            class_40 var15;
-            class_40 var19;
-            class_40 var18;
-            switch (var1.method_98()) {
+            TypeBinding var15;
+            TypeBinding var19;
+            TypeBinding var18;
+            switch (var1.kind()) {
                 case 68:
-                    class_42 var5 = (class_42)var1;
-                    class_40 var6 = var5.field_192;
-                    class_40 var7 = this.method_488(var6, var2, var3, var4);
+                    ArrayBinding var5 = (ArrayBinding)var1;
+                    TypeBinding var6 = var5.leafComponentType;
+                    TypeBinding var7 = this.method_488(var6, var2, var3, var4);
                     if (var7 != var6) {
-                        return this.method_493(var7.method_173(), var7.method_136() + var5.method_136());
+                        return this.createArrayType(var7.method_173(), var7.method_136() + var5.method_136());
                     }
                     break;
                 case 260:
-                    class_52 var8 = (class_52)var1;
-                    var9 = var8.method_137();
+                    ParameterizedTypeBinding var8 = (ParameterizedTypeBinding)var1;
+                    var9 = var8.enclosingType();
                     var10 = var9;
                     if (var9 != null) {
                         var10 = (ReferenceBinding)this.method_488(var9, var2, var3, var4);
                     }
-                    class_40[] var27 = var8.field_243;
-                    class_40[] var28 = var27;
+                    TypeBinding[] var27 = var8.arguments;
+                    TypeBinding[] var28 = var27;
                     int var29 = 0;
                     for (int var30 = var27 == null ? 0 : var27.length; var29 < var30; ++var29) {
                         var15 = var27[var29];
-                        class_40 var31 = this.method_488(var15, var8.method_286(), var29, var4);
+                        TypeBinding var31 = this.method_488(var15, var8.method_286(), var29, var4);
                         if (var31 != var15) {
                             if (var28 == var27) {
-                                System.arraycopy(var27, 0, var28 = new class_40[var30], 0, var29);
+                                System.arraycopy(var27, 0, var28 = new TypeBinding[var30], 0, var29);
                             }
                             var28[var29] = var31;
                         } else if (var28 != var27) {
@@ -402,16 +402,16 @@ public class LookupEnvironment implements class_17 {
                         }
                     }
                     if (var9 != var10 || var27 != var28) {
-                        return this.method_500(var8.method_286(), var28, var10);
+                        return this.createParameterizedType(var8.method_286(), var28, var10);
                     }
                     break;
                 case 516:
-                    class_45 var32 = (class_45)var1;
-                    var18 = var32.field_212;
+                    WildcardBinding var32 = (WildcardBinding)var1;
+                    var18 = var32.bound;
                     if (var18 != null) {
                         var19 = this.method_488(var18, var2, var3, var4);
                         if (var19 != var18) {
-                            return this.method_502(var32.field_210, var32.field_211, var19, (class_40[])null, var32.field_215);
+                            return this.createWildcard(var32.field_210, var32.field_211, var19, (TypeBinding[])null, var32.field_215);
                         }
                     }
                 case 1028:
@@ -419,20 +419,20 @@ public class LookupEnvironment implements class_17 {
                     break;
                 case 2052:
                     ReferenceBinding var16 = (ReferenceBinding)var1;
-                    var9 = var16.method_137();
+                    var9 = var16.enclosingType();
                     var10 = var9;
                     if (var9 != null) {
                         var10 = (ReferenceBinding)this.method_488(var9, var2, var3, var4);
                     }
-                    class_46[] var11 = var16.method_181();
+                    TypeVariableBinding[] var11 = var16.typeVariables();
                     Object var12 = var11;
                     int var17 = 0;
                     for (int var33 = var11 == null ? 0 : var11.length; var17 < var33; ++var17) {
-                        class_46 var35 = var11[var17];
-                        class_40 var34 = this.method_488(var35, var16, var17, var4);
+                        TypeVariableBinding var35 = var11[var17];
+                        TypeBinding var34 = this.method_488(var35, var16, var17, var4);
                         if (var34 != var35) {
                             if (var12 == var11) {
-                                System.arraycopy(var11, 0, var12 = new class_40[var33], 0, var17);
+                                System.arraycopy(var11, 0, var12 = new TypeBinding[var33], 0, var17);
                             }
                             ((Object[])var12)[var17] = var34;
                         } else if (var12 != var11) {
@@ -440,38 +440,38 @@ public class LookupEnvironment implements class_17 {
                         }
                     }
                     if (var9 != var10 || var11 != var12) {
-                        return this.method_500(var2, (class_40[])var12, var10);
+                        return this.createParameterizedType(var2, (TypeBinding[])var12, var10);
                     }
                     break;
                 case 4100:
                     if (var4 != null && var4.contains(var1)) {
-                        return this.method_502(var2, var3, (class_40)null, (class_40[])null, 0);
+                        return this.createWildcard(var2, var3, (TypeBinding)null, (TypeBinding[])null, 0);
                     }
-                    class_46 var13 = (class_46)var1;
-                    class_40 var14 = var13.method_261();
+                    TypeVariableBinding var13 = (TypeVariableBinding)var1;
+                    TypeBinding var14 = var13.method_261();
                     if (var4 == null) {
                         var4 = new Vector(2);
                     }
                     var4.addElement(var13);
                     var15 = this.method_488(var14, var2, var3, var4);
                     var4.removeElement(var13);
-                    return this.method_502(var2, var3, var15, (class_40[])null, 1);
+                    return this.createWildcard(var2, var3, var15, (TypeBinding[])null, 1);
                 case 8196:
-                    class_45 var20 = (class_45)var1;
-                    var18 = var20.field_212;
+                    WildcardBinding var20 = (WildcardBinding)var1;
+                    var18 = var20.bound;
                     var19 = var18;
                     if (var18 != null) {
                         var19 = this.method_488(var18, var2, var3, var4);
                     }
-                    class_40[] var21 = var20.field_213;
-                    class_40[] var22 = var21;
+                    TypeBinding[] var21 = var20.otherBounds;
+                    TypeBinding[] var22 = var21;
                     int var23 = 0;
                     for (int var24 = var21 == null ? 0 : var21.length; var23 < var24; ++var23) {
-                        class_40 var25 = var21[var23];
-                        class_40 var26 = this.method_488(var25, var2, var3, var4);
+                        TypeBinding var25 = var21[var23];
+                        TypeBinding var26 = this.method_488(var25, var2, var3, var4);
                         if (var26 != var25) {
                             if (var22 == var21) {
-                                System.arraycopy(var21, 0, var22 = new class_40[var24], 0, var23);
+                                System.arraycopy(var21, 0, var22 = new TypeBinding[var24], 0, var23);
                             }
                             var22[var23] = var26;
                         } else if (var22 != var21) {
@@ -479,34 +479,34 @@ public class LookupEnvironment implements class_17 {
                         }
                     }
                     if (var19 != var18 || var22 != var21) {
-                        return this.method_502(var20.field_210, var20.field_211, var19, var22, var20.field_215);
+                        return this.createWildcard(var20.field_210, var20.field_211, var19, var22, var20.field_215);
                     }
             }
         }
         return var1;
     }
 
-    public ReferenceBinding method_489(ReferenceBinding var1) {
+    public ReferenceBinding convertToParameterizedType(ReferenceBinding var1) {
         if (var1 != null) {
             boolean var2 = var1.method_155();
-            ReferenceBinding var3 = var1.method_137();
+            ReferenceBinding var3 = var1.enclosingType();
             ReferenceBinding var4 = var3;
             boolean var5 = var2;
             if (var3 != null) {
-                var4 = var1.method_226() ? (ReferenceBinding)this.method_490(var3, false) : this.method_489(var3);
+                var4 = var1.method_226() ? (ReferenceBinding)this.convertToRawType(var3, false) : this.convertToParameterizedType(var3);
                 var5 = var2 | var3 != var4;
             }
             if (var5) {
-                return this.method_500(var1, var2 ? var1.method_181() : null, var4);
+                return this.createParameterizedType(var1, var2 ? var1.typeVariables() : null, var4);
             }
         }
         return var1;
     }
 
-    public class_40 method_490(class_40 var1, boolean var2) {
+    public TypeBinding convertToRawType(TypeBinding var1, boolean var2) {
         int var3;
-        class_40 var4;
-        switch (var1.method_98()) {
+        TypeBinding var4;
+        switch (var1.kind()) {
             case 68:
                 var3 = var1.method_136();
                 var4 = var1.method_173();
@@ -518,18 +518,18 @@ public class LookupEnvironment implements class_17 {
             case 8196:
                 return var1;
             default:
-                if (var1.field_177 == 1) {
+                if (var1.id == 1) {
                     return var1;
                 }
                 var3 = 0;
                 var4 = var1;
         }
         boolean var5;
-        switch (var4.method_98()) {
+        switch (var4.kind()) {
             case 132:
                 return var1;
             case 260:
-                class_52 var6 = (class_52)var4;
+                ParameterizedTypeBinding var6 = (ParameterizedTypeBinding)var4;
                 var5 = var6.method_286().method_155();
                 break;
             case 2052:
@@ -538,38 +538,38 @@ public class LookupEnvironment implements class_17 {
             default:
                 var5 = false;
         }
-        ReferenceBinding var9 = var4.method_137();
+        ReferenceBinding var9 = var4.enclosingType();
         Object var7;
         if (var9 == null) {
-            var7 = var5 ? this.method_501((ReferenceBinding)var4.method_138(), (ReferenceBinding)null) : var4;
+            var7 = var5 ? this.createRawType((ReferenceBinding)var4.erasure(), (ReferenceBinding)null) : var4;
         } else {
             ReferenceBinding var8;
-            if (var9.method_98() == 1028) {
+            if (var9.kind() == 1028) {
                 var5 |= !((ReferenceBinding)var4).method_226();
                 var8 = var9;
             } else if (var2 && !var5) {
-                var8 = (ReferenceBinding)this.method_490(var9, var2);
+                var8 = (ReferenceBinding)this.convertToRawType(var9, var2);
                 var5 = var9 != var8;
             } else if (!var5 && !((ReferenceBinding)var4).method_226()) {
-                var8 = this.method_489(var9);
+                var8 = this.convertToParameterizedType(var9);
             } else {
-                var8 = (ReferenceBinding)this.method_490(var9, false);
+                var8 = (ReferenceBinding)this.convertToRawType(var9, false);
             }
             if (var5) {
-                var7 = this.method_501((ReferenceBinding)var4.method_138(), var8);
+                var7 = this.createRawType((ReferenceBinding)var4.erasure(), var8);
             } else if (var9 != var8) {
-                var7 = this.method_500((ReferenceBinding)var4.method_138(), (class_40[])null, var8);
+                var7 = this.createParameterizedType((ReferenceBinding)var4.erasure(), (TypeBinding[])null, var8);
             } else {
                 var7 = var4;
             }
         }
-        return (class_40)(var4 != var7 ? (var3 > 0 ? this.method_493((class_40)var7, var3) : var7) : var1);
+        return (TypeBinding)(var4 != var7 ? (var3 > 0 ? this.createArrayType((TypeBinding)var7, var3) : var7) : var1);
     }
 
-    public class_40 method_491(class_40 var1) {
+    public TypeBinding method_491(TypeBinding var1) {
         int var2;
-        class_40 var3;
-        switch (var1.method_98()) {
+        TypeBinding var3;
+        switch (var1.kind()) {
             case 68:
                 var2 = var1.method_136();
                 var3 = var1.method_173();
@@ -581,18 +581,18 @@ public class LookupEnvironment implements class_17 {
             case 8196:
                 return var1;
             default:
-                if (var1.field_177 == 1) {
+                if (var1.id == 1) {
                     return var1;
                 }
                 var2 = 0;
                 var3 = var1;
         }
         boolean var4;
-        switch (var3.method_98()) {
+        switch (var3.kind()) {
             case 132:
                 return var1;
             case 260:
-                class_52 var5 = (class_52)var3;
+                ParameterizedTypeBinding var5 = (ParameterizedTypeBinding)var3;
                 var4 = var5.method_286().method_155();
                 break;
             case 2052:
@@ -601,180 +601,180 @@ public class LookupEnvironment implements class_17 {
             default:
                 var4 = false;
         }
-        ReferenceBinding var8 = var3.method_137();
+        ReferenceBinding var8 = var3.enclosingType();
         Object var6;
         if (var8 == null) {
-            var6 = var4 ? this.method_501((ReferenceBinding)var3.method_138(), (ReferenceBinding)null) : var3;
+            var6 = var4 ? this.createRawType((ReferenceBinding)var3.erasure(), (ReferenceBinding)null) : var3;
         } else {
             ReferenceBinding var7 = (ReferenceBinding)this.method_491(var8);
             if (var7 != var8) {
                 var4 |= !((ReferenceBinding)var3).method_226();
             }
             if (var4) {
-                var6 = this.method_501((ReferenceBinding)var3.method_138(), var7);
+                var6 = this.createRawType((ReferenceBinding)var3.erasure(), var7);
             } else if (var8 != var7) {
-                var6 = this.method_500((ReferenceBinding)var3.method_138(), (class_40[])null, var7);
+                var6 = this.createParameterizedType((ReferenceBinding)var3.erasure(), (TypeBinding[])null, var7);
             } else {
                 var6 = var3;
             }
         }
-        return (class_40)(var3 != var6 ? (var2 > 0 ? this.method_493((class_40)var6, var2) : var6) : var1);
+        return (TypeBinding)(var3 != var6 ? (var2 > 0 ? this.createArrayType((TypeBinding)var6, var2) : var6) : var1);
     }
 
-    public class_203 method_492(ReferenceBinding var1, class_320[] var2) {
+    public AnnotationBinding createAnnotation(ReferenceBinding var1, ElementValuePair[] var2) {
         if (var2.length != 0) {
-            class_203.method_1183(var1, var2);
+            AnnotationBinding.setMethodBindings(var1, var2);
         }
-        class_203 var10000 = new class_203(var1, var2);
+        AnnotationBinding var10000 = new AnnotationBinding(var1, var2);
         return var10000;
     }
 
-    public class_42 method_493(class_40 var1, int var2) {
-        if (var1 instanceof class_57) {
-            return ((class_57)var1).method_336(var2, this);
+    public ArrayBinding createArrayType(TypeBinding var1, int var2) {
+        if (var1 instanceof LocalTypeBinding) {
+            return ((LocalTypeBinding)var1).createArrayType(var2, this);
         } else {
             int var3 = var2 - 1;
-            int var4 = this.field_357.length;
-            class_42[] var5;
+            int var4 = this.uniqueArrayBindings.length;
+            ArrayBinding[] var5;
             if (var3 < var4) {
-                if ((var5 = this.field_357[var3]) == null) {
-                    this.field_357[var3] = var5 = new class_42[10];
+                if ((var5 = this.uniqueArrayBindings[var3]) == null) {
+                    this.uniqueArrayBindings[var3] = var5 = new ArrayBinding[10];
                 }
             } else {
-                System.arraycopy(this.field_357, 0, this.field_357 = new class_42[var2][], 0, var4);
-                this.field_357[var3] = var5 = new class_42[10];
+                System.arraycopy(this.uniqueArrayBindings, 0, this.uniqueArrayBindings = new ArrayBinding[var2][], 0, var4);
+                this.uniqueArrayBindings[var3] = var5 = new ArrayBinding[10];
             }
             int var6 = -1;
             var4 = var5.length;
-            class_42 var7;
+            ArrayBinding var7;
             do {
                 ++var6;
-                class_42 var10002;
+                ArrayBinding var10002;
                 if (var6 >= var4) {
-                    System.arraycopy(var5, 0, var5 = new class_42[var4 * 2], 0, var4);
-                    this.field_357[var3] = var5;
-                    var10002 = new class_42(var1, var2, this);
+                    System.arraycopy(var5, 0, var5 = new ArrayBinding[var4 * 2], 0, var4);
+                    this.uniqueArrayBindings[var3] = var5;
+                    var10002 = new ArrayBinding(var1, var2, this);
                     return var5[var4] = var10002;
                 }
                 var7 = var5[var6];
                 if (var7 == null) {
-                    var10002 = new class_42(var1, var2, this);
+                    var10002 = new ArrayBinding(var1, var2, this);
                     return var5[var6] = var10002;
                 }
-            } while (var7.field_192 != var1);
+            } while (var7.leafComponentType != var1);
             return var7;
         }
     }
 
-    public class_49 method_494(IBinaryType var1, PackageBinding var2, AccessRestriction var3) {
-        return this.method_495(var1, var2, true, var3);
+    public BinaryTypeBinding createBinaryTypeFrom(IBinaryType var1, PackageBinding var2, AccessRestriction var3) {
+        return this.createBinaryTypeFrom(var1, var2, true, var3);
     }
 
-    public class_49 method_495(IBinaryType var1, PackageBinding var2, boolean var3, AccessRestriction var4) {
-        class_49 var10000 = new class_49(var2, var1, this);
-        class_49 var5 = var10000;
-        ReferenceBinding var6 = var2.method_124(var5.field_197[var5.field_197.length - 1]);
+    public BinaryTypeBinding createBinaryTypeFrom(IBinaryType var1, PackageBinding var2, boolean var3, AccessRestriction var4) {
+        BinaryTypeBinding var10000 = new BinaryTypeBinding(var2, var1, this);
+        BinaryTypeBinding var5 = var10000;
+        ReferenceBinding var6 = var2.method_124(var5.compoundName[var5.compoundName.length - 1]);
         if (var6 != null) {
-            if (!(var6 instanceof class_44)) {
+            if (!(var6 instanceof UnresolvedReferenceBinding)) {
                 if (var6.method_218()) {
-                    return (class_49)var6;
+                    return (BinaryTypeBinding)var6;
                 }
                 return null;
             }
-            ((class_44)var6).method_248(var5, this);
+            ((UnresolvedReferenceBinding)var6).setResolvedType(var5, this);
         }
-        var2.method_118(var5);
-        this.method_519(var5, var4);
+        var2.addType(var5);
+        this.setAccessRestriction(var5, var4);
         var5.method_270(var1, var3);
         return var5;
     }
 
-    public class_50 method_496(PackageBinding var1, char[][] var2) {
+    public MissingTypeBinding createMissingType(PackageBinding var1, char[][] var2) {
         if (var1 == null) {
-            var1 = this.method_487(var2, true);
-            if (var1 == field_366) {
-                var1 = this.field_347;
+            var1 = this.computePackageFrom(var2, true);
+            if (var1 == TheNotFoundPackage) {
+                var1 = this.defaultPackage;
             }
         }
-        class_50 var10000 = new class_50(var1, var2, this);
-        class_50 var3 = var10000;
-        if (var3.field_177 != 1) {
-            Object var4 = this.method_508(class_17.field_99);
+        MissingTypeBinding var10000 = new MissingTypeBinding(var1, var2, this);
+        MissingTypeBinding var3 = var10000;
+        if (var3.id != 1) {
+            Object var4 = this.method_508(TypeConstants.field_99);
             if (var4 == null) {
-                var4 = this.method_496((PackageBinding)null, class_17.field_99);
+                var4 = this.createMissingType((PackageBinding)null, TypeConstants.field_99);
             }
-            var3.method_279((ReferenceBinding)var4);
+            var3.setMissingSuperclass((ReferenceBinding)var4);
         }
-        var1.method_118(var3);
+        var1.addType(var3);
         return var3;
     }
 
-    public PackageBinding method_497(char[][] var1) {
+    public PackageBinding createPackage(char[][] var1) {
         PackageBinding var2 = this.method_505(var1[0]);
         PackageBinding var10000;
-        if (var2 == null || var2 == field_366) {
+        if (var2 == null || var2 == TheNotFoundPackage) {
             var10000 = new PackageBinding(var1[0], this);
             var2 = var10000;
-            this.field_348.method_3220(var1[0], var2);
+            this.knownPackages.put(var1[0], var2);
         }
         int var3 = 1;
         for (int var4 = var1.length; var3 < var4; ++var3) {
             ReferenceBinding var5 = var2.method_124(var1[var3]);
-            if (var5 != null && var5 != field_367 && !(var5 instanceof class_44)) {
+            if (var5 != null && var5 != TheNotFoundType && !(var5 instanceof UnresolvedReferenceBinding)) {
                 return null;
             }
             PackageBinding var6 = var2;
-            if ((var2 = var2.method_122(var1[var3])) == null || var2 == field_366) {
-                if (this.field_351.method_81(var1[var3], var6.field_171) != null) {
+            if ((var2 = var2.method_122(var1[var3])) == null || var2 == TheNotFoundPackage) {
+                if (this.nameEnvironment.findType(var1[var3], var6.compoundName) != null) {
                     return null;
                 }
-                var10000 = new PackageBinding(CharOperation.method_1387(var1, 0, var3 + 1), var6, this);
+                var10000 = new PackageBinding(CharOperation.subarray(var1, 0, var3 + 1), var6, this);
                 var2 = var10000;
-                var6.method_117(var2);
+                var6.addPackage(var2);
             }
         }
         return var2;
     }
 
-    public class_63 method_498(class_58 var1, class_53 var2) {
-        class_63[] var3 = (class_63[])((class_63[])this.field_361.method_3241(var1));
+    public ParameterizedGenericMethodBinding createParameterizedGenericMethod(MethodBinding var1, RawTypeBinding var2) {
+        ParameterizedGenericMethodBinding[] var3 = (ParameterizedGenericMethodBinding[])((ParameterizedGenericMethodBinding[])this.field_361.method_3241(var1));
         boolean var4 = false;
         int var5 = 0;
         int var6;
-        class_63 var7;
+        ParameterizedGenericMethodBinding var7;
         if (var3 != null) {
             for (var6 = var3.length; var5 < var6; ++var5) {
                 var7 = var3[var5];
                 if (var7 == null) {
                     break;
                 }
-                if (var7.field_297 && var7.field_278 == (var2 == null ? var1.field_278 : var2)) {
+                if (var7.field_297 && var7.declaringClass == (var2 == null ? var1.declaringClass : var2)) {
                     return var7;
                 }
             }
             var4 = true;
         } else {
-            var3 = new class_63[5];
-            this.field_361.method_3242(var1, var3);
+            var3 = new ParameterizedGenericMethodBinding[5];
+            this.field_361.put(var1, var3);
         }
         var6 = var3.length;
         if (var4 && var5 == var6) {
-            System.arraycopy(var3, 0, var3 = new class_63[var6 * 2], 0, var6);
-            this.field_361.method_3242(var1, var3);
+            System.arraycopy(var3, 0, var3 = new ParameterizedGenericMethodBinding[var6 * 2], 0, var6);
+            this.field_361.put(var1, var3);
         }
-        class_63 var10000 = new class_63(var1, var2, this);
+        ParameterizedGenericMethodBinding var10000 = new ParameterizedGenericMethodBinding(var1, var2, this);
         var7 = var10000;
         var3[var5] = var7;
         return var7;
     }
 
-    public class_63 method_499(class_58 var1, class_40[] var2) {
-        class_63[] var3 = (class_63[])((class_63[])this.field_361.method_3241(var1));
+    public ParameterizedGenericMethodBinding createParameterizedGenericMethod(MethodBinding var1, TypeBinding[] var2) {
+        ParameterizedGenericMethodBinding[] var3 = (ParameterizedGenericMethodBinding[])((ParameterizedGenericMethodBinding[])this.field_361.method_3241(var1));
         int var4 = var2 == null ? 0 : var2.length;
         boolean var5 = false;
         int var6 = 0;
         int var7;
-        class_63 var8;
+        ParameterizedGenericMethodBinding var8;
         if (var3 != null) {
             label53:
             for (var7 = var3.length; var6 < var7; ++var6) {
@@ -783,7 +783,7 @@ public class LookupEnvironment implements class_17 {
                     break;
                 }
                 if (!var8.field_297) {
-                    class_40[] var9 = var8.field_293;
+                    TypeBinding[] var9 = var8.typeArguments;
                     int var10 = var9 == null ? 0 : var9.length;
                     if (var4 == var10) {
                         for (int var11 = 0; var11 < var10; ++var11) {
@@ -797,27 +797,27 @@ public class LookupEnvironment implements class_17 {
             }
             var5 = true;
         } else {
-            var3 = new class_63[5];
-            this.field_361.method_3242(var1, var3);
+            var3 = new ParameterizedGenericMethodBinding[5];
+            this.field_361.put(var1, var3);
         }
         var7 = var3.length;
         if (var5 && var6 == var7) {
-            System.arraycopy(var3, 0, var3 = new class_63[var7 * 2], 0, var7);
-            this.field_361.method_3242(var1, var3);
+            System.arraycopy(var3, 0, var3 = new ParameterizedGenericMethodBinding[var7 * 2], 0, var7);
+            this.field_361.put(var1, var3);
         }
-        class_63 var10000 = new class_63(var1, var2, this);
+        ParameterizedGenericMethodBinding var10000 = new ParameterizedGenericMethodBinding(var1, var2, this);
         var8 = var10000;
         var3[var6] = var8;
         return var8;
     }
 
-    public class_52 method_500(ReferenceBinding var1, class_40[] var2, ReferenceBinding var3) {
-        class_52[] var4 = (class_52[])((class_52[])this.field_358.method_3241(var1));
+    public ParameterizedTypeBinding createParameterizedType(ReferenceBinding var1, TypeBinding[] var2, ReferenceBinding var3) {
+        ParameterizedTypeBinding[] var4 = (ParameterizedTypeBinding[])((ParameterizedTypeBinding[])this.field_358.method_3241(var1));
         int var5 = var2 == null ? 0 : var2.length;
         boolean var6 = false;
         int var7 = 0;
         int var8;
-        class_52 var9;
+        ParameterizedTypeBinding var9;
         if (var4 != null) {
             label56:
             for (var8 = var4.length; var7 < var8; ++var7) {
@@ -825,8 +825,8 @@ public class LookupEnvironment implements class_17 {
                 if (var9 == null) {
                     break;
                 }
-                if (var9.method_283() == var1 && var9.method_137() == var3) {
-                    class_40[] var10 = var9.field_243;
+                if (var9.actualType() == var1 && var9.enclosingType() == var3) {
+                    TypeBinding[] var10 = var9.arguments;
                     int var11 = var10 == null ? 0 : var10.length;
                     if (var5 == var11) {
                         for (int var12 = 0; var12 < var11; ++var12) {
@@ -840,61 +840,61 @@ public class LookupEnvironment implements class_17 {
             }
             var6 = true;
         } else {
-            var4 = new class_52[5];
-            this.field_358.method_3242(var1, var4);
+            var4 = new ParameterizedTypeBinding[5];
+            this.field_358.put(var1, var4);
         }
         var8 = var4.length;
         if (var6 && var7 == var8) {
-            System.arraycopy(var4, 0, var4 = new class_52[var8 * 2], 0, var8);
-            this.field_358.method_3242(var1, var4);
+            System.arraycopy(var4, 0, var4 = new ParameterizedTypeBinding[var8 * 2], 0, var8);
+            this.field_358.put(var1, var4);
         }
-        class_52 var10000 = new class_52(var1, var2, var3, this);
+        ParameterizedTypeBinding var10000 = new ParameterizedTypeBinding(var1, var2, var3, this);
         var9 = var10000;
         var4[var7] = var9;
         return var9;
     }
 
-    public class_53 method_501(ReferenceBinding var1, ReferenceBinding var2) {
-        class_53[] var3 = (class_53[])((class_53[])this.field_359.method_3241(var1));
+    public RawTypeBinding createRawType(ReferenceBinding var1, ReferenceBinding var2) {
+        RawTypeBinding[] var3 = (RawTypeBinding[])((RawTypeBinding[])this.field_359.method_3241(var1));
         boolean var4 = false;
         int var5 = 0;
         int var6;
-        class_53 var7;
+        RawTypeBinding var7;
         if (var3 != null) {
             for (var6 = var3.length; var5 < var6; ++var5) {
                 var7 = var3[var5];
                 if (var7 == null) {
                     break;
                 }
-                if (var7.method_283() == var1 && var7.method_137() == var2) {
+                if (var7.actualType() == var1 && var7.enclosingType() == var2) {
                     return var7;
                 }
             }
             var4 = true;
         } else {
-            var3 = new class_53[1];
-            this.field_359.method_3242(var1, var3);
+            var3 = new RawTypeBinding[1];
+            this.field_359.put(var1, var3);
         }
         var6 = var3.length;
         if (var4 && var5 == var6) {
-            System.arraycopy(var3, 0, var3 = new class_53[var6 * 2], 0, var6);
-            this.field_359.method_3242(var1, var3);
+            System.arraycopy(var3, 0, var3 = new RawTypeBinding[var6 * 2], 0, var6);
+            this.field_359.put(var1, var3);
         }
-        class_53 var10000 = new class_53(var1, var2, this);
+        RawTypeBinding var10000 = new RawTypeBinding(var1, var2, this);
         var7 = var10000;
         var3[var5] = var7;
         return var7;
     }
 
-    public class_45 method_502(ReferenceBinding var1, int var2, class_40 var3, class_40[] var4, int var5) {
+    public WildcardBinding createWildcard(ReferenceBinding var1, int var2, TypeBinding var3, TypeBinding[] var4, int var5) {
         if (var1 == null) {
             var1 = ReferenceBinding.field_205;
         }
-        class_45[] var6 = (class_45[])((class_45[])this.field_360.method_3241(var1));
+        WildcardBinding[] var6 = (WildcardBinding[])((WildcardBinding[])this.field_360.method_3241(var1));
         boolean var7 = false;
         int var8 = 0;
         int var9;
-        class_45 var10;
+        WildcardBinding var10;
         if (var6 != null) {
             label73:
             for (var9 = var6.length; var8 < var9; ++var8) {
@@ -902,15 +902,15 @@ public class LookupEnvironment implements class_17 {
                 if (var10 == null) {
                     break;
                 }
-                if (var10.field_210 == var1 && var10.field_211 == var2 && var10.field_215 == var5 && var10.field_212 == var3) {
-                    if (var10.field_213 != var4) {
-                        int var11 = var10.field_213 == null ? 0 : var10.field_213.length;
+                if (var10.field_210 == var1 && var10.field_211 == var2 && var10.field_215 == var5 && var10.bound == var3) {
+                    if (var10.otherBounds != var4) {
+                        int var11 = var10.otherBounds == null ? 0 : var10.otherBounds.length;
                         int var12 = var4 == null ? 0 : var4.length;
                         if (var11 != var12) {
                             continue;
                         }
                         for (int var13 = 0; var13 < var12; ++var13) {
-                            if (var10.field_213[var13] != var4[var13]) {
+                            if (var10.otherBounds[var13] != var4[var13]) {
                                 continue label73;
                             }
                         }
@@ -920,33 +920,33 @@ public class LookupEnvironment implements class_17 {
             }
             var7 = true;
         } else {
-            var6 = new class_45[10];
-            this.field_360.method_3242(var1, var6);
+            var6 = new WildcardBinding[10];
+            this.field_360.put(var1, var6);
         }
         var9 = var6.length;
         if (var7 && var8 == var9) {
-            System.arraycopy(var6, 0, var6 = new class_45[var9 * 2], 0, var9);
-            this.field_360.method_3242(var1, var6);
+            System.arraycopy(var6, 0, var6 = new WildcardBinding[var9 * 2], 0, var9);
+            this.field_360.put(var1, var6);
         }
-        class_45 var10000 = new class_45(var1, var2, var3, var4, var5, this);
+        WildcardBinding var10000 = new WildcardBinding(var1, var2, var3, var4, var5, this);
         var10 = var10000;
         var6[var8] = var10;
         return var10;
     }
 
-    public AccessRestriction method_503(class_40 var1) {
+    public AccessRestriction getAccessRestriction(TypeBinding var1) {
         return (AccessRestriction)this.field_345.get(var1);
     }
 
     public ReferenceBinding method_504(char[][] var1) {
         if (var1.length == 1) {
-            return this.field_347 == null ? null : this.field_347.method_124(var1[0]);
+            return this.defaultPackage == null ? null : this.defaultPackage.method_124(var1[0]);
         } else {
             PackageBinding var2 = this.method_505(var1[0]);
-            if (var2 != null && var2 != field_366) {
+            if (var2 != null && var2 != TheNotFoundPackage) {
                 int var3 = 1;
                 for (int var4 = var1.length - 1; var3 < var4; ++var3) {
-                    if ((var2 = var2.method_122(var1[var3])) == null || var2 == field_366) {
+                    if ((var2 = var2.method_122(var1[var3])) == null || var2 == TheNotFoundPackage) {
                         return null;
                     }
                 }
@@ -958,31 +958,31 @@ public class LookupEnvironment implements class_17 {
     }
 
     PackageBinding method_505(char[] var1) {
-        return this.field_348.method_3219(var1);
+        return this.knownPackages.get(var1);
     }
 
-    public ReferenceBinding method_506(char[][] var1, class_83 var2) {
+    public ReferenceBinding getResolvedType(char[][] var1, Scope var2) {
         ReferenceBinding var3 = this.method_508(var1);
         if (var3 != null) {
             return var3;
         } else {
-            this.field_353.method_1655(var1, var2 == null ? this.field_362 : var2.method_645(), this.field_363);
-            return this.method_496((PackageBinding)null, var1);
+            this.problemReporter.isClassPathCorrect(var1, var2 == null ? this.unitBeingCompleted : var2.referenceCompilationUnit(), this.missingClassFileLocation);
+            return this.createMissingType((PackageBinding)null, var1);
         }
     }
 
     PackageBinding method_507(char[] var1) {
         PackageBinding var2 = this.method_505(var1);
         if (var2 != null) {
-            return var2 == field_366 ? null : var2;
-        } else if (this.field_351.method_82((char[][])null, var1)) {
-            class_324 var10000 = this.field_348;
+            return var2 == TheNotFoundPackage ? null : var2;
+        } else if (this.nameEnvironment.isPackage((char[][])null, var1)) {
+            HashtableOfPackage var10000 = this.knownPackages;
             PackageBinding var10002 = new PackageBinding(var1, this);
             var2 = var10002;
-            var10000.method_3220(var1, var10002);
+            var10000.put(var1, var10002);
             return var2;
         } else {
-            this.field_348.method_3220(var1, field_366);
+            this.knownPackages.put(var1, TheNotFoundPackage);
             return null;
         }
     }
@@ -991,25 +991,25 @@ public class LookupEnvironment implements class_17 {
         ReferenceBinding var2;
         PackageBinding var3;
         if (var1.length == 1) {
-            if (this.field_347 == null) {
+            if (this.defaultPackage == null) {
                 return null;
             }
-            if ((var2 = this.field_347.method_124(var1[0])) == null) {
+            if ((var2 = this.defaultPackage.method_124(var1[0])) == null) {
                 var3 = this.method_505(var1[0]);
-                if (var3 != null && var3 != field_366) {
+                if (var3 != null && var3 != TheNotFoundPackage) {
                     return null;
                 }
-                var2 = this.method_482(this.field_347, var1[0]);
+                var2 = this.askForType(this.defaultPackage, var1[0]);
             }
         } else {
             var3 = this.method_505(var1[0]);
-            if (var3 == field_366) {
+            if (var3 == TheNotFoundPackage) {
                 return null;
             }
             if (var3 != null) {
                 int var4 = 1;
                 for (int var5 = var1.length - 1; var4 < var5 && (var3 = var3.method_122(var1[var4])) != null; ++var4) {
-                    if (var3 == field_366) {
+                    if (var3 == TheNotFoundPackage) {
                         return null;
                     }
                 }
@@ -1017,13 +1017,13 @@ public class LookupEnvironment implements class_17 {
             if (var3 == null) {
                 var2 = this.method_481(var1);
             } else if ((var2 = var3.method_124(var1[var1.length - 1])) == null) {
-                var2 = this.method_482(var3, var1[var1.length - 1]);
+                var2 = this.askForType(var3, var1[var1.length - 1]);
             }
         }
-        if (var2 != null && var2 != field_367) {
-            var2 = class_49.method_267(var2, this, false);
+        if (var2 != null && var2 != TheNotFoundType) {
+            var2 = BinaryTypeBinding.method_267(var2, this, false);
             if (var2.method_160()) {
-                class_51 var10000 = new class_51(var1, var2, 4);
+                ProblemReferenceBinding var10000 = new ProblemReferenceBinding(var1, var2, 4);
                 return var10000;
             } else {
                 return var2;
@@ -1033,57 +1033,57 @@ public class LookupEnvironment implements class_17 {
         }
     }
 
-    private class_40[] method_509(class_197 var1, class_46[] var2, ReferenceBinding var3, ReferenceBinding var4, char[][][] var5) {
+    private TypeBinding[] getTypeArgumentsFromSignature(SignatureWrapper var1, TypeVariableBinding[] var2, ReferenceBinding var3, ReferenceBinding var4, char[][][] var5) {
         ArrayList var10000 = new ArrayList(2);
         ArrayList var6 = var10000;
         int var7 = 0;
         do {
-            var6.add(this.method_514(var1, var2, var3, var4, var7++, var5));
-        } while (var1.field_872[var1.field_873] != 62);
+            var6.add(this.getTypeFromVariantTypeSignature(var1, var2, var3, var4, var7++, var5));
+        } while (var1.signature[var1.field_873] != 62);
         ++var1.field_873;
-        class_40[] var8 = new class_40[var6.size()];
+        TypeBinding[] var8 = new TypeBinding[var6.size()];
         var6.toArray(var8);
         return var8;
     }
 
-    private ReferenceBinding method_510(char[][] var1, boolean var2, boolean var3) {
+    private ReferenceBinding getTypeFromCompoundName(char[][] var1, boolean var2, boolean var3) {
         Object var4 = this.method_504(var1);
         if (var4 == null) {
-            PackageBinding var5 = this.method_487(var1, false);
-            class_44 var10000 = new class_44(var1, var5);
+            PackageBinding var5 = this.computePackageFrom(var1, false);
+            UnresolvedReferenceBinding var10000 = new UnresolvedReferenceBinding(var1, var5);
             var4 = var10000;
             if (var3) {
-                ((ReferenceBinding)var4).field_178 |= 128L;
+                ((ReferenceBinding)var4).tagBits |= 128L;
             }
-            var5.method_118((ReferenceBinding)var4);
-        } else if (var4 == field_367) {
-            this.field_353.method_1655(var1, this.field_362, this.field_363);
-            var4 = this.method_496((PackageBinding)null, var1);
+            var5.addType((ReferenceBinding)var4);
+        } else if (var4 == TheNotFoundType) {
+            this.problemReporter.isClassPathCorrect(var1, this.unitBeingCompleted, this.missingClassFileLocation);
+            var4 = this.createMissingType((PackageBinding)null, var1);
         } else if (!var2) {
-            var4 = (ReferenceBinding)this.method_491((class_40)var4);
+            var4 = (ReferenceBinding)this.method_491((TypeBinding)var4);
         }
         return (ReferenceBinding)var4;
     }
 
-    ReferenceBinding method_511(char[] var1, int var2, int var3, boolean var4, char[][][] var5) {
+    ReferenceBinding getTypeFromConstantPoolName(char[] var1, int var2, int var3, boolean var4, char[][][] var5) {
         if (var3 == -1) {
             var3 = var1.length;
         }
-        char[][] var6 = CharOperation.method_1386('/', var1, var2, var3);
+        char[][] var6 = CharOperation.splitOn('/', var1, var2, var3);
         boolean var7 = false;
         if (var5 != null) {
             int var8 = 0;
             for (int var9 = var5.length; var8 < var9; ++var8) {
-                if (CharOperation.method_1363(var6, var5[var8])) {
+                if (CharOperation.equals(var6, var5[var8])) {
                     var7 = true;
                     break;
                 }
             }
         }
-        return this.method_510(var6, var4, var7);
+        return this.getTypeFromCompoundName(var6, var4, var7);
     }
 
-    class_40 method_512(char[] var1, int var2, int var3, boolean var4, class_40 var5, char[][][] var6) {
+    TypeBinding getTypeFromSignature(char[] var1, int var2, int var3, boolean var4, TypeBinding var5, char[][][] var6) {
         int var7;
         for (var7 = 0; var1[var2] == 91; ++var7) {
             ++var2;
@@ -1095,13 +1095,13 @@ public class LookupEnvironment implements class_17 {
         if (var2 == var3) {
             switch (var1[var2]) {
                 case 66:
-                    var8 = class_40.field_180;
+                    var8 = TypeBinding.field_180;
                     break;
                 case 67:
-                    var8 = class_40.field_182;
+                    var8 = TypeBinding.field_182;
                     break;
                 case 68:
-                    var8 = class_40.field_185;
+                    var8 = TypeBinding.field_185;
                     break;
                 case 69:
                 case 71:
@@ -1120,63 +1120,63 @@ public class LookupEnvironment implements class_17 {
                 case 88:
                 case 89:
                 default:
-                    this.field_353.method_1513(var5, var1, var2);
+                    this.problemReporter.corruptedSignature(var5, var1, var2);
                     break;
                 case 70:
-                    var8 = class_40.field_184;
+                    var8 = TypeBinding.field_184;
                     break;
                 case 73:
-                    var8 = class_40.field_179;
+                    var8 = TypeBinding.field_179;
                     break;
                 case 74:
-                    var8 = class_40.field_183;
+                    var8 = TypeBinding.field_183;
                     break;
                 case 83:
-                    var8 = class_40.field_181;
+                    var8 = TypeBinding.field_181;
                     break;
                 case 86:
-                    var8 = class_40.field_188;
+                    var8 = TypeBinding.field_188;
                     break;
                 case 90:
-                    var8 = class_40.field_186;
+                    var8 = TypeBinding.field_186;
             }
         } else {
-            var8 = this.method_511(var1, var2 + 1, var3, var4, var6);
+            var8 = this.getTypeFromConstantPoolName(var1, var2 + 1, var3, var4, var6);
         }
-        return (class_40)(var7 == 0 ? var8 : this.method_493((class_40)var8, var7));
+        return (TypeBinding)(var7 == 0 ? var8 : this.createArrayType((TypeBinding)var8, var7));
     }
 
-    public class_40 method_513(class_197 var1, class_46[] var2, ReferenceBinding var3, char[][][] var4) {
+    public TypeBinding getTypeFromTypeSignature(SignatureWrapper var1, TypeVariableBinding[] var2, ReferenceBinding var3, char[][][] var4) {
         int var5;
-        for (var5 = 0; var1.field_872[var1.field_873] == 91; ++var5) {
+        for (var5 = 0; var1.signature[var1.field_873] == 91; ++var5) {
             ++var1.field_873;
         }
         ReferenceBinding var16;
-        if (var1.field_872[var1.field_873] != 84) {
+        if (var1.signature[var1.field_873] != 84) {
             boolean var14;
-            class_40 var15 = this.method_512(var1.field_872, var1.field_873, var1.method_1162(), var14 = var1.field_874 == var1.field_875, var3, var4);
+            TypeBinding var15 = this.getTypeFromSignature(var1.signature, var1.field_873, var1.computeEnd(), var14 = var1.field_874 == var1.field_875, var3, var4);
             if (!var14) {
-                return (class_40)(var5 == 0 ? var15 : this.method_493(var15, var5));
+                return (TypeBinding)(var5 == 0 ? var15 : this.createArrayType(var15, var5));
             } else {
                 var16 = (ReferenceBinding)var15;
-                if (var16 instanceof class_44 && CharOperation.method_1371('$', var16.field_197[var16.field_197.length - 1]) > 0) {
-                    var16 = class_49.method_267(var16, this, false);
+                if (var16 instanceof UnresolvedReferenceBinding && CharOperation.method_1371('$', var16.compoundName[var16.compoundName.length - 1]) > 0) {
+                    var16 = BinaryTypeBinding.method_267(var16, this, false);
                 }
-                ReferenceBinding var17 = var16.method_137();
+                ReferenceBinding var17 = var16.enclosingType();
                 if (var17 != null) {
-                    var17 = (ReferenceBinding)this.method_490(var17, false);
+                    var17 = (ReferenceBinding)this.convertToRawType(var17, false);
                 }
-                class_40[] var18 = this.method_509(var1, var2, var3, var16, var4);
-                class_52 var11;
+                TypeBinding[] var18 = this.getTypeArgumentsFromSignature(var1, var2, var3, var16, var4);
+                ParameterizedTypeBinding var11;
                 ReferenceBinding var13;
-                for (var11 = this.method_500(var16, var18, var17); var1.field_872[var1.field_873] == 46; var11 = this.method_500(var13, var18, var11)) {
+                for (var11 = this.createParameterizedType(var16, var18, var17); var1.signature[var1.field_873] == 46; var11 = this.createParameterizedType(var13, var18, var11)) {
                     ++var1.field_873;
-                    char[] var12 = var1.method_1163();
-                    class_49.method_267(var11, this, false);
-                    var13 = var11.method_286().method_209(var12);
-                    if (var1.field_872[var1.field_873] == 60) {
+                    char[] var12 = var1.nextWord();
+                    BinaryTypeBinding.method_267(var11, this, false);
+                    var13 = var11.method_286().getMemberType(var12);
+                    if (var1.signature[var1.field_873] == 60) {
                         ++var1.field_873;
-                        var18 = this.method_509(var1, var2, var3, var13, var4);
+                        var18 = this.getTypeArgumentsFromSignature(var1, var2, var3, var13, var4);
                     } else {
                         var18 = null;
                     }
@@ -1185,11 +1185,11 @@ public class LookupEnvironment implements class_17 {
                 if (var5 == 0) {
                     return var11;
                 }
-                return this.method_493(var11, var5);
+                return this.createArrayType(var11, var5);
             }
         } else {
             int var6 = var1.field_873 + 1;
-            int var7 = var1.method_1162();
+            int var7 = var1.computeEnd();
             int var8 = var2.length;
             do {
                 --var8;
@@ -1197,116 +1197,116 @@ public class LookupEnvironment implements class_17 {
                     var16 = var3;
                     label86:
                     while (true) {
-                        class_46[] var9;
-                        if (var3 instanceof class_49) {
-                            var9 = ((class_49)var3).field_237;
+                        TypeVariableBinding[] var9;
+                        if (var3 instanceof BinaryTypeBinding) {
+                            var9 = ((BinaryTypeBinding)var3).typeVariables;
                         } else {
-                            var9 = var3.method_181();
+                            var9 = var3.typeVariables();
                         }
                         int var10 = var9.length;
                         do {
                             --var10;
                             if (var10 < 0) {
-                                if ((var3 = var3.method_137()) == null) {
-                                    this.field_353.method_1782(CharOperation.method_1388(var1.field_872, var6, var7), var16);
+                                if ((var3 = var3.enclosingType()) == null) {
+                                    this.problemReporter.undefinedTypeVariableSignature(CharOperation.subarray(var1.signature, var6, var7), var16);
                                     return null;
                                 }
                                 continue label86;
                             }
-                        } while (!CharOperation.method_1365(var9[var10].field_198, var1.field_872, var6, var7));
+                        } while (!CharOperation.equals(var9[var10].sourceName, var1.signature, var6, var7));
                         if (var5 == 0) {
                             return var9[var10];
                         }
-                        return this.method_493(var9[var10], var5);
+                        return this.createArrayType(var9[var10], var5);
                     }
                 }
-            } while (!CharOperation.method_1365(var2[var8].field_198, var1.field_872, var6, var7));
+            } while (!CharOperation.equals(var2[var8].sourceName, var1.signature, var6, var7));
             if (var5 == 0) {
                 return var2[var8];
             }
-            return this.method_493(var2[var8], var5);
+            return this.createArrayType(var2[var8], var5);
         }
     }
 
-    class_40 method_514(class_197 var1, class_46[] var2, ReferenceBinding var3, ReferenceBinding var4, int var5, char[][][] var6) {
-        class_40 var7;
-        switch (var1.field_872[var1.field_873]) {
+    TypeBinding getTypeFromVariantTypeSignature(SignatureWrapper var1, TypeVariableBinding[] var2, ReferenceBinding var3, ReferenceBinding var4, int var5, char[][][] var6) {
+        TypeBinding var7;
+        switch (var1.signature[var1.field_873]) {
             case 42:
                 ++var1.field_873;
-                return this.method_502(var4, var5, (class_40)null, (class_40[])null, 0);
+                return this.createWildcard(var4, var5, (TypeBinding)null, (TypeBinding[])null, 0);
             case 43:
                 ++var1.field_873;
-                var7 = this.method_513(var1, var2, var3, var6);
-                return this.method_502(var4, var5, var7, (class_40[])null, 1);
+                var7 = this.getTypeFromTypeSignature(var1, var2, var3, var6);
+                return this.createWildcard(var4, var5, var7, (TypeBinding[])null, 1);
             case 44:
             default:
-                return this.method_513(var1, var2, var3, var6);
+                return this.getTypeFromTypeSignature(var1, var2, var3, var6);
             case 45:
                 ++var1.field_873;
-                var7 = this.method_513(var1, var2, var3, var6);
-                return this.method_502(var4, var5, var7, (class_40[])null, 2);
+                var7 = this.getTypeFromTypeSignature(var1, var2, var3, var6);
+                return this.createWildcard(var4, var5, var7, (TypeBinding[])null, 2);
         }
     }
 
-    boolean method_515(char[][] var1, char[] var2) {
-        return var1 != null && var1.length != 0 ? this.field_351.method_82(var1, var2) : this.field_351.method_82((char[][])null, var2);
+    boolean isPackage(char[][] var1, char[] var2) {
+        return var1 != null && var1.length != 0 ? this.nameEnvironment.isPackage(var1, var2) : this.nameEnvironment.isPackage((char[][])null, var2);
     }
 
-    public class_81 method_516() {
-        if (this.field_365 == null) {
+    public MethodVerifier methodVerifier() {
+        if (this.verifier == null) {
             Object var10001;
-            if (this.field_352.field_1928 < 3211264L) {
-                var10001 = new class_81(this);
+            if (this.globalOptions.field_1928 < 3211264L) {
+                var10001 = new MethodVerifier(this);
             } else {
-                var10001 = new class_82(this);
+                var10001 = new MethodVerifier15(this);
             }
-            this.field_365 = (class_81)var10001;
+            this.verifier = (MethodVerifier)var10001;
         }
-        return this.field_365;
+        return this.verifier;
     }
 
-    public void method_517(ClassFile[] var1) {
+    public void releaseClassFiles(ClassFile[] var1) {
         int var2 = 0;
         for (int var3 = var1.length; var2 < var3; ++var2) {
-            this.field_354.method_3028(var1[var2]);
+            this.classFilePool.release(var1[var2]);
         }
     }
 
     public void method_518() {
         PackageBinding var10001 = new PackageBinding(this);
-        this.field_347 = var10001;
-        this.field_346 = null;
-        class_324 var6 = new class_324();
-        this.field_348 = var6;
+        this.defaultPackage = var10001;
+        this.defaultImports = null;
+        HashtableOfPackage var6 = new HashtableOfPackage();
+        this.knownPackages = var6;
         HashMap var4 = new HashMap(3);
         this.field_345 = var4;
-        this.field_365 = null;
-        int var1 = this.field_357.length;
+        this.verifier = null;
+        int var1 = this.uniqueArrayBindings.length;
         while (true) {
             --var1;
             if (var1 < 0) {
-                class_327 var5 = new class_327(3);
+                SimpleLookupTable var5 = new SimpleLookupTable(3);
                 this.field_358 = var5;
-                var5 = new class_327(3);
+                var5 = new SimpleLookupTable(3);
                 this.field_359 = var5;
-                var5 = new class_327(3);
+                var5 = new SimpleLookupTable(3);
                 this.field_360 = var5;
-                var5 = new class_327(3);
+                var5 = new SimpleLookupTable(3);
                 this.field_361 = var5;
-                var1 = this.field_364.length;
+                var1 = this.units.length;
                 while (true) {
                     --var1;
                     if (var1 < 0) {
                         this.field_350 = -1;
                         this.field_349 = -1;
-                        this.field_362 = null;
-                        this.field_354.method_3029();
+                        this.unitBeingCompleted = null;
+                        this.classFilePool.reset();
                         return;
                     }
-                    this.field_364[var1] = null;
+                    this.units[var1] = null;
                 }
             }
-            class_42[] var2 = this.field_357[var1];
+            ArrayBinding[] var2 = this.uniqueArrayBindings[var1];
             if (var2 != null) {
                 int var3 = var2.length;
                 while (true) {
@@ -1320,14 +1320,14 @@ public class LookupEnvironment implements class_17 {
         }
     }
 
-    public void method_519(ReferenceBinding var1, AccessRestriction var2) {
+    public void setAccessRestriction(ReferenceBinding var1, AccessRestriction var2) {
         if (var2 != null) {
-            var1.field_199 |= 262144;
+            var1.modifiers |= 262144;
             this.field_345.put(var1, var2);
         }
     }
 
-    void method_520(class_44 var1, ReferenceBinding var2) {
+    void updateCaches(UnresolvedReferenceBinding var1, ReferenceBinding var2) {
         Object[] var3;
         int var4;
         int var5;
@@ -1364,9 +1364,9 @@ public class LookupEnvironment implements class_17 {
     }
 
     static {
-        class_39 var10000 = new class_39(CharOperation.field_994, 1);
-        field_366 = var10000;
-        class_51 var0 = new class_51(CharOperation.field_995, (ReferenceBinding)null, 1);
-        field_367 = var0;
+        ProblemPackageBinding var10000 = new ProblemPackageBinding(CharOperation.NO_CHAR, 1);
+        TheNotFoundPackage = var10000;
+        ProblemReferenceBinding var0 = new ProblemReferenceBinding(CharOperation.NO_CHAR_CHAR, (ReferenceBinding)null, 1);
+        TheNotFoundType = var0;
     }
 }

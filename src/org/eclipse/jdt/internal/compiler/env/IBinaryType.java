@@ -1,37 +1,37 @@
 package org.eclipse.jdt.internal.compiler.env;
 
 import org.eclipse.jdt.core.compiler.CharOperation;
-import org.eclipse.jdt.internal.compiler.env.class_20;
-import org.eclipse.jdt.internal.compiler.env.class_23;
-import org.eclipse.jdt.internal.compiler.env.class_25;
-import org.eclipse.jdt.internal.compiler.env.class_27;
-import org.eclipse.jdt.internal.compiler.env.class_29;
+import org.eclipse.jdt.internal.compiler.env.IGenericType;
+import org.eclipse.jdt.internal.compiler.env.IBinaryNestedType;
+import org.eclipse.jdt.internal.compiler.env.IBinaryMethod;
+import org.eclipse.jdt.internal.compiler.env.IBinaryField;
+import org.eclipse.jdt.internal.compiler.env.IBinaryAnnotation;
 
-public interface IBinaryType extends class_20 {
+public interface IBinaryType extends IGenericType {
 
-    char[][] field_145 = CharOperation.field_995;
+    char[][] NoInterface = CharOperation.NO_CHAR_CHAR;
 
-    class_23[] field_146 = new class_23[0];
+    IBinaryNestedType[] NoNestedType = new IBinaryNestedType[0];
 
-    class_27[] field_147 = new class_27[0];
+    IBinaryField[] NoField = new IBinaryField[0];
 
-    class_25[] field_148 = new class_25[0];
+    IBinaryMethod[] NoMethod = new IBinaryMethod[0];
 
-    class_29[] method_55();
+    IBinaryAnnotation[] getAnnotations();
 
-    char[] method_51();
+    char[] getContents();
 
-    class_27[] method_56();
+    IBinaryField[] getFields();
 
     char[] method_52();
 
-    char[][] method_53();
+    char[][] getPackageName();
 
-    class_23[] method_57();
+    IBinaryNestedType[] getMemberTypes();
 
-    class_25[] method_58();
+    IBinaryMethod[] getMethods();
 
-    char[][][] method_59();
+    char[][][] getMissingTypeNames();
 
     char[] method_60();
 
@@ -39,7 +39,7 @@ public interface IBinaryType extends class_20 {
 
     char[] method_62();
 
-    long method_63();
+    long getTagBits();
 
     boolean method_64();
 

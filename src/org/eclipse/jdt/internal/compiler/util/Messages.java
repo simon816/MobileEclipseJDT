@@ -79,15 +79,15 @@ public final class Messages {
     private Messages() {
     }
 
-    public static String method_3251(String var0, Object var1) {
-        return method_3253(var0, new Object[] {var1});
+    public static String bind(String var0, Object var1) {
+        return bind(var0, new Object[] {var1});
     }
 
-    public static String method_3252(String var0, Object var1, Object var2) {
-        return method_3253(var0, new Object[] {var1, var2});
+    public static String bind(String var0, Object var1, Object var2) {
+        return bind(var0, new Object[] {var1, var2});
     }
 
-    public static String method_3253(String var0, Object[] var1) {
+    public static String bind(String var0, Object[] var1) {
         return MessageFormat.format(var0, var1);
     }
 

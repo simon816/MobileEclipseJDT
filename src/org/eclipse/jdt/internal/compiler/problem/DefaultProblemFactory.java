@@ -8,11 +8,11 @@ import org.eclipse.jdt.core.compiler.CategorizedProblem;
 import org.eclipse.jdt.internal.compiler.IProblemFactory;
 import org.eclipse.jdt.internal.compiler.problem.DefaultProblem;
 import org.eclipse.jdt.internal.compiler.util.Util;
-import org.eclipse.jdt.internal.compiler.util.class_323;
+import org.eclipse.jdt.internal.compiler.util.HashtableOfInt;
 
 public class DefaultProblemFactory implements IProblemFactory {
 
-    public static class_323 field_1056;
+    public static HashtableOfInt field_1056;
 
     private static final char[] field_1057;
 
@@ -23,15 +23,15 @@ public class DefaultProblemFactory implements IProblemFactory {
     static byte[] field_1060;
 
     public CategorizedProblem method_24(String var1, int var2, String[] var3, String[] var4, int var5, int var6, int var7, int var8, int var9) {
-        DefaultProblem var10000 = new DefaultProblem(var1, this.method_1444(var2, var4), var2, var3, var5, var6, var7, var8, var9);
+        DefaultProblem var10000 = new DefaultProblem(var1, this.getLocalizedMessage(var2, var4), var2, var3, var5, var6, var7, var8, var9);
         return var10000;
     }
 
     public DefaultProblemFactory() {
         String var1 = "/batch/problem.txt";
         InputStream var2 = var1.getClass().getResourceAsStream(var1);
-        class_323 var10000 = new class_323(700);
-        class_323 var3 = var10000;
+        HashtableOfInt var10000 = new HashtableOfInt(700);
+        HashtableOfInt var3 = var10000;
         label26:
         while (true) {
             try {
@@ -43,7 +43,7 @@ public class DefaultProblemFactory implements IProblemFactory {
                     int var5 = var4.indexOf(61);
                     if (!var4.startsWith("#") && var5 >= 0) {
                         int var6 = Integer.parseInt(var4.substring(0, var5 - 1));
-                        var3.method_3215(method_1443(var6), var4.substring(var5 + 1));
+                        var3.put(keyFromID(var6), var4.substring(var5 + 1));
                     }
                 }
             } catch (Exception var7) {
@@ -54,26 +54,26 @@ public class DefaultProblemFactory implements IProblemFactory {
     }
 
     public CategorizedProblem method_25(String var1, int var2, String[] var3, int var4, String[] var5, int var6, int var7, int var8, int var9, int var10) {
-        DefaultProblem var10000 = new DefaultProblem(var1, this.method_1445(var2, var4, var5), var2, var3, var6, var7, var8, var9, var10);
+        DefaultProblem var10000 = new DefaultProblem(var1, this.getLocalizedMessage(var2, var4, var5), var2, var3, var6, var7, var8, var9, var10);
         return var10000;
     }
 
-    private static final int method_1443(int var0) {
+    private static final int keyFromID(int var0) {
         return var0 + 1;
     }
 
-    public final String method_1444(int var1, String[] var2) {
-        return this.method_1445(var1, 0, var2);
+    public final String getLocalizedMessage(int var1, String[] var2) {
+        return this.getLocalizedMessage(var1, 0, var2);
     }
 
-    public final String method_1445(int var1, int var2, String[] var3) {
-        String var4 = (String)field_1056.method_3214(method_1443(var1 & 16777215));
+    public final String getLocalizedMessage(int var1, int var2, String[] var3) {
+        String var4 = (String)field_1056.get(keyFromID(var1 & 16777215));
         if (var4 == null) {
             return "Unable to retrieve the error message for problem id: " + (var1 & 16777215) + ". Check compiler resources.";
         } else {
             char[] var5 = var4.toCharArray();
             if (var2 != 0) {
-                String var6 = (String)field_1056.method_3214(method_1443(var2));
+                String var6 = (String)field_1056.get(keyFromID(var2));
                 if (var6 == null) {
                     return "Unable to retrieve the error message elaboration for elaboration id: " + var2 + ". Check compiler resources.";
                 }
@@ -88,7 +88,7 @@ public class DefaultProblemFactory implements IProblemFactory {
                 StringBuffer var9 = null;
                 if ((var1 & Integer.MIN_VALUE) != 0) {
                     var9 = new StringBuffer(10 + var13 + var3.length * 20);
-                    var9.append((String)field_1056.method_3214(method_1443(514)));
+                    var9.append((String)field_1056.get(keyFromID(514)));
                 }
                 while (true) {
                     int var8;
@@ -99,11 +99,11 @@ public class DefaultProblemFactory implements IProblemFactory {
                         var9.append(var5, var7, var8 - var7);
                         if ((var7 = CharOperation.method_1374('}', var5, var8 + 1)) > -1) {
                             try {
-                                var9.append(var3[CharOperation.method_1380(var5, var8 + 1, var7 - var8 - 1)]);
+                                var9.append(var3[CharOperation.parseInt(var5, var8 + 1, var7 - var8 - 1)]);
                             } catch (NumberFormatException var11) {
                                 var9.append(var5, var8 + 1, var7 - var8);
                             } catch (ArrayIndexOutOfBoundsException var12) {
-                                return "Cannot bind message for problem (id: " + (var1 & 16777215) + ") \"" + new String(var5) + "\" with arguments: {" + Util.method_1328(var3) + "}";
+                                return "Cannot bind message for problem (id: " + (var1 & 16777215) + ") \"" + new String(var5) + "\" with arguments: {" + Util.toString(var3) + "}";
                             }
                             ++var7;
                             continue;

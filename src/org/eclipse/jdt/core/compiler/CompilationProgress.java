@@ -5,13 +5,13 @@ public abstract class CompilationProgress {
     public CompilationProgress() {
     }
 
-    public abstract void method_1392(int var1);
+    public abstract void begin(int var1);
 
-    public abstract void method_1393();
+    public abstract void done();
 
-    public abstract boolean method_1394();
+    public abstract boolean isCanceled();
 
-    public abstract void method_1395(String var1);
+    public abstract void setTaskName(String var1);
 
-    public abstract void method_1396(int var1, int var2);
+    public abstract void worked(int var1, int var2);
 }

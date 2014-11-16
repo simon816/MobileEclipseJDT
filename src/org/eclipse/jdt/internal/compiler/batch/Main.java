@@ -47,11 +47,11 @@ public class Main implements SuffixConstants {
 
     public static Hashtable field_1014;
 
-    protected FileSystem$Classpath[] field_1015;
+    protected FileSystem$Classpath[] checkedClasspaths;
 
-    public CompilerOptions field_1016;
+    public CompilerOptions compilerOptions;
 
-    public CompilationProgress field_1017;
+    public CompilationProgress progress;
 
     public String field_1018;
 
@@ -99,7 +99,7 @@ public class Main implements SuffixConstants {
 
     public int field_1040;
 
-    public CompilerStats[] field_1041;
+    public CompilerStats[] compilerStats;
 
     public boolean field_1042;
 
@@ -121,19 +121,19 @@ public class Main implements SuffixConstants {
         field_1014 = Main$ResourceBundleFactory.method_1219();
     }
 
-    public String method_1411(String var1) {
-        return this.method_1414(var1, (String[])null);
+    public String bind(String var1) {
+        return this.bind(var1, (String[])null);
     }
 
-    public String method_1412(String var1, String var2) {
-        return this.method_1414(var1, new String[] {var2});
+    public String bind(String var1, String var2) {
+        return this.bind(var1, new String[] {var2});
     }
 
-    public String method_1413(String var1, String var2, String var3) {
-        return this.method_1414(var1, new String[] {var2, var3});
+    public String bind(String var1, String var2, String var3) {
+        return this.bind(var1, new String[] {var2, var3});
     }
 
-    public String method_1414(String var1, String[] var2) {
+    public String bind(String var1, String[] var2) {
         if (var1 == null) {
             return "No message available";
         } else {
@@ -152,14 +152,14 @@ public class Main implements SuffixConstants {
         try {
             try {
                 this.configure(var1);
-                if (this.field_1017 != null) {
-                    this.field_1017.method_1392(this.field_1022 == null ? 0 : this.field_1022.length * this.field_1035);
+                if (this.progress != null) {
+                    this.progress.begin(this.field_1022 == null ? 0 : this.field_1022.length * this.field_1035);
                 }
                 if (this.field_1031) {
                     if (this.field_1042) {
                         eclipse var10000 = eclipse.instance;
                         CompilerOptions var10002 = new CompilerOptions(this.options);
-                        var10000.println(this.field_1016 = var10002);
+                        var10000.println(this.compilerOptions = var10002);
                     }
                     if (this.field_1036) {
                         this.logger.compiling();
@@ -174,9 +174,9 @@ public class Main implements SuffixConstants {
                             this.logger.flush();
                             this.logger.logRepetition(this.field_1034, this.field_1035);
                         }
-                        this.method_1425();
+                        this.performCompilation();
                     }
-                    if (this.field_1041 != null) {
+                    if (this.compilerStats != null) {
                         this.logger.logAverage();
                     }
                     if (this.field_1036) {
@@ -187,7 +187,7 @@ public class Main implements SuffixConstants {
                     this.logger.flush();
                     this.logger.close();
                 }
-                return this.field_1024 == 0 && (this.field_1017 == null || !this.field_1017.method_1394());
+                return this.field_1024 == 0 && (this.progress == null || !this.progress.isCanceled());
             } catch (InvalidInputException var8) {
                 var8.printStackTrace();
                 if (this.field_1039) {
@@ -208,8 +208,8 @@ public class Main implements SuffixConstants {
         } finally {
             this.logger.flush();
             this.logger.close();
-            if (this.field_1017 != null) {
-                this.field_1017.method_1393();
+            if (this.progress != null) {
+                this.progress.done();
             }
         }
         return var3;
@@ -222,7 +222,7 @@ public class Main implements SuffixConstants {
         FileSystem$Classpath[] var4 = new FileSystem$Classpath[1];
         ClasspathJar var10004 = new ClasspathJar((AccessRuleSet)null, (String)null);
         var4[0] = var10004;
-        this.field_1015 = var4;
+        this.checkedClasspaths = var4;
         this.field_1032 = true;
         this.field_1040 = 3;
         this.field_1033 = true;
@@ -237,7 +237,7 @@ public class Main implements SuffixConstants {
             this.field_1035 = 1;
         }
         if (this.field_1035 >= 3 && (this.field_1040 & 1) != 0) {
-            this.field_1041 = new CompilerStats[this.field_1035];
+            this.compilerStats = new CompilerStats[this.field_1035];
         }
         if (this.field_1038 != null) {
             Iterator var2 = this.field_1038.iterator();
@@ -249,8 +249,8 @@ public class Main implements SuffixConstants {
         }
     }
 
-    public String method_1417(CompilationResult var1) {
-        ICompilationUnit var2 = var1.field_1677;
+    public String extractDestinationPathFromSourceFile(CompilationResult var1) {
+        ICompilationUnit var2 = var1.compilationUnit;
         if (var2 != null) {
             char[] var3 = var2.method_50().toCharArray();
             int var4 = CharOperation.method_1376('/', var3);
@@ -266,12 +266,12 @@ public class Main implements SuffixConstants {
         return null;
     }
 
-    public ICompilerRequestor method_1418() {
+    public ICompilerRequestor getBatchRequestor() {
         Main$1 var10000 = new Main$1(this);
         return var10000;
     }
 
-    public CompilationUnit[] method_1419() throws InvalidInputException {
+    public CompilationUnit[] getCompilationUnits() throws InvalidInputException {
         int var1 = this.field_1022.length;
         CompilationUnit[] var2 = new CompilationUnit[var1];
         HashtableOfObject var10000 = new HashtableOfObject(var1);
@@ -280,14 +280,14 @@ public class Main implements SuffixConstants {
             char[] var5 = this.field_1022[var4].toCharArray();
             InvalidInputException var8;
             if (var3.method_3226(var5) != null) {
-                var8 = new InvalidInputException(this.method_1412("unit.more", this.field_1022[var4]));
+                var8 = new InvalidInputException(this.bind("unit.more", this.field_1022[var4]));
                 throw var8;
             }
-            var3.method_3227(var5, var5);
+            var3.put(var5, var5);
             File var7 = new File(this.field_1022[var4]);
             File var6 = var7;
             if (!var6.exists()) {
-                var8 = new InvalidInputException(this.method_1412("unit.missing", this.field_1022[var4]));
+                var8 = new InvalidInputException(this.bind("unit.missing", this.field_1022[var4]));
                 throw var8;
             }
             CompilationUnit var10002 = new CompilationUnit((char[])null, this.field_1022[var4], (String)null, (String)null);
@@ -296,17 +296,17 @@ public class Main implements SuffixConstants {
         return var2;
     }
 
-    public IErrorHandlingPolicy method_1420() {
+    public IErrorHandlingPolicy getHandlingPolicy() {
         Main$2 var10000 = new Main$2(this);
         return var10000;
     }
 
-    public FileSystem method_1421() {
-        FileSystem var10000 = new FileSystem(this.field_1015, this.field_1022);
+    public FileSystem getLibraryAccess() {
+        FileSystem var10000 = new FileSystem(this.checkedClasspaths, this.field_1022);
         return var10000;
     }
 
-    public IProblemFactory method_1422() {
+    public IProblemFactory getProblemFactory() {
         DefaultProblemFactory var10000 = new DefaultProblemFactory();
         return var10000;
     }
@@ -319,7 +319,7 @@ public class Main implements SuffixConstants {
         this.field_1039 = var3;
         CompilerOptions var8 = new CompilerOptions();
         this.options = var8.method_3311();
-        this.field_1017 = var5;
+        this.progress = var5;
         if (var4 != null) {
             this.field_1019 = var4.get("org.eclipse.jdt.core.compiler.source") != null;
             this.field_1020 = var4.get("org.eclipse.jdt.core.compiler.codegen.targetPlatform") != null;
@@ -335,15 +335,15 @@ public class Main implements SuffixConstants {
         this.field_1023 = null;
     }
 
-    public void method_1424(CompilationResult var1) {
+    public void outputClassFiles(CompilationResult var1) {
         if (var1 != null && (!var1.method_2924() || this.field_1032)) {
-            ClassFile[] var2 = var1.method_2917();
+            ClassFile[] var2 = var1.getClassFiles();
             String var3 = null;
             boolean var4 = false;
-            CompilationUnit var5 = (CompilationUnit)var1.field_1677;
+            CompilationUnit var5 = (CompilationUnit)var1.compilationUnit;
             if (var5.field_1011 == null) {
                 if (this.field_1018 == null) {
-                    var3 = this.method_1417(var1);
+                    var3 = this.extractDestinationPathFromSourceFile(var1);
                 } else if (this.field_1018 != "none") {
                     var3 = this.field_1018;
                     var4 = true;
@@ -356,55 +356,55 @@ public class Main implements SuffixConstants {
                 int var6 = 0;
                 for (int var7 = var2.length; var6 < var7; ++var6) {
                     ClassFile var8 = var2[var6];
-                    char[] var9 = var8.method_2987();
+                    char[] var9 = var8.fileName();
                     int var10 = var9.length;
                     char[] var11 = new char[var10 + 6];
                     System.arraycopy(var9, 0, var11, 0, var10);
                     System.arraycopy(SuffixConstants.field_0, 0, var11, var10, 6);
-                    CharOperation.method_1382(var11, '/', '/');
+                    CharOperation.replace(var11, '/', '/');
                     String var12 = new String(var11);
                     try {
-                        if (this.field_1016.field_1931) {
-                            this.field_1030.println(Messages.method_3253(Messages.field_1865, new String[] {String.valueOf(this.field_1021 + 1), var12}));
+                        if (this.compilerOptions.field_1931) {
+                            this.field_1030.println(Messages.bind(Messages.field_1865, new String[] {String.valueOf(this.field_1021 + 1), var12}));
                         }
-                        Util.method_1330(var4, var3, var12, var8);
+                        Util.writeToDisk(var4, var3, var12, var8);
                         this.logger.method_1243(var4, var3, var12);
                         ++this.field_1021;
                     } catch (IOException var14) {
-                        this.logger.method_1247(var3, var12, var14);
+                        this.logger.logNoClassFileCreated(var3, var12, var14);
                     }
                 }
-                this.batchCompiler.field_1707.method_517(var2);
+                this.batchCompiler.lookupEnvironment.releaseClassFiles(var2);
             }
         }
     }
 
-    public void method_1425() throws InvalidInputException {
+    public void performCompilation() throws InvalidInputException {
         this.field_1037 = System.currentTimeMillis();
-        FileSystem var1 = this.method_1421();
-        this.field_1016.field_1961 = false;
-        this.field_1016.field_1962 = false;
-        Compiler var10001 = new Compiler(var1, this.method_1420(), this.field_1016, this.method_1418(), this.method_1422(), this.field_1030, this.field_1017);
+        FileSystem var1 = this.getLibraryAccess();
+        this.compilerOptions.field_1961 = false;
+        this.compilerOptions.field_1962 = false;
+        Compiler var10001 = new Compiler(var1, this.getHandlingPolicy(), this.compilerOptions, this.getBatchRequestor(), this.getProblemFactory(), this.field_1030, this.progress);
         this.batchCompiler = var10001;
         this.batchCompiler.field_1704 = this.field_1035 - this.field_1034;
-        this.batchCompiler.field_1712 = true;
-        this.field_1016.field_1931 = this.field_1042;
-        this.field_1016.field_1932 = this.field_1033;
+        this.batchCompiler.useSingleThread = true;
+        this.compilerOptions.field_1931 = this.field_1042;
+        this.compilerOptions.field_1932 = this.field_1033;
         try {
             this.logger.method_1270();
-            this.batchCompiler.method_2944(this.method_1419());
+            this.batchCompiler.method_2944(this.getCompilationUnits());
         } finally {
             this.logger.method_1234();
         }
         if (this.field_1043 != null) {
-            this.logger.method_1246(this);
+            this.logger.loggingExtraProblems(this);
             this.field_1043 = null;
         }
-        if (this.field_1041 != null) {
-            this.field_1041[this.field_1034] = this.batchCompiler.field_1702;
+        if (this.compilerStats != null) {
+            this.compilerStats[this.field_1034] = this.batchCompiler.stats;
         }
         this.logger.method_1265();
-        var1.method_16();
+        var1.cleanup();
     }
 
     public static String[] method_1426(File var0, String var1) {

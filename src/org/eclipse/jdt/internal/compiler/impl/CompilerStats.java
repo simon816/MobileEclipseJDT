@@ -21,14 +21,14 @@ public class CompilerStats implements Comparable {
     public CompilerStats() {
     }
 
-    public long method_3323() {
+    public long elapsedTime() {
         return this.field_1968 - this.field_1967;
     }
 
     public int compareTo(Object var1) {
         CompilerStats var2 = (CompilerStats)var1;
-        long var3 = this.method_3323();
-        long var5 = var2.method_3323();
+        long var3 = this.elapsedTime();
+        long var5 = var2.elapsedTime();
         return var3 < var5 ? -1 : (var3 == var5 ? 0 : 1);
     }
 }

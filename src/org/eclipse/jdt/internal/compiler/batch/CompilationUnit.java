@@ -18,7 +18,7 @@ public class CompilationUnit implements ICompilationUnit {
 
     public char[] field_1009;
 
-    String field_1010;
+    String encoding;
 
     public String field_1011;
 
@@ -28,12 +28,12 @@ public class CompilationUnit implements ICompilationUnit {
         switch (47) {
             case 47:
                 if (CharOperation.method_1371('\\', var5) != -1) {
-                    CharOperation.method_1382(var5, '\\', '/');
+                    CharOperation.replace(var5, '\\', '/');
                 }
                 break;
             case 92:
                 if (CharOperation.method_1371('/', var5) != -1) {
-                    CharOperation.method_1382(var5, '/', '\\');
+                    CharOperation.replace(var5, '/', '\\');
                 }
         }
         this.field_1008 = var2;
@@ -42,21 +42,21 @@ public class CompilationUnit implements ICompilationUnit {
         if (var7 == -1) {
             var7 = var5.length;
         }
-        this.field_1009 = CharOperation.method_1388(var5, var6, var7);
-        this.field_1010 = var3;
+        this.field_1009 = CharOperation.subarray(var5, var6, var7);
+        this.encoding = var3;
         this.field_1011 = var4;
     }
 
-    public char[] method_51() {
+    public char[] getContents() {
         if (this.field_1007 != null) {
             return this.field_1007;
         } else {
             try {
                 File var3 = new File(this.field_1008);
-                return Util.method_1320(var3, this.field_1010);
+                return Util.method_1320(var3, this.encoding);
             } catch (IOException var2) {
-                this.field_1007 = CharOperation.field_994;
-                AbortCompilationUnit var10000 = new AbortCompilationUnit((CompilationResult)null, var2, this.field_1010);
+                this.field_1007 = CharOperation.NO_CHAR;
+                AbortCompilationUnit var10000 = new AbortCompilationUnit((CompilationResult)null, var2, this.encoding);
                 throw var10000;
             }
         }
@@ -70,7 +70,7 @@ public class CompilationUnit implements ICompilationUnit {
         return this.field_1009;
     }
 
-    public char[][] method_53() {
+    public char[][] getPackageName() {
         return (char[][])null;
     }
 

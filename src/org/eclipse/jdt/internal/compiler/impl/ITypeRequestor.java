@@ -8,9 +8,9 @@ import org.eclipse.jdt.internal.compiler.lookup.PackageBinding;
 
 public interface ITypeRequestor {
 
-    void method_87(IBinaryType var1, PackageBinding var2, AccessRestriction var3);
+    void accept(IBinaryType var1, PackageBinding var2, AccessRestriction var3);
 
-    void method_88(ICompilationUnit var1, AccessRestriction var2);
+    void accept(ICompilationUnit var1, AccessRestriction var2);
 
-    void method_89(ISourceType[] var1, PackageBinding var2, AccessRestriction var3);
+    void accept(ISourceType[] var1, PackageBinding var2, AccessRestriction var3);
 }

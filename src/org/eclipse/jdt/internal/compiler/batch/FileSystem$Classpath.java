@@ -4,13 +4,13 @@ import org.eclipse.jdt.internal.compiler.env.NameEnvironmentAnswer;
 
 public interface FileSystem$Classpath {
 
-    NameEnvironmentAnswer method_14(char[] var1, String var2, String var3, boolean var4);
+    NameEnvironmentAnswer findClass(char[] var1, String var2, String var3, boolean var4);
 
-    boolean method_15(String var1);
+    boolean isPackage(String var1);
 
-    void method_16();
+    void cleanup();
 
-    char[] method_17();
+    char[] normalizedPath();
 
-    void method_18();
+    void reset();
 }

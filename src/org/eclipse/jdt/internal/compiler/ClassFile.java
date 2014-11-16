@@ -11,59 +11,59 @@ import org.eclipse.jdt.core.compiler.CategorizedProblem;
 import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.eclipse.jdt.internal.compiler.ClassFile$2;
 import org.eclipse.jdt.internal.compiler.ClassFile$1;
-import org.eclipse.jdt.internal.compiler.ast.class_114;
-import org.eclipse.jdt.internal.compiler.ast.class_121;
-import org.eclipse.jdt.internal.compiler.ast.class_125;
-import org.eclipse.jdt.internal.compiler.ast.class_126;
-import org.eclipse.jdt.internal.compiler.ast.class_128;
-import org.eclipse.jdt.internal.compiler.ast.class_129;
-import org.eclipse.jdt.internal.compiler.ast.class_162;
-import org.eclipse.jdt.internal.compiler.ast.class_163;
-import org.eclipse.jdt.internal.compiler.ast.class_164;
-import org.eclipse.jdt.internal.compiler.ast.class_165;
-import org.eclipse.jdt.internal.compiler.ast.class_167;
+import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.Argument;
+import org.eclipse.jdt.internal.compiler.ast.Expression;
+import org.eclipse.jdt.internal.compiler.ast.ArrayInitializer;
+import org.eclipse.jdt.internal.compiler.ast.ClassLiteralAccess;
+import org.eclipse.jdt.internal.compiler.ast.SingleNameReference;
+import org.eclipse.jdt.internal.compiler.ast.QualifiedNameReference;
+import org.eclipse.jdt.internal.compiler.ast.Annotation;
+import org.eclipse.jdt.internal.compiler.ast.SingleMemberAnnotation;
+import org.eclipse.jdt.internal.compiler.ast.NormalAnnotation;
 import org.eclipse.jdt.internal.compiler.ast.ASTNode;
-import org.eclipse.jdt.internal.compiler.ast.class_92;
+import org.eclipse.jdt.internal.compiler.ast.MemberValuePair;
 import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.class_96;
-import org.eclipse.jdt.internal.compiler.ast.class_97;
-import org.eclipse.jdt.internal.compiler.codegen.class_268;
+import org.eclipse.jdt.internal.compiler.ast.MethodDeclaration;
+import org.eclipse.jdt.internal.compiler.ast.AnnotationMethodDeclaration;
+import org.eclipse.jdt.internal.compiler.codegen.CodeStream;
 import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream;
-import org.eclipse.jdt.internal.compiler.codegen.class_272;
-import org.eclipse.jdt.internal.compiler.codegen.class_273;
-import org.eclipse.jdt.internal.compiler.codegen.class_280;
+import org.eclipse.jdt.internal.compiler.codegen.ConstantPool;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$ExceptionMarker;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrame;
 import org.eclipse.jdt.internal.compiler.codegen.AttributeNamesConstants;
-import org.eclipse.jdt.internal.compiler.codegen.class_71;
-import org.eclipse.jdt.internal.compiler.codegen.class_73;
-import org.eclipse.jdt.internal.compiler.codegen.class_77;
-import org.eclipse.jdt.internal.compiler.codegen.class_78;
-import org.eclipse.jdt.internal.compiler.impl.class_331;
-import org.eclipse.jdt.internal.compiler.impl.class_336;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$StackMarker;
+import org.eclipse.jdt.internal.compiler.codegen.ExceptionLabel;
+import org.eclipse.jdt.internal.compiler.codegen.VerificationTypeInfo;
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream$StackDepthMarker;
+import org.eclipse.jdt.internal.compiler.impl.Constant;
+import org.eclipse.jdt.internal.compiler.impl.StringConstant;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
-import org.eclipse.jdt.internal.compiler.lookup.class_17;
-import org.eclipse.jdt.internal.compiler.lookup.class_34;
-import org.eclipse.jdt.internal.compiler.lookup.class_40;
+import org.eclipse.jdt.internal.compiler.lookup.TypeConstants;
+import org.eclipse.jdt.internal.compiler.lookup.Binding;
+import org.eclipse.jdt.internal.compiler.lookup.TypeBinding;
 import org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding;
 import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
-import org.eclipse.jdt.internal.compiler.lookup.class_55;
-import org.eclipse.jdt.internal.compiler.lookup.class_57;
-import org.eclipse.jdt.internal.compiler.lookup.class_58;
-import org.eclipse.jdt.internal.compiler.lookup.class_60;
-import org.eclipse.jdt.internal.compiler.lookup.class_65;
-import org.eclipse.jdt.internal.compiler.lookup.class_66;
-import org.eclipse.jdt.internal.compiler.lookup.class_67;
+import org.eclipse.jdt.internal.compiler.lookup.NestedTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.LocalTypeBinding;
+import org.eclipse.jdt.internal.compiler.lookup.MethodBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SyntheticMethodBinding;
+import org.eclipse.jdt.internal.compiler.lookup.LocalVariableBinding;
+import org.eclipse.jdt.internal.compiler.lookup.SyntheticArgumentBinding;
+import org.eclipse.jdt.internal.compiler.lookup.FieldBinding;
 import org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment;
-import org.eclipse.jdt.internal.compiler.problem.class_249;
+import org.eclipse.jdt.internal.compiler.problem.ShouldNotImplement;
 import org.eclipse.jdt.internal.compiler.util.Util;
 import org.eclipse.jdt.internal.compiler.util.Messages;
 
-public class ClassFile implements class_17 {
+public class ClassFile implements TypeConstants {
 
-    private byte[] field_1714;
+    private byte[] bytes;
 
-    public class_268 field_1715;
+    public CodeStream codeStream;
 
-    public class_272 field_1716;
+    public ConstantPool constantPool;
 
     public int field_1717;
 
@@ -71,9 +71,9 @@ public class ClassFile implements class_17 {
 
     public int field_1719;
 
-    protected boolean field_1720;
+    protected boolean creatingProblemType;
 
-    public ClassFile field_1721;
+    public ClassFile enclosingClassFile;
 
     public byte[] field_1722;
 
@@ -85,35 +85,35 @@ public class ClassFile implements class_17 {
 
     public int field_1726;
 
-    boolean field_1727;
+    boolean isShared;
 
     public int field_1728;
 
-    public SourceTypeBinding field_1729;
+    public SourceTypeBinding referenceBinding;
 
-    public boolean field_1730;
+    public boolean isNestedType;
 
-    public long field_1731;
+    public long targetJDK;
 
     public List field_1732;
 
-    public static void method_2955(class_114 var0, CompilationResult var1) {
-        SourceTypeBinding var2 = var0.field_586;
-        ClassFile var3 = method_2956(var2);
-        var3.method_3006(var2, (ClassFile)null, true);
+    public static void createProblemType(TypeDeclaration var0, CompilationResult var1) {
+        SourceTypeBinding var2 = var0.binding;
+        ClassFile var3 = getNewInstance(var2);
+        var3.initialize(var2, (ClassFile)null, true);
         int var5;
         if (var2.method_213()) {
             ReferenceBinding[] var4 = var2.field_256;
             var5 = 0;
             for (int var6 = var4.length; var5 < var6; ++var5) {
-                var3.method_3012(var4[var5]);
+                var3.recordInnerClasses(var4[var5]);
             }
         }
         if (var2.method_160()) {
-            var3.method_3012(var2);
+            var3.recordInnerClasses(var2);
         }
-        class_67[] var13 = var2.method_204();
-        if (var13 != null && var13 != class_34.field_153) {
+        FieldBinding[] var13 = var2.fields();
+        if (var13 != null && var13 != Binding.field_153) {
             var3.method_2964();
         } else {
             var3.field_1718[var3.field_1719++] = 0;
@@ -126,27 +126,27 @@ public class ClassFile implements class_17 {
         }
         CategorizedProblem[] var7 = new CategorizedProblem[var5 = var14.length];
         System.arraycopy(var14, 0, var7, 0, var5);
-        AbstractMethodDeclaration[] var8 = var0.field_584;
+        AbstractMethodDeclaration[] var8 = var0.methods;
         int var9;
         int var10;
         if (var8 != null) {
             AbstractMethodDeclaration var11;
-            class_58 var12;
+            MethodBinding var12;
             if (var2.method_157()) {
-                var3.method_2966(var7);
+                var3.addProblemClinit(var7);
                 var9 = 0;
                 for (var10 = var8.length; var9 < var10; ++var9) {
                     var11 = var8[var9];
-                    var12 = var11.field_488;
+                    var12 = var11.binding;
                     if (var12 != null && !var12.method_358()) {
-                        var3.method_2959(var11, var12);
+                        var3.addAbstractMethod(var11, var12);
                     }
                 }
             } else {
                 var9 = 0;
                 for (var10 = var8.length; var9 < var10; ++var9) {
                     var11 = var8[var9];
-                    var12 = var11.field_488;
+                    var12 = var11.binding;
                     if (var12 != null) {
                         if (var12.method_358()) {
                             var3.method_2967(var11, var12, var7);
@@ -158,61 +158,61 @@ public class ClassFile implements class_17 {
             }
             var3.method_2961();
         }
-        if (var0.field_585 != null) {
+        if (var0.memberTypes != null) {
             var9 = 0;
-            for (var10 = var0.field_585.length; var9 < var10; ++var9) {
-                class_114 var15 = var0.field_585[var9];
-                if (var15.field_586 != null) {
-                    method_2955(var15, var1);
+            for (var10 = var0.memberTypes.length; var9 < var10; ++var9) {
+                TypeDeclaration var15 = var0.memberTypes[var9];
+                if (var15.binding != null) {
+                    createProblemType(var15, var1);
                 }
             }
         }
         var3.method_2960();
-        var1.method_2930(var2.method_134(), var3);
+        var1.record(var2.constantPoolName(), var3);
     }
 
-    public static ClassFile method_2956(SourceTypeBinding var0) {
-        LookupEnvironment var1 = var0.field_258.method_586();
-        return var1.field_354.method_3027(var0);
+    public static ClassFile getNewInstance(SourceTypeBinding var0) {
+        LookupEnvironment var1 = var0.scope.environment();
+        return var1.classFilePool.acquire(var0);
     }
 
     protected ClassFile() {
-        this.field_1727 = false;
+        this.isShared = false;
         this.field_1732 = null;
     }
 
     public ClassFile(SourceTypeBinding var1) {
-        this.field_1727 = false;
+        this.isShared = false;
         this.field_1732 = null;
-        class_272 var10001 = new class_272(this);
-        this.field_1716 = var10001;
-        CompilerOptions var2 = var1.field_258.method_577();
-        this.field_1731 = var2.field_1929;
+        ConstantPool var10001 = new ConstantPool(this);
+        this.constantPool = var10001;
+        CompilerOptions var2 = var1.scope.compilerOptions();
+        this.targetJDK = var2.field_1929;
         this.field_1728 = var2.field_1926;
-        this.field_1729 = var1;
-        this.field_1730 = var1.method_160();
+        this.referenceBinding = var1;
+        this.isNestedType = var1.method_160();
         StackMapFrameCodeStream var4;
-        if (this.field_1731 >= 3276800L) {
+        if (this.targetJDK >= 3276800L) {
             this.field_1728 |= 8;
             var4 = new StackMapFrameCodeStream(this);
-            this.field_1715 = var4;
-        } else if (this.field_1731 == 2949124L) {
-            this.field_1731 = 2949123L;
+            this.codeStream = var4;
+        } else if (this.targetJDK == 2949124L) {
+            this.targetJDK = 2949123L;
             this.field_1728 |= 16;
             var4 = new StackMapFrameCodeStream(this);
-            this.field_1715 = var4;
+            this.codeStream = var4;
         } else {
-            class_268 var3 = new class_268(this);
-            this.field_1715 = var3;
+            CodeStream var3 = new CodeStream(this);
+            this.codeStream = var3;
         }
-        this.method_3005();
+        this.initByteArrays();
     }
 
-    public void method_2959(AbstractMethodDeclaration var1, class_58 var2) {
-        var2.field_273 = 1025;
-        this.method_2995(var2);
+    public void addAbstractMethod(AbstractMethodDeclaration var1, MethodBinding var2) {
+        var2.modifiers = 1025;
+        this.generateMethodInfoHeader(var2);
         int var3 = this.field_1719;
-        int var4 = this.method_2993(var2);
+        int var4 = this.generateMethodInfoAttribute(var2);
         this.method_2986(var3, var4);
     }
 
@@ -226,32 +226,32 @@ public class ClassFile implements class_17 {
         int var5;
         int var6;
         if ((this.field_1728 & 1) != 0) {
-            String var3 = new String(this.field_1729.field_258.method_645().method_771());
+            String var3 = new String(this.referenceBinding.scope.referenceCompilationUnit().method_771());
             var3 = var3.replace('\\', '/');
             var4 = var3.lastIndexOf(47);
             if (var4 != -1) {
                 var3 = var3.substring(var4 + 1, var3.length());
             }
             if (this.field_1719 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
-            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_11);
+            var5 = this.constantPool.method_2459(AttributeNamesConstants.field_11);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 2;
-            var6 = this.field_1716.method_2459(var3.toCharArray());
+            var6 = this.constantPool.method_2459(var3.toCharArray());
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             ++var1;
         }
-        if (this.field_1729.method_220()) {
+        if (this.referenceBinding.method_220()) {
             if (this.field_1719 + 6 >= this.field_1718.length) {
-                this.method_3014(6);
+                this.resizeContents(6);
             }
-            int var14 = this.field_1716.method_2459(AttributeNamesConstants.field_12);
+            int var14 = this.constantPool.method_2459(AttributeNamesConstants.field_12);
             this.field_1718[this.field_1719++] = (byte)(var14 >> 8);
             this.field_1718[this.field_1719++] = (byte)var14;
             this.field_1718[this.field_1719++] = 0;
@@ -260,44 +260,44 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = 0;
             ++var1;
         }
-        char[] var15 = this.field_1729.method_307();
+        char[] var15 = this.referenceBinding.method_307();
         if (var15 != null) {
             if (this.field_1719 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
-            var4 = this.field_1716.method_2459(AttributeNamesConstants.field_13);
+            var4 = this.constantPool.method_2459(AttributeNamesConstants.field_13);
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 2;
-            var5 = this.field_1716.method_2459(var15);
+            var5 = this.constantPool.method_2459(var15);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             ++var1;
         }
         int var9;
-        if (this.field_1731 >= 3211264L && this.field_1729.method_160() && !this.field_1729.method_159()) {
+        if (this.targetJDK >= 3211264L && this.referenceBinding.method_160() && !this.referenceBinding.method_159()) {
             if (this.field_1719 + 10 >= this.field_1718.length) {
-                this.method_3014(10);
+                this.resizeContents(10);
             }
-            var4 = this.field_1716.method_2459(AttributeNamesConstants.field_15);
+            var4 = this.constantPool.method_2459(AttributeNamesConstants.field_15);
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 4;
-            var5 = this.field_1716.method_2466(this.field_1729.method_137().method_134());
+            var5 = this.constantPool.method_2466(this.referenceBinding.enclosingType().constantPoolName());
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             byte var20 = 0;
             byte var7 = 0;
-            if (this.field_1729 instanceof class_57) {
-                class_58 var8 = ((class_57)this.field_1729).field_272;
+            if (this.referenceBinding instanceof LocalTypeBinding) {
+                MethodBinding var8 = ((LocalTypeBinding)this.referenceBinding).enclosingMethod;
                 if (var8 != null) {
-                    var9 = this.field_1716.method_2470(var8.field_274, var8.method_382(this));
+                    var9 = this.constantPool.literalIndexForNameAndType(var8.selector, var8.signature(this));
                     var20 = (byte)(var9 >> 8);
                     var7 = (byte)var9;
                 }
@@ -306,31 +306,31 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = var7;
             ++var1;
         }
-        if (this.field_1731 >= 3211264L) {
-            class_114 var17 = this.field_1729.field_258.field_376;
+        if (this.targetJDK >= 3211264L) {
+            TypeDeclaration var17 = this.referenceBinding.scope.referenceContext;
             if (var17 != null) {
-                class_164[] var18 = var17.field_579;
+                Annotation[] var18 = var17.annotations;
                 if (var18 != null) {
-                    var1 += this.method_3000(var18);
+                    var1 += this.generateRuntimeAnnotations(var18);
                 }
             }
         }
         ReferenceBinding[] var19;
         int var21;
-        if (this.field_1729.method_156()) {
-            ReferenceBinding var16 = this.field_1729.field_252;
+        if (this.referenceBinding.method_156()) {
+            ReferenceBinding var16 = this.referenceBinding.superclass;
             if (var16 != null) {
                 this.field_1732 = var16.method_132(this.field_1732);
             }
-            var19 = this.field_1729.method_241();
+            var19 = this.referenceBinding.superInterfaces();
             var6 = 0;
             for (var21 = var19.length; var6 < var21; ++var6) {
                 this.field_1732 = var19[var6].method_132(this.field_1732);
             }
             if (this.field_1719 + 6 >= this.field_1718.length) {
-                this.method_3014(6);
+                this.resizeContents(6);
             }
-            var6 = this.field_1716.method_2459(AttributeNamesConstants.field_22);
+            var6 = this.constantPool.method_2459(AttributeNamesConstants.field_22);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             this.field_1718[this.field_1719++] = 0;
@@ -347,9 +347,9 @@ public class ClassFile implements class_17 {
             Arrays.sort(var19, var10001);
             var6 = 8 * var4 + 8;
             if (var6 + this.field_1719 >= this.field_1718.length) {
-                this.method_3014(var6);
+                this.resizeContents(var6);
             }
-            var21 = this.field_1716.method_2459(AttributeNamesConstants.field_8);
+            var21 = this.constantPool.method_2459(AttributeNamesConstants.field_8);
             this.field_1718[this.field_1719++] = (byte)(var21 >> 8);
             this.field_1718[this.field_1719++] = (byte)var21;
             int var22 = (var4 << 3) + 2;
@@ -362,12 +362,12 @@ public class ClassFile implements class_17 {
             for (var9 = 0; var9 < var4; ++var9) {
                 ReferenceBinding var10 = var19[var9];
                 int var11 = var10.method_205();
-                int var12 = this.field_1716.method_2466(var10.method_134());
+                int var12 = this.constantPool.method_2466(var10.constantPoolName());
                 this.field_1718[this.field_1719++] = (byte)(var12 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var12;
                 int var13;
                 if (var10.method_159()) {
-                    var13 = this.field_1716.method_2466(var10.method_137().method_134());
+                    var13 = this.constantPool.method_2466(var10.enclosingType().constantPoolName());
                     this.field_1718[this.field_1719++] = (byte)(var13 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var13;
                 } else {
@@ -375,7 +375,7 @@ public class ClassFile implements class_17 {
                     this.field_1718[this.field_1719++] = 0;
                 }
                 if (!var10.method_146()) {
-                    var13 = this.field_1716.method_2459(var10.method_179());
+                    var13 = this.constantPool.method_2459(var10.method_179());
                     this.field_1718[this.field_1719++] = (byte)(var13 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var13;
                 } else {
@@ -393,43 +393,43 @@ public class ClassFile implements class_17 {
             ++var1;
         }
         if (this.field_1732 != null) {
-            this.method_2999();
+            this.generateMissingTypesAttribute();
             ++var1;
         }
         if (var2 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var2++] = (byte)(var1 >> 8);
         this.field_1718[var2] = (byte)var1;
-        this.field_1722 = this.field_1716.field_1319;
-        this.field_1723 = this.field_1716.field_1321;
-        var5 = this.field_1716.field_1320;
+        this.field_1722 = this.constantPool.poolContent;
+        this.field_1723 = this.constantPool.field_1321;
+        var5 = this.constantPool.field_1320;
         this.field_1722[this.field_1717++] = (byte)(var5 >> 8);
         this.field_1722[this.field_1717] = (byte)var5;
     }
 
     public void method_2961() {
-        class_58[] var1 = this.field_1729.method_308();
+        MethodBinding[] var1 = this.referenceBinding.getDefaultAbstractMethods();
         int var2 = 0;
         for (int var3 = var1.length; var2 < var3; ++var2) {
-            this.method_2995(var1[var2]);
+            this.generateMethodInfoHeader(var1[var2]);
             int var4 = this.field_1719;
-            int var5 = this.method_2993(var1[var2]);
+            int var5 = this.generateMethodInfoAttribute(var1[var2]);
             this.method_2986(var4, var5);
         }
     }
 
-    private int method_2962(class_67 var1, int var2) {
+    private int addFieldAttributes(FieldBinding var1, int var2) {
         int var3 = 0;
-        class_331 var4 = var1.method_407();
+        Constant var4 = var1.constant();
         int var5;
         int var6;
         int var7;
-        if (var4 != class_331.field_1896) {
+        if (var4 != Constant.NotAConstant) {
             if (this.field_1719 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
-            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_5);
+            var5 = this.constantPool.method_2459(AttributeNamesConstants.field_5);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -437,47 +437,47 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 2;
             ++var3;
-            switch (var4.method_3288()) {
+            switch (var4.typeID()) {
                 case 2:
                 case 3:
                 case 4:
                 case 10:
-                    var7 = this.field_1716.method_2463(var4.method_3284());
+                    var7 = this.constantPool.literalIndex(var4.intValue());
                     this.field_1718[this.field_1719++] = (byte)(var7 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var7;
                     break;
                 case 5:
-                    var6 = this.field_1716.method_2463(var4.method_3257() ? 1 : 0);
+                    var6 = this.constantPool.literalIndex(var4.booleanValue() ? 1 : 0);
                     this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var6;
                 case 6:
                 default:
                     break;
                 case 7:
-                    int var10 = this.field_1716.method_2464(var4.method_3285());
+                    int var10 = this.constantPool.literalIndex(var4.longValue());
                     this.field_1718[this.field_1719++] = (byte)(var10 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var10;
                     break;
                 case 8:
-                    int var9 = this.field_1716.method_2461(var4.method_3281());
+                    int var9 = this.constantPool.literalIndex(var4.doubleValue());
                     this.field_1718[this.field_1719++] = (byte)(var9 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var9;
                     break;
                 case 9:
-                    int var8 = this.field_1716.method_2462(var4.method_3282());
+                    int var8 = this.constantPool.literalIndex(var4.floatValue());
                     this.field_1718[this.field_1719++] = (byte)(var8 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var8;
                     break;
                 case 11:
-                    int var11 = this.field_1716.method_2465(((class_336)var4).method_3287());
+                    int var11 = this.constantPool.literalIndex(((StringConstant)var4).method_3287());
                     if (var11 == -1) {
-                        if (!this.field_1720) {
-                            class_114 var12 = this.field_1729.field_258.field_376;
-                            class_121[] var13 = var12.field_583;
+                        if (!this.creatingProblemType) {
+                            TypeDeclaration var12 = this.referenceBinding.scope.referenceContext;
+                            FieldDeclaration[] var13 = var12.fields;
                             int var14 = 0;
                             for (int var15 = var13.length; var14 < var15; ++var14) {
-                                if (var13[var14].field_661 == var1) {
-                                    var12.field_587.method_644().method_1760(var13[var14]);
+                                if (var13[var14].binding == var1) {
+                                    var12.scope.problemReporter().method_1760(var13[var14]);
                                 }
                             }
                         } else {
@@ -489,11 +489,11 @@ public class ClassFile implements class_17 {
                     }
             }
         }
-        if (this.field_1731 < 3211264L && var1.method_432()) {
+        if (this.targetJDK < 3211264L && var1.method_432()) {
             if (this.field_1719 + 6 >= this.field_1718.length) {
-                this.method_3014(6);
+                this.resizeContents(6);
             }
-            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_4);
+            var5 = this.constantPool.method_2459(AttributeNamesConstants.field_4);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -504,9 +504,9 @@ public class ClassFile implements class_17 {
         }
         if (var1.method_427()) {
             if (this.field_1719 + 6 >= this.field_1718.length) {
-                this.method_3014(6);
+                this.resizeContents(6);
             }
-            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_12);
+            var5 = this.constantPool.method_2459(AttributeNamesConstants.field_12);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
@@ -515,95 +515,95 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = 0;
             ++var3;
         }
-        char[] var16 = var1.method_424();
+        char[] var16 = var1.genericSignature();
         if (var16 != null) {
             if (this.field_1719 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
-            var6 = this.field_1716.method_2459(AttributeNamesConstants.field_13);
+            var6 = this.constantPool.method_2459(AttributeNamesConstants.field_13);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 2;
-            var7 = this.field_1716.method_2459(var16);
+            var7 = this.constantPool.method_2459(var16);
             this.field_1718[this.field_1719++] = (byte)(var7 >> 8);
             this.field_1718[this.field_1719++] = (byte)var7;
             ++var3;
         }
-        if (this.field_1731 >= 3211264L) {
-            class_121 var17 = var1.method_437();
+        if (this.targetJDK >= 3211264L) {
+            FieldDeclaration var17 = var1.sourceField();
             if (var17 != null) {
-                class_164[] var18 = var17.field_658;
+                Annotation[] var18 = var17.annotations;
                 if (var18 != null) {
-                    var3 += this.method_3000(var18);
+                    var3 += this.generateRuntimeAnnotations(var18);
                 }
             }
         }
-        if ((var1.field_305 & 128L) != 0L) {
-            this.field_1732 = var1.field_301.method_132(this.field_1732);
+        if ((var1.tagBits & 128L) != 0L) {
+            this.field_1732 = var1.type.method_132(this.field_1732);
         }
         return var3;
     }
 
-    private void method_2963(class_67 var1) {
+    private void addFieldInfo(FieldBinding var1) {
         if (this.field_1719 + 8 >= this.field_1718.length) {
-            this.method_3014(8);
+            this.resizeContents(8);
         }
         int var2 = var1.method_425();
-        if (this.field_1731 < 3211264L) {
+        if (this.targetJDK < 3211264L) {
             var2 &= -4097;
         }
         this.field_1718[this.field_1719++] = (byte)(var2 >> 8);
         this.field_1718[this.field_1719++] = (byte)var2;
-        int var3 = this.field_1716.method_2459(var1.field_302);
+        int var3 = this.constantPool.method_2459(var1.name);
         this.field_1718[this.field_1719++] = (byte)(var3 >> 8);
         this.field_1718[this.field_1719++] = (byte)var3;
-        int var4 = this.field_1716.method_2458(var1.field_301);
+        int var4 = this.constantPool.method_2458(var1.type);
         this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
         this.field_1718[this.field_1719++] = (byte)var4;
         int var5 = this.field_1719;
         byte var6 = 0;
         this.field_1719 += 2;
-        int var7 = var6 + this.method_2962(var1, var5);
+        int var7 = var6 + this.addFieldAttributes(var1, var5);
         if (this.field_1719 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var5++] = (byte)(var7 >> 8);
         this.field_1718[var5] = (byte)var7;
     }
 
     public void method_2964() {
-        SourceTypeBinding var1 = this.field_1729;
-        class_67[] var2 = var1.method_320();
+        SourceTypeBinding var1 = this.referenceBinding;
+        FieldBinding[] var2 = var1.syntheticFields();
         int var3 = var1.method_203() + (var2 == null ? 0 : var2.length);
         if (var3 > '\uffff') {
-            this.field_1729.field_258.method_644().method_1769(this.field_1729.field_258.method_671());
+            this.referenceBinding.scope.problemReporter().method_1769(this.referenceBinding.scope.referenceType());
         }
         this.field_1718[this.field_1719++] = (byte)(var3 >> 8);
         this.field_1718[this.field_1719++] = (byte)var3;
-        class_121[] var4 = var1.field_258.field_376.field_583;
+        FieldDeclaration[] var4 = var1.scope.referenceContext.fields;
         int var5 = 0;
         int var6;
         for (var6 = var4 == null ? 0 : var4.length; var5 < var6; ++var5) {
-            class_121 var7 = var4[var5];
-            if (var7.field_661 != null) {
-                this.method_2963(var7.field_661);
+            FieldDeclaration var7 = var4[var5];
+            if (var7.binding != null) {
+                this.addFieldInfo(var7.binding);
             }
         }
         if (var2 != null) {
             var5 = 0;
             for (var6 = var2.length; var5 < var6; ++var5) {
-                this.method_2963(var2[var5]);
+                this.addFieldInfo(var2[var5]);
             }
         }
     }
 
-    private void method_2965(class_96 var1, class_58 var2, CategorizedProblem var3, CompilationResult var4) {
-        this.method_2996(var2, var2.field_273 & -3329);
+    private void addMissingAbstractProblemMethod(MethodDeclaration var1, MethodBinding var2, CategorizedProblem var3, CompilationResult var4) {
+        this.generateMethodInfoHeader(var2, var2.modifiers & -3329);
         int var5 = this.field_1719;
-        int var6 = this.method_2993(var2);
+        int var6 = this.generateMethodInfoAttribute(var2);
         ++var6;
         int var7 = this.field_1719;
         this.method_2989();
@@ -611,15 +611,15 @@ public class ClassFile implements class_17 {
         var8.append("\t" + var3.method_1404() + "\n");
         var8.insert(0, Messages.field_1860);
         String var9 = var8.toString();
-        this.field_1715.method_2255(this);
-        this.field_1715.field_1209 = true;
-        this.field_1715.method_2256(var2);
-        this.field_1715.method_2178(var9);
-        this.method_2982(var2, var7, var4.method_2921(), var3.method_1403());
+        this.codeStream.method_2255(this);
+        this.codeStream.field_1209 = true;
+        this.codeStream.initializeMaxLocals(var2);
+        this.codeStream.generateCodeAttributeForProblemMethod(var9);
+        this.completeCodeAttributeForMissingAbstractProblemMethod(var2, var7, var4.getLineSeparatorPositions(), var3.method_1403());
         this.method_2986(var5, var6);
     }
 
-    public void method_2966(CategorizedProblem[] var1) {
+    public void addProblemClinit(CategorizedProblem[] var1) {
         this.method_2997();
         this.field_1719 -= 2;
         int var2 = this.field_1719;
@@ -627,7 +627,7 @@ public class ClassFile implements class_17 {
         byte var3 = 0;
         int var4 = this.field_1719;
         this.method_2989();
-        this.field_1715.method_2368(this);
+        this.codeStream.method_2368(this);
         String var5 = "";
         int var6 = 0;
         if (var1 != null) {
@@ -652,24 +652,24 @@ public class ClassFile implements class_17 {
             }
             var5 = var8.toString();
         }
-        this.field_1715.method_2178(var5);
+        this.codeStream.generateCodeAttributeForProblemMethod(var5);
         int var12 = var3 + 1;
         this.method_2981(var4, var6);
         if (this.field_1719 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var2++] = (byte)(var12 >> 8);
         this.field_1718[var2] = (byte)var12;
     }
 
-    public void method_2967(AbstractMethodDeclaration var1, class_58 var2, CategorizedProblem[] var3) {
-        this.method_2996(var2, var2.field_273 & -3329);
+    public void method_2967(AbstractMethodDeclaration var1, MethodBinding var2, CategorizedProblem[] var3) {
+        this.generateMethodInfoHeader(var2, var2.modifiers & -3329);
         int var4 = this.field_1719;
-        int var5 = this.method_2993(var2);
+        int var5 = this.generateMethodInfoAttribute(var2);
         ++var5;
         int var6 = this.field_1719;
         this.method_2989();
-        this.field_1715.method_2366(var1, this);
+        this.codeStream.reset(var1, this);
         String var7 = "";
         int var8 = 0;
         if (var3 != null) {
@@ -693,28 +693,28 @@ public class ClassFile implements class_17 {
             }
             var7 = var10.toString();
         }
-        this.field_1715.method_2178(var7);
-        this.method_2983(var1, var2, var6, ((SourceTypeBinding)var2.field_278).field_258.method_645().field_455.method_2921(), var8);
+        this.codeStream.generateCodeAttributeForProblemMethod(var7);
+        this.completeCodeAttributeForProblemMethod(var1, var2, var6, ((SourceTypeBinding)var2.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions(), var8);
         this.method_2986(var4, var5);
     }
 
-    public void method_2968(AbstractMethodDeclaration var1, class_58 var2, CategorizedProblem[] var3, int var4) {
+    public void method_2968(AbstractMethodDeclaration var1, MethodBinding var2, CategorizedProblem[] var3, int var4) {
         this.field_1719 = var4;
         --this.field_1725;
         this.method_2967(var1, var2, var3);
     }
 
-    public void method_2969(AbstractMethodDeclaration var1, class_58 var2, CategorizedProblem[] var3) {
-        if (var2.method_356() && var2.field_278.method_157()) {
-            var1.method_93(8, (CategorizedProblem)null);
+    public void method_2969(AbstractMethodDeclaration var1, MethodBinding var2, CategorizedProblem[] var3) {
+        if (var2.method_356() && var2.declaringClass.method_157()) {
+            var1.abort(8, (CategorizedProblem)null);
         }
-        this.method_2996(var2, var2.field_273 & -3329);
+        this.generateMethodInfoHeader(var2, var2.modifiers & -3329);
         int var4 = this.field_1719;
-        int var5 = this.method_2993(var2);
+        int var5 = this.generateMethodInfoAttribute(var2);
         ++var5;
         int var6 = this.field_1719;
         this.method_2989();
-        this.field_1715.method_2366(var1, this);
+        this.codeStream.reset(var1, this);
         String var7 = "";
         int var8 = 0;
         if (var3 != null) {
@@ -739,34 +739,34 @@ public class ClassFile implements class_17 {
             }
             var7 = var10.toString();
         }
-        this.field_1715.method_2178(var7);
-        this.method_2983(var1, var2, var6, ((SourceTypeBinding)var2.field_278).field_258.method_645().field_455.method_2921(), var8);
+        this.codeStream.generateCodeAttributeForProblemMethod(var7);
+        this.completeCodeAttributeForProblemMethod(var1, var2, var6, ((SourceTypeBinding)var2.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions(), var8);
         this.method_2986(var4, var5);
     }
 
-    public void method_2970(AbstractMethodDeclaration var1, class_58 var2, CategorizedProblem[] var3, int var4) {
+    public void method_2970(AbstractMethodDeclaration var1, MethodBinding var2, CategorizedProblem[] var3, int var4) {
         this.field_1719 = var4;
         --this.field_1725;
         this.method_2969(var1, var2, var3);
     }
 
     public void method_2971() {
-        this.method_2998(this.field_1729.field_258.method_671().field_597, this.field_1729.field_258.method_645().field_455);
-        class_58[] var1 = this.field_1729.method_308();
+        this.generateMissingAbstractMethods(this.referenceBinding.scope.referenceType().missingAbstractMethods, this.referenceBinding.scope.referenceCompilationUnit().compilationResult);
+        MethodBinding[] var1 = this.referenceBinding.getDefaultAbstractMethods();
         int var2 = 0;
         int var3;
         int var4;
         for (var3 = var1.length; var2 < var3; ++var2) {
-            this.method_2995(var1[var2]);
+            this.generateMethodInfoHeader(var1[var2]);
             var4 = this.field_1719;
-            int var5 = this.method_2993(var1[var2]);
+            int var5 = this.generateMethodInfoAttribute(var1[var2]);
             this.method_2986(var4, var5);
         }
-        class_60[] var6 = this.field_1729.method_319();
+        SyntheticMethodBinding[] var6 = this.referenceBinding.syntheticMethods();
         if (var6 != null) {
             var3 = 0;
             for (var4 = var6.length; var3 < var4; ++var3) {
-                class_60 var7 = var6[var3];
+                SyntheticMethodBinding var7 = var6[var3];
                 switch (var7.field_287) {
                     case 1:
                         this.method_2975(var7);
@@ -795,118 +795,118 @@ public class ClassFile implements class_17 {
         }
     }
 
-    public void method_2972(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2972(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2194(var1);
-        this.method_2985(var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2194(var1);
+        this.completeCodeAttributeForSyntheticMethod(var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
-    public void method_2973(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2973(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2195(var1);
-        this.method_2985(var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2195(var1);
+        this.completeCodeAttributeForSyntheticMethod(var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
-    public void method_2974(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2974(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2196(var1);
-        this.method_2985(var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2196(var1);
+        this.completeCodeAttributeForSyntheticMethod(var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
-    public void method_2975(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2975(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2197(var1);
-        this.method_2985(var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2197(var1);
+        this.completeCodeAttributeForSyntheticMethod(var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
-    public void method_2976(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2976(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2198(var1);
-        this.method_2985(var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2198(var1);
+        this.completeCodeAttributeForSyntheticMethod(var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
-    public void method_2977(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2977(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2199(var1);
-        this.method_2985(var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2199(var1);
+        this.completeCodeAttributeForSyntheticMethod(var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
-    public void method_2978(class_60 var1) {
-        this.method_2995(var1);
+    public void method_2978(SyntheticMethodBinding var1) {
+        this.generateMethodInfoHeader(var1);
         int var2 = this.field_1719;
-        int var3 = this.method_2993(var1);
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         ++var3;
         this.method_2989();
-        this.field_1715.method_2255(this);
-        this.field_1715.method_2200(var1);
-        this.method_2984(true, var1, var4, ((SourceTypeBinding)var1.field_278).field_258.method_645().field_455.method_2921());
+        this.codeStream.method_2255(this);
+        this.codeStream.method_2200(var1);
+        this.completeCodeAttributeForSyntheticMethod(true, var1, var4, ((SourceTypeBinding)var1.declaringClass).scope.referenceCompilationUnit().compilationResult.getLineSeparatorPositions());
         this.field_1718[var2++] = (byte)(var3 >> 8);
         this.field_1718[var2] = (byte)var3;
     }
 
     public void method_2979(int var1) {
-        this.field_1718 = this.field_1715.field_1188;
-        int var2 = this.field_1715.field_1190;
-        int var3 = this.field_1715.field_1208;
+        this.field_1718 = this.codeStream.bCodeStream;
+        int var2 = this.codeStream.field_1190;
+        int var3 = this.codeStream.field_1208;
         if (var3 > '\uffff') {
-            this.field_1715.field_1205.field_478.method_644().method_1488(this.field_1715.field_1205);
+            this.codeStream.methodDeclaration.scope.problemReporter().method_1488(this.codeStream.methodDeclaration);
         }
         if (var2 + 20 >= this.field_1718.length) {
-            this.method_3014(20);
+            this.resizeContents(20);
         }
-        int var4 = this.field_1715.field_1211;
+        int var4 = this.codeStream.field_1211;
         this.field_1718[var1 + 6] = (byte)(var4 >> 8);
         this.field_1718[var1 + 7] = (byte)var4;
-        int var5 = this.field_1715.field_1204;
+        int var5 = this.codeStream.field_1204;
         this.field_1718[var1 + 8] = (byte)(var5 >> 8);
         this.field_1718[var1 + 9] = (byte)var5;
         this.field_1718[var1 + 10] = (byte)(var3 >> 24);
@@ -914,16 +914,16 @@ public class ClassFile implements class_17 {
         this.field_1718[var1 + 12] = (byte)(var3 >> 8);
         this.field_1718[var1 + 13] = (byte)var3;
         boolean var6 = (this.field_1728 & 8) != 0;
-        class_73[] var7 = this.field_1715.field_1193;
+        ExceptionLabel[] var7 = this.codeStream.exceptionLabels;
         int var8 = 0;
         int var9 = 0;
         int var10;
-        for (var10 = this.field_1715.field_1194; var9 < var10; ++var9) {
-            var8 += this.field_1715.field_1193[var9].field_325 / 2;
+        for (var10 = this.codeStream.field_1194; var9 < var10; ++var9) {
+            var8 += this.codeStream.exceptionLabels[var9].count / 2;
         }
         var9 = var8 * 8 + 2;
         if (var9 + var2 >= this.field_1718.length) {
-            this.method_3014(var9);
+            this.resizeContents(var9);
         }
         this.field_1718[var2++] = (byte)(var8 >> 8);
         this.field_1718[var2++] = (byte)var8;
@@ -935,36 +935,36 @@ public class ClassFile implements class_17 {
         int var17;
         int var16;
         int var42;
-        for (var11 = this.field_1715.field_1194; var10 < var11; ++var10) {
-            class_73 var12 = var7[var10];
+        for (var11 = this.codeStream.field_1194; var10 < var11; ++var10) {
+            ExceptionLabel var12 = var7[var10];
             if (var12 != null) {
                 var13 = 0;
-                var14 = var12.field_325;
+                var14 = var12.count;
                 if ((var14 & 1) != 0) {
-                    this.field_1715.field_1205.field_478.method_644().method_1460(Messages.method_3251(Messages.field_1878, new String(this.field_1715.field_1205.field_479)), this.field_1715.field_1205);
+                    this.codeStream.methodDeclaration.scope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1878, new String(this.codeStream.methodDeclaration.selector)), this.codeStream.methodDeclaration);
                 }
                 while (var13 < var14) {
-                    var15 = var12.field_324[var13++];
+                    var15 = var12.ranges[var13++];
                     this.field_1718[var2++] = (byte)(var15 >> 8);
                     this.field_1718[var2++] = (byte)var15;
-                    var16 = var12.field_324[var13++];
+                    var16 = var12.ranges[var13++];
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
-                    var17 = var12.field_323;
+                    var17 = var12.position;
                     if (var6) {
-                        StackMapFrameCodeStream var18 = (StackMapFrameCodeStream)this.field_1715;
+                        StackMapFrameCodeStream var18 = (StackMapFrameCodeStream)this.codeStream;
                         var18.method_2391(var17);
                     }
                     this.field_1718[var2++] = (byte)(var17 >> 8);
                     this.field_1718[var2++] = (byte)var17;
-                    if (var12.field_326 == null) {
+                    if (var12.exceptionType == null) {
                         this.field_1718[var2++] = 0;
                         this.field_1718[var2++] = 0;
                     } else {
-                        if (var12.field_326 == class_40.field_187) {
-                            var42 = this.field_1716.method_2466(class_272.field_1411);
+                        if (var12.exceptionType == TypeBinding.field_187) {
+                            var42 = this.constantPool.method_2466(ConstantPool.field_1411);
                         } else {
-                            var42 = this.field_1716.method_2467(var12.field_326);
+                            var42 = this.constantPool.method_2467(var12.exceptionType);
                         }
                         this.field_1718[var2++] = (byte)(var42 >> 8);
                         this.field_1718[var2++] = (byte)var42;
@@ -976,24 +976,24 @@ public class ClassFile implements class_17 {
         var11 = 0;
         var2 += 2;
         if (var2 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         if ((this.field_1728 & 2) != 0) {
-            int[] var35 = this.field_1715.field_1206;
-            if (this.field_1715.field_1206 != null && this.field_1715.field_1207 != 0) {
-                var13 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
+            int[] var35 = this.codeStream.field_1206;
+            if (this.codeStream.field_1206 != null && this.codeStream.field_1207 != 0) {
+                var13 = this.constantPool.method_2459(AttributeNamesConstants.field_6);
                 if (var2 + 8 >= this.field_1718.length) {
-                    this.method_3014(8);
+                    this.resizeContents(8);
                 }
                 this.field_1718[var2++] = (byte)(var13 >> 8);
                 this.field_1718[var2++] = (byte)var13;
                 var14 = var2;
                 var2 += 6;
                 var15 = 0;
-                var16 = this.field_1715.field_1207;
+                var16 = this.codeStream.field_1207;
                 for (var17 = 0; var17 < var16; ++var15) {
                     if (var2 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var42 = var35[var17++];
                     this.field_1718[var2++] = (byte)(var42 >> 8);
@@ -1026,15 +1026,15 @@ public class ClassFile implements class_17 {
         int var51;
         if ((this.field_1728 & 4) != 0) {
             var36 = 0;
-            var13 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
-            boolean var39 = this.field_1715.field_1205.method_799();
+            var13 = this.constantPool.method_2459(AttributeNamesConstants.field_7);
+            boolean var39 = this.codeStream.methodDeclaration.method_799();
             var15 = 8 + 10 * (var39 ? 0 : 1);
-            for (var16 = 0; var16 < this.field_1715.field_1187; ++var16) {
-                class_65 var41 = this.field_1715.field_1202[var16];
+            for (var16 = 0; var16 < this.codeStream.field_1187; ++var16) {
+                LocalVariableBinding var41 = this.codeStream.field_1202[var16];
                 var15 += 10 * var41.field_311;
             }
             if (var2 + var15 >= this.field_1718.length) {
-                this.method_3014(var15);
+                this.resizeContents(var15);
             }
             this.field_1718[var2++] = (byte)(var13 >> 8);
             this.field_1718[var2++] = (byte)var13;
@@ -1047,37 +1047,37 @@ public class ClassFile implements class_17 {
                 this.field_1718[var2++] = 0;
                 this.field_1718[var2++] = (byte)(var3 >> 8);
                 this.field_1718[var2++] = (byte)var3;
-                var17 = this.field_1716.method_2459(class_272.field_1493);
+                var17 = this.constantPool.method_2459(ConstantPool.field_1493);
                 this.field_1718[var2++] = (byte)(var17 >> 8);
                 this.field_1718[var2++] = (byte)var17;
-                var40 = (SourceTypeBinding)this.field_1715.field_1205.field_488.field_278;
-                var42 = this.field_1716.method_2459(var40.method_178());
+                var40 = (SourceTypeBinding)this.codeStream.methodDeclaration.binding.declaringClass;
+                var42 = this.constantPool.method_2459(var40.method_178());
                 this.field_1718[var2++] = (byte)(var42 >> 8);
                 this.field_1718[var2++] = (byte)var42;
                 this.field_1718[var2++] = 0;
                 this.field_1718[var2++] = 0;
             }
             var20 = 0;
-            class_65[] var21 = null;
+            LocalVariableBinding[] var21 = null;
             var22 = 0;
             var23 = 0;
-            for (var24 = this.field_1715.field_1187; var23 < var24; ++var23) {
-                class_65 var25 = this.field_1715.field_1202[var23];
-                if (var25.field_309 != null) {
-                    class_40 var26 = var25.field_301;
+            for (var24 = this.codeStream.field_1187; var23 < var24; ++var23) {
+                LocalVariableBinding var25 = this.codeStream.field_1202[var23];
+                if (var25.declaration != null) {
+                    TypeBinding var26 = var25.type;
                     boolean var27 = var26.method_162() || var26.method_169();
                     if (var25.field_311 != 0 && var27) {
                         if (var21 == null) {
-                            var21 = new class_65[var24];
+                            var21 = new LocalVariableBinding[var24];
                         }
                         var21[var20++] = var25;
                     }
                     for (var28 = 0; var28 < var25.field_311; ++var28) {
-                        var29 = var25.field_310[var28 << 1];
-                        var30 = var25.field_310[(var28 << 1) + 1];
+                        var29 = var25.initializationPCs[var28 << 1];
+                        var30 = var25.initializationPCs[(var28 << 1) + 1];
                         if (var29 != var30) {
                             if (var30 == -1) {
-                                var25.field_308.method_644().method_1460(Messages.method_3251(Messages.field_1877, new String(var25.field_302)), (ASTNode)var25.field_308.method_635().field_403);
+                                var25.declaringScope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1877, new String(var25.name)), (ASTNode)var25.declaringScope.method_635().referenceContext);
                             }
                             if (var27) {
                                 ++var22;
@@ -1088,10 +1088,10 @@ public class ClassFile implements class_17 {
                             var31 = var30 - var29;
                             this.field_1718[var2++] = (byte)(var31 >> 8);
                             this.field_1718[var2++] = (byte)var31;
-                            var17 = this.field_1716.method_2459(var25.field_302);
+                            var17 = this.constantPool.method_2459(var25.name);
                             this.field_1718[var2++] = (byte)(var17 >> 8);
                             this.field_1718[var2++] = (byte)var17;
-                            var42 = this.field_1716.method_2459(var26.method_178());
+                            var42 = this.constantPool.method_2459(var26.method_178());
                             this.field_1718[var2++] = (byte)(var42 >> 8);
                             this.field_1718[var2++] = (byte)var42;
                             var32 = var25.field_306;
@@ -1109,14 +1109,14 @@ public class ClassFile implements class_17 {
             this.field_1718[var16++] = (byte)(var36 >> 8);
             this.field_1718[var16] = (byte)var36;
             ++var11;
-            boolean var47 = !var39 && var40 != null && var40.field_257 != class_34.field_157;
+            boolean var47 = !var39 && var40 != null && var40.typeVariables != Binding.NO_TYPE_VARIABLES;
             if (var20 != 0 || var47) {
                 var22 += var47 ? 1 : 0;
                 var15 = 8 + var22 * 10;
                 if (var2 + var15 >= this.field_1718.length) {
-                    this.method_3014(var15);
+                    this.resizeContents(var15);
                 }
-                var46 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
+                var46 = this.constantPool.method_2459(AttributeNamesConstants.field_14);
                 this.field_1718[var2++] = (byte)(var46 >> 8);
                 this.field_1718[var2++] = (byte)var46;
                 var23 = var22 * 10 + 2;
@@ -1131,30 +1131,30 @@ public class ClassFile implements class_17 {
                     this.field_1718[var2++] = 0;
                     this.field_1718[var2++] = (byte)(var3 >> 8);
                     this.field_1718[var2++] = (byte)var3;
-                    var17 = this.field_1716.method_2459(class_272.field_1493);
+                    var17 = this.constantPool.method_2459(ConstantPool.field_1493);
                     this.field_1718[var2++] = (byte)(var17 >> 8);
                     this.field_1718[var2++] = (byte)var17;
-                    var42 = this.field_1716.method_2459(var40.method_142());
+                    var42 = this.constantPool.method_2459(var40.genericTypeSignature());
                     this.field_1718[var2++] = (byte)(var42 >> 8);
                     this.field_1718[var2++] = (byte)var42;
                     this.field_1718[var2++] = 0;
                     this.field_1718[var2++] = 0;
                 }
                 for (var51 = 0; var51 < var20; ++var51) {
-                    class_65 var52 = var21[var51];
+                    LocalVariableBinding var52 = var21[var51];
                     for (var28 = 0; var28 < var52.field_311; ++var28) {
-                        var29 = var52.field_310[var28 << 1];
-                        var30 = var52.field_310[(var28 << 1) + 1];
+                        var29 = var52.initializationPCs[var28 << 1];
+                        var30 = var52.initializationPCs[(var28 << 1) + 1];
                         if (var29 != var30) {
                             this.field_1718[var2++] = (byte)(var29 >> 8);
                             this.field_1718[var2++] = (byte)var29;
                             var31 = var30 - var29;
                             this.field_1718[var2++] = (byte)(var31 >> 8);
                             this.field_1718[var2++] = (byte)var31;
-                            var17 = this.field_1716.method_2459(var52.field_302);
+                            var17 = this.constantPool.method_2459(var52.name);
                             this.field_1718[var2++] = (byte)(var17 >> 8);
                             this.field_1718[var2++] = (byte)var17;
-                            var42 = this.field_1716.method_2459(var52.field_301.method_142());
+                            var42 = this.constantPool.method_2459(var52.type.genericTypeSignature());
                             this.field_1718[var2++] = (byte)(var42 >> 8);
                             this.field_1718[var2++] = (byte)var42;
                             var32 = var52.field_306;
@@ -1168,55 +1168,55 @@ public class ClassFile implements class_17 {
         }
         ArrayList var38;
         StackMapFrameCodeStream var37;
-        class_280 var43;
+        StackMapFrame var43;
         ArrayList var10000;
         int var45;
         int var49;
         if (var6) {
-            var37 = (StackMapFrameCodeStream)this.field_1715;
+            var37 = (StackMapFrameCodeStream)this.codeStream;
             var37.method_2392(var3);
-            if (var37.method_2399()) {
+            if (var37.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var38 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var5, this.field_1718, var1 + 14, var3, var38, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var5, this.field_1718, var1 + 14, var3, var38, false);
                 var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
                     var2 += 4;
                     if (var2 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var42 = var2;
                     var2 += 2;
                     if (var2 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var43 = (class_280)var38.get(0);
-                    class_280 var44 = null;
+                    var43 = (StackMapFrame)var38.get(0);
+                    StackMapFrame var44 = null;
                     label458:
                     for (var45 = 1; var45 < var14; ++var45) {
                         var44 = var43;
-                        var43 = (class_280)var38.get(var45);
+                        var43 = (StackMapFrame)var38.get(var45);
                         var22 = var43.method_2896(var44);
                         byte var48;
-                        class_77 var53;
+                        VerificationTypeInfo var53;
                         switch (var43.method_2890(var44)) {
                             case 0:
                                 if (var2 + 1 >= this.field_1718.length) {
-                                    this.method_3014(1);
+                                    this.resizeContents(1);
                                 }
                                 this.field_1718[var2++] = (byte)var22;
                                 break;
                             case 1:
                                 if (var2 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var23 = -var43.method_2894(var44);
                                 this.field_1718[var2++] = (byte)(251 - var23);
@@ -1225,23 +1225,23 @@ public class ClassFile implements class_17 {
                                 break;
                             case 2:
                                 if (var2 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var23 = var43.method_2894(var44);
                                 this.field_1718[var2++] = (byte)(251 + var23);
                                 this.field_1718[var2++] = (byte)(var22 >> 8);
                                 this.field_1718[var2++] = (byte)var22;
-                                var24 = var43.method_2901(var23);
-                                var46 = var43.method_2895();
+                                var24 = var43.getIndexOfDifferentLocals(var23);
+                                var46 = var43.getNumberOfLocals();
                                 var51 = var24;
                                 while (true) {
                                     if (var51 >= var43.field_1645.length || var23 <= 0) {
                                         continue label458;
                                     }
                                     if (var2 + 6 >= this.field_1718.length) {
-                                        this.method_3014(6);
+                                        this.resizeContents(6);
                                     }
-                                    class_77 var50 = var43.field_1645[var51];
+                                    VerificationTypeInfo var50 = var43.field_1645[var51];
                                     if (var50 == null) {
                                         this.field_1718[var2++] = 0;
                                     } else {
@@ -1260,7 +1260,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var2++] = (byte)var50.field_336;
                                                 switch (var50.field_336) {
                                                     case 7:
-                                                        var29 = this.field_1716.method_2466(var50.method_475());
+                                                        var29 = this.constantPool.method_2466(var50.method_475());
                                                         this.field_1718[var2++] = (byte)(var29 >> 8);
                                                         this.field_1718[var2++] = (byte)var29;
                                                         break label351;
@@ -1291,7 +1291,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 3:
                                 if (var2 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 this.field_1718[var2++] = -5;
                                 this.field_1718[var2++] = (byte)(var22 >> 8);
@@ -1300,7 +1300,7 @@ public class ClassFile implements class_17 {
                             case 4:
                             default:
                                 if (var2 + 5 >= this.field_1718.length) {
-                                    this.method_3014(5);
+                                    this.resizeContents(5);
                                 }
                                 this.field_1718[var2++] = -1;
                                 this.field_1718[var2++] = (byte)(var22 >> 8);
@@ -1308,15 +1308,15 @@ public class ClassFile implements class_17 {
                                 var51 = var2;
                                 var2 += 2;
                                 var49 = 0;
-                                var46 = var43.method_2895();
+                                var46 = var43.getNumberOfLocals();
                                 var28 = 0;
                                 var29 = var43.field_1645 == null ? 0 : var43.field_1645.length;
                                 int var33;
                                 for (var30 = 0; var30 < var29 && var49 < var46; ++var30) {
                                     if (var2 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var57 = var43.field_1645[var30];
+                                    VerificationTypeInfo var57 = var43.field_1645[var30];
                                     if (var57 == null) {
                                         this.field_1718[var2++] = 0;
                                     } else {
@@ -1335,7 +1335,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var2++] = (byte)var57.field_336;
                                                 switch (var57.field_336) {
                                                     case 7:
-                                                        var33 = this.field_1716.method_2466(var57.method_475());
+                                                        var33 = this.constantPool.method_2466(var57.method_475());
                                                         this.field_1718[var2++] = (byte)(var33 >> 8);
                                                         this.field_1718[var2++] = (byte)var33;
                                                         break label318;
@@ -1365,7 +1365,7 @@ public class ClassFile implements class_17 {
                                     ++var28;
                                 }
                                 if (var2 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var51++] = (byte)(var28 >> 8);
                                 this.field_1718[var51] = (byte)var28;
@@ -1378,9 +1378,9 @@ public class ClassFile implements class_17 {
                                         continue label458;
                                     }
                                     if (var2 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var56 = var43.field_1646[var31];
+                                    VerificationTypeInfo var56 = var43.field_1646[var31];
                                     if (var56 == null) {
                                         this.field_1718[var2++] = 0;
                                     } else {
@@ -1399,7 +1399,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var2++] = (byte)var56.field_336;
                                                 switch (var56.field_336) {
                                                     case 7:
-                                                        int var34 = this.field_1716.method_2466(var56.method_475());
+                                                        int var34 = this.constantPool.method_2466(var56.method_475());
                                                         this.field_1718[var2++] = (byte)(var34 >> 8);
                                                         this.field_1718[var2++] = (byte)var34;
                                                         break label308;
@@ -1427,7 +1427,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 5:
                                 if (var2 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var2++] = (byte)(var22 + 64);
                                 if (var43.field_1646[0] == null) {
@@ -1449,7 +1449,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var2++] = var48;
                                             switch (var48) {
                                                 case 7:
-                                                    var29 = this.field_1716.method_2466(var53.method_475());
+                                                    var29 = this.constantPool.method_2466(var53.method_475());
                                                     this.field_1718[var2++] = (byte)(var29 >> 8);
                                                     this.field_1718[var2++] = (byte)var29;
                                                     continue;
@@ -1476,7 +1476,7 @@ public class ClassFile implements class_17 {
                                 break;
                             case 6:
                                 if (var2 + 6 >= this.field_1718.length) {
-                                    this.method_3014(6);
+                                    this.resizeContents(6);
                                 }
                                 this.field_1718[var2++] = -9;
                                 this.field_1718[var2++] = (byte)(var22 >> 8);
@@ -1500,7 +1500,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var2++] = var48;
                                             switch (var48) {
                                                 case 7:
-                                                    var29 = this.field_1716.method_2466(var53.method_475());
+                                                    var29 = this.constantPool.method_2466(var53.method_475());
                                                     this.field_1718[var2++] = (byte)(var29 >> 8);
                                                     this.field_1718[var2++] = (byte)var29;
                                                     continue;
@@ -1543,51 +1543,51 @@ public class ClassFile implements class_17 {
             }
         }
         if ((this.field_1728 & 16) != 0) {
-            var37 = (StackMapFrameCodeStream)this.field_1715;
+            var37 = (StackMapFrameCodeStream)this.codeStream;
             var37.method_2392(var3);
-            if (var37.method_2399()) {
+            if (var37.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var38 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var5, this.field_1718, var1 + 14, var3, var38, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var5, this.field_1718, var1 + 14, var3, var38, false);
                 var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
                     var2 += 4;
                     if (var2 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var42 = var2;
                     var2 += 2;
                     if (var2 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var43 = (class_280)var38.get(0);
+                    var43 = (StackMapFrame)var38.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var43 = (class_280)var38.get(var20);
+                        var43 = (StackMapFrame)var38.get(var20);
                         var45 = var43.field_1642;
                         if (var2 + 5 >= this.field_1718.length) {
-                            this.method_3014(5);
+                            this.resizeContents(5);
                         }
                         this.field_1718[var2++] = (byte)(var45 >> 8);
                         this.field_1718[var2++] = (byte)var45;
                         var22 = var2;
                         var2 += 2;
                         var23 = 0;
-                        var24 = var43.method_2895();
+                        var24 = var43.getNumberOfLocals();
                         var46 = 0;
                         var51 = var43.field_1645 == null ? 0 : var43.field_1645.length;
                         for (var49 = 0; var49 < var51 && var23 < var24; ++var49) {
                             if (var2 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var55 = var43.field_1645[var49];
+                            VerificationTypeInfo var55 = var43.field_1645[var49];
                             if (var55 == null) {
                                 this.field_1718[var2++] = 0;
                             } else {
@@ -1606,7 +1606,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var2++] = (byte)var55.field_336;
                                         switch (var55.field_336) {
                                             case 7:
-                                                var30 = this.field_1716.method_2466(var55.method_475());
+                                                var30 = this.constantPool.method_2466(var55.method_475());
                                                 this.field_1718[var2++] = (byte)(var30 >> 8);
                                                 this.field_1718[var2++] = (byte)var30;
                                                 break label288;
@@ -1636,7 +1636,7 @@ public class ClassFile implements class_17 {
                             ++var46;
                         }
                         if (var2 + 4 >= this.field_1718.length) {
-                            this.method_3014(4);
+                            this.resizeContents(4);
                         }
                         this.field_1718[var22++] = (byte)(var46 >> 8);
                         this.field_1718[var22] = (byte)var46;
@@ -1645,9 +1645,9 @@ public class ClassFile implements class_17 {
                         this.field_1718[var2++] = (byte)var49;
                         for (var28 = 0; var28 < var49; ++var28) {
                             if (var2 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var54 = var43.field_1646[var28];
+                            VerificationTypeInfo var54 = var43.field_1646[var28];
                             if (var54 == null) {
                                 this.field_1718[var2++] = 0;
                             } else {
@@ -1665,7 +1665,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var2++] = (byte)var54.field_336;
                                         switch (var54.field_336) {
                                             case 7:
-                                                var31 = this.field_1716.method_2466(var54.method_475());
+                                                var31 = this.constantPool.method_2466(var54.method_475());
                                                 this.field_1718[var2++] = (byte)(var31 >> 8);
                                                 this.field_1718[var2++] = (byte)var31;
                                                 continue;
@@ -1718,19 +1718,19 @@ public class ClassFile implements class_17 {
     }
 
     public void method_2980(int var1) {
-        this.field_1718 = this.field_1715.field_1188;
-        int var2 = this.field_1715.field_1190;
-        int var3 = this.field_1715.field_1208;
+        this.field_1718 = this.codeStream.bCodeStream;
+        int var2 = this.codeStream.field_1190;
+        int var3 = this.codeStream.field_1208;
         if (var3 > '\uffff') {
-            this.field_1715.field_1205.field_478.method_644().method_1489(this.field_1715.field_1205.field_478.method_718());
+            this.codeStream.methodDeclaration.scope.problemReporter().method_1489(this.codeStream.methodDeclaration.scope.referenceType());
         }
         if (var2 + 20 >= this.field_1718.length) {
-            this.method_3014(20);
+            this.resizeContents(20);
         }
-        int var4 = this.field_1715.field_1211;
+        int var4 = this.codeStream.field_1211;
         this.field_1718[var1 + 6] = (byte)(var4 >> 8);
         this.field_1718[var1 + 7] = (byte)var4;
-        int var5 = this.field_1715.field_1204;
+        int var5 = this.codeStream.field_1204;
         this.field_1718[var1 + 8] = (byte)(var5 >> 8);
         this.field_1718[var1 + 9] = (byte)var5;
         this.field_1718[var1 + 10] = (byte)(var3 >> 24);
@@ -1738,16 +1738,16 @@ public class ClassFile implements class_17 {
         this.field_1718[var1 + 12] = (byte)(var3 >> 8);
         this.field_1718[var1 + 13] = (byte)var3;
         boolean var6 = (this.field_1728 & 8) != 0;
-        class_73[] var7 = this.field_1715.field_1193;
+        ExceptionLabel[] var7 = this.codeStream.exceptionLabels;
         int var8 = 0;
         int var9 = 0;
         int var10;
-        for (var10 = this.field_1715.field_1194; var9 < var10; ++var9) {
-            var8 += this.field_1715.field_1193[var9].field_325 / 2;
+        for (var10 = this.codeStream.field_1194; var9 < var10; ++var9) {
+            var8 += this.codeStream.exceptionLabels[var9].count / 2;
         }
         var9 = var8 * 8 + 2;
         if (var9 + var2 >= this.field_1718.length) {
-            this.method_3014(var9);
+            this.resizeContents(var9);
         }
         this.field_1718[var2++] = (byte)(var8 >> 8);
         this.field_1718[var2++] = (byte)var8;
@@ -1759,36 +1759,36 @@ public class ClassFile implements class_17 {
         int var17;
         int var16;
         int var39;
-        for (var11 = this.field_1715.field_1194; var10 < var11; ++var10) {
-            class_73 var12 = var7[var10];
+        for (var11 = this.codeStream.field_1194; var10 < var11; ++var10) {
+            ExceptionLabel var12 = var7[var10];
             if (var12 != null) {
                 var13 = 0;
-                var14 = var12.field_325;
+                var14 = var12.count;
                 if ((var14 & 1) != 0) {
-                    this.field_1715.field_1205.field_478.method_644().method_1460(Messages.method_3251(Messages.field_1878, new String(this.field_1715.field_1205.field_479)), this.field_1715.field_1205);
+                    this.codeStream.methodDeclaration.scope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1878, new String(this.codeStream.methodDeclaration.selector)), this.codeStream.methodDeclaration);
                 }
                 while (var13 < var14) {
-                    var15 = var12.field_324[var13++];
+                    var15 = var12.ranges[var13++];
                     this.field_1718[var2++] = (byte)(var15 >> 8);
                     this.field_1718[var2++] = (byte)var15;
-                    var16 = var12.field_324[var13++];
+                    var16 = var12.ranges[var13++];
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
-                    var17 = var12.field_323;
+                    var17 = var12.position;
                     this.field_1718[var2++] = (byte)(var17 >> 8);
                     this.field_1718[var2++] = (byte)var17;
                     if (var6) {
-                        StackMapFrameCodeStream var18 = (StackMapFrameCodeStream)this.field_1715;
+                        StackMapFrameCodeStream var18 = (StackMapFrameCodeStream)this.codeStream;
                         var18.method_2391(var17);
                     }
-                    if (var12.field_326 == null) {
+                    if (var12.exceptionType == null) {
                         this.field_1718[var2++] = 0;
                         this.field_1718[var2++] = 0;
                     } else {
-                        if (var12.field_326 == class_40.field_187) {
-                            var39 = this.field_1716.method_2466(class_272.field_1411);
+                        if (var12.exceptionType == TypeBinding.field_187) {
+                            var39 = this.constantPool.method_2466(ConstantPool.field_1411);
                         } else {
-                            var39 = this.field_1716.method_2467(var12.field_326);
+                            var39 = this.constantPool.method_2467(var12.exceptionType);
                         }
                         this.field_1718[var2++] = (byte)(var39 >> 8);
                         this.field_1718[var2++] = (byte)var39;
@@ -1800,25 +1800,25 @@ public class ClassFile implements class_17 {
         var11 = 0;
         var2 += 2;
         if (var2 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         int var19;
         if ((this.field_1728 & 2) != 0) {
-            int[] var35 = this.field_1715.field_1206;
-            if (this.field_1715.field_1206 != null && this.field_1715.field_1207 != 0) {
-                var13 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
+            int[] var35 = this.codeStream.field_1206;
+            if (this.codeStream.field_1206 != null && this.codeStream.field_1207 != 0) {
+                var13 = this.constantPool.method_2459(AttributeNamesConstants.field_6);
                 if (var2 + 8 >= this.field_1718.length) {
-                    this.method_3014(8);
+                    this.resizeContents(8);
                 }
                 this.field_1718[var2++] = (byte)(var13 >> 8);
                 this.field_1718[var2++] = (byte)var13;
                 var14 = var2;
                 var2 += 6;
                 var15 = 0;
-                var16 = this.field_1715.field_1207;
+                var16 = this.codeStream.field_1207;
                 for (var17 = 0; var17 < var16; ++var15) {
                     if (var2 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var39 = var35[var17++];
                     this.field_1718[var2++] = (byte)(var39 >> 8);
@@ -1849,39 +1849,39 @@ public class ClassFile implements class_17 {
         int var43;
         if ((this.field_1728 & 4) != 0) {
             var36 = 0;
-            if (this.field_1715.field_1206 != null && this.field_1715.field_1207 != 0) {
-                var13 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
+            if (this.codeStream.field_1206 != null && this.codeStream.field_1207 != 0) {
+                var13 = this.constantPool.method_2459(AttributeNamesConstants.field_7);
                 if (var2 + 8 >= this.field_1718.length) {
-                    this.method_3014(8);
+                    this.resizeContents(8);
                 }
                 this.field_1718[var2++] = (byte)(var13 >> 8);
                 this.field_1718[var2++] = (byte)var13;
                 var14 = var2;
                 var2 += 6;
                 var17 = 0;
-                class_65[] var41 = null;
+                LocalVariableBinding[] var41 = null;
                 var19 = 0;
                 var20 = 0;
-                for (var21 = this.field_1715.field_1187; var20 < var21; ++var20) {
-                    class_65 var22 = this.field_1715.field_1202[var20];
-                    if (var22.field_309 != null) {
-                        class_40 var23 = var22.field_301;
+                for (var21 = this.codeStream.field_1187; var20 < var21; ++var20) {
+                    LocalVariableBinding var22 = this.codeStream.field_1202[var20];
+                    if (var22.declaration != null) {
+                        TypeBinding var23 = var22.type;
                         boolean var24 = var23.method_162() || var23.method_169();
                         if (var22.field_311 != 0 && var24) {
                             if (var41 == null) {
-                                var41 = new class_65[var21];
+                                var41 = new LocalVariableBinding[var21];
                             }
                             var41[var17++] = var22;
                         }
                         for (var25 = 0; var25 < var22.field_311; ++var25) {
-                            var26 = var22.field_310[var25 << 1];
-                            var27 = var22.field_310[(var25 << 1) + 1];
+                            var26 = var22.initializationPCs[var25 << 1];
+                            var27 = var22.initializationPCs[(var25 << 1) + 1];
                             if (var26 != var27) {
                                 if (var27 == -1) {
-                                    var22.field_308.method_644().method_1460(Messages.method_3251(Messages.field_1877, new String(var22.field_302)), (ASTNode)var22.field_308.method_635().field_403);
+                                    var22.declaringScope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1877, new String(var22.name)), (ASTNode)var22.declaringScope.method_635().referenceContext);
                                 }
                                 if (var2 + 10 >= this.field_1718.length) {
-                                    this.method_3014(10);
+                                    this.resizeContents(10);
                                 }
                                 ++var36;
                                 if (var24) {
@@ -1892,10 +1892,10 @@ public class ClassFile implements class_17 {
                                 var28 = var27 - var26;
                                 this.field_1718[var2++] = (byte)(var28 >> 8);
                                 this.field_1718[var2++] = (byte)var28;
-                                var15 = this.field_1716.method_2459(var22.field_302);
+                                var15 = this.constantPool.method_2459(var22.name);
                                 this.field_1718[var2++] = (byte)(var15 >> 8);
                                 this.field_1718[var2++] = (byte)var15;
-                                var16 = this.field_1716.method_2459(var23.method_178());
+                                var16 = this.constantPool.method_2459(var23.method_178());
                                 this.field_1718[var2++] = (byte)(var16 >> 8);
                                 this.field_1718[var2++] = (byte)var16;
                                 var29 = var22.field_306;
@@ -1916,9 +1916,9 @@ public class ClassFile implements class_17 {
                 if (var17 != 0) {
                     var21 = 8 + var19 * 10;
                     if (var2 + var21 >= this.field_1718.length) {
-                        this.method_3014(var21);
+                        this.resizeContents(var21);
                     }
-                    var42 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
+                    var42 = this.constantPool.method_2459(AttributeNamesConstants.field_14);
                     this.field_1718[var2++] = (byte)(var42 >> 8);
                     this.field_1718[var2++] = (byte)var42;
                     var20 = var19 * 10 + 2;
@@ -1929,20 +1929,20 @@ public class ClassFile implements class_17 {
                     this.field_1718[var2++] = (byte)(var19 >> 8);
                     this.field_1718[var2++] = (byte)var19;
                     for (var43 = 0; var43 < var17; ++var43) {
-                        class_65 var45 = var41[var43];
+                        LocalVariableBinding var45 = var41[var43];
                         for (var25 = 0; var25 < var45.field_311; ++var25) {
-                            var26 = var45.field_310[var25 << 1];
-                            var27 = var45.field_310[(var25 << 1) + 1];
+                            var26 = var45.initializationPCs[var25 << 1];
+                            var27 = var45.initializationPCs[(var25 << 1) + 1];
                             if (var26 != var27) {
                                 this.field_1718[var2++] = (byte)(var26 >> 8);
                                 this.field_1718[var2++] = (byte)var26;
                                 var28 = var27 - var26;
                                 this.field_1718[var2++] = (byte)(var28 >> 8);
                                 this.field_1718[var2++] = (byte)var28;
-                                var15 = this.field_1716.method_2459(var45.field_302);
+                                var15 = this.constantPool.method_2459(var45.name);
                                 this.field_1718[var2++] = (byte)(var15 >> 8);
                                 this.field_1718[var2++] = (byte)var15;
-                                var16 = this.field_1716.method_2459(var45.field_301.method_142());
+                                var16 = this.constantPool.method_2459(var45.type.genericTypeSignature());
                                 this.field_1718[var2++] = (byte)(var16 >> 8);
                                 this.field_1718[var2++] = (byte)var16;
                                 var29 = var45.field_306;
@@ -1958,55 +1958,55 @@ public class ClassFile implements class_17 {
         int var30;
         ArrayList var38;
         StackMapFrameCodeStream var37;
-        class_280 var40;
+        StackMapFrame var40;
         int var46;
         ArrayList var10000;
         int var51;
         if ((this.field_1728 & 8) != 0) {
-            var37 = (StackMapFrameCodeStream)this.field_1715;
+            var37 = (StackMapFrameCodeStream)this.codeStream;
             var37.method_2392(var3);
-            if (var37.method_2399()) {
+            if (var37.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var38 = var10000;
-                this.method_3018((class_58)null, var5, this.field_1718, var1 + 14, var3, var38, true);
+                this.method_3018((MethodBinding)null, var5, this.field_1718, var1 + 14, var3, var38, true);
                 var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
                     var2 += 4;
                     if (var2 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var39 = var2;
                     var2 += 2;
                     if (var2 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var40 = (class_280)var38.get(0);
-                    class_280 var44 = null;
+                    var40 = (StackMapFrame)var38.get(0);
+                    StackMapFrame var44 = null;
                     label441:
                     for (var21 = 1; var21 < var14; ++var21) {
                         var44 = var40;
-                        var40 = (class_280)var38.get(var21);
+                        var40 = (StackMapFrame)var38.get(var21);
                         var42 = var40.method_2896(var44);
                         byte var47;
-                        class_77 var49;
+                        VerificationTypeInfo var49;
                         switch (var40.method_2890(var44)) {
                             case 0:
                                 if (var2 + 1 >= this.field_1718.length) {
-                                    this.method_3014(1);
+                                    this.resizeContents(1);
                                 }
                                 this.field_1718[var2++] = (byte)var42;
                                 break;
                             case 1:
                                 if (var2 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var43 = -var40.method_2894(var44);
                                 this.field_1718[var2++] = (byte)(251 - var43);
@@ -2015,23 +2015,23 @@ public class ClassFile implements class_17 {
                                 break;
                             case 2:
                                 if (var2 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var43 = var40.method_2894(var44);
                                 this.field_1718[var2++] = (byte)(251 + var43);
                                 this.field_1718[var2++] = (byte)(var42 >> 8);
                                 this.field_1718[var2++] = (byte)var42;
-                                var46 = var40.method_2901(var43);
-                                var25 = var40.method_2895();
+                                var46 = var40.getIndexOfDifferentLocals(var43);
+                                var25 = var40.getNumberOfLocals();
                                 var26 = var46;
                                 while (true) {
                                     if (var26 >= var40.field_1645.length || var43 <= 0) {
                                         continue label441;
                                     }
                                     if (var2 + 6 >= this.field_1718.length) {
-                                        this.method_3014(6);
+                                        this.resizeContents(6);
                                     }
-                                    class_77 var48 = var40.field_1645[var26];
+                                    VerificationTypeInfo var48 = var40.field_1645[var26];
                                     if (var48 == null) {
                                         this.field_1718[var2++] = 0;
                                     } else {
@@ -2050,7 +2050,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var2++] = (byte)var48.field_336;
                                                 switch (var48.field_336) {
                                                     case 7:
-                                                        var29 = this.field_1716.method_2466(var48.method_475());
+                                                        var29 = this.constantPool.method_2466(var48.method_475());
                                                         this.field_1718[var2++] = (byte)(var29 >> 8);
                                                         this.field_1718[var2++] = (byte)var29;
                                                         break label340;
@@ -2081,7 +2081,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 3:
                                 if (var2 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 this.field_1718[var2++] = -5;
                                 this.field_1718[var2++] = (byte)(var42 >> 8);
@@ -2090,7 +2090,7 @@ public class ClassFile implements class_17 {
                             case 4:
                             default:
                                 if (var2 + 5 >= this.field_1718.length) {
-                                    this.method_3014(5);
+                                    this.resizeContents(5);
                                 }
                                 this.field_1718[var2++] = -1;
                                 this.field_1718[var2++] = (byte)(var42 >> 8);
@@ -2098,15 +2098,15 @@ public class ClassFile implements class_17 {
                                 var26 = var2;
                                 var2 += 2;
                                 var27 = 0;
-                                var25 = var40.method_2895();
+                                var25 = var40.getNumberOfLocals();
                                 var28 = 0;
                                 var29 = var40.field_1645 == null ? 0 : var40.field_1645.length;
                                 int var33;
                                 for (var30 = 0; var30 < var29 && var27 < var25; ++var30) {
                                     if (var2 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var31 = var40.field_1645[var30];
+                                    VerificationTypeInfo var31 = var40.field_1645[var30];
                                     if (var31 == null) {
                                         this.field_1718[var2++] = 0;
                                     } else {
@@ -2125,7 +2125,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var2++] = (byte)var31.field_336;
                                                 switch (var31.field_336) {
                                                     case 7:
-                                                        var33 = this.field_1716.method_2466(var31.method_475());
+                                                        var33 = this.constantPool.method_2466(var31.method_475());
                                                         this.field_1718[var2++] = (byte)(var33 >> 8);
                                                         this.field_1718[var2++] = (byte)var33;
                                                         break label307;
@@ -2155,7 +2155,7 @@ public class ClassFile implements class_17 {
                                     ++var28;
                                 }
                                 if (var2 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var26++] = (byte)(var28 >> 8);
                                 this.field_1718[var26] = (byte)var28;
@@ -2168,9 +2168,9 @@ public class ClassFile implements class_17 {
                                         continue label441;
                                     }
                                     if (var2 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var53 = var40.field_1646[var51];
+                                    VerificationTypeInfo var53 = var40.field_1646[var51];
                                     if (var53 == null) {
                                         this.field_1718[var2++] = 0;
                                     } else {
@@ -2189,7 +2189,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var2++] = (byte)var53.field_336;
                                                 switch (var53.field_336) {
                                                     case 7:
-                                                        int var34 = this.field_1716.method_2466(var53.method_475());
+                                                        int var34 = this.constantPool.method_2466(var53.method_475());
                                                         this.field_1718[var2++] = (byte)(var34 >> 8);
                                                         this.field_1718[var2++] = (byte)var34;
                                                         break label297;
@@ -2217,7 +2217,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 5:
                                 if (var2 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var2++] = (byte)(var42 + 64);
                                 if (var40.field_1646[0] == null) {
@@ -2239,7 +2239,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var2++] = var47;
                                             switch (var47) {
                                                 case 7:
-                                                    var29 = this.field_1716.method_2466(var49.method_475());
+                                                    var29 = this.constantPool.method_2466(var49.method_475());
                                                     this.field_1718[var2++] = (byte)(var29 >> 8);
                                                     this.field_1718[var2++] = (byte)var29;
                                                     continue;
@@ -2266,7 +2266,7 @@ public class ClassFile implements class_17 {
                                 break;
                             case 6:
                                 if (var2 + 6 >= this.field_1718.length) {
-                                    this.method_3014(6);
+                                    this.resizeContents(6);
                                 }
                                 this.field_1718[var2++] = -9;
                                 this.field_1718[var2++] = (byte)(var42 >> 8);
@@ -2290,7 +2290,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var2++] = var47;
                                             switch (var47) {
                                                 case 7:
-                                                    var29 = this.field_1716.method_2466(var49.method_475());
+                                                    var29 = this.constantPool.method_2466(var49.method_475());
                                                     this.field_1718[var2++] = (byte)(var29 >> 8);
                                                     this.field_1718[var2++] = (byte)var29;
                                                     continue;
@@ -2333,51 +2333,51 @@ public class ClassFile implements class_17 {
             }
         }
         if ((this.field_1728 & 16) != 0) {
-            var37 = (StackMapFrameCodeStream)this.field_1715;
+            var37 = (StackMapFrameCodeStream)this.codeStream;
             var37.method_2392(var3);
-            if (var37.method_2399()) {
+            if (var37.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var38 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var5, this.field_1718, var1 + 14, var3, var38, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var5, this.field_1718, var1 + 14, var3, var38, false);
                 var14 = var38.size();
                 if (var14 > 1) {
                     var15 = var2;
                     if (var2 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var2++] = (byte)(var16 >> 8);
                     this.field_1718[var2++] = (byte)var16;
                     var17 = var2;
                     var2 += 4;
                     if (var2 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var39 = var2;
                     var2 += 2;
                     if (var2 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var40 = (class_280)var38.get(0);
+                    var40 = (StackMapFrame)var38.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var40 = (class_280)var38.get(var20);
+                        var40 = (StackMapFrame)var38.get(var20);
                         var21 = var40.field_1642;
                         if (var2 + 5 >= this.field_1718.length) {
-                            this.method_3014(5);
+                            this.resizeContents(5);
                         }
                         this.field_1718[var2++] = (byte)(var21 >> 8);
                         this.field_1718[var2++] = (byte)var21;
                         var42 = var2;
                         var2 += 2;
                         var43 = 0;
-                        var46 = var40.method_2895();
+                        var46 = var40.getNumberOfLocals();
                         var25 = 0;
                         var26 = var40.field_1645 == null ? 0 : var40.field_1645.length;
                         for (var27 = 0; var27 < var26 && var43 < var46; ++var27) {
                             if (var2 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var50 = var40.field_1645[var27];
+                            VerificationTypeInfo var50 = var40.field_1645[var27];
                             if (var50 == null) {
                                 this.field_1718[var2++] = 0;
                             } else {
@@ -2396,7 +2396,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var2++] = (byte)var50.field_336;
                                         switch (var50.field_336) {
                                             case 7:
-                                                var30 = this.field_1716.method_2466(var50.method_475());
+                                                var30 = this.constantPool.method_2466(var50.method_475());
                                                 this.field_1718[var2++] = (byte)(var30 >> 8);
                                                 this.field_1718[var2++] = (byte)var30;
                                                 break label277;
@@ -2426,7 +2426,7 @@ public class ClassFile implements class_17 {
                             ++var25;
                         }
                         if (var2 + 4 >= this.field_1718.length) {
-                            this.method_3014(4);
+                            this.resizeContents(4);
                         }
                         this.field_1718[var42++] = (byte)(var25 >> 8);
                         this.field_1718[var42] = (byte)var25;
@@ -2435,9 +2435,9 @@ public class ClassFile implements class_17 {
                         this.field_1718[var2++] = (byte)var27;
                         for (var28 = 0; var28 < var27; ++var28) {
                             if (var2 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var52 = var40.field_1646[var28];
+                            VerificationTypeInfo var52 = var40.field_1646[var28];
                             if (var52 == null) {
                                 this.field_1718[var2++] = 0;
                             } else {
@@ -2455,7 +2455,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var2++] = (byte)var52.field_336;
                                         switch (var52.field_336) {
                                             case 7:
-                                                var51 = this.field_1716.method_2466(var52.method_475());
+                                                var51 = this.constantPool.method_2466(var52.method_475());
                                                 this.field_1718[var2++] = (byte)(var51 >> 8);
                                                 this.field_1718[var2++] = (byte)var51;
                                                 continue;
@@ -2498,7 +2498,7 @@ public class ClassFile implements class_17 {
             }
         }
         if (var10 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var10++] = (byte)(var11 >> 8);
         this.field_1718[var10] = (byte)var11;
@@ -2511,19 +2511,19 @@ public class ClassFile implements class_17 {
     }
 
     public void method_2981(int var1, int var2) {
-        this.field_1718 = this.field_1715.field_1188;
-        int var3 = this.field_1715.field_1190;
-        int var4 = this.field_1715.field_1208;
+        this.field_1718 = this.codeStream.bCodeStream;
+        int var3 = this.codeStream.field_1190;
+        int var4 = this.codeStream.field_1208;
         if (var4 > '\uffff') {
-            this.field_1715.field_1205.field_478.method_644().method_1489(this.field_1715.field_1205.field_478.method_718());
+            this.codeStream.methodDeclaration.scope.problemReporter().method_1489(this.codeStream.methodDeclaration.scope.referenceType());
         }
         if (var3 + 20 >= this.field_1718.length) {
-            this.method_3014(20);
+            this.resizeContents(20);
         }
-        int var5 = this.field_1715.field_1211;
+        int var5 = this.codeStream.field_1211;
         this.field_1718[var1 + 6] = (byte)(var5 >> 8);
         this.field_1718[var1 + 7] = (byte)var5;
-        int var6 = this.field_1715.field_1204;
+        int var6 = this.codeStream.field_1204;
         this.field_1718[var1 + 8] = (byte)(var6 >> 8);
         this.field_1718[var1 + 9] = (byte)var6;
         this.field_1718[var1 + 10] = (byte)(var4 >> 24);
@@ -2536,14 +2536,14 @@ public class ClassFile implements class_17 {
         int var8 = 0;
         var3 += 2;
         if (var3 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         int var9;
         if ((this.field_1728 & 2) != 0) {
             if (var3 + 20 >= this.field_1718.length) {
-                this.method_3014(20);
+                this.resizeContents(20);
             }
-            var9 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
+            var9 = this.constantPool.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var3++] = (byte)(var9 >> 8);
             this.field_1718[var3++] = (byte)var9;
             this.field_1718[var3++] = 0;
@@ -2559,9 +2559,9 @@ public class ClassFile implements class_17 {
             ++var8;
         }
         if ((this.field_1728 & 4) != 0) {
-            var9 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
+            var9 = this.constantPool.method_2459(AttributeNamesConstants.field_7);
             if (var3 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
             this.field_1718[var3++] = (byte)(var9 >> 8);
             this.field_1718[var3++] = (byte)var9;
@@ -2579,7 +2579,7 @@ public class ClassFile implements class_17 {
         int var13;
         int var14;
         int var15;
-        class_280 var16;
+        StackMapFrame var16;
         int var19;
         int var18;
         int var21;
@@ -2594,52 +2594,52 @@ public class ClassFile implements class_17 {
         int var38;
         ArrayList var10000;
         if ((this.field_1728 & 8) != 0) {
-            var32 = (StackMapFrameCodeStream)this.field_1715;
+            var32 = (StackMapFrameCodeStream)this.codeStream;
             var32.method_2392(var4);
-            if (var32.method_2399()) {
+            if (var32.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var10 = var10000;
-                this.method_3018((class_58)null, var6, this.field_1718, var1 + 14, var4, var10, true);
+                this.method_3018((MethodBinding)null, var6, this.field_1718, var1 + 14, var4, var10, true);
                 var11 = var10.size();
                 if (var11 > 1) {
                     var12 = var3;
                     if (var3 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var13 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
+                    var13 = this.constantPool.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var3++] = (byte)(var13 >> 8);
                     this.field_1718[var3++] = (byte)var13;
                     var14 = var3;
                     var3 += 4;
                     if (var3 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var11 = 0;
                     var15 = var3;
                     var3 += 2;
                     if (var3 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var16 = (class_280)var10.get(0);
-                    class_280 var17 = null;
+                    var16 = (StackMapFrame)var10.get(0);
+                    StackMapFrame var17 = null;
                     label341:
                     for (var18 = 1; var18 < var11; ++var18) {
                         var17 = var16;
-                        var16 = (class_280)var10.get(var18);
+                        var16 = (StackMapFrame)var10.get(var18);
                         ++var11;
                         var19 = var16.method_2896(var17);
-                        class_77 var23;
+                        VerificationTypeInfo var23;
                         byte var24;
                         switch (var16.method_2890(var17)) {
                             case 0:
                                 if (var3 + 1 >= this.field_1718.length) {
-                                    this.method_3014(1);
+                                    this.resizeContents(1);
                                 }
                                 this.field_1718[var3++] = (byte)var19;
                                 break;
                             case 1:
                                 if (var3 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var20 = -var16.method_2894(var17);
                                 this.field_1718[var3++] = (byte)(251 - var20);
@@ -2648,23 +2648,23 @@ public class ClassFile implements class_17 {
                                 break;
                             case 2:
                                 if (var3 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var20 = var16.method_2894(var17);
                                 this.field_1718[var3++] = (byte)(251 + var20);
                                 this.field_1718[var3++] = (byte)(var19 >> 8);
                                 this.field_1718[var3++] = (byte)var19;
-                                var21 = var16.method_2901(var20);
-                                var22 = var16.method_2895();
+                                var21 = var16.getIndexOfDifferentLocals(var20);
+                                var22 = var16.getNumberOfLocals();
                                 var35 = var21;
                                 while (true) {
                                     if (var35 >= var16.field_1645.length || var20 <= 0) {
                                         continue label341;
                                     }
                                     if (var3 + 6 >= this.field_1718.length) {
-                                        this.method_3014(6);
+                                        this.resizeContents(6);
                                     }
-                                    class_77 var36 = var16.field_1645[var35];
+                                    VerificationTypeInfo var36 = var16.field_1645[var35];
                                     if (var36 == null) {
                                         this.field_1718[var3++] = 0;
                                     } else {
@@ -2683,7 +2683,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var3++] = (byte)var36.field_336;
                                                 switch (var36.field_336) {
                                                     case 7:
-                                                        var26 = this.field_1716.method_2466(var36.method_475());
+                                                        var26 = this.constantPool.method_2466(var36.method_475());
                                                         this.field_1718[var3++] = (byte)(var26 >> 8);
                                                         this.field_1718[var3++] = (byte)var26;
                                                         break label271;
@@ -2714,7 +2714,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 3:
                                 if (var3 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 this.field_1718[var3++] = -5;
                                 this.field_1718[var3++] = (byte)(var19 >> 8);
@@ -2723,7 +2723,7 @@ public class ClassFile implements class_17 {
                             case 4:
                             default:
                                 if (var3 + 5 >= this.field_1718.length) {
-                                    this.method_3014(5);
+                                    this.resizeContents(5);
                                 }
                                 this.field_1718[var3++] = -1;
                                 this.field_1718[var3++] = (byte)(var19 >> 8);
@@ -2731,15 +2731,15 @@ public class ClassFile implements class_17 {
                                 var35 = var3;
                                 var3 += 2;
                                 var34 = 0;
-                                var22 = var16.method_2895();
+                                var22 = var16.getNumberOfLocals();
                                 var25 = 0;
                                 var26 = var16.field_1645 == null ? 0 : var16.field_1645.length;
                                 int var30;
                                 for (var27 = 0; var27 < var26 && var34 < var22; ++var27) {
                                     if (var3 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var28 = var16.field_1645[var27];
+                                    VerificationTypeInfo var28 = var16.field_1645[var27];
                                     if (var28 == null) {
                                         this.field_1718[var3++] = 0;
                                     } else {
@@ -2758,7 +2758,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var3++] = (byte)var28.field_336;
                                                 switch (var28.field_336) {
                                                     case 7:
-                                                        var30 = this.field_1716.method_2466(var28.method_475());
+                                                        var30 = this.constantPool.method_2466(var28.method_475());
                                                         this.field_1718[var3++] = (byte)(var30 >> 8);
                                                         this.field_1718[var3++] = (byte)var30;
                                                         break label238;
@@ -2788,7 +2788,7 @@ public class ClassFile implements class_17 {
                                     ++var25;
                                 }
                                 if (var3 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var35++] = (byte)(var25 >> 8);
                                 this.field_1718[var35] = (byte)var25;
@@ -2801,9 +2801,9 @@ public class ClassFile implements class_17 {
                                         continue label341;
                                     }
                                     if (var3 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var40 = var16.field_1646[var38];
+                                    VerificationTypeInfo var40 = var16.field_1646[var38];
                                     if (var40 == null) {
                                         this.field_1718[var3++] = 0;
                                     } else {
@@ -2822,7 +2822,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var3++] = (byte)var40.field_336;
                                                 switch (var40.field_336) {
                                                     case 7:
-                                                        int var31 = this.field_1716.method_2466(var40.method_475());
+                                                        int var31 = this.constantPool.method_2466(var40.method_475());
                                                         this.field_1718[var3++] = (byte)(var31 >> 8);
                                                         this.field_1718[var3++] = (byte)var31;
                                                         break label228;
@@ -2850,7 +2850,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 5:
                                 if (var3 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var3++] = (byte)(var19 + 64);
                                 if (var16.field_1646[0] == null) {
@@ -2872,7 +2872,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var3++] = var24;
                                             switch (var24) {
                                                 case 7:
-                                                    var26 = this.field_1716.method_2466(var23.method_475());
+                                                    var26 = this.constantPool.method_2466(var23.method_475());
                                                     this.field_1718[var3++] = (byte)(var26 >> 8);
                                                     this.field_1718[var3++] = (byte)var26;
                                                     continue;
@@ -2899,7 +2899,7 @@ public class ClassFile implements class_17 {
                                 break;
                             case 6:
                                 if (var3 + 6 >= this.field_1718.length) {
-                                    this.method_3014(6);
+                                    this.resizeContents(6);
                                 }
                                 this.field_1718[var3++] = -9;
                                 this.field_1718[var3++] = (byte)(var19 >> 8);
@@ -2923,7 +2923,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var3++] = var24;
                                             switch (var24) {
                                                 case 7:
-                                                    var26 = this.field_1716.method_2466(var23.method_475());
+                                                    var26 = this.constantPool.method_2466(var23.method_475());
                                                     this.field_1718[var3++] = (byte)(var26 >> 8);
                                                     this.field_1718[var3++] = (byte)var26;
                                                     continue;
@@ -2965,52 +2965,52 @@ public class ClassFile implements class_17 {
             }
         }
         if ((this.field_1728 & 16) != 0) {
-            var32 = (StackMapFrameCodeStream)this.field_1715;
+            var32 = (StackMapFrameCodeStream)this.codeStream;
             var32.method_2392(var4);
-            if (var32.method_2399()) {
+            if (var32.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var10 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var6, this.field_1718, var1 + 14, var4, var10, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var6, this.field_1718, var1 + 14, var4, var10, false);
                 var11 = var10.size();
                 if (var11 > 1) {
                     var12 = var3;
                     if (var3 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var13 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
+                    var13 = this.constantPool.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var3++] = (byte)(var13 >> 8);
                     this.field_1718[var3++] = (byte)var13;
                     var14 = var3;
                     var3 += 4;
                     if (var3 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var15 = var3;
                     var3 += 2;
                     if (var3 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var16 = (class_280)var10.get(0);
+                    var16 = (StackMapFrame)var10.get(0);
                     int var33;
                     for (var33 = 1; var33 < var11; ++var33) {
-                        var16 = (class_280)var10.get(var33);
+                        var16 = (StackMapFrame)var10.get(var33);
                         var18 = var16.field_1642;
                         if (var3 + 5 >= this.field_1718.length) {
-                            this.method_3014(5);
+                            this.resizeContents(5);
                         }
                         this.field_1718[var3++] = (byte)(var18 >> 8);
                         this.field_1718[var3++] = (byte)var18;
                         var19 = var3;
                         var3 += 2;
                         var20 = 0;
-                        var21 = var16.method_2895();
+                        var21 = var16.getNumberOfLocals();
                         var22 = 0;
                         var35 = var16.field_1645 == null ? 0 : var16.field_1645.length;
                         for (var34 = 0; var34 < var35 && var20 < var21; ++var34) {
                             if (var3 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var39 = var16.field_1645[var34];
+                            VerificationTypeInfo var39 = var16.field_1645[var34];
                             if (var39 == null) {
                                 this.field_1718[var3++] = 0;
                             } else {
@@ -3029,7 +3029,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var3++] = (byte)var39.field_336;
                                         switch (var39.field_336) {
                                             case 7:
-                                                var27 = this.field_1716.method_2466(var39.method_475());
+                                                var27 = this.constantPool.method_2466(var39.method_475());
                                                 this.field_1718[var3++] = (byte)(var27 >> 8);
                                                 this.field_1718[var3++] = (byte)var27;
                                                 break label208;
@@ -3059,7 +3059,7 @@ public class ClassFile implements class_17 {
                             ++var22;
                         }
                         if (var3 + 4 >= this.field_1718.length) {
-                            this.method_3014(4);
+                            this.resizeContents(4);
                         }
                         this.field_1718[var19++] = (byte)(var22 >> 8);
                         this.field_1718[var19] = (byte)var22;
@@ -3068,9 +3068,9 @@ public class ClassFile implements class_17 {
                         this.field_1718[var3++] = (byte)var34;
                         for (var25 = 0; var25 < var34; ++var25) {
                             if (var3 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var37 = var16.field_1646[var25];
+                            VerificationTypeInfo var37 = var16.field_1646[var25];
                             if (var37 == null) {
                                 this.field_1718[var3++] = 0;
                             } else {
@@ -3088,7 +3088,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var3++] = (byte)var37.field_336;
                                         switch (var37.field_336) {
                                             case 7:
-                                                var38 = this.field_1716.method_2466(var37.method_475());
+                                                var38 = this.constantPool.method_2466(var37.method_475());
                                                 this.field_1718[var3++] = (byte)(var38 >> 8);
                                                 this.field_1718[var3++] = (byte)var38;
                                                 continue;
@@ -3131,7 +3131,7 @@ public class ClassFile implements class_17 {
             }
         }
         if (var7 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var7++] = (byte)(var8 >> 8);
         this.field_1718[var7] = (byte)var8;
@@ -3143,22 +3143,22 @@ public class ClassFile implements class_17 {
         this.field_1719 = var3;
     }
 
-    public void method_2982(class_58 var1, int var2, int[] var3, int var4) {
-        this.field_1718 = this.field_1715.field_1188;
-        int var5 = this.field_1715.field_1190;
-        int var6 = this.field_1715.field_1211;
+    public void completeCodeAttributeForMissingAbstractProblemMethod(MethodBinding var1, int var2, int[] var3, int var4) {
+        this.field_1718 = this.codeStream.bCodeStream;
+        int var5 = this.codeStream.field_1190;
+        int var6 = this.codeStream.field_1211;
         this.field_1718[var2 + 6] = (byte)(var6 >> 8);
         this.field_1718[var2 + 7] = (byte)var6;
-        int var7 = this.field_1715.field_1204;
+        int var7 = this.codeStream.field_1204;
         this.field_1718[var2 + 8] = (byte)(var7 >> 8);
         this.field_1718[var2 + 9] = (byte)var7;
-        int var8 = this.field_1715.field_1208;
+        int var8 = this.codeStream.field_1208;
         this.field_1718[var2 + 10] = (byte)(var8 >> 24);
         this.field_1718[var2 + 11] = (byte)(var8 >> 16);
         this.field_1718[var2 + 12] = (byte)(var8 >> 8);
         this.field_1718[var2 + 13] = (byte)var8;
         if (var5 + 50 >= this.field_1718.length) {
-            this.method_3014(50);
+            this.resizeContents(50);
         }
         this.field_1718[var5++] = 0;
         this.field_1718[var5++] = 0;
@@ -3166,14 +3166,14 @@ public class ClassFile implements class_17 {
         int var10 = 0;
         var5 += 2;
         if (var5 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         int var11;
         if ((this.field_1728 & 2) != 0) {
             if (var5 + 12 >= this.field_1718.length) {
-                this.method_3014(12);
+                this.resizeContents(12);
             }
-            var11 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
+            var11 = this.constantPool.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var5++] = (byte)(var11 >> 8);
             this.field_1718[var5++] = (byte)var11;
             this.field_1718[var5++] = 0;
@@ -3183,7 +3183,7 @@ public class ClassFile implements class_17 {
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = 1;
             if (var4 == 0) {
-                var4 = Util.method_1324(var1.method_385(), var3, 0, var3.length - 1);
+                var4 = Util.getLineNumber(var1.method_385(), var3, 0, var3.length - 1);
             }
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = 0;
@@ -3197,7 +3197,7 @@ public class ClassFile implements class_17 {
         int var15;
         int var17;
         int var16;
-        class_280 var18;
+        StackMapFrame var18;
         int var21;
         int var20;
         int var23;
@@ -3212,9 +3212,9 @@ public class ClassFile implements class_17 {
         int var40;
         ArrayList var10000;
         if ((this.field_1728 & 8) != 0) {
-            var34 = (StackMapFrameCodeStream)this.field_1715;
+            var34 = (StackMapFrameCodeStream)this.codeStream;
             var34.method_2392(var8);
-            if (var34.method_2399()) {
+            if (var34.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var12 = var10000;
                 this.method_3018(var1, var7, this.field_1718, var2 + 14, var8, var12, false);
@@ -3222,42 +3222,42 @@ public class ClassFile implements class_17 {
                 if (var13 > 1) {
                     var14 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var15 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
+                    var15 = this.constantPool.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var5++] = (byte)(var15 >> 8);
                     this.field_1718[var5++] = (byte)var15;
                     var16 = var5;
                     var5 += 4;
                     if (var5 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var13 = 0;
                     var17 = var5;
                     var5 += 2;
                     if (var5 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var18 = (class_280)var12.get(0);
-                    class_280 var19 = null;
+                    var18 = (StackMapFrame)var12.get(0);
+                    StackMapFrame var19 = null;
                     label336:
                     for (var20 = 1; var20 < var13; ++var20) {
                         var19 = var18;
-                        var18 = (class_280)var12.get(var20);
+                        var18 = (StackMapFrame)var12.get(var20);
                         ++var13;
                         var21 = var18.method_2896(var19);
-                        class_77 var25;
+                        VerificationTypeInfo var25;
                         byte var26;
                         switch (var18.method_2890(var19)) {
                             case 0:
                                 if (var5 + 1 >= this.field_1718.length) {
-                                    this.method_3014(1);
+                                    this.resizeContents(1);
                                 }
                                 this.field_1718[var5++] = (byte)var21;
                                 break;
                             case 1:
                                 if (var5 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var22 = -var18.method_2894(var19);
                                 this.field_1718[var5++] = (byte)(251 - var22);
@@ -3266,23 +3266,23 @@ public class ClassFile implements class_17 {
                                 break;
                             case 2:
                                 if (var5 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var22 = var18.method_2894(var19);
                                 this.field_1718[var5++] = (byte)(251 + var22);
                                 this.field_1718[var5++] = (byte)(var21 >> 8);
                                 this.field_1718[var5++] = (byte)var21;
-                                var23 = var18.method_2901(var22);
-                                var24 = var18.method_2895();
+                                var23 = var18.getIndexOfDifferentLocals(var22);
+                                var24 = var18.getNumberOfLocals();
                                 var36 = var23;
                                 while (true) {
                                     if (var36 >= var18.field_1645.length || var22 <= 0) {
                                         continue label336;
                                     }
                                     if (var5 + 6 >= this.field_1718.length) {
-                                        this.method_3014(6);
+                                        this.resizeContents(6);
                                     }
-                                    class_77 var38 = var18.field_1645[var36];
+                                    VerificationTypeInfo var38 = var18.field_1645[var36];
                                     if (var38 == null) {
                                         this.field_1718[var5++] = 0;
                                     } else {
@@ -3301,7 +3301,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var5++] = (byte)var38.field_336;
                                                 switch (var38.field_336) {
                                                     case 7:
-                                                        var28 = this.field_1716.method_2466(var38.method_475());
+                                                        var28 = this.constantPool.method_2466(var38.method_475());
                                                         this.field_1718[var5++] = (byte)(var28 >> 8);
                                                         this.field_1718[var5++] = (byte)var28;
                                                         break label267;
@@ -3332,7 +3332,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 3:
                                 if (var5 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 this.field_1718[var5++] = -5;
                                 this.field_1718[var5++] = (byte)(var21 >> 8);
@@ -3341,7 +3341,7 @@ public class ClassFile implements class_17 {
                             case 4:
                             default:
                                 if (var5 + 5 >= this.field_1718.length) {
-                                    this.method_3014(5);
+                                    this.resizeContents(5);
                                 }
                                 this.field_1718[var5++] = -1;
                                 this.field_1718[var5++] = (byte)(var21 >> 8);
@@ -3349,15 +3349,15 @@ public class ClassFile implements class_17 {
                                 var36 = var5;
                                 var5 += 2;
                                 var39 = 0;
-                                var24 = var18.method_2895();
+                                var24 = var18.getNumberOfLocals();
                                 var27 = 0;
                                 var28 = var18.field_1645 == null ? 0 : var18.field_1645.length;
                                 int var32;
                                 for (var29 = 0; var29 < var28 && var39 < var24; ++var29) {
                                     if (var5 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var30 = var18.field_1645[var29];
+                                    VerificationTypeInfo var30 = var18.field_1645[var29];
                                     if (var30 == null) {
                                         this.field_1718[var5++] = 0;
                                     } else {
@@ -3376,7 +3376,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var5++] = (byte)var30.field_336;
                                                 switch (var30.field_336) {
                                                     case 7:
-                                                        var32 = this.field_1716.method_2466(var30.method_475());
+                                                        var32 = this.constantPool.method_2466(var30.method_475());
                                                         this.field_1718[var5++] = (byte)(var32 >> 8);
                                                         this.field_1718[var5++] = (byte)var32;
                                                         break label234;
@@ -3406,7 +3406,7 @@ public class ClassFile implements class_17 {
                                     ++var27;
                                 }
                                 if (var5 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var36++] = (byte)(var27 >> 8);
                                 this.field_1718[var36] = (byte)var27;
@@ -3419,9 +3419,9 @@ public class ClassFile implements class_17 {
                                         continue label336;
                                     }
                                     if (var5 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var41 = var18.field_1646[var40];
+                                    VerificationTypeInfo var41 = var18.field_1646[var40];
                                     if (var41 == null) {
                                         this.field_1718[var5++] = 0;
                                     } else {
@@ -3440,7 +3440,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var5++] = (byte)var41.field_336;
                                                 switch (var41.field_336) {
                                                     case 7:
-                                                        int var33 = this.field_1716.method_2466(var41.method_475());
+                                                        int var33 = this.constantPool.method_2466(var41.method_475());
                                                         this.field_1718[var5++] = (byte)(var33 >> 8);
                                                         this.field_1718[var5++] = (byte)var33;
                                                         break label224;
@@ -3468,7 +3468,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 5:
                                 if (var5 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var5++] = (byte)(var21 + 64);
                                 if (var18.field_1646[0] == null) {
@@ -3490,7 +3490,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var5++] = var26;
                                             switch (var26) {
                                                 case 7:
-                                                    var28 = this.field_1716.method_2466(var25.method_475());
+                                                    var28 = this.constantPool.method_2466(var25.method_475());
                                                     this.field_1718[var5++] = (byte)(var28 >> 8);
                                                     this.field_1718[var5++] = (byte)var28;
                                                     continue;
@@ -3517,7 +3517,7 @@ public class ClassFile implements class_17 {
                                 break;
                             case 6:
                                 if (var5 + 6 >= this.field_1718.length) {
-                                    this.method_3014(6);
+                                    this.resizeContents(6);
                                 }
                                 this.field_1718[var5++] = -9;
                                 this.field_1718[var5++] = (byte)(var21 >> 8);
@@ -3541,7 +3541,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var5++] = var26;
                                             switch (var26) {
                                                 case 7:
-                                                    var28 = this.field_1716.method_2466(var25.method_475());
+                                                    var28 = this.constantPool.method_2466(var25.method_475());
                                                     this.field_1718[var5++] = (byte)(var28 >> 8);
                                                     this.field_1718[var5++] = (byte)var28;
                                                     continue;
@@ -3583,52 +3583,52 @@ public class ClassFile implements class_17 {
             }
         }
         if ((this.field_1728 & 16) != 0) {
-            var34 = (StackMapFrameCodeStream)this.field_1715;
+            var34 = (StackMapFrameCodeStream)this.codeStream;
             var34.method_2392(var8);
-            if (var34.method_2399()) {
+            if (var34.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var12 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var7, this.field_1718, var2 + 14, var8, var12, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var7, this.field_1718, var2 + 14, var8, var12, false);
                 var13 = var12.size();
                 if (var13 > 1) {
                     var14 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var15 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
+                    var15 = this.constantPool.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var5++] = (byte)(var15 >> 8);
                     this.field_1718[var5++] = (byte)var15;
                     var16 = var5;
                     var5 += 4;
                     if (var5 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var17 = var5;
                     var5 += 2;
                     if (var5 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var18 = (class_280)var12.get(0);
+                    var18 = (StackMapFrame)var12.get(0);
                     int var35;
                     for (var35 = 1; var35 < var13; ++var35) {
-                        var18 = (class_280)var12.get(var35);
+                        var18 = (StackMapFrame)var12.get(var35);
                         var20 = var18.field_1642;
                         if (var5 + 5 >= this.field_1718.length) {
-                            this.method_3014(5);
+                            this.resizeContents(5);
                         }
                         this.field_1718[var5++] = (byte)(var20 >> 8);
                         this.field_1718[var5++] = (byte)var20;
                         var21 = var5;
                         var5 += 2;
                         var22 = 0;
-                        var23 = var18.method_2895();
+                        var23 = var18.getNumberOfLocals();
                         var24 = 0;
                         var36 = var18.field_1645 == null ? 0 : var18.field_1645.length;
                         for (var39 = 0; var39 < var36 && var22 < var23; ++var39) {
                             if (var5 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var37 = var18.field_1645[var39];
+                            VerificationTypeInfo var37 = var18.field_1645[var39];
                             if (var37 == null) {
                                 this.field_1718[var5++] = 0;
                             } else {
@@ -3647,7 +3647,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var5++] = (byte)var37.field_336;
                                         switch (var37.field_336) {
                                             case 7:
-                                                var29 = this.field_1716.method_2466(var37.method_475());
+                                                var29 = this.constantPool.method_2466(var37.method_475());
                                                 this.field_1718[var5++] = (byte)(var29 >> 8);
                                                 this.field_1718[var5++] = (byte)var29;
                                                 break label204;
@@ -3677,7 +3677,7 @@ public class ClassFile implements class_17 {
                             ++var24;
                         }
                         if (var5 + 4 >= this.field_1718.length) {
-                            this.method_3014(4);
+                            this.resizeContents(4);
                         }
                         this.field_1718[var21++] = (byte)(var24 >> 8);
                         this.field_1718[var21] = (byte)var24;
@@ -3686,9 +3686,9 @@ public class ClassFile implements class_17 {
                         this.field_1718[var5++] = (byte)var39;
                         for (var27 = 0; var27 < var39; ++var27) {
                             if (var5 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var42 = var18.field_1646[var27];
+                            VerificationTypeInfo var42 = var18.field_1646[var27];
                             if (var42 == null) {
                                 this.field_1718[var5++] = 0;
                             } else {
@@ -3706,7 +3706,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var5++] = (byte)var42.field_336;
                                         switch (var42.field_336) {
                                             case 7:
-                                                var40 = this.field_1716.method_2466(var42.method_475());
+                                                var40 = this.constantPool.method_2466(var42.method_475());
                                                 this.field_1718[var5++] = (byte)(var40 >> 8);
                                                 this.field_1718[var5++] = (byte)var40;
                                                 continue;
@@ -3749,7 +3749,7 @@ public class ClassFile implements class_17 {
             }
         }
         if (var9 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var9++] = (byte)(var10 >> 8);
         this.field_1718[var9] = (byte)var10;
@@ -3761,22 +3761,22 @@ public class ClassFile implements class_17 {
         this.field_1719 = var5;
     }
 
-    public void method_2983(AbstractMethodDeclaration var1, class_58 var2, int var3, int[] var4, int var5) {
-        this.field_1718 = this.field_1715.field_1188;
-        int var6 = this.field_1715.field_1190;
-        int var7 = this.field_1715.field_1211;
+    public void completeCodeAttributeForProblemMethod(AbstractMethodDeclaration var1, MethodBinding var2, int var3, int[] var4, int var5) {
+        this.field_1718 = this.codeStream.bCodeStream;
+        int var6 = this.codeStream.field_1190;
+        int var7 = this.codeStream.field_1211;
         this.field_1718[var3 + 6] = (byte)(var7 >> 8);
         this.field_1718[var3 + 7] = (byte)var7;
-        int var8 = this.field_1715.field_1204;
+        int var8 = this.codeStream.field_1204;
         this.field_1718[var3 + 8] = (byte)(var8 >> 8);
         this.field_1718[var3 + 9] = (byte)var8;
-        int var9 = this.field_1715.field_1208;
+        int var9 = this.codeStream.field_1208;
         this.field_1718[var3 + 10] = (byte)(var9 >> 24);
         this.field_1718[var3 + 11] = (byte)(var9 >> 16);
         this.field_1718[var3 + 12] = (byte)(var9 >> 8);
         this.field_1718[var3 + 13] = (byte)var9;
         if (var6 + 50 >= this.field_1718.length) {
-            this.method_3014(50);
+            this.resizeContents(50);
         }
         this.field_1718[var6++] = 0;
         this.field_1718[var6++] = 0;
@@ -3784,14 +3784,14 @@ public class ClassFile implements class_17 {
         int var11 = 0;
         var6 += 2;
         if (var6 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         int var12;
         if ((this.field_1728 & 2) != 0) {
             if (var6 + 20 >= this.field_1718.length) {
-                this.method_3014(20);
+                this.resizeContents(20);
             }
-            var12 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
+            var12 = this.constantPool.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var6++] = (byte)(var12 >> 8);
             this.field_1718[var6++] = (byte)var12;
             this.field_1718[var6++] = 0;
@@ -3801,7 +3801,7 @@ public class ClassFile implements class_17 {
             this.field_1718[var6++] = 0;
             this.field_1718[var6++] = 1;
             if (var5 == 0) {
-                var5 = Util.method_1324(var2.method_385(), var4, 0, var4.length - 1);
+                var5 = Util.getLineNumber(var2.method_385(), var4, 0, var4.length - 1);
             }
             this.field_1718[var6++] = 0;
             this.field_1718[var6++] = 0;
@@ -3825,68 +3825,68 @@ public class ClassFile implements class_17 {
         int var53;
         if ((this.field_1728 & 4) != 0) {
             int var13 = 0;
-            var14 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
+            var14 = this.constantPool.method_2459(AttributeNamesConstants.field_7);
             if (var6 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
             this.field_1718[var6++] = (byte)(var14 >> 8);
             this.field_1718[var6++] = (byte)var14;
             var15 = var6;
             var6 += 6;
             SourceTypeBinding var18 = null;
-            boolean var19 = this.field_1715.field_1205.method_799();
+            boolean var19 = this.codeStream.methodDeclaration.method_799();
             if (!var19) {
                 ++var13;
                 if (var6 + 10 >= this.field_1718.length) {
-                    this.method_3014(10);
+                    this.resizeContents(10);
                 }
                 this.field_1718[var6++] = 0;
                 this.field_1718[var6++] = 0;
                 this.field_1718[var6++] = (byte)(var9 >> 8);
                 this.field_1718[var6++] = (byte)var9;
-                var17 = this.field_1716.method_2459(class_272.field_1493);
+                var17 = this.constantPool.method_2459(ConstantPool.field_1493);
                 this.field_1718[var6++] = (byte)(var17 >> 8);
                 this.field_1718[var6++] = (byte)var17;
-                var18 = (SourceTypeBinding)this.field_1715.field_1205.field_488.field_278;
-                var16 = this.field_1716.method_2459(var18.method_178());
+                var18 = (SourceTypeBinding)this.codeStream.methodDeclaration.binding.declaringClass;
+                var16 = this.constantPool.method_2459(var18.method_178());
                 this.field_1718[var6++] = (byte)(var16 >> 8);
                 this.field_1718[var6++] = (byte)var16;
                 this.field_1718[var6++] = 0;
                 this.field_1718[var6++] = 0;
             }
             var20 = 0;
-            class_65[] var21 = null;
+            LocalVariableBinding[] var21 = null;
             var22 = 0;
             if (var2.method_358()) {
-                ReferenceBinding var23 = var2.field_278;
+                ReferenceBinding var23 = var2.declaringClass;
                 if (var23.method_160()) {
-                    class_55 var24 = (class_55)var23;
+                    NestedTypeBinding var24 = (NestedTypeBinding)var23;
                     var12 = var24.field_265;
-                    class_66[] var25;
+                    SyntheticArgumentBinding[] var25;
                     if ((var25 = var24.method_329()) != null) {
                         var26 = 0;
                         for (var27 = var25.length; var26 < var27; ++var26) {
-                            class_66 var28 = var25[var26];
-                            class_40 var29 = var28.field_301;
+                            SyntheticArgumentBinding var28 = var25[var26];
+                            TypeBinding var29 = var28.type;
                             if (var29.method_162() || var29.method_169()) {
                                 if (var21 == null) {
-                                    var21 = new class_65[var27];
+                                    var21 = new LocalVariableBinding[var27];
                                 }
                                 var21[var20++] = var28;
                                 ++var22;
                             }
                             if (var6 + 10 >= this.field_1718.length) {
-                                this.method_3014(10);
+                                this.resizeContents(10);
                             }
                             ++var13;
                             this.field_1718[var6++] = 0;
                             this.field_1718[var6++] = 0;
                             this.field_1718[var6++] = (byte)(var9 >> 8);
                             this.field_1718[var6++] = (byte)var9;
-                            var17 = this.field_1716.method_2459(var28.field_302);
+                            var17 = this.constantPool.method_2459(var28.name);
                             this.field_1718[var6++] = (byte)(var17 >> 8);
                             this.field_1718[var6++] = (byte)var17;
-                            var16 = this.field_1716.method_2459(var29.method_178());
+                            var16 = this.constantPool.method_2459(var29.method_178());
                             this.field_1718[var6++] = (byte)(var16 >> 8);
                             this.field_1718[var6++] = (byte)var16;
                             var30 = var28.field_306;
@@ -3903,39 +3903,39 @@ public class ClassFile implements class_17 {
             var40 = 0;
             int[] var44 = null;
             int[] var43 = null;
-            class_40[] var49 = null;
-            if (var1.field_488 != null) {
-                class_40[] var51 = var1.field_488.field_276;
-                class_125[] var48 = var1.field_484;
+            TypeBinding[] var49 = null;
+            if (var1.binding != null) {
+                TypeBinding[] var51 = var1.binding.parameters;
+                Argument[] var48 = var1.arguments;
                 if (var51 != null && var48 != null) {
                     var54 = 0;
                     for (var30 = var51.length; var54 < var30; ++var54) {
-                        class_40 var31 = var51[var54];
+                        TypeBinding var31 = var51[var54];
                         if (var6 + 10 >= this.field_1718.length) {
-                            this.method_3014(10);
+                            this.resizeContents(10);
                         }
                         ++var13;
                         this.field_1718[var6++] = 0;
                         this.field_1718[var6++] = 0;
                         this.field_1718[var6++] = (byte)(var9 >> 8);
                         this.field_1718[var6++] = (byte)var9;
-                        var17 = this.field_1716.method_2459(var48[var54].field_659);
+                        var17 = this.constantPool.method_2459(var48[var54].name);
                         this.field_1718[var6++] = (byte)(var17 >> 8);
                         this.field_1718[var6++] = (byte)var17;
                         if (var31.method_162() || var31.method_169()) {
                             if (var40 == 0) {
                                 var44 = new int[var30];
                                 var43 = new int[var30];
-                                var49 = new class_40[var30];
+                                var49 = new TypeBinding[var30];
                             }
                             var44[var40] = var17;
                             var43[var40] = var12;
                             var49[var40++] = var31;
                         }
-                        var16 = this.field_1716.method_2459(var31.method_178());
+                        var16 = this.constantPool.method_2459(var31.method_178());
                         this.field_1718[var6++] = (byte)(var16 >> 8);
                         this.field_1718[var6++] = (byte)var16;
-                        if (var31 != class_40.field_183 && var31 != class_40.field_185) {
+                        if (var31 != TypeBinding.field_183 && var31 != TypeBinding.field_185) {
                             ++var12;
                         } else {
                             var12 += 2;
@@ -3953,14 +3953,14 @@ public class ClassFile implements class_17 {
             this.field_1718[var15++] = (byte)(var13 >> 8);
             this.field_1718[var15] = (byte)var13;
             ++var11;
-            boolean var46 = !var19 && var18 != null && var18.field_257 != class_34.field_157;
+            boolean var46 = !var19 && var18 != null && var18.typeVariables != Binding.NO_TYPE_VARIABLES;
             if (var20 != 0 || var40 != 0 || var46) {
                 var13 = var22 + var40 + (var46 ? 1 : 0);
                 var54 = 8 + var13 * 10;
                 if (var6 + var54 >= this.field_1718.length) {
-                    this.method_3014(var54);
+                    this.resizeContents(var54);
                 }
-                var30 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
+                var30 = this.constantPool.method_2459(AttributeNamesConstants.field_14);
                 this.field_1718[var6++] = (byte)(var30 >> 8);
                 this.field_1718[var6++] = (byte)var30;
                 var27 = var13 * 10 + 2;
@@ -3976,25 +3976,25 @@ public class ClassFile implements class_17 {
                     this.field_1718[var6++] = 0;
                     this.field_1718[var6++] = (byte)(var9 >> 8);
                     this.field_1718[var6++] = (byte)var9;
-                    var17 = this.field_1716.method_2459(class_272.field_1493);
+                    var17 = this.constantPool.method_2459(ConstantPool.field_1493);
                     this.field_1718[var6++] = (byte)(var17 >> 8);
                     this.field_1718[var6++] = (byte)var17;
-                    var16 = this.field_1716.method_2459(var18.method_142());
+                    var16 = this.constantPool.method_2459(var18.genericTypeSignature());
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     this.field_1718[var6++] = 0;
                     this.field_1718[var6++] = 0;
                 }
                 for (var53 = 0; var53 < var20; ++var53) {
-                    class_65 var58 = var21[var53];
+                    LocalVariableBinding var58 = var21[var53];
                     this.field_1718[var6++] = 0;
                     this.field_1718[var6++] = 0;
                     this.field_1718[var6++] = (byte)(var9 >> 8);
                     this.field_1718[var6++] = (byte)var9;
-                    var17 = this.field_1716.method_2459(var58.field_302);
+                    var17 = this.constantPool.method_2459(var58.name);
                     this.field_1718[var6++] = (byte)(var17 >> 8);
                     this.field_1718[var6++] = (byte)var17;
-                    var16 = this.field_1716.method_2459(var58.field_301.method_142());
+                    var16 = this.constantPool.method_2459(var58.type.genericTypeSignature());
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     var33 = var58.field_306;
@@ -4009,7 +4009,7 @@ public class ClassFile implements class_17 {
                     var17 = var44[var53];
                     this.field_1718[var6++] = (byte)(var17 >> 8);
                     this.field_1718[var6++] = (byte)var17;
-                    var16 = this.field_1716.method_2459(var49[var53].method_142());
+                    var16 = this.constantPool.method_2459(var49[var53].genericTypeSignature());
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     var32 = var43[var53];
@@ -4020,7 +4020,7 @@ public class ClassFile implements class_17 {
             }
         }
         StackMapFrameCodeStream var35;
-        class_280 var38;
+        StackMapFrame var38;
         ArrayList var36;
         int var37;
         int var42;
@@ -4029,9 +4029,9 @@ public class ClassFile implements class_17 {
         int var50;
         int var56;
         if ((this.field_1728 & 8) != 0) {
-            var35 = (StackMapFrameCodeStream)this.field_1715;
+            var35 = (StackMapFrameCodeStream)this.codeStream;
             var35.method_2392(var9);
-            if (var35.method_2399()) {
+            if (var35.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var36 = var10000;
                 this.method_3018(var2, var8, this.field_1718, var3 + 14, var9, var36, false);
@@ -4039,42 +4039,42 @@ public class ClassFile implements class_17 {
                 if (var14 > 1) {
                     var15 = var6;
                     if (var6 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     var17 = var6;
                     var6 += 4;
                     if (var6 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var14 = 0;
                     var37 = var6;
                     var6 += 2;
                     if (var6 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var38 = (class_280)var36.get(0);
-                    class_280 var39 = null;
+                    var38 = (StackMapFrame)var36.get(0);
+                    StackMapFrame var39 = null;
                     label420:
                     for (var41 = 1; var41 < var14; ++var41) {
                         var39 = var38;
-                        var38 = (class_280)var36.get(var41);
+                        var38 = (StackMapFrame)var36.get(var41);
                         ++var14;
                         var22 = var38.method_2896(var39);
                         byte var47;
-                        class_77 var45;
+                        VerificationTypeInfo var45;
                         switch (var38.method_2890(var39)) {
                             case 0:
                                 if (var6 + 1 >= this.field_1718.length) {
-                                    this.method_3014(1);
+                                    this.resizeContents(1);
                                 }
                                 this.field_1718[var6++] = (byte)var22;
                                 break;
                             case 1:
                                 if (var6 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var40 = -var38.method_2894(var39);
                                 this.field_1718[var6++] = (byte)(251 - var40);
@@ -4083,23 +4083,23 @@ public class ClassFile implements class_17 {
                                 break;
                             case 2:
                                 if (var6 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var40 = var38.method_2894(var39);
                                 this.field_1718[var6++] = (byte)(251 + var40);
                                 this.field_1718[var6++] = (byte)(var22 >> 8);
                                 this.field_1718[var6++] = (byte)var22;
-                                var42 = var38.method_2901(var40);
-                                var50 = var38.method_2895();
+                                var42 = var38.getIndexOfDifferentLocals(var40);
+                                var50 = var38.getNumberOfLocals();
                                 var26 = var42;
                                 while (true) {
                                     if (var26 >= var38.field_1645.length || var40 <= 0) {
                                         continue label420;
                                     }
                                     if (var6 + 6 >= this.field_1718.length) {
-                                        this.method_3014(6);
+                                        this.resizeContents(6);
                                     }
-                                    class_77 var55 = var38.field_1645[var26];
+                                    VerificationTypeInfo var55 = var38.field_1645[var26];
                                     if (var55 == null) {
                                         this.field_1718[var6++] = 0;
                                     } else {
@@ -4118,7 +4118,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var6++] = (byte)var55.field_336;
                                                 switch (var55.field_336) {
                                                     case 7:
-                                                        var54 = this.field_1716.method_2466(var55.method_475());
+                                                        var54 = this.constantPool.method_2466(var55.method_475());
                                                         this.field_1718[var6++] = (byte)(var54 >> 8);
                                                         this.field_1718[var6++] = (byte)var54;
                                                         break label333;
@@ -4149,7 +4149,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 3:
                                 if (var6 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 this.field_1718[var6++] = -5;
                                 this.field_1718[var6++] = (byte)(var22 >> 8);
@@ -4158,7 +4158,7 @@ public class ClassFile implements class_17 {
                             case 4:
                             default:
                                 if (var6 + 5 >= this.field_1718.length) {
-                                    this.method_3014(5);
+                                    this.resizeContents(5);
                                 }
                                 this.field_1718[var6++] = -1;
                                 this.field_1718[var6++] = (byte)(var22 >> 8);
@@ -4166,14 +4166,14 @@ public class ClassFile implements class_17 {
                                 var26 = var6;
                                 var6 += 2;
                                 var27 = 0;
-                                var50 = var38.method_2895();
+                                var50 = var38.getNumberOfLocals();
                                 var56 = 0;
                                 var54 = var38.field_1645 == null ? 0 : var38.field_1645.length;
                                 for (var30 = 0; var30 < var54 && var27 < var50; ++var30) {
                                     if (var6 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var59 = var38.field_1645[var30];
+                                    VerificationTypeInfo var59 = var38.field_1645[var30];
                                     if (var59 == null) {
                                         this.field_1718[var6++] = 0;
                                     } else {
@@ -4192,7 +4192,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var6++] = (byte)var59.field_336;
                                                 switch (var59.field_336) {
                                                     case 7:
-                                                        var33 = this.field_1716.method_2466(var59.method_475());
+                                                        var33 = this.constantPool.method_2466(var59.method_475());
                                                         this.field_1718[var6++] = (byte)(var33 >> 8);
                                                         this.field_1718[var6++] = (byte)var33;
                                                         break label300;
@@ -4222,7 +4222,7 @@ public class ClassFile implements class_17 {
                                     ++var56;
                                 }
                                 if (var6 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var26++] = (byte)(var56 >> 8);
                                 this.field_1718[var26] = (byte)var56;
@@ -4235,9 +4235,9 @@ public class ClassFile implements class_17 {
                                         continue label420;
                                     }
                                     if (var6 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var57 = var38.field_1646[var53];
+                                    VerificationTypeInfo var57 = var38.field_1646[var53];
                                     if (var57 == null) {
                                         this.field_1718[var6++] = 0;
                                     } else {
@@ -4256,7 +4256,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var6++] = (byte)var57.field_336;
                                                 switch (var57.field_336) {
                                                     case 7:
-                                                        int var34 = this.field_1716.method_2466(var57.method_475());
+                                                        int var34 = this.constantPool.method_2466(var57.method_475());
                                                         this.field_1718[var6++] = (byte)(var34 >> 8);
                                                         this.field_1718[var6++] = (byte)var34;
                                                         break label290;
@@ -4284,7 +4284,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 5:
                                 if (var6 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var6++] = (byte)(var22 + 64);
                                 if (var38.field_1646[0] == null) {
@@ -4306,7 +4306,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var6++] = var47;
                                             switch (var47) {
                                                 case 7:
-                                                    var54 = this.field_1716.method_2466(var45.method_475());
+                                                    var54 = this.constantPool.method_2466(var45.method_475());
                                                     this.field_1718[var6++] = (byte)(var54 >> 8);
                                                     this.field_1718[var6++] = (byte)var54;
                                                     continue;
@@ -4333,7 +4333,7 @@ public class ClassFile implements class_17 {
                                 break;
                             case 6:
                                 if (var6 + 6 >= this.field_1718.length) {
-                                    this.method_3014(6);
+                                    this.resizeContents(6);
                                 }
                                 this.field_1718[var6++] = -9;
                                 this.field_1718[var6++] = (byte)(var22 >> 8);
@@ -4357,7 +4357,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var6++] = var47;
                                             switch (var47) {
                                                 case 7:
-                                                    var54 = this.field_1716.method_2466(var45.method_475());
+                                                    var54 = this.constantPool.method_2466(var45.method_475());
                                                     this.field_1718[var6++] = (byte)(var54 >> 8);
                                                     this.field_1718[var6++] = (byte)var54;
                                                     continue;
@@ -4399,51 +4399,51 @@ public class ClassFile implements class_17 {
             }
         }
         if ((this.field_1728 & 16) != 0) {
-            var35 = (StackMapFrameCodeStream)this.field_1715;
+            var35 = (StackMapFrameCodeStream)this.codeStream;
             var35.method_2392(var9);
-            if (var35.method_2399()) {
+            if (var35.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var36 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var8, this.field_1718, var3 + 14, var9, var36, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var8, this.field_1718, var3 + 14, var9, var36, false);
                 var14 = var36.size();
                 if (var14 > 1) {
                     var15 = var6;
                     if (var6 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var6++] = (byte)(var16 >> 8);
                     this.field_1718[var6++] = (byte)var16;
                     var17 = var6;
                     var6 += 4;
                     if (var6 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var37 = var6;
                     var6 += 2;
                     if (var6 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var38 = (class_280)var36.get(0);
+                    var38 = (StackMapFrame)var36.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var38 = (class_280)var36.get(var20);
+                        var38 = (StackMapFrame)var36.get(var20);
                         var41 = var38.field_1642;
                         if (var6 + 5 >= this.field_1718.length) {
-                            this.method_3014(5);
+                            this.resizeContents(5);
                         }
                         this.field_1718[var6++] = (byte)(var41 >> 8);
                         this.field_1718[var6++] = (byte)var41;
                         var22 = var6;
                         var6 += 2;
                         var40 = 0;
-                        var42 = var38.method_2895();
+                        var42 = var38.getNumberOfLocals();
                         var50 = 0;
                         var26 = var38.field_1645 == null ? 0 : var38.field_1645.length;
                         for (var27 = 0; var27 < var26 && var40 < var42; ++var27) {
                             if (var6 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var52 = var38.field_1645[var27];
+                            VerificationTypeInfo var52 = var38.field_1645[var27];
                             if (var52 == null) {
                                 this.field_1718[var6++] = 0;
                             } else {
@@ -4462,7 +4462,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var6++] = (byte)var52.field_336;
                                         switch (var52.field_336) {
                                             case 7:
-                                                var30 = this.field_1716.method_2466(var52.method_475());
+                                                var30 = this.constantPool.method_2466(var52.method_475());
                                                 this.field_1718[var6++] = (byte)(var30 >> 8);
                                                 this.field_1718[var6++] = (byte)var30;
                                                 break label270;
@@ -4492,7 +4492,7 @@ public class ClassFile implements class_17 {
                             ++var50;
                         }
                         if (var6 + 4 >= this.field_1718.length) {
-                            this.method_3014(4);
+                            this.resizeContents(4);
                         }
                         this.field_1718[var22++] = (byte)(var50 >> 8);
                         this.field_1718[var22] = (byte)var50;
@@ -4501,9 +4501,9 @@ public class ClassFile implements class_17 {
                         this.field_1718[var6++] = (byte)var27;
                         for (var56 = 0; var56 < var27; ++var56) {
                             if (var6 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var60 = var38.field_1646[var56];
+                            VerificationTypeInfo var60 = var38.field_1646[var56];
                             if (var60 == null) {
                                 this.field_1718[var6++] = 0;
                             } else {
@@ -4521,7 +4521,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var6++] = (byte)var60.field_336;
                                         switch (var60.field_336) {
                                             case 7:
-                                                var53 = this.field_1716.method_2466(var60.method_475());
+                                                var53 = this.constantPool.method_2466(var60.method_475());
                                                 this.field_1718[var6++] = (byte)(var53 >> 8);
                                                 this.field_1718[var6++] = (byte)var53;
                                                 continue;
@@ -4564,7 +4564,7 @@ public class ClassFile implements class_17 {
             }
         }
         if (var10 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var10++] = (byte)(var11 >> 8);
         this.field_1718[var10] = (byte)var11;
@@ -4576,22 +4576,22 @@ public class ClassFile implements class_17 {
         this.field_1719 = var6;
     }
 
-    public void method_2984(boolean var1, class_60 var2, int var3, int[] var4) {
-        this.field_1718 = this.field_1715.field_1188;
-        int var5 = this.field_1715.field_1190;
-        int var6 = this.field_1715.field_1211;
+    public void completeCodeAttributeForSyntheticMethod(boolean var1, SyntheticMethodBinding var2, int var3, int[] var4) {
+        this.field_1718 = this.codeStream.bCodeStream;
+        int var5 = this.codeStream.field_1190;
+        int var6 = this.codeStream.field_1211;
         this.field_1718[var3 + 6] = (byte)(var6 >> 8);
         this.field_1718[var3 + 7] = (byte)var6;
-        int var7 = this.field_1715.field_1204;
+        int var7 = this.codeStream.field_1204;
         this.field_1718[var3 + 8] = (byte)(var7 >> 8);
         this.field_1718[var3 + 9] = (byte)var7;
-        int var8 = this.field_1715.field_1208;
+        int var8 = this.codeStream.field_1208;
         this.field_1718[var3 + 10] = (byte)(var8 >> 24);
         this.field_1718[var3 + 11] = (byte)(var8 >> 16);
         this.field_1718[var3 + 12] = (byte)(var8 >> 8);
         this.field_1718[var3 + 13] = (byte)var8;
         if (var5 + 40 >= this.field_1718.length) {
-            this.method_3014(40);
+            this.resizeContents(40);
         }
         boolean var9 = (this.field_1728 & 8) != 0;
         int var11;
@@ -4605,54 +4605,54 @@ public class ClassFile implements class_17 {
         int var20;
         int var44;
         if (var1) {
-            class_73[] var10 = this.field_1715.field_1193;
+            ExceptionLabel[] var10 = this.codeStream.exceptionLabels;
             var11 = 0;
             var12 = 0;
-            for (var13 = this.field_1715.field_1194; var12 < var13; ++var12) {
-                var11 += this.field_1715.field_1193[var12].field_325 / 2;
+            for (var13 = this.codeStream.field_1194; var12 < var13; ++var12) {
+                var11 += this.codeStream.exceptionLabels[var12].count / 2;
             }
             var12 = var11 * 8 + 2;
             if (var12 + var5 >= this.field_1718.length) {
-                this.method_3014(var12);
+                this.resizeContents(var12);
             }
             this.field_1718[var5++] = (byte)(var11 >> 8);
             this.field_1718[var5++] = (byte)var11;
             var13 = 0;
-            for (var14 = this.field_1715.field_1194; var13 < var14; ++var13) {
-                class_73 var15 = var10[var13];
+            for (var14 = this.codeStream.field_1194; var13 < var14; ++var13) {
+                ExceptionLabel var15 = var10[var13];
                 if (var15 != null) {
                     var16 = 0;
-                    var17 = var15.field_325;
+                    var17 = var15.count;
                     if ((var17 & 1) != 0) {
-                        this.field_1729.field_258.method_644().method_1459(Messages.method_3252(Messages.field_1878, new String(var2.field_274), this.field_1729.field_258.method_644().field_1065));
+                        this.referenceBinding.scope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1878, new String(var2.selector), this.referenceBinding.scope.problemReporter().referenceContext));
                     }
                     while (var16 < var17) {
-                        var18 = var15.field_324[var16++];
+                        var18 = var15.ranges[var16++];
                         this.field_1718[var5++] = (byte)(var18 >> 8);
                         this.field_1718[var5++] = (byte)var18;
-                        var19 = var15.field_324[var16++];
+                        var19 = var15.ranges[var16++];
                         this.field_1718[var5++] = (byte)(var19 >> 8);
                         this.field_1718[var5++] = (byte)var19;
-                        var20 = var15.field_323;
+                        var20 = var15.position;
                         if (var9) {
-                            StackMapFrameCodeStream var21 = (StackMapFrameCodeStream)this.field_1715;
+                            StackMapFrameCodeStream var21 = (StackMapFrameCodeStream)this.codeStream;
                             var21.method_2391(var20);
                         }
                         this.field_1718[var5++] = (byte)(var20 >> 8);
                         this.field_1718[var5++] = (byte)var20;
-                        if (var15.field_326 == null) {
+                        if (var15.exceptionType == null) {
                             this.field_1718[var5++] = 0;
                             this.field_1718[var5++] = 0;
                         } else {
-                            switch (var15.field_326.field_177) {
+                            switch (var15.exceptionType.id) {
                                 case 7:
-                                    var44 = this.field_1716.method_2466(class_272.field_1421);
+                                    var44 = this.constantPool.method_2466(ConstantPool.field_1421);
                                     break;
                                 case 12:
-                                    var44 = this.field_1716.method_2466(class_272.field_1411);
+                                    var44 = this.constantPool.method_2466(ConstantPool.field_1411);
                                     break;
                                 default:
-                                    var44 = this.field_1716.method_2467(var15.field_326);
+                                    var44 = this.constantPool.method_2467(var15.exceptionType);
                             }
                             this.field_1718[var5++] = (byte)(var44 >> 8);
                             this.field_1718[var5++] = (byte)var44;
@@ -4668,19 +4668,19 @@ public class ClassFile implements class_17 {
         var11 = 0;
         var5 += 2;
         if (var5 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         if ((this.field_1728 & 2) != 0) {
             if (var5 + 12 >= this.field_1718.length) {
-                this.method_3014(12);
+                this.resizeContents(12);
             }
             boolean var36 = false;
-            var13 = this.field_1716.method_2459(AttributeNamesConstants.field_6);
+            var13 = this.constantPool.method_2459(AttributeNamesConstants.field_6);
             this.field_1718[var5++] = (byte)(var13 >> 8);
             this.field_1718[var5++] = (byte)var13;
             var14 = var5;
             var5 += 6;
-            var12 = Util.method_1324(var2.field_288, var4, 0, var4.length - 1);
+            var12 = Util.getLineNumber(var2.field_288, var4, 0, var4.length - 1);
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = 0;
             this.field_1718[var5++] = (byte)(var12 >> 8);
@@ -4703,38 +4703,38 @@ public class ClassFile implements class_17 {
         int var43;
         if ((this.field_1728 & 4) != 0) {
             var12 = 0;
-            var13 = this.field_1716.method_2459(AttributeNamesConstants.field_7);
+            var13 = this.constantPool.method_2459(AttributeNamesConstants.field_7);
             if (var5 + 8 > this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
             this.field_1718[var5++] = (byte)(var13 >> 8);
             this.field_1718[var5++] = (byte)var13;
             var14 = var5;
             var5 += 6;
             var17 = 0;
-            class_65[] var40 = null;
+            LocalVariableBinding[] var40 = null;
             var19 = 0;
             var20 = 0;
-            for (var44 = this.field_1715.field_1187; var20 < var44; ++var20) {
-                class_65 var22 = this.field_1715.field_1202[var20];
-                if (var22.field_309 != null) {
-                    class_40 var23 = var22.field_301;
+            for (var44 = this.codeStream.field_1187; var20 < var44; ++var20) {
+                LocalVariableBinding var22 = this.codeStream.field_1202[var20];
+                if (var22.declaration != null) {
+                    TypeBinding var23 = var22.type;
                     boolean var24 = var23.method_162() || var23.method_169();
                     if (var22.field_311 != 0 && var24) {
                         if (var40 == null) {
-                            var40 = new class_65[var44];
+                            var40 = new LocalVariableBinding[var44];
                         }
                         var40[var17++] = var22;
                     }
                     for (var25 = 0; var25 < var22.field_311; ++var25) {
-                        var26 = var22.field_310[var25 << 1];
-                        var27 = var22.field_310[(var25 << 1) + 1];
+                        var26 = var22.initializationPCs[var25 << 1];
+                        var27 = var22.initializationPCs[(var25 << 1) + 1];
                         if (var26 != var27) {
                             if (var27 == -1) {
-                                var22.field_308.method_644().method_1460(Messages.method_3251(Messages.field_1877, new String(var22.field_302)), (ASTNode)var22.field_308.method_635().field_403);
+                                var22.declaringScope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1877, new String(var22.name)), (ASTNode)var22.declaringScope.method_635().referenceContext);
                             }
                             if (var5 + 10 > this.field_1718.length) {
-                                this.method_3014(10);
+                                this.resizeContents(10);
                             }
                             ++var12;
                             if (var24) {
@@ -4745,10 +4745,10 @@ public class ClassFile implements class_17 {
                             var28 = var27 - var26;
                             this.field_1718[var5++] = (byte)(var28 >> 8);
                             this.field_1718[var5++] = (byte)var28;
-                            var37 = this.field_1716.method_2459(var22.field_302);
+                            var37 = this.constantPool.method_2459(var22.name);
                             this.field_1718[var5++] = (byte)(var37 >> 8);
                             this.field_1718[var5++] = (byte)var37;
-                            var16 = this.field_1716.method_2459(var23.method_178());
+                            var16 = this.constantPool.method_2459(var23.method_178());
                             this.field_1718[var5++] = (byte)(var16 >> 8);
                             this.field_1718[var5++] = (byte)var16;
                             var29 = var22.field_306;
@@ -4769,9 +4769,9 @@ public class ClassFile implements class_17 {
             if (var17 != 0) {
                 var44 = 8 + var19 * 10;
                 if (var5 + var44 >= this.field_1718.length) {
-                    this.method_3014(var44);
+                    this.resizeContents(var44);
                 }
-                var42 = this.field_1716.method_2459(AttributeNamesConstants.field_14);
+                var42 = this.constantPool.method_2459(AttributeNamesConstants.field_14);
                 this.field_1718[var5++] = (byte)(var42 >> 8);
                 this.field_1718[var5++] = (byte)var42;
                 var20 = var19 * 10 + 2;
@@ -4782,20 +4782,20 @@ public class ClassFile implements class_17 {
                 this.field_1718[var5++] = (byte)(var19 >> 8);
                 this.field_1718[var5++] = (byte)var19;
                 for (var43 = 0; var43 < var17; ++var43) {
-                    class_65 var46 = var40[var43];
+                    LocalVariableBinding var46 = var40[var43];
                     for (var25 = 0; var25 < var46.field_311; ++var25) {
-                        var26 = var46.field_310[var25 << 1];
-                        var27 = var46.field_310[(var25 << 1) + 1];
+                        var26 = var46.initializationPCs[var25 << 1];
+                        var27 = var46.initializationPCs[(var25 << 1) + 1];
                         if (var26 != var27) {
                             this.field_1718[var5++] = (byte)(var26 >> 8);
                             this.field_1718[var5++] = (byte)var26;
                             var28 = var27 - var26;
                             this.field_1718[var5++] = (byte)(var28 >> 8);
                             this.field_1718[var5++] = (byte)var28;
-                            var37 = this.field_1716.method_2459(var46.field_302);
+                            var37 = this.constantPool.method_2459(var46.name);
                             this.field_1718[var5++] = (byte)(var37 >> 8);
                             this.field_1718[var5++] = (byte)var37;
-                            var16 = this.field_1716.method_2459(var46.field_301.method_142());
+                            var16 = this.constantPool.method_2459(var46.type.genericTypeSignature());
                             this.field_1718[var5++] = (byte)(var16 >> 8);
                             this.field_1718[var5++] = (byte)var16;
                             var29 = var46.field_306;
@@ -4810,14 +4810,14 @@ public class ClassFile implements class_17 {
         int var30;
         StackMapFrameCodeStream var38;
         ArrayList var39;
-        class_280 var41;
+        StackMapFrame var41;
         int var47;
         ArrayList var10000;
         int var52;
         if (var9) {
-            var38 = (StackMapFrameCodeStream)this.field_1715;
+            var38 = (StackMapFrameCodeStream)this.codeStream;
             var38.method_2392(var8);
-            if (var38.method_2399()) {
+            if (var38.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var39 = var10000;
                 this.method_3018(var2, var7, this.field_1718, var3 + 14, var8, var39, false);
@@ -4825,40 +4825,40 @@ public class ClassFile implements class_17 {
                 if (var14 > 1) {
                     var37 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_21);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_21);
                     this.field_1718[var5++] = (byte)(var16 >> 8);
                     this.field_1718[var5++] = (byte)var16;
                     var17 = var5;
                     var5 += 4;
                     if (var5 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var18 = var5;
                     var5 += 2;
                     if (var5 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var41 = (class_280)var39.get(0);
-                    class_280 var45 = null;
+                    var41 = (StackMapFrame)var39.get(0);
+                    StackMapFrame var45 = null;
                     label427:
                     for (var44 = 1; var44 < var14; ++var44) {
                         var45 = var41;
-                        var41 = (class_280)var39.get(var44);
+                        var41 = (StackMapFrame)var39.get(var44);
                         var42 = var41.method_2896(var45);
-                        class_77 var50;
+                        VerificationTypeInfo var50;
                         byte var48;
                         switch (var41.method_2890(var45)) {
                             case 0:
                                 if (var5 + 1 >= this.field_1718.length) {
-                                    this.method_3014(1);
+                                    this.resizeContents(1);
                                 }
                                 this.field_1718[var5++] = (byte)var42;
                                 break;
                             case 1:
                                 if (var5 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var43 = -var41.method_2894(var45);
                                 this.field_1718[var5++] = (byte)(251 - var43);
@@ -4867,23 +4867,23 @@ public class ClassFile implements class_17 {
                                 break;
                             case 2:
                                 if (var5 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 var43 = var41.method_2894(var45);
                                 this.field_1718[var5++] = (byte)(251 + var43);
                                 this.field_1718[var5++] = (byte)(var42 >> 8);
                                 this.field_1718[var5++] = (byte)var42;
-                                var47 = var41.method_2901(var43);
-                                var25 = var41.method_2895();
+                                var47 = var41.getIndexOfDifferentLocals(var43);
+                                var25 = var41.getNumberOfLocals();
                                 var26 = var47;
                                 while (true) {
                                     if (var26 >= var41.field_1645.length || var43 <= 0) {
                                         continue label427;
                                     }
                                     if (var5 + 6 >= this.field_1718.length) {
-                                        this.method_3014(6);
+                                        this.resizeContents(6);
                                     }
-                                    class_77 var49 = var41.field_1645[var26];
+                                    VerificationTypeInfo var49 = var41.field_1645[var26];
                                     if (var49 == null) {
                                         this.field_1718[var5++] = 0;
                                     } else {
@@ -4902,7 +4902,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var5++] = (byte)var49.field_336;
                                                 switch (var49.field_336) {
                                                     case 7:
-                                                        var29 = this.field_1716.method_2466(var49.method_475());
+                                                        var29 = this.constantPool.method_2466(var49.method_475());
                                                         this.field_1718[var5++] = (byte)(var29 >> 8);
                                                         this.field_1718[var5++] = (byte)var29;
                                                         break label333;
@@ -4933,7 +4933,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 3:
                                 if (var5 + 3 >= this.field_1718.length) {
-                                    this.method_3014(3);
+                                    this.resizeContents(3);
                                 }
                                 this.field_1718[var5++] = -5;
                                 this.field_1718[var5++] = (byte)(var42 >> 8);
@@ -4942,7 +4942,7 @@ public class ClassFile implements class_17 {
                             case 4:
                             default:
                                 if (var5 + 5 >= this.field_1718.length) {
-                                    this.method_3014(5);
+                                    this.resizeContents(5);
                                 }
                                 this.field_1718[var5++] = -1;
                                 this.field_1718[var5++] = (byte)(var42 >> 8);
@@ -4950,15 +4950,15 @@ public class ClassFile implements class_17 {
                                 var26 = var5;
                                 var5 += 2;
                                 var27 = 0;
-                                var25 = var41.method_2895();
+                                var25 = var41.getNumberOfLocals();
                                 var28 = 0;
                                 var29 = var41.field_1645 == null ? 0 : var41.field_1645.length;
                                 int var33;
                                 for (var30 = 0; var30 < var29 && var27 < var25; ++var30) {
                                     if (var5 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var31 = var41.field_1645[var30];
+                                    VerificationTypeInfo var31 = var41.field_1645[var30];
                                     if (var31 == null) {
                                         this.field_1718[var5++] = 0;
                                     } else {
@@ -4977,7 +4977,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var5++] = (byte)var31.field_336;
                                                 switch (var31.field_336) {
                                                     case 7:
-                                                        var33 = this.field_1716.method_2466(var31.method_475());
+                                                        var33 = this.constantPool.method_2466(var31.method_475());
                                                         this.field_1718[var5++] = (byte)(var33 >> 8);
                                                         this.field_1718[var5++] = (byte)var33;
                                                         break label300;
@@ -5007,7 +5007,7 @@ public class ClassFile implements class_17 {
                                     ++var28;
                                 }
                                 if (var5 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var26++] = (byte)(var28 >> 8);
                                 this.field_1718[var26] = (byte)var28;
@@ -5020,9 +5020,9 @@ public class ClassFile implements class_17 {
                                         continue label427;
                                     }
                                     if (var5 + 3 >= this.field_1718.length) {
-                                        this.method_3014(3);
+                                        this.resizeContents(3);
                                     }
-                                    class_77 var54 = var41.field_1646[var52];
+                                    VerificationTypeInfo var54 = var41.field_1646[var52];
                                     if (var54 == null) {
                                         this.field_1718[var5++] = 0;
                                     } else {
@@ -5041,7 +5041,7 @@ public class ClassFile implements class_17 {
                                                 this.field_1718[var5++] = (byte)var54.field_336;
                                                 switch (var54.field_336) {
                                                     case 7:
-                                                        int var34 = this.field_1716.method_2466(var54.method_475());
+                                                        int var34 = this.constantPool.method_2466(var54.method_475());
                                                         this.field_1718[var5++] = (byte)(var34 >> 8);
                                                         this.field_1718[var5++] = (byte)var34;
                                                         break label290;
@@ -5069,7 +5069,7 @@ public class ClassFile implements class_17 {
                                 }
                             case 5:
                                 if (var5 + 4 >= this.field_1718.length) {
-                                    this.method_3014(4);
+                                    this.resizeContents(4);
                                 }
                                 this.field_1718[var5++] = (byte)(var42 + 64);
                                 if (var41.field_1646[0] == null) {
@@ -5091,7 +5091,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var5++] = var48;
                                             switch (var48) {
                                                 case 7:
-                                                    var29 = this.field_1716.method_2466(var50.method_475());
+                                                    var29 = this.constantPool.method_2466(var50.method_475());
                                                     this.field_1718[var5++] = (byte)(var29 >> 8);
                                                     this.field_1718[var5++] = (byte)var29;
                                                     continue;
@@ -5118,7 +5118,7 @@ public class ClassFile implements class_17 {
                                 break;
                             case 6:
                                 if (var5 + 6 >= this.field_1718.length) {
-                                    this.method_3014(6);
+                                    this.resizeContents(6);
                                 }
                                 this.field_1718[var5++] = -9;
                                 this.field_1718[var5++] = (byte)(var42 >> 8);
@@ -5142,7 +5142,7 @@ public class ClassFile implements class_17 {
                                             this.field_1718[var5++] = var48;
                                             switch (var48) {
                                                 case 7:
-                                                    var29 = this.field_1716.method_2466(var50.method_475());
+                                                    var29 = this.constantPool.method_2466(var50.method_475());
                                                     this.field_1718[var5++] = (byte)(var29 >> 8);
                                                     this.field_1718[var5++] = (byte)var29;
                                                     continue;
@@ -5185,51 +5185,51 @@ public class ClassFile implements class_17 {
             }
         }
         if ((this.field_1728 & 16) != 0) {
-            var38 = (StackMapFrameCodeStream)this.field_1715;
+            var38 = (StackMapFrameCodeStream)this.codeStream;
             var38.method_2392(var8);
-            if (var38.method_2399()) {
+            if (var38.hasFramePositions()) {
                 var10000 = new ArrayList();
                 var39 = var10000;
-                this.method_3018(this.field_1715.field_1205.field_488, var7, this.field_1718, var3 + 14, var8, var39, false);
+                this.method_3018(this.codeStream.methodDeclaration.binding, var7, this.field_1718, var3 + 14, var8, var39, false);
                 var14 = var39.size();
                 if (var14 > 1) {
                     var37 = var5;
                     if (var5 + 8 >= this.field_1718.length) {
-                        this.method_3014(8);
+                        this.resizeContents(8);
                     }
-                    var16 = this.field_1716.method_2459(AttributeNamesConstants.field_24);
+                    var16 = this.constantPool.method_2459(AttributeNamesConstants.field_24);
                     this.field_1718[var5++] = (byte)(var16 >> 8);
                     this.field_1718[var5++] = (byte)var16;
                     var17 = var5;
                     var5 += 4;
                     if (var5 + 4 >= this.field_1718.length) {
-                        this.method_3014(4);
+                        this.resizeContents(4);
                     }
                     var18 = var5;
                     var5 += 2;
                     if (var5 + 2 >= this.field_1718.length) {
-                        this.method_3014(2);
+                        this.resizeContents(2);
                     }
-                    var41 = (class_280)var39.get(0);
+                    var41 = (StackMapFrame)var39.get(0);
                     for (var20 = 1; var20 < var14; ++var20) {
-                        var41 = (class_280)var39.get(var20);
+                        var41 = (StackMapFrame)var39.get(var20);
                         var44 = var41.field_1642;
                         if (var5 + 5 >= this.field_1718.length) {
-                            this.method_3014(5);
+                            this.resizeContents(5);
                         }
                         this.field_1718[var5++] = (byte)(var44 >> 8);
                         this.field_1718[var5++] = (byte)var44;
                         var42 = var5;
                         var5 += 2;
                         var43 = 0;
-                        var47 = var41.method_2895();
+                        var47 = var41.getNumberOfLocals();
                         var25 = 0;
                         var26 = var41.field_1645 == null ? 0 : var41.field_1645.length;
                         for (var27 = 0; var27 < var26 && var43 < var47; ++var27) {
                             if (var5 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var51 = var41.field_1645[var27];
+                            VerificationTypeInfo var51 = var41.field_1645[var27];
                             if (var51 == null) {
                                 this.field_1718[var5++] = 0;
                             } else {
@@ -5248,7 +5248,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var5++] = (byte)var51.field_336;
                                         switch (var51.field_336) {
                                             case 7:
-                                                var30 = this.field_1716.method_2466(var51.method_475());
+                                                var30 = this.constantPool.method_2466(var51.method_475());
                                                 this.field_1718[var5++] = (byte)(var30 >> 8);
                                                 this.field_1718[var5++] = (byte)var30;
                                                 break label270;
@@ -5278,7 +5278,7 @@ public class ClassFile implements class_17 {
                             ++var25;
                         }
                         if (var5 + 4 >= this.field_1718.length) {
-                            this.method_3014(4);
+                            this.resizeContents(4);
                         }
                         this.field_1718[var42++] = (byte)(var25 >> 8);
                         this.field_1718[var42] = (byte)var25;
@@ -5287,9 +5287,9 @@ public class ClassFile implements class_17 {
                         this.field_1718[var5++] = (byte)var27;
                         for (var28 = 0; var28 < var27; ++var28) {
                             if (var5 + 3 >= this.field_1718.length) {
-                                this.method_3014(3);
+                                this.resizeContents(3);
                             }
-                            class_77 var53 = var41.field_1646[var28];
+                            VerificationTypeInfo var53 = var41.field_1646[var28];
                             if (var53 == null) {
                                 this.field_1718[var5++] = 0;
                             } else {
@@ -5307,7 +5307,7 @@ public class ClassFile implements class_17 {
                                         this.field_1718[var5++] = (byte)var53.field_336;
                                         switch (var53.field_336) {
                                             case 7:
-                                                var52 = this.field_1716.method_2466(var53.method_475());
+                                                var52 = this.constantPool.method_2466(var53.method_475());
                                                 this.field_1718[var5++] = (byte)(var52 >> 8);
                                                 this.field_1718[var5++] = (byte)var52;
                                                 continue;
@@ -5350,7 +5350,7 @@ public class ClassFile implements class_17 {
             }
         }
         if (var35 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         this.field_1718[var35++] = (byte)(var11 >> 8);
         this.field_1718[var35] = (byte)var11;
@@ -5362,8 +5362,8 @@ public class ClassFile implements class_17 {
         this.field_1719 = var5;
     }
 
-    public void method_2985(class_60 var1, int var2, int[] var3) {
-        this.method_2984(false, var1, var2, var3);
+    public void completeCodeAttributeForSyntheticMethod(SyntheticMethodBinding var1, int var2, int[] var3) {
+        this.completeCodeAttributeForSyntheticMethod(false, var1, var2, var3);
     }
 
     public void method_2986(int var1, int var2) {
@@ -5371,46 +5371,46 @@ public class ClassFile implements class_17 {
         this.field_1718[var1] = (byte)var2;
     }
 
-    public char[] method_2987() {
-        return this.field_1716.field_1314.method_1900(2);
+    public char[] fileName() {
+        return this.constantPool.UTF8Cache.returnKeyFor(2);
     }
 
-    private void method_2988(class_164 var1, int var2) {
+    private void generateAnnotation(Annotation var1, int var2) {
         int var3 = var2;
         if (this.field_1719 + 4 >= this.field_1718.length) {
-            this.method_3014(4);
+            this.resizeContents(4);
         }
-        class_40 var4 = var1.field_675;
+        TypeBinding var4 = var1.resolvedType;
         if (var4 == null) {
             this.field_1719 = var2;
         } else {
-            int var5 = this.field_1716.method_2459(var4.method_178());
+            int var5 = this.constantPool.method_2459(var4.method_178());
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
-            if (var1 instanceof class_167) {
-                class_167 var6 = (class_167)var1;
-                class_92[] var7 = var6.field_771;
+            if (var1 instanceof NormalAnnotation) {
+                NormalAnnotation var6 = (NormalAnnotation)var1;
+                MemberValuePair[] var7 = var6.memberValuePairs;
                 if (var7 != null) {
                     int var8 = var7.length;
                     this.field_1718[this.field_1719++] = (byte)(var8 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var8;
                     for (int var9 = 0; var9 < var8; ++var9) {
-                        class_92 var10 = var7[var9];
+                        MemberValuePair var10 = var7[var9];
                         if (this.field_1719 + 2 >= this.field_1718.length) {
-                            this.method_3014(2);
+                            this.resizeContents(2);
                         }
-                        int var11 = this.field_1716.method_2459(var10.field_474);
+                        int var11 = this.constantPool.method_2459(var10.name);
                         this.field_1718[this.field_1719++] = (byte)(var11 >> 8);
                         this.field_1718[this.field_1719++] = (byte)var11;
-                        class_58 var12 = var10.field_476;
+                        MethodBinding var12 = var10.binding;
                         if (var12 == null) {
                             this.field_1719 = var3;
                         } else {
                             try {
-                                this.method_2990(var10.field_475, var12.field_275, var3);
+                                this.generateElementValue(var10.value, var12.returnType, var3);
                             } catch (ClassCastException var16) {
                                 this.field_1719 = var3;
-                            } catch (class_249 var17) {
+                            } catch (ShouldNotImplement var17) {
                                 this.field_1719 = var3;
                             }
                         }
@@ -5419,25 +5419,25 @@ public class ClassFile implements class_17 {
                     this.field_1718[this.field_1719++] = 0;
                     this.field_1718[this.field_1719++] = 0;
                 }
-            } else if (var1 instanceof class_165) {
-                class_165 var18 = (class_165)var1;
+            } else if (var1 instanceof SingleMemberAnnotation) {
+                SingleMemberAnnotation var18 = (SingleMemberAnnotation)var1;
                 this.field_1718[this.field_1719++] = 0;
                 this.field_1718[this.field_1719++] = 1;
                 if (this.field_1719 + 2 >= this.field_1718.length) {
-                    this.method_3014(2);
+                    this.resizeContents(2);
                 }
-                int var19 = this.field_1716.method_2459(field_70);
+                int var19 = this.constantPool.method_2459(field_70);
                 this.field_1718[this.field_1719++] = (byte)(var19 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var19;
-                class_58 var20 = var18.method_1074()[0].field_476;
+                MethodBinding var20 = var18.memberValuePairs()[0].binding;
                 if (var20 == null) {
                     this.field_1719 = var2;
                 } else {
                     try {
-                        this.method_2990(var18.field_769, var20.field_275, var3);
+                        this.generateElementValue(var18.memberValue, var20.returnType, var3);
                     } catch (ClassCastException var14) {
                         this.field_1719 = var2;
-                    } catch (class_249 var15) {
+                    } catch (ShouldNotImplement var15) {
                         this.field_1719 = var2;
                     }
                 }
@@ -5450,63 +5450,63 @@ public class ClassFile implements class_17 {
 
     public void method_2989() {
         if (this.field_1719 + 20 >= this.field_1718.length) {
-            this.method_3014(20);
+            this.resizeContents(20);
         }
-        int var1 = this.field_1716.method_2459(AttributeNamesConstants.field_9);
+        int var1 = this.constantPool.method_2459(AttributeNamesConstants.field_9);
         this.field_1718[this.field_1719++] = (byte)(var1 >> 8);
         this.field_1718[this.field_1719++] = (byte)var1;
         this.field_1719 += 12;
     }
 
-    private void method_2990(class_126 var1, class_40 var2, int var3) {
-        class_331 var4 = var1.field_672;
-        class_40 var5 = var1.field_675;
+    private void generateElementValue(Expression var1, TypeBinding var2, int var3) {
+        Constant var4 = var1.constant;
+        TypeBinding var5 = var1.resolvedType;
         if (var5 == null) {
             this.field_1719 = var3;
         } else {
             if (var2.method_147() && !var5.method_147()) {
                 if (this.field_1719 + 3 >= this.field_1718.length) {
-                    this.method_3014(3);
+                    this.resizeContents(3);
                 }
                 this.field_1718[this.field_1719++] = 91;
                 this.field_1718[this.field_1719++] = 0;
                 this.field_1718[this.field_1719++] = 1;
             }
-            if (var4 != null && var4 != class_331.field_1896) {
-                this.method_2991(var3, var1, var4, var2.method_173());
+            if (var4 != null && var4 != Constant.NotAConstant) {
+                this.generateElementValue(var3, var1, var4, var2.method_173());
             } else {
-                this.method_2992(var1, var3, var5);
+                this.generateElementValueForNonConstantExpression(var1, var3, var5);
             }
         }
     }
 
-    private void method_2991(int var1, class_126 var2, class_331 var3, class_40 var4) {
+    private void generateElementValue(int var1, Expression var2, Constant var3, TypeBinding var4) {
         if (this.field_1719 + 3 >= this.field_1718.length) {
-            this.method_3014(3);
+            this.resizeContents(3);
         }
         int var6;
-        switch (var4.field_177) {
+        switch (var4.id) {
             case 2:
                 this.field_1718[this.field_1719++] = 67;
-                var6 = this.field_1716.method_2463(var3.method_3284());
+                var6 = this.constantPool.literalIndex(var3.intValue());
                 this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var6;
                 break;
             case 3:
                 this.field_1718[this.field_1719++] = 66;
-                var6 = this.field_1716.method_2463(var3.method_3284());
+                var6 = this.constantPool.literalIndex(var3.intValue());
                 this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var6;
                 break;
             case 4:
                 this.field_1718[this.field_1719++] = 83;
-                var6 = this.field_1716.method_2463(var3.method_3284());
+                var6 = this.constantPool.literalIndex(var3.intValue());
                 this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var6;
                 break;
             case 5:
                 this.field_1718[this.field_1719++] = 90;
-                int var5 = this.field_1716.method_2463(var3.method_3257() ? 1 : 0);
+                int var5 = this.constantPool.literalIndex(var3.booleanValue() ? 1 : 0);
                 this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var5;
             case 6:
@@ -5514,35 +5514,35 @@ public class ClassFile implements class_17 {
                 break;
             case 7:
                 this.field_1718[this.field_1719++] = 74;
-                int var9 = this.field_1716.method_2464(var3.method_3285());
+                int var9 = this.constantPool.literalIndex(var3.longValue());
                 this.field_1718[this.field_1719++] = (byte)(var9 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var9;
                 break;
             case 8:
                 this.field_1718[this.field_1719++] = 68;
-                int var8 = this.field_1716.method_2461(var3.method_3281());
+                int var8 = this.constantPool.literalIndex(var3.doubleValue());
                 this.field_1718[this.field_1719++] = (byte)(var8 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var8;
                 break;
             case 9:
                 this.field_1718[this.field_1719++] = 70;
-                int var7 = this.field_1716.method_2462(var3.method_3282());
+                int var7 = this.constantPool.literalIndex(var3.floatValue());
                 this.field_1718[this.field_1719++] = (byte)(var7 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var7;
                 break;
             case 10:
                 this.field_1718[this.field_1719++] = 73;
-                var6 = this.field_1716.method_2463(var3.method_3284());
+                var6 = this.constantPool.literalIndex(var3.intValue());
                 this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var6;
                 break;
             case 11:
                 this.field_1718[this.field_1719++] = 115;
-                int var10 = this.field_1716.method_2459(((class_336)var3).method_3287().toCharArray());
+                int var10 = this.constantPool.method_2459(((StringConstant)var3).method_3287().toCharArray());
                 if (var10 == -1) {
-                    if (!this.field_1720) {
-                        class_114 var11 = this.field_1729.field_258.field_376;
-                        var11.field_587.method_644().method_1760(var2);
+                    if (!this.creatingProblemType) {
+                        TypeDeclaration var11 = this.referenceBinding.scope.referenceContext;
+                        var11.scope.problemReporter().method_1760(var2);
                     } else {
                         this.field_1719 = var1;
                     }
@@ -5553,28 +5553,28 @@ public class ClassFile implements class_17 {
         }
     }
 
-    private void method_2992(class_126 var1, int var2, class_40 var3) {
+    private void generateElementValueForNonConstantExpression(Expression var1, int var2, TypeBinding var3) {
         if (var3 != null) {
             int var6;
             int var9;
             if (var3.method_153()) {
                 if (this.field_1719 + 5 >= this.field_1718.length) {
-                    this.method_3014(5);
+                    this.resizeContents(5);
                 }
                 this.field_1718[this.field_1719++] = 101;
-                class_67 var4 = null;
-                if (var1 instanceof class_163) {
-                    class_163 var5 = (class_163)var1;
-                    var4 = (class_67)var5.field_748;
-                } else if (var1 instanceof class_162) {
-                    class_162 var7 = (class_162)var1;
-                    var4 = (class_67)var7.field_748;
+                FieldBinding var4 = null;
+                if (var1 instanceof QualifiedNameReference) {
+                    QualifiedNameReference var5 = (QualifiedNameReference)var1;
+                    var4 = (FieldBinding)var5.field_748;
+                } else if (var1 instanceof SingleNameReference) {
+                    SingleNameReference var7 = (SingleNameReference)var1;
+                    var4 = (FieldBinding)var7.field_748;
                 } else {
                     this.field_1719 = var2;
                 }
                 if (var4 != null) {
-                    var9 = this.field_1716.method_2459(var4.field_301.method_178());
-                    var6 = this.field_1716.method_2459(var4.field_302);
+                    var9 = this.constantPool.method_2459(var4.type.method_178());
+                    var6 = this.constantPool.method_2459(var4.name);
                     this.field_1718[this.field_1719++] = (byte)(var9 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var9;
                     this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
@@ -5582,34 +5582,34 @@ public class ClassFile implements class_17 {
                 }
             } else if (var3.method_145()) {
                 if (this.field_1719 + 1 >= this.field_1718.length) {
-                    this.method_3014(1);
+                    this.resizeContents(1);
                 }
                 this.field_1718[this.field_1719++] = 64;
-                this.method_2988((class_164)var1, var2);
+                this.generateAnnotation((Annotation)var1, var2);
             } else if (var3.method_147()) {
                 if (this.field_1719 + 3 >= this.field_1718.length) {
-                    this.method_3014(3);
+                    this.resizeContents(3);
                 }
                 this.field_1718[this.field_1719++] = 91;
-                if (var1 instanceof class_128) {
-                    class_128 var8 = (class_128)var1;
-                    var9 = var8.field_679 != null ? var8.field_679.length : 0;
+                if (var1 instanceof ArrayInitializer) {
+                    ArrayInitializer var8 = (ArrayInitializer)var1;
+                    var9 = var8.expressions != null ? var8.expressions.length : 0;
                     this.field_1718[this.field_1719++] = (byte)(var9 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var9;
                     for (var6 = 0; var6 < var9; ++var6) {
-                        this.method_2990(var8.field_679[var6], var3.method_173(), var2);
+                        this.generateElementValue(var8.expressions[var6], var3.method_173(), var2);
                     }
                 } else {
                     this.field_1719 = var2;
                 }
             } else {
                 if (this.field_1719 + 3 >= this.field_1718.length) {
-                    this.method_3014(3);
+                    this.resizeContents(3);
                 }
                 this.field_1718[this.field_1719++] = 99;
-                if (var1 instanceof class_129) {
-                    class_129 var10 = (class_129)var1;
-                    var9 = this.field_1716.method_2459(var10.field_682.method_178());
+                if (var1 instanceof ClassLiteralAccess) {
+                    ClassLiteralAccess var10 = (ClassLiteralAccess)var1;
+                    var9 = this.constantPool.method_2459(var10.targetType.method_178());
                     this.field_1718[this.field_1719++] = (byte)(var9 >> 8);
                     this.field_1718[this.field_1719++] = (byte)var9;
                 } else {
@@ -5621,23 +5621,23 @@ public class ClassFile implements class_17 {
         }
     }
 
-    public int method_2993(class_58 var1) {
+    public int generateMethodInfoAttribute(MethodBinding var1) {
         this.field_1719 += 2;
         if (this.field_1719 + 2 >= this.field_1718.length) {
-            this.method_3014(2);
+            this.resizeContents(2);
         }
         int var3 = 0;
-        ReferenceBinding[] var2 = var1.field_277;
+        ReferenceBinding[] var2 = var1.thrownExceptions;
         int var4;
         int var5;
         int var6;
-        if (var1.field_277 != class_34.field_151) {
+        if (var1.thrownExceptions != Binding.field_151) {
             var4 = var2.length;
             var5 = 8 + var4 * 2;
             if (var5 + this.field_1719 >= this.field_1718.length) {
-                this.method_3014(var5);
+                this.resizeContents(var5);
             }
-            var6 = this.field_1716.method_2459(AttributeNamesConstants.field_10);
+            var6 = this.constantPool.method_2459(AttributeNamesConstants.field_10);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             int var7 = var4 * 2 + 2;
@@ -5648,7 +5648,7 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             for (int var8 = 0; var8 < var4; ++var8) {
-                int var9 = this.field_1716.method_2467(var2[var8]);
+                int var9 = this.constantPool.method_2467(var2[var8]);
                 this.field_1718[this.field_1719++] = (byte)(var9 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var9;
             }
@@ -5656,9 +5656,9 @@ public class ClassFile implements class_17 {
         }
         if (var1.method_361()) {
             if (this.field_1719 + 6 >= this.field_1718.length) {
-                this.method_3014(6);
+                this.resizeContents(6);
             }
-            var4 = this.field_1716.method_2459(AttributeNamesConstants.field_12);
+            var4 = this.constantPool.method_2459(AttributeNamesConstants.field_12);
             this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
             this.field_1718[this.field_1719++] = (byte)var4;
             this.field_1718[this.field_1719++] = 0;
@@ -5667,12 +5667,12 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = 0;
             ++var3;
         }
-        if (this.field_1731 < 3211264L) {
+        if (this.targetJDK < 3211264L) {
             if (var1.method_372()) {
                 if (this.field_1719 + 6 >= this.field_1718.length) {
-                    this.method_3014(6);
+                    this.resizeContents(6);
                 }
-                var4 = this.field_1716.method_2459(AttributeNamesConstants.field_4);
+                var4 = this.constantPool.method_2459(AttributeNamesConstants.field_4);
                 this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var4;
                 this.field_1718[this.field_1719++] = 0;
@@ -5683,9 +5683,9 @@ public class ClassFile implements class_17 {
             }
             if (var1.method_374()) {
                 if (this.field_1719 + 6 >= this.field_1718.length) {
-                    this.method_3014(6);
+                    this.resizeContents(6);
                 }
-                var4 = this.field_1716.method_2459(AttributeNamesConstants.field_23);
+                var4 = this.constantPool.method_2459(AttributeNamesConstants.field_23);
                 this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
                 this.field_1718[this.field_1719++] = (byte)var4;
                 this.field_1718[this.field_1719++] = 0;
@@ -5698,54 +5698,54 @@ public class ClassFile implements class_17 {
         char[] var10 = var1.method_351();
         if (var10 != null) {
             if (this.field_1719 + 8 >= this.field_1718.length) {
-                this.method_3014(8);
+                this.resizeContents(8);
             }
-            var5 = this.field_1716.method_2459(AttributeNamesConstants.field_13);
+            var5 = this.constantPool.method_2459(AttributeNamesConstants.field_13);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 0;
             this.field_1718[this.field_1719++] = 2;
-            var6 = this.field_1716.method_2459(var10);
+            var6 = this.constantPool.method_2459(var10);
             this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
             this.field_1718[this.field_1719++] = (byte)var6;
             ++var3;
         }
-        if (this.field_1731 >= 3211264L) {
-            AbstractMethodDeclaration var11 = var1.method_384();
+        if (this.targetJDK >= 3211264L) {
+            AbstractMethodDeclaration var11 = var1.sourceMethod();
             if (var11 != null) {
-                class_164[] var12 = var11.field_483;
+                Annotation[] var12 = var11.annotations;
                 if (var12 != null) {
-                    var3 += this.method_3000(var12);
+                    var3 += this.generateRuntimeAnnotations(var12);
                 }
-                if ((var1.field_281 & 1024L) != 0L) {
-                    class_125[] var13 = var11.field_484;
+                if ((var1.tagBits & 1024L) != 0L) {
+                    Argument[] var13 = var11.arguments;
                     if (var13 != null) {
-                        var3 += this.method_3001(var13);
+                        var3 += this.generateRuntimeAnnotationsForParameters(var13);
                     }
                 }
             }
         }
-        if ((var1.field_281 & 128L) != 0L) {
+        if ((var1.tagBits & 128L) != 0L) {
             this.field_1732 = var1.method_348(this.field_1732);
         }
         return var3;
     }
 
-    public int method_2994(class_58 var1, class_97 var2) {
-        int var3 = this.method_2993(var1);
+    public int generateMethodInfoAttribute(MethodBinding var1, AnnotationMethodDeclaration var2) {
+        int var3 = this.generateMethodInfoAttribute(var1);
         int var4 = this.field_1719;
         if ((var2.field_482 & 131072) != 0) {
-            int var5 = this.field_1716.method_2459(AttributeNamesConstants.field_16);
+            int var5 = this.constantPool.method_2459(AttributeNamesConstants.field_16);
             this.field_1718[this.field_1719++] = (byte)(var5 >> 8);
             this.field_1718[this.field_1719++] = (byte)var5;
             int var6 = this.field_1719;
             this.field_1719 += 4;
             if (this.field_1719 + 4 >= this.field_1718.length) {
-                this.method_3014(4);
+                this.resizeContents(4);
             }
-            this.method_2990(var2.field_499, var2.field_488.field_275, var4);
+            this.generateElementValue(var2.defaultValue, var2.binding.returnType, var4);
             if (this.field_1719 != var4) {
                 int var7 = this.field_1719 - var6 - 4;
                 this.field_1718[var6++] = (byte)(var7 >> 24);
@@ -5758,27 +5758,27 @@ public class ClassFile implements class_17 {
         return var3;
     }
 
-    public void method_2995(class_58 var1) {
-        this.method_2996(var1, var1.field_273);
+    public void generateMethodInfoHeader(MethodBinding var1) {
+        this.generateMethodInfoHeader(var1, var1.modifiers);
     }
 
-    public void method_2996(class_58 var1, int var2) {
+    public void generateMethodInfoHeader(MethodBinding var1, int var2) {
         ++this.field_1725;
         if (this.field_1719 + 10 >= this.field_1718.length) {
-            this.method_3014(10);
+            this.resizeContents(10);
         }
-        if (this.field_1731 < 3211264L) {
+        if (this.targetJDK < 3211264L) {
             var2 &= -4225;
         }
-        if ((var1.field_281 & 1024L) != 0L) {
+        if ((var1.tagBits & 1024L) != 0L) {
             var2 &= -3;
         }
         this.field_1718[this.field_1719++] = (byte)(var2 >> 8);
         this.field_1718[this.field_1719++] = (byte)var2;
-        int var3 = this.field_1716.method_2459(var1.field_274);
+        int var3 = this.constantPool.method_2459(var1.selector);
         this.field_1718[this.field_1719++] = (byte)(var3 >> 8);
         this.field_1718[this.field_1719++] = (byte)var3;
-        int var4 = this.field_1716.method_2459(var1.method_382(this));
+        int var4 = this.constantPool.method_2459(var1.signature(this));
         this.field_1718[this.field_1719++] = (byte)(var4 >> 8);
         this.field_1718[this.field_1719++] = (byte)var4;
     }
@@ -5786,43 +5786,43 @@ public class ClassFile implements class_17 {
     public void method_2997() {
         ++this.field_1725;
         if (this.field_1719 + 10 >= this.field_1718.length) {
-            this.method_3014(10);
+            this.resizeContents(10);
         }
         this.field_1718[this.field_1719++] = 0;
         this.field_1718[this.field_1719++] = 8;
-        int var1 = this.field_1716.method_2459(class_272.field_1343);
+        int var1 = this.constantPool.method_2459(ConstantPool.field_1343);
         this.field_1718[this.field_1719++] = (byte)(var1 >> 8);
         this.field_1718[this.field_1719++] = (byte)var1;
-        int var2 = this.field_1716.method_2459(class_272.field_1345);
+        int var2 = this.constantPool.method_2459(ConstantPool.field_1345);
         this.field_1718[this.field_1719++] = (byte)(var2 >> 8);
         this.field_1718[this.field_1719++] = (byte)var2;
         this.field_1718[this.field_1719++] = 0;
         this.field_1718[this.field_1719++] = 1;
     }
 
-    public void method_2998(class_96[] var1, CompilationResult var2) {
+    public void generateMissingAbstractMethods(MethodDeclaration[] var1, CompilationResult var2) {
         if (var1 != null) {
-            class_114 var3 = this.field_1729.field_258.field_376;
+            TypeDeclaration var3 = this.referenceBinding.scope.referenceContext;
             int var4 = var3.method_5();
             int var5 = var3.method_6();
             int var6 = 0;
             for (int var7 = var1.length; var6 < var7; ++var6) {
-                class_96 var8 = var1[var6];
-                class_58 var9 = var8.field_488;
-                String var10 = new String(var9.method_103());
+                MethodDeclaration var8 = var1[var6];
+                MethodBinding var9 = var8.binding;
+                String var10 = new String(var9.readableName());
                 CategorizedProblem[] var11 = var2.field_1673;
                 int var12 = var2.field_1675;
                 for (int var13 = 0; var13 < var12; ++var13) {
                     CategorizedProblem var14 = var11[var13];
                     if (var14 != null && var14.method_1398() == 67109264 && var14.method_1404().indexOf(var10) != -1 && var14.method_1401() >= var4 && var14.method_1402() <= var5) {
-                        this.method_2965(var8, var9, var14, var2);
+                        this.addMissingAbstractProblemMethod(var8, var9, var14, var2);
                     }
                 }
             }
         }
     }
 
-    private void method_2999() {
+    private void generateMissingTypesAttribute() {
         int var1 = this.field_1732.size();
         int[] var2 = new int[var1];
         int var3 = 0;
@@ -5835,7 +5835,7 @@ public class ClassFile implements class_17 {
         int var5;
         int var6;
         for (var5 = 0; var5 < var1; ++var5) {
-            var6 = this.field_1716.method_2467((class_40)this.field_1732.get(var5));
+            var6 = this.constantPool.method_2467((TypeBinding)this.field_1732.get(var5));
             if (var4 != var6) {
                 var4 = var6;
                 var2[var3++] = var6;
@@ -5843,9 +5843,9 @@ public class ClassFile implements class_17 {
         }
         var5 = var3 * 2 + 2;
         if (this.field_1719 + var5 + 6 >= this.field_1718.length) {
-            this.method_3014(var5 + 6);
+            this.resizeContents(var5 + 6);
         }
-        var6 = this.field_1716.method_2459(AttributeNamesConstants.field_25);
+        var6 = this.constantPool.method_2459(AttributeNamesConstants.field_25);
         this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
         this.field_1718[this.field_1719++] = (byte)var6;
         this.field_1718[this.field_1719++] = (byte)(var5 >> 24);
@@ -5861,14 +5861,14 @@ public class ClassFile implements class_17 {
         }
     }
 
-    private int method_3000(class_164[] var1) {
+    private int generateRuntimeAnnotations(Annotation[] var1) {
         int var2 = 0;
         int var3 = var1.length;
         int var4 = 0;
         int var5 = 0;
         int var6;
         for (var6 = 0; var6 < var3; ++var6) {
-            class_164 var7 = var1[var6];
+            Annotation var7 = var1[var6];
             if (this.method_3009(var7)) {
                 ++var5;
             } else if (this.method_3010(var7)) {
@@ -5880,14 +5880,14 @@ public class ClassFile implements class_17 {
         int var9;
         int var10;
         int var11;
-        class_164 var12;
+        Annotation var12;
         int var13;
         int var14;
         if (var5 != 0) {
             if (this.field_1719 + 10 >= this.field_1718.length) {
-                this.method_3014(10);
+                this.resizeContents(10);
             }
-            var14 = this.field_1716.method_2459(AttributeNamesConstants.field_17);
+            var14 = this.constantPool.method_2459(AttributeNamesConstants.field_17);
             this.field_1718[this.field_1719++] = (byte)(var14 >> 8);
             this.field_1718[this.field_1719++] = (byte)var14;
             var8 = this.field_1719;
@@ -5899,7 +5899,7 @@ public class ClassFile implements class_17 {
                 var12 = var1[var11];
                 if (this.method_3009(var12)) {
                     var13 = this.field_1719;
-                    this.method_2988(var12, var13);
+                    this.generateAnnotation(var12, var13);
                     --var5;
                     if (this.field_1719 != var13) {
                         ++var10;
@@ -5922,9 +5922,9 @@ public class ClassFile implements class_17 {
         var6 = this.field_1719;
         if (var4 != 0) {
             if (this.field_1719 + 10 >= this.field_1718.length) {
-                this.method_3014(10);
+                this.resizeContents(10);
             }
-            var14 = this.field_1716.method_2459(AttributeNamesConstants.field_18);
+            var14 = this.constantPool.method_2459(AttributeNamesConstants.field_18);
             this.field_1718[this.field_1719++] = (byte)(var14 >> 8);
             this.field_1718[this.field_1719++] = (byte)var14;
             var8 = this.field_1719;
@@ -5937,7 +5937,7 @@ public class ClassFile implements class_17 {
                 if (this.method_3010(var12)) {
                     --var4;
                     var13 = this.field_1719;
-                    this.method_2988(var12, var13);
+                    this.generateAnnotation(var12, var13);
                     if (this.field_1719 != var13) {
                         ++var10;
                     }
@@ -5959,7 +5959,7 @@ public class ClassFile implements class_17 {
         return var2;
     }
 
-    private int method_3001(class_125[] var1) {
+    private int generateRuntimeAnnotationsForParameters(Argument[] var1) {
         int var2 = var1.length;
         int var5 = 0;
         int var6 = 0;
@@ -5968,12 +5968,12 @@ public class ClassFile implements class_17 {
         int var11;
         int var12;
         for (var8 = 0; var8 < var2; ++var8) {
-            class_125 var9 = var1[var8];
-            class_164[] var10 = var9.field_658;
+            Argument var9 = var1[var8];
+            Annotation[] var10 = var9.annotations;
             if (var10 != null) {
                 var11 = 0;
                 for (var12 = var10.length; var11 < var12; ++var11) {
-                    class_164 var13 = var10[var11];
+                    Annotation var13 = var10[var11];
                     if (this.method_3009(var13)) {
                         ++var7[var8][1];
                         ++var5;
@@ -5988,11 +5988,11 @@ public class ClassFile implements class_17 {
         int var23 = this.field_1719;
         int var14;
         int var15;
-        class_125 var17;
+        Argument var17;
         int var16;
         int var19;
-        class_164[] var18;
-        class_164 var21;
+        Annotation[] var18;
+        Annotation var21;
         int var20;
         int var22;
         int var25;
@@ -6000,9 +6000,9 @@ public class ClassFile implements class_17 {
         if (var5 != 0) {
             var24 = 0;
             if (this.field_1719 + 7 >= this.field_1718.length) {
-                this.method_3014(7);
+                this.resizeContents(7);
             }
-            var11 = this.field_1716.method_2459(AttributeNamesConstants.field_19);
+            var11 = this.constantPool.method_2459(AttributeNamesConstants.field_19);
             this.field_1718[this.field_1719++] = (byte)(var11 >> 8);
             this.field_1718[this.field_1719++] = (byte)var11;
             var12 = this.field_1719;
@@ -6010,7 +6010,7 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = (byte)var2;
             for (var25 = 0; var25 < var2; ++var25) {
                 if (this.field_1719 + 2 >= this.field_1718.length) {
-                    this.method_3014(2);
+                    this.resizeContents(2);
                 }
                 if (var5 == 0) {
                     this.field_1718[this.field_1719++] = 0;
@@ -6022,13 +6022,13 @@ public class ClassFile implements class_17 {
                     var16 = 0;
                     if (var14 != 0) {
                         var17 = var1[var25];
-                        var18 = var17.field_658;
+                        var18 = var17.annotations;
                         var19 = 0;
                         for (var20 = var18.length; var19 < var20; ++var19) {
                             var21 = var18[var19];
                             if (this.method_3009(var21)) {
                                 var22 = this.field_1719;
-                                this.method_2988(var21, var22);
+                                this.generateAnnotation(var21, var22);
                                 if (this.field_1719 != var22) {
                                     ++var16;
                                     ++var24;
@@ -6055,9 +6055,9 @@ public class ClassFile implements class_17 {
         if (var6 != 0) {
             var24 = 0;
             if (this.field_1719 + 7 >= this.field_1718.length) {
-                this.method_3014(7);
+                this.resizeContents(7);
             }
-            var11 = this.field_1716.method_2459(AttributeNamesConstants.field_20);
+            var11 = this.constantPool.method_2459(AttributeNamesConstants.field_20);
             this.field_1718[this.field_1719++] = (byte)(var11 >> 8);
             this.field_1718[this.field_1719++] = (byte)var11;
             var12 = this.field_1719;
@@ -6065,7 +6065,7 @@ public class ClassFile implements class_17 {
             this.field_1718[this.field_1719++] = (byte)var2;
             for (var25 = 0; var25 < var2; ++var25) {
                 if (this.field_1719 + 2 >= this.field_1718.length) {
-                    this.method_3014(2);
+                    this.resizeContents(2);
                 }
                 if (var6 == 0) {
                     this.field_1718[this.field_1719++] = 0;
@@ -6077,13 +6077,13 @@ public class ClassFile implements class_17 {
                     var16 = 0;
                     if (var14 != 0) {
                         var17 = var1[var25];
-                        var18 = var17.field_658;
+                        var18 = var17.annotations;
                         var19 = 0;
                         for (var20 = var18.length; var19 < var20; ++var19) {
                             var21 = var18[var19];
                             if (this.method_3010(var21)) {
                                 var22 = this.field_1719;
-                                this.method_2988(var21, var22);
+                                this.generateAnnotation(var21, var22);
                                 if (this.field_1719 != var22) {
                                     ++var16;
                                     ++var24;
@@ -6110,7 +6110,7 @@ public class ClassFile implements class_17 {
         return var8;
     }
 
-    private int method_3002(char[] var1) {
+    private int getParametersCount(char[] var1) {
         int var2 = CharOperation.method_1371('(', var1);
         ++var2;
         char var3 = var1[var2];
@@ -6160,7 +6160,7 @@ public class ClassFile implements class_17 {
                         var2 = var5 + 1;
                         break;
                     case 91:
-                        var5 = this.method_3016(var1, var2 + 1);
+                        var5 = this.scanType(var1, var2 + 1);
                         ++var4;
                         var2 = var5 + 1;
                 }
@@ -6168,9 +6168,9 @@ public class ClassFile implements class_17 {
         }
     }
 
-    private char[] method_3003(char[] var1) {
+    private char[] getReturnType(char[] var1) {
         int var2 = CharOperation.method_1376(')', var1);
-        return CharOperation.method_1388(var1, var2 + 1, var1.length);
+        return CharOperation.subarray(var1, var2 + 1, var1.length);
     }
 
     private final int method_3004(byte[] var1, int var2, int var3) {
@@ -6178,18 +6178,18 @@ public class ClassFile implements class_17 {
         return ((var1[var4++] & 255) << 24) + ((var1[var4++] & 255) << 16) + ((var1[var4++] & 255) << 8) + (var1[var4] & 255);
     }
 
-    protected void method_3005() {
-        int var1 = this.field_1729.method_232().length + this.field_1729.method_204().length;
+    protected void initByteArrays() {
+        int var1 = this.referenceBinding.methods().length + this.referenceBinding.fields().length;
         this.field_1722 = new byte[1500];
         this.field_1718 = new byte[var1 < 15 ? 400 : 1500];
     }
 
-    public void method_3006(SourceTypeBinding var1, ClassFile var2, boolean var3) {
+    public void initialize(SourceTypeBinding var1, ClassFile var2, boolean var3) {
         this.field_1722[this.field_1723++] = -54;
         this.field_1722[this.field_1723++] = -2;
         this.field_1722[this.field_1723++] = -70;
         this.field_1722[this.field_1723++] = -66;
-        long var4 = this.field_1731;
+        long var4 = this.targetJDK;
         if (var4 == 3342336L) {
             var4 = 3276800L;
         }
@@ -6199,7 +6199,7 @@ public class ClassFile implements class_17 {
         this.field_1722[this.field_1723++] = (byte)((int)(var4 >> 16));
         this.field_1717 = this.field_1723;
         this.field_1723 += 2;
-        this.field_1716.method_2456(this);
+        this.constantPool.initialize(this);
         int var6 = var1.method_205();
         if (var1.method_223()) {
             var6 &= -2;
@@ -6211,116 +6211,116 @@ public class ClassFile implements class_17 {
         if (!var1.method_157()) {
             var6 |= 32;
         }
-        this.field_1721 = var2;
+        this.enclosingClassFile = var2;
         this.field_1718[this.field_1719++] = (byte)(var6 >> 8);
         this.field_1718[this.field_1719++] = (byte)var6;
-        int var7 = this.field_1716.method_2467(var1);
+        int var7 = this.constantPool.method_2467(var1);
         this.field_1718[this.field_1719++] = (byte)(var7 >> 8);
         this.field_1718[this.field_1719++] = (byte)var7;
         int var8;
         if (var1.method_157()) {
-            var8 = this.field_1716.method_2466(class_272.field_1422);
+            var8 = this.constantPool.method_2466(ConstantPool.field_1422);
         } else {
-            var8 = var1.field_252 == null ? 0 : this.field_1716.method_2467(var1.field_252);
+            var8 = var1.superclass == null ? 0 : this.constantPool.method_2467(var1.superclass);
         }
         this.field_1718[this.field_1719++] = (byte)(var8 >> 8);
         this.field_1718[this.field_1719++] = (byte)var8;
-        ReferenceBinding[] var9 = var1.method_241();
+        ReferenceBinding[] var9 = var1.superInterfaces();
         int var10 = var9.length;
         this.field_1718[this.field_1719++] = (byte)(var10 >> 8);
         this.field_1718[this.field_1719++] = (byte)var10;
         for (int var11 = 0; var11 < var10; ++var11) {
-            int var12 = this.field_1716.method_2467(var9[var11]);
+            int var12 = this.constantPool.method_2467(var9[var11]);
             this.field_1718[this.field_1719++] = (byte)(var12 >> 8);
             this.field_1718[this.field_1719++] = (byte)var12;
         }
-        this.field_1720 = var3;
-        if (this.field_1721 == null) {
-            this.field_1715.field_1203 = var1.field_258.method_671().field_591;
+        this.creatingProblemType = var3;
+        if (this.enclosingClassFile == null) {
+            this.codeStream.field_1203 = var1.scope.referenceType().field_591;
         } else {
-            ClassFile var13 = this.method_3011();
-            this.field_1715.field_1203 = var13.field_1715.field_1203;
+            ClassFile var13 = this.outerMostEnclosingClassFile();
+            this.codeStream.field_1203 = var13.codeStream.field_1203;
         }
     }
 
-    private void method_3007(class_280 var1, class_58 var2, int var3, int var4) {
+    private void initializeDefaultLocals(StackMapFrame var1, MethodBinding var2, int var3, int var4) {
         if (var3 != 0) {
             int var5 = 0;
             boolean var6 = var2.method_358();
-            class_65 var7;
-            class_65 var10000;
-            class_77 var10002;
+            LocalVariableBinding var7;
+            LocalVariableBinding var10000;
+            VerificationTypeInfo var10002;
             if (var6) {
-                var10000 = new class_65("this".toCharArray(), var2.field_278, 0, false);
+                var10000 = new LocalVariableBinding("this".toCharArray(), var2.declaringClass, 0, false);
                 var7 = var10000;
                 var7.field_306 = 0;
-                this.field_1715.method_2358(var7);
+                this.codeStream.method_2358(var7);
                 var7.method_415(0);
                 var7.method_414(var4);
-                var10002 = new class_77(6, var2.field_278);
+                var10002 = new VerificationTypeInfo(6, var2.declaringClass);
                 var1.method_2899(var5, var10002);
                 ++var5;
             } else if (!var2.method_370()) {
-                var10000 = new class_65("this".toCharArray(), var2.field_278, 0, false);
+                var10000 = new LocalVariableBinding("this".toCharArray(), var2.declaringClass, 0, false);
                 var7 = var10000;
                 var7.field_306 = 0;
-                this.field_1715.method_2358(var7);
+                this.codeStream.method_2358(var7);
                 var7.method_415(0);
                 var7.method_414(var4);
-                var10002 = new class_77(7, var2.field_278);
+                var10002 = new VerificationTypeInfo(7, var2.declaringClass);
                 var1.method_2899(var5, var10002);
                 ++var5;
             }
             int var8;
             int var9;
-            class_40[] var15;
-            class_40 var19;
+            TypeBinding[] var15;
+            TypeBinding var19;
             if (var6) {
-                if (var2.field_278.method_153()) {
-                    var10000 = new class_65(" name".toCharArray(), this.field_1729.field_258.method_610(), 0, false);
+                if (var2.declaringClass.method_153()) {
+                    var10000 = new LocalVariableBinding(" name".toCharArray(), this.referenceBinding.scope.method_610(), 0, false);
                     var7 = var10000;
                     var7.field_306 = var5;
-                    this.field_1715.method_2358(var7);
+                    this.codeStream.method_2358(var7);
                     var7.method_415(0);
                     var7.method_414(var4);
-                    var10002 = new class_77(11, class_272.field_1432);
+                    var10002 = new VerificationTypeInfo(11, ConstantPool.field_1432);
                     var1.method_2899(var5, var10002);
                     ++var5;
-                    var10000 = new class_65(" ordinal".toCharArray(), class_40.field_179, 0, false);
+                    var10000 = new LocalVariableBinding(" ordinal".toCharArray(), TypeBinding.field_179, 0, false);
                     var7 = var10000;
                     var7.field_306 = var5;
-                    this.field_1715.method_2358(var7);
+                    this.codeStream.method_2358(var7);
                     var7.method_415(0);
                     var7.method_414(var4);
-                    var10002 = new class_77(class_40.field_179);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_179);
                     var1.method_2899(var5, var10002);
                     ++var5;
                 }
-                if (var2.field_278.method_160()) {
+                if (var2.declaringClass.method_160()) {
                     ReferenceBinding[] var16;
-                    if ((var16 = var2.field_278.method_242()) != null) {
+                    if ((var16 = var2.declaringClass.syntheticEnclosingInstanceTypes()) != null) {
                         var8 = 0;
                         for (var9 = var16.length; var8 < var9; ++var8) {
-                            var10000 = new class_65((" enclosingType" + var8).toCharArray(), var16[var8], 0, false);
-                            class_65 var10 = var10000;
+                            var10000 = new LocalVariableBinding((" enclosingType" + var8).toCharArray(), var16[var8], 0, false);
+                            LocalVariableBinding var10 = var10000;
                             var10.field_306 = var5;
-                            this.field_1715.method_2358(var10);
+                            this.codeStream.method_2358(var10);
                             var10.method_415(0);
                             var10.method_414(var4);
-                            var10002 = new class_77(var16[var8]);
+                            var10002 = new VerificationTypeInfo(var16[var8]);
                             var1.method_2899(var5, var10002);
                             ++var5;
                         }
                     }
-                    class_40[] var14 = var2.field_276;
+                    TypeBinding[] var14 = var2.parameters;
                     int var20;
-                    if (var2.field_276 != null) {
+                    if (var2.parameters != null) {
                         var9 = 0;
                         for (var20 = var14.length; var9 < var20; ++var9) {
-                            class_40 var11 = var14[var9];
-                            var10002 = new class_77(var11);
+                            TypeBinding var11 = var14[var9];
+                            var10002 = new VerificationTypeInfo(var11);
                             var1.method_2899(var5, var10002);
-                            switch (var11.field_177) {
+                            switch (var11.id) {
                                 case 7:
                                 case 8:
                                     var5 += 2;
@@ -6330,20 +6330,20 @@ public class ClassFile implements class_17 {
                             }
                         }
                     }
-                    class_66[] var17;
-                    if ((var17 = var2.field_278.method_243()) != null) {
+                    SyntheticArgumentBinding[] var17;
+                    if ((var17 = var2.declaringClass.syntheticOuterLocalVariables()) != null) {
                         var20 = 0;
                         for (int var18 = var17.length; var20 < var18; ++var20) {
-                            class_40 var12 = var17[var20].field_301;
-                            var10000 = new class_65((" synthetic" + var20).toCharArray(), var12, 0, false);
-                            class_65 var13 = var10000;
+                            TypeBinding var12 = var17[var20].type;
+                            var10000 = new LocalVariableBinding((" synthetic" + var20).toCharArray(), var12, 0, false);
+                            LocalVariableBinding var13 = var10000;
                             var13.field_306 = var5;
-                            this.field_1715.method_2358(var13);
+                            this.codeStream.method_2358(var13);
                             var13.method_415(0);
                             var13.method_414(var4);
-                            var10002 = new class_77(var12);
+                            var10002 = new VerificationTypeInfo(var12);
                             var1.method_2899(var5, var10002);
-                            switch (var12.field_177) {
+                            switch (var12.id) {
                                 case 7:
                                 case 8:
                                     var5 += 2;
@@ -6354,14 +6354,14 @@ public class ClassFile implements class_17 {
                         }
                     }
                 } else {
-                    var15 = var2.field_276;
-                    if (var2.field_276 != null) {
+                    var15 = var2.parameters;
+                    if (var2.parameters != null) {
                         var8 = 0;
                         for (var9 = var15.length; var8 < var9; ++var8) {
                             var19 = var15[var8];
-                            var10002 = new class_77(var19);
+                            var10002 = new VerificationTypeInfo(var19);
                             var1.method_2899(var5, var10002);
-                            switch (var19.field_177) {
+                            switch (var19.id) {
                                 case 7:
                                 case 8:
                                     var5 += 2;
@@ -6373,14 +6373,14 @@ public class ClassFile implements class_17 {
                     }
                 }
             } else {
-                var15 = var2.field_276;
-                if (var2.field_276 != null) {
+                var15 = var2.parameters;
+                if (var2.parameters != null) {
                     var8 = 0;
                     for (var9 = var15.length; var8 < var9; ++var8) {
                         var19 = var15[var8];
-                        var10002 = new class_77(var19);
+                        var10002 = new VerificationTypeInfo(var19);
                         var1.method_2899(var5, var10002);
-                        switch (var19.field_177) {
+                        switch (var19.id) {
                             case 7:
                             case 8:
                                 var5 += 2;
@@ -6394,8 +6394,8 @@ public class ClassFile implements class_17 {
         }
     }
 
-    private void method_3008(boolean var1, int var2, class_280 var3) {
-        class_77[] var4 = var3.field_1645;
+    private void initializeLocals(boolean var1, int var2, StackMapFrame var3) {
+        VerificationTypeInfo[] var4 = var3.field_1645;
         int var5 = var4.length;
         int var6 = 0;
         if (!var1) {
@@ -6406,18 +6406,18 @@ public class ClassFile implements class_17 {
             ++var6;
         }
         var6 = 0;
-        for (int var7 = this.field_1715.field_1187; var6 < var7; ++var6) {
-            class_65 var8 = this.field_1715.field_1202[var6];
+        for (int var7 = this.codeStream.field_1187; var6 < var7; ++var6) {
+            LocalVariableBinding var8 = this.codeStream.field_1202[var6];
             if (var8 != null) {
                 int var9 = var8.field_306;
-                class_40 var10 = var8.field_301;
+                TypeBinding var10 = var8.type;
                 for (int var11 = 0; var11 < var8.field_311; ++var11) {
-                    int var12 = var8.field_310[var11 << 1];
-                    int var13 = var8.field_310[(var11 << 1) + 1];
+                    int var12 = var8.initializationPCs[var11 << 1];
+                    int var13 = var8.initializationPCs[(var11 << 1) + 1];
                     if (var2 >= var12 && var2 < var13) {
                         if (var3.field_1645[var9] == null) {
-                            class_77[] var10000 = var3.field_1645;
-                            class_77 var10002 = new class_77(var10);
+                            VerificationTypeInfo[] var10000 = var3.field_1645;
+                            VerificationTypeInfo var10002 = new VerificationTypeInfo(var10);
                             var10000[var9] = var10002;
                         }
                         break;
@@ -6427,64 +6427,64 @@ public class ClassFile implements class_17 {
         }
     }
 
-    private boolean method_3009(class_164 var1) {
-        class_40 var2 = var1.field_675;
+    private boolean method_3009(Annotation var1) {
+        TypeBinding var2 = var1.resolvedType;
         if (var2 == null) {
             return false;
         } else {
-            long var3 = var2.method_99();
+            long var3 = var2.getAnnotationTagBits();
             return (var3 & 52776558133248L) == 0L ? true : (var3 & 52776558133248L) == 35184372088832L;
         }
     }
 
-    private boolean method_3010(class_164 var1) {
-        class_40 var2 = var1.field_675;
+    private boolean method_3010(Annotation var1) {
+        TypeBinding var2 = var1.resolvedType;
         if (var2 == null) {
             return false;
         } else {
-            long var3 = var2.method_99();
+            long var3 = var2.getAnnotationTagBits();
             return (var3 & 52776558133248L) == 0L ? false : (var3 & 52776558133248L) == 52776558133248L;
         }
     }
 
-    public ClassFile method_3011() {
+    public ClassFile outerMostEnclosingClassFile() {
         ClassFile var1;
-        for (var1 = this; var1.field_1721 != null; var1 = var1.field_1721) {
+        for (var1 = this; var1.enclosingClassFile != null; var1 = var1.enclosingClassFile) {
             ;
         }
         return var1;
     }
 
-    public void method_3012(class_40 var1) {
+    public void recordInnerClasses(TypeBinding var1) {
         if (this.field_1724 == null) {
             this.field_1724 = new Vector(5);
         }
         ReferenceBinding var2 = (ReferenceBinding)var1;
-        this.field_1724.addElement(var2.method_138());
-        for (ReferenceBinding var3 = var2.method_137(); var3 != null && var3.method_160(); var3 = var3.method_137()) {
-            this.field_1724.addElement(var3.method_138());
+        this.field_1724.addElement(var2.erasure());
+        for (ReferenceBinding var3 = var2.enclosingType(); var3 != null && var3.method_160(); var3 = var3.enclosingType()) {
+            this.field_1724.addElement(var3.erasure());
         }
     }
 
-    public void method_3013(SourceTypeBinding var1) {
-        CompilerOptions var2 = var1.field_258.method_577();
-        this.field_1729 = var1;
-        this.field_1730 = var1.method_160();
-        this.field_1731 = var2.field_1929;
+    public void reset(SourceTypeBinding var1) {
+        CompilerOptions var2 = var1.scope.compilerOptions();
+        this.referenceBinding = var1;
+        this.isNestedType = var1.method_160();
+        this.targetJDK = var2.field_1929;
         this.field_1728 = var2.field_1926;
-        if (this.field_1731 >= 3276800L) {
+        if (this.targetJDK >= 3276800L) {
             this.field_1728 |= 8;
-        } else if (this.field_1731 == 2949124L) {
-            this.field_1731 = 2949123L;
+        } else if (this.targetJDK == 2949124L) {
+            this.targetJDK = 2949123L;
             this.field_1728 |= 16;
         }
-        this.field_1714 = null;
-        this.field_1716.method_2478();
-        this.field_1715.method_2367(this);
+        this.bytes = null;
+        this.constantPool.reset();
+        this.codeStream.method_2367(this);
         this.field_1717 = 0;
         this.field_1719 = 0;
-        this.field_1720 = false;
-        this.field_1721 = null;
+        this.creatingProblemType = false;
+        this.enclosingClassFile = null;
         this.field_1723 = 0;
         this.field_1725 = 0;
         this.field_1726 = 0;
@@ -6494,7 +6494,7 @@ public class ClassFile implements class_17 {
         this.field_1732 = null;
     }
 
-    private final void method_3014(int var1) {
+    private final void resizeContents(int var1) {
         int var2 = this.field_1718.length;
         int var3 = var2;
         if (var2 < var1) {
@@ -6503,16 +6503,16 @@ public class ClassFile implements class_17 {
         System.arraycopy(this.field_1718, 0, this.field_1718 = new byte[var2 + var3], 0, var2);
     }
 
-    private class_77 method_3015(int var1, int var2) {
+    private VerificationTypeInfo retrieveLocal(int var1, int var2) {
         int var3 = 0;
-        for (int var4 = this.field_1715.field_1187; var3 < var4; ++var3) {
-            class_65 var5 = this.field_1715.field_1202[var3];
+        for (int var4 = this.codeStream.field_1187; var3 < var4; ++var3) {
+            LocalVariableBinding var5 = this.codeStream.field_1202[var3];
             if (var5 != null && var2 == var5.field_306) {
                 for (int var6 = 0; var6 < var5.field_311; ++var6) {
-                    int var7 = var5.field_310[var6 << 1];
-                    int var8 = var5.field_310[(var6 << 1) + 1];
+                    int var7 = var5.initializationPCs[var6 << 1];
+                    int var8 = var5.initializationPCs[(var6 << 1) + 1];
                     if (var1 >= var7 && var1 < var8) {
-                        class_77 var10000 = new class_77(var5.field_301);
+                        VerificationTypeInfo var10000 = new VerificationTypeInfo(var5.type);
                         return var10000;
                     }
                 }
@@ -6521,7 +6521,7 @@ public class ClassFile implements class_17 {
         return null;
     }
 
-    private int method_3016(char[] var1, int var2) {
+    private int scanType(char[] var1, int var2) {
         switch (var1[var2]) {
             case 66:
             case 67:
@@ -6553,7 +6553,7 @@ public class ClassFile implements class_17 {
             case 76:
                 return CharOperation.method_1374(';', var1, var2 + 1);
             case 91:
-                return this.method_3016(var1, var2 + 1);
+                return this.scanType(var1, var2 + 1);
         }
     }
 
@@ -6562,56 +6562,56 @@ public class ClassFile implements class_17 {
         this.field_1719 += 2;
     }
 
-    public void method_3018(class_58 var1, int var2, byte[] var3, int var4, int var5, ArrayList var6, boolean var7) {
-        StackMapFrameCodeStream var8 = (StackMapFrameCodeStream)this.field_1715;
-        int[] var9 = var8.method_2396();
+    public void method_3018(MethodBinding var1, int var2, byte[] var3, int var4, int var5, ArrayList var6, boolean var7) {
+        StackMapFrameCodeStream var8 = (StackMapFrameCodeStream)this.codeStream;
+        int[] var9 = var8.getFramePositions();
         int var10 = var4;
-        int[] var12 = this.field_1716.field_1322;
-        byte[] var13 = this.field_1716.field_1319;
+        int[] var12 = this.constantPool.offsets;
+        byte[] var13 = this.constantPool.poolContent;
         int var14 = 0;
         int var15 = var9.length;
         int var16 = var9[0];
         int var17 = 0;
-        class_78[] var18 = var8.method_2397();
+        StackMapFrameCodeStream$StackDepthMarker[] var18 = var8.getStackDepthMarkers();
         int var19 = var18 == null ? 0 : var18.length;
         boolean var20 = var19 != 0;
-        class_78 var21 = null;
+        StackMapFrameCodeStream$StackDepthMarker var21 = null;
         if (var20) {
             var21 = var18[0];
         }
         int var22 = 0;
-        class_71[] var23 = var8.method_2398();
+        StackMapFrameCodeStream$StackMarker[] var23 = var8.getStackMarkers();
         int var24 = var23 == null ? 0 : var23.length;
         boolean var25 = var24 != 0;
-        class_71 var26 = null;
+        StackMapFrameCodeStream$StackMarker var26 = null;
         if (var25) {
             var26 = var23[0];
         }
         int var27 = 0;
-        class_273[] var28 = var8.method_2395();
+        StackMapFrameCodeStream$ExceptionMarker[] var28 = var8.getExceptionMarkers();
         int var29 = var28 == null ? 0 : var28.length;
         boolean var30 = var29 != 0;
-        class_273 var31 = null;
+        StackMapFrameCodeStream$ExceptionMarker var31 = null;
         if (var30) {
             var31 = var28[0];
         }
-        class_280 var10000 = new class_280(var2);
-        class_280 var32 = var10000;
+        StackMapFrame var10000 = new StackMapFrame(var2);
+        StackMapFrame var32 = var10000;
         if (!var7) {
-            this.method_3007(var32, var1, var2, var5);
+            this.initializeDefaultLocals(var32, var1, var2, var5);
         }
         var32.field_1642 = -1;
-        var6.add(var32.method_2893());
+        var6.add(var32.duplicate());
         do {
             int var33 = var10 - var4;
-            class_77[] var34;
+            VerificationTypeInfo[] var34;
             if (var25 && var26.field_319 == var33) {
                 var34 = var32.field_1646;
-                class_77[] var35 = new class_77[var32.field_1643];
+                VerificationTypeInfo[] var35 = new VerificationTypeInfo[var32.field_1643];
                 System.arraycopy(var34, 0, var35, 0, var32.field_1643);
-                var26.method_443(var35);
+                var26.setInfos(var35);
             } else if (var25 && var26.field_320 == var33) {
-                var34 = var26.field_321;
+                var34 = var26.infos;
                 var32.field_1646 = var34;
                 var32.field_1643 = var34.length;
                 ++var22;
@@ -6621,20 +6621,20 @@ public class ClassFile implements class_17 {
                     var25 = false;
                 }
             }
-            class_77 var10001;
-            class_77 var10002;
-            class_77[] var68;
+            VerificationTypeInfo var10001;
+            VerificationTypeInfo var10002;
+            VerificationTypeInfo[] var68;
             int var67;
             if (var20 && var21.field_340 == var33) {
-                class_40 var62 = var21.field_342;
+                TypeBinding var62 = var21.typeBinding;
                 if (var62 != null) {
                     if (var21.field_341 > 0) {
-                        var10001 = new class_77(var62);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(var62);
+                        var32.addStackItem(var10001);
                     } else {
                         var68 = var32.field_1646;
                         var67 = var32.field_1643 - 1;
-                        var10002 = new class_77(var62);
+                        var10002 = new VerificationTypeInfo(var62);
                         var68[var67] = var10002;
                     }
                 } else {
@@ -6647,10 +6647,10 @@ public class ClassFile implements class_17 {
                     var20 = false;
                 }
             }
-            if (var30 && var31.field_1514 == var33) {
+            if (var30 && var31.pc == var33) {
                 var32.field_1643 = 0;
-                var10001 = new class_77(0, 7, var31.field_1513);
-                var32.method_2891(var10001);
+                var10001 = new VerificationTypeInfo(0, 7, var31.constantPoolName);
+                var32.addStackItem(var10001);
                 ++var27;
                 if (var27 < var29) {
                     var31 = var28[var27];
@@ -6668,9 +6668,9 @@ public class ClassFile implements class_17 {
                 } while (var16 < var33);
             }
             if (var16 == var33) {
-                class_280 var59 = var32.method_2893();
+                StackMapFrame var59 = var32.duplicate();
                 var59.field_1642 = var33;
-                this.method_3008(var7 ? true : var1.method_370(), var33, var59);
+                this.initializeLocals(var7 ? true : var1.method_370(), var33, var59);
                 var6.add(var59);
                 ++var14;
                 if (var14 >= var15) {
@@ -6680,10 +6680,10 @@ public class ClassFile implements class_17 {
             }
             byte var61 = (byte)this.method_3019(var3, 0, var10);
             int var11;
-            class_77 var42;
-            class_77 var43;
+            VerificationTypeInfo var42;
+            VerificationTypeInfo var43;
             int var40;
-            class_77 var41;
+            VerificationTypeInfo var41;
             int var47;
             char[] var51;
             char[] var49;
@@ -6693,7 +6693,7 @@ public class ClassFile implements class_17 {
             char[] var52;
             int var58;
             char[] var63;
-            class_77 var60;
+            VerificationTypeInfo var60;
             switch (var61) {
                 case -128:
                 case -127:
@@ -6736,105 +6736,105 @@ public class ClassFile implements class_17 {
                 case -123:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_183);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_183);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -122:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_184);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_184);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -121:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_185);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_185);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -120:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_179);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_179);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -119:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_184);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_184);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -118:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_185);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_185);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -117:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_179);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_179);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -116:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_183);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_183);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -115:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_185);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_185);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -114:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_179);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_179);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -113:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_183);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_183);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -112:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_184);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_184);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -111:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_180);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_180);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -110:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_182);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_182);
                     var68[var67] = var10002;
                     ++var10;
                     break;
                 case -109:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_181);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_181);
                     var68[var67] = var10002;
                     ++var10;
                     break;
@@ -6844,7 +6844,7 @@ public class ClassFile implements class_17 {
                 case -105:
                 case -104:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_179);
+                    var32.addStackItem(TypeBinding.field_179);
                     ++var10;
                     break;
                 case -103:
@@ -6929,7 +6929,7 @@ public class ClassFile implements class_17 {
                 case -2:
                 case -1:
                 default:
-                    this.field_1715.field_1205.field_478.method_644().method_1460(Messages.method_3253(Messages.field_1881, new Object[] {new Byte(var61), new Integer(var10), new String(var1.method_104())}), this.field_1715.field_1205);
+                    this.codeStream.methodDeclaration.scope.problemReporter().abortDueToInternalError(Messages.bind(Messages.field_1881, new Object[] {new Byte(var61), new Integer(var10), new String(var1.shortReadableName())}), this.codeStream.methodDeclaration);
                     break;
                 case -86:
                     ++var10;
@@ -6951,7 +6951,7 @@ public class ClassFile implements class_17 {
                         ++var10;
                     }
                     var10 += 4;
-                    int var46 = (int)this.method_3021(var3, 0, var10);
+                    int var46 = (int)this.u4At(var3, 0, var10);
                     var10 += 4 + var46 * 8;
                     --var32.field_1643;
                     break;
@@ -6970,17 +6970,17 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     var47 = this.method_3020(var13, 3, var12[var11]);
                     var48 = this.method_3020(var13, 3, var12[var47]);
-                    var49 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var49 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     if (var49.length == 1) {
                         switch (var49[0]) {
                             case 66:
-                                var32.method_2892(class_40.field_180);
+                                var32.addStackItem(TypeBinding.field_180);
                                 break;
                             case 67:
-                                var32.method_2892(class_40.field_182);
+                                var32.addStackItem(TypeBinding.field_182);
                                 break;
                             case 68:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                             case 69:
                             case 71:
                             case 72:
@@ -7001,26 +7001,26 @@ public class ClassFile implements class_17 {
                             default:
                                 break;
                             case 70:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 73:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 74:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 83:
-                                var32.method_2892(class_40.field_181);
+                                var32.addStackItem(TypeBinding.field_181);
                                 break;
                             case 90:
-                                var32.method_2892(class_40.field_186);
+                                var32.addStackItem(TypeBinding.field_186);
                         }
                     } else if (var49[0] == 91) {
-                        var10001 = new class_77(0, var49);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, var49);
+                        var32.addStackItem(var10001);
                     } else {
-                        var10001 = new class_77(0, CharOperation.method_1388(var49, 1, var49.length - 1));
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, CharOperation.subarray(var49, 1, var49.length - 1));
+                        var32.addStackItem(var10001);
                     }
                     var10 += 3;
                     break;
@@ -7032,18 +7032,18 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     var47 = this.method_3020(var13, 3, var12[var11]);
                     var48 = this.method_3020(var13, 3, var12[var47]);
-                    var49 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var49 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     --var32.field_1643;
                     if (var49.length == 1) {
                         switch (var49[0]) {
                             case 66:
-                                var32.method_2892(class_40.field_180);
+                                var32.addStackItem(TypeBinding.field_180);
                                 break;
                             case 67:
-                                var32.method_2892(class_40.field_182);
+                                var32.addStackItem(TypeBinding.field_182);
                                 break;
                             case 68:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                             case 69:
                             case 71:
                             case 72:
@@ -7064,26 +7064,26 @@ public class ClassFile implements class_17 {
                             default:
                                 break;
                             case 70:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 73:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 74:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 83:
-                                var32.method_2892(class_40.field_181);
+                                var32.addStackItem(TypeBinding.field_181);
                                 break;
                             case 90:
-                                var32.method_2892(class_40.field_186);
+                                var32.addStackItem(TypeBinding.field_186);
                         }
                     } else if (var49[0] == 91) {
-                        var10001 = new class_77(0, var49);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, var49);
+                        var32.addStackItem(var10001);
                     } else {
-                        var10001 = new class_77(0, CharOperation.method_1388(var49, 1, var49.length - 1));
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, CharOperation.subarray(var49, 1, var49.length - 1));
+                        var32.addStackItem(var10001);
                     }
                     var10 += 3;
                     break;
@@ -7095,21 +7095,21 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     var47 = this.method_3020(var13, 3, var12[var11]);
                     var48 = this.method_3020(var13, 3, var12[var47]);
-                    var49 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var49 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var48 = this.method_3020(var13, 1, var12[var47]);
-                    this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
-                    var32.field_1643 -= this.method_3002(var49) + 1;
-                    var51 = this.method_3003(var49);
+                    this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var32.field_1643 -= this.getParametersCount(var49) + 1;
+                    var51 = this.getReturnType(var49);
                     if (var51.length == 1) {
                         switch (var51[0]) {
                             case 66:
-                                var32.method_2892(class_40.field_180);
+                                var32.addStackItem(TypeBinding.field_180);
                                 break;
                             case 67:
-                                var32.method_2892(class_40.field_182);
+                                var32.addStackItem(TypeBinding.field_182);
                                 break;
                             case 68:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                             case 69:
                             case 71:
                             case 72:
@@ -7130,26 +7130,26 @@ public class ClassFile implements class_17 {
                             default:
                                 break;
                             case 70:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 73:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 74:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 83:
-                                var32.method_2892(class_40.field_181);
+                                var32.addStackItem(TypeBinding.field_181);
                                 break;
                             case 90:
-                                var32.method_2892(class_40.field_186);
+                                var32.addStackItem(TypeBinding.field_186);
                         }
                     } else if (var51[0] == 91) {
-                        var10001 = new class_77(0, var51);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, var51);
+                        var32.addStackItem(var10001);
                     } else {
-                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, CharOperation.subarray(var51, 1, var51.length - 1));
+                        var32.addStackItem(var10001);
                     }
                     var10 += 3;
                     break;
@@ -7157,25 +7157,25 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     var47 = this.method_3020(var13, 3, var12[var11]);
                     var48 = this.method_3020(var13, 3, var12[var47]);
-                    var49 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var49 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var48 = this.method_3020(var13, 1, var12[var47]);
-                    char[] var50 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
-                    var32.field_1643 -= this.method_3002(var49);
-                    if (CharOperation.method_1364(class_272.field_1394, var50)) {
+                    char[] var50 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var32.field_1643 -= this.getParametersCount(var49);
+                    if (CharOperation.method_1364(ConstantPool.field_1394, var50)) {
                         var32.field_1646[var32.field_1643 - 1].field_336 = 7;
                     }
                     --var32.field_1643;
-                    var51 = this.method_3003(var49);
+                    var51 = this.getReturnType(var49);
                     if (var51.length == 1) {
                         switch (var51[0]) {
                             case 66:
-                                var32.method_2892(class_40.field_180);
+                                var32.addStackItem(TypeBinding.field_180);
                                 break;
                             case 67:
-                                var32.method_2892(class_40.field_182);
+                                var32.addStackItem(TypeBinding.field_182);
                                 break;
                             case 68:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                             case 69:
                             case 71:
                             case 72:
@@ -7196,26 +7196,26 @@ public class ClassFile implements class_17 {
                             default:
                                 break;
                             case 70:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 73:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 74:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 83:
-                                var32.method_2892(class_40.field_181);
+                                var32.addStackItem(TypeBinding.field_181);
                                 break;
                             case 90:
-                                var32.method_2892(class_40.field_186);
+                                var32.addStackItem(TypeBinding.field_186);
                         }
                     } else if (var51[0] == 91) {
-                        var10001 = new class_77(0, var51);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, var51);
+                        var32.addStackItem(var10001);
                     } else {
-                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, CharOperation.subarray(var51, 1, var51.length - 1));
+                        var32.addStackItem(var10001);
                     }
                     var10 += 3;
                     break;
@@ -7223,21 +7223,21 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     var47 = this.method_3020(var13, 3, var12[var11]);
                     var48 = this.method_3020(var13, 3, var12[var47]);
-                    var49 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var49 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var48 = this.method_3020(var13, 1, var12[var47]);
-                    this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
-                    var32.field_1643 -= this.method_3002(var49);
-                    var51 = this.method_3003(var49);
+                    this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var32.field_1643 -= this.getParametersCount(var49);
+                    var51 = this.getReturnType(var49);
                     if (var51.length == 1) {
                         switch (var51[0]) {
                             case 66:
-                                var32.method_2892(class_40.field_180);
+                                var32.addStackItem(TypeBinding.field_180);
                                 break;
                             case 67:
-                                var32.method_2892(class_40.field_182);
+                                var32.addStackItem(TypeBinding.field_182);
                                 break;
                             case 68:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                             case 69:
                             case 71:
                             case 72:
@@ -7258,26 +7258,26 @@ public class ClassFile implements class_17 {
                             default:
                                 break;
                             case 70:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 73:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 74:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 83:
-                                var32.method_2892(class_40.field_181);
+                                var32.addStackItem(TypeBinding.field_181);
                                 break;
                             case 90:
-                                var32.method_2892(class_40.field_186);
+                                var32.addStackItem(TypeBinding.field_186);
                         }
                     } else if (var51[0] == 91) {
-                        var10001 = new class_77(0, var51);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, var51);
+                        var32.addStackItem(var10001);
                     } else {
-                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, CharOperation.subarray(var51, 1, var51.length - 1));
+                        var32.addStackItem(var10001);
                     }
                     var10 += 3;
                     break;
@@ -7285,21 +7285,21 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     var47 = this.method_3020(var13, 3, var12[var11]);
                     var48 = this.method_3020(var13, 3, var12[var47]);
-                    var49 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var49 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var48 = this.method_3020(var13, 1, var12[var47]);
-                    this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
-                    var32.field_1643 -= this.method_3002(var49) + 1;
-                    var51 = this.method_3003(var49);
+                    this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var32.field_1643 -= this.getParametersCount(var49) + 1;
+                    var51 = this.getReturnType(var49);
                     if (var51.length == 1) {
                         switch (var51[0]) {
                             case 66:
-                                var32.method_2892(class_40.field_180);
+                                var32.addStackItem(TypeBinding.field_180);
                                 break;
                             case 67:
-                                var32.method_2892(class_40.field_182);
+                                var32.addStackItem(TypeBinding.field_182);
                                 break;
                             case 68:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                             case 69:
                             case 71:
                             case 72:
@@ -7320,37 +7320,37 @@ public class ClassFile implements class_17 {
                             default:
                                 break;
                             case 70:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 73:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 74:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 83:
-                                var32.method_2892(class_40.field_181);
+                                var32.addStackItem(TypeBinding.field_181);
                                 break;
                             case 90:
-                                var32.method_2892(class_40.field_186);
+                                var32.addStackItem(TypeBinding.field_186);
                         }
                     } else if (var51[0] == 91) {
-                        var10001 = new class_77(0, var51);
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, var51);
+                        var32.addStackItem(var10001);
                     } else {
-                        var10001 = new class_77(0, CharOperation.method_1388(var51, 1, var51.length - 1));
-                        var32.method_2891(var10001);
+                        var10001 = new VerificationTypeInfo(0, CharOperation.subarray(var51, 1, var51.length - 1));
+                        var32.addStackItem(var10001);
                     }
                     var10 += 5;
                     break;
                 case -69:
                     var11 = this.method_3020(var3, 1, var10);
                     var48 = this.method_3020(var13, 1, var12[var11]);
-                    var52 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
-                    class_77 var66 = new class_77(0, 8, var52);
-                    class_77 var53 = var66;
+                    var52 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    VerificationTypeInfo var66 = new VerificationTypeInfo(0, 8, var52);
+                    VerificationTypeInfo var53 = var66;
                     var53.field_339 = var33;
-                    var32.method_2891(var53);
+                    var32.addStackItem(var53);
                     var10 += 3;
                     break;
                 case -68:
@@ -7382,14 +7382,14 @@ public class ClassFile implements class_17 {
                     }
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(1, var54);
+                    var10002 = new VerificationTypeInfo(1, var54);
                     var68[var67] = var10002;
                     var10 += 2;
                     break;
                 case -67:
                     var11 = this.method_3020(var3, 1, var10);
                     var48 = this.method_3020(var13, 1, var12[var11]);
-                    var52 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var52 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var55 = var52.length;
                     System.arraycopy(var52, 0, var54 = new char[var55 + 3], 2, var55);
                     var54[0] = 91;
@@ -7397,14 +7397,14 @@ public class ClassFile implements class_17 {
                     var54[var55 + 2] = 59;
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(0, var54);
+                    var10002 = new VerificationTypeInfo(0, var54);
                     var68[var67] = var10002;
                     var10 += 3;
                     break;
                 case -66:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_179);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_179);
                     var68[var67] = var10002;
                     ++var10;
                     break;
@@ -7415,17 +7415,17 @@ public class ClassFile implements class_17 {
                 case -64:
                     var11 = this.method_3020(var3, 1, var10);
                     var48 = this.method_3020(var13, 1, var12[var11]);
-                    var52 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var52 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(0, var52);
+                    var10002 = new VerificationTypeInfo(0, var52);
                     var68[var67] = var10002;
                     var10 += 3;
                     break;
                 case -63:
                     var68 = var32.field_1646;
                     var67 = var32.field_1643 - 1;
-                    var10002 = new class_77(class_40.field_179);
+                    var10002 = new VerificationTypeInfo(TypeBinding.field_179);
                     var68[var67] = var10002;
                     var10 += 3;
                     break;
@@ -7442,23 +7442,23 @@ public class ClassFile implements class_17 {
                         var11 = this.method_3020(var3, 2, var10);
                         switch (var61) {
                             case 21:
-                                var32.method_2892(class_40.field_179);
+                                var32.addStackItem(TypeBinding.field_179);
                                 break;
                             case 22:
-                                var32.method_2892(class_40.field_183);
+                                var32.addStackItem(TypeBinding.field_183);
                                 break;
                             case 23:
-                                var32.method_2892(class_40.field_184);
+                                var32.addStackItem(TypeBinding.field_184);
                                 break;
                             case 24:
-                                var32.method_2892(class_40.field_185);
+                                var32.addStackItem(TypeBinding.field_185);
                                 break;
                             case 25:
                                 var60 = var32.field_1645[var11];
                                 if (var60 == null) {
-                                    var60 = this.method_3015(var33, var11);
+                                    var60 = this.retrieveLocal(var33, var11);
                                 }
-                                var32.method_2891(var60);
+                                var32.addStackItem(var60);
                             case 26:
                             case 27:
                             case 28:
@@ -7511,7 +7511,7 @@ public class ClassFile implements class_17 {
                 case -59:
                     var11 = this.method_3020(var3, 1, var10);
                     var48 = this.method_3020(var13, 1, var12[var11]);
-                    var52 = this.method_3022(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
+                    var52 = this.utf8At(var13, var12[var48] + 3, this.method_3020(var13, 1, var12[var48]));
                     int var56 = this.method_3019(var3, 3, var10);
                     var32.field_1643 -= var56;
                     var55 = var52.length;
@@ -7520,8 +7520,8 @@ public class ClassFile implements class_17 {
                         var54[var57] = 91;
                     }
                     System.arraycopy(var52, 0, var54, var56, var55);
-                    var10001 = new class_77(0, var54);
-                    var32.method_2891(var10001);
+                    var10001 = new VerificationTypeInfo(0, var54);
+                    var32.addStackItem(var10001);
                     var10 += 4;
                     break;
                 case -58:
@@ -7536,7 +7536,7 @@ public class ClassFile implements class_17 {
                     ++var10;
                     break;
                 case 1:
-                    var32.method_2892(class_40.field_187);
+                    var32.addStackItem(TypeBinding.field_187);
                     ++var10;
                     break;
                 case 2:
@@ -7546,54 +7546,54 @@ public class ClassFile implements class_17 {
                 case 6:
                 case 7:
                 case 8:
-                    var32.method_2892(class_40.field_179);
+                    var32.addStackItem(TypeBinding.field_179);
                     ++var10;
                     break;
                 case 9:
                 case 10:
-                    var32.method_2892(class_40.field_183);
+                    var32.addStackItem(TypeBinding.field_183);
                     ++var10;
                     break;
                 case 11:
                 case 12:
                 case 13:
-                    var32.method_2892(class_40.field_184);
+                    var32.addStackItem(TypeBinding.field_184);
                     ++var10;
                     break;
                 case 14:
                 case 15:
-                    var32.method_2892(class_40.field_185);
+                    var32.addStackItem(TypeBinding.field_185);
                     ++var10;
                     break;
                 case 16:
-                    var32.method_2892(class_40.field_180);
+                    var32.addStackItem(TypeBinding.field_180);
                     var10 += 2;
                     break;
                 case 17:
-                    var32.method_2892(class_40.field_181);
+                    var32.addStackItem(TypeBinding.field_181);
                     var10 += 3;
                     break;
                 case 18:
                     var11 = this.method_3019(var3, 1, var10);
                     switch (this.method_3019(var13, 0, var12[var11])) {
                         case 3:
-                            var32.method_2892(class_40.field_179);
+                            var32.addStackItem(TypeBinding.field_179);
                             break;
                         case 4:
-                            var32.method_2892(class_40.field_184);
+                            var32.addStackItem(TypeBinding.field_184);
                         case 5:
                         case 6:
                         default:
                             break;
                         case 7:
                             var58 = this.method_3020(var13, 1, var12[var11]);
-                            var63 = this.method_3022(var13, var12[var58] + 3, this.method_3020(var13, 1, var12[var58]));
-                            var10001 = new class_77(0, var63);
-                            var32.method_2891(var10001);
+                            var63 = this.utf8At(var13, var12[var58] + 3, this.method_3020(var13, 1, var12[var58]));
+                            var10001 = new VerificationTypeInfo(0, var63);
+                            var32.addStackItem(var10001);
                             break;
                         case 8:
-                            var10001 = new class_77(11, class_272.field_1432);
-                            var32.method_2891(var10001);
+                            var10001 = new VerificationTypeInfo(11, ConstantPool.field_1432);
+                            var32.addStackItem(var10001);
                     }
                     var10 += 2;
                     break;
@@ -7601,23 +7601,23 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     switch (this.method_3019(var13, 0, var12[var11])) {
                         case 3:
-                            var32.method_2892(class_40.field_179);
+                            var32.addStackItem(TypeBinding.field_179);
                             break;
                         case 4:
-                            var32.method_2892(class_40.field_184);
+                            var32.addStackItem(TypeBinding.field_184);
                         case 5:
                         case 6:
                         default:
                             break;
                         case 7:
                             var58 = this.method_3020(var13, 1, var12[var11]);
-                            var63 = this.method_3022(var13, var12[var58] + 3, this.method_3020(var13, 1, var12[var58]));
-                            var10001 = new class_77(0, var63);
-                            var32.method_2891(var10001);
+                            var63 = this.utf8At(var13, var12[var58] + 3, this.method_3020(var13, 1, var12[var58]));
+                            var10001 = new VerificationTypeInfo(0, var63);
+                            var32.addStackItem(var10001);
                             break;
                         case 8:
-                            var10001 = new class_77(11, class_272.field_1432);
-                            var32.method_2891(var10001);
+                            var10001 = new VerificationTypeInfo(11, ConstantPool.field_1432);
+                            var32.addStackItem(var10001);
                     }
                     var10 += 3;
                     break;
@@ -7625,127 +7625,127 @@ public class ClassFile implements class_17 {
                     var11 = this.method_3020(var3, 1, var10);
                     switch (this.method_3019(var13, 0, var12[var11])) {
                         case 5:
-                            var32.method_2892(class_40.field_183);
+                            var32.addStackItem(TypeBinding.field_183);
                             break;
                         case 6:
-                            var32.method_2892(class_40.field_185);
+                            var32.addStackItem(TypeBinding.field_185);
                     }
                     var10 += 3;
                     break;
                 case 21:
-                    var32.method_2892(class_40.field_179);
+                    var32.addStackItem(TypeBinding.field_179);
                     var10 += 2;
                     break;
                 case 22:
-                    var32.method_2892(class_40.field_183);
+                    var32.addStackItem(TypeBinding.field_183);
                     var10 += 2;
                     break;
                 case 23:
-                    var32.method_2892(class_40.field_184);
+                    var32.addStackItem(TypeBinding.field_184);
                     var10 += 2;
                     break;
                 case 24:
-                    var32.method_2892(class_40.field_185);
+                    var32.addStackItem(TypeBinding.field_185);
                     var10 += 2;
                     break;
                 case 25:
                     var11 = this.method_3019(var3, 1, var10);
                     var60 = var32.field_1645[var11];
                     if (var60 == null) {
-                        var60 = this.method_3015(var33, var11);
+                        var60 = this.retrieveLocal(var33, var11);
                     }
-                    var32.method_2891(var60);
+                    var32.addStackItem(var60);
                     var10 += 2;
                     break;
                 case 26:
                 case 27:
                 case 28:
                 case 29:
-                    var32.method_2892(class_40.field_179);
+                    var32.addStackItem(TypeBinding.field_179);
                     ++var10;
                     break;
                 case 30:
                 case 31:
                 case 32:
                 case 33:
-                    var32.method_2892(class_40.field_183);
+                    var32.addStackItem(TypeBinding.field_183);
                     ++var10;
                     break;
                 case 34:
                 case 35:
                 case 36:
                 case 37:
-                    var32.method_2892(class_40.field_184);
+                    var32.addStackItem(TypeBinding.field_184);
                     ++var10;
                     break;
                 case 38:
                 case 39:
                 case 40:
                 case 41:
-                    var32.method_2892(class_40.field_185);
+                    var32.addStackItem(TypeBinding.field_185);
                     ++var10;
                     break;
                 case 42:
-                    class_77 var36 = var32.field_1645[0];
+                    VerificationTypeInfo var36 = var32.field_1645[0];
                     if (var36 == null) {
-                        var36 = this.method_3015(var33, 0);
+                        var36 = this.retrieveLocal(var33, 0);
                     }
-                    var32.method_2891(var36);
+                    var32.addStackItem(var36);
                     ++var10;
                     break;
                 case 43:
-                    class_77 var37 = this.method_3015(var33, 1);
-                    var32.method_2891(var37);
+                    VerificationTypeInfo var37 = this.retrieveLocal(var33, 1);
+                    var32.addStackItem(var37);
                     ++var10;
                     break;
                 case 44:
-                    class_77 var38 = this.method_3015(var33, 2);
-                    var32.method_2891(var38);
+                    VerificationTypeInfo var38 = this.retrieveLocal(var33, 2);
+                    var32.addStackItem(var38);
                     ++var10;
                     break;
                 case 45:
-                    class_77 var39 = this.method_3015(var33, 3);
-                    var32.method_2891(var39);
+                    VerificationTypeInfo var39 = this.retrieveLocal(var33, 3);
+                    var32.addStackItem(var39);
                     ++var10;
                     break;
                 case 46:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_179);
+                    var32.addStackItem(TypeBinding.field_179);
                     ++var10;
                     break;
                 case 47:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_183);
+                    var32.addStackItem(TypeBinding.field_183);
                     ++var10;
                     break;
                 case 48:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_184);
+                    var32.addStackItem(TypeBinding.field_184);
                     ++var10;
                     break;
                 case 49:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_185);
+                    var32.addStackItem(TypeBinding.field_185);
                     ++var10;
                     break;
                 case 50:
                     --var32.field_1643;
-                    var32.method_2900();
+                    var32.replaceWithElementType();
                     ++var10;
                     break;
                 case 51:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_180);
+                    var32.addStackItem(TypeBinding.field_180);
                     ++var10;
                     break;
                 case 52:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_182);
+                    var32.addStackItem(TypeBinding.field_182);
                     ++var10;
                     break;
                 case 53:
                     var32.field_1643 -= 2;
-                    var32.method_2892(class_40.field_181);
+                    var32.addStackItem(TypeBinding.field_181);
                     ++var10;
                     break;
                 case 54:
@@ -7815,7 +7815,7 @@ public class ClassFile implements class_17 {
                     ++var10;
                     break;
                 case 89:
-                    var32.method_2891(var32.field_1646[var32.field_1643 - 1]);
+                    var32.addStackItem(var32.field_1646[var32.field_1643 - 1]);
                     ++var10;
                     break;
                 case 90:
@@ -7823,9 +7823,9 @@ public class ClassFile implements class_17 {
                     --var32.field_1643;
                     var42 = var32.field_1646[var32.field_1643 - 1];
                     --var32.field_1643;
-                    var32.method_2891(var41);
-                    var32.method_2891(var42);
-                    var32.method_2891(var41);
+                    var32.addStackItem(var41);
+                    var32.addStackItem(var42);
+                    var32.addStackItem(var41);
                     ++var10;
                     break;
                 case 91:
@@ -7836,18 +7836,18 @@ public class ClassFile implements class_17 {
                     switch (var42.method_473()) {
                         case 7:
                         case 8:
-                            var32.method_2891(var41);
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
+                            var32.addStackItem(var41);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
                             break;
                         default:
                             var40 = var32.field_1643;
                             var43 = var32.field_1646[var40 - 1];
                             --var32.field_1643;
-                            var32.method_2891(var41);
-                            var32.method_2891(var43);
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
+                            var32.addStackItem(var41);
+                            var32.addStackItem(var43);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
                     }
                     ++var10;
                     break;
@@ -7857,16 +7857,16 @@ public class ClassFile implements class_17 {
                     switch (var41.method_473()) {
                         case 7:
                         case 8:
-                            var32.method_2891(var41);
-                            var32.method_2891(var41);
+                            var32.addStackItem(var41);
+                            var32.addStackItem(var41);
                             break;
                         default:
                             var42 = var32.field_1646[var32.field_1643 - 1];
                             --var32.field_1643;
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
                     }
                     ++var10;
                     break;
@@ -7878,18 +7878,18 @@ public class ClassFile implements class_17 {
                     switch (var41.method_473()) {
                         case 7:
                         case 8:
-                            var32.method_2891(var41);
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
+                            var32.addStackItem(var41);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
                             break;
                         default:
                             var43 = var32.field_1646[var32.field_1643 - 1];
                             --var32.field_1643;
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
-                            var32.method_2891(var43);
-                            var32.method_2891(var42);
-                            var32.method_2891(var41);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
+                            var32.addStackItem(var43);
+                            var32.addStackItem(var42);
+                            var32.addStackItem(var41);
                     }
                     ++var10;
                     break;
@@ -7906,18 +7906,18 @@ public class ClassFile implements class_17 {
                             switch (var42.method_473()) {
                                 case 7:
                                 case 8:
-                                    var32.method_2891(var41);
-                                    var32.method_2891(var42);
-                                    var32.method_2891(var41);
+                                    var32.addStackItem(var41);
+                                    var32.addStackItem(var42);
+                                    var32.addStackItem(var41);
                                     break label374;
                                 default:
                                     var40 = var32.field_1643;
                                     var43 = var32.field_1646[var40 - 1];
                                     --var32.field_1643;
-                                    var32.method_2891(var41);
-                                    var32.method_2891(var43);
-                                    var32.method_2891(var42);
-                                    var32.method_2891(var41);
+                                    var32.addStackItem(var41);
+                                    var32.addStackItem(var43);
+                                    var32.addStackItem(var42);
+                                    var32.addStackItem(var41);
                                     break label374;
                             }
                         default:
@@ -7927,22 +7927,22 @@ public class ClassFile implements class_17 {
                             switch (var43.method_473()) {
                                 case 7:
                                 case 8:
-                                    var32.method_2891(var42);
-                                    var32.method_2891(var41);
-                                    var32.method_2891(var43);
-                                    var32.method_2891(var42);
-                                    var32.method_2891(var41);
+                                    var32.addStackItem(var42);
+                                    var32.addStackItem(var41);
+                                    var32.addStackItem(var43);
+                                    var32.addStackItem(var42);
+                                    var32.addStackItem(var41);
                                     break;
                                 default:
                                     var40 = var32.field_1643;
-                                    class_77 var44 = var32.field_1646[var40 - 1];
+                                    VerificationTypeInfo var44 = var32.field_1646[var40 - 1];
                                     --var32.field_1643;
-                                    var32.method_2891(var42);
-                                    var32.method_2891(var41);
-                                    var32.method_2891(var44);
-                                    var32.method_2891(var43);
-                                    var32.method_2891(var42);
-                                    var32.method_2891(var41);
+                                    var32.addStackItem(var42);
+                                    var32.addStackItem(var41);
+                                    var32.addStackItem(var44);
+                                    var32.addStackItem(var43);
+                                    var32.addStackItem(var42);
+                                    var32.addStackItem(var41);
                             }
                     }
                     ++var10;
@@ -7973,12 +7973,12 @@ public class ClassFile implements class_17 {
         return ((var1[var4++] & 255) << 8) + (var1[var4] & 255);
     }
 
-    private final long method_3021(byte[] var1, int var2, int var3) {
+    private final long u4At(byte[] var1, int var2, int var3) {
         int var4 = var2 + var3;
         return (((long)var1[var4++] & 255L) << 24) + (long)((var1[var4++] & 255) << 16) + (long)((var1[var4++] & 255) << 8) + (long)(var1[var4] & 255);
     }
 
-    public char[] method_3022(byte[] var1, int var2, int var3) {
+    public char[] utf8At(byte[] var1, int var2, int var3) {
         int var4 = var3;
         char[] var5 = new char[var3];
         int var6 = 0;
